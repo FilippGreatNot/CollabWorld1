@@ -1,0 +1,63 @@
+#RUS_core_countries_decisions = {
+#	icon = GFX_decision_category_generic_political_actions
+#	priority = 95
+#
+#	allowed = {
+#	OR = {
+#			original_tag = SOV
+#			original_tag = RUS
+#			original_tag = FER
+#			original_tag = GRA
+#			original_tag = KSR
+#			original_tag = PBD
+#			original_tag = UFT
+#			original_tag = WVA
+#			}
+#	}
+#	visible = {
+#		any_owned_state = {
+#			NOT  = {
+#				is_core_of = ROOT
+#			}
+#		}
+#		OR = {
+#			original_tag = SOV
+#			original_tag = RUS
+#			original_tag = FER
+#			original_tag = GRA
+#			original_tag = KSR
+#			original_tag = PBD
+#			original_tag = UFT
+#			original_tag = WVA
+#		}
+#	}
+#	
+#	
+#	visible_when_empty = yes
+#	
+#	on_map_area = {
+#		target_array = owned_states
+#		target_trigger = {
+#			any_owned_state = {
+#				NOT = { is_core_of = ROOT }
+#			}
+#		}
+#		name = coring_ger_map_category_name
+#		zoom = 1000
+#	}
+#}
+
+
+
+RUS_return_of_russia_decisions = {
+	icon = GFX_decision_category_generic_political_actions
+	priority = 90
+
+	allowed = {
+		tag = RUS
+	}
+	visible_when_empty = yes
+	visible = {
+		NOT = { has_country_flag = RUS_reunificated }
+	}
+}

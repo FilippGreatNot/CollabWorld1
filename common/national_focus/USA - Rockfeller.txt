@@ -1,0 +1,241 @@
+focus_tree = {
+	id = BSR_first
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = USA
+		}
+	}
+	default = no
+	
+	focus = {
+		id = USA_consequences_of_corporativism
+		icon = GFX_goal_USA_consequences_of_corporativism
+		x = 8
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus USA_consequences_of_corporativism log"
+			
+			add_stability = -0.15
+			add_political_power = -20
+
+		}
+	}
+	
+	
+	focus = {
+		id = USA_industrial_nation
+		icon = GFX_goal_USA_industrial_nation
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = USA_consequences_of_corporativism
+		
+		prerequisite = {
+			focus = USA_consequences_of_corporativism
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus USA_industrial_nation_log"
+		
+		add_fuel = 400
+		
+	add_tech_bonus = {
+    bonus = 0.5
+    uses = 1
+    category = industry
+    }
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = USA_ban_communist_parties
+		icon = GFX_goal_USA_ban_communist_parties
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = USA_consequences_of_corporativism
+		
+		prerequisite = {
+			focus = USA_consequences_of_corporativism
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus USA_ban_communist_parties_log"
+		
+		add_stability = -0.05
+		
+		add_popularity = {
+			ideology = bolshevism
+			popularity = -0.3
+		}
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.3
+		}
+		add_popularity = {
+			ideology = marxism
+			popularity = -0.3
+		}
+				
+		}
+	}
+	
+	
+	
+	focus = {
+		id = USA_strengthening_of_special_services
+		icon = GFX_goal_USA_strengthening_of_special_services
+		x = 2
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = USA_consequences_of_corporativism
+		
+		prerequisite = {
+			focus = USA_consequences_of_corporativism
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus USA_strengthening_of_special_services_log"
+		
+		add_stability = 0.05
+		
+		
+		}
+	}
+	
+	
+focus = {
+		id = USA_ban_unions
+		icon = GFX_goal_USA_ban_unions
+		x = -1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+					
+		relative_position_id = USA_industrial_nation
+		relative_position_id = USA_ban_communist_parties
+					
+		prerequisite = {
+			focus = USA_ban_communist_parties
+		}
+		
+		
+		prerequisite = {
+			focus = USA_industrial_nation
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_ban_unions_log"
+			
+			add_political_power = -30
+			
+					
+		}
+	}
+	
+	
+focus = {
+		id = USA_witch_hunt
+		icon = GFX_goal_USA_witch_hunt
+		x = -1
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+					
+		relative_position_id = USA_ban_communist_parties
+		relative_position_id = USA_strengthening_of_special_services
+					
+		prerequisite = {
+			focus = USA_strengthening_of_special_services
+		}
+		
+		
+		prerequisite = {
+			focus = USA_ban_communist_parties
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_witch_hunt_log"
+			
+			kill_ideology_leader = bolshevism
+			kill_ideology_leader = libertarian_socialism
+					
+		}
+	}
+	
+	
+	
+	
+	
+focus = {
+		id = USA_american_dream 
+		icon = GFX_goal_USA_american_dream
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+					
+		relative_position_id = USA_witch_hunt
+		relative_position_id = USA_ban_unions
+					
+		prerequisite = {
+			focus = USA_ban_unions
+		}
+		
+		
+		prerequisite = {
+			focus = USA_witch_hunt
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_american_dream"
+			
+					
+		}
+	}	
+
+	
+}

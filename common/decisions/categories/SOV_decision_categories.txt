@@ -1,0 +1,48 @@
+SOV_power_struggle_decisions = {
+	icon = GFX_decision_category_generic_communism
+	priority = 100
+
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = yes
+	visible = {
+		has_country_flag = SOV_power_struggle_began
+		NOT = { has_country_flag = SOV_power_struggle_ended }
+	}
+}
+
+
+
+SOV_create_ussr_decisions = {
+	icon = GFX_decision_category_generic_communism
+	picture = GFX_decision_cat_picture_soviet_civil_war
+	priority = 90
+
+	allowed = {
+		tag = SOV
+	}
+	visible_when_empty = yes
+	visible = {
+		NOT = { has_country_flag = SOV_reunificated }
+	}
+}
+
+
+
+SOV_stalin_industrialization_decision_category = {
+	icon = GFX_decision_category_generic_communism
+	allowed = {
+		original_tag = SOV
+	}
+	
+	visible_when_empty = yes
+
+	visible = {
+		OR = {
+			has_country_flag = SOV_industrialization_one
+		}
+	}
+	
+	scripted_gui = CW_SOV_industry_Decisions_GUI
+}

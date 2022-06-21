@@ -1,0 +1,93 @@
+DOA_form_new_dawn_government = {
+
+
+
+
+
+
+DOA_create_new_dawn_government = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = mittelafrika_created }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+
+		
+		available = {
+			is_subject = no
+			has_war = no
+			446 = { is_controlled_by_ROOT_or_subject = yes }
+			447 = { is_controlled_by_ROOT_or_subject = yes }
+			452 = { is_controlled_by_ROOT_or_subject = yes }
+			552 = { is_controlled_by_ROOT_or_subject = yes }
+			456 = { is_controlled_by_ROOT_or_subject = yes }
+			457 = { is_controlled_by_ROOT_or_subject = yes }
+			551 = { is_controlled_by_ROOT_or_subject = yes }
+			767 = { is_controlled_by_ROOT_or_subject = yes }
+			549 = { is_controlled_by_ROOT_or_subject = yes }
+			271 = { is_controlled_by_ROOT_or_subject = yes }
+			548 = { is_controlled_by_ROOT_or_subject = yes }
+			547 = { is_controlled_by_ROOT_or_subject = yes }
+			770 = { is_controlled_by_ROOT_or_subject = yes }
+			771 = { is_controlled_by_ROOT_or_subject = yes }
+			545 = { is_controlled_by_ROOT_or_subject = yes }
+			275 = { is_controlled_by_ROOT_or_subject = yes }
+			542 = { is_controlled_by_ROOT_or_subject = yes }
+			541 = { is_controlled_by_ROOT_or_subject = yes }
+			681 = { is_controlled_by_ROOT_or_subject = yes }
+			719 = { is_controlled_by_ROOT_or_subject = yes }
+		}
+
+		
+		complete_effect = {
+
+            if = {
+				limit = {
+					original_tag = DOA
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							has_country_leader = {
+								name = "Paul von Lettow-Vorbeck"
+								ruling_only = yes
+							}
+						}
+						hidden_effect = {
+						#	country_event = { id = zhukovsuperregional.11 days = 4 random = 48 }
+							set_cosmetic_tag = DOA_new_dawn_government
+							add_research_slot = 2
+							global_building_slots_factor = 0.6
+						#	every_country = { 
+				        #       news_event = WORLDNEWS.2
+			            #    }
+							set_country_flag = mittelafrika_created
+							
+						}
+					}
+					
+				}
+			}
+			
+			
+			
+			
+			
+		
+		
+		ai_will_do = {
+			factor = 2000
+		}
+	   }
+	   
+	   
+	}
+	
+	
+}

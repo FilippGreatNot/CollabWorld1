@@ -1,0 +1,65 @@
+add_namespace = nevada
+
+
+
+country_event = {
+	id = nevada.1 ####OH FUCK	
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nevada.1" }
+	title = nevada.1.t
+	desc = nevada.1.d
+	picture = GFX_report_event_phobos
+	is_triggered_only = yes
+	
+	
+
+	option = {
+		name = nevada.1.a
+		
+		
+		USA = {
+		
+		add_ideas = {
+		#laws
+		war_economy
+		extensive_conscription
+		closed_economy
+		}
+		
+		
+		}
+		
+	set_party_name = { 
+		ideology = esotericism 
+		name = US_NEXUS
+	}
+		
+#		load_focus_tree = Nexus_core
+		
+		
+		hidden_effect = {
+			kill_country_leader = yes
+		    set_cosmetic_tag = Nevada_nexus			
+		}
+		
+		
+		create_country_leader = {
+			name = "Director Phobos"
+			desc = "POLITICS_DIRECTOR_PHOBOS_DESC"
+			picture = "gfx/leaders/USA/DirectorPhobos.dds"
+			expire = "2022.1.1"
+			ideology = esotericism_subtype
+			traits = { dictator ww_one_trauma warmonger inexperienced_imperialist autocratic_imperialist technocrat captain_of_industry energy_scientist man_of_steel rocket_scientist nuclear_scientist}
+		}
+		remove_all_ministers = yes
+		
+		set_politics = {
+			ruling_party = esotericism
+		}
+		
+		add_popularity = {
+			ideology = esotericism
+			popularity = 0.40
+		}
+		
+	}
+}

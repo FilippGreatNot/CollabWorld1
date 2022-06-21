@@ -1,0 +1,381 @@
+﻿capital = 112
+
+oob = "POR"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "POR_1936_naval_mtg"
+	else = {
+		set_naval_oob = "POR_1936_naval_legacy"
+	}
+}
+
+set_research_slots = 3
+
+set_technology = {
+		# Infantry
+		infantry_weapons0 = 1
+		infantry_weaponsgreat_war = 1
+		infantry_gasmask = 1
+		support_weapons = 1
+		support_weapons1 = 1
+		
+		infantry_binoculars = 1
+		infantry_weapons0 = 1
+		infantry_grenade = 1
+		motorised_infantry = 1
+		armored_car0 = 1
+		
+		marines = 1
+		marines1 = 1
+		tech_mountaineers = 1
+
+		# Support
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		tech_military_police = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+
+		# Armor
+
+		tank_armor = 1
+
+		# Artillery
+		gw_artillery = 1
+		pre_gw_artillery = 1
+		on_gw_artillery = 1
+		gw_field_guns = 1
+		pre_gw_field_guns = 1
+		on_gw_field_guns = 1
+		superheavy_artillerygw = 1
+		on_gw_antiair = 1
+
+
+		# Land Doctrine
+		linar_infantry = 1
+		battlefield_fortifications = 1
+		battle_column = 1
+		riflemans_chain_or_skirmish_line = 1
+		flank_coverage = 1
+		trench_system = 1
+		intermediate_warehouses = 1
+		layered_defense = 1
+		artillery_preparation = 1
+		wave_offensive = 1
+
+		# Navy
+		early_destroyer = 1
+		basic_destroyer = 1
+		improved_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_battlecruiser = 1
+		early_battlecruiser = 1
+		basic_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		early_submarine = 1
+		early_submarine = 1
+		transport = 1
+
+		# Air
+		scout_fighter = 1
+		biplane_fighter1 = 1
+		biplane_fighter2 = 1
+		biplane_bomber = 1
+		gw_biplane_bomber = 1
+		airship1 = 1
+
+
+
+		# Navy Doctrine
+		#ww1_navaldoctrine = 1
+		#ww1_navaldoctrine_2 = 1
+		#ww1_navaldoctrine_3 = 1
+
+		# Engineering
+		electronic_mechanical_engineering = 1
+		simple_electronics = 1
+		chemical_research = 1
+		
+		gw_encryption = 1
+		
+		tanktraks = 1
+		electric_motor = 1
+			convey = 1
+		
+		camera1 = 1
+
+		# Industry
+		basic_manual_machine_tools = 1
+		improved_manual_machine_tools = 1
+		high_volume_industrial_production = 1
+		basic_machine_tools = 1
+		production_mechanization = 1
+		industrial_railways = 1
+		conversion_of_civilian_factories = 1
+		construction0 = 1
+		construction0_5 = 1
+		bunkers1 = 1
+		air_defense = 1
+
+}
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		transport = 1
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+		mtg_transport = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "La Resistance" }	
+
+	set_stability = 0.60
+	set_war_support = 0.15	
+	set_research_slots = 2
+
+	ENG = {
+		add_opinion_modifier = {
+			target = POR 
+			modifier  = POR_anglo_portuguese_alliance
+		}
+	}
+
+	POR = {
+		add_opinion_modifier = {
+			target = ENG 
+			modifier  = POR_anglo_portuguese_alliance
+		}
+	}
+
+	GER = {
+		add_opinion_modifier = {
+			target = POR
+			modifier = fascism_leanings_good
+		}
+	}
+
+	ITA = {
+		add_opinion_modifier = {
+			target = POR
+			modifier = fascism_leanings_good
+		}
+	}
+	
+}
+
+
+set_convoys = 50
+set_politics = {
+	ruling_party = liberalism
+	last_election = "1919.10.05"
+	election_frequency = 36
+	elections_allowed = yes
+}
+set_popularities = {
+	conservatism = 11
+	liberalism = 29
+	national_syndicalism = 21
+	despotism = 11
+	libertarian_socialism = 11
+	anarchist = 17
+	
+
+}
+
+set_convoys = 150
+set_stability = 0.5
+
+	create_country_leader = {
+		name = "António José de Almeida"
+		desc = "POLITICS_ANTÓNIO_JOSÉ_ALMEIDA_DESC"
+		picture = "gfx/leaders/POR/Antonio.dds"
+		expire = "1965.1.1"
+		ideology = liberalism_subtype
+		traits = {
+
+		}
+	}
+
+
+set_convoys = 100
+set_stability = 0.75
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	
+	create_field_marshal = {
+		name = "José Vicente de Freitas"
+		gfx = "GFX_portrait_por_jose_vicente_de_freitas"
+		traits = { old_guard politically_connected }
+		skill = 3
+	
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	
+	create_corps_commander = {
+		name = "Luís Augusto Ferreira Martins"
+		gfx = "GFX_portrait_por_luis_augusto_ferreira_martins"
+		traits = { infantry_officer }
+		skill = 3
+	
+		attack_skill = 2
+		defense_skill = 4
+		planning_skill = 3
+		logistics_skill = 4
+	}
+	
+	create_corps_commander = {
+		name = "Raul Augusto Esteves"
+		portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
+		traits = { cavalry_officer }
+		skill = 3
+	
+		attack_skill = 4
+		defense_skill = 2
+		planning_skill = 2
+		logistics_skill = 3
+	}
+	
+	create_navy_leader = {
+		name = "José Mendes Cabeçadas"
+		gfx = "GFX_portrait_por_jose_mendes_cabecadas"
+		traits = { gentlemanly old_guard_navy }
+		skill = 4
+		attack_skill = 3
+		defense_skill = 2
+		maneuvering_skill = 4
+		coordination_skill = 4
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "La Resistance" }
+	}
+	create_country_leader = {
+		name = "António de Oliveira Salazar"
+		desc = "POLITICS_ANTÓNIO_DE_OLIVEIRA_SALAZAR_DESC"
+		picture = "gfx/leaders/POR/portrait_por_antonio_de_oliveira_salazar.dds"
+		expire = "1965.1.1"
+		ideology = despotism
+		traits = {
+			conservative_nationalist
+		}
+	}
+	
+	create_country_leader = {
+		name = "Bento Gonçalves"
+		desc = "POLITICS_BENTO_GONCALVES_DESC"
+		picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_5.dds"
+		expire = "1965.1.1"
+		ideology = marxism
+		traits = {
+			#
+		}
+	}
+	
+	create_country_leader = {
+		name = "Francisco de Barcelos Rolão Preto"
+		desc = "POLITICS_FRANSISCO_BARCELOS_ROLAO_PRETO_DESC"
+		picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_4.dds"
+		expire = "1965.1.1"
+		ideology = fascism_ideology
+		traits = {
+			#
+		}
+	}
+	
+	
+	create_corps_commander = {
+		name = "José Vicente de Freitas"
+		portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+		traits = {  }
+		skill = 3
+	
+		attack_skill = 2
+		defense_skill = 3
+		planning_skill = 2
+		logistics_skill = 3
+	}
+}
+
+### VARIANTS ###
+# 1936 Start #
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	### Ship Variants ###
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Submarines #
+	create_equipment_variant = {
+		name = "Delfim Class"				
+		type = ship_hull_submarine_2
+		name_group = POR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+	}
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Guadiana Class"					
+		type = ship_hull_light_1
+		name_group = POR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Douro Class"	
+		type = ship_hull_light_1
+		name_group = POR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+}

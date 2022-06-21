@@ -1,0 +1,430 @@
+focus_tree = {
+	id = ASF_Civil_War
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ASF
+		}
+	}
+	default = no
+	
+
+
+
+	focus = {
+		id = ASF_uprising
+		icon = GFX_goal_ASF_uprising
+		x = 8
+		y = 0
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus ASF_uprising log"
+			
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.05
+		}	
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.05
+		}	
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.05
+		}			
+
+		}
+	}
+
+
+	focus = {
+		id = ASF_key_to_freedom
+		icon = GFX_goal_ASF_key_to_freedom
+		x = 0
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_uprising
+		
+		prerequisite = {
+			focus = ASF_uprising
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_key_to_freedom_log"
+		
+		add_command_power = 50
+		add_war_support = 0.20
+		add_political_power = 10 
+		}
+	}
+	
+	
+	focus = {
+		id = ASF_land_decree
+		icon = GFX_goal_ASF_land_decree
+		x = -6
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_key_to_freedom
+		
+		prerequisite = {
+			focus = ASF_key_to_freedom
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_land_decree_log"
+		
+		complete_national_focus = ASF_means_of_production_must_be_owned_by
+		
+		add_ideas = ASF_decree_on_land
+
+
+		add_political_power = 15
+		}
+	}
+	
+	
+focus = {
+		id = ASF_means_of_production_must_be_owned_by
+		icon = GFX_goal_ASF_means_of_production_must_be_owned_by
+		x = 0
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+					
+		relative_position_id = ASF_land_decree
+					
+		prerequisite = {
+			focus = ASF_land_decree
+		}
+					
+					
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus ASF_means_of_production_must_be_owned_by"
+			
+			hidden_effect = {
+				country_event = {
+					id = IWW.1
+				}
+			}					
+		}
+	}
+
+
+
+	focus = {
+		id = ASF_by_workers
+		icon = GFX_goal_ASF_by_workers
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_means_of_production_must_be_owned_by
+		
+		prerequisite = {
+			focus = ASF_means_of_production_must_be_owned_by
+		}
+		
+		mutually_exclusive = {
+			focus = ASF_by_military
+			focus = ASF_by_scientists
+		}
+			
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_by_workers_log"
+		
+		}
+	}
+	
+	
+	focus = {
+		id = ASF_support_unions
+		icon = GFX_goal_ASF_support_unions
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_by_workers
+		
+		prerequisite = {
+			focus = ASF_by_workers
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_support_unions"
+		
+		add_stability = 0.05
+		add_command_power = 10
+		add_political_power = -10
+		}
+	}
+	
+	
+	focus = {
+		id = ASF_eight_hour_work_day
+		icon = GFX_goal_ASF_eight_hour_work_day
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_support_unions
+		
+		prerequisite = {
+			focus = ASF_support_unions
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_eight_hour_work_day"
+		
+		
+		}
+	}
+	
+	
+
+	focus = {
+		id = ASF_by_military
+		icon = GFX_goal_ASF_by_workers
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_means_of_production_must_be_owned_by
+		
+		prerequisite = {
+			focus = ASF_means_of_production_must_be_owned_by
+		}
+		
+
+		mutually_exclusive = {
+			focus = ASF_by_scientists
+			focus = ASF_by_workers
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_by_military"
+	
+		add_ideas = ASF_mp_by_military
+		
+		}
+	}
+	
+	
+	focus = {
+		id = ASF_everything_for_the_front
+		icon = GFX_goal_ASF_everything_for_the_front
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_by_military
+		
+		prerequisite = {
+			focus = ASF_by_military
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_everything_for_the_front"
+		add_war_support = 0.15
+		add_political_power = 15
+		add_command_power = 25
+		
+		}
+	}
+	
+	focus = {
+		id = ASF_black_market_is_open
+		icon = GFX_goal_ASF_black_market_is_open
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_everything_for_the_front
+		
+		prerequisite = {
+			focus = ASF_everything_for_the_front
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_black_market_is_open"
+		
+		add_equipment_to_stockpile = {
+		type = infantry_equipment_0
+		amount = 800
+		producer = MAL
+		}
+		
+		}
+	}
+	
+	focus = {
+		id = ASF_by_scientists
+		icon = GFX_goal_ASF_by_scientists
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_means_of_production_must_be_owned_by
+		
+		prerequisite = {
+			focus = ASF_means_of_production_must_be_owned_by
+		}
+		
+
+		mutually_exclusive = {
+			focus = ASF_by_military
+			focus = ASF_by_workers
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_by_scientists"
+	
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = ASF_army_modernization
+		icon = GFX_goal_ASF_army_modernization
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_by_scientists
+		
+		prerequisite = {
+			focus = ASF_by_scientists
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_army_modernization"
+		
+		add_tech_bonus = {
+		bonus = 0.5
+		uses = 1
+		category = infantry_weapons
+		}
+		
+		
+		add_tech_bonus = {
+		bonus = 0.5
+		uses = 1
+		category = industry
+		}
+		
+		add_tech_bonus = {
+		bonus = 0.5
+		uses = 1
+		category = rocketry
+		}
+		
+		add_tech_bonus = {
+		bonus = 0.5
+		uses = 1
+		category = electronics
+		}
+		
+		}
+	}
+	
+	
+	focus = {
+		id = ASF_innovative_technologies
+		icon = GFX_goal_ASF_innovative_technologies
+		x = 0
+		y = 1
+		cost = 3.6
+		available_if_capitulated = yes
+		
+		relative_position_id = ASF_army_modernization
+		
+		prerequisite = {
+			focus = ASF_army_modernization
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus ASF_innovative_technologies"
+		
+		
+		}
+	}
+	
+}

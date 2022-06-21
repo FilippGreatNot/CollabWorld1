@@ -1,0 +1,57 @@
+add_namespace = fuhrerreich
+
+
+country_event = {
+	id = fuhrerreich.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event fuhrerreich.1" }
+	title = fuhrerreich.1.t
+	desc = fuhrerreich.1.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = fuhrerreich.1.a
+		
+		
+		
+	hidden_effect = {
+	
+	set_party_name = { 
+		ideology = national_syndicalism 
+		long_name = FGB_VALKISTS
+		name = FGB_VALKISTS_SHORT
+	}
+
+	
+	kill_country_leader = yes
+		    set_cosmetic_tag = FGB_dressler
+			
+			
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.11
+		}
+		add_popularity = {
+			ideology = esotericism
+			popularity = 0.06
+		}
+		
+		
+		set_politics = {
+			ruling_party = national_syndicalism
+		}
+		
+		create_country_leader = {
+			name = "Adam Dressler"
+			desc = "POLITICS_ADAM_DRESSLER_DESC"
+			picture = "gfx/leaders/FGB/Portrait_Adam_Dressler.dds"
+			expire = "1965.1.1"
+			ideology = valkism
+		}
+	}
+	
+	custom_effect_tooltip = rise_of_valkism
+	
+}
+
+}
