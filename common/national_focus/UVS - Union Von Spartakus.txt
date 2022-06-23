@@ -322,9 +322,10 @@ focus = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_militarization_log"
 		
 		    add_war_support = 0.05
-		
-		
-		
+			
+			add_ideas = {
+			    extensive_conscription
+			}
 		
 		}
 	}
@@ -419,7 +420,9 @@ focus = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus_UVS_strengthen_our_positions_log"
 		
-		
+		    add_ideas = {
+			    UVS_stasi
+			}
 		
 		
 		}
@@ -1290,8 +1293,8 @@ focus = {
 	
 	
 	focus = {
-		id = UVS_victory_of_uspd
-		icon = GFX_goal_UVS_victory_of_uspd
+		id = UVS_victory_of_dspd
+		icon = GFX_goal_UVS_victory_of_dspd
 		x = -15
 		y = 1
 		cost = 3.6
@@ -1311,7 +1314,9 @@ focus = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_of_uspd_log"
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_of_dspd_log"
+		
+		custom_effect_tooltip = effect_name3
 		
 		
 		
@@ -1409,13 +1414,16 @@ focus = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { 
+            date > 1923.1.30
+        }
 		
 			
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus UVS_paving_the_way_to_victory_log"
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_path_to_reunification_log"
 		
 		    add_political_power = 50
 			
@@ -1425,6 +1433,103 @@ focus = {
 		
 		}
 	}
+	
+	focus = {
+		id = UVS_polish_question
+		icon = GFX_goal_UVS_polish_question
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_path_to_reunification
+		
+		prerequisite = {
+			focus = UVS_path_to_reunification
+		}
+		
+	    mutually_exclusive = {
+			focus = UVS_offer_reunification
+		}	
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_polish_question_log"
+		
+		    declare_war_on = {
+                target = PLA
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = UVS_crush_the_invaders
+		icon = GFX_goal_UVS_crush_the_invaders
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_polish_question
+		
+		prerequisite = {
+			focus = UVS_polish_question
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		    declare_war_on = {
+                target = PLA
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = UVS_destroy_monuments
+		icon = GFX_goal_UVS_destroy_monuments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_crush_the_invaders
+		
+		prerequisite = {
+			focus = UVS_crush_the_invaders
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		   add_stability = 0.3
+		   add_political_power = 50
+		    
+		
+		
+		
+		}
+	}	
 
 	
 }
