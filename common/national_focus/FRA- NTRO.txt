@@ -1,0 +1,2426 @@
+focus_tree = {
+	id = FRA_first
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FRA
+		}
+	}
+	default = no
+	
+	
+	
+	focus = {
+		id = FRA_preferential_utilitarianism
+		icon = GFX_goal_FRA_preferential_utilitarianism
+		x = 20
+		y = 1
+		cost = 2.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_preferential_utilitarianism_log"
+			
+			hidden_effect = {
+				 
+			}
+		}
+	}
+	
+	focus = {
+			id = FRA_theory_of_thought_space
+			icon = GFX_goal_FRA_theory_of_thought_space
+			x = -10
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_preferential_utilitarianism
+					
+			prerequisite = {
+				focus = FRA_preferential_utilitarianism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_theory_of_thought_space_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+			id = FRA_special_gendarmerie
+			icon = GFX_goal_FRA_special_gendarmerie
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_theory_of_thought_space
+					
+			prerequisite = {
+				focus = FRA_theory_of_thought_space
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_special_gendarmerie_log"
+					
+			}
+		}	
+		
+		
+		
+		
+	focus = {
+			id = FRA_absorb_radicals
+			icon = GFX_goal_FRA_absorb_radicals
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_special_gendarmerie
+					
+			prerequisite = {
+				focus = FRA_special_gendarmerie
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_deal_with_the_radicals
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_absorb_radicals_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+			id = FRA_deal_with_the_radicals
+			icon = GFX_goal_FRA_deal_with_the_radicals
+			x = 1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_special_gendarmerie
+					
+			prerequisite = {
+				focus = FRA_special_gendarmerie
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_absorb_radicals
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_deal_with_the_radicals_log"
+					
+			}
+		}
+		
+		
+		
+		
+	focus = {
+		id = FRA_social_credit_system
+		icon = GFX_goal_FRA_social_credit_system
+		x = -1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_absorb_radicals
+		relative_position_id = FRA_deal_with_the_radicals
+		
+		prerequisite = {
+				focus = FRA_absorb_radicals
+				focus = FRA_deal_with_the_radicals
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_social_credit_system_log"
+					
+			}
+		}
+		
+		
+		
+		
+		
+		
+	focus = {
+			id = FRA_white_rooms
+			icon = GFX_goal_FRA_white_rooms
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_social_credit_system
+					
+			prerequisite = {
+				focus = FRA_social_credit_system
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_white_rooms_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+		id = FRA_cultural_evolution 
+		icon = GFX_goal_FRA_cultural_evolution
+		x = 2
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_theory_of_thought_space
+					
+		prerequisite = {
+			focus = FRA_theory_of_thought_space
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_cultural_evolution_log"
+					
+		}
+	}	
+	
+	
+	
+	focus = {
+		id = FRA_perforation_of_consciousness
+		icon = GFX_goal_FRA_perforation_of_consciousness
+		x = 0
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_cultural_evolution
+					
+		prerequisite = {
+			focus = FRA_cultural_evolution
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_perforation_of_consciousness_log"
+					
+		}
+	}	
+
+
+
+
+focus = {
+		id = FRA_national_training_programs
+		icon = GFX_goal_FRA_perforation_of_consciousness
+		x = 0
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_perforation_of_consciousness
+					
+		prerequisite = {
+			focus = FRA_perforation_of_consciousness
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_national_training_programs_log"
+					
+		}
+	}	
+		
+
+focus = {
+		id = FRA_ready_for_work_and_defense
+		icon = GFX_goal_FRA_perforation_of_consciousness
+		x = 0
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_national_training_programs
+					
+		prerequisite = {
+			focus = FRA_national_training_programs
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_ready_for_work_and_defense_log"
+					
+		}
+	}	
+
+
+
+
+		
+focus = {
+		id = FRA_denunciation_system
+		icon = GFX_goal_FRA_perforation_of_consciousness
+		x = 1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_ready_for_work_and_defense
+		relative_position_id = FRA_white_rooms
+					
+		prerequisite = {
+			focus = FRA_ready_for_work_and_defense
+		}
+		
+		
+		prerequisite = {
+			focus = FRA_white_rooms
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_denunciation_system_log"
+					
+		}
+	}
+
+
+
+
+	focus = {
+			id = FRA_social_pragmatism
+			icon = GFX_goal_FRA_social_pragmatism
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_preferential_utilitarianism
+					
+			prerequisite = {
+				focus = FRA_preferential_utilitarianism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_social_pragmatism_log"
+					
+			}
+		}
+
+
+
+		focus = {
+			id = FRA_total_planning
+			icon = GFX_goal_FRA_total_planning
+			x = -3
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_social_pragmatism
+					
+			prerequisite = {
+				focus = FRA_social_pragmatism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_total_planning_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+			id = FRA_nationwide_nationalization
+			icon = GFX_goal_FRA_nationwide_nationalization
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_total_planning
+					
+			prerequisite = {
+				focus = FRA_total_planning
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_plan_beats_market
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_nationwide_nationalization_log"
+					
+			}
+		}
+		
+		
+		
+
+		focus = {
+			id = FRA_tax_war
+			icon = GFX_goal_FRA_tax_war
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_nationwide_nationalization
+					
+			prerequisite = {
+				focus = FRA_nationwide_nationalization
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_tax_war_log"
+					
+			}
+		}
+		
+		
+		focus = {
+			id = FRA_expulsion_of_dissenters
+			icon = GFX_goal_FRA_expulsion_of_dissenters
+			x = -2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_nationwide_nationalization
+					
+			prerequisite = {
+				focus = FRA_nationwide_nationalization
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_expulsion_of_dissenters_log"
+					
+			}
+		}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	focus = {
+			id = FRA_plan_beats_market
+			icon = GFX_goal_FRA_plan_beats_market
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_total_planning
+					
+			prerequisite = {
+				focus = FRA_total_planning
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_nationwide_nationalization
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_plan_beats_market_log"
+					
+			}
+		}
+		
+		
+
+		focus = {
+			id = FRA_absolute_efficiency
+			icon = GFX_goal_FRA_absolute_efficiency
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_plan_beats_market
+					
+			prerequisite = {
+				focus = FRA_plan_beats_market
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_absolute_efficiency_log"
+					
+			}
+		}
+		
+		
+		
+		focus = {
+			id = FRA_effective_working_conditions
+			icon = GFX_goal_FRA_effective_working_conditions
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_plan_beats_market
+					
+			prerequisite = {
+				focus = FRA_plan_beats_market
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_effective_working_conditions_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+		id = FRA_plans_for_everything
+		icon = GFX_goal_FRA_plans_for_everything
+		x = -1.5
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_tax_war
+		relative_position_id = FRA_absolute_efficiency
+		
+		prerequisite = {
+				focus = FRA_tax_war
+				focus = FRA_absolute_efficiency
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_plans_for_everything_log"
+					
+			}
+		}	
+
+
+
+		focus = {
+			id = FRA_life_according_to_schedule
+			icon = GFX_goal_FRA_life_according_to_schedule
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_plans_for_everything
+					
+			prerequisite = {
+				focus = FRA_plans_for_everything
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_life_according_to_schedule_log"
+					
+			}
+		}
+		
+		
+		
+		
+		
+		focus = {
+			id = FRA_every_man_is_a_builder
+			icon = GFX_goal_FRA_every_man_is_a_builder
+			x = 6
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_social_pragmatism
+					
+			prerequisite = {
+				focus = FRA_social_pragmatism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_every_man_is_a_builder_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+			id = FRA_youth_brigades
+			icon = GFX_goal_FRA_youth_brigades
+			x = -2
+			y = 1
+			cost = 3
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_every_man_is_a_builder
+			
+			prerequisite = {
+				focus = FRA_every_man_is_a_builder
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_youth_brigades_log"
+			
+			
+		}
+	}
+	
+	
+	focus = {
+			id = FRA_ecstasy_of_creation
+			icon = GFX_goal_FRA_ecstasy_of_creation
+			x = 0
+			y = 1
+			cost = 3
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_youth_brigades
+			
+			prerequisite = {
+				focus = FRA_youth_brigades
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_ecstasy_of_creation_log"
+			
+			
+		}
+	}
+	
+	
+	
+	focus = {
+			id = FRA_brutal_renaissance
+			icon = GFX_goal_FRA_brutal_renaissance
+			x = 0
+			y = 1
+			cost = 3.5
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_every_man_is_a_builder
+			
+			prerequisite = {
+				focus = FRA_every_man_is_a_builder
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_brutal_renaissance_log"
+			
+			
+		}
+	}
+	
+	
+	focus = {
+			id = FRA_unified_nationwide_design
+			icon = GFX_goal_FRA_unified_nationwide_design
+			x = 0
+			y = 1
+			cost = 3
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_brutal_renaissance
+			
+			prerequisite = {
+				focus = FRA_brutal_renaissance
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_unified_nationwide_design_log"
+			
+			
+		}
+	}
+	
+	
+	
+		
+	focus = {
+		id = FRA_standard_template_designs
+		icon = GFX_goal_FRA_standard_template_designs
+		x = -1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_ecstasy_of_creation
+		relative_position_id = FRA_unified_nationwide_design
+		
+		prerequisite = {
+				focus = FRA_ecstasy_of_creation
+				focus = FRA_unified_nationwide_design
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_standard_template_designs_log"
+					
+			}
+		}	
+		
+	
+	
+	
+	
+	
+	
+	focus = {
+			id = FRA_utility_tests
+			icon = GFX_goal_FRA_utility_tests
+			x = 2
+			y = 1
+			cost = 2.6
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_every_man_is_a_builder
+			
+			prerequisite = {
+				focus = FRA_every_man_is_a_builder
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_utility_tests_log"
+			
+			
+		}
+	}
+
+
+
+	
+	
+	focus = {
+			id = FRA_population_ranking
+			icon = GFX_goal_FRA_population_ranking
+			x = 0
+			y = 1
+			cost = 3
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_utility_tests
+			
+			prerequisite = {
+				focus = FRA_utility_tests
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_population_ranking_log"
+			
+			
+		}
+	}
+	
+	
+		
+	focus = {
+		id = FRA_professional_distribution
+		icon = GFX_goal_FRA_professional_distribution
+		x = 1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_population_ranking
+		relative_position_id = FRA_unified_nationwide_design
+		
+		prerequisite = {
+				focus = FRA_population_ranking
+				focus = FRA_unified_nationwide_design
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_professional_distribution_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+		id = FRA_work_as_the_highest_good
+		icon = GFX_goal_FRA_work_as_the_highest_good
+		x = -1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_standard_template_designs
+		relative_position_id = FRA_professional_distribution
+		
+		prerequisite = {
+				focus = FRA_standard_template_designs
+				focus = FRA_professional_distribution
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_work_as_the_highest_good_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+		id = FRA_the_great_restructuring
+		icon = GFX_goal_FRA_the_great_restructuring
+		x = 4
+		y = 1.5
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_work_as_the_highest_good
+		relative_position_id = FRA_life_according_to_schedule
+		
+		prerequisite = {
+				focus = FRA_work_as_the_highest_good
+				focus = FRA_life_according_to_schedule
+			}
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_the_great_restructuring_log"
+					
+			}
+		}
+		
+		
+		
+		
+		focus = {
+			id = FRA_industrial_super_region_north
+			icon = GFX_goal_FRA_industrial_super_region_north
+			x = -2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_the_great_restructuring
+					
+			prerequisite = {
+				focus = FRA_the_great_restructuring
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_industrial_super_region_south
+		     }		
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_industrial_super_region_north_log"
+					
+			}
+		}	
+		
+		
+		
+		focus = {
+			id = FRA_industrial_super_region_south
+			icon = GFX_goal_FRA_industrial_super_region_south
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_the_great_restructuring
+					
+			prerequisite = {
+				focus = FRA_the_great_restructuring
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_industrial_super_region_north
+		     }		
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_industrial_super_region_south_log"
+					
+			}
+		}
+		
+		
+		
+		
+		
+		
+	focus = {
+			id = FRA_rationalized_capital
+			icon = GFX_goal_FRA_rationalized_capital
+			x = 0
+			y = 2
+			cost = 3
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_the_great_restructuring
+			
+			prerequisite = {
+				focus = FRA_the_great_restructuring
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_rationalized_capital_log"
+			
+			
+		}
+	}
+	
+	
+	focus = {
+			id = FRA_updated_paris
+			icon = GFX_goal_FRA_updated_paris
+			x = 0
+			y = 1
+			cost = 3
+			available_if_capitulated = yes
+			
+			relative_position_id = FRA_rationalized_capital
+			
+			prerequisite = {
+				focus = FRA_rationalized_capital
+			}
+			
+			
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_updated_paris_log"
+			
+			
+		}
+	}
+	
+	
+	
+	
+	focus = {
+			id = FRA_scientific_revanchism
+			icon = GFX_goal_FRA_scientific_revanchism
+			x = 10
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_preferential_utilitarianism
+					
+			prerequisite = {
+				focus = FRA_preferential_utilitarianism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_scientific_revanchism_log"
+					
+			}
+		}
+		
+	focus = {
+			id = FRA_natural_france
+			icon = GFX_goal_FRA_natural_france
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_scientific_revanchism
+					
+			prerequisite = {
+				focus = FRA_scientific_revanchism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_natural_france_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_belgian_ultimatum
+			icon = GFX_goal_FRA_belgian_ultimatum
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_natural_france
+					
+			prerequisite = {
+				focus = FRA_natural_france
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_belgian_ultimatum_log"
+					
+			}
+		}
+		
+	focus = {
+			id = FRA_referendum_in_the_cantons
+			icon = GFX_goal_FRA_referendum_in_the_cantons
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_belgian_ultimatum
+					
+			prerequisite = {
+				focus = FRA_belgian_ultimatum
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_referendum_in_the_cantons_log"
+					
+			}
+		}	
+
+
+
+	focus = {
+			id = FRA_german_separatism
+			icon = GFX_goal_FRA_german_separatism
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_natural_france
+					
+			prerequisite = {
+				focus = FRA_natural_france
+			}
+					
+					 
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_german_separatism_log"
+					
+			}
+		}		
+		
+		
+		
+	focus = {
+			id = FRA_union_under_the_protectorate
+			icon = GFX_goal_FRA_union_under_the_protectorate
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_german_separatism
+					
+			prerequisite = {
+				focus = FRA_german_separatism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_union_under_the_protectorate_log"
+					
+			}
+		}	
+		
+		
+		
+	focus = {
+			id = FRA_degermanization
+			icon = GFX_goal_FRA_degermanization
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_union_under_the_protectorate
+					
+			prerequisite = {
+				focus = FRA_union_under_the_protectorate
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_degermanization_log"
+					
+			}
+		}
+		
+		
+		
+focus = {
+		id = FRA_war_with_communism
+		icon = GFX_goal_FRA_war_with_communism
+		x = 1
+		y = 2
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_degermanization
+		relative_position_id = FRA_referendum_in_the_cantons
+					
+		prerequisite = {
+			focus = FRA_referendum_in_the_cantons
+		}
+		
+		
+		prerequisite = {
+			focus = FRA_degermanization
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_war_with_communism_log"
+					
+		}
+	}
+	
+	
+	
+	focus = {
+			id = FRA_planned_decolonization
+			icon = GFX_goal_FRA_planned_decolonization
+			x = 5
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_scientific_revanchism
+					
+			prerequisite = {
+				focus = FRA_scientific_revanchism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_planned_decolonization_log"
+					
+			}
+		}
+	
+	
+	focus = {
+			id = FRA_take_into_account_local_conditions
+			icon = GFX_goal_FRA_take_into_account_local_conditions
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_planned_decolonization
+					
+			prerequisite = {
+				focus = FRA_planned_decolonization
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_take_into_account_local_conditions_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_make_a_plan
+			icon = GFX_goal_FRA_make_a_plan
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_take_into_account_local_conditions
+					
+			prerequisite = {
+				focus = FRA_take_into_account_local_conditions
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_make_a_plan_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_ensure_loyalty
+			icon = GFX_goal_FRA_ensure_loyalty
+			x = 1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_take_into_account_local_conditions
+					
+			prerequisite = {
+				focus = FRA_take_into_account_local_conditions
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_ensure_loyalty_log"
+					
+			}
+		}
+		
+		
+focus = {
+		id = FRA_new_forms_of_france
+		icon = GFX_goal_FRA_new_forms_of_france
+		x = -1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_make_a_plan
+		relative_position_id = FRA_ensure_loyalty
+					
+		prerequisite = {
+			focus = FRA_ensure_loyalty
+		}
+		
+		
+		prerequisite = {
+			focus = FRA_make_a_plan
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_new_forms_of_france_log"
+					
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = FRA_spanish_question
+		icon = GFX_goal_FRA_spanish_question
+		x = 40
+		y = 10
+		cost = 2.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_spanish_question_log"
+			
+			hidden_effect = {
+				 
+			}
+		}
+	}
+	
+	
+	focus = {
+			id = FRA_our_people_in_this_chaos
+			icon = GFX_goal_FRA_our_people_in_this_chaos
+			x = -2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_spanish_question
+					
+			prerequisite = {
+				focus = FRA_spanish_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_guaranteed_neutrality
+			focus = FRA_transfer_mechanism
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_our_people_in_this_chaos_log"
+					
+			}
+		}
+		
+	focus = {
+			id = FRA_find
+			icon = GFX_goal_FRA_find
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_our_people_in_this_chaos
+					
+			prerequisite = {
+				focus = FRA_our_people_in_this_chaos
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_find_log"
+					
+			}
+		}
+		
+	focus = {
+			id = FRA_convince
+			icon = GFX_goal_FRA_convince
+			x = -2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_our_people_in_this_chaos
+					
+			prerequisite = {
+				focus = FRA_our_people_in_this_chaos
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_convince_log"
+					
+			}
+		}
+		
+		
+focus = {
+		id = FRA_support
+		icon = GFX_goal_FRA_support
+		x = -1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_convince
+		relative_position_id = FRA_find
+					
+		prerequisite = {
+			focus = FRA_find
+		}
+		
+		
+		prerequisite = {
+			focus = FRA_convince
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_support_log"
+					
+		}
+	}
+		
+	focus = {
+			id = FRA_general_francos_technocrats
+			icon = GFX_goal_FRA_general_francos_technocrats
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_support
+					
+			prerequisite = {
+				focus = FRA_support
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_general_francos_technocrats_log"
+					
+			}
+		}	
+		
+	focus = {
+			id = FRA_guaranteed_neutrality
+			icon = GFX_goal_FRA_guaranteed_neutrality
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_spanish_question
+					
+			prerequisite = {
+				focus = FRA_spanish_question
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_our_people_in_this_chaos
+			focus = FRA_transfer_mechanism
+		     }
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_guaranteed_neutrality_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_colonial_integration
+			icon = GFX_goal_FRA_colonial_integration
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_guaranteed_neutrality
+					
+			prerequisite = {
+				focus = FRA_guaranteed_neutrality
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_colonial_integration_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_question_of_iberian_unification
+			icon = GFX_goal_FRA_question_of_iberian_unification
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_colonial_integration
+					
+			prerequisite = {
+				focus = FRA_colonial_integration
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_question_of_iberian_unification_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+			id = FRA_transfer_mechanism
+			icon = GFX_goal_FRA_transfer_mechanism
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_spanish_question
+					
+			prerequisite = {
+				focus = FRA_spanish_question
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_our_people_in_this_chaos
+			focus = FRA_guaranteed_neutrality
+		     }
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_transfer_mechanism_log"
+					
+			}
+		}
+
+
+	focus = {
+			id = FRA_support_separatism
+			icon = GFX_goal_FRA_support_separatism
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_transfer_mechanism
+					
+			prerequisite = {
+				focus = FRA_transfer_mechanism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_support_separatism_log"
+					
+			}
+		}	
+
+
+	focus = {
+			id = FRA_with_arms
+			icon = GFX_goal_FRA_support_separatism
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_support_separatism
+					
+			prerequisite = {
+				focus = FRA_support_separatism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: FocusFRA_with_arms_log"
+					
+			}
+		}
+
+	focus = {
+			id = FRA_with_connections
+			icon = GFX_goal_FRA_support_separatism
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_support_separatism
+					
+			prerequisite = {
+				focus = FRA_support_separatism
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_with_connections_log"
+					
+			}
+		}
+
+
+focus = {
+		id = FRA_revolt
+		icon = GFX_goal_FRA_revolt
+		x = 1
+		y = 1
+		cost = 3.3
+		available_if_capitulated = yes
+					
+		relative_position_id = FRA_with_connections
+		relative_position_id = FRA_with_arms
+					
+		prerequisite = {
+			focus = FRA_with_arms
+		}
+		
+		
+		prerequisite = {
+			focus = FRA_with_connections
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus FRA_revolt_log"
+					
+		}
+	}
+
+	focus = {
+			id = FRA_conference_of_la_coruña
+			icon = GFX_goal_FRA_conference_of_la_coruña
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_revolt
+					
+			prerequisite = {
+				focus = FRA_revolt
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_conference_of_la_coruña_log"
+					
+			}
+		}
+		
+		
+		
+	focus = {
+		id = FRA_british_question
+		icon = GFX_goal_FRA_spanish_question
+		x = 50
+		y = 10
+		cost = 2.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_british_question_log"
+			
+			hidden_effect = {
+				 
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+			id = FRA_english_channel_defense
+			icon = GFX_goal_FRA_english_channel_defense
+			x = -2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_british_question
+					
+			prerequisite = {
+				focus = FRA_british_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_unionist_underground
+			focus = FRA_dialogue_with_royalists
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_english_channel_defense_log"
+					
+			}
+		}
+		
+		
+		
+		focus = {
+			id = FRA_unionist_underground
+			icon = GFX_goal_FRA_unionist_underground
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_british_question
+					
+			prerequisite = {
+				focus = FRA_british_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_english_channel_defense
+			focus = FRA_dialogue_with_royalists
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_unionist_underground_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_monarchist_social_progressivism
+			icon = GFX_goal_FRA_monarchist_social_progressivism
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_unionist_underground
+					
+			prerequisite = {
+				focus = FRA_unionist_underground
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_monarchist_social_progressivism_log"
+					
+			}
+		}
+		
+		
+		
+		focus = {
+			id = FRA_dialogue_with_royalists
+			icon = GFX_goal_FRA_dialogue_with_royalists
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_british_question
+					
+			prerequisite = {
+				focus = FRA_british_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_english_channel_defense
+			focus = FRA_unionist_underground
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_dialogue_with_royalists_log"
+					
+			}
+		}
+
+
+
+			
+	focus = {
+		id = FRA_italian_question
+		icon = GFX_goal_FRA_italian_question
+		x = 57
+		y = 10
+		cost = 2.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_italian_question_log"
+			
+			hidden_effect = {
+				 
+			}
+		}
+	}
+	
+	
+	
+	
+	focus = {
+			id = FRA_conference_failure
+			icon = GFX_goal_FRA_conference_failure
+			x = -3
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_italian_question
+					
+			prerequisite = {
+				focus = FRA_italian_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_anti_soviet_front
+			focus = FRA_a_little_off_plan
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_conference_failure_log"
+					
+			}
+		}
+		
+		
+		focus = {
+			id = FRA_supervision_and_control
+			icon = GFX_goal_FRA_supervision_and_control
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_conference_failure
+					
+			prerequisite = {
+				focus = FRA_conference_failure
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_supervision_and_control_log"
+					
+			}
+		}
+		
+		
+			
+		focus = {
+			id = FRA_southern_front
+			icon = GFX_goal_FRA_southern_front
+			x = 1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_conference_failure
+					
+			prerequisite = {
+				focus = FRA_conference_failure
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_southern_front_log"
+					
+			}
+		}
+		
+		
+		
+		focus = {
+			id = FRA_standard_procedures
+			icon = GFX_goal_FRA_southern_front
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_southern_front
+					
+			prerequisite = {
+				focus = FRA_southern_front
+			}
+					
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_standard_procedures_log"
+					
+			}
+		}
+		
+		
+		
+		focus = {
+			id = FRA_a_little_off_plan
+			icon = GFX_goal_FRA_a_little_off_plan
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_italian_question
+					
+			prerequisite = {
+				focus = FRA_italian_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_conference_failure
+			focus = FRA_anti_soviet_front
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_a_little_off_plan_log"
+					
+			}
+		}
+		
+		
+		
+		
+		focus = {
+			id = FRA_anti_soviet_front
+			icon = GFX_goal_FRA_anti_soviet_front
+			x = 3
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_italian_question
+					
+			prerequisite = {
+				focus = FRA_italian_question
+			}
+					
+			mutually_exclusive = {
+			focus = FRA_conference_failure
+			focus = FRA_a_little_off_plan
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_anti_soviet_front_log"
+					
+			}
+		}
+		
+		
+		
+		
+
+			
+	focus = {
+		id = FRA_german_question
+		icon = GFX_goal_FRA_german_question
+		x = 65
+		y = 10
+		cost = 2.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_german_question_log"
+			
+			hidden_effect = {
+				 
+			}
+		}
+	}
+	
+	
+		
+	focus = {
+			id = FRA_military_invasion
+			icon = GFX_goal_FRA_military_invasion
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_german_question
+					
+			prerequisite = {
+				focus = FRA_german_question
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_support_the_allies
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_military_invasion_log"
+					
+			}
+		}
+	
+	focus = {
+			id = FRA_support_the_allies
+			icon = GFX_goal_FRA_support_the_allies
+			x = 1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_german_question
+					
+			prerequisite = {
+				focus = FRA_german_question
+			}
+			
+			mutually_exclusive = {
+			focus = FRA_military_invasion
+		     }
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_support_the_allies_log"
+					
+			}
+		}
+		
+		
+		
+		focus = {
+			id = FRA_new_loyal_government
+			icon = GFX_goal_FRA_anti_soviet_front
+			x = -1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+			
+			
+			relative_position_id = FRA_military_invasion		
+			relative_position_id = FRA_support_the_allies
+					
+			prerequisite = {
+				focus = FRA_military_invasion
+				focus = FRA_support_the_allies
+			}
+					
+
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_new_loyal_government_log"
+					
+			}
+		}
+		
+		
+		
+		
+	focus = {
+		id = FRA_border_incident
+		icon = GFX_goal_FRA_border_incident
+		x = 45
+		y = 18
+		cost = 2.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_border_incident_log"
+			
+			hidden_effect = {
+				 
+			}
+		}
+	}
+	
+	
+	focus = {
+			id = FRA_eastern_front
+			icon = GFX_goal_eastern_front
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_border_incident
+					
+			prerequisite = {
+				focus = FRA_border_incident
+			}
+			
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_eastern_front_log"
+					
+			}
+		}
+		
+		
+	focus = {
+			id = FRA_new_age_tactics
+			icon = GFX_goal_FRA_new_age_tactics
+			x = 2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_eastern_front
+					
+			prerequisite = {
+				focus = FRA_eastern_front
+			}
+			
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_new_age_tactics_log"
+					
+			}
+		}
+	
+	
+	focus = {
+			id = FRA_mechanization_of_war
+			icon = GFX_goal_FRA_mechanization_of_war
+			x = 0
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_eastern_front
+					
+			prerequisite = {
+				focus = FRA_eastern_front
+			}
+			
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_mechanization_of_war_log"
+					
+			}
+		}	
+	
+	focus = {
+			id = FRA_divide_and_rule
+			icon = GFX_goal_FRA_divide_and_rule
+			x = -2
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+					
+			relative_position_id = FRA_eastern_front
+					
+			prerequisite = {
+				focus = FRA_eastern_front
+			}
+			
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_divide_and_rule_log"
+					
+			}
+		}
+		
+		
+		
+		
+		focus = {
+			id = FRA_consequences_of_soviet_rule
+			icon = GFX_goal_FRA_consequences_of_soviet_rule
+			x = 1
+			y = 1
+			cost = 3.3
+			available_if_capitulated = yes
+			
+			
+			relative_position_id = FRA_new_age_tactics		
+			relative_position_id = FRA_mechanization_of_war
+			relative_position_id = FRA_divide_and_rule
+					
+			prerequisite = {
+				focus = FRA_new_age_tactics
+			}
+			prerequisite = {
+				focus = FRA_mechanization_of_war
+			}
+			prerequisite = {
+				focus = FRA_divide_and_rule
+			}		
+
+					
+				
+			ai_will_do = {
+				factor = 10
+			}
+			completion_reward = {
+				log = "[GetDateText]: [Root.GetName]: Focus FRA_consequences_of_soviet_rule_log"
+					
+			}
+		}
+	
+	
+		
+}

@@ -1516,7 +1516,38 @@ focus = {
 		
 		
 		}
-	}	
+	}
+
+    focus = {
+		id = UVS_contact_partisans
+		icon = GFX_goal_UVS_destroy_monuments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_crush_the_invaders
+		
+		prerequisite = {
+			focus = UVS_crush_the_invaders
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		   PLA = add_ideas = {
+		        PLA_german_partisans
+		   }
+		    
+		
+		
+		
+		}
+	}		
 	
 	focus = {
 		id = UVS_destroy_monuments
