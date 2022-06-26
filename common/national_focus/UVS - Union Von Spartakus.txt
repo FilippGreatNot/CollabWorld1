@@ -1445,7 +1445,7 @@ focus = {
 	focus = {
 		id = UVS_polish_question
 		icon = GFX_goal_UVS_polish_question
-		x = -3
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1476,7 +1476,7 @@ focus = {
 	focus = {
 		id = UVS_crush_the_invaders
 		icon = GFX_goal_UVS_crush_the_invaders
-		x = 1
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1490,16 +1490,10 @@ focus = {
 		bypass = {
 				PLA = {
 					OR = {
-						is_subject = yes
 						exists = no 
-						AND = {
-							is_in_faction = yes
-							NOT = { is_in_faction_with = GER }
-						}
 					}
 				}
 			}
-		}
 		
 		ai_will_do = {
 			factor = 10
@@ -1518,36 +1512,7 @@ focus = {
 		}
 	}
 
-    focus = {
-		id = UVS_contact_partisans
-		icon = GFX_goal_UVS_destroy_monuments
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = UVS_crush_the_invaders
-		
-		prerequisite = {
-			focus = UVS_crush_the_invaders
-		}
-		
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
-		
-		   PLA = add_ideas = {
-		        PLA_german_partisans
-		   }
-		    
-		
-		
-		
-		}
-	}		
+   
 	
 	focus = {
 		id = UVS_destroy_monuments
@@ -1559,6 +1524,9 @@ focus = {
 		
 		relative_position_id = UVS_crush_the_invaders
 		
+		available_if = {
+		    controls = 536
+		}
 		prerequisite = {
 			focus = UVS_crush_the_invaders
 		}
@@ -1570,7 +1538,7 @@ focus = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
 		
-		   add_stability = 0.3
+		   add_stability = 0.03
 		   add_political_power = 50
 		    
 		
@@ -1580,7 +1548,7 @@ focus = {
 	}	
 
 	
-}
+
 
 
 
