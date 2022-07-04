@@ -1,5 +1,5 @@
 add_namespace = fuhrerreich
-
+add_namespace = nazi
 
 country_event = {
 	id = fuhrerreich.1
@@ -51,6 +51,62 @@ country_event = {
 	}
 	
 	custom_effect_tooltip = rise_of_valkism
+	
+}
+
+}
+
+
+country_event = {
+	id = nazi.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event nazi.1" }
+	title = nazi.1.t
+	desc = nazi.1.d
+#	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = nazi.1.a
+		
+		
+		
+	hidden_effect = {
+	
+	set_party_name = { 
+		ideology = national_syndicalism 
+		long_name = FGB_RHOM 
+		name = FGB_RHOM_SHORT
+	}
+
+	
+	       kill_country_leader = yes
+		    set_cosmetic_tag = FGB_Rohm
+			
+			
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.15
+		}
+		
+		
+		set_politics = {
+			ruling_party = national_syndicalism
+		}
+		
+		create_country_leader = {
+			name = "Ernst Röhm"
+			desc = "POLITICS_ERNST_ROHM_DESC"
+			picture = "gfx/leaders/FGB/Portrait_FGB_Ernst_Röhm.png"
+			expire = "1965.1.1"
+			ideology = ultranationalism
+			
+			traits = {
+			nationalist_symbol
+			}
+		}
+	}
+	
+#	custom_effect_tooltip = rise_of_valkism
 	
 }
 
