@@ -1444,8 +1444,8 @@ focus = {
 	}
 	
 	focus = {
-		id = UVS_polish_question
-		icon = GFX_goal_UVS_polish_question
+		id = UVS_contact_german_partisans
+		icon = GFX_goal_UVS_contact_german_partisans
 		x = -1
 		y = 1
 		cost = 5
@@ -1457,15 +1457,27 @@ focus = {
 			focus = UVS_path_to_reunification
 		}
 		
+		bypass = {
+				PLA = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		
 	    mutually_exclusive = {
 			focus = UVS_offer_reunification
 		}	
-		
+		    PLA =
+			    add_ideas = {
+				    PLA_german_partisans
+		        }
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus UVS_polish_question_log"
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_contact_german_partisans_log"
 		
 		    
 		
@@ -1533,6 +1545,120 @@ focus = {
 		}
 		
 		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		   add_stability = 0.03
+		   add_political_power = 50
+		    
+		
+		
+		
+		}
+	}	
+	
+		focus = {
+		id = UVS_rally_northern_leftists
+		icon = GFX_goal_UVS_polish_question
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_path_to_reunification
+		
+		prerequisite = {
+			focus = UVS_path_to_reunification
+		}
+		
+		bypass = {
+				GER = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		
+	    mutually_exclusive = {
+			focus = UVS_offer_reunification
+		}	
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_polish_question_log"
+		
+		    
+		
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = UVS_destroy_capitalist_swine
+		icon = GFX_goal_UVS_finish_the_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_destroy_capitalist_swine
+		
+		prerequisite = {
+			focus = UVS_rally_northern_leftists
+		}
+		
+		bypass = {
+				GER = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_destroy_capitalist_swine_log"
+		
+		    declare_war_on = {
+                target = GER
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_turn_
+		icon = GFX_goal_UVS_destroy_monuments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_crush_the_invaders
+		
+		available_if = {
+		    controls = 536
+		}
+		prerequisite = {
+			focus = UVS_crush_the_invaders
+		}
+		
+		
+		
 		ai_will_do = {
 			factor = 10
 		}
@@ -1550,7 +1676,7 @@ focus = {
 
 	
 
-
+}
 
 
 
