@@ -362,6 +362,39 @@ focus = {
 		}
 	}
 	
+	focus = {
+		id = UVS_ban_demsocs
+		icon = GFX_goal_UVS_purge_the_military
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
+		relative_position_id = UVS_paving_the_way_to_victory
+		
+		prerequisite = {
+		focus = UVS_paving_the_way_to_victory
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_ban_demsocs_log"
+		
+		    add_stability = -0.05
+			
+			add_popularity = {
+			ideology = social_democrat
+			popularity = -0.20
+		}
+		
+		
+		}
+	}
+	
 	
 	
 	focus = {
@@ -376,7 +409,7 @@ focus = {
 		relative_position_id = UVS_propaganda_campaign
 		
 		prerequisite = {
-		focus = UVS_militarization
+		focus = UVS_ban_demsocs
 		}
 		
 		prerequisite = {
@@ -405,7 +438,7 @@ focus = {
 	focus = {
 		id = UVS_strengthen_our_positions
 		icon = GFX_goal_UVS_strengthen_our_positions
-		x = 1
+		x = 2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -436,26 +469,104 @@ focus = {
 		}
 	}
 	
+	focus = {
+		id = UVS_ribentrop_doctrine
+		icon = GFX_goal_UVS_ribentrop_doctrine
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_strengthen_our_positions
+		
+		
+		prerequisite = {
+			focus = UVS_strengthen_our_positions
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_ribentrop_doctrine_log"
+		
+			add_war_support = 0.05
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_industrial_effort_2IC
+			}
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_tighten_economic_control
+		icon = GFX_goal_UVS_tighten_economic_control
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_german_socialist_patriotism
+		
+		prerequisite = {
+		focus = UVS_german_socialist_patriotism
+		
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_tighten_economic_control_log"
+		
+		    add_ideas = {
+			    UVS_ribentrop_doctrine
+			}
+		
+		
+		}
+	}
+	
+	}
+	
+	
 	
 	
 	
 	focus = {
 		id = UVS_red_bismarck
 		icon = GFX_goal_UVS_red_bismarck
-		x = -2
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_strengthen_our_positions
-		relative_position_id = UVS_german_socialist_patriotism
-		prerequisite = {
-		focus = UVS_strengthen_our_positions
-		}
+		relative_position_id = UVS_ribentrop_doctrine
 
 		
 		prerequisite = {
-			focus = UVS_german_socialist_patriotism
+			focus = UVS_tighten_economic_control
+		}
+		
+		prerequisite = {
+			focus = UVS_ribentrop_doctrine
 		}
 		
 		
@@ -1424,7 +1535,7 @@ focus = {
 		cost = 5
 		available_if_capitulated = yes
 		available = { 
-            date > 1924.1.30
+            date > 1923.1.30
         }
 		
 			
@@ -1494,10 +1605,10 @@ focus = {
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_polish_question
+		relative_position_id = UVS_contact_german_partisans
 		
 		prerequisite = {
-			focus = UVS_polish_question
+			focus = UVS_contact_german_partisans
 		}
 		
 		bypass = {
@@ -1584,9 +1695,6 @@ focus = {
 			}
 		
 		
-	    mutually_exclusive = {
-			focus = UVS_offer_reunification
-		}	
 		
 		ai_will_do = {
 			factor = 10
@@ -1609,7 +1717,7 @@ focus = {
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_destroy_capitalist_swine
+		relative_position_id = UVS_rally_northern_leftists
 		
 		prerequisite = {
 			focus = UVS_rally_northern_leftists
@@ -1641,20 +1749,20 @@ focus = {
 	}
 	
 	focus = {
-		id = UVS_turn_
+		id = UVS_turn_spd_voters
 		icon = GFX_goal_UVS_destroy_monuments
 		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_crush_the_invaders
+		relative_position_id = UVS_destroy_capitalist_swine
 		
 		available_if = {
 		    controls = 536
 		}
 		prerequisite = {
-			focus = UVS_crush_the_invaders
+			focus = UVS_destroy_capitalist_swine
 		}
 		
 		
