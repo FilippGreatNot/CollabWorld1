@@ -13,10 +13,340 @@ focus_tree = {
 	
 	
 	
-
-
-
 	
+	focus = {
+		id = SOV_faithful_leninist_in_power
+		icon = GFX_goal_SOV_faithful_leninist_in_power
+		x = 20
+		y = 1
+		cost = 2.3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus SOV_faithful_leninist_in_power"
+			
+		   add_stability = 0.03
+		   add_political_power = 50	
+		}
+	}
+
+	focus = {
+		id = SOV_estimation_of_ulyanovs_work
+		icon = GFX_SOV_estimation_of_ulyanovs_work
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_faithful_leninist_in_power
+		
+		prerequisite = {
+			focus = SOV_faithful_leninist_in_power
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_estimation_of_ulyanovs_work"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_army_reorganization
+		icon = GFX_SOV_army_reorganization
+		x = -4
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_estimation_of_ulyanovs_work
+		
+		prerequisite = {
+			focus = SOV_estimation_of_ulyanovs_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_army_reorganization"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_crush_the_resistance_of_the_counter_revolutionaries
+		icon = GFX_SOV_crush_the_resistance_of_the_counter_revolutionaries
+		x = 0
+		y = 2
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_army_reorganization
+		
+		prerequisite = {
+			focus = SOV_army_reorganization
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_crush_the_resistance_of_the_counter_revolutionaries"
+		
+		remove_ideas = SOV_kronstadt_legacy
+		}
+	}
+		
+	
+	focus = {
+		id = SOV_fate_of_the_revisionists
+		icon = GFX_SOV_fate_of_the_revisionists
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_estimation_of_ulyanovs_work
+		
+		prerequisite = {
+			focus = SOV_estimation_of_ulyanovs_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_army_reorganization"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_serve_the_cause_of_the_revolution_by_deed
+		icon = GFX_SOV_serve_the_cause_of_the_revolution_by_deed
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_fate_of_the_revisionists
+		
+		prerequisite = {
+			focus = SOV_fate_of_the_revisionists
+		}
+		
+			mutually_exclusive = {
+			focus = SOV_be_useful_by_skills
+		     }	
+			 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_serve_the_cause_of_the_revolution_by_deed"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_make_them_work
+		icon = GFX_SOV_make_them_work
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_serve_the_cause_of_the_revolution_by_deed
+		
+		prerequisite = {
+			focus = SOV_serve_the_cause_of_the_revolution_by_deed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_make_them_work"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_be_useful_by_skills
+		icon = GFX_SOV_be_useful_by_skills
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_fate_of_the_revisionists
+		
+		prerequisite = {
+			focus = SOV_fate_of_the_revisionists
+		}
+		
+			mutually_exclusive = {
+			focus = SOV_serve_the_cause_of_the_revolution_by_deed
+		     }	
+			 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_be_useful_by_skills"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_knights_of_the_revolution
+		icon = GFX_SOV_knights_of_the_revolution
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_be_useful_by_skills
+		
+		prerequisite = {
+			focus = SOV_be_useful_by_skills
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_knights_of_the_revolution"
+		
+		
+		}
+	}
+	
+	
+		
+	focus = {
+		id = SOV_end_of_nep
+		icon = GFX_SOV_end_of_nep
+		x = 4
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_estimation_of_ulyanovs_work
+		
+		prerequisite = {
+			focus = SOV_estimation_of_ulyanovs_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_end_of_nep"
+		
+		remove_ideas = SOV_new_economic_policy
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_industry
+		icon = GFX_SOV_expand_industry
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_end_of_nep
+		
+		prerequisite = {
+			focus = SOV_end_of_nep
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_expand_industry"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_country_infrastructure
+		icon = GFX_SOV_country_infrastructure
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_expand_industry
+		
+		prerequisite = {
+			focus = SOV_expand_industry
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_country_infrastructure"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_step_towards_unity
+		icon = GFX_SOV_step_towards_unity
+		x = -4
+		y = 3
+		cost = 3.5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_crush_the_resistance_of_the_counter_revolutionaries
+		relative_position_id = SOV_make_them_work
+		relative_position_id = SOV_knights_of_the_revolution
+		relative_position_id = SOV_country_infrastructure
+		
+		prerequisite = {
+			focus = SOV_knights_of_the_revolution
+			focus = SOV_make_them_work
+		}
+		
+		prerequisite = {
+			focus = SOV_country_infrastructure
+		}
+			
+		prerequisite = {
+			focus = SOV_crush_the_resistance_of_the_counter_revolutionaries
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_step_towards_unity"
+		
+		
+		}
+	}
 	
 }
 
