@@ -118,8 +118,8 @@ ideas = {
 			}
 		}
 		
-		UVS_thalmannnomics = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea UVS_thalmannnomics"}
+		UVS_economics_thalmann = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea UVS_economics_thalmann"}
 			allowed = {
 				always = no
 			}
@@ -128,11 +128,51 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = UVS_thalmannnomics
+			picture = UVS_economics_thalmann
 			modifier = {
 			
 			civilian_factory_use = -0.05
-				
+			production_factory_max_efficiency_factor = 0.1
+		    production_factory_start_efficiency_factor = 0.1
+			command_power_gain = 0.05	
+			}
+		}
+		
+		UVS_tight_economic_control = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea UVS_tight_economic_control"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			picture = UVS_tight_economic_control
+			modifier = {
+			
+			civilian_factory_use = -0.05
+            stability_factor = -0.10
+            industrial_capacity_factor = 0.1	
+			}
+		}
+		
+		UVS_recent_victory = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea UVS_recent_victory"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			picture = UVS_recent_victory
+			modifier = {
+			
+			war_support_factor = 0.1
+            stability_factor = 0.1
+            political_power_gain = 0.15
 			}
 		}
 		
