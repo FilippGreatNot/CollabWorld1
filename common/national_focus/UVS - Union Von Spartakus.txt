@@ -1580,21 +1580,23 @@ focus = {
 	    mutually_exclusive = {
 			focus = UVS_offer_reunification
 		}	
-		    PLA =
-			    add_ideas = {
-				    PLA_german_partisans
-		        }
+
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus UVS_contact_german_partisans_log"
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_contact_german_partisans_log"    
 		
-		    
+		    PLA = {
+			    add_timed_idea = { 
+				idea = PLA_german_partisans  
+				days = 90 
+				}
+				    
+		    }
+				
+		}	
 		
-		
-		
-		}
 	}	
 	
 	focus = {
@@ -1648,7 +1650,11 @@ focus = {
 		
 		relative_position_id = UVS_crush_the_invaders
 		
-		available_if = {
+		available = {
+		
+		PLA = {
+                    exists = no
+                }
 		    controls = 536
 		}
 		prerequisite = {
@@ -1758,7 +1764,11 @@ focus = {
 		
 		relative_position_id = UVS_destroy_capitalist_swine
 		
-		available_if = {
+		available = {
+		
+		GER = {
+                    exists = no
+                }
 		    controls = 536
 		}
 		prerequisite = {
