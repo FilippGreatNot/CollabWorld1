@@ -539,7 +539,7 @@ focus = {
 			add_command_power = 50
 			
 		    add_ideas = {
-			    UVS_tight_economic_control
+			    UVS_control_eco
 			}
 		
 		
@@ -628,7 +628,7 @@ focus = {
 		icon = GFX_goal_UVS_victory_of_kdp_b
 		x = 5
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
@@ -688,7 +688,7 @@ focus = {
 		icon = GFX_goal_UVS_tough_methods
 		x = -1.5
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_thalmannomics
@@ -713,7 +713,7 @@ focus = {
 		icon = GFX_goal_UVS_invite_menzhinsky
 		x = 1
 		y = 1
-		cost = 2
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_tough_methods
@@ -733,7 +733,10 @@ focus = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus_UVS_invite_menzhinsky_log"
 		
-		
+		create_intelligence_agency = {
+            name = "German Security Agency"
+            icon = GFX_intelligence_agency_logo_agency
+        }
 		
 		
 		}
@@ -750,7 +753,7 @@ focus = {
 		icon = GFX_goal_UVS_finish_off_the_german_bourgeois
 		x = -1
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_tough_methods
@@ -780,18 +783,15 @@ focus = {
 	focus = {
 		id = UVS_german_chekists
 		icon = GFX_goal_UVS_german_chekists
-		x = 2
-		y = 
-		cost = 2
+		x = 0
+		y = 1
+		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_finish_off_the_german_bourgeois
-		relative_position_id = UVS_invite_menzhinsky
+		relative_position_id = UVS_tough_methods
+		
 		prerequisite = {
-		focus = UVS_finish_off_the_german_bourgeois
-		}
-		prerequisite = {
-			focus = UVS_invite_menzhinsky
+			focus = UVS_tough_methods
 		}
 		
 		
@@ -812,7 +812,7 @@ focus = {
 		icon = GFX_goal_UVS_strong_communist_germany
 		x = 0
 		y = 1
-		cost = 1.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_german_chekists
@@ -844,7 +844,7 @@ focus = {
 		icon = GFX_goal_UVS_negotiations_with_the_rsfsr
 		x = 2
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_kdp_b
@@ -874,7 +874,7 @@ focus = {
 		icon = GFX_goal_UVS_invite_experts
 		x = 0
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_negotiations_with_the_rsfsr
@@ -902,7 +902,7 @@ focus = {
 		icon = GFX_goal_UVS_spartakists_continue_the_work
 		x = 0
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
@@ -937,7 +937,7 @@ focus = {
 		icon = GFX_goal_UVS_liberators_of_germany
 		x = 0
 		y = 2
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_spartakists_continue_the_work
@@ -968,7 +968,7 @@ focus = {
 	focus = {
 		id = UVS_our_economic_plan
 		icon = GFX_goal_UVS_our_economic_plan
-		x = 3
+		x = -1
 		y = 1
 		cost = 3
 		available_if_capitulated = yes
@@ -1005,7 +1005,7 @@ focus = {
 		relative_position_id = UVS_searching_for_the_imposters_among_us
 		
 		prerequisite = {
-			focus = UVS_our_economic_plan
+			focus = UVS_promised_freedom
 		}
 		
 		prerequisite = {
@@ -1086,15 +1086,15 @@ focus = {
 	focus = {
 		id = UVS_invite_invite_zinoviev
 		icon = GFX_goal_UVS_invite_invite_zinoviev
-		x = -1
+		x = 1
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_invite_experts
+		relative_position_id = UVS_liberators_of_germany
 		
 		prerequisite = {
-			focus = UVS_invite_experts
+			focus = UVS_liberators_of_germany
 		}
 		
 		
@@ -1278,7 +1278,7 @@ focus = {
 		icon = GFX_goal_UVS_promised_freedom
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_worker_soviets
@@ -1302,20 +1302,15 @@ focus = {
 	focus = {
 		id = UVS_experience_of_syndicalism
 		icon = GFX_goal_UVS_experience_of_syndicalism
-		x = -2
+		x = 0
 		y = 1
-		cost = 3.6
+		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_promised_freedom
-		relative_position_id = UVS_our_economic_plan
+		relative_position_id = UVS_monitor_the_situation
 		
 		prerequisite = {
-			focus = UVS_promised_freedom
-		}
-		
-		prerequisite = {
-			focus = UVS_our_economic_plan
+			focus = UVS_monitor_the_situation
 		}
 		
 		
@@ -1337,17 +1332,16 @@ focus = {
 	focus = {
 		id = UVS_monitor_the_situation
 		icon = GFX_goal_UVS_monitor_the_situation
-		x = 0
+		x = 1
 		y = 1
 		cost = 3
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_experience_of_syndicalism
+		relative_position_id = UVS_our_economic_plan
 		
 		prerequisite = {
-			focus = UVS_experience_of_syndicalism
+			focus = UVS_our_economic_plan
 		}
-		
 		
 		ai_will_do = {
 			factor = 10
@@ -1364,15 +1358,15 @@ focus = {
 	focus = {
 		id = UVS_unions_and_syndicates
 		icon = GFX_goal_UVS_unions_and_syndicates
-		x = -2
+		x = -1
 		y = 1
 		cost = 3
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_worker_soviets
+		relative_position_id = UVS_our_economic_plan
 		
 		prerequisite = {
-			focus = UVS_worker_soviets
+			focus = UVS_our_economic_plan
 		}
 		
 		
@@ -1983,7 +1977,7 @@ focus = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_open_trade_log"
 		
 		    add_political_power = 10
-			add_stability = 0.4
+			add_stability = 0.04
 		    add_popularity = {
 			ideology = national_syndicalism
 			popularity = -0.05
@@ -1994,22 +1988,30 @@ focus = {
 		}
 	}
 
-     focus = {
+    focus = {
 		id = UVS_go_south
-		icon = GFX_goal_UVS_destroy_nationalists
-		x = 2
+		icon = GFX_goal_UVS_go_south
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_north_is_red
+		relative_position_id = UVS_open_trade
 		
 		prerequisite = {
-			focus = UVS_north_is_red
+			focus = UVS_open_trade
+		}
+		
+		prerequisite = {
+			focus = UVS_execute_nazis
+		}
+		
+		prerequisite = {
+			focus = UVS_appease_monsocs
 		}
 		
 		bypass = {
-				FGB = {
+				BSR = {
 					OR = {
 						exists = no 
 					}
@@ -2020,10 +2022,10 @@ focus = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [Root.GetName]: Focus UVS_destroy_nationalists_log"
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_go_south_log"
 		
 		    declare_war_on = {
-                target = FGB
+                target = BSR
                 type = annex_everything
             }
 		    
@@ -2033,8 +2035,86 @@ focus = {
 		}
 	}	
 
-	
-
+	 focus = {
+		id = UVS_south_negotiate
+		icon = GFX_goal_UVS_go_south
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_open_trade
+		
+		prerequisite = {
+			focus = UVS_open_trade
+		}
+		
+		prerequisite = {
+			focus = UVS_execute_nazis
+		}
+		
+		prerequisite = {
+			focus = UVS_appease_monsocs
+		}
+		
+		bypass = {
+				BSR = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_south_negotiate_log"
+		
+		    
+		
+		
+		
+		}
+	}	
+    
+	focus = {
+		id = UVS_endlich_einigkeit
+		icon = GFX_goal_UVS_endlich_einigkeit
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_go_south
+		
+		prerequisite = {
+			focus = UVS_go_south
+			focus = UVS_south_negotiate
+		}
+		
+		available = {
+		
+		BSR = {
+                    exists = no
+                }
+		    controls = 52
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_endlich_einigkeit_log"
+		
+		    add_political_power = 50
+			add_war_support = 0.05
+			add_ideas = {
+		        UVS_recent_victory
+		    }
+		
+		}
+    }
 }
 
 
