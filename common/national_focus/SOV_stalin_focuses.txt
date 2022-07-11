@@ -348,6 +348,816 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_unification_plan
+		icon = GFX_SOV_unification_plan
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_step_towards_unity
+		
+		prerequisite = {
+			focus = SOV_step_towards_unity
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_unification_plan"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_dash_to_the_west
+		icon = GFX_SOV_dash_to_the_west
+		x = -5
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_dash_to_the_west"
+		WVA = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_end_the_white_menace_in_the_baltic_states
+		icon = GFX_SOV_end_the_white_menace_in_the_baltic_states
+		x = 0
+		y = 1
+		cost = 3
+		bypass = {
+			WVA = {
+				exists = no
+			}
+		}
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dash_to_the_west
+		
+		prerequisite = {
+			focus = SOV_dash_to_the_west
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_end_the_white_menace_in_the_baltic_states"	
+			 declare_war_on = {
+                target = WVA
+                type = annex_everything
+            }
+			
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_call_to_tukhachevsky
+		icon = GFX_SOV_call_to_tukhachevsky
+		x = 0
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		bypass = {
+			PBD = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_end_the_white_menace_in_the_baltic_states
+		
+		prerequisite = {
+			focus = SOV_end_the_white_menace_in_the_baltic_states
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_call_to_tukhachevsky"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_peaceful_integration
+		icon = GFX_SOV_peaceful_integration
+		x = -1
+		y = 1
+		cost = 3
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {
+			focus = SOV_teach_the_impudent_marshal_a_lesson
+		     }	
+			 
+		relative_position_id = SOV_call_to_tukhachevsky
+		
+		prerequisite = {
+			focus = SOV_call_to_tukhachevsky
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_peaceful_integration"	
+			
+		}
+	}	
+	
+	focus = {
+		id = SOV_congratulations_on_the_promotion
+		icon = GFX_SOV_congratulations_on_the_promotion
+		x = 0
+		y = 1
+		cost = 1
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = SOV_peaceful_integration
+		
+		prerequisite = {
+			focus = SOV_peaceful_integration
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_congratulations_on_the_promotion"	
+			
+		}
+	}
+
+	focus = {
+		id = SOV_teach_the_impudent_marshal_a_lesson
+		icon = GFX_SOV_teach_the_impudent_marshal_a_lesson
+		x = 1
+		y = 1
+		cost = 2
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = SOV_call_to_tukhachevsky
+		mutually_exclusive = {
+			focus = SOV_peaceful_integration
+		     }	
+		prerequisite = {
+			focus = SOV_call_to_tukhachevsky
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_peaceful_integration"	
+			
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_tukhachevsky_case
+		icon = GFX_SOV_tukhachevsky_Case
+		x = 0
+		y = 1
+		cost = 3
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = SOV_teach_the_impudent_marshal_a_lesson
+		
+		prerequisite = {
+			focus = SOV_teach_the_impudent_marshal_a_lesson
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_tukhachevsky_case"	
+			
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_question_of_the_north
+		icon = GFX_SOV_question_of_the_north
+		x = -2
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_question_of_the_north"
+		
+		KMD = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_trip_to_karelia
+		icon = GFX_SOV_trip_to_karelia
+		x = 0
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_question_of_the_north
+		
+		prerequisite = {
+			focus = SOV_question_of_the_north
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_trip_to_karelia"
+		
+		annex_country = { 
+		target = KMD
+		transfer_troops = yes 
+		}
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_southern_threat_assessment
+		icon = GFX_SOV_southern_threat_assessment
+		x = 2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_southern_threat_assessment"
+		
+		SRF = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+			
+			
+		UFT = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_end_the_free_territory
+		icon = GFX_SOV_end_the_free_territory
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			UFT = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_southern_threat_assessment
+		
+		prerequisite = {
+			focus = SOV_southern_threat_assessment
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_end_the_free_territory"
+		
+		 declare_war_on = {
+                target = UFT
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_cut_off_the_second_head_of_the_hydra
+		icon = GFX_SOV_cut_off_the_second_head_of_the_hydra
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			SRF = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_end_the_free_territory
+		
+		prerequisite = {
+			focus = SOV_end_the_free_territory
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_cut_off_the_second_head_of_the_hydra"
+		
+		 declare_war_on = {
+                target = SRF
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_look_to_the_east
+		icon = GFX_SOV_look_to_the_east
+		x = 6
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_look_to_the_east"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_everythin_that_lies_beyond_the_ural
+		icon = GFX_SOV_everythin_that_lies_beyond_the_ural
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_look_to_the_east
+		
+		prerequisite = {
+			focus = SOV_look_to_the_east
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_everythin_that_lies_beyond_the_ural"
+		RUS = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			} 
+			
+		FER = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+			
+		KMP = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+			
+		UNR = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_finish_off_their_rebellion
+		icon = GFX_SOV_finish_off_their_rebellion
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			UNR = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_everythin_that_lies_beyond_the_ural
+		
+		prerequisite = {
+			focus = SOV_everythin_that_lies_beyond_the_ural
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_finish_off_their_rebellion"
+		
+		 declare_war_on = {
+                target = UNR
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_destroy_the_main_head_of_the_hydra
+		icon = GFX_SOV_destroy_the_main_head_of_the_hydra
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			RUS = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_everythin_that_lies_beyond_the_ural
+		
+		prerequisite = {
+			focus = SOV_everythin_that_lies_beyond_the_ural
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_destroy_the_main_head_of_the_hydra"
+		
+		 declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_abandoned_admiral
+		icon = GFX_SOV_abandoned_admiral
+		x = 2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_destroy_the_main_head_of_the_hydra
+		
+		prerequisite = {
+			focus = SOV_destroy_the_main_head_of_the_hydra
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_abandoned_admiral"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_last_push_to_vladivostok
+		icon = GFX_SOV_last_push_to_vladivostok
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			FER = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_destroy_the_main_head_of_the_hydra
+		
+		prerequisite = {
+			focus = SOV_destroy_the_main_head_of_the_hydra
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_last_push_to_vladivostok"
+		
+		 declare_war_on = {
+                target = FER
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_drive_the_japanese_back
+		icon = GFX_SOV_drive_the_japanese_back
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			KMP = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_last_push_to_vladivostok
+		
+		prerequisite = {
+			focus = SOV_last_push_to_vladivostok
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_drive_the_japanese_back"
+		
+		 declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_middle_asia
+		icon = GFX_SOV_middle_asia
+		x = 4
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_look_to_the_east
+		
+		prerequisite = {
+			focus = SOV_look_to_the_east
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_middle_asia"
+		OCG = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		KAA = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		KSR = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_destroy_the_cossack_republic
+		icon = GFX_SOV_destroy_the_cossack_republic
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			OCG = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_middle_asia
+		
+		prerequisite = {
+			focus = SOV_middle_asia
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_destroy_the_cossack_republic"
+		
+		 declare_war_on = {
+                target = OCG
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_burn_steppe_autonomy
+		icon = GFX_SOV_burn_steppe_autonomy
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			KAA = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_destroy_the_cossack_republic
+		
+		prerequisite = {
+			focus = SOV_destroy_the_cossack_republic
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_burn_steppe_autonomy"
+		
+		 declare_war_on = {
+                target = KAA
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_old_comrade
+		icon = GFX_SOV_old_comrade
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		bypass = {
+			KSR = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_burn_steppe_autonomy
+		
+		prerequisite = {
+			focus = SOV_burn_steppe_autonomy
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_old_comrade"
+		
+		annex_country = { 
+		target = KSR
+		transfer_troops = yes 
+		}
+		}
+	}
 }
 
 
