@@ -490,7 +490,7 @@ ideas = {
 			}
 			traits = {
 			    security_minister
-				
+				triumphant_revolutionary
 			}
 		}
 	
@@ -498,6 +498,36 @@ ideas = {
 	
 	
 	
+ propaganda_minister = { 
+		UVS_Ernst_Busch_pro = { #Буш
+		
+		
+		picture = UVS_Ernst_Busch_pro
+		
+			allowed = {
+					original_tag = UVS
+				}
+				
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			visible = {
+				NOT = { has_country_flag = Ernst_Busch_dead }
+			}
+			cancel_if_invalid = yes
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea UVS_Ernst_Busch_pro"
+			}
+			traits = {
+			    propaganda_minister
+				propaganda_expert
+			}
+		}
+	
+	}	
 	#############################WRD
 	
 	
