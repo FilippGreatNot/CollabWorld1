@@ -4,7 +4,7 @@ add_namespace = prowerstruggle
 add_namespace = bolsheviks
 add_namespace = mladorossi
 add_namespace = leadership
-
+add_namespace = unification
 add_namespace = yezhovgang
 
 
@@ -881,3 +881,54 @@ option = {
 	}
 		
 }
+
+
+
+country_event = {
+	id = unification.1 #
+	immediate = { log = "[GetDateText]: [Root.GetName]: event prowerstruggle.1" }
+	title = unification.1.t
+	desc = unification.1.d
+	picture = GFX_report_event_soviet_people
+	is_triggered_only = yes
+
+	option = {
+		name = unification.1.a #####Тухач Согласился
+		ai_chance = { factor = 90 }
+	SOV = {
+		annex_country = { 
+		target = PBD
+		transfer_troops = yes 
+		}
+	}
+		
+		PBD = {
+	every_unit_leader = {
+			set_nationality = SOV
+		}
+      }	
+SOV = {
+complete_national_focus = SOV_peaceful_integration	  
+}
+		
+}
+	
+option = {
+	name = unification.1.b	
+	ai_chance = { factor = 10 }
+	SOV = {
+	 declare_war_on = {
+                target = PBD
+                type = annex_everything
+            }
+          }	
+		  SOV = {
+		complete_national_focus = SOV_teach_the_impudent_marshal_a_lesson
+   		}  
+}
+	
+
+	
+}
+
+
