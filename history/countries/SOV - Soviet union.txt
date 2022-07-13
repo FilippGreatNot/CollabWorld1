@@ -19,6 +19,7 @@ set_technology = {
 		infantry_gasmask = 1
 		support_weapons = 1
 		support_weapons1 = 1
+		infantry_weapons0_25 = 1
 		
 		infantry_binoculars = 1
 		infantry_weapons0 = 1
@@ -113,21 +114,23 @@ set_technology = {
 		
 		
 		chemical_research = 1
+		poison_gas = 1
 		
 		gw_encryption = 1
 		gw_decryption =1
 		
 		tanktraks = 1
 		electric_motor = 1
-			convey = 1
+		convey = 1
 		
 		camera1 = 1
 		camera2 = 1
-		
+
 		
 		aerodynamics_theory = 1
 		aircraft_engine = 1 
 		aircraft_guns = 1
+		synchronization_gear = 1
 
 		# Industry
 		basic_manual_machine_tools = 1
@@ -142,6 +145,11 @@ set_technology = {
 		
 		industrial_railways = 1
 		conversion_of_civilian_factories = 1
+		labor_mobilization = 1
+		scientific_production_management = 1
+		centralization_of_production_management = 1
+		production_psychology = 1 
+		
 		construction0 = 1
 		construction0_5 = 1
 		construction0_75 = 1 
@@ -157,28 +165,7 @@ set_technology = {
 
 	}
 
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
 
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		gwtank_chassis = 1
-		basic_light_tank_chassis = 1
-		improved_light_tank_chassis = 1
-		engine_tech_1 = 1
-		engine_tech_2 = 1
-	}
-}
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	set_technology = {
@@ -316,7 +303,14 @@ create_country_leader = {
 	}
 }
 
-
+create_country_leader = {
+			name = "Maria Spiridonova"
+			desc = "POLITICS_MARIA SPIRIDONOVA_DESC"
+			picture = "gfx/leaders/SOV/MariaSpiridonova.dds"
+			expire = "1965.1.1"
+			ideology = sr_maximalism
+			traits = { valkyrie_of_the_revolution }
+		}
 
 create_country_leader = {
 	name = "Abram Ioffe"
@@ -386,6 +380,159 @@ create_field_marshal = {
 	id = 1
 }
 
+
+create_field_marshal = {
+	name = "Mikhail Frunze"
+	portrait_path = "gfx/leaders/SOV/Portrait_RUS_Mikhail_Frunze.png"
+	traits = { inspirational_leader offensive_doctrine war_hero politically_connected }
+
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+
+		create_field_marshal = {
+			name = "Vasily Blyukher"
+			portrait_path = "gfx/leaders/SOV/TRM_Vasily_Blyukher.png"
+			
+			traits = {
+				offensive_doctrine
+				politically_connected
+				trickster
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		} 
+		
+create_field_marshal = {
+	name = "Kliment Voroshilov"
+	
+	picture = "Portrait_Soviet_Kliment_Voroshilov.dds"
+	traits = { old_guard politically_connected inflexible_strategist }
+	skill = 1
+
+
+	
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_field_marshal = {
+	name = "Grigory Kulik"
+		picture = "Portrait_Soviet_Grigory_Kulik.dds"
+	traits = { old_guard career_officer politically_connected inflexible_strategist }
+	skill = 1	
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_field_marshal = {
+	name = "Aleksei Brusilov"
+	picture = "Portrait_SOV_Aleksei_Brusilov.png"
+	traits = { old_guard career_officer  media_personality war_hero}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
+}
+
+
+create_field_marshal = {
+	name = "Semyon Budyonny"
+		picture = "Portrait_Soviet_Semyon_Budyonny.dds"
+	traits = { old_guard politically_connected inflexible_strategist }
+	skill = 1
+
+	
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Vasily Chapaev"
+	
+	picture = "Portrait_SOV_Vasily_Chapaev.png"
+	traits = { media_personality war_hero }
+	skill = 2
+
+	
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 1
+	logistics_skill = 3
+}
+
+
+create_corps_commander = {
+	name = "Semyon Timoshenko"
+	
+	picture = "Portrait_Soviet_Semyon_Timoshenko.dds"
+	traits = { cavalry_officer politically_connected career_officer }
+	skill = 3
+
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Georgy Zhukov"
+
+		picture = "Portrait_Soviet_Gregory_Zhukov.dds"
+	traits = { winter_specialist armor_officer media_personality war_hero }
+	skill = 3
+
+	
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 4
+	logistics_skill = 4
+}
+
+create_corps_commander = {
+	name = "Ivan Konev"
+	
+	picture = "Portrait_Soviet_Ivan_Konev.dds"
+	traits = { armor_officer harsh_leader politically_connected }
+	skill = 4
+
+
+	
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 2
+	logistics_skill = 4
+}
+
+
+create_corps_commander = {
+	name = "Andrey Vlasov"
+		picture = "Portrait_Soviet_Andrey_Vlasov.dds"
+	traits = { winter_specialist infantry_officer }
+
+	skill = 2
+	
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 2
+}
+
+#############
 
 
 if = {
