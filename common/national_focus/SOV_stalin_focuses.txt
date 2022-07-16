@@ -1195,6 +1195,658 @@ focus_tree = {
 		}
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+# NKVD tree	
+	
+	
+	
+	focus = {
+		id = SOV_reformation_of_the_ogpu
+		icon = GFX_goal_SOV_reformation_of_the_ogpu
+		x = 40
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus SOV_reformation_of_the_ogpu"
+			
+		   
+		}
+	}
+	
+	focus = {
+		id = SOV_dzerzhinskys_resignation
+		icon = GFX_SOV_dzerzhinskys_resignation
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_reformation_of_the_ogpu
+		
+		prerequisite = {
+			focus = SOV_reformation_of_the_ogpu
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_dzerzhinskys_resignation"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_beria_leader
+		icon = GFX_SOV_beria_leader
+		x = -5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dzerzhinskys_resignation
+		mutually_exclusive = {
+			focus = SOV_yezhov_leader
+			focus = SOV_bokii_leader
+		   }
+
+			 
+		prerequisite = {
+			focus = SOV_dzerzhinskys_resignation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_beria_leader"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_essence_of_chekists
+		icon = GFX_SOV_essence_of_chekists
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_beria_leader
+		
+		prerequisite = {
+			focus = SOV_beria_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_essence_of_chekists"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_crush_the_revisionists
+		icon = GFX_SOV_crush_the_revisionists
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_essence_of_chekists
+		
+		prerequisite = {
+			focus = SOV_essence_of_chekists
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_crush_the_revisionists"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_resource_reallocation
+		icon = GFX_SOV_resource_reallocation
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_crush_the_revisionists
+		
+		prerequisite = {
+			focus = SOV_crush_the_revisionists
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_resource_reallocation"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_industrial_collective
+		icon = GFX_SOV_industrial_collective
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_beria_leader
+		
+		prerequisite = {
+			focus = SOV_beria_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_industrial_collective"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_attract_additional_forces
+		icon = GFX_SOV_attract_additional_forces
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_industrial_collective
+		
+		prerequisite = {
+			focus = SOV_industrial_collective
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_attract_additional_forces"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_rebuild_projects 
+		icon = GFX_SOV_rebuild_projects
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_attract_additional_forces
+		
+		prerequisite = {
+			focus = SOV_attract_additional_forces
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_rebuild_projects"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_moscow_experiment
+		icon = GFX_SOV_moscow_experiment
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_resource_reallocation
+		relative_position_id = SOV_rebuild_projects
+		
+		prerequisite = {
+			focus = SOV_resource_reallocation
+		}
+		
+		prerequisite = {
+			focus = SOV_rebuild_projects
+		}
+				
+			
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_moscow_experiment"
+		
+		
+		}
+	}				
+
+		
+	
+	focus = {
+		id = SOV_yezhov_leader
+		icon = GFX_goal_SOV_yezhov_leader
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dzerzhinskys_resignation
+		mutually_exclusive = {
+			focus = SOV_beria_leader
+			focus = SOV_bokii_leader
+		   }
+
+			 
+		prerequisite = {
+			focus = SOV_dzerzhinskys_resignation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhov_leader"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_yezhov_land_development
+		icon = GFX_SOV_yezhov_land_development
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhov_leader
+		
+		prerequisite = {
+			focus = SOV_yezhov_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhov_land_development"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_labor_zones
+		icon = GFX_SOV_labor_zones
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhov_land_development
+		
+		prerequisite = {
+			focus = SOV_yezhov_land_development
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_labor_zones"
+		
+		
+		}
+	}	
+	
+		
+	focus = {
+		id = SOV_unleash_gebna
+		icon = GFX_SOV_unleash_gebna
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhov_leader
+		
+		prerequisite = {
+			focus = SOV_yezhov_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_unleash_gebna"
+		
+		
+		}
+	}
+	focus = {
+		id = SOV_yezhovs_notebook
+		icon = GFX_SOV_yezhovs_notebook
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unleash_gebna
+		
+		prerequisite = {
+			focus = SOV_unleash_gebna
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhovs_notebook"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_plan_cleanup
+		icon = GFX_SOV_plan_cleanup
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhovs_notebook
+		relative_position_id = SOV_labor_zones
+		
+		prerequisite = {
+			focus = SOV_yezhovs_notebook
+		}
+		
+		prerequisite = {
+			focus = SOV_labor_zones
+		}
+				
+			
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_plan_cleanup"
+		
+		
+		}
+	}				
+
+	
+	focus = {
+		id = SOV_bokii_leader
+		icon = GFX_SOV_bokii_leader
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dzerzhinskys_resignation
+		mutually_exclusive = {
+			focus = SOV_beria_leader
+			focus = SOV_yezhov_leader
+		   }
+
+			 
+		prerequisite = {
+			focus = SOV_dzerzhinskys_resignation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhov_leader"
+		
+		
+		}
+	}
+		
+	focus = {
+		id = SOV_start_experiments 
+		icon = GFX_SOV_start_experiments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_bokii_leader
+		
+		prerequisite = {
+			focus = SOV_bokii_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_start_experiments"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_attract_barchenko
+		icon = GFX_SOV_attract_barchenko
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_start_experiments
+		
+		prerequisite = {
+			focus = SOV_start_experiments
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_attract_barchenko"
+		
+		
+		}
+	}
+			
+	focus = {
+		id = SOV_yezhovs_labor_zones
+		icon = GFX_SOV_yezhovs_labor_zones
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_bokii_leader
+		
+		prerequisite = {
+			focus = SOV_bokii_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhovs_labor_zones"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_attract_prisoners
+		icon = GFX_SOV_attract_prisoners
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhovs_labor_zones
+		
+		prerequisite = {
+			focus = SOV_yezhovs_labor_zones
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_attract_prisoners"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_soviet_science
+		icon = GFX_SOV_soviet_science
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_attract_prisoners
+		relative_position_id = SOV_attract_barchenko
+		
+		prerequisite = {
+			focus = SOV_attract_prisoners
+		}
+		
+		prerequisite = {
+			focus = SOV_attract_barchenko
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_soviet_science"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_power_of_innovation
+		icon = GFX_SOV_power_of_innovation
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_soviet_science
+		
+		prerequisite = {
+			focus = SOV_soviet_science
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_power_of_innovation"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_power_of_neopaganism
+		icon = GFX_SOV_power_of_neopaganism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_soviet_science
+		
+		prerequisite = {
+			focus = SOV_soviet_science
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_power_of_neopaganism"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_demonstration_of_power
+		icon = GFX_SOV_demonstration_of_power
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_power_of_innovation
+		relative_position_id = SOV_power_of_neopaganism
+		
+		prerequisite = {
+			focus = SOV_power_of_innovation
+		}
+		
+		prerequisite = {
+			focus = SOV_power_of_neopaganism
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_demonstration_of_power"
+		
+		
+		}
+	}
 }
 
 
+			
