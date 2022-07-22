@@ -186,7 +186,7 @@ ideas = {
 			
 			
 	on_remove = {
-clr_country_flag = SOV_industrialization_one
+# clr_country_flag = SOV_industrialization_one
 	}
 
 			
@@ -225,7 +225,7 @@ clr_country_flag = SOV_industrialization_one
 	             } 
 			
             cancel = { 
-			has_country_flag = yagoda_dead 
+@			has_country_flag = yagoda_dead 
 			has_country_flag = felix_dead 
 			}
 
@@ -238,5 +238,33 @@ clr_country_flag = SOV_industrialization_one
 				drift_defence_factor = -0.05
 			}
 		}
+		
+		
+		
+		
+		
+		SOV_tukhachevsky_case = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_tukhachevsky_case"}
+			allowed = {
+				always = no
+			}
+            cancel = { has_country_flag = RUS_cancel_all_ideas }
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = SOV_tukhachevsky_case
+			modifier = {
+			assign_army_leader_cp_cost = -0.1
+			army_leader_cost_factor = -0.1
+			female_random_army_leader_chance = 0.2		
+			}
+		}	
+		
+		
+		
+		
+		
 	}
 }
