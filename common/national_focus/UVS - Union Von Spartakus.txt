@@ -744,7 +744,7 @@ focus = {
 		log = "[GetDateText]: [Root.GetName]: Focus_UVS_invite_menzhinsky_log"
 		
 		create_intelligence_agency = {
-            name = "German Security Agency"
+            name = "Volkspolizei"
             icon = GFX_intelligence_agency_logo_agency
         }
 		
@@ -822,14 +822,10 @@ focus = {
 		icon = GFX_goal_UVS_strong_communist_germany
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_german_chekists
-		
-		available = {
-			has_completed_focus = UVS_endlich_einigkeit
-		}
 		
 		prerequisite = {
 			focus = UVS_german_chekists
@@ -847,7 +843,10 @@ focus = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_strong_communist_germany_log"
 		
-		
+		    add_country_leader_trait = {
+                ideology = marxism
+                trait = hero_of_revolution
+            }
 		
 		
 		}
@@ -1020,12 +1019,7 @@ focus = {
 		cost = 3
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_our_economic_plan
 		relative_position_id = UVS_searching_for_the_imposters_among_us
-		
-		prerequisite = {
-			focus = UVS_promised_freedom
-		}
 		
 		prerequisite = {
 			focus = UVS_searching_for_the_imposters_among_us
@@ -1038,7 +1032,7 @@ focus = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_our_economic_plan"
 		
-		
+		    
 		
 		
 		}
@@ -1361,8 +1355,8 @@ focus = {
 	}
 	
 	focus = {
-		id = UVS_wir_lieben_liebknecht
-		icon = GFX_goal_UVS_liebe
+		id = UVS_free_revolution
+		icon = GFX_goal_UVS_free_revolution
 		x = 1
 		y = 1
 		cost = 10
@@ -1384,7 +1378,11 @@ focus = {
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_experience_of_syndicalism"
-		        
+		     
+			add_country_leader_trait = {
+                ideology = marxism
+                trait = guardian_of_freedom
+            }
 		}
 	}
 	
