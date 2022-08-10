@@ -213,3 +213,50 @@ country_event = {
 	}
 }
 
+
+
+
+
+
+country_event = {
+	id = spartakus.2 #
+	immediate = { log = "[GetDateText]: [Root.GetName]: event prowerstruggle.1" }
+	title = spartakus.2.t
+	desc = spartakus.2.d
+	picture = GFX_report_event_soviet_people
+	is_triggered_only = yes
+
+	option = {
+		name = spartakus.2.a #####бср Согласился
+		ai_chance = { factor = 50 }
+	UVS = {
+		annex_country = { 
+		target = BSR
+		transfer_troops = yes 
+		}
+	}
+		
+		BSR = {
+	every_unit_leader = {
+			set_nationality = UVS
+		}
+      }	
+
+		
+}
+	
+option = {
+	name = spartakus.2.b	
+	ai_chance = { factor = 50 }
+	UVS = {
+	 declare_war_on = {
+                target = BSR
+                type = annex_everything
+            }
+          }	
+
+}
+	
+
+	
+}
