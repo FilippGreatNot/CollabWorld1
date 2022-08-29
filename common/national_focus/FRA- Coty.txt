@@ -1,0 +1,863 @@
+focus_tree = {
+	id = FRA_coty_start 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FRA
+		}
+	}
+	default = no
+	
+
+	focus = {
+		id = FRA_coty_presidency
+		icon = GFX_goal_FRA_coty_presidency
+		x = 20
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FRA_coty_presidency"
+			
+		   add_stability = 0.03
+		   add_political_power = 50	
+		}
+	}
+
+	focus = {
+		id = FRA_nationalists_in_parliament
+		icon = GFX_goal_FRA_nationalists_in_parliament
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_coty_presidency
+		
+		prerequisite = {
+			focus = FRA_coty_presidency
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_nationalists_in_parliament"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = FRA_purge_the_degenerats
+		icon = GFX_goal_FRA_purge_the_degenerats
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_nationalists_in_parliament
+		
+		prerequisite = {
+			focus = FRA_nationalists_in_parliament
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_nationalists_in_parliament"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = FRA_condemn_the_traitors
+		icon = GFX_goal_FRA_condemn_the_traitors
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_coty_presidency
+		
+		prerequisite = {
+			focus = FRA_coty_presidency
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_condemn_the_traitors"
+		
+		
+		}
+	}	
+
+	focus = {
+		id = FRA_anti_soc_propaganda
+		icon = GFX_goal_FRA_anti_soc_propaganda
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_condemn_the_traitors
+		
+		prerequisite = {
+			focus = FRA_condemn_the_traitors
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_anti_soc_propaganda"
+		
+		
+		}
+	}
+
+
+	focus = {
+		id = FRA_ban_sfoi
+		icon = GFX_goal_FRA_ban_sfoi
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_purge_the_degenerats
+		relative_position_id = FRA_anti_soc_propaganda
+		
+		prerequisite = {
+			focus = FRA_purge_the_degenerats
+		}
+		
+		prerequisite = {
+			focus = FRA_anti_soc_propaganda
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_ban_sfoi"
+		
+		
+		}
+	}
+	
+	
+	
+
+	focus = {
+		id = FRA_calm_down_the_republic
+		icon = GFX_goal_FRA_calm_down_the_republic
+		x = -5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_ban_sfoi
+		
+		prerequisite = {
+			focus = FRA_ban_sfoi
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_calm_down_the_republic"
+		
+		
+		}
+	}	
+	
+
+	focus = {
+		id = FRA_spread_nationalist_propaganda
+		icon = GFX_goal_FRA_spread_nationalist_propaganda
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_calm_down_the_republic
+		
+		prerequisite = {
+			focus = FRA_calm_down_the_republic
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_spread_nationalist_propaganda"
+		
+		
+		}
+	}	
+	
+
+	focus = {
+		id = FRA_deal_with_traitors
+		icon = GFX_goal_FRA_deal_with_traitors
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_spread_nationalist_propaganda
+		
+		prerequisite = {
+			focus = FRA_spread_nationalist_propaganda
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_deal_with_traitors"
+		
+		
+		}
+	}		
+
+	focus = {
+		id = FRA_anti_socialist_laws
+		icon = GFX_goal_FRA_anti_socialist_laws
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_calm_down_the_republic
+		
+		prerequisite = {
+			focus = FRA_calm_down_the_republic
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_anti_socialist_laws"
+		
+		
+		}
+	}	
+
+
+	focus = {
+		id = FRA_implement_the_cherbourg_laws
+		icon = GFX_goal_FRA_implement_the_cherbourg_laws
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_anti_socialist_laws
+		
+		prerequisite = {
+			focus = FRA_anti_socialist_laws
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_implement_the_cherbourg_laws"
+		
+		
+		}
+	}	
+
+	focus = {
+		id = FRA_gather_military_support
+		icon = GFX_goal_FRA_gather_military_support
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_anti_socialist_laws
+		relative_position_id = FRA_spread_nationalist_propaganda
+		
+		prerequisite = {
+			focus = FRA_anti_socialist_laws
+		}
+		
+		prerequisite = {
+			focus = FRA_spread_nationalist_propaganda
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_gather_military_support"
+		
+		
+		}
+	}			
+
+
+	focus = {
+		id = FRA_return_to_traditional_values
+		icon = GFX_goal_FRA_gather_military_support
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_gather_military_support
+		relative_position_id = FRA_deal_with_traitors
+		
+		prerequisite = {
+			focus = FRA_gather_military_support
+		}
+		
+		prerequisite = {
+			focus = FRA_deal_with_traitors
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_return_to_traditional_values"
+		
+		
+		}
+	}	
+	
+	
+	
+	focus = {
+		id = FRA_suppress_freedom_of_speech
+		icon = GFX_goal_FRA_gather_military_support
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_gather_military_support
+		relative_position_id = FRA_implement_the_cherbourg_laws
+		
+		prerequisite = {
+			focus = FRA_gather_military_support
+		}
+		
+		prerequisite = {
+			focus = FRA_implement_the_cherbourg_laws
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_suppress_freedom_of_speech"
+		
+		
+		}
+	}	
+
+	
+	focus = {
+		id = FRA_emergency_presidential_power
+		icon = GFX_goal_FRA_emergency_presidential_power
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_suppress_freedom_of_speech
+		relative_position_id = FRA_return_to_traditional_values
+		
+		prerequisite = {
+			focus = FRA_suppress_freedom_of_speech
+		}
+		
+		prerequisite = {
+			focus = FRA_return_to_traditional_values
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_emergency_presidential_power"
+		
+		
+		}
+	}	
+
+	focus = {
+		id = FRA_viva_la_coty
+		icon = GFX_goal_FRA_viva_la_coty
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_emergency_presidential_power
+		
+		prerequisite = {
+			focus = FRA_emergency_presidential_power
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_viva_la_coty"
+		
+		
+		}
+	}
+
+	focus = {
+		id = FRA_ban_all_opposition_parties
+		icon = GFX_goal_FRA_ban_all_opposition_parties
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_viva_la_coty
+		
+		prerequisite = {
+			focus = FRA_viva_la_coty
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_ban_all_opposition_parties"
+		
+		
+		}
+	}
+
+
+	focus = {
+		id = FRA_acknowledge_the_economic_clusterfuck
+		icon = GFX_goal_FRA_acknowledge_the_economic_clusterfuck
+		x = 5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_ban_sfoi
+		
+		prerequisite = {
+			focus = FRA_ban_sfoi
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_acknowledge_the_economic_clusterfuck"
+		
+		
+		}
+	}
+
+
+	
+	focus = {
+		id = FRA_the_people_first
+		icon = GFX_goal_FRA_the_people_first
+		x = -2
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_acknowledge_the_economic_clusterfuck
+		
+		prerequisite = {
+			focus = FRA_acknowledge_the_economic_clusterfuck
+		}
+		
+		mutually_exclusive = {
+			focus = FRA_implement_autarky_measures
+		    }	
+			 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_the_people_first"
+		
+		
+		}
+	}
+	
+
+	focus = {
+		id = FRA_cut_military_spending
+		icon = GFX_goal_FRA_cut_military_spending
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_people_first
+		
+		prerequisite = {
+			focus = FRA_the_people_first
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_cut_military_spending"
+		
+		
+		}
+	}
+
+	focus = {
+		id = FRA_nationalize_private_assets
+		icon = GFX_goal_FRA_nationalize_private_assets
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_cut_military_spending
+		
+		prerequisite = {
+			focus = FRA_cut_military_spending
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_nationalize_private_assets"
+		
+		
+		}
+	}
+
+	focus = {
+		id = FRA_implement_autarky_measures
+		icon = GFX_goal_FRA_implement_autarky_measures
+		x = 2
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_acknowledge_the_economic_clusterfuck
+		
+		prerequisite = {
+			focus = FRA_acknowledge_the_economic_clusterfuck
+		}
+		
+			mutually_exclusive = {
+			focus = FRA_the_people_first
+		     }	
+			 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_implement_autarky_measures"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = FRA_implement_tax_hikes
+		icon = GFX_goal_FRA_implement_tax_hikes
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_implement_autarky_measures
+		
+		prerequisite = {
+			focus = FRA_implement_autarky_measures
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_implement_tax_hikes"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = FRA_cut_education_spending
+		icon = GFX_goal_FRA_fake_the_numbers
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_implement_tax_hikes
+		
+		prerequisite = {
+			focus = FRA_implement_tax_hikes
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_cut_education_spending"
+		
+		
+		}
+	}
+	
+
+	focus = {
+		id = FRA_ban_the_labor_unions
+		icon = GFX_goal_FRA_ban_the_labor_unions
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_implement_autarky_measures
+		relative_position_id = FRA_the_people_first
+		
+		prerequisite = {
+			focus = FRA_the_people_first
+			focus = FRA_implement_autarky_measures
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_ban_the_labor_unions"
+		
+		
+		}
+	}
+
+	
+	
+	focus = {
+		id = FRA_fake_the_numbers
+		icon = GFX_goal_FRA_fake_the_numbers
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_ban_the_labor_unions
+		
+		prerequisite = {
+			focus = FRA_ban_the_labor_unions
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_fake_the_numbers"
+		
+		
+		}
+	}
+
+
+
+	
+	focus = {
+		id = FRA_national_unemployment_program
+		icon = GFX_goal_FRA_national_unemployment_program
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_fake_the_numbers
+		relative_position_id = FRA_nationalize_private_assets
+		
+		prerequisite = {
+			focus = FRA_fake_the_numbers
+		}
+		
+		prerequisite = {
+			focus = FRA_nationalize_private_assets
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_national_unemployment_program"
+		
+		
+		}
+	}	
+	
+	
+	
+	focus = {
+		id = FRA_cotys_infrastructure_plans
+		icon = GFX_goal_FRA_cotys_infrastructure_plans
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_national_unemployment_program
+		
+		prerequisite = {
+			focus = FRA_national_unemployment_program
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_cotys_infrastructure_plans"
+		
+		
+		}
+	}	
+		
+	
+	
+	focus = {
+		id = FRA_the_inflation_reduction_act
+		icon = GFX_goal_FRA_the_inflation_reduction_act
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_fake_the_numbers
+		relative_position_id = FRA_cut_education_spending
+		
+		prerequisite = {
+			focus = FRA_fake_the_numbers
+		}
+		
+		prerequisite = {
+			focus = FRA_cut_education_spending
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_the_inflation_reduction_act"
+		
+		
+		}
+	} 
+	
+	focus = {
+		id = FRA_liquidate_unprofitable_assets
+		icon = GFX_goal_FRA_liquidate_unprofitable_assets
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_inflation_reduction_act
+		
+		prerequisite = {
+			focus = FRA_the_inflation_reduction_act
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_liquidate_unprofitable_assets"
+		
+		
+		}
+	}	
+		
+		
+		
+	focus = {
+		id = FRA_the_fires_extinguished
+		icon = GFX_goal_FRA_the_fires_extinguished
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_liquidate_unprofitable_assets
+		relative_position_id = FRA_cotys_infrastructure_plans
+		
+		prerequisite = {
+			focus = FRA_liquidate_unprofitable_assets
+			focus = FRA_cotys_infrastructure_plans
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_the_fires_extinguished"
+		
+		
+		}
+	}	
+
+
+
+
+
+	
+	focus = {
+		id = FRA_take_full_control
+		icon = GFX_goal_FRA_take_full_control
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_fires_extinguished
+		relative_position_id = FRA_ban_all_opposition_parties
+		
+		prerequisite = {
+			focus = FRA_the_fires_extinguished
+		}
+		
+		prerequisite = {
+			focus = FRA_ban_all_opposition_parties
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus FRA_take_full_control"
+		
+		
+		}
+	}	
+		
+	
+}
