@@ -959,6 +959,30 @@ focus = {
 		}
 	}
 	
+	focus = {
+		id = UVS_rosas_speech
+		icon = GFX_goal_UVS_spartakists_continue_the_work
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_spartakists_continue_the_work
+		
+		prerequisite = {
+			focus = UVS_spartakists_continue_the_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_spartakists_continue_the_work_log"
+		
+		   
+		
+		}
+	}
 	
 	
 	
@@ -968,15 +992,15 @@ focus = {
 		id = UVS_liberators_of_germany
 		icon = GFX_goal_UVS_liberators_of_germany
 		x = 0
-		y = 2
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_spartakists_continue_the_work
+		relative_position_id = UVS_rosas_speech
 		
 		
 		prerequisite = {
-			focus = UVS_spartakists_continue_the_work
+			focus = UVS_rosas_speech
 		}
 		
 		
@@ -1038,6 +1062,11 @@ focus = {
 		prerequisite = {
 			focus = UVS_searching_for_the_imposters_among_us
 		}
+		
+		prerequisite = {
+			focus = UVS_criticize_nationalists
+		}
+		
 		
 		
 		ai_will_do = {
@@ -1169,25 +1198,51 @@ focus = {
 		}
 	}
 	
-	
 	focus = {
-		id = UVS_deal_with_social_fascists
-		icon = GFX_goal_UVS_deal_with_social_fascists
-		x = 0
+		id = UVS_revolutionary_research_organization
+		icon = GFX_goal_UVS_revolutionary_research
+		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_searching_for_the_imposters_among_us
-		relative_position_id = UVS_invite_invite_zinoviev
-		
-		prerequisite = {
-			focus = UVS_searching_for_the_imposters_among_us
-		}
 		
 		prerequisite = {
 			focus = UVS_invite_invite_zinoviev
 		}
+		prerequisite = {
+		    focus = UVS_searching_for_the_imposters_among_us
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_revolutionary_research_organization"
+		    add_research_slot = 1
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_deal_with_social_fascists
+		icon = GFX_goal_UVS_deal_with_social_fascists
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = UVS_invite_invite_zinoviev
+		
+		prerequisite = {
+			focus = UVS_searching_for_the_imposters_among_us
+			focus = UVS_invite_menzhinsky
+		}
+		
 		
 		
 		
@@ -1209,7 +1264,7 @@ focus = {
 	focus = {
 		id = UVS_roads_for_the_people
 		icon = GFX_goal_UVS_roads_for_the_people
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1217,9 +1272,6 @@ focus = {
 		relative_position_id = UVS_left_accelerationism
 		relative_position_id = UVS_deal_with_social_fascists
 		
-		prerequisite = {
-			focus = UVS_left_accelerationism
-		}
 		
 		prerequisite = {
 			focus = UVS_deal_with_social_fascists
@@ -1254,6 +1306,10 @@ focus = {
 		
 		prerequisite = {
 			focus = UVS_roads_for_the_people
+		}
+		
+		prerequisite = {
+			focus = UVS_left_accelerationism
 		}
 		
 		
@@ -1389,15 +1445,16 @@ focus = {
 	focus = {
 		id = UVS_criticize_nationalists
 		icon = GFX_goal_UVS_criticize_nationalists
-		x = 0
+		x = 4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_cooperate_with_demsocs
+		relative_position_id = UVS_worker_soviets
 		
 		prerequisite = {
-			focus = UVS_cooperate_with_demsocs
+			focus = UVS_worker_soviets
+			focus = UVS_spartakists_continue_the_work
 		}
 		
 		
@@ -1419,10 +1476,10 @@ focus = {
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_criticize_nationalists
+		relative_position_id = UVS_cooperate_with_demsocs
 		
 		prerequisite = {
-			focus = UVS_criticize_nationalists		}
+			focus = UVS_cooperate_with_demsocs		}
 		
 		
 		ai_will_do = {
@@ -1499,10 +1556,13 @@ focus = {
 		relative_position_id = UVS_decentralized_research
 		
 		prerequisite = {
-			focus = UVS_decentralized_research
+			focus = UVS_experience_of_syndicalism
 		}
 		prerequisite = {
 		    focus = UVS_unity_in_diversity
+		}
+		prerequisite = {
+			focus = UVS_retribution_of_the_proletariat
 		}
 		
 		
