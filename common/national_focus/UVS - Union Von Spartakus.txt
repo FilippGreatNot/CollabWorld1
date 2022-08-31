@@ -1239,7 +1239,7 @@ focus = {
 		relative_position_id = UVS_invite_invite_zinoviev
 		
 		prerequisite = {
-			focus = UVS_searching_for_the_imposters_among_us
+			focus = UVS_invite_invite_zinoviev
 			focus = UVS_invite_menzhinsky
 		}
 		
@@ -1254,8 +1254,10 @@ focus = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_deal_with_social_fascists"
 		
-		
-		
+		    remove_ideas = {
+			    UVS_post_poverty
+		    }
+			add_political_power = -25
 		
 		}
 	}
@@ -1655,7 +1657,12 @@ focus = {
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus UVS_retribution_of_the_proletariat"
-		
+		    
+			remove_ideas = {
+			    UVS_post_poverty
+		    }
+			add_stability = 0.05
+			add_political_power = -50
 		
 		}
 	}
@@ -1727,7 +1734,7 @@ focus = {
 	
 	focus = {
 		id = UVS_contact_german_partisans
-		icon = GFX_goal_UVS_contact_german_partisans
+		icon = GFX_goal_UVS_send_partisans
 		x = -1
 		y = 1
 		cost = 5
@@ -1748,9 +1755,6 @@ focus = {
 			}
 		
 		
-	    mutually_exclusive = {
-			focus = UVS_offer_reunification
-		}	
 
 		ai_will_do = {
 			factor = 10
@@ -2178,7 +2182,7 @@ focus = {
 
      focus = {
 		id = UVS_appease_monsocs
-		icon = GFX_goal_UVS_open_trade
+		icon = GFX_goal_UVS_appease_monsocs
 		x = 0
 		y = 1
 		cost = 5
@@ -2317,7 +2321,7 @@ focus = {
 
 	 focus = {
 		id = UVS_south_negotiate
-		icon = GFX_goal_UVS_go_south
+		icon = GFX_goal_UVS_offer_reunification
 		x = 3
 		y = 1
 		cost = 5
