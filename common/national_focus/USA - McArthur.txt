@@ -102,6 +102,235 @@ focus_tree = {
 		
 		prerequisite =  { focus = USA_mc_declare_macarthur_president }
 	}
+	##Centralized army
+	focus = {
+		id = USA_mc_centralize_the_army_command
+		icon = GFX_goal_USA_mc_centralize_the_army_command
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 1.5
+		x = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+	}
+	focus = {
+		id = USA_mc_patience_is_key
+		icon = GFX_goal_USA_mc_patience_is_key
+
+		relative_position_id = USA_mc_centralize_the_army_command
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_centralize_the_army_command }
+		mutually_exclusive = { focus = USA_mc_mobile_warfare_tactics }
+	}
+	focus = {
+		id = USA_mc_support_companies
+		icon = GFX_goal_USA_mc_support_companies
+
+		relative_position_id = USA_mc_patience_is_key
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_patience_is_key }
+		prerequisite = { focus = USA_mc_queen_of_the_battlefield }
+	}
+	focus = {
+		id = USA_mc_mobile_warfare_tactics
+		icon = GFX_goal_USA_mc_mobile_warfare_tactics
+
+		relative_position_id = USA_mc_centralize_the_army_command
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_centralize_the_army_command }
+		mutually_exclusive = { focus = USA_mc_patience_is_key }
+	}
+	focus = {
+		id = USA_mc_research_new_tanks
+		icon = GFX_goal_USA_mc_research_new_tanks
+
+		relative_position_id = USA_mc_mobile_warfare_tactics
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_mobile_warfare_tactics }
+		prerequisite = { focus = USA_mc_queen_of_the_battlefield }
+	}
+	focus = {
+		id = USA_mc_queen_of_the_battlefield
+		icon = GFX_goal_USA_mc_queen_of_the_battlefield
+
+		relative_position_id = USA_mc_centralize_the_army_command
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { 
+			focus = USA_mc_patience_is_key
+			focus = USA_mc_mobile_warfare_tactics
+		}
+	}
+	focus = {
+		id = USA_mc_foreign_expertise
+		icon = GFX_goal_USA_mc_foreign_expertise
+
+		relative_position_id = USA_mc_queen_of_the_battlefield
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { 
+			focus = USA_mc_support_companies
+			focus = USA_mc_research_new_tanks
+		}
+	}
+	##Decentralized army
+	focus = {
+		id = USA_mc_decentralized_army_structure
+		icon = GFX_goal_USA_mc_centralize_the_army_command
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+	}
+	focus = {
+		id = USA_mc_decentralized_army_structure
+		icon = GFX_goal_USA_mc_centralize_the_army_command
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 1.5
+		x = -1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+	}
+
+	##Political subbranch
+	focus = {
+		id = USA_mc_republican_democrat_unity
+		icon = GFX_goal_USA_mc_republican_democrat_unity
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 1.5
+		x = 5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+	}
+	focus = {
+		id = USA_mc_ban_the_socialists
+		icon = GFX_goal_USA_mc_ban_the_socialists
+
+		relative_position_id = USA_mc_republican_democrat_unity
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_republican_democrat_unity }
+		mutually_exclusive = { focus = USA_mc_ban_the_socialists }
+	}
+	focus = {
+		id = USA_mc_outlaw_the_nationalists
+		icon = GFX_goal_USA_mc_outlaw_the_nationalists
+
+		relative_position_id = USA_mc_republican_democrat_unity
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_republican_democrat_unity }
+		mutually_exclusive = { focus = USA_mc_ban_the_socialists }
+	}
+	focus = {
+		id = USA_mc_fight_radicalism
+		icon = GFX_goal_USA_mc_fight_radicalism
+
+		relative_position_id = USA_mc_republican_democrat_unity
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  {
+			focus = USA_mc_ban_the_socialists
+			focus = USA_mc_outlaw_the_nationalists
+		}
+	}
+	focus = {
+		id = USA_mc_restore_freedom_of_speech
+		icon = GFX_goal_USA_mc_restore_freedom_of_speech
+
+		relative_position_id = USA_mc_fight_radicalism
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fight_radicalism }
+	}
+	focus = {
+		id = USA_mc_reopen_democratic_institutions
+		icon = GFX_goal_USA_mc_reopen_democratic_institutions
+
+		relative_position_id = USA_mc_restore_freedom_of_speech
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_restore_freedom_of_speech }
+	}
+	focus = {
+		id = USA_mc_state_radio
+		icon = GFX_goal_USA_mc_state_radio
+
+		relative_position_id = USA_mc_fight_radicalism
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fight_radicalism }
+	}
+	focus = {
+		id = USA_mc_token_civil_rights
+		icon = GFX_goal_USA_mc_token_civil_rights
+
+		relative_position_id = USA_mc_state_radio
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_state_radio }
+	}
+	focus = {
+		id = USA_mc_paper_democracy
+		icon = GFX_goal_USA_mc_paper_democracy
+
+		relative_position_id = USA_mc_fight_radicalism
+		y = 4.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_reopen_democratic_institutions }
+		prerequisite =  { focus = USA_mc_token_civil_rights }
+	}
+
 	#America reunification branch
 	focus = {
 		id = USA_mc_declare_a_great_crusade
