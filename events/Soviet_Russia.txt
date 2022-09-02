@@ -863,7 +863,7 @@ option = {
 
 
 country_event = {
-	id = unification.1 #
+	id = unification.1 #tukh
 	immediate = { log = "[GetDateText]: [Root.GetName]: event prowerstruggle.1" }
 	title = unification.1.t
 	desc = unification.1.d
@@ -885,8 +885,31 @@ country_event = {
 			set_nationality = SOV
 		}
       }	
+	  
+	  
+if = {
+SOV = {
+has_country_leader = { name = "Joseph Stalin" ruling_only = yes }
+}
+
+	  
 SOV = {
 complete_national_focus = SOV_peaceful_integration	  
+}
+
+}
+
+
+
+if = {
+	SOV = {
+	has_country_leader = { name = "Alexander Bogdanov" ruling_only = yes }
+	}
+	
+   SOV = {
+	complete_national_focus = SOV_welcome_home_tukh
+   	   } 
+   }			
 }
 		
 }
@@ -900,9 +923,28 @@ option = {
                 type = annex_everything
             }
           }	
+		  
+if = {
+SOV = {
+has_country_leader = { name = "Joseph Stalin" ruling_only = yes }
+}
 		  SOV = {
 		complete_national_focus = SOV_teach_the_impudent_marshal_a_lesson
-   		}  
+   		} 
+}
+
+
+
+
+if = {
+	SOV = {
+	has_country_leader = { name = "Alexander Bogdanov" ruling_only = yes }
+	}
+	
+   SOV = {
+	complete_national_focus = SOV_this_is_treason_marshal
+   	   } 
+   }			
 }
 	
 
