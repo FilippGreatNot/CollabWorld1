@@ -9,54 +9,66 @@ focus_tree = {
 	}
 	default = no
 	initial_show_position = { focus = USA_mc_to_save_a_nation }
-	continuous_focus_position = { x = 1000 y = 10}
+	#continuous_focus_position = { x = 0 y = 3000}
 
 	focus = {
 		id = USA_mc_to_save_a_nation
+		icon = GFX_goal_USA_mc_to_save_a_nation
+
 		cost = 5
 	}
-
 	focus = {
 		id = USA_mc_convice_the_military
+		icon = GFX_goal_USA_mc_convice_the_military
+
+		relative_position_id = USA_mc_to_save_a_nation
 		y = 1.5
 		x = -1
+
 		cost = 5
-		relative_position_id = USA_mc_to_save_a_nation
+
 		prerequisite =  { focus = USA_mc_to_save_a_nation }
 	}
-
 	focus = {
 		id = USA_mc_secure_the_towns
-		y = 1.5
-		cost = 5
+		icon = GFX_goal_USA_mc_secure_the_towns
+
 		relative_position_id = USA_mc_convice_the_military
+		y = 1.5
+
+		cost = 5
+		
 		prerequisite =  { focus = USA_mc_convice_the_military }
 	}
-
 	focus = {
 		id = USA_mc_rally_the_people
+		icon = GFX_goal_USA_mc_rally_the_people
+
+		relative_position_id = USA_mc_to_save_a_nation
 		y = 1.5
 		x = 1
+
 		cost = 5
-		relative_position_id = USA_mc_to_save_a_nation
+		
 		prerequisite =  { focus = USA_mc_to_save_a_nation }
 	}
-
 	focus = {
 		id = USA_mc_promise_democracy
-		y = 1.5
-		cost = 5
+		icon = GFX_goal_USA_mc_promise_democracy
+
 		relative_position_id = USA_mc_rally_the_people
+		y = 1.5
+
+		cost = 5
+		
 		prerequisite =  { focus = USA_mc_rally_the_people }
 	}
-
 	focus = {
 		id = USA_mc_declare_macarthur_president
-		icon = GFX_focus_USA_mc_declare_macarthur_president
+		icon = GFX_goal_USA_mc_declare_macarthur_president
 
-		relative_position_id = USA_mc_promise_democracy
-		y = 1.5
-		x = -1
+		relative_position_id = USA_mc_to_save_a_nation
+		y = 4.5
 
 		cost = 5
 
@@ -64,12 +76,227 @@ focus_tree = {
 		prerequisite =  { focus = USA_mc_secure_the_towns }
 	}
 
+	#Economy branch
+	focus = {
+		id = USA_mc_fixing_the_economy
+		icon = GFX_goal_USA_mc_fixing_the_economy
+
+		relative_position_id = USA_mc_declare_macarthur_president
+		y = 1.5
+		x = -10
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_declare_macarthur_president }
+	}
+
 	#Military branch
 	focus = {
 		id = USA_mc_fighting_for_democracy
-		y = 1.5
-		cost = 5
+		icon = GFX_goal_USA_mc_fighting_for_democracy
+
 		relative_position_id = USA_mc_declare_macarthur_president
+		y = 1.5
+
+		cost = 5
+		
 		prerequisite =  { focus = USA_mc_declare_macarthur_president }
+	}
+	#America reunification branch
+	focus = {
+		id = USA_mc_declare_a_great_crusade
+		icon = GFX_goal_USA_mc_declare_a_great_crusade
+
+		relative_position_id = USA_mc_declare_macarthur_president
+		y = 1.5
+		x = 10
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_declare_macarthur_president }
+	}
+	focus = {
+		id = USA_mc_destroy_the_californian_traitors
+		icon = GFX_goal_USA_mc_destroy_the_californian_traitors
+
+		relative_position_id = USA_mc_declare_a_great_crusade
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_declare_a_great_crusade }
+		mutually_exclusive = { focus = USA_mc_offer_them_reunification }
+	}
+	focus = {
+		id = USA_mc_offer_them_reunification
+		icon = GFX_goal_USA_mc_offer_them_reunification
+
+		relative_position_id = USA_mc_declare_a_great_crusade
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_declare_a_great_crusade }
+		mutually_exclusive = { focus = USA_mc_destroy_the_californian_traitors }
+	}
+	focus = {
+		id = USA_mc_utilize_californian_oil
+		icon = GFX_goal_USA_mc_utilize_californian_oil
+
+		relative_position_id = USA_mc_declare_a_great_crusade
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  {
+			focus = USA_mc_offer_them_reunification
+			focus = USA_mc_destroy_the_californian_traitors
+		}
+	}
+	focus = {
+		id = USA_mc_destroy_the_movie_maker
+		icon = GFX_goal_USA_mc_destroy_the_movie_maker
+
+		relative_position_id = USA_mc_utilize_californian_oil
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_utilize_californian_oil }
+	}
+	focus = {
+		id = USA_mc_a_holy_war
+		icon = GFX_goal_USA_mc_a_holy_war
+
+		relative_position_id = USA_mc_utilize_californian_oil
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_utilize_californian_oil }
+	}
+	focus = {
+		id = USA_mc_a_holy_war
+		icon = GFX_goal_USA_mc_a_holy_war
+
+		relative_position_id = USA_mc_utilize_californian_oil
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_utilize_californian_oil }
+	}
+	focus = {
+		id = USA_mc_civilize_the_tribes
+		icon = GFX_goal_USA_mc_civilize_the_tribes
+
+		relative_position_id = USA_mc_utilize_californian_oil
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_utilize_californian_oil }
+	}
+	focus = {
+		id = USA_mc_the_west_is_ours
+		icon = GFX_goal_USA_mc_the_west_is_ours
+
+		relative_position_id = USA_mc_utilize_californian_oil
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_destroy_the_movie_maker }
+		prerequisite =  { focus = USA_mc_a_holy_war }
+		prerequisite =  { focus = USA_mc_civilize_the_tribes }
+	}
+	focus = {
+		id = USA_mc_demand_texan_annexation
+		icon = GFX_goal_USA_mc_demand_texan_annexation
+
+		relative_position_id = USA_mc_the_west_is_ours
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_the_west_is_ours }
+	}
+	focus = {
+		id = USA_mc_end_the_motor_company
+		icon = GFX_goal_USA_mc_end_the_motor_company
+
+		relative_position_id = USA_mc_the_west_is_ours
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_the_west_is_ours }
+	}
+	focus = {
+		id = USA_mc_torture_the_racists
+		icon = GFX_goal_USA_mc_torture_the_racists
+
+		relative_position_id = USA_mc_the_west_is_ours
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  {
+			focus = USA_mc_demand_texan_annexation
+			focus = USA_mc_end_the_motor_company
+		}
+	}
+	focus = {
+		id = USA_mc_offer_the_resistance_amnesty
+		icon = GFX_goal_USA_mc_offer_the_resistance_amnesty
+
+		relative_position_id = USA_mc_torture_the_racists
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_torture_the_racists }
+	}
+	focus = {
+		id = USA_mc_extinguish_the_fire_of_revolution
+		icon = GFX_goal_USA_mc_extinguish_the_fire_of_revolution
+
+		relative_position_id = USA_mc_offer_the_resistance_amnesty
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_offer_the_resistance_amnesty }
+	}
+	focus = {
+		id = USA_mc_one_final_war
+		icon = GFX_goal_USA_mc_one_final_war
+
+		relative_position_id = USA_mc_offer_the_resistance_amnesty
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_offer_the_resistance_amnesty }
+	}
+	focus = {
+		id = USA_mc_god_bless_america
+		icon = GFX_goal_USA_mc_god_bless_america
+
+		relative_position_id = USA_mc_offer_the_resistance_amnesty
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_extinguish_the_fire_of_revolution }
+		prerequisite =  { focus = USA_mc_one_final_war }
 	}
 }
