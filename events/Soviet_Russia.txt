@@ -7,7 +7,7 @@ add_namespace = leadership
 add_namespace = unification
 add_namespace = yezhovgang
 add_namespace = stalin
-
+add_namespace = revizionisti
 
 country_event = {
 	id = problem.1
@@ -805,7 +805,10 @@ country_event = {
 			expire = "1965.1.1"
 			ideology = leninist_pragmatism
 			
-		traits = {man_of_steel}
+		traits = {
+		man_of_steel
+		
+		  }
 		}
 		complete_national_focus = SOV_the_man_of_steel
 		set_cosmetic_tag = SOV_stalin_regional
@@ -822,7 +825,10 @@ option = {
 			picture = "gfx/leaders/SOV/Portrait_SOV_Alexander_Bogdanov.png"
 			expire = "1965.1.1"
 			ideology = technocratic_socialism
-			traits = { }
+			traits = { 
+			technocrat
+			
+			}
 		}	
         set_cosmetic_tag = SOV_bogdanov_regional
 		complete_national_focus = SOV_the_vanguardist		
@@ -852,7 +858,10 @@ option = {
 			expire = "1965.1.1"
 			ideology = stratocratic_bolshevism
 			
-			traits = { }
+			traits = { 
+			iron_phoenix
+			
+			}
 		}	
         set_cosmetic_tag = SOV_felix_regional
 		complete_national_focus = SOV_the_iron_phoenix		
@@ -994,4 +1003,81 @@ option = {
 		complete_national_focus = SOV_bokii_leader
 	}
 		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### Revizionisti
+
+country_event = {
+	id = revizionisti.1 ####GANG 1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event revizionisti.1" }
+	title = revizionisti.1.t
+	desc = revizionisti.1.d
+	picture = GFX_report_event_red_army_order
+	is_triggered_only = yes
+	
+	
+	immediate = {
+	hidden_effect = {
+			end_puppet = KMD
+		}
+	}
+
+	option = {
+		name = revizionisti.1.a
+		
+		
+		create_country_leader = {
+			name = "Nikolay Ustryalov"
+			desc = "POLITICS_USTRYALOV_DESC"
+			picture = "gfx/leaders/SOV/Portrait_SOV_Nikolay_Ustryalov.png"
+			expire = "1965.1.1"
+			ideology = national_marxism
+			traits = {  }
+		}
+#		remove_all_ministers = yes
+		remove_ideas = SOV_Alexei_Rykov_hog
+		remove_ideas = SOV_Gleb_Krzhizhanovsky_ec
+		remove_ideas = SOV_Ruben_Katanyan_pro
+		remove_ideas = SOV_Felix_Dzerzhinsky_sec
+	
+	
+	
+		
+	set_party_name = { 
+		ideology = bolshevism 
+		long_name = SOV_REVEZIONISTI_LONG
+		name = SOV_REVEZIONISTI_SHORT
+	}
+		
+		add_ideas = {
+			
+		}	
+
+		
+		
+		set_politics = {
+			ruling_party = bolshevism
+		}
+		
+		
+		set_cosmetic_tag = SOV_utryalov_regional
+		load_focus_tree = revizionisti_start
+		
+		
+	}
 }
