@@ -23,8 +23,8 @@ focus_tree = {
 		completion_reward = {	
 		    log = "[GetDateText]: [Root.GetName]: Focus FRA_coty_presidency"
 			
-		   add_stability = 0.03
-		   add_political_power = 50	
+		   add_stability = 0.05
+		   add_political_power = 25	
 		}
 	}
 
@@ -33,7 +33,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_nationalists_in_parliament
 		x = -1
 		y = 1
-		cost = 4
+		cost = 1
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_coty_presidency
@@ -47,7 +47,8 @@ focus_tree = {
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus FRA_nationalists_in_parliament"
-		
+	    
+		    add_stability = -0.05
 		
 		}
 	}	
@@ -58,7 +59,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_purge_the_degenerats
 		x = 0
 		y = 1
-		cost = 4
+		cost = 1
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_nationalists_in_parliament
@@ -82,7 +83,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_condemn_the_traitors
 		x = 1
 		y = 1
-		cost = 5
+		cost = 1
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_coty_presidency
@@ -96,7 +97,9 @@ focus_tree = {
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus FRA_condemn_the_traitors"
-		
+	     
+		    add_war_support = 0.05
+			add_political_power = -25
 		
 		}
 	}	
@@ -106,7 +109,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_anti_soc_propaganda
 		x = 0
 		y = 1
-		cost = 4
+		cost = 1
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_condemn_the_traitors
@@ -120,7 +123,13 @@ focus_tree = {
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus FRA_anti_soc_propaganda"
-		
+	        
+			add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.05
+		   } 
+		   
+		   add_stability = 0.05
 		
 		}
 	}
@@ -131,7 +140,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_ban_sfoi
 		x = -1
 		y = 1
-		cost = 6
+		cost = 2
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_purge_the_degenerats
@@ -151,7 +160,9 @@ focus_tree = {
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus FRA_ban_sfoi"
 		
-		
+		    remove_ideas = {
+			    FRA_nationwide_strikes
+			}
 		}
 	}
 	
@@ -161,7 +172,7 @@ focus_tree = {
 	focus = {
 		id = FRA_calm_down_the_republic
 		icon = GFX_goal_FRA_calm_down_the_republic
-		x = -5
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -213,7 +224,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_deal_with_traitors
 		x = -1
 		y = 1
-		cost = 4
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_spread_nationalist_propaganda
@@ -286,7 +297,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_gather_military_support
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_anti_socialist_laws
@@ -406,7 +417,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_viva_la_coty
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_emergency_presidential_power
@@ -430,7 +441,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_ban_all_opposition_parties
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_viva_la_coty
@@ -453,7 +464,7 @@ focus_tree = {
 	focus = {
 		id = FRA_acknowledge_the_economic_clusterfuck
 		icon = GFX_goal_FRA_acknowledge_the_economic_clusterfuck
-		x = 5
+		x = 4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -481,7 +492,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_the_people_first
 		x = -2
 		y = 1
-		cost = 2
+		cost = 6
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_acknowledge_the_economic_clusterfuck
@@ -510,7 +521,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_cut_military_spending
 		x = -1
 		y = 1
-		cost = 4
+		cost = 7
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_the_people_first
@@ -534,7 +545,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_nationalize_private_assets
 		x = 0
 		y = 1
-		cost = 5
+		cost = 7
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_cut_military_spending
@@ -558,7 +569,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_implement_autarky_measures
 		x = 2
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_acknowledge_the_economic_clusterfuck
@@ -587,7 +598,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_implement_tax_hikes
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_implement_autarky_measures
@@ -611,7 +622,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_fake_the_numbers
 		x = 0
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_implement_tax_hikes
@@ -723,7 +734,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_cotys_infrastructure_plans
 		x = 0
 		y = 1
-		cost = 5
+		cost = 7
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_national_unemployment_program
@@ -778,7 +789,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_liquidate_unprofitable_assets
 		x = 0
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_the_inflation_reduction_act
@@ -835,7 +846,7 @@ focus_tree = {
 		icon = GFX_goal_FRA_take_full_control
 		x = 4
 		y = 1
-		cost = 5
+		cost = 1
 		available_if_capitulated = yes
 		
 		relative_position_id = FRA_the_fires_extinguished
@@ -854,7 +865,9 @@ focus_tree = {
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus FRA_take_full_control"
-		
+		    
+			add_political_power = 75
+			add_stability = -0.05
 		
 		}
 	}	
