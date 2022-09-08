@@ -2,18 +2,19 @@ focus_tree = {
 	id = USA_mcarthur
 	country = {
 		factor = 0
-		#modifier = {
-		#	add = 10
-		#	tag = USA
-		#}
+		modifier = {
+			add = 10
+			tag = CCC
+		}
 	}
 	default = no
 	initial_show_position = { focus = USA_mc_to_save_a_nation }
-	#continuous_focus_position = { x = 0 y = 3000}
+	continuous_focus_position = { x = 0 y = 0}
 
 	focus = {
 		id = USA_mc_to_save_a_nation
 		icon = GFX_goal_USA_mc_to_save_a_nation
+		x = 15
 
 		cost = 5
 	}
@@ -68,7 +69,7 @@ focus_tree = {
 		icon = GFX_goal_USA_mc_declare_macarthur_president
 
 		relative_position_id = USA_mc_to_save_a_nation
-		y = 4.5
+		y = 4
 
 		cost = 5
 
@@ -83,11 +84,24 @@ focus_tree = {
 
 		relative_position_id = USA_mc_declare_macarthur_president
 		y = 1.5
-		x = -10
+		x = -15
 
 		cost = 5
 
 		prerequisite =  { focus = USA_mc_declare_macarthur_president }
+	}
+	##Corporatocracy
+	focus = {
+		id = USA_mc_cooperate_with_loyal_corporations
+		icon = GFX_goal_USA_mc_cooperate_with_loyal_corporations
+
+		relative_position_id = USA_mc_fixing_the_economy
+		y = 1.5
+		x = -1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_fixing_the_economy }
 	}
 
 	#Military branch
@@ -102,6 +116,173 @@ focus_tree = {
 		
 		prerequisite =  { focus = USA_mc_declare_macarthur_president }
 	}
+
+	##Air subbranch
+	focus = {
+		id = USA_mc_wings_of_freedom
+		icon = USA_mc_wings_of_freedom
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 1.5
+		x = -10
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+	}
+	focus = {
+		id = USA_mc_tactical_bombardment
+		icon = GFX_goal_USA_mc_tactical_bombardment
+
+		relative_position_id = USA_mc_wings_of_freedom
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_wings_of_freedom }
+		mutually_exclusive = { focus = USA_mc_fight_for_air_superiority }
+	}
+	focus = {
+		id = USA_mc_research_new_bombers
+		icon = GFX_goal_USA_mc_research_new_bombers
+
+		relative_position_id = USA_mc_tactical_bombardment
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_tactical_bombardment }
+	}
+	focus = {
+		id = USA_mc_bombs_of_freedom
+		icon = GFX_goal_USA_mc_bombs_of_freedom
+
+		relative_position_id = USA_mc_research_new_bombers
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_research_new_bombers }
+	}
+	focus = {
+		id = USA_mc_fight_for_air_superiority
+		icon = GFX_goal_USA_mc_fight_for_air_superiority
+
+		relative_position_id = USA_mc_wings_of_freedom
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_wings_of_freedom }
+		mutually_exclusive = { focus = USA_mc_tactical_bombardment }
+	}
+	focus = {
+		id = USA_mc_cas_research
+		icon = GFX_goal_USA_mc_cas_research
+
+		relative_position_id = USA_mc_fight_for_air_superiority
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_fight_for_air_superiority }
+	}
+	focus = {
+		id = USA_mc_simplify_plane_production
+		icon = GFX_goal_USA_mc_simplify_plane_production
+
+		relative_position_id = USA_mc_cas_research
+		y = 1.5
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_cas_research }
+	}
+
+	##Army subbranches
+	focus = {
+		id = USA_mc_professionalize_the_army
+		icon = GFX_goal_USA_mc_professionalize_the_army
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { 
+			focus = USA_mc_decentralized_army_structure
+			focus = USA_mc_centralize_the_army_command
+		}
+	}
+	focus = {
+		id = USA_mc_loyalty_to_democracy
+		icon = GFX_goal_USA_mc_loyalty_to_democracy
+
+		relative_position_id = USA_mc_professionalize_the_army
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_professionalize_the_army }
+		mutually_exclusive = { focus = USA_mc_loyalty_to_the_marshal }
+	}
+	focus = {
+		id = USA_mc_loyalty_to_the_marshal
+		icon = GFX_goal_USA_mc_loyalty_to_the_marshal
+
+		relative_position_id = USA_mc_professionalize_the_army
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_professionalize_the_army }
+		mutually_exclusive = { focus = USA_mc_loyalty_to_democracy }
+	}
+	focus = {
+		id = USA_mc_train_the_next_generation
+		icon = GFX_goal_USA_mc_train_the_next_generation
+
+		relative_position_id = USA_mc_professionalize_the_army
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  {
+			focus = USA_mc_loyalty_to_democracy
+			focus = USA_mc_loyalty_to_the_marshal
+		}
+	}
+	focus = {
+		id = USA_mc_prisoners_no_more
+		icon = GFX_goal_USA_mc_prisoners_no_more
+
+		relative_position_id = USA_mc_train_the_next_generation
+		y = 1.5
+		x = -1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_train_the_next_generation }
+		prerequisite = { focus = USA_mc_loyalty_to_democracy }
+	}
+	focus = {
+		id = USA_mc_purge_unloyal_officers
+		icon = GFX_goal_USA_mc_purge_unloyal_officers
+
+		relative_position_id = USA_mc_train_the_next_generation
+		y = 1.5
+		x = 1
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_train_the_next_generation }
+		prerequisite =  { focus = USA_mc_loyalty_to_the_marshal }
+	}
+
 	##Centralized army
 	focus = {
 		id = USA_mc_centralize_the_army_command
@@ -109,10 +290,11 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1.5
-		x = 1.5
+		x = 4.5
 
 		cost = 5
 		
+		mutually_exclusive = { focus = USA_mc_decentralized_army_structure }
 		prerequisite =  { focus = USA_mc_fighting_for_democracy }
 	}
 	focus = {
@@ -121,7 +303,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_centralize_the_army_command
 		y = 1.5
-		x = -1
+		#x = -1
 
 		cost = 5
 		
@@ -146,7 +328,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_centralize_the_army_command
 		y = 1.5
-		x = 1
+		x = 2
 
 		cost = 5
 		
@@ -200,24 +382,92 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1.5
-		x = 1
+		x = -4.5
 
 		cost = 5
 		
 		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+		mutually_exclusive = { focus = USA_mc_centralize_the_army_command }
 	}
 	focus = {
-		id = USA_mc_decentralized_army_structure
-		icon = GFX_goal_USA_mc_centralize_the_army_command
+		id = USA_mc_blow_the_traitors_to_dust
+		icon = GFX_goal_USA_mc_blow_the_traitors_to_dust
 
-		relative_position_id = USA_mc_fighting_for_democracy
+		relative_position_id = USA_mc_decentralized_army_structure
 		y = 1.5
-		x = -1.5
 
 		cost = 5
 		
-		prerequisite =  { focus = USA_mc_fighting_for_democracy }
+		mutually_exclusive = { focus = USA_mc_mass_mobolization }
+		prerequisite =  { focus = USA_mc_decentralized_army_structure }
 	}
+	focus = {
+		id = USA_mc_mass_mobolization
+		icon = GFX_goal_USA_mc_mass_mobolization
+
+		relative_position_id = USA_mc_decentralized_army_structure
+		y = 1.5
+		x = -2
+
+		cost = 5
+		
+		mutually_exclusive = { focus = USA_mc_blow_the_traitors_ro_dust }
+		prerequisite =  { focus = USA_mc_decentralized_army_structure }
+	}
+	focus = {
+		id = USA_mc_guns_for_true_patriots
+		icon = GFX_goal_USA_mc_guns_for_true_patriots
+
+		relative_position_id = USA_mc_decentralized_army_structure
+		y = 3
+		x = -1
+		cost = 5
+		
+		prerequisite =  { 
+			focus = USA_mc_mass_mobolization
+			focus = USA_mc_blow_the_traitors_to_dust 
+
+		}
+	}
+	focus = {
+		id = USA_mc_the_army_is_people
+		icon = GFX_goal_USA_mc_the_army_is_people
+
+		relative_position_id = USA_mc_mass_mobolization
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_mass_mobolization }
+		prerequisite =  { focus = USA_mc_guns_for_true_patriots }
+	}
+	focus = {
+		id = USA_mc_expand_artillery_production
+		icon = GFX_goal_USA_mc_expand_artillery_production
+
+		relative_position_id = USA_mc_blow_the_traitors_to_dust
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { focus = USA_mc_blow_the_traitors_to_dust }
+		prerequisite =  { focus = USA_mc_guns_for_true_patriots }
+	}
+	focus = {
+		id = USA_mc_raise_militias
+		icon = GFX_goal_USA_mc_raise_militias
+
+		relative_position_id = USA_mc_guns_for_true_patriots
+		y = 3
+
+		cost = 5
+		
+		prerequisite =  { 
+			focus = USA_mc_the_army_is_people
+			focus = USA_mc_expand_artillery_production
+		}
+	}
+
 
 	##Political subbranch
 	focus = {
@@ -226,7 +476,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1.5
-		x = 5
+		x = 10
 
 		cost = 5
 		
@@ -330,6 +580,22 @@ focus_tree = {
 		prerequisite =  { focus = USA_mc_reopen_democratic_institutions }
 		prerequisite =  { focus = USA_mc_token_civil_rights }
 	}
+	focus = {
+		id = USA_mc_end_of_the_army_reforms
+		icon = GFX_goal_USA_mc_end_of_the_army_reforms
+
+		relative_position_id = USA_mc_fighting_for_democracy
+		y = 9
+
+		cost = 5
+		
+		prerequisite =  {
+			focus = USA_mc_prisoners_no_more
+			focus = USA_mc_purge_unloyal_officers
+			focus = USA_mc_foreign_expertise
+			focus = USA_mc_raise_militias
+		}
+	}
 
 	#America reunification branch
 	focus = {
@@ -338,7 +604,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_declare_macarthur_president
 		y = 1.5
-		x = 10
+		x = 14
 
 		cost = 5
 		
