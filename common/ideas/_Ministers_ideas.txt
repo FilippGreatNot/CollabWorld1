@@ -2,6 +2,9 @@ ideas = {
 
 ### SOV
 
+######Hog
+
+
 
   head_of_government = { #Рыков
 		SOV_Alexei_Rykov_hog = {
@@ -132,6 +135,40 @@ ideas = {
 	
 	
 	
+  head_of_government = { #Abram Ioffe
+
+		SOV_Abram_Ioffe_hog = {
+		
+		picture = SOV_Abram_Ioffe_hog
+		
+			allowed = {
+					original_tag = SOV
+				}
+				
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			visible = {
+				NOT = { has_country_flag = Ioffe_dead }
+			}
+			cancel_if_invalid = yes
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea SOV_Abram_Ioffe_hog"
+			}
+			traits = {
+			    head_of_government
+				physics_scientist
+				
+			}
+		}
+	
+	}
+	
+	
+######security	
 
 	
  security_minister = { 
@@ -292,7 +329,40 @@ ideas = {
 		}
 	
 	}
-
+	
+	
+	
+	security_minister = { 	
+                             
+		SOV_Trofim_Lysenko_sec = {  
+		
+		picture = SOV_trofim_lysenko_sec
+		
+			allowed = {
+					original_tag = SOV
+				}
+				
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			visible = {
+				NOT = { has_country_flag = lysenko_dead }
+			}
+			cancel_if_invalid = yes
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea SOV_trofim_lysenko_sec"
+			}
+			traits = {
+			    security_minister
+				headstrong
+			}
+		}
+	
+	}
+############ economy 
  economy_minister = { #Бухарин
 		SOV_Bukharin_ec = {
 		
@@ -386,6 +456,39 @@ ideas = {
 		}
 	
 	}
+	
+	
+	
+	economy_minister = { #Гастев
+		SOV_Alexei_Gastev_ec = {
+		
+		picture = SOV_Alexei_Gastev_ec
+		
+			allowed = {
+					original_tag = SOV
+				}
+				
+				available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			visible = {
+				NOT = { has_country_flag = gastev_dead }
+			}
+			cancel_if_invalid = yes
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea SOV_Alexei_Gastev_ec"
+			}
+			traits = {
+			    economy_minister
+				proletkultist
+				
+			}
+		}
+	
+	}
 		
 		
 		
@@ -444,6 +547,38 @@ ideas = {
 			cancel_if_invalid = yes
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea SOV_Mikhail_Bulgakov_pro"
+			}
+			traits = {
+			    propaganda_minister
+				science_fiction_writer
+			}
+		}
+	
+	}
+	
+	
+ propaganda_minister = { 
+		SOV_Vladimir_Mayakovsky_pro = { #Булгаков
+		
+		
+		picture = SOV_Vladimir_Mayakovsky_pro
+		
+			allowed = {
+					original_tag = SOV
+				}
+				
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = minister_available
+					always = no
+				}
+			}
+			visible = {
+				NOT = { has_country_flag = Mayakovsky_dead }
+			}
+			cancel_if_invalid = yes
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea SOV_Vladimir_Mayakovsky_pro"
 			}
 			traits = {
 			    propaganda_minister
