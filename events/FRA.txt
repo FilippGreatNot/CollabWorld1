@@ -1,0 +1,48 @@
+add_namespace = coty
+
+country_event = {
+	id = coty.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coty.1" }
+	title = coty.1.t
+	desc = coty.1.d
+#	picture = 
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = coty.1.a
+		
+		add_offsite_building = { type = industrial_complex level = 1 }
+
+	}
+
+	option = {
+		name = coty.1.b
+		
+		add_offsite_building = { type = arms_factory level = 1 }
+	}
+	
+	option = {
+		name = coty.1.c
+		
+		23 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+	}
+	
+
+}
+
+
