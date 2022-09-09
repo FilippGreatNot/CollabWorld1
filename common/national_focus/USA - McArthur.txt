@@ -97,11 +97,12 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fixing_the_economy
 		y = 1
-		x = -1
+		x = -2
 
 		cost = 5
 
 		prerequisite =  { focus = USA_mc_fixing_the_economy }
+		mutually_exclusive = { focus = USA_mc_destroy_the_corporatocracy }
 	}
 	focus = {
 		id = USA_mc_emergency_industrialization
@@ -185,7 +186,185 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite =  { focus = USA_mc_token_worker_rights }
+		prerequisite =  {
+			focus = USA_mc_token_worker_rights
+			focus = USA_mc_fight_poverty
+		}
+		prerequisite = { focus = USA_mc_agricultural_revitalization_program }
+		mutually_exclusive = { focus = USA_mc_deficit_spending }
+	}
+
+	##Not corporatocracy
+	focus = {
+		id = USA_mc_destroy_the_corporatocracy
+		icon = GFX_goal_USA_mc_destroy_the_corporatocracy
+
+		relative_position_id = USA_mc_fixing_the_economy
+		y = 1
+		x = 2
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_fixing_the_economy }
+		mutually_exclusive = { focus = USA_mc_cooperate_with_loyal_corporations }
+	}
+	focus = {
+		id = USA_mc_principles_of_autakry
+		icon = GFX_goal_USA_mc_principles_of_autakry
+
+		relative_position_id = USA_mc_destroy_the_corporatocracy
+		y = 1
+		x = -1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_destroy_the_corporatocracy }
+	}
+	focus = {
+		id = USA_mc_intervene_in_the_economy
+		icon = GFX_goal_USA_mc_intervene_in_the_economy
+
+		relative_position_id = USA_mc_destroy_the_corporatocracy
+		y = 1
+		x = 1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_destroy_the_corporatocracy }
+	}
+	focus = {
+		id = USA_mc_develop_our_infrastructure
+		icon = GFX_goal_USA_mc_develop_our_infrastructure
+
+		relative_position_id = USA_mc_intervene_in_the_economy
+		y = 1
+		x = 1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_intervene_in_the_economy }
+	}
+	focus = {
+		id = USA_mc_raise_corporate_taxes
+		icon = GFX_goal_USA_mc_raise_corporate_taxes
+
+		relative_position_id = USA_mc_intervene_in_the_economy
+		y = 1
+		x = -1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_intervene_in_the_economy }
+	}
+	focus = {
+		id = USA_mc_expand_worker_rights
+		icon = GFX_goal_USA_mc_expand_worker_rights
+
+		relative_position_id = USA_mc_intervene_in_the_economy
+		y = 2
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_develop_our_infrastructure }
+		prerequisite =  { focus = USA_mc_raise_corporate_taxes }
+	}
+	focus = {
+		id = USA_mc_fight_poverty
+		icon = GFX_goal_USA_mc_fight_poverty
+
+		relative_position_id = USA_mc_expand_worker_rights
+		y = 1
+		x = -1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_expand_worker_rights }
+	}
+	focus = {
+		id = USA_mc_deficit_spending
+		icon = GFX_goal_USA_mc_deficit_spending
+
+		relative_position_id = USA_mc_fight_poverty
+		y = 1
+		x = -1
+
+		cost = 5
+
+		prerequisite =  {
+			focus = USA_mc_fight_poverty
+			focus = USA_mc_token_worker_rights
+		}
+		prerequisite = { focus = USA_mc_agricultural_revitalization_program }
+		mutually_exclusive = { focus = USA_mc_fight_our_debt }
+	}
+	##Common
+	focus = {
+		id = USA_mc_expand_the_military_industry
+		icon = GFX_goal_USA_mc_expand_the_military_industry
+
+		relative_position_id = USA_mc_fixing_the_economy
+		y = 3
+
+		cost = 5
+
+		prerequisite =  {
+			focus = USA_mc_restart_trade
+			focus = USA_mc_principles_of_autakry
+		}
+	}
+	focus = {
+		id = USA_mc_be_resourceful
+		icon = GFX_goal_USA_mc_be_resourceful
+
+		relative_position_id = USA_mc_expand_the_military_industry
+		y = 1
+		x = -1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_expand_the_military_industry }
+		mutually_exclusive = { focus = USA_mc_develop_our_resources }
+	}
+	focus = {
+		id = USA_mc_develop_our_resources
+		icon = GFX_goal_USA_mc_develop_our_resources
+
+		relative_position_id = USA_mc_expand_the_military_industry
+		y = 1
+		x = 1
+
+		cost = 5
+
+		prerequisite =  { focus = USA_mc_expand_the_military_industry }
+		mutually_exclusive = { focus = USA_mc_be_resourceful }
+	}
+	focus = {
+		id = USA_mc_agricultural_revitalization_program
+		icon = GFX_goal_USA_mc_agricultural_revitalization_program
+
+		relative_position_id = USA_mc_expand_the_military_industry
+		y = 2
+
+		cost = 5
+
+		prerequisite =  {
+			focus = USA_mc_be_resourceful
+			focus = USA_mc_develop_our_resources
+		}
+	}
+	focus = {
+		id = USA_mc_expand_our_research_capabilities
+		icon = GFX_goal_USA_mc_expand_our_research_capabilities
+
+		relative_position_id = USA_mc_agricultural_revitalization_program
+		y = 2
+
+		cost = 5
+
+		prerequisite =  {
+			focus = USA_mc_fight_our_debt
+			focus = USA_mc_deficit_spending
+		}
 	}
 
 	#Military branch
@@ -374,7 +553,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1
-		x = 2.5
+		x = 3
 
 		cost = 5
 		
@@ -495,7 +674,7 @@ focus_tree = {
 
 		cost = 5
 		
-		mutually_exclusive = { focus = USA_mc_blow_the_traitors_ro_dust }
+		mutually_exclusive = { focus = USA_mc_blow_the_traitors_to_dust }
 		prerequisite =  { focus = USA_mc_decentralized_army_structure }
 	}
 	focus = {
@@ -577,7 +756,7 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =  { focus = USA_mc_republican_democrat_unity }
-		mutually_exclusive = { focus = USA_mc_ban_the_socialists }
+		mutually_exclusive = { focus = USA_mc_outlaw_the_nationalists }
 	}
 	focus = {
 		id = USA_mc_outlaw_the_nationalists
@@ -758,17 +937,6 @@ focus_tree = {
 		prerequisite =  { focus = USA_mc_utilize_californian_oil }
 	}
 	focus = {
-		id = USA_mc_a_holy_war
-		icon = GFX_goal_USA_mc_a_holy_war
-
-		relative_position_id = USA_mc_utilize_californian_oil
-		y = 1
-
-		cost = 5
-		
-		prerequisite =  { focus = USA_mc_utilize_californian_oil }
-	}
-	focus = {
 		id = USA_mc_civilize_the_tribes
 		icon = GFX_goal_USA_mc_civilize_the_tribes
 
@@ -826,10 +994,8 @@ focus_tree = {
 
 		cost = 5
 		
-		prerequisite =  {
-			focus = USA_mc_demand_texan_annexation
-			focus = USA_mc_end_the_motor_company
-		}
+		prerequisite =  { focus = USA_mc_demand_texan_annexation }
+		prerequisite =  { focus = USA_mc_end_the_motor_company }
 	}
 	focus = {
 		id = USA_mc_offer_the_resistance_amnesty
