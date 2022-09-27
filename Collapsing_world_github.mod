@@ -16,6 +16,7 @@ replace_path="common/decisions"
 replace_path="common/national_focus"
 replace_path="common/decisions/categories"
 replace_path="history/states"
+
 name="Collapsing World 0.5"
-supported_version="1.11.*"
+supported_version="1.12.*"
 path="C:/Users/User/Documents/Paradox Interactive/Hearts of Iron IV/mod/CollabWorld1"
