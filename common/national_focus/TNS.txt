@@ -1,0 +1,110 @@
+focus_tree = {
+	id = there_is_site_5
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TNS
+		}
+	}
+	default = no
+
+
+
+   focus = {
+		id = TNS_alone
+		icon = GFX_goal_TNS_there_is_no_site_5
+		cost = 1.0
+		x = 8
+		y = 0
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TNS_alone"
+			country_event = { id = TNS.1 days = 1 }
+			add_political_power = 25
+		}
+	}
+	
+	
+	focus = {
+		id = TNS_reboot
+		icon = GFX_goal_TNS_reboot
+		cost = 4.0
+		x = 0
+		y = 1
+		relative_position_id = TNS_alone
+		prerequisite = {
+			focus = TNS_alone
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TNS_reboot"
+			add_stability = 0.05
+			country_event = { id = TNS.2 days = 1 }
+		}
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = TNS_aic_reboot
+		icon = GFX_goal_TNS_aic_reboot
+		cost = 0.5
+		x = -1
+		y = 1
+		relative_position_id = TNS_reboot
+		prerequisite = {
+			focus = TNS_reboot
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TNS_aic_reboot"
+			add_political_power = 0.25
+			country_event = { id = TNS.3 days = 1 }
+		}
+	}
+	
+	
+	focus = {
+		id = TNS_generators_reboot
+		icon = GFX_goal_TNS_generators_reboot
+		cost = 3.0
+		x = 1
+		y = 1
+		relative_position_id = TNS_reboot
+		prerequisite = {
+			focus = TNS_reboot
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TNS_generators_reboot"
+			add_stability = 0.10
+			# country_event = { id = TNS.4 days = 1 }
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = TNS_reconstructing
+		icon = GFX_goal_TNS_reconstructing
+		cost = 3.3
+		x = -1
+		y = 1
+		relative_position_id = TNS_aic_reboot
+		relative_position_id = TNS_generators_reboot
+		prerequisite = {
+			focus = TNS_generators_reboot
+		}
+		prerequisite = {
+			focus = TNS_aic_reboot
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus TNS_reconstructing"
+            add_political_power = 50.00
+		     
+			country_event = { id = TNS.5 days = 1 }
+			
+			
+			set_country_flag = TNS_site_reconstruction
+		}
+	}

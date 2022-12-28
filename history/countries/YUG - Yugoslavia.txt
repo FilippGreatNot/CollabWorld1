@@ -1,0 +1,305 @@
+﻿capital = 107
+
+oob = "YUG_1936"
+
+set_research_slots = 3
+
+
+set_technology = {
+		# Infantry
+		infantry_weapons0 = 1
+		infantry_weaponsgreat_war = 1
+		infantry_gasmask = 1
+		support_weapons = 1
+		support_weapons1 = 1
+		
+		infantry_binoculars = 1
+		infantry_weapons0 = 1
+		infantry_grenade = 1
+		motorised_infantry = 1
+		armored_car0 = 1
+		
+		marines = 1
+		marines1 = 1
+		tech_mountaineers = 1
+
+		# Support
+		tech_support = 1
+		tech_engineers = 1
+		tech_recon = 1
+		tech_military_police = 1
+		tech_field_hospital = 1
+		tech_logistics_company = 1
+
+		# Armor
+
+		tank_armor = 1
+
+		# Artillery
+		gw_artillery = 1
+		pre_gw_artillery = 1
+		on_gw_artillery = 1
+		gw_field_guns = 1
+		pre_gw_field_guns = 1
+		on_gw_field_guns = 1
+		superheavy_artillerygw = 1
+		on_gw_antiair = 1
+
+
+		# Land Doctrine
+
+		# Navy
+		early_destroyer = 1
+		basic_destroyer = 1
+		improved_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_battlecruiser = 1
+		early_battlecruiser = 1
+		basic_battlecruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		early_submarine = 1
+		early_submarine = 1
+		transport = 1
+
+		# Air
+		scout_fighter = 1
+		biplane_fighter1 = 1
+		biplane_fighter2 = 1
+		biplane_bomber = 1
+		gw_biplane_bomber = 1
+		airship1 = 1
+
+
+
+		# Navy Doctrine
+		#ww1_navaldoctrine = 1
+		#ww1_navaldoctrine_2 = 1
+		#ww1_navaldoctrine_3 = 1
+
+		# Engineering
+		electronic_mechanical_engineering = 1
+		simple_electronics = 1
+		chemical_research = 1
+		
+		gw_encryption = 1
+		
+		tanktraks = 1
+		electric_motor = 1
+		convey = 1
+		
+		camera1 = 1
+
+		# Industry
+		basic_manual_machine_tools = 1
+		improved_manual_machine_tools = 1
+		high_volume_industrial_production = 1
+		basic_machine_tools = 1
+		production_mechanization = 1
+		industrial_railways = 1
+		conversion_of_civilian_factories = 1
+		construction0 = 1
+		construction0_5 = 1
+		bunkers1 = 1
+		air_defense = 1
+
+}
+
+set_convoys = 10
+set_politics = {
+	ruling_party = authoritarian_democrat
+	last_election = "1935.5.3"
+	election_frequency = 36
+	elections_allowed = no
+}
+set_popularities = {
+	despotism = 40
+	national_syndicalism = 8
+	bolshevism = 7
+	authoritarian_democrat = 45
+}
+
+set_stability = 0.6
+
+create_country_leader = {
+	name = "Alexander I"
+	desc = "POLITICS_ALEXANDER_I_YUG_DESC"
+	picture = "gfx/leaders/YUG/Alexander1.dds"
+	expire = "1965.1.1"
+	ideology = authoritarian_democrat_subtype
+	traits = {
+		#
+	}
+}
+
+
+create_country_leader = {
+	name = "Josip Broz Tito"
+	desc = "POLITICS_JOSIP_BROZ_TITO_DESC"
+	picture = "Portrait_Yugoslavia_Josip_Broz_Tito.dds"
+	expire = "1965.1.1"
+	ideology = liberal_conservatism
+	traits = {
+		#
+	}
+}
+
+create_corps_commander = {
+	name = "Vladimir Čukavac"
+	gfx = GFX_Portrait_yugoslavia_vladimir_cukavac
+	traits = { trickster  }
+	skill = 3
+
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Ivan Gošnjak"
+	gfx = GFX_Portrait_yugoslavia_ivan_gosnjak
+	traits = { urban_assault_specialist }
+	skill = 3
+	
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+create_field_marshal = {
+	name = "Danilo Kalafatović"
+	gfx = GFX_Portrait_yugoslavia_danilo_kalafatovic
+	traits = {  }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 1
+}
+
+create_field_marshal = {
+	name = "Milutin Nedić"
+	gfx = GFX_Portrait_yugoslavia_milutin_nedic
+	traits = { thorough_planner }
+	skill = 3	
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Petar Kosić"
+	gfx = GFX_Portrait_yugoslavia_petar_kosic
+	traits = {  }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Josef Depre"
+	gfx = GFX_portrait_yugoslavia_josef_depre
+	traits = { cavalry_officer }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 3
+}
+
+create_navy_leader = {
+	name = "Marijan Polić"
+	gfx = GFX_Portrait_yugoslavia_marijan_polic
+	traits = { old_guard_navy navy_career_officer }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 1
+	coordination_skill = 2
+}
+
+### VARIANTS ###
+# 1936 Start #
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	### Ship Variants ###
+	create_equipment_variant = {
+		name = "Dubrovnik Class"
+		type = destroyer_1
+		upgrades = {
+			ship_torpedo_upgrade = 1
+			destroyer_engine_upgrade = 1
+			ship_ASW_upgrade = 1
+			ship_anti_air_upgrade = 1
+		}
+	}
+	create_equipment_variant = {
+		name = "Dalmacija Class"
+		type = heavy_cruiser_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_armor_upgrade = 1
+			ship_gun_upgrade = 1
+		}
+	}
+
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Submarines #
+	create_equipment_variant = {
+		name = "Hrabri Class"				
+		type = ship_hull_submarine_2
+		name_group = YUG_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+	}
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Dubrovnik Class"				
+		type = ship_hull_light_2
+		name_group = YUG_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	# Cruisers #
+	create_equipment_variant = {
+		name = "Dalmacija Class"				
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = YUG_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = empty
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+}
+

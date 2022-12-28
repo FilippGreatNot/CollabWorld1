@@ -1,0 +1,255 @@
+focus_tree = {
+	id = FGB_kapp
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FGB
+		}
+	}
+	default = no
+    
+	
+}	
+
+
+
+focus_tree = {
+	id = FGB_Noske_Start
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FGB
+		}
+	}
+	default = no
+   
+
+	focus = {
+		id = FGB_Germany_needs_strong_hand
+		icon = GFX_goal_FGB_Germany_Needs_strong_hand
+		x = 10
+		y = 0
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_Germany_Needs_strong_hand log"
+			
+		
+
+		}
+	}
+	
+	
+	focus = {
+		id = FGB_consolidation_of_friekrops_power
+		icon = GFX_goal_FGB_consolidation_of_friekrops_power
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_Germany_needs_strong_hand
+		
+		prerequisite = {
+			focus = FGB_Germany_needs_strong_hand
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_consolidation_of_friekrops_power log"
+			
+		
+
+		}
+	}
+	
+	focus = {
+		id = FGB_no_mercy_for_traitors
+		icon = GFX_goal_FGB_no_mercy_for_traitors
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_consolidation_of_friekrops_power
+		
+		prerequisite = {
+			focus = FGB_consolidation_of_friekrops_power
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_no_mercy_for_traitors log"
+			
+		
+
+		}
+	}
+	
+	
+	focus = {
+		id = FGB_friekorps_voran
+		icon = GFX_goal_FGB_friekorps_voran
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_consolidation_of_friekrops_power
+		
+		prerequisite = {
+			focus = FGB_consolidation_of_friekrops_power
+		}	
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_friekorps_voran log"
+			
+		
+
+		}
+	}
+	
+	
+	focus = {
+		id = FGB_bring_loyalists_closer
+		icon = GFX_goal_FGB_bring_loyalists_closer
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_friekorps_voran
+		relative_position_id = FGB_no_mercy_for_traitors
+		
+		prerequisite = {
+			focus = FGB_friekorps_voran
+		}
+		
+		prerequisite = {
+			focus = FGB_no_mercy_for_traitors
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_bring_loyalists_closer log"
+			
+		
+
+		}
+	}
+	
+	
+	focus = {
+		id = FGB_puppet_or_puppeteer
+		icon = GFX_goal_FGB_puppet_or_puppeteer
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_bring_loyalists_closer
+		
+		prerequisite = {
+			focus = FGB_bring_loyalists_closer
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_puppet_or_puppeteer log"
+			
+		
+
+		}
+	}
+	
+	
+		
+	
+	focus = {
+		id = FGB_my_honour_is_my_loyalty
+		icon = GFX_goal_FGB_my_honour_is_my_loyalty
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_puppet_or_puppeteer
+		available = {
+			always = no
+		}		
+		prerequisite = {
+			focus = FGB_puppet_or_puppeteer
+		}		
+		mutually_exclusive = {
+			focus = FGB_no_more_loyalty
+		}		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_my_honour_is_my_loyalty log"
+			
+		
+
+		}
+	}
+	
+	
+	focus = {
+		id = FGB_no_more_loyalty
+		icon = GFX_goal_FGB_no_more_loyalty
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_puppet_or_puppeteer
+		available = {
+			always = no
+		}		
+		prerequisite = {
+			focus = FGB_puppet_or_puppeteer
+		}	
+		
+		mutually_exclusive = {
+			focus = FGB_my_honour_is_my_loyalty
+		}		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus FGB_no_more_loyalty log"
+			
+		
+
+		}
+	}	
+   
+	
+}	
+

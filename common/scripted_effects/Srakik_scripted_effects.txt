@@ -1,0 +1,46 @@
+BMD_release_SRA = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_CSA_existed } }
+	}
+	hidden_effect = {
+		SRA = {
+			add_state_core = 566     
+	}
+
+		every_owned_state = {
+			limit = { is_core_of = SRA }
+			SRA = { transfer_state = PREV }
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = BMD
+				NOT = { is_core_of = SRA }
+				NOT = { is_claimed_by = SRA }
+			}
+			add_claim_by = SRA
+		}
+
+#	set_country_flag = 
+
+		remove_unit_leader = 100 #Smedley Butler
+		remove_unit_leader = 61 #Herbert Holdridge
+
+		SRA = {
+			add_ideas = {
+				extensive_conscription
+			}
+		}
+
+	}
+}
+
+
+sark_rebel_begins = {
+
+		if = {
+			limit = { country_exists = SRA 	}
+			SRA = { declare_war_on = { target = BMD type = annex_everything	} }
+		}
+		
+}

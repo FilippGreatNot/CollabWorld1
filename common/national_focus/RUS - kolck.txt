@@ -1,0 +1,442 @@
+focus_tree = {
+	id = RUS_start
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = RUS
+		}
+	}
+	default = no
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	focus = {
+		id = RUS_another_year_in_exile
+		icon = GFX_goal_RUS_another_year_in_exile
+		x = 20
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus RUS_another_year_in_exile"
+			
+		   add_stability = -0.03
+		   add_political_power = -50	
+		}
+	}
+
+
+	focus = {
+		id = RUS_start_stabilizing_the_regime
+		icon = GFX_goal_RUS_start_stabilizing_the_regime
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_another_year_in_exile
+		
+		prerequisite = {
+			focus = RUS_another_year_in_exile
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_start_stabilizing_the_regime"
+		
+		
+		}
+	}	
+		
+	
+	
+	
+	
+	focus = {
+		id = RUS_total_censorship
+		icon = GFX_goal_RUS_total_censorship
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_start_stabilizing_the_regime
+		
+		prerequisite = {
+			focus = RUS_start_stabilizing_the_regime
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_total_censorship"
+		
+		
+		}
+	}	
+			
+	
+	
+	focus = {
+		id = RUS_full_control_of_the_opposition
+		icon = GFX_goal_RUS_full_control_of_the_opposition
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_start_stabilizing_the_regime
+		
+		prerequisite = {
+			focus = RUS_start_stabilizing_the_regime
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_full_control_of_the_opposition"
+		
+		
+		}
+	}	
+	
+	
+
+	
+	focus = {
+		id = RUS_tightening_the_screws_for_the_sake_of_stability
+		icon = GFX_goal_RUS_tightening_the_screws_for_the_sake_of_stability
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_full_control_of_the_opposition
+		relative_position_id = RUS_total_censorship
+		
+		prerequisite = {
+			focus = RUS_full_control_of_the_opposition
+		}
+		
+		prerequisite = {
+			focus = RUS_total_censorship
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_tightening_the_screws_for_the_sake_of_stability"
+		
+		
+		}
+	}
+			
+	
+	
+	focus = {
+		id = RUS_expand_the_police_force
+		icon = GFX_goal_RUS_expand_the_police_force
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_tightening_the_screws_for_the_sake_of_stability
+		
+		prerequisite = {
+			focus = RUS_tightening_the_screws_for_the_sake_of_stability
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_expand_the_police_force"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = RUS_secret_police_establishment
+		icon = GFX_goal_RUS_secret_police_establishment
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_tightening_the_screws_for_the_sake_of_stability
+		
+		prerequisite = {
+			focus = RUS_tightening_the_screws_for_the_sake_of_stability
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_secret_police_establishment"
+		
+		
+		}
+	}	
+			
+			
+			
+	
+	focus = {
+		id = RUS_legalization_of_denunciations
+		icon = GFX_goal_RUS_legalization_of_denunciations
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_secret_police_establishment
+		relative_position_id = RUS_expand_the_police_force
+		
+		prerequisite = {
+			focus = RUS_secret_police_establishment
+		}
+		
+		prerequisite = {
+			focus = RUS_expand_the_police_force
+		}		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_legalization_of_denunciations"
+		
+		
+		}
+	}
+	
+
+	focus = {
+		id = RUS_freedom_in_exchange_for_safety
+		icon = GFX_goal_RUS_freedom_in_exchange_for_safety
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_legalization_of_denunciations
+		
+		prerequisite = {
+			focus = RUS_legalization_of_denunciations
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_freedom_in_exchange_for_safety"
+		
+		
+		}
+	}	
+		
+	
+	focus = {
+		id = RUS_the_bolsheviks_will_answer_for_everything
+		icon = GFX_goal_RUS_the_bolsheviks_will_answer_for_everything
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_freedom_in_exchange_for_safety
+		
+		prerequisite = {
+			focus = RUS_freedom_in_exchange_for_safety
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_the_bolsheviks_will_answer_for_everything"
+		
+		
+		}
+	}		
+	
+	focus = {
+		id = RUS_question_of_leadership
+		icon = GFX_goal_RUS_question_of_leadership
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_the_bolsheviks_will_answer_for_everything
+		
+		prerequisite = {
+			focus = RUS_the_bolsheviks_will_answer_for_everything
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_question_of_leadership"
+		
+		
+		}
+	}	
+
+
+
+
+	
+	focus = {
+		id = RUS_the_admiral_remains_at_the_helm
+		icon = GFX_goal_RUS_the_admiral_remains_at_the_helm
+		x = -4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_question_of_leadership
+		
+		prerequisite = {
+			focus = RUS_question_of_leadership
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_the_admiral_remains_at_the_helm"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = RUS_black_hundreds_will_revive_the_nation
+		icon = GFX_goal_RUS_black_hundreds_will_revive_the_nation
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_question_of_leadership
+available = {
+			always = no
+		}		
+		prerequisite = {
+			focus = RUS_question_of_leadership
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_black_hundreds_will_revive_the_nation"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = RUS_kornilov_will_lead_us_to_victory
+		icon = GFX_goal_RUS_kornilov_will_lead_us_to_victory
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_question_of_leadership
+		
+		prerequisite = {
+			focus = RUS_question_of_leadership
+		}
+available = {
+			always = no
+		}		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_kornilov_will_lead_us_to_victory"
+		
+		
+		}
+	}	
+		
+	
+	focus = {
+		id = RUS_drozdovsky_will_return_the_empire
+		icon = GFX_goal_RUS_drozdovsky_will_return_the_empire
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = RUS_question_of_leadership
+		
+		prerequisite = {
+			focus = RUS_question_of_leadership
+		}
+available = {
+			always = no
+		}		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_drozdovsky_will_return_the_empire"
+		
+		
+		}
+	}
+
+		
+	
+	focus = {
+		id = RUS_the_mad_baron_makes_his_move
+		icon = GFX_goal_RUS_the_mad_baron_makes_his_move
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+available = {
+			always = no
+		}		
+		relative_position_id = RUS_question_of_leadership
+		
+		prerequisite = {
+			focus = RUS_question_of_leadership
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus RUS_the_mad_baron_makes_his_move"
+		
+		
+		}
+	}	
+			
+}

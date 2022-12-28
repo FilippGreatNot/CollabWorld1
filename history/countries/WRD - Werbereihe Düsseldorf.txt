@@ -1,0 +1,142 @@
+capital = 42 ##Наша столица
+
+oob = "WRD"
+
+set_research_slots = 3 
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_mountaineers = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+	trench_warfare = 1
+	fuel_silos = 1
+	synth_oil_experiments = 1
+	basic_train = 1
+	motorised_infantry = 1
+	paratroopers = 1
+
+	tech_field_hospital = 1
+	tech_military_police = 1
+	basic_light_tank = 1  # PLACEHOLDER
+
+	fighter1 = 1
+	
+	strategic_bomber1 = 1
+	naval_bomber1 = 1
+	mass_assault = 1
+	fleet_in_being = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_destroyer = 1
+		early_submarine = 1	
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+	}
+}
+set_politics = {
+	ruling_party = despotism 
+	last_election = "1920.1.1"
+	election_frequency = 48 
+	elections_allowed = no 
+}
+
+set_popularities = {
+
+    despotism = 42
+	reactionism = 28
+	national_syndicalism = 22
+	esotericism = 8
+
+
+}
+
+create_country_leader = {
+    name = "August Mackensen"
+    desc = "POLITICS_AUGUST_MACKENSEN_DESC"
+    picture = "gfx/leaders/WRD/August_Mackensen.dds"
+    expire = "1950.1.1"
+    ideology = military_junta
+    traits = {
+        #
+    }
+}
+
+
+add_ideas = {
+
+WRD_Hans_Seeckt_hog
+WRD_alfred_hugenberg_ec
+WRD_max_wallraf_sec
+WRD_herbert_windt_pro
+
+
+partial_economic_mobilisation
+extensive_conscription
+closed_economy
+WRD_mackensen_regency
+
+}
+
+create_field_marshal = { 
+	name = "Hans von Seeckt"
+	picture = "Portrait_WRD_Hans_von_Seeckt.dds"
+	traits = { war_hero combined_arms_expert infantry_expert harsh_leader inflexible_strategist }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 4
+	id = 7
+}
+
+
+create_corps_commander = { 
+	name = "Ferdinand Schörner"
+	picture = "Portrait_WRD_Ferdinand_Schorner.dds"
+	traits = { war_hero organizer harsh_leader infantry_leader }
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+	id = 2
+}
+

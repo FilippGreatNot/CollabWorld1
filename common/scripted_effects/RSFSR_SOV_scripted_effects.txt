@@ -1,0 +1,443 @@
+
+
+
+### PowerStruggle ###
+begin_power_struggle = {
+	set_variable = { PowerStruggleStalinAuthority = 0.732 }
+	set_variable = { PowerStruggleTrotskyAuthority = 0.743 }
+	set_variable = { PowerStruggleBukharinAuthority = 0.715 }
+	set_variable = { PowerStruggleSpiridonovaAuthority = 0.710 }
+	set_variable = { PowerStruggleGastevAuthority = 0.680 }
+	set_variable = { PowerStruggleYagodaAuthority = 0.666 }
+	set_variable = { PowerStruggleProkhanovAuthority = 0.651 }
+	
+	multiply_variable = { PowerStruggleStalinAuthority = 100 }
+	multiply_variable = { PowerStruggleTrotskyAuthority = 100 }
+	multiply_variable = { PowerStruggleBukharinAuthority = 100 }
+	multiply_variable = { PowerStruggleSpiridonovaAuthority = 100 }
+	multiply_variable = { PowerStruggleGastevAuthority = 100 }
+	multiply_variable = { PowerStruggleYagodaAuthority = 100 }
+	multiply_variable = { PowerStruggleProkhanovAuthority = 100 }
+	
+	SOV = {
+		add_dynamic_modifier = {
+			modifier = SOV_PowerStruggle_Effects_modifier
+		}
+		hidden_effect = {  }
+		
+	}
+
+}
+
+remove_PowerStruggle = {
+	clr_country_flag = SOV_PowerStruggle_established
+	set_country_flag = SOV_PowerStruggle_dissolved 
+	SOV = {
+		remove_dynamic_modifier = {
+			modifier = SOV_PowerStruggle_Effects_modifier
+		}
+		hidden_effect = {  }
+	}
+}
+
+
+
+
+
+
+power_struggle_increase_stalin_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = stalin_dead }
+		}
+		custom_effect_tooltip = power_struggle_increase_stalin_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				25 = { add_to_variable = { PowerStruggleStalinAuthority = 3.25 } }
+				25 = { add_to_variable = { PowerStruggleStalinAuthority = 3.75 } }
+				25 = { add_to_variable = { PowerStruggleStalinAuthority = 4.25 } }
+				15 = { add_to_variable = { PowerStruggleStalinAuthority = 4.75 } }
+				10 = { add_to_variable = { PowerStruggleStalinAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+power_struggle_increase_trotsky_authority = {
+	if = {
+	
+	     limit = {
+			NOT = { has_country_flag = trotsky_dead }
+		}
+
+		custom_effect_tooltip = power_struggle_increase_trotsky_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = 3.25 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = 3.75 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = 4.25 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = 4.75 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+power_struggle_increase_bukharin_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = bukharin_dead }
+		}
+		custom_effect_tooltip = power_struggle_increase_bukharin_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = 3.25 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = 3.75 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = 4.25 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = 4.75 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+power_struggle_increase_spiridonova_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = spiridonova_dead }
+		}
+		custom_effect_tooltip = power_struggle_increase_spiridonova_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = 3.25 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = 3.75 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = 4.25 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = 4.75 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+power_struggle_increase_gastev_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = gastev_dead }
+		}
+		custom_effect_tooltip = power_struggle_increase_gastev_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = 3.25 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = 3.75 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = 4.25 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = 4.75 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+power_struggle_increase_yagoda_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = yagoda_dead }
+		}
+		custom_effect_tooltip = power_struggle_increase_yagoda_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = 3.25 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = 3.75 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = 4.25 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = 4.75 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+			if = {
+				limit = {
+					check_variable = { PowerStruggleYagodaAuthority > 80 }
+					NOT = { has_country_flag = yagoda_personal_hell }
+				}
+				country_event = nkvd.1
+			}
+		}
+	}
+}
+
+
+power_struggle_increase_prokhanov_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = prokhanov_dead }
+		}
+		custom_effect_tooltip = power_struggle_increase_prokhanov_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = 3.25 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = 3.75 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = 4.25 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = 4.75 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = 5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+
+
+PowerStruggle_decrease_stalin_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = stalin_dead }
+		}
+		custom_effect_tooltip = PowerStruggle_decrease_stalin_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				25 = { add_to_variable = { PowerStruggleStalinAuthority = -3.25 } }
+				25 = { add_to_variable = { PowerStruggleStalinAuthority = -3.75 } }
+				25 = { add_to_variable = { PowerStruggleStalinAuthority = -4.25 } }
+				15 = { add_to_variable = { PowerStruggleStalinAuthority = -4.75 } }
+				10 = { add_to_variable = { PowerStruggleStalinAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+PowerStruggle_decrease_trotsky_authority = {
+		if = {
+	
+	     limit = {
+			NOT = { has_country_flag = trotsky_dead }
+		}
+
+		custom_effect_tooltip = power_struggle_decrease_trotsky_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = -3.25 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = -3.75 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = -4.25 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = -4.75 } }
+				20 = { add_to_variable = { PowerStruggleTrotskyAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+
+
+
+PowerStruggle_decrease_bukharin_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = bukharin_dead }
+		}
+		custom_effect_tooltip = PowerStruggle_decrease_bukharin_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = -3.25 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = -3.75 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = -4.25 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = -4.75 } }
+				20 = { add_to_variable = { PowerStruggleBukharinAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+PowerStruggle_decrease_spiridonova_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = spiridonova_dead }
+		}
+		custom_effect_tooltip = PowerStruggle_decrease_spiridonova_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = -3.25 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = -3.75 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = -4.25 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = -4.75 } }
+				20 = { add_to_variable = { PowerStruggleSpiridonovaAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+PowerStruggle_decrease_gastev_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = gastev_dead }
+		}
+		custom_effect_tooltip = PowerStruggle_decrease_gastev_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = -3.25 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = -3.75 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = -4.25 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = -4.75 } }
+				20 = { add_to_variable = { PowerStruggleGastevAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+PowerStruggle_decrease_yagoda_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = yagoda_dead }
+		}
+		custom_effect_tooltip = PowerStruggle_decrease_yagoda_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = -3.25 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = -3.75 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = -4.25 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = -4.75 } }
+				20 = { add_to_variable = { PowerStruggleYagodaAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+PowerStruggle_decrease_prokhanov_authority = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = prokhanov_dead }
+		}
+		custom_effect_tooltip = PowerStruggle_decrease_prokhanov_authority_tooltip
+		hidden_effect = {
+			random_list = {
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = -3.25 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = -3.75 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = -4.25 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = -4.75 } }
+				20 = { add_to_variable = { PowerStruggleProkhanovAuthority = -5.75 } }
+			}
+			clamp_all_PowerStruggle_variables = yes
+			
+		}
+	}
+}
+
+
+
+
+
+
+clamp_all_PowerStruggle_variables = {
+	clamp_variable = {
+		var = PowerStruggleStalinAuthority
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = PowerStruggleTrotskyAuthority
+		min = 0
+		max = 100
+	}
+	
+	clamp_variable = {
+		var = PowerStruggleBukharinAuthority
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = PowerStruggleSpiridonovaAuthority
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = PowerStruggleGastevAuthority
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = PowerStruggleYagodaAuthority
+		min = 0
+		max = 100
+	} 
+	
+	clamp_variable = {
+		var = PowerStruggleProkhanovAuthority
+		min = 0
+		max = 100
+	}
+	
+}
+
+recalculate_PowerStruggle_effects = {
+	recalculate_sovnarkom_proletkult_effects = yes
+	recalculate_sovnarkom_economy_effects = yes
+	recalculate_sovnarkom_diplomaty_effects = yes
+	recalculate_sovnarkom_chekisty_effects = yes
+	calculate_right_opposition = yes
+	calculate_troika_average = yes
+	calculate_proletkult_average = yes
+	calculate_zinoviev_influence = yes
+}
+
+
+
+
+
+calculate_zinoviev_influence = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = right_lean_exists }
+			NOT = { has_country_flag = molyagkag_opposition_exists }
+			NOT = { has_country_flag = proletkultist_opposition_exists }
+		}
+		set_variable = { temp1 = 0 }
+		add_to_temp_variable = { temp1 = PowerStruggleMayakovskyAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleGastevAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleLunacharskyAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleZinovievAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleSokolnikovAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleChicherinAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleMolotovAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleYagodaAuthority }
+		add_to_temp_variable = { temp1 = PowerStruggleKaganovichAuthority }
+		
+		
+		divide_temp_variable = { temp1 = 9 }
+		set_variable = { zinoviev_bloc_influence = temp1 }
+	}
+}

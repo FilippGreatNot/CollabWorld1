@@ -1,0 +1,136 @@
+RUS_return_of_russia_decisions = {
+
+
+
+
+
+	RUS_create_russia_empire = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = RUS_reunificated }
+		}
+		
+		available = {
+			is_subject = no
+			has_war = no
+			219 = { is_controlled_by_ROOT_or_subject = yes }
+			202 = { is_controlled_by_ROOT_or_subject = yes }
+			231 = { is_controlled_by_ROOT_or_subject = yes }
+			402 = { is_controlled_by_ROOT_or_subject = yes }
+			652 = { is_controlled_by_ROOT_or_subject = yes }
+			404 = { is_controlled_by_ROOT_or_subject = yes }
+			586 = { is_controlled_by_ROOT_or_subject = yes }
+			408 = { is_controlled_by_ROOT_or_subject = yes }
+			637 = { is_controlled_by_ROOT_or_subject = yes }
+			576 = { is_controlled_by_ROOT_or_subject = yes }
+			571 = { is_controlled_by_ROOT_or_subject = yes }
+			653 = { is_controlled_by_ROOT_or_subject = yes }
+			213 = { is_controlled_by_ROOT_or_subject = yes }
+			574 = { is_controlled_by_ROOT_or_subject = yes }
+			808 = { is_controlled_by_ROOT_or_subject = yes }
+		}
+
+		
+		complete_effect = {
+				limit = {
+					original_tag = RUS
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							has_country_leader = {
+								name = "Roman von Ungern-Sternberg"
+								ruling_only = yes
+							}
+						}
+						hidden_effect = {
+							set_cosmetic_tag = RUS_Ungern_reunificated
+							set_country_flag = RUS_reunificated
+							every_country = { 
+				               news_event = WORLDNEWS.14
+			                }
+						}
+					}
+					
+					
+					
+					
+					
+					if = {
+						limit = {
+							has_country_leader = {
+								name = "Mikhail Drozdovsky"
+								ruling_only = yes
+							}
+						}
+						hidden_effect = {
+							set_cosmetic_tag = RUS_drozdovsky_reunicicated
+							set_country_flag = RUS_reunificated
+							every_country = { 
+#				               news_event = WORLDNEWS.5
+			                }
+						}
+					}
+					
+					
+					
+					if = {
+						limit = {
+							has_country_leader = {
+								name = "Lavr Kornilov"
+								ruling_only = yes
+							}
+						}
+						hidden_effect = {
+							set_cosmetic_tag = RUS_kornilov_reunicicated
+							set_country_flag = RUS_reunificated
+							every_country = { 
+#				               news_event = WORLDNEWS.10
+			                }
+						}
+					}
+					
+					if = {
+						limit = {
+							has_country_leader = {
+								name = "Nikolai Markov"
+								ruling_only = yes
+							}
+						}
+						hidden_effect = {
+							set_cosmetic_tag = RUS_markov_reunificated
+							set_country_flag = RUS_reunificated
+							every_country = { 
+#				               news_event = WORLDNEWS.12
+			                }
+						}
+					}
+					
+					
+					
+					if = {
+						limit = {
+							has_country_leader = {
+								name = "Alexander Kolchak"
+								ruling_only = yes
+							}
+						}
+						hidden_effect = {
+							
+						}
+					}
+				}
+			}
+			
+		
+		
+		ai_will_do = {
+			factor = 2000
+		}
+	   }
+
+
+}

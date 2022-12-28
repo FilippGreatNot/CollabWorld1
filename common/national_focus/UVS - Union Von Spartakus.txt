@@ -1,0 +1,2508 @@
+focus_tree = {
+	id = UVS_first
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UVS
+		}
+	}
+	default = no
+	
+	focus = {
+		id = UVS_rise_germany
+		icon = GFX_goal_UVS_rise_germany
+		x = 27
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+			add_equipment_to_stockpile = {
+			type = infantry_weapons0_25
+			amount = 555
+			producer = UVS
+		    }
+
+			hidden_effect  = {
+			#	 country_event = { id = problem.1 days = 1 }
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_well_organized_revolution
+		icon = GFX_goal_UVS_well_organized_revolution
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_rise_germany
+		
+		prerequisite = {
+			focus = UVS_rise_germany
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_well_organized_revolution_log"
+		
+		add_command_power = 15
+		army_experience = 10
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_hold_back_the_reactionaries
+		icon = GFX_goal_SOV_the_hunt_for_counterrevolutionaries
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_rise_germany
+		
+		prerequisite = {
+			focus = UVS_rise_germany
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_hold_back_the_reactionaries_log"
+		
+		add_stability = -0.05
+		
+		add_political_power = 50
+		
+		
+		}
+	}
+	
+	
+	
+focus = {
+		id = UVS_congress_of_the_spartakusbund
+		icon = GFX_goal_UVS_congress_of_the_spartakusbund
+		x = 1
+		y = 2
+		cost = 3
+		available_if_capitulated = yes
+					
+		relative_position_id = UVS_hold_back_the_reactionaries
+		relative_position_id = UVS_well_organized_revolution
+					
+		prerequisite = {
+			focus = UVS_well_organized_revolution
+		}
+		
+		
+		prerequisite = {
+			focus = UVS_hold_back_the_reactionaries
+		}
+					
+					
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus UVS_congress_of_the_spartakusbund_log"
+			
+			custom_effect_tooltip = congress_of_the_spartakusbund
+			
+			hidden_effect  = {
+			 country_event = { id = spartakus.1 days = 1 }
+			}
+					
+		}
+	}
+	
+
+	
+	
+	
+	focus = {
+		id = UVS_victory_of_daa
+		icon = GFX_goal_UVS_victory_of_daa
+		x = 10
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_congress_of_the_spartakusbund
+		
+		prerequisite = {
+			focus = UVS_congress_of_the_spartakusbund
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_of_daa_log"
+		
+		    custom_effect_tooltip = effect_name2
+			
+			
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_paving_the_way_to_victory
+		icon = GFX_goal_UVS_paving_the_way_to_victory
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_daa
+		
+		prerequisite = {
+			focus = UVS_victory_of_daa
+		}
+		
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_paving_the_way_to_victory_log"
+		
+		   add_ideas = {
+		        UVS_on_the_way_to_victory
+		    }
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_take_into_account_the_mistakes_of_lenin
+		icon = GFX_goal_UVS_mistakes_of_lenin
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_daa
+		
+		prerequisite = {
+			focus = UVS_victory_of_daa
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_take_into_account_the_mistakes_of_lenin_log"
+		
+		    add_stability = -0.05
+			
+			add_war_support = 0.05
+			
+			SOV = {
+			add_opinion_modifier = {
+                target = GER
+                modifier = faction_traitor
+                }
+			}
+		
+		
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = UVS_full_nationalisation
+		icon = GFX_goal_UVS_full_nationalisation
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
+		relative_position_id = UVS_thalmannomics
+		
+		prerequisite = {
+			focus = UVS_take_into_account_the_mistakes_of_lenin
+			focus = UVS_thalmannomics
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_full_nationalisation_log"
+		
+		    add_stability = -0.05
+			
+			add_civilian_factory = 1
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_industrial_effort_2IC
+			}
+		
+		
+		
+		
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = UVS_militarization
+		icon = GFX_goal_UVS_militarization
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
+		relative_position_id = UVS_paving_the_way_to_victory
+		prerequisite = {
+			focus = UVS_take_into_account_the_mistakes_of_lenin
+		}
+
+		prerequisite = {
+			focus = UVS_paving_the_way_to_victory
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_militarization_log"
+		
+		    add_war_support = 0.05
+			
+			add_ideas = {
+			    extensive_conscription
+			}
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_propaganda_campaign
+		icon = GFX_goal_UVS_propaganda_campaign
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
+		relative_position_id = UVS_paving_the_way_to_victory
+		
+		prerequisite = {
+		focus = UVS_paving_the_way_to_victory
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_propaganda_campaign_log"
+		
+		    add_ideas = {
+		        UVS_ein_volk
+		    }
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_ban_demsocs
+		icon = GFX_goal_UVS_ban_demsocs
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
+		relative_position_id = UVS_paving_the_way_to_victory
+		
+		prerequisite = {
+		focus = UVS_paving_the_way_to_victory
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_ban_demsocs_log"
+		
+		    add_stability = -0.05
+			
+			add_popularity = {
+			ideology = social_democrat
+			popularity = -0.1
+		}
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_german_socialist_patriotism
+		icon = GFX_goal_UVS_german_socialist_patriotism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_militarization
+		relative_position_id = UVS_propaganda_campaign
+		
+		prerequisite = {
+		focus = UVS_ban_demsocs
+		}
+		
+		prerequisite = {
+			focus = UVS_propaganda_campaign
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_german_socialist_patriotism_log"
+		
+		    swap_ideas = {
+                remove_idea = UVS_on_the_way_to_victory
+                add_idea = UVS_socialist_patriotism
+            }
+		
+		
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_strengthen_our_positions
+		icon = GFX_goal_UVS_strengthen_our_positions
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_militarization
+		relative_position_id = UVS_full_nationalisation
+		
+		prerequisite = {
+		focus = UVS_militarization
+		}
+		
+		prerequisite = {
+			focus = UVS_full_nationalisation
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_strengthen_our_positions_log"
+		
+		    add_ideas = {
+			    USV_stasi
+			}
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_ribentrop_doctrine
+		icon = GFX_goal_UVS_ribentrop_doctrine
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_strengthen_our_positions
+		
+		
+		prerequisite = {
+			focus = UVS_strengthen_our_positions
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_ribentrop_doctrine_log"
+		
+			add_war_support = 0.05
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_industrial_effort_2IC
+			}
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_tighten_economic_control
+		icon = GFX_goal_UVS_tighten_economic_control
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_german_socialist_patriotism
+		
+		prerequisite = {
+		focus = UVS_german_socialist_patriotism
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_tighten_economic_control_log"
+		    
+			add_command_power = 50
+			
+		    add_ideas = {
+			    UVS_control_eco
+			}
+		
+		
+		}
+	
+	
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = UVS_red_bismarck
+		icon = GFX_goal_UVS_red_bismarck
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_ribentrop_doctrine
+
+		available = {
+			has_completed_focus = UVS_endlich_einigkeit
+		}
+		
+		prerequisite = {
+			focus = UVS_tighten_economic_control
+		}
+		
+		prerequisite = {
+			focus = UVS_ribentrop_doctrine
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_UVS_red_bismarck_log"
+		
+		    add_war_support = 0.05
+			
+			add_country_leader_trait = {
+                ideology = bolshevism
+                trait = red_bismarck
+            }
+		
+		
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_volksforschung
+		icon = GFX_goal_UVS_volksforschung
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_full_nationalisation
+		prerequisite = {
+		focus = UVS_full_nationalisation
+		}
+
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_UVS_Volksforschung_log"
+		
+		    add_research_slot = 1
+		
+		
+		}
+	}
+		
+	
+	
+	
+	
+	
+	focus = {
+		id = UVS_victory_of_kdp_b
+		icon = GFX_goal_UVS_victory_of_kdp_b
+		x = 5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_congress_of_the_spartakusbund
+		
+		prerequisite = {
+			focus = UVS_congress_of_the_spartakusbund
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_of_kdp_b_log"
+		
+		    custom_effect_tooltip = effect_name5
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_thalmannomics
+		icon = GFX_goal_UVS_thalmannomics
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_kdp_b
+		
+		prerequisite = {
+			focus = UVS_victory_of_kdp_b
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_thalmannomics_log"
+		
+		    add_ideas = {
+			    UVS_economics_thalmann
+		    }
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_tough_methods
+		icon = GFX_goal_UVS_tough_methods
+		x = -1.5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_thalmannomics
+		
+		prerequisite = {
+			focus = UVS_thalmannomics
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_tough_methods_log"
+            
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+			add_political_power = 50
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_invite_menzhinsky
+		icon = GFX_goal_UVS_invite_menzhinsky
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_tough_methods
+		relative_position_id = UVS_invite_experts
+		prerequisite = {
+			focus = UVS_tough_methods
+		}
+		
+		prerequisite = {
+			focus = UVS_invite_experts
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_invite_menzhinsky_log"
+		
+		create_intelligence_agency = {
+            name = "Volkspolizei"
+            icon = GFX_intelligence_agency_logo_agency
+        }
+	
+	    add_ideas = {
+                UVS_volkspolizei
+            }
+		
+		
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	focus = {
+		id = UVS_finish_off_the_german_bourgeois
+		icon = GFX_goal_UVS_finish_off_the_german_bourgeois
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_tough_methods
+		relative_position_id = UVS_full_nationalisation
+		prerequisite = {
+			focus = UVS_tough_methods
+		}
+		
+		prerequisite = {
+			focus = UVS_full_nationalisation
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_finish_off_the_german_bourgeois_log"
+		
+		    add_political_power = 100
+			add_stability = -0.05
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_german_chekists
+		icon = GFX_goal_UVS_german_chekists
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		available = {
+			has_completed_focus = UVS_invite_menzhinsky
+		}
+		
+		relative_position_id = UVS_tough_methods
+		
+		prerequisite = {
+			focus = UVS_tough_methods
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus_UVS_german_chekists_log"
+		
+		swap_ideas = {
+                remove_idea = UVS_volkspolizei
+                add_idea = UVS_volkspolizei2
+            }
+		
+		
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_strong_communist_germany
+		icon = GFX_goal_UVS_strong_communist_germany
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_german_chekists
+		
+		prerequisite = {
+			focus = UVS_german_chekists
+		}
+		prerequisite = {
+			focus = UVS_finish_off_the_german_bourgeois
+		}
+		prerequisite = {
+			focus = UVS_invite_menzhinsky
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_strong_communist_germany_log"
+		
+		    add_country_leader_trait = {
+                ideology = marxism
+                trait = hero_of_revolution
+            }
+			
+			add_stability = 0.05
+		
+		
+		}
+	}
+	
+	
+	
+	
+	
+	
+	focus = {
+		id = UVS_negotiations_with_the_rsfsr
+		icon = GFX_goal_UVS_negotiations_with_the_rsfsr
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_kdp_b
+		relative_position_id = UVS_spartakists_continue_the_work
+		
+		prerequisite = {
+			focus = UVS_victory_of_kdp_b
+			focus = UVS_spartakists_continue_the_work
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_negotiations_with_the_rsfsr_log"
+		
+		
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_invite_experts
+		icon = GFX_goal_UVS_invite_experts
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_negotiations_with_the_rsfsr
+		
+		prerequisite = {
+			focus = UVS_negotiations_with_the_rsfsr
+		}
+		 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_invite_experts_log"
+		
+		    add_ideas = {
+                UVS_soviet_expertise
+            }
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_spartakists_continue_the_work
+		icon = GFX_goal_UVS_spartakists_continue_the_work
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_congress_of_the_spartakusbund
+		
+		prerequisite = {
+			focus = UVS_congress_of_the_spartakusbund
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_spartakists_continue_the_work_log"
+		
+		    custom_effect_tooltip = effect_name6
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_rosas_speech
+		icon = GFX_goal_UVS_rosas_speech
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_spartakists_continue_the_work
+		
+		prerequisite = {
+			focus = UVS_spartakists_continue_the_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_spartakists_continue_the_work_log"
+		
+		   
+		
+		}
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = UVS_liberators_of_germany
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_rosas_speech
+		
+		
+		prerequisite = {
+			focus = UVS_rosas_speech
+		}
+		
+		
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_liberators_of_germany_log"
+		
+		    add_war_support = 0.05
+			add_stability = 0.05
+			add_political_power = 50
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_our_economic_plan
+		icon = GFX_goal_UVS_our_economic_plan
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_liberators_of_germany
+		relative_position_id = UVS_worker_soviets
+		
+		prerequisite = {
+			focus = UVS_worker_soviets
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_our_economic_plan"
+		
+		
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_caution_is_a_priority
+		icon = GFX_goal_UVS_blackmail
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_searching_for_the_imposters_among_us
+		
+		prerequisite = {
+			focus = UVS_searching_for_the_imposters_among_us
+		}
+		
+		prerequisite = {
+			focus = UVS_criticize_nationalists
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_our_economic_plan"
+		
+		    
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_left_accelerationism
+		icon = GFX_goal_UVS_means_of_production
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_caution_is_a_priority
+		
+		prerequisite = {
+			focus = UVS_caution_is_a_priority
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_left_accelerationism"
+		
+		    random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = GER_industrial_effort_2IC
+			}
+		    
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = GER_industrial_effort_2IC
+			}
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_searching_for_the_imposters_among_us
+		icon = GFX_goal_UVS_searching_for_the_imposters_among_us
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_liberators_of_germany
+		
+		prerequisite = {
+			focus = UVS_liberators_of_germany
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_searching_for_the_imposters_among_us"
+		
+		
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_invite_invite_zinoviev
+		icon = GFX_goal_UVS_guns_for_revolution
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_liberators_of_germany
+		
+		prerequisite = {
+			focus = UVS_liberators_of_germany
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_invite_invite_zinoviev"
+		
+		
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_revolutionary_research_organization
+		icon = GFX_goal_UVS_revolutionary_research
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_searching_for_the_imposters_among_us
+		
+		prerequisite = {
+			focus = UVS_invite_invite_zinoviev
+		}
+		prerequisite = {
+		    focus = UVS_searching_for_the_imposters_among_us
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_revolutionary_research_organization"
+		    add_research_slot = 1
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_deal_with_social_fascists
+		icon = GFX_goal_UVS_fight_poverty
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = UVS_invite_invite_zinoviev
+		
+		prerequisite = {
+			focus = UVS_invite_invite_zinoviev
+			focus = UVS_invite_menzhinsky
+		}
+		
+		
+		
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_deal_with_social_fascists"
+		
+		    remove_ideas = {
+			    UVS_post_poverty
+		    }
+			add_political_power = -25
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_roads_for_the_people
+		icon = GFX_goal_UVS_roads
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_left_accelerationism
+		relative_position_id = UVS_deal_with_social_fascists
+		
+		
+		prerequisite = {
+			focus = UVS_deal_with_social_fascists
+		}
+		
+		
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_roads_for_the_people"
+		
+		    random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		    
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_victory_awaits
+		icon = GFX_goal_UVS_victory_awaits
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_roads_for_the_people
+		
+		prerequisite = {
+			focus = UVS_roads_for_the_people
+		}
+		
+		prerequisite = {
+			focus = UVS_left_accelerationism
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_awaits"
+		
+		    add_war_support = 0.05
+			add_political_power = 50
+		    
+		    swap_ideas = {
+                remove_idea = UVS_home_of_revolution
+                add_idea = UVS_home_of_revolution2
+            }
+		
+		}
+	}	
+	
+	
+	
+	
+	focus = {
+		id = UVS_victory_of_kpvd
+		icon = GFX_goal_UVS_victory_of_kpvd
+		x = -7
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_congress_of_the_spartakusbund
+		
+		prerequisite = {
+			focus = UVS_congress_of_the_spartakusbund
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_of_kpvd_log"
+		
+		    custom_effect_tooltip = effect_name4
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_worker_soviets
+		icon = GFX_goal_UVS_worker_soviets
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_kpvd
+		
+		prerequisite = {
+			focus = UVS_victory_of_kpvd
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_worker_soviets_log"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_promised_freedom
+		icon = GFX_goal_UVS_promised_freedom
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_worker_soviets
+		
+		prerequisite = {
+			focus = UVS_worker_soviets
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_promised_freedom_log"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_cooperate_with_demsocs
+		icon = GFX_goal_UVS_cooperate_with_demsocs
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_promised_freedom
+		
+		prerequisite = {
+			focus = UVS_promised_freedom
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_promised_freedom_log"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_criticize_nationalists
+		icon = GFX_goal_UVS_criticize_nationalists
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_worker_soviets
+		
+		prerequisite = {
+			focus = UVS_worker_soviets
+			focus = UVS_spartakists_continue_the_work
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_promised_freedom_log"
+		
+		    
+			
+		}
+	}
+	
+	focus = {
+		id = UVS_unity_in_diversity
+		icon = GFX_goal_UVS_unity_in_diversity
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_cooperate_with_demsocs
+		
+		prerequisite = {
+			focus = UVS_cooperate_with_demsocs		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_promised_freedom_log"
+		    
+			add_stability = 0.05
+			add_political_power = 25
+			
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_experience_of_syndicalism
+		icon = GFX_goal_UVS_experience_of_syndicalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_monitor_the_situation
+		
+		prerequisite = {
+			focus = UVS_monitor_the_situation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_experience_of_syndicalism"
+		        add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = UVS_decentralized_research
+		icon = GFX_goal_UVS_decentralized_research
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_experience_of_syndicalism
+		
+		prerequisite = {
+			focus = UVS_experience_of_syndicalism
+		}
+		prerequisite = {
+		    focus = UVS_retribution_of_the_proletariat
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_experience_of_syndicalism"
+		    add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = UVS_free_revolution
+		icon = GFX_goal_UVS_free_revolution
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_decentralized_research
+		
+		prerequisite = {
+			focus = UVS_experience_of_syndicalism
+		}
+		prerequisite = {
+		    focus = UVS_unity_in_diversity
+		}
+		prerequisite = {
+			focus = UVS_retribution_of_the_proletariat
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_experience_of_syndicalism"
+		     
+			add_country_leader_trait = {
+                ideology = marxism
+                trait = guardian_of_freedom
+            }
+            
+            add_stability = 0.05
+            add_political_power = 25
+			
+		}
+	}
+	
+	focus = {
+		id = UVS_monitor_the_situation
+		icon = GFX_goal_UVS_monitor_the_situation
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_our_economic_plan
+		
+		prerequisite = {
+			focus = UVS_our_economic_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_monitor_the_situation"
+		
+		    random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		    
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_unions_and_syndicates
+		icon = GFX_goal_UVS_unions_and_syndicates
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_our_economic_plan
+		
+		prerequisite = {
+			focus = UVS_our_economic_plan
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_unions_and_syndicates_log"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_retribution_of_the_proletariat
+		icon = GFX_goal_UVS_retribution_of_the_proletariat
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_unions_and_syndicates
+		
+		prerequisite = {
+			focus = UVS_unions_and_syndicates
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_retribution_of_the_proletariat"
+		    
+			remove_ideas = {
+			    UVS_post_poverty
+		    }
+			add_stability = 0.05
+			add_political_power = -50
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UVS_victory_of_dspd
+		icon = GFX_goal_UVS_victory_of_dspd
+		x = -15
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_congress_of_the_spartakusbund
+		
+		prerequisite = {
+			focus = UVS_congress_of_the_spartakusbund
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_victory_of_dspd_log"
+		
+		custom_effect_tooltip = effect_name3
+		
+		
+		
+		
+		}
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = UVS_path_to_reunification
+		icon = GFX_goal_UVS_path_to_reunification
+		x = 50
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { 
+            date > 1923.1.30
+        }
+		
+			
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_path_to_reunification_log"
+		
+		    add_political_power = 50
+			
+			add_war_support = 0.05
+		
+		   
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_contact_german_partisans
+		icon = GFX_goal_UVS_send_partisans
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_path_to_reunification
+		
+		prerequisite = {
+			focus = UVS_path_to_reunification
+		}
+		
+		bypass = {
+				PLA = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_contact_german_partisans_log"    
+		
+		    PLA = {
+			    add_timed_idea = { 
+				idea = PLA_german_partisans  
+				days = 90 
+				}
+				    
+		    }
+				
+		}	
+		
+	}	
+	
+	focus = {
+		id = UVS_crush_the_invaders
+		icon = GFX_goal_UVS_crush_the_invaders
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_contact_german_partisans
+		
+		prerequisite = {
+			focus = UVS_contact_german_partisans
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = PLA
+		}		
+		bypass = {
+				PLA = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		    declare_war_on = {
+                target = PLA
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}
+
+   
+	
+	focus = {
+		id = UVS_destroy_monuments
+		icon = GFX_goal_UVS_destroy_monuments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_crush_the_invaders
+		
+		available = {
+		
+		PLA = {
+                    exists = no
+                }
+		    controls = 536
+		}
+		prerequisite = {
+			focus = UVS_crush_the_invaders
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		   add_stability = 0.03
+		   add_political_power = 50
+		    
+		
+		
+		
+		}
+	}	
+	
+		focus = {
+		id = UVS_rally_northern_leftists
+		icon = GFX_goal_UVS_rally_northern_left
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_path_to_reunification
+		
+		prerequisite = {
+			focus = UVS_path_to_reunification
+		}
+		
+		bypass = {
+				GER = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_polish_question_log"
+		
+		    
+		
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = UVS_destroy_capitalist_swine
+		icon = GFX_goal_UVS_finish_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_rally_northern_leftists
+		
+		prerequisite = {
+			focus = UVS_rally_northern_leftists
+		}
+		
+		bypass = {
+				GER = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = GER
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_destroy_capitalist_swine_log"
+		
+		    declare_war_on = {
+                target = GER
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}
+	
+	focus = {
+		id = UVS_turn_spd_voters
+		icon = GFX_goal_UVS_turn_spd_voters
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_destroy_capitalist_swine
+		
+		available = {
+		
+		GER = {
+                    exists = no
+                }
+		    controls = 536
+		}
+		prerequisite = {
+			focus = UVS_destroy_capitalist_swine
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_crush_the_invaders_log"
+		
+		   add_war_support = 0.05
+		   add_political_power = 25
+		   add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		   } 
+		
+		
+		
+		}
+	}
+
+    focus = {
+		id = UVS_north_is_red
+		icon = GFX_goal_UVS_north_is_red
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_destroy_monuments
+		
+		prerequisite = {
+			focus = UVS_turn_spd_voters
+		}
+		
+		prerequisite = {
+			focus = UVS_destroy_monuments
+		}
+		
+		
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_north_is_red_log"
+		
+		    add_war_support = 0.05
+            add_timed_idea = { 
+				idea = UVS_recent_victory 
+				days = 60 
+				}			
+		
+		
+		
+		}
+	}
+
+    focus = {
+		id = UVS_destroy_anarchists
+		icon = GFX_goal_UVS_destroy_anarchists
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_north_is_red
+		
+		prerequisite = {
+			focus = UVS_north_is_red
+		}
+		
+		bypass = {
+				FWG = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_destroy_anarchists_log"
+		
+		    declare_war_on = {
+                target = FWG
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}
+
+    focus = {
+		id = UVS_destroy_monarchists
+		icon = GFX_goal_UVS_destroy_monarchists
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_north_is_red
+		
+		prerequisite = {
+			focus = UVS_north_is_red
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = WRD
+		}		
+		bypass = {
+				WRD = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_destroy_monarchists_log"
+		
+		    declare_war_on = {
+                target = WRD
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}
+
+    focus = {
+		id = UVS_destroy_nationalists
+		icon = GFX_goal_UVS_destroy_nationalists
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_north_is_red
+		
+		prerequisite = {
+			focus = UVS_north_is_red
+		}
+		
+		available = {
+			has_war = no
+			is_neighbor_of = FGB
+		}
+		
+		bypass = {
+				FGB = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_destroy_nationalists_log"
+		
+		    declare_war_on = {
+                target = FGB
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}
+
+    focus = {
+		id = UVS_open_trade
+		icon = GFX_goal_UVS_open_trade
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_destroy_anarchists
+		
+		prerequisite = {
+			focus = UVS_destroy_anarchists
+		}
+		
+		available = {
+		
+		FWG = {
+                    exists = no
+                }
+		    controls = 56
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_open_trade_log"
+		
+		    add_political_power = 25
+			
+		    add_ideas = {
+                limited_exports
+            }
+		    
+		
+		
+		
+		}
+	}
+
+     focus = {
+		id = UVS_appease_monsocs
+		icon = GFX_goal_UVS_appease_monsocs
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_destroy_monarchists
+		
+		prerequisite = {
+			focus = UVS_destroy_monarchists
+		}
+		
+		available = {
+		
+		WRD = {
+                    exists = no
+                }
+		    controls = 42
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_appease_monsocs_log"
+		
+		    add_political_power = 30
+			add_stability = 0.3
+			add_popularity = {
+			ideology = despotism
+			popularity = 0.03
+		    }
+		    
+		
+		
+		
+		}
+	}
+
+     focus = {
+		id = UVS_execute_nazis
+		icon = GFX_goal_UVS_execute_them
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_destroy_nationalists
+		
+		prerequisite = {
+			focus = UVS_destroy_nationalists
+		}
+		
+		available = {
+		
+		FGB = {
+                    exists = no
+                }
+		    controls = 50
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_open_trade_log"
+		
+		    add_political_power = 10
+			add_stability = 0.04
+		    add_popularity = {
+			ideology = national_syndicalism
+			popularity = -0.05
+		    }
+		
+		
+		
+		}
+	}
+
+    focus = {
+		id = UVS_go_south
+		icon = GFX_goal_UVS_down_south
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_open_trade
+		
+		mutually_exclusive = {
+			focus = UVS_south_negotiate
+		}
+		
+		prerequisite = {
+			focus = UVS_open_trade
+		}
+		
+		prerequisite = {
+			focus = UVS_execute_nazis
+		}
+		
+		prerequisite = {
+			focus = UVS_appease_monsocs
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = BSR
+		}
+				
+		bypass = {
+				BSR = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_go_south_log"
+		
+		    declare_war_on = {
+                target = BSR
+                type = annex_everything
+            }
+		    
+		
+		
+		
+		}
+	}	
+	
+	
+
+	 focus = {
+		id = UVS_south_negotiate
+		icon = GFX_goal_UVS_offer_reunification
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_open_trade
+		
+		mutually_exclusive = {
+			focus = UVS_go_south
+		}
+		
+		prerequisite = {
+			focus = UVS_open_trade
+		}
+		
+		prerequisite = {
+			focus = UVS_execute_nazis
+		}
+		
+		prerequisite = {
+			focus = UVS_appease_monsocs
+		}
+		
+		bypass = {
+				BSR = {
+					OR = {
+						exists = no 
+					}
+				}
+			}
+		available = {
+			has_war = no
+			is_neighbor_of = BSR
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_south_negotiate_log"
+		
+	BSR = {	
+	country_event = {
+			id = spartakus.2
+		}
+}		    
+		
+		
+		
+		}
+	}	
+    
+	focus = {
+		id = UVS_endlich_einigkeit
+		icon = GFX_goal_UVS_endlich_einigkeit
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_go_south
+		
+		prerequisite = {
+			focus = UVS_go_south
+			focus = UVS_south_negotiate
+		}
+		
+		available = {
+		
+		BSR = {
+                    exists = no
+                }
+		    controls = 52
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus UVS_endlich_einigkeit_log"
+		
+		    add_political_power = 50
+			add_war_support = 0.05
+			add_ideas = {
+		        UVS_recent_victory
+		    }
+		
+		}
+    }
+}
+
+
+
+
+#
+#		available = {
+#			always = no
+#		}

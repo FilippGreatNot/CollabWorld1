@@ -1,0 +1,2915 @@
+
+focus_tree = {
+	id = SOV_stalin_regional
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SOV
+		}
+	}
+	default = no
+	
+	
+	
+	
+	
+	focus = {
+		id = SOV_faithful_leninist_in_power
+		icon = GFX_goal_SOV_faithful_leninist_in_power
+		x = 20
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus SOV_faithful_leninist_in_power"
+			
+		   add_stability = 0.03
+		   add_political_power = 50	
+		}
+	}
+
+	focus = {
+		id = SOV_estimation_of_ulyanovs_work
+		icon = GFX_goal_SOV_estimation_of_ulyanovs_work
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_faithful_leninist_in_power
+		
+		prerequisite = {
+			focus = SOV_faithful_leninist_in_power
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_estimation_of_ulyanovs_work"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_army_reorganization
+		icon = GFX_goal_SOV_army_reorganization
+		x = -4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_estimation_of_ulyanovs_work
+		
+		prerequisite = {
+			focus = SOV_estimation_of_ulyanovs_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_army_reorganization"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_crush_the_resistance_of_the_counter_revolutionaries
+		icon = GFX_goal_SOV_crush_the_resistance_of_the_counter_revolutionaries
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_army_reorganization
+		
+		prerequisite = {
+			focus = SOV_army_reorganization
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_crush_the_resistance_of_the_counter_revolutionaries"
+		
+		remove_ideas = SOV_kronstadt_legacy
+		}
+	}
+		
+	
+	focus = {
+		id = SOV_fate_of_the_revisionists
+		icon = GFX_goal_SOV_fate_of_the_revisionists
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_estimation_of_ulyanovs_work
+		
+		prerequisite = {
+			focus = SOV_estimation_of_ulyanovs_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_army_reorganization"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_serve_the_cause_of_the_revolution_by_deed
+		icon = GFX_goal_SOV_serve_the_cause_of_the_revolution_by_deed
+		x = -2
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_fate_of_the_revisionists
+		
+		prerequisite = {
+			focus = SOV_fate_of_the_revisionists
+		}
+		
+			mutually_exclusive = {
+			focus = SOV_be_useful_by_skills
+		     }	
+			 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_serve_the_cause_of_the_revolution_by_deed"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_make_them_work
+		icon = GFX_goal_SOV_make_them_work
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_serve_the_cause_of_the_revolution_by_deed
+		
+		prerequisite = {
+			focus = SOV_serve_the_cause_of_the_revolution_by_deed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_make_them_work"
+		
+		
+		
+			random_owned_controlled_state = {
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+
+
+		random_owned_controlled_state = {
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+
+			}			
+			
+			
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_be_useful_by_skills
+		icon = GFX_goal_SOV_be_useful_by_skills
+		x = 2
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_fate_of_the_revisionists
+		
+		prerequisite = {
+			focus = SOV_fate_of_the_revisionists
+		}
+		
+			mutually_exclusive = {
+			focus = SOV_serve_the_cause_of_the_revolution_by_deed
+		     }	
+			 
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_be_useful_by_skills"
+		
+		add_ideas = {
+		SOV_skilled_leadership	
+		}	
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_knights_of_the_revolution
+		icon = GFX_goal_SOV_knights_of_the_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_be_useful_by_skills
+		
+		prerequisite = {
+			focus = SOV_be_useful_by_skills
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_knights_of_the_revolution"
+		
+		
+		}
+	}
+	
+	
+		
+	focus = {
+		id = SOV_end_of_nep
+		icon = GFX_goal_SOV_end_of_nep
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_estimation_of_ulyanovs_work
+		
+		prerequisite = {
+			focus = SOV_estimation_of_ulyanovs_work
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_end_of_nep"
+		
+		remove_ideas = SOV_new_economic_policy
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_industry
+		icon = GFX_goal_SOV_expand_industry
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_end_of_nep
+		
+		prerequisite = {
+			focus = SOV_end_of_nep
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_expand_industry"
+		
+		random_owned_controlled_state = {
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+
+			}
+			
+		random_owned_controlled_state = {
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+
+			}
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_country_infrastructure
+		icon = GFX_goal_SOV_country_infrastructure
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_expand_industry
+		
+		prerequisite = {
+			focus = SOV_expand_industry
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_country_infrastructure"
+		
+	random_owned_controlled_state = {
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}	
+		random_owned_controlled_state = {
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+
+				
+		}
+	}
+	
+	focus = {
+		id = SOV_step_towards_unity
+		icon = GFX_goal_SOV_step_towards_unity
+		x = -4
+		y = 4
+		cost = 3.5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_crush_the_resistance_of_the_counter_revolutionaries
+		relative_position_id = SOV_make_them_work
+		relative_position_id = SOV_knights_of_the_revolution
+		relative_position_id = SOV_country_infrastructure
+		
+		prerequisite = {
+			focus = SOV_knights_of_the_revolution
+			focus = SOV_make_them_work
+		}
+		
+		prerequisite = {
+			focus = SOV_country_infrastructure
+		}
+			
+		prerequisite = {
+			focus = SOV_crush_the_resistance_of_the_counter_revolutionaries
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_step_towards_unity"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_unification_plan
+		icon = GFX_goal_SOV_unification_plan
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_step_towards_unity
+		
+		prerequisite = {
+			focus = SOV_step_towards_unity
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_unification_plan"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_dash_to_the_west
+		icon = GFX_goal_SOV_dash_to_the_west
+		x = -5
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_dash_to_the_west"
+		WVA = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_end_the_white_menace_in_the_baltic_states
+		icon = GFX_goal_SOV_end_the_white_menace_in_the_baltic_states
+		x = 0
+		y = 1
+		cost = 4
+		bypass = {
+			WVA = {
+				exists = no
+			}
+		}
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dash_to_the_west
+		
+		prerequisite = {
+			focus = SOV_dash_to_the_west
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = WVA
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_end_the_white_menace_in_the_baltic_states"	
+			 declare_war_on = {
+                target = WVA
+                type = annex_everything
+            }
+			
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_call_to_tukhachevsky
+		icon = GFX_goal_SOV_call_to_tukhachevsky
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		bypass = {
+			PBD = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_end_the_white_menace_in_the_baltic_states
+		
+		prerequisite = {
+			focus = SOV_end_the_white_menace_in_the_baltic_states
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = PBD
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_call_to_tukhachevsky"
+	PBD = {	
+	country_event = {
+			id = unification.1
+		}
+}		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_peaceful_integration
+		icon = GFX_goal_SOV_peaceful_integration
+		x = -1
+		y = 1
+		cost = 3
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {
+			focus = SOV_teach_the_impudent_marshal_a_lesson
+		     }	
+			 
+		relative_position_id = SOV_call_to_tukhachevsky
+		
+		prerequisite = {
+			focus = SOV_call_to_tukhachevsky
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_peaceful_integration"	
+			
+		}
+	}	
+	
+	focus = {
+		id = SOV_congratulations_on_the_promotion
+		icon = GFX_goal_SOV_congratulations_on_the_promotion
+		x = 0
+		y = 1
+		cost = 5
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = SOV_peaceful_integration
+		
+		prerequisite = {
+			focus = SOV_peaceful_integration
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_congratulations_on_the_promotion"	
+		add_ideas = {
+		SOV_red_napoleon_in_command	
+		}	
+		}
+	}
+
+	focus = {
+		id = SOV_teach_the_impudent_marshal_a_lesson
+		icon = GFX_goal_SOV_teach_the_impudent_marshal_a_lesson
+		x = 1
+		y = 1
+		cost = 2
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = SOV_call_to_tukhachevsky
+		mutually_exclusive = {
+			focus = SOV_peaceful_integration
+		     }	
+		prerequisite = {
+			focus = SOV_call_to_tukhachevsky
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_teach_the_impudent_marshal_a_lesson"	
+			
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_tukhachevsky_case
+		icon = GFX_goal_SOV_tukhachevsky_Case
+		x = 0
+		y = 1
+		cost = 5
+		bypass = {
+			
+				206 = {
+
+					owner = {
+
+						NOT = {
+
+							tag = PBD
+							
+							tag = SOV
+
+
+						}
+
+					}
+
+				}
+			
+		}
+		available_if_capitulated = yes
+		
+		
+		relative_position_id = SOV_teach_the_impudent_marshal_a_lesson
+		
+		prerequisite = {
+			focus = SOV_teach_the_impudent_marshal_a_lesson
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_tukhachevsky_case"
+		
+		  add_timed_idea = { idea = SOV_tukhachevsky_case  days = 365 }
+
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_question_of_the_north
+		icon = GFX_goal_SOV_question_of_the_north
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_question_of_the_north"
+		
+		KMD = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_trip_to_karelia
+		icon = GFX_goal_SOV_trip_to_karelia
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_question_of_the_north
+		
+		prerequisite = {
+			focus = SOV_question_of_the_north
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_trip_to_karelia"
+		
+		annex_country = { 
+		target = KMD
+		transfer_troops = yes 
+		}
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_southern_threat_assessment
+		icon = GFX_goal_SOV_southern_threat_assessment
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_southern_threat_assessment"
+		
+		SRF = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+			
+			
+		UFT = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_end_the_free_territory
+		icon = GFX_goal_SOV_end_the_free_territory
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			UFT = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_southern_threat_assessment
+		
+		prerequisite = {
+			focus = SOV_southern_threat_assessment
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = UFT
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_end_the_free_territory"
+		
+		 declare_war_on = {
+                target = UFT
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_cut_off_the_second_head_of_the_hydra
+		icon = GFX_goal_SOV_cut_off_the_second_head_of_the_hydra
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			SRF = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_end_the_free_territory
+		
+		prerequisite = {
+			focus = SOV_end_the_free_territory
+		}
+		
+		available = {
+			has_war = no
+			is_neighbor_of = SRF
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_cut_off_the_second_head_of_the_hydra"
+		
+		 declare_war_on = {
+                target = SRF
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_look_to_the_east
+		icon = GFX_goal_SOV_look_to_the_east
+		x = 6
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unification_plan
+		
+		prerequisite = {
+			focus = SOV_unification_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_look_to_the_east"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_everythin_that_lies_beyond_the_ural
+		icon = GFX_goal_SOV_everythin_that_lies_beyond_the_ural
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_look_to_the_east
+		
+		prerequisite = {
+			focus = SOV_look_to_the_east
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_everythin_that_lies_beyond_the_ural"
+		RUS = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			} 
+			
+		FER = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+			
+		KMP = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+			
+		UNR = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_finish_off_their_rebellion
+		icon = GFX_goal_SOV_finish_off_their_rebellion
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			UNR = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_everythin_that_lies_beyond_the_ural
+		
+		prerequisite = {
+			focus = SOV_everythin_that_lies_beyond_the_ural
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = UNR
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_finish_off_their_rebellion"
+		
+		 declare_war_on = {
+                target = UNR
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_destroy_the_main_head_of_the_hydra
+		icon = GFX_goal_SOV_destroy_the_main_head_of_the_hydra
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			RUS = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_finish_off_their_rebellion
+		
+		prerequisite = {
+			focus = SOV_finish_off_their_rebellion
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = RUS
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_destroy_the_main_head_of_the_hydra"
+		
+		 declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_abandoned_admiral
+		icon = GFX_goal_SOV_abandoned_admiral
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_destroy_the_main_head_of_the_hydra
+		
+		prerequisite = {
+			focus = SOV_destroy_the_main_head_of_the_hydra
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_abandoned_admiral"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_last_push_to_vladivostok
+		icon = GFX_goal_SOV_last_push_to_vladivostok
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			FER = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_destroy_the_main_head_of_the_hydra
+		
+		prerequisite = {
+			focus = SOV_destroy_the_main_head_of_the_hydra
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = FER
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_last_push_to_vladivostok"
+		
+		 declare_war_on = {
+                target = FER
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_drive_the_japanese_back
+		icon = GFX_goal_SOV_drive_the_japanese_back
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			KMP = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_last_push_to_vladivostok
+		
+		prerequisite = {
+			focus = SOV_last_push_to_vladivostok
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = KMP
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_drive_the_japanese_back"
+		
+		 declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_middle_asia
+		icon = GFX_goal_SOV_middle_asia
+		x = 4
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_look_to_the_east
+		
+		prerequisite = {
+			focus = SOV_look_to_the_east
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_middle_asia"
+		OCG = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		KAA = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		KSR = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_destroy_the_cossack_republic
+		icon = GFX_goal_SOV_destroy_the_cossack_republic
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			OCG = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_middle_asia
+		
+		prerequisite = {
+			focus = SOV_middle_asia
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = OCG
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_destroy_the_cossack_republic"
+		
+		 declare_war_on = {
+                target = OCG
+                type = annex_everything
+            }
+		}
+	}
+	
+	focus = {
+		id = SOV_burn_steppe_autonomy
+		icon = GFX_goal_SOV_burn_steppe_autonomy
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			KAA = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_destroy_the_cossack_republic
+		
+		prerequisite = {
+			focus = SOV_destroy_the_cossack_republic
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = KAA
+		}
+				
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_burn_steppe_autonomy"
+		
+		 declare_war_on = {
+                target = KAA
+                type = annex_everything
+            }
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_old_comrade
+		icon = GFX_goal_SOV_old_comrade
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		bypass = {
+			KSR = {
+				exists = no
+			}
+		}
+		relative_position_id = SOV_burn_steppe_autonomy
+		
+		prerequisite = {
+			focus = SOV_burn_steppe_autonomy
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_old_comrade"
+		
+		annex_country = { 
+		target = KSR
+		transfer_troops = yes 
+		}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+# NKVD tree	
+	
+	
+	
+	focus = {
+		id = SOV_reformation_of_the_ogpu
+		icon = GFX_goal_SOV_reformation_of_the_ogpu
+		x = 40
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus SOV_reformation_of_the_ogpu"
+			
+		   
+		}
+	}
+	
+	focus = {
+		id = SOV_dzerzhinskys_resignation
+		icon = GFX_goal_SOV_dzerzhinskys_resignation
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_reformation_of_the_ogpu
+		
+		prerequisite = {
+			focus = SOV_reformation_of_the_ogpu
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_dzerzhinskys_resignation"
+		country_event = {
+			id = stalin.1
+		}
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_beria_leader
+		icon = GFX_goal_SOV_beria_leader
+		x = -5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dzerzhinskys_resignation
+		mutually_exclusive = {
+			focus = SOV_yezhov_leader
+			focus = SOV_bokii_leader
+		   }
+
+			 
+		prerequisite = {
+			focus = SOV_dzerzhinskys_resignation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_beria_leader"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_essence_of_chekists
+		icon = GFX_goal_SOV_essence_of_chekists
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_beria_leader
+		
+		prerequisite = {
+			focus = SOV_beria_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_essence_of_chekists"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_crush_the_revisionists
+		icon = GFX_goal_SOV_crush_the_revisionists
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_essence_of_chekists
+		
+		prerequisite = {
+			focus = SOV_essence_of_chekists
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_crush_the_revisionists"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_resource_reallocation
+		icon = GFX_goal_SOV_resource_reallocation
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_crush_the_revisionists
+		
+		prerequisite = {
+			focus = SOV_crush_the_revisionists
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_resource_reallocation"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_industrial_collective
+		icon = GFX_goal_SOV_industrial_collective
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_beria_leader
+		
+		prerequisite = {
+			focus = SOV_beria_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_industrial_collective"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_attract_additional_forces
+		icon = GFX_goal_SOV_attract_additional_forces
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_industrial_collective
+		
+		prerequisite = {
+			focus = SOV_industrial_collective
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_attract_additional_forces"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_rebuild_projects 
+		icon = GFX_goal_SOV_rebuild_projects
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_attract_additional_forces
+		
+		prerequisite = {
+			focus = SOV_attract_additional_forces
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_rebuild_projects"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_moscow_experiment
+		icon = GFX_goal_SOV_moscow_experiment
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_resource_reallocation
+		relative_position_id = SOV_rebuild_projects
+		
+		prerequisite = {
+			focus = SOV_resource_reallocation
+		}
+		
+		prerequisite = {
+			focus = SOV_rebuild_projects
+		}
+				
+			
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_moscow_experiment"
+		
+		
+		}
+	}				
+
+		
+	
+	focus = {
+		id = SOV_yezhov_leader
+		icon = GFX_goal_SOV_yezhov_leader
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dzerzhinskys_resignation
+		mutually_exclusive = {
+			focus = SOV_beria_leader
+			focus = SOV_bokii_leader
+		   }
+
+			 
+		prerequisite = {
+			focus = SOV_dzerzhinskys_resignation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhov_leader"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_yezhov_land_development
+		icon = GFX_goal_SOV_yezhov_land_development
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhov_leader
+		
+		prerequisite = {
+			focus = SOV_yezhov_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhov_land_development"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_labor_zones
+		icon = GFX_goal_SOV_labor_zones
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhov_land_development
+		
+		prerequisite = {
+			focus = SOV_yezhov_land_development
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_labor_zones"
+		
+		
+		}
+	}	
+	
+		
+	focus = {
+		id = SOV_unleash_gebna
+		icon = GFX_goal_SOV_unleash_gebna
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhov_leader
+		
+		prerequisite = {
+			focus = SOV_yezhov_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_unleash_gebna"
+		
+		
+		}
+	}
+	focus = {
+		id = SOV_yezhovs_notebook
+		icon = GFX_goal_SOV_yezhovs_notebook
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_unleash_gebna
+		
+		prerequisite = {
+			focus = SOV_unleash_gebna
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhovs_notebook"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_plan_cleanup
+		icon = GFX_goal_SOV_plan_cleanup
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhovs_notebook
+		relative_position_id = SOV_labor_zones
+		
+		prerequisite = {
+			focus = SOV_yezhovs_notebook
+		}
+		
+		prerequisite = {
+			focus = SOV_labor_zones
+		}
+				
+			
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_plan_cleanup"
+		
+		
+		}
+	}				
+
+	
+	focus = {
+		id = SOV_bokii_leader
+		icon = GFX_goal_SOV_bokii_leader
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_dzerzhinskys_resignation
+		mutually_exclusive = {
+			focus = SOV_beria_leader
+			focus = SOV_yezhov_leader
+		   }
+
+			 
+		prerequisite = {
+			focus = SOV_dzerzhinskys_resignation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhov_leader"
+		
+		
+		}
+	}
+		
+	focus = {
+		id = SOV_start_experiments 
+		icon = GFX_goal_SOV_start_experiments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_bokii_leader
+		
+		prerequisite = {
+			focus = SOV_bokii_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_start_experiments"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_attract_barchenko
+		icon = GFX_goal_SOV_attract_barchenko
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_start_experiments
+		
+		prerequisite = {
+			focus = SOV_start_experiments
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_attract_barchenko"
+		
+		
+		}
+	}
+			
+	focus = {
+		id = SOV_yezhovs_labor_zones
+		icon = GFX_goal_SOV_yezhovs_labor_zones
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_bokii_leader
+		
+		prerequisite = {
+			focus = SOV_bokii_leader
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_yezhovs_labor_zones"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_attract_prisoners
+		icon = GFX_goal_SOV_attract_prisoners
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_yezhovs_labor_zones
+		
+		prerequisite = {
+			focus = SOV_yezhovs_labor_zones
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_attract_prisoners"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_soviet_science
+		icon = GFX_goal_SOV_soviet_science
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_attract_prisoners
+		relative_position_id = SOV_attract_barchenko
+		
+		prerequisite = {
+			focus = SOV_attract_prisoners
+		}
+		
+		prerequisite = {
+			focus = SOV_attract_barchenko
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_soviet_science"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_power_of_innovation
+		icon = GFX_goal_SOV_power_of_innovation
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_soviet_science
+		
+		prerequisite = {
+			focus = SOV_soviet_science
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_power_of_innovation"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_power_of_neopaganism
+		icon = GFX_goal_SOV_power_of_neopaganism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_soviet_science
+		
+		prerequisite = {
+			focus = SOV_soviet_science
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_power_of_neopaganism"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_demonstration_of_power
+		icon = GFX_goal_SOV_demonstration_of_power
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_power_of_innovation
+		relative_position_id = SOV_power_of_neopaganism
+		
+		prerequisite = {
+			focus = SOV_power_of_innovation
+		}
+		
+		prerequisite = {
+			focus = SOV_power_of_neopaganism
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_demonstration_of_power"
+		
+		
+		}
+	}
+	
+	
+	
+	
+	
+	##########Economy Regional
+	focus = {
+		id = SOV_the_road_to_communism
+		icon = GFX_goal_SOV_the_road_to_communism
+		x = 60
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus SOV_the_road_to_communism"
+			
+		   
+		}
+	}	
+	
+	focus = {
+		id = SOV_the_first_five_year_plan
+		icon = GFX_goal_SOV_the_first_five_year_plan
+		x = -6
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_the_road_to_communism
+		
+		prerequisite = {
+			focus = SOV_the_road_to_communism
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_the_first_five_year_plan"
+		
+		
+		}
+	}
+
+	focus = {
+		id = SOV_rapid_industrialization
+		icon = GFX_goal_SOV_rapid_industrialization
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_the_first_five_year_plan
+		
+		prerequisite = {
+			focus = SOV_the_first_five_year_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_rapid_industrialization"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_build_northern_industries
+		icon = GFX_goal_SOV_build_northern_industries
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_rapid_industrialization
+
+		prerequisite = {
+			focus = SOV_rapid_industrialization
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_build_northern_industries"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_modernize_infrastructure
+		icon = GFX_goal_SOV_modernize_infrastructure
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_rapid_industrialization
+
+
+		prerequisite = {
+			focus = SOV_rapid_industrialization
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_modernize_infrastructure"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_expand_the_civilian_sector
+		icon = GFX_goal_SOV_expand_the_civilian_sector
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_build_northern_industries
+		relative_position_id = SOV_modernize_infrastructure
+		
+		prerequisite = {
+			focus = SOV_build_northern_industries
+		}
+		
+		prerequisite = {
+			focus = SOV_modernize_infrastructure
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_expand_the_civilian_sector"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_open_new_railways
+		icon = GFX_goal_SOV_open_new_railways
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_expand_the_civilian_sector
+
+		prerequisite = {
+			focus = SOV_expand_the_civilian_sector
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_open_new_railways"
+		
+		
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_fix_infrastructural_bottlenecks
+		icon = GFX_goal_SOV_fix_infrastructural_bottlenecks
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_open_new_railways
+		
+		prerequisite = {
+			focus = SOV_open_new_railways
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_fix_infrastructural_bottlenecks"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_use_prison_labor
+		icon = GFX_goal_SOV_use_prison_labor
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_expand_the_civilian_sector
+
+
+		prerequisite = {
+			focus = SOV_expand_the_civilian_sector
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_modernize_infrastructure"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_women_in_the_industry
+		icon = GFX_goal_SOV_women_in_the_industry
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_use_prison_labor
+		
+		prerequisite = {
+			focus = SOV_use_prison_labor
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_women_in_the_industry"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_industry_for_the_economy
+		icon = GFX_goal_SOV_industry_for_the_economy
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_fix_infrastructural_bottlenecks
+		relative_position_id = SOV_women_in_the_industry
+		
+		prerequisite = {
+			focus = SOV_fix_infrastructural_bottlenecks
+		}
+		
+		prerequisite = {
+			focus = SOV_women_in_the_industry
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_industry_for_the_economy"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_agricultural_collectivization
+		icon = GFX_goal_SOV_agricultural_collectivization
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_the_first_five_year_plan
+		
+		prerequisite = {
+			focus = SOV_the_first_five_year_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_agricultural_collectivization"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_ordzhonikidze_plan
+		icon = GFX_goal_SOV_rykov_plan
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_agricultural_collectivization
+		mutually_exclusive = {
+			focus = SOV_rykov_plan
+		   }		
+		prerequisite = {
+			focus = SOV_agricultural_collectivization
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_ordzhonikidze_plan"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_regulation_above_all
+		icon = GFX_goal_SOV_regulation_above_all
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_ordzhonikidze_plan
+
+
+		prerequisite = {
+			focus = SOV_ordzhonikidze_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_regulation_above_all"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_the_artels_must_remain
+		icon = GFX_goal_SOV_the_artels_must_remain
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_regulation_above_all
+
+
+		prerequisite = {
+			focus = SOV_regulation_above_all
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_the_artels_must_remain"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_an_automated_farming_plan
+		icon = GFX_goal_SOV_an_automated_farming_plan
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_the_artels_must_remain
+
+
+		prerequisite = {
+			focus = SOV_the_artels_must_remain
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_an_automated_farming_plan"
+		
+		
+		}
+	}
+
+
+
+	
+	focus = {
+		id = SOV_create_sovhozs_all_over_the_state
+		icon = GFX_goal_SOV_create_sovhozs_all_over_the_state
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_an_automated_farming_plan
+
+
+		prerequisite = {
+			focus = SOV_an_automated_farming_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_create_sovhozs_all_over_the_state"
+		
+		
+		}
+	}	
+	focus = {
+		id = SOV_rykov_plan
+		icon = GFX_goal_SOV_rykov_plan
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_agricultural_collectivization
+		mutually_exclusive = {
+			focus = SOV_ordzhonikidze_plan
+		   }
+
+		prerequisite = {
+			focus = SOV_agricultural_collectivization
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_rykov_plan"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_half_measures_are_not_enough
+		icon = GFX_goal_SOV_half_measures_are_not_enough
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_rykov_plan
+
+
+		prerequisite = {
+			focus = SOV_rykov_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_half_measures_are_not_enough"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_destroy_artels
+		icon = GFX_goal_SOV_destroy_artels
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_half_measures_are_not_enough
+
+
+		prerequisite = {
+			focus = SOV_half_measures_are_not_enough
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_destroy_artels"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_more_manpower_more_production
+		icon = GFX_goal_SOV_more_manpower_more_production
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_destroy_artels
+
+
+		prerequisite = {
+			focus = SOV_destroy_artels
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_more_manpower_more_production"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_forced_collectivization
+		icon = GFX_goal_SOV_forced_collectivization
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_more_manpower_more_production
+
+
+		prerequisite = {
+			focus = SOV_more_manpower_more_production
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_forced_collectivization"
+		
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_sum_up_the_collectivization
+		icon = GFX_goal_SOV_sum_up_the_collectivization
+		x = -1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_create_sovhozs_all_over_the_state
+		relative_position_id = SOV_forced_collectivization
+
+		prerequisite = {
+			focus = SOV_create_sovhozs_all_over_the_state
+			focus = SOV_forced_collectivization
+		}
+			
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_sum_up_the_collectivization"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_finish_the_first_five_year_plan
+		icon = GFX_goal_SOV_finish_the_first_five_year_plan
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_industry_for_the_economy
+		relative_position_id = SOV_sum_up_the_collectivization
+		
+		prerequisite = {
+			focus = SOV_industry_for_the_economy
+		}
+		
+		prerequisite = {
+			focus = SOV_sum_up_the_collectivization
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_finish_the_first_five_year_plan"
+		
+		
+		}
+	}
+
+	
+	focus = {
+		id = SOV_socialist_welfare_state
+		icon = GFX_goal_SOV_socialist_welfare_state
+		x = 6
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_the_road_to_communism
+		
+		prerequisite = {
+			focus = SOV_the_road_to_communism
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_socialist_welfare_state"
+		
+		
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_immunize_the_population
+		icon = GFX_goal_SOV_immunize_the_population
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_socialist_welfare_state
+
+
+		prerequisite = {
+			focus = SOV_socialist_welfare_state
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_immunize_the_population"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_build_more_hospitals
+		icon = GFX_goal_SOV_build_more_hospitals
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_immunize_the_population
+
+
+		prerequisite = {
+			focus = SOV_immunize_the_population
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_build_more_hospitals"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_raise_living_standards
+		icon = GFX_goal_SOV_raise_living_standards
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_socialist_welfare_state
+
+
+		prerequisite = {
+			focus = SOV_socialist_welfare_state
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_raise_living_standards"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_increase_rations
+		icon = GFX_goal_SOV_increase_rations
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_raise_living_standards
+
+
+		prerequisite = {
+			focus = SOV_raise_living_standards
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_increase_rations"
+		
+		
+		}
+	}
+				
+	
+	focus = {
+		id = SOV_build_a_social_welfare_net
+		icon = GFX_goal_SOV_build_a_social_welfare_net
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_socialist_welfare_state
+
+
+		prerequisite = {
+			focus = SOV_socialist_welfare_state
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_build_a_social_welfare_net"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_distribute_the_wealth
+		icon = GFX_goal_SOV_distribute_the_wealth
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_build_a_social_welfare_net
+
+
+		prerequisite = {
+			focus = SOV_build_a_social_welfare_net
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_distribute_the_wealth"
+		
+		
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_the_peoples_state
+		icon = GFX_goal_SOV_the_peoples_state
+		x = -2
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_build_more_hospitals
+		relative_position_id = SOV_increase_rations
+		relative_position_id = SOV_distribute_the_wealth
+
+		prerequisite = {
+			focus = SOV_build_more_hospitals
+		}
+		
+		prerequisite = {
+			focus = SOV_increase_rations
+		}
+			
+		prerequisite = {
+			focus = SOV_distribute_the_wealth
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_the_peoples_state"
+		
+		
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	focus = {
+		id = SOV_award_the_workers
+		icon = GFX_goal_SOV_award_the_workers
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_finish_the_first_five_year_plan
+
+
+		prerequisite = {
+			focus = SOV_finish_the_first_five_year_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_award_the_workers"
+		
+		
+		}
+	}
+	
+	focus = {
+		id = SOV_thank_the_farmers
+		icon = GFX_goal_SOV_thank_the_farmers
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_finish_the_first_five_year_plan
+
+
+		prerequisite = {
+			focus = SOV_finish_the_first_five_year_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_thank_the_farmers"
+		
+		
+		}
+	}	
+
+	
+	focus = {
+		id = SOV_glorify_the_militarys_role
+		icon = GFX_goal_SOV_glorify_the_militarys_role
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_finish_the_first_five_year_plan
+
+
+		prerequisite = {
+			focus = SOV_finish_the_first_five_year_plan
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_glorify_the_militarys_role"
+		
+		
+		}
+	}	
+	
+	focus = {
+		id = SOV_begin_the_second_five_year_plan
+		icon = GFX_goal_SOV_begin_the_second_five_year_plan
+		x = -2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = SOV_award_the_workers
+		relative_position_id = SOV_thank_the_farmers
+		relative_position_id = SOV_glorify_the_militarys_role
+		available = {
+		SOV = {
+			has_country_flag = SOV_reunificated
+			}
+		}
+		prerequisite = {
+			focus = SOV_award_the_workers
+		}
+		
+		prerequisite = {
+			focus = SOV_thank_the_farmers
+		}
+			
+		prerequisite = {
+			focus = SOV_glorify_the_militarys_role
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus SOV_begin_the_second_five_year_plan"
+		
+		
+		}
+	}
+		
+
+		
+}
+
+
+			

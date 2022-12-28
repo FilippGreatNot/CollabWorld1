@@ -1,0 +1,118 @@
+﻿capital = 439
+oob = "RAJ"
+
+set_stability = 0.6
+set_war_support = 0.1
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_recon = 1
+	gw_artillery = 1
+	early_fighter = 1
+	naval_bomber1 = 1
+	early_bomber = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	basic_train = 1
+}
+
+
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
+}
+
+set_technology = {
+	gwtank = 1
+}
+
+set_convoys = 20
+
+set_cosmetic_tag = RAJ_UK # British Raj
+
+set_politics = {
+	ruling_party = liberalism
+	last_election = "1920.11.14"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	liberalism = 42
+	conservatism = 39
+	despotism = 19
+}
+
+create_country_leader = {
+	name = "Rufus Isaacs"
+	desc = "POLITICS_RUFUS_ISAACS_DESC"
+	picture = "gfx/leaders/RAJ/RufusIsaacs.dds"
+	expire = "1965.1.1"
+	ideology = classical_liberalism
+	traits = {
+		
+	}
+}
+
+create_corps_commander = {
+	name = "Noel Beresford-Peirse"
+	gfx = "GFX_RAJ_noel_beresford_peirse"
+	traits = { armor_officer }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Frank Messervy"
+	gfx = "GFX_RAJ_frank_messervy"
+	traits = { hill_fighter }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
+}
+
+create_corps_commander = {
+	name = "Douglas Gracey"
+	gfx = "GFX_RAJ_douglas_gracey"
+	traits = { desert_fox }
+	skill = 3
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+
+create_navy_leader = {
+	name = "Herbert Fitzherbert"
+	gfx = "GFX_RAJ_herbert_fitzherbert"
+	traits = { old_guard_navy }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 1
+	coordination_skill = 2
+}
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	create_operative_leader = {
+		name = "Noor Inayat Khan"
+		GFX = GFX_portrait_noor_inayat_khan
+		traits = {  }
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		female = yes
+		nationalities = { RAJ }
+	}
+}
