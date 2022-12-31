@@ -10,28 +10,3 @@
 # protect
 # influence
 
-triple_entente_fra = {
-	allowed = { original_tag = FRA }
-
-	enable = {
-		country_exists = USA
-		country_exists = ENG
-	}
-	abort = {
-		OR = {
-			NOT = { 
-			country_exists = ENG 
-			country_exists = USA 
-			
-			}
-			has_war_with = USA
-			has_war_with = ENG
-		}
-	}
-	ai_strategy = {
-		type = alliance
-		id = "ENG"
-		id = "USA"
-		value = 200
-	}
-}
