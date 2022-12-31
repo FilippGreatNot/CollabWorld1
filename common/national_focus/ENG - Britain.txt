@@ -10,5 +10,395 @@
 	default = no
 	
 
+	focus = {
+		id = ENG_fullers_britain
+		icon = GFX_goal_UVS_rise_germany
+		x = 6
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+			add_equipment_to_stockpile = {
+			type = infantry_weapons0_25
+			amount = 555
+			producer = UVS
+		    }
+
+			hidden_effect  = {
+			#	 country_event = { id = problem.1 days = 1 }
+			}
+		}
+	}
 	
+	focus = {
+		id = ENG_britons_never_slaves
+		icon = GFX_goal_UVS_rise_germany
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		mutually_exclusive = {
+			focus = ENG_against_degeneracy
+		}
+		
+		relative_position_id = ENG_fullers_britain
+		prerequisite = {
+			focus = ENG_fullers_britain
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_contact_exiles
+		icon = GFX_goal_UVS_rise_germany
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_britons_never_slaves
+		prerequisite = {
+			focus = ENG_britons_never_slaves
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+
+		}
+	}
+	
+	focus = {
+		id = ENG_loyalists_in_military
+		icon = GFX_goal_UVS_rise_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_contact_exiles
+		prerequisite = {
+			focus = ENG_contact_exiles
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+
+		}
+	}
+	
+	focus = {
+		id = ENG_uprising_begin
+		icon = GFX_goal_UVS_rise_germany
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_loyalists_in_military
+		prerequisite = {
+			focus = ENG_loyalists_in_military
+		}
+		prerequisite = {
+			focus = ENG_red_flag
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+
+		}
+	}
+	
+	focus = {
+		id = ENG_popular_support
+		icon = GFX_goal_UVS_rise_germany
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_britons_never_slaves
+		prerequisite = {
+			focus = ENG_britons_never_slaves
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+
+		}
+	}
+	
+	focus = {
+		id = ENG_red_flag
+		icon = GFX_goal_ENG_red_flag
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_popular_support
+		prerequisite = {
+			focus = ENG_popular_support
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+
+		}
+	}
+	
+	focus = {
+		id = ENG_against_degeneracy
+		icon = GFX_goal_UVS_rise_germany
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_fullers_britain
+		prerequisite = {
+			focus = ENG_fullers_britain
+		}
+		
+		mutually_exclusive = {
+			focus = ENG_britons_never_slaves
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_purge_military
+		icon = GFX_goal_UVS_rise_germany
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_against_degeneracy
+		prerequisite = {
+			focus = ENG_against_degeneracy
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_radicals
+		icon = GFX_goal_UVS_rise_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_purge_military
+		prerequisite = {
+			focus = ENG_purge_military
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_arrest_dissidents
+		icon = GFX_goal_UVS_rise_germany
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_against_degeneracy
+		prerequisite = {
+			focus = ENG_against_degeneracy
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_shoot_reds
+		icon = GFX_goal_UVS_rise_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_arrest_dissidents
+		prerequisite = {
+			focus = ENG_arrest_dissidents
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_squash_the_uprising
+		icon = GFX_goal_UVS_rise_germany
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_shoot_reds
+		prerequisite = {
+			focus = ENG_shoot_reds
+		}
+		prerequisite = {
+			focus = ENG_radicals
+		}
+		
+		completion_reward = {	
+		    log = "[GetDateText]: [Root.GetName]: Focus UVS_rise_germany log"
+			
+			add_war_support = 0.05
+			
+			add_stability = 0.05
+			
+			add_political_power = 50
+			
+		
+		}
+	}
 }
+
+
+ 
