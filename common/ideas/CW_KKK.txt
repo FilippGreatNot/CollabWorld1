@@ -11,7 +11,7 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = KKK_beaten_but_not_defeated
+			picture = KKK_charlston_acts
 			modifier = {
 			consumer_goods_factor = -0.075
 			army_org_factor = 0.05
@@ -29,7 +29,7 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = KKK_beaten_but_not_defeated
+			picture = KKK_charlston_acts
 			modifier = {
 			industrial_capacity_dockyard = 0.06
 			industrial_capacity_factory = 0.06
@@ -59,6 +59,7 @@ ideas = {
 		}
 		
 	   KKK_the_klansmen = {
+			picture = KKK_the_klansmen
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KKK_the_klansmen"}
 			allowed = {
 				always = no
@@ -68,7 +69,7 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = KKK_the_klansmen
+			
 			modifier = {
 			stability_factor = 0.03
 			required_garrison_factor = -0.15
@@ -115,6 +116,27 @@ ideas = {
 			compliance_growth = -0.165
 			}
 		}
+		
+		 KKK_limited_segregation2 = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KKK_limited_segregation"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = KKK_limited_segregation
+			modifier = {
+			add_political_power_gain = 0.02
+			add_stability_factor = 0.045
+			conscription = -0.185
+			recruitable_population = -0.135
+			non_core_manpower = -0.1
+			compliance_growth = -0.195
+			}
+		}
 		 KKK_the_shadow_economy = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KKK_limited_segregation"}
 			allowed = {
@@ -129,6 +151,70 @@ ideas = {
 			modifier = {
 			consumer_goods_factor = -0.015
 			global_building_slots_factor = 0.25
+			}
+		}
+		
+		KKK_the_shadow_economy2 = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KKK_limited_segregation"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = KKK_limited_segregation
+			modifier = {
+			consumer_goods_factor = -0.015
+			global_building_slots_factor = 0.25
+			industrial_capacity_dockyard = 0.05
+			industrial_capacity_factory = 0.05
+			local_resources_factor = 0.25
+			}
+		}
+		
+		KKK_the_economic_boom	= {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KKK_limited_segregation"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = KKK_limited_segregation
+			modifier = {
+			consumer_goods_factor = -0.15
+			research_speed_factor = 0.05
+			industrial_capacity_dockyard = 0.05
+			industrial_capacity_factory = 0.05
+			production_speed_buildings_factor = 0.15
+			production_factory_efficiency_gain_factor = 0.5 
+			}
+		}
+		
+		KKK_the_economic_boom2	= {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KKK_limited_segregation"}
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = KKK_limited_segregation
+			modifier = {
+			consumer_goods_factor = -0.15
+			research_speed_factor = 0.05
+			industrial_capacity_dockyard = 0.05
+			industrial_capacity_factory = 0.05
+			production_speed_buildings_factor = 0.15
+			production_factory_efficiency_gain_factor = 0.5 
+			trade_opinion_factor = 0.2
+			faction_trade_opinion_factor = 0.5
 			}
 		}
     }
