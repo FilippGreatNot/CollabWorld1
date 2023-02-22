@@ -18,9 +18,9 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		available = {
-				has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
-			}
-			
+			has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
+		}
+		
 		ai_will_do = {
 			factor = 10
 		}
@@ -29,10 +29,8 @@ focus_tree = {
 		    log = "[GetDateText]: [ROOT.GetTag]: Focus USA_rockfeller_america"
 			
 			add_political_power = 50
-
 		}
 	}
-	
 	
 	focus = {
 		id = USA_industrial_nation
@@ -48,19 +46,18 @@ focus_tree = {
 			focus = USA_ban_communist_parties
 		}
 		available = {
-				has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
-			}
+			has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
+		}
 
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus USA_industrial_nation_log"
-		
-		add_stability = -0.5
-		add_political_power = 50
-		
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_industrial_nation_log"
+			
+			add_stability = -0.5
+			add_political_power = 50
 		}
 	}
 	
@@ -81,32 +78,31 @@ focus_tree = {
 		}
 		
 		available = {
-				has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
-			}
+			has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
+		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus USA_ban_communist_parties_log"
-		
-		remove_ideas = {
-		    USA_socialist_nightmare
-		}
-		
-		add_popularity = {
-			ideology = bolshevism
-			popularity = -0.05
-		}
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = -0.05
-		}
-		add_popularity = {
-			ideology = marxism
-			popularity = -0.05
-		}
-				
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_ban_communist_parties_log"
+			
+			remove_ideas = {
+				USA_socialist_nightmare
+			}
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
 		}
 	}
 	
@@ -127,24 +123,22 @@ focus_tree = {
 		}
 		
 		available = {
-				has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
-			}
+			has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
+		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus USA_strengthening_of_special_services_log"
-		
-		add_stability = -0.05
-		add_political_power = 150
-		
-		
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_strengthening_of_special_services_log"
+			
+			add_stability = -0.05
+			add_political_power = 150
 		}
 	}
 	
 	
-focus = {
+	focus = {
 		id = USA_cut_taxes
 		icon = GFX_goal_USA_cut_taxes
 		x = 0
@@ -170,23 +164,20 @@ focus = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_ban_unions_log"
 			
 			add_political_power = 200
-			
-					
 		}
 	}
 	
-	
-focus = {
+	focus = {
 		id = USA_up_yours
 		icon = GFX_goal_USA_up_yours
 		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-					
+		
 		relative_position_id = USA_cut_taxes
 		relative_position_id = USA_polarize_the_public
-					
+		
 		prerequisite = {
 			focus = USA_polarize_the_public
 		}
@@ -196,10 +187,7 @@ focus = {
 			}
 		prerequisite = {
 			focus = USA_cut_taxes
-		}
-					
-					
-				
+		}	
 		ai_will_do = {
 			factor = 10
 		}
@@ -208,11 +196,10 @@ focus = {
 			
 			kill_ideology_leader = bolshevism
 			kill_ideology_leader = libertarian_socialism
-					
 		}
 	}
-	
-focus = {
+		
+	focus = {
 		id = USA_maximize_growth
 		icon = GFX_goal_USA_maximize_growth
 		x = 1
@@ -228,14 +215,11 @@ focus = {
 		}
 		
 		available = {
-				has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
-			}
+			has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
+		}
 		prerequisite = {
 			focus = USA_cut_taxes
-		}
-					
-					
-				
+		}	
 		ai_will_do = {
 			factor = 10
 		}
@@ -244,47 +228,36 @@ focus = {
 			
 			kill_ideology_leader = bolshevism
 			kill_ideology_leader = libertarian_socialism
-					
 		}
 	}
-	
-	
-	
-	
-	
-focus = {
+		
+	focus = {
 		id = USA_american_dream 
 		icon = GFX_goal_USA_american_dream
 		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-					
+		
 		relative_position_id = USA_maximize_growth
 		relative_position_id = USA_up_yours
-					
+		
 		prerequisite = {
 			focus = USA_up_yours
 		}
 		available = {
-				has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
-			}
+			has_country_leader = { name = "John D. Rockefeller" ruling_only = yes }
+		}
 		
 		prerequisite = {
 			focus = USA_maximize_growth
 		}
-					
-					
-				
+		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_american_dream"
-			
-					
 		}
-	}	
-
-	
+	}
 }
