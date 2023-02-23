@@ -10,38 +10,38 @@ add_ideas = {
 	EST_vaps_idea_1
 }
 
-recruit_character = EST_konstantin_pats
-recruit_character = EST_artur_sirk
-recruit_character = EST_johannes_kabin
-recruit_character = EST_jaan_tonisson
-recruit_character = EST_andres_larka
-recruit_character = EST_oskar_eiriksson
-recruit_character = EST_leo_sepp
-recruit_character = EST_richard_veermaa
-recruit_character = EST_alex_nirk
-recruit_character = EST_richard_tomberg
-recruit_character = EST_alfred_vendt
-recruit_character = EST_juhan_tuuling
-recruit_character = EST_nikolay_g_karotamm
-recruit_character = EST_voldemar_mere
-recruit_character = EST_alfons_rebane
-recruit_character = EST_juri_uluots
-recruit_character = EST_boris_kumm
-recruit_character = EST_august_rei
-recruit_character = EST_jaan_anvelt
-recruit_character = EST_johan_laidoner
+#recruit_character = EST_konstantin_pats
+#recruit_character = EST_artur_sirk
+#recruit_character = EST_johannes_kabin
+#recruit_character = EST_jaan_tonisson
+#recruit_character = EST_andres_larka
+#recruit_character = EST_oskar_eiriksson
+#recruit_character = EST_leo_sepp
+#recruit_character = EST_richard_veermaa
+#recruit_character = EST_alex_nirk
+#recruit_character = EST_richard_tomberg
+#recruit_character = EST_alfred_vendt
+#recruit_character = EST_juhan_tuuling
+#recruit_character = EST_nikolay_g_karotamm
+#recruit_character = EST_voldemar_mere
+#recruit_character = EST_alfons_rebane
+#recruit_character = EST_juri_uluots
+#recruit_character = EST_boris_kumm
+#recruit_character = EST_august_rei
+#recruit_character = EST_jaan_anvelt
+#recruit_character = EST_johan_laidoner
 
 IF = { 
 	limit = { has_dlc = "No Step Back"}
-	recruit_character = EST_august_jakobson
-	recruit_character = EST_viktor_puskar
-	recruit_character = EST_voldemar_voolman
-	recruit_character = EST_henrik_allik
-	recruit_character = EST_johan_pitka
-	recruit_character = EST_hjalmar_mae
-	recruit_character = EST_aleksander_jaakson
-	recruit_character = EST_herbert_brede
-	recruit_character = EST_otto_heinze
+	#recruit_character = EST_august_jakobson
+	#recruit_character = EST_viktor_puskar
+	#recruit_character = EST_voldemar_voolman
+	#recruit_character = EST_henrik_allik
+	#recruit_character = EST_johan_pitka
+	#recruit_character = EST_hjalmar_mae
+	#recruit_character = EST_aleksander_jaakson
+	#recruit_character = EST_herbert_brede
+	#recruit_character = EST_otto_heinze
 }
 
 set_variable = {
@@ -54,31 +54,14 @@ set_variable = {
 	value = 360
 }
 
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	gw_artillery = 1
-	interwar_antiair = 1
-	early_fighter = 1
-	tech_support = 1
-	basic_train = 1
-}
+add_1922_modern_tech = yes
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_submarine = 1
-	}
+	add_1922_modern_tech = yes
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
-	set_technology = {
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		early_ship_hull_light = 1
-		early_ship_hull_submarine = 1
-		basic_battery = 1
-		basic_torpedo = 1
-	}
+	add_1922_modern_tech = yes
 }
 
 set_convoys = 5
@@ -121,55 +104,14 @@ set_convoys = 5
 			#set_naval_oob = "EST_1939_naval_legacy"
 		}
 	}
-	set_technology = {
-		tech_recon = 1	
-		tech_engineers = 1
-		fighter1 = 1
-		early_bomber = 1
-		CAS1 = 1
-		naval_bomber1 = 1
-		interwar_artillery = 1
-		support_weapons = 1
-
-		#doctrines
-		air_superiority = 1
-		grand_battle_plan = 1
-		trench_warfare = 1
-		fleet_in_being = 1
-		battlefleet_concentration = 1
-		convoy_sailing = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-		mechanical_computing = 1
-		computing_machine = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		fuel_silos = 1
-		oil_processing = 1
-		improved_oil_processing = 1
-		construction1 = 1
-		construction2 = 1
-		dispersed_industry = 1
-		dispersed_industry2 = 1
-	}
+	add_1922_modern_tech = yes
 	if = {
 		limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
-			basic_submarine = 1
-		}
+		add_1922_modern_tech = yes
 	}
 	if = {
 		limit = { has_dlc = "Man the Guns" }
-		set_technology = {
-			basic_ship_hull_submarine = 1
-		}
+		add_1922_modern_tech = yes
 	}
 }
 
