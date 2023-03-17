@@ -1,0 +1,133 @@
+focus_tree = {
+	id = SOV_first #It definitely isn't focus tree from EaW1020 I guarantee
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = SOV
+		}
+	}
+	initial_show_position = { focus = SOV_first_end_of_civil_war_question }
+	default = no
+	
+	focus = {
+		id = SOV_first_end_of_civil_war_question
+		icon = GFX_focus_SOV_first_end_of_civil_war_question
+		cost = 10
+
+		x = 3
+	}
+	focus = {
+		id = SOV_first_the_outcome_of_half_hearted_revolution
+		icon = GFX_focus_SOV_first_the_outcome_of_half_hearted_revolution
+		cost = 10
+
+		prerequisite = { focus = SOV_first_end_of_civil_war_question }
+
+		relative_position_id = SOV_first_end_of_civil_war_question
+		y = 1
+	}
+
+	#Middle branch
+	focus = {
+		id = SOV_first_total_rejection_of_war_communism
+		icon = GFX_focus_SOV_first_total_rejection_of_war_communism
+		cost = 10
+
+		prerequisite = { focus = SOV_first_the_outcome_of_half_hearted_revolution }
+
+		relative_position_id = SOV_first_the_outcome_of_half_hearted_revolution
+		y = 1
+	}
+	focus = {
+		id = SOV_first_unhold_the_prodigal
+		icon = GFX_focus_SOV_first_unhold_the_prodigal
+		cost = 10
+
+		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+
+		relative_position_id = SOV_first_total_rejection_of_war_communism
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SOV_first_start_collectivisation
+		icon = GFX_focus_SOV_first_start_collectivisation
+		cost = 10
+
+		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+
+		relative_position_id = SOV_first_total_rejection_of_war_communism
+		x = 1
+		y = 1
+	}
+
+	#Left branch
+	focus = {
+		id = SOV_first_finish_the_ransacking
+		icon = GFX_focus_SOV_first_finish_the_ransacking
+		cost = 10
+
+		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+
+		relative_position_id = SOV_first_total_rejection_of_war_communism
+		x = -4
+		y = 1
+	}
+	focus = {
+		id = SOV_first_final_resolution_of_the_peasant_question
+		icon = GFX_focus_SOV_first_final_resolution_of_the_peasant_question
+		cost = 10
+
+		prerequisite = { focus = SOV_first_finish_the_ransacking }
+
+		relative_position_id = SOV_first_finish_the_ransacking
+		y = 1
+	}
+
+	#Right branch
+	focus = {
+		id = SOV_first_socialist_market
+		icon = GFX_focus_SOV_first_socialist_market
+		cost = 10
+
+		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+
+		relative_position_id = SOV_first_total_rejection_of_war_communism
+		x = 4
+		y = 1
+	}
+	focus = {
+		id = SOV_first_all_methods_are_good
+		icon = GFX_focus_SOV_first_all_methods_are_good
+		cost = 10
+
+		prerequisite = { focus = SOV_first_socialist_market }
+
+		relative_position_id = SOV_first_socialist_market
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SOV_first_increase_the_impact_of_the_nep
+		icon = GFX_focus_SOV_first_increase_the_impact_of_the_nep
+		cost = 10
+
+		prerequisite = { focus = SOV_first_socialist_market }
+
+		relative_position_id = SOV_first_socialist_market
+		x = 1
+		y = 1
+	}
+	focus = {
+		id = SOV_first_nepmans_the_builders_of_communism
+		icon = GFX_focus_SOV_first_nepmans_the_builders_of_communism
+		cost = 10
+
+		prerequisite = { focus = SOV_first_all_methods_are_good }
+		prerequisite = { focus = SOV_first_increase_the_impact_of_the_nep }
+
+		relative_position_id = SOV_first_socialist_market
+		y = 2
+	}
+}
