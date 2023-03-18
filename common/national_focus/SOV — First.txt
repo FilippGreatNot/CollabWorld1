@@ -3,7 +3,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 20
+			add = 10
 			tag = SOV
 		}
 	}
@@ -18,8 +18,8 @@ focus_tree = {
 		x = 3
 	}
 	focus = {
-		id = SOV_first_the_outcome_of_half_hearted_revolution
-		icon = GFX_focus_SOV_first_the_outcome_of_half_hearted_revolution
+		id = SOV_first_the_outcome_of_half_revolution
+		icon = GFX_focus_SOV_first_the_outcome_of_half_revolution
 		cost = 10
 
 		prerequisite = { focus = SOV_first_end_of_civil_war_question }
@@ -30,13 +30,13 @@ focus_tree = {
 
 	#Middle branch
 	focus = {
-		id = SOV_first_total_rejection_of_war_communism
-		icon = GFX_focus_SOV_first_total_rejection_of_war_communism
+		id = SOV_first_total_cancel_of_war_communism
+		icon = GFX_focus_SOV_first_total_cancel_of_war_communism
 		cost = 10
 
-		prerequisite = { focus = SOV_first_the_outcome_of_half_hearted_revolution }
+		prerequisite = { focus = SOV_first_the_outcome_of_half_revolution }
 
-		relative_position_id = SOV_first_the_outcome_of_half_hearted_revolution
+		relative_position_id = SOV_first_the_outcome_of_half_revolution
 		y = 1
 	}
 	focus = {
@@ -44,9 +44,9 @@ focus_tree = {
 		icon = GFX_focus_SOV_first_unhold_the_prodigal
 		cost = 10
 
-		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+		prerequisite = { focus = SOV_first_total_cancel_of_war_communism }
 
-		relative_position_id = SOV_first_total_rejection_of_war_communism
+		relative_position_id = SOV_first_total_cancel_of_war_communism
 		x = -1
 		y = 1
 	}
@@ -55,44 +55,76 @@ focus_tree = {
 		icon = GFX_focus_SOV_first_start_collectivisation
 		cost = 10
 
-		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+		prerequisite = { focus = SOV_first_total_cancel_of_war_communism }
 
-		relative_position_id = SOV_first_total_rejection_of_war_communism
+		relative_position_id = SOV_first_total_cancel_of_war_communism
 		x = 1
 		y = 1
 	}
 	focus = {
-		id = SOV_first_the_efficiency_of_violence
-		icon = GFX_focus_SOV_first_the_efficiency_of_violence
+		id = SOV_first_efficiency_of_violence
+		icon = GFX_focus_SOV_first_efficiency_of_violence
 		cost = 10
 
 		prerequisite = { focus = SOV_first_unhold_the_prodigal }
 		prerequisite = { focus = SOV_first_start_collectivisation }
 
-		relative_position_id = SOV_first_total_rejection_of_war_communism
+		relative_position_id = SOV_first_total_cancel_of_war_communism
 		y = 2
+	}
+	focus = {
+		id = SOV_first_loyalty_to_the_revolution
+		icon = GFX_focus_SOV_first_loyalty_to_the_revolution
+		cost = 10
+
+		prerequisite = { focus = SOV_first_efficiency_of_violence }
+
+		relative_position_id = SOV_first_efficiency_of_violence
+		y = 1
 	}
 
 	#Left branch
 	focus = {
-		id = SOV_first_finish_the_ransacking
-		icon = GFX_focus_SOV_first_finish_the_ransacking
+		id = SOV_first_finish_the_dekulakalisation
+		icon = GFX_focus_SOV_first_finish_the_dekulakalisation
 		cost = 10
 
-		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+		prerequisite = { focus = SOV_first_total_cancel_of_war_communism }
 
-		relative_position_id = SOV_first_total_rejection_of_war_communism
+		relative_position_id = SOV_first_total_cancel_of_war_communism
 		x = -4
 		y = 1
 	}
 	focus = {
-		id = SOV_first_final_resolution_of_the_peasant_question
-		icon = GFX_focus_SOV_first_final_resolution_of_the_peasant_question
+		id = SOV_first_final_solution_of_the_peasant_question
+		icon = GFX_focus_SOV_first_final_solution_of_the_peasant_question
 		cost = 10
 
-		prerequisite = { focus = SOV_first_finish_the_ransacking }
+		prerequisite = { focus = SOV_first_finish_the_dekulakalisation }
 
-		relative_position_id = SOV_first_finish_the_ransacking
+		relative_position_id = SOV_first_finish_the_dekulakalisation
+		y = 1
+	}
+	focus = {
+		id = SOV_first_the_carrot_and_stick_method
+		icon = GFX_focus_SOV_first_the_carrot_and_stick_method
+		cost = 10
+
+		prerequisite = { focus = SOV_first_final_solution_of_the_peasant_question }
+
+		relative_position_id = SOV_first_final_solution_of_the_peasant_question
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SOV_first_set_the_dogs_to_the_unsatisfied
+		icon = GFX_focus_SOV_first_set_the_dogs_to_the_unsatisfied
+		cost = 10
+
+		prerequisite = { focus = SOV_first_final_solution_of_the_peasant_question }
+
+		relative_position_id = SOV_first_final_solution_of_the_peasant_question
+		x = 1
 		y = 1
 	}
 
@@ -102,9 +134,9 @@ focus_tree = {
 		icon = GFX_focus_SOV_first_socialist_market
 		cost = 10
 
-		prerequisite = { focus = SOV_first_total_rejection_of_war_communism }
+		prerequisite = { focus = SOV_first_total_cancel_of_war_communism }
 
-		relative_position_id = SOV_first_total_rejection_of_war_communism
+		relative_position_id = SOV_first_total_cancel_of_war_communism
 		x = 4
 		y = 1
 	}
@@ -120,8 +152,8 @@ focus_tree = {
 		y = 1
 	}
 	focus = {
-		id = SOV_first_increase_the_impact_of_the_nep
-		icon = GFX_focus_SOV_first_increase_the_impact_of_the_nep
+		id = SOV_first_increase_the_influence_of_the_nep
+		icon = GFX_focus_SOV_first_increase_the_influence_of_the_nep
 		cost = 10
 
 		prerequisite = { focus = SOV_first_socialist_market }
@@ -136,9 +168,33 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { focus = SOV_first_all_methods_are_good }
-		prerequisite = { focus = SOV_first_increase_the_impact_of_the_nep }
+		prerequisite = { focus = SOV_first_increase_the_influence_of_the_nep }
 
 		relative_position_id = SOV_first_socialist_market
 		y = 2
+	}
+
+	focus = {
+		id = SOV_first_fate_of_the_royal_family
+		icon = GFX_focus_SOV_first_fate_of_the_royal_family
+		cost = 10
+
+		prerequisite = { focus = SOV_first_set_the_dogs_to_the_unsatisfied }
+		prerequisite = { focus = SOV_first_the_carrot_and_stick_method }
+		prerequisite = { focus = SOV_first_loyalty_to_the_revolution }
+		prerequisite = { focus = SOV_first_nepmans_the_builders_of_communism }
+
+		relative_position_id = SOV_first_loyalty_to_the_revolution
+		y = 1
+	}
+	focus = {
+		id = SOV_first_lenins_speech
+		icon = GFX_focus_SOV_first_lenins_speech
+		cost = 10
+
+		prerequisite = { focus = SOV_first_fate_of_the_royal_family }
+
+		relative_position_id = SOV_first_fate_of_the_royal_family
+		y = 1
 	}
 }
