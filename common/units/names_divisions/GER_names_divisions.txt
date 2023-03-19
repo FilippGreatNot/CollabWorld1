@@ -501,10 +501,7 @@ GER_MOT_01 =
 	for_countries = { GER }
 
 	can_use = {
-		OR = {
-			is_authoritarian_country = yes
-			is_democratic_country = yes
-		}
+		always = yes
 	}
 
 	division_types = { "motorized"  }
@@ -516,47 +513,6 @@ GER_MOT_01 =
 	# Names with numbers (only one number per entry)
 	ordered =
 	{
-		2 = { "%d. Infanterie-Division (mot.)" }
-		13 = { "%d. Infanterie-Division (mot.)" }
-		20 = { "%d. Infanterie-Division (mot.)" }
-		29 = { "%d. Infanterie-Division (mot.)" }
-		16 = { "%d. Infanterie-Division (mot.)" }
-		60 = { "%d. Infanterie-Division (mot.)" }
-		14 = { "%d. Infanterie-Division (mot.)" }
-		3 = { "%d. Infanterie-Division (mot.)" }
-		18 = { "%d. Infanterie-Division (mot.)" }
-		36 = { "%d. Infanterie-Division (mot.)" }
-		10 = { "%d. Infanterie-Division (mot.)" }
-		25 = { "%d. Infanterie-Division (mot.)" }
-		90 = { "%d. Infanterie-Division (mot.)" }
-		932 = { "Infanterie-Division (mot.) Großdeutschland" }
-		164 = { "%d. Infanterie-Division (mot.)" }
-		
-		# GD existed before 16.5.42 as a strong regiment, but this list is divisional sized units only so it was put in the raising order after it was upgraded to a full division.
-		# removed 'leichte Afrika' from the names of 90., 164. Divisions as their existence depends on historical events that may not occur in game
-		# surviving units of this type renamed to Panzergrenadier-Divisions in 1943
-	}
-}
-
-#Nazi Motorized
-GER_MOT_02 = 
-{
-	name = "Motorized Divisions"
-
-	for_countries = { GER }
-
-	can_use = { is_reactionary_country = yes }
-
-	division_types = { "motorized"  }
-
-	fallback_name = "%d. Infanterie-Division (mot)"
-
-	link_numbering_with = { GER_Inf_01 }
-
-	# Names with numbers (only one number per entry)
-	ordered =
-	{
-		1 = { "SS-Verfügungstruppe" }
 		2 = { "%d. Infanterie-Division (mot.)" }
 		13 = { "%d. Infanterie-Division (mot.)" }
 		20 = { "%d. Infanterie-Division (mot.)" }
@@ -941,62 +897,6 @@ GER_Cav_01 =
 	
 }
 
-GER_SS_01 = 
-{
-	name = "SS Divisions"
-
-	for_countries = { GER }
-
-	can_use = { 
-		is_reactionary_country = yes
-	}
-
-	division_types = { "infantry" "motorized" "medium_armor" "mechanized" }
-
-	fallback_name = "%d. SS-Division"
-
-	# Names with numbers (only one number per entry)
-	ordered =
-	{
-		1 = { "%d. SS-Division 'Leibstandarte Adolf Hitler'" }
-		2 = { "%d. SS-Division 'Das Reich'" }
-		3 = { "%d. SS-Division 'Totenkopf'" }
-		4 = { "%d. SS-Division 'Polizei'" }
-		6 = { "%d. SS-Division 'Nord'" }
-		7 = { "%d. SS-Division 'Prinz Eugen'" }
-		8 = { "%d. SS-Division 'Florian Geyer'" }
-		9 = { "%d. SS-Division 'Hohenstaufen'" }
-		10 = { "%d. SS-Division 'Frundsberg'" }
-		11 = { "%d. SS-Division 'Nordland'" }
-		12 = { "%d. SS-Division 'Hitlerjugend'" }
-		13 = { "%d. SS-Division 'Handschar'" }
-		14 = { "%d. SS-Division (ukrain. Nr. 1)" }
-		16 = { "%d. SS-Division 'Reichsführer-SS'" }
-		17 = { "%d. SS-Division 'Götz von Berlichingen'" }
-		18 = { "%d. SS-Division 'Horst Wessel'" }
-		21 = { "%d. SS-Division 'Skanderbeg'" }
-		22 = { "%d. SS-Division 'Maria Theresia'" }
-		24 = { "%d. SS-Division 'Karstjäger'" }
-		25 = { "%d. SS-Division 'Hunyadi' (ungarische Nr. 1)" }
-		26 = { "%d. SS-Division (ungarische Nr. 2)" }
-		29 = { "%d. SS-Division RONA (russische Nr. 1)" }
-		30 = { "%d. SS-Division (russisch Nr. 2)" }
-		31 = { "%d. SS-Division" }
-		32 = { "%d. SS-Division '30. Januar'" }
-		34 = { "%d. SS-Division 'Landstorm Nederland'" }
-		35 = { "%d. SS- und Polizei-Division" }
-		36 = { "%d. SS-Division 'Dirlewanger'" }
-		37 = { "%d. SS-Division 'Lützow'" }
-		38 = { "%d. SS-Division 'Nibelungen'" }
-		
-		# to avoid massively bloating the names list with alternate lists, the final/most representative divisional name was used. Das Reich held no less than 6 different names during the war and providing variant name lists for all of them was not feasible. The tools to rename/reconfigure divisions are in the hands of the player, however.
-		# left out divisional type names (Panzer, Gebirgs, etc) to allow the player to use the SS name list for any type of division they choose
-		# diverged from the ordering based on historical formation date as this to a large degree would depend on the divisional type, which is not fixed
-		# put in non-German formations contrary to the regular Heer lists
-
-	}
-}
-
 GER_MONINF_01 = 
 {
 	name = "Monarchist Infantry Divisions"
@@ -1004,10 +904,7 @@ GER_MONINF_01 =
 	for_countries = { GER }
 
 	can_use = { 
-		OR = {
-			is_authoritarian_country = yes
-			is_democratic_country = yes
-		}
+		always = no #Okay this can be useful for kaiser I guess
 	}
 
 	division_types = { "infantry" "mechanized" "mountaineers" "paratrooper" "marine" }
@@ -1240,10 +1137,7 @@ GER_MONMOB_01 =
 	for_countries = { GER }
 
 	can_use = { 
-		OR = {
-			is_authoritarian_country = yes
-			is_democratic_country = yes
-		}
+		always = no #This too
 	}
 
 	division_types = {  "cavalry" "light_armor" "medium_armor" "heavy_armor" "modern_armor"  }

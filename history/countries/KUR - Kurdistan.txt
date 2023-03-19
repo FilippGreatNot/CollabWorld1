@@ -6,43 +6,14 @@ add_ideas = {
 	limited_conscription
 }
 
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_mountaineers = 1
-	gw_artillery = 1
-	interwar_antiair = 1
-	early_fighter = 1
-	CAS1 = 1
-}
+add_1922_modern_tech = yes
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
-	set_technology = {
-		early_submarine = 1
-		early_destroyer = 1
-		early_light_cruiser = 1
-		early_battleship = 1
-		early_battlecruiser = 1
-		transport = 1
-	}
+	add_1922_modern_tech = yes
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
-	set_technology = {
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_submarine = 1
-		basic_ship_hull_submarine = 1
-		early_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		basic_battery = 1
-		basic_secondary_battery = 1
-		basic_torpedo = 1
-		coastal_defense_ships = 1
-		mtg_transport = 1
-	}
+	add_1922_modern_tech = yes
 }
 
 
@@ -58,53 +29,14 @@ if = {
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
 
-	set_technology = {
-		fighter1 = 1
-		early_bomber = 1
-		tactical_bomber1 = 1
-		interwar_artillery = 1
-		infantry_weapons2 = 1
-		support_weapons = 1
-
-		#doctrines
-		air_superiority = 1
-
-		mass_assault = 1
-		pocket_defence = 1
-		defence_in_depth = 1
-		
-		fleet_in_being = 1
-		convoy_sailing = 1
-		submarine_operations = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-		mechanical_computing = 1
-		computing_machine = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		synth_oil_experiments = 1
-		fuel_silos = 1
-		oil_processing = 1
-		construction1 = 1
-		construction2 = 1
-		dispersed_industry = 1
-		dispersed_industry2 = 1
-	}
+	add_1922_modern_tech = yes
 	if = {
 		limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
-			basic_submarine = 1
-		}
+		add_1922_modern_tech = yes
 	}
 	if = {
 		limit = { has_dlc = "Man the Guns" }
-		set_technology = {
-		}
+		add_1922_modern_tech = yes
 	}
 }
 
@@ -118,7 +50,7 @@ set_politics = {
 
 set_popularities = {
 	liberalism = 40
-	communism = 25
+	bolshevism = 25
 	national_syndicalism = 30
 	despotism = 5
 }
@@ -129,7 +61,7 @@ create_country_leader = {
 	desc = "POLITICS_QAZI_MUHAMMAD_DESC"
 	picture = "gfx/leaders/SYR/Portrait_Arabia_Generic_1.dds"
 	expire = "1965.1.1"
-	ideology = marxism
+	ideology = marxism_subtype
 	traits = {
 		#
 	}
@@ -141,7 +73,7 @@ create_country_leader = {
 	desc = "POLITICS_SHEIKH_BARZANJI_DESC"
 	picture = "gfx/leaders/SYR/Portrait_Arabia_Generic_land_1.dds"
 	expire = "1965.1.1"
-	ideology = despotism
+	ideology = despotism_subtype
 	traits = {
 		#
 	}
@@ -153,7 +85,7 @@ create_country_leader = {
 	desc = "POLITICS_IHSAN_NURI_DESC"
 	picture = "GFX_portrait_kur_ihsan_nuri"
 	expire = "1965.1.1"
-	ideology = fascism_ideology
+	ideology = national_syndicalism_subtype
 	traits = {
 		experienced_insurgent
 	}
@@ -165,7 +97,7 @@ create_country_leader = {
 	desc = "POLITICS_SEYID_RIZA_DESC"
 	picture = "GFX_portrait_kur_seyid_riza"
 	expire = "1965.1.1"
-	ideology = conservatism
+	ideology = conservatism_subtype
 	traits = {
 		freedom_fighter
 	}
@@ -195,21 +127,21 @@ create_corps_commander = {
 	logistics_skill = 1
 }
 
-recruit_character = KUR_haji_baba
-recruit_character = KUR_ahmed_barzani
-recruit_character = KUR_ar
-recruit_character = KUR_nccr
-recruit_character = KUR_mt
-recruit_character = KUR_ai2
-recruit_character = KUR_ncs
-recruit_character = KUR_nuri_dersimi
-recruit_character = KUR_ihsan_nuri
-recruit_character = KUR_acr
-recruit_character = KUR_aa2
-recruit_character = KUR_acgs
-recruit_character = KUR_ncm
-recruit_character = KUR_nt
-recruit_character = KUR_acas
-recruit_character = KUR_awt
-recruit_character = KUR_kamuran_ali_bedirxan
-recruit_character = KUR_aco2
+#recruit_character = KUR_haji_baba
+#recruit_character = KUR_ahmed_barzani
+#recruit_character = KUR_ar
+#recruit_character = KUR_nccr
+#recruit_character = KUR_mt
+#recruit_character = KUR_ai2
+#recruit_character = KUR_ncs
+#recruit_character = KUR_nuri_dersimi
+#recruit_character = KUR_ihsan_nuri
+#recruit_character = KUR_acr
+#recruit_character = KUR_aa2
+#recruit_character = KUR_acgs
+#recruit_character = KUR_ncm
+#recruit_character = KUR_nt
+#recruit_character = KUR_acas
+#recruit_character = KUR_awt
+#recruit_character = KUR_kamuran_ali_bedirxan
+#recruit_character = KUR_aco2
