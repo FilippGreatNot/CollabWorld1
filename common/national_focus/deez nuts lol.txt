@@ -1,0 +1,61 @@
+focus_tree = {
+	id = EQS_lol
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = EQS
+		}
+	}
+	initial_show_position = { focus = EQS_cyka_blyat }
+
+	focus = {
+		id = EQS_cyka_blyat
+		icon = GFX_focus_EQS_cyka_blyat
+		cost = 5
+
+		available = {
+			is_ai = no
+		}
+		completion_reward = {
+			add_ideas = EQS_idea_cyka_blyat
+			add_ideas = {
+				extensive_conscription
+				war_economy
+				closed_economy
+			}
+			every_possible_country = {
+				EQS = {
+					declare_war_on = {
+						target = PREV
+						type = EQS_wargoal
+					}
+				}
+			}
+			add_manpower = 100000
+			EQS_celestia_and_luna = {
+				add_field_marshal_role = {
+					skill = 100
+					attack_skill = 100
+					defense_skill = 100
+					planning_skill = 100
+					logistics_skill = 100
+				}
+				add_naval_commander_role = {
+					skill = 100
+					attack_skill = 100
+					defense_skill = 100
+					planning_skill = 100
+					logistics_skill = 100
+				}
+			}
+			capital_scope = {
+				set_state_category = megalopolis
+			}
+			add_research_slot = 20
+			707 = {
+				transfer_state_to = PREV
+			}
+		}
+	}
+}
