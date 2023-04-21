@@ -10,6 +10,7 @@ tags={
 }
 replace_path="common/characters"
 replace_path="common/ai_strategy"
+replace_path="common/ai_focuses"
 replace_path="common/ai_strategy_plans"
 replace_path="gfx/loadingscreens"
 replace_path="events"
