@@ -1,26 +1,8 @@
 ﻿capital = 284
-
-#oob = "NZL_1936"
-
-# Starting tech
 set_stability = 0.8
 set_war_support = 0.3
 
 add_1922_modern_tech = yes
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
-
-if = {
-	limit = { has_dlc = "Together for Victory" }
-
-	add_to_tech_sharing_group = commonwealth_research
-}
 
 set_politics = {
 	ruling_party = liberalism
@@ -33,17 +15,6 @@ set_popularities = {
 }
 
 create_country_leader = {
-	name = "Michael Joseph Savage"
-	desc = "POLITICS_MICHAEL_JOSEPH_SAVAGE_DESC"
-	picture = "GFX_NZL_michael_joseph_savage"
-	expire = "1965.1.1"
-	ideology = social_democrat_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
 	name = "Sidney Holland"
 	desc = "POLITICS_SIDNEY_HOLLAND_DESC"
 	picture = "GFX_NZL_sidney_holland"
@@ -53,144 +24,3 @@ create_country_leader = {
 		#
 	}
 }
-
-create_country_leader = {
-	name = "John Ormond"
-	desc = "POLITICS_JOHN_ORMOND_DESC"
-	picture = "GFX_NZL_john_ormond"
-	expire = "1965.1.1"
-	ideology = national_syndicalism_subtype
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Elsie Farrelly"
-	desc = "POLITICS_JOHN_ORMOND_DESC"
-	picture = "GFX_NZL_elsie_farrelly"
-	expire = "1965.1.1"
-	ideology = marxism_subtype
-	female = yes
-	traits = {
-		#
-	}
-}
-
-set_convoys = 70
-
-1939.1.1 = {
-	set_politics = {
-		ruling_party = liberalism
-		last_election = "1938.10.15"
-		election_frequency = 60
-		elections_allowed = yes
-	}
-
-	# Didn't take office until '40, added for flavor
-	create_country_leader = {
-		name = "Peter Fraser"
-		desc = "POLITICS_PETER_FRASER_DESC"
-		picture = "Portrait_NewZealand_Peter_Fraser.dds"
-		expire = "1965.1.1"
-		ideology = social_democrat_subtype
-		traits = {
-			#
-		}
-	}
-	set_convoys = 80
-}
-
-create_corps_commander = {
-	name = "Bernard Freyberg"
-	gfx = "GFX_NZL_bernard_freyberg"
-	traits = {  }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Robert Row"
-	gfx = "GFX_NZL_robert_row"
-	traits = { naval_invader }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "William Stevens"
-	gfx = "GFX_NZL_william_stevens"
-	traits = {  }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 4
-}
-
-create_navy_leader = {
-	name = "Edmund Rupert Drummond"
-	gfx = "GFX_NZL_edmund_drummond"
-	traits = { }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	maneuvering_skill = 3
-	coordination_skill = 2
-}
-
-create_navy_leader = {
-	name = "Peter Phipps"
-	gfx = "GFX_NZL_peter_phipps"
-	traits = { navy_career_officer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	maneuvering_skill = 2
-	coordination_skill = 3
-}
-
-
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-	create_equipment_variant = {
-		name = "Leander Class"
-		type = light_cruiser_1
-		upgrades = {
-			ship_reliability_upgrade = 2
-			ship_engine_upgrade = 2
-			ship_gun_upgrade = 2
-			ship_anti_air_upgrade = 2
-		}
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	# Light Cruisers #
-	create_equipment_variant = {
-		name = "Danae Class"
-		type = ship_hull_cruiser_1
-		name_group = NZL_CL_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
-		}
-	}
-}
-
