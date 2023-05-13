@@ -11,88 +11,6 @@ peace_ai_desires = {
         }
         ai_desire = 100
     }
-	
-	generic_influence_cutoff = { #Only do force gov and liberate outside influence range
-        peace_action_type = { take_states puppet }
-        enable = {
-            ROOT = { tag = ROOT.FROM } #We are negotiating for ourselves
-			OR = {
-				has_government = liberalism
-				has_government = bolshevism
-			}
-            ROOT.FROM.FROM.FROM = { NOT = { is_core_of = ROOT.FROM } } #It is not ours
-			ROOT.FROM.FROM.FROM = { 
-				NOT = { is_claimed_by = ROOT.FROM } 
-				pc_is_state_outside_influence_for = ROOT.FROM
-				#is_coastal = no
-				NOT = {
-					OR = {
-						AND = {
-							is_capital = yes
-							is_coastal = yes
-						}
-						state = 738 #California
-						state = 860 #Cote Nord
-						state = 458 #Tunis
-						state = 446 #Suez
-						state = 126 #London
-						state = 286 #Indochina
-						AND = {
-							ROOT.FROM = { capital_scope = { is_on_continent = europe } }
-							OR = {
-								state = 137 #Crimea
-								state = 797 #Istanbul
-								state = 118 #Gibraltar
-							}
-						}
-					}
-				}
-			} #It is not claimed by us
-        }
-        ai_desire = -1000
-    }
-	
-	generic_influence_cutoff_force_government_fascism_unaligned = { #Don't do ANYTHING outside influence range
-        peace_action_type = { take_states puppet force_government liberate }
-        enable = {
-            #ROOT = { tag = ROOT.FROM } #We are negotiating for ourselves
-			NOT = {
-				OR = {
-					has_government = liberalism
-					has_government = bolshevism
-				}
-			}
-            #ROOT.FROM.FROM.FROM = { NOT = { is_core_of = ROOT } } #It is not ours
-			ROOT.FROM.FROM.FROM = { 
-				NOT = { is_claimed_by = ROOT.FROM } 
-				pc_is_state_outside_influence_for = ROOT.FROM
-				#is_coastal = no
-				NOT = {
-					OR = {
-						AND = {
-							is_capital = yes
-							is_coastal = yes
-						}
-						state = 738 #California
-						state = 860 #Cote Nord
-						state = 458 #Tunis
-						state = 446 #Suez
-						state = 126 #London
-						state = 286 #Indochina
-						AND = {
-							ROOT.FROM = { capital_scope = { is_on_continent = europe } }
-							OR = {
-								state = 137 #Crimea
-								state = 797 #Istanbul
-								state = 118 #Gibraltar
-							}
-						}
-					}
-				}
-			} #It is not claimed by us
-        }
-        ai_desire = -1000
-    }
 
 	force_gov_puppets = {
         peace_action_type = force_government
@@ -176,29 +94,6 @@ peace_ai_desires = {
         }
 
         ai_desire = -75
-    }
-
-    # Countries the ai should be more unlikely to release in a peace deal
-    unlikely_countries = {
-        peace_action_type = liberate
-        enable = {
-            FROM = {
-                is_unlikely_country_tag = yes
-            }
-        }
-        ai_desire = -85  # 85 percent lower desire
-    }
-
-
-    # Countries the ai should be more unlikely to puppet in a peace deal
-    unlikely_countries = {
-        peace_action_type = puppet
-        enable = {
-            FROM = {
-                is_unlikely_country_tag = yes
-            }
-        }
-        ai_desire = -50  # 50 percent lower desire (slightly more keen to puppet than to liberate)
     }
 
 
