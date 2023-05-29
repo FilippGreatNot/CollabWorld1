@@ -1,0 +1,495 @@
+add_namespace = ruscollapse
+add_namespace = afterkolchak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = {
+	id = afterkolchak.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event afterkolchak.1" }
+	title = afterkolchak.1.t
+	desc = afterkolchak.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = afterkolchak.1.a
+		
+		
+		create_country_leader = {
+			name = "Mikhail Drozdovsky"
+			desc = "POLITICS_MIKHAIL_DROZDOVSKY_DESC"
+			picture = "gfx/leaders/RUS/Mikhail_Drozdovsky.png"
+			expire = "1965.1.1"
+			ideology = absolute_monarchy
+			
+		 traits = { }
+		}
+		
+		set_politics = {
+			ruling_party = despotism
+		}
+
+	}
+	
+	
+	
+option = {
+		name = afterkolchak.1.b
+		create_country_leader = {
+			name = "Roman von Ungern-Sternberg"
+			desc = "POLITICS_ALEKSEI_GASTEV_DESC"
+			picture = "gfx/leaders/RUS/Ungern.png"
+			expire = "1965.1.1"
+			ideology = esotericism_subtype
+		}
+
+		set_politics = {
+			ruling_party = esotericism
+		}
+
+		add_popularity = {
+			ideology = esotericism
+			popularity = 0.08
+		}		
+		
+	}
+	
+	
+option = {
+		name = afterkolchak.1.c
+		
+		create_country_leader = {
+			name = "Lavr Kornilov"
+			desc = "POLITICS_LAVR_KORNILOV_DESC"
+			picture = "gfx/leaders/RUS/Lavr_Kornilov.png"
+			expire = "1965.1.1"
+			ideology = ultramilitocracy
+			traits = {  }
+		}
+		remove_all_ministers = no
+		
+		set_politics = {
+			ruling_party = national_syndicalism
+		}
+		
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.07
+		}	
+	}
+	
+	
+option = {
+		name = afterkolchak.1.e
+		
+		create_country_leader = {
+			name = "Nikolai Markov"
+			desc = "POLITICS_NIKOLAI_MARKOV_DESC"
+			picture = "gfx/leaders/RUS/Nikolai_Markov.png"
+			expire = "1965.1.1"
+			ideology = black_hundredism
+			traits = {  }
+		}
+		remove_all_ministers = no
+		
+		set_politics = {
+			ruling_party = reactionism
+		}
+		add_popularity = {
+			ideology = reactionism
+			popularity = 0.06
+		}		
+		
+	}
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+##################### Funni shit 
+country_event = { #Failure - Yazov assassinated, collapse begins
+	id = ruscollapse.1
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ruscollapse.1"}
+ 	title = ruscollapse.1.t
+ 	desc = ruscollapse.1.d
+	
+	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = ruscollapse.1.a
+		hidden_effect = {
+			country_event = { id = ruscollapse.2 days = 10 }
+		}
+		kill_country_leader = yes
+		add_political_power = -100
+		add_stability = -0.35
+		add_war_support = -0.35
+		create_country_leader = {
+				name = "Collapsed Authority"
+				desc = "POLITICS_OMSK_COLLAPSED_AUTHORITY_DESC"
+				picture = "gfx/leaders/RUS/Portrait_RUS_Power_Vacuum.dds"
+				expire = "1999.1.1"
+				ideology = military_junta
+				traits = {  }
+		}
+
+
+		hidden_effect = {
+
+			add_ideas = {
+
+			}
+
+			577 = {
+				set_demilitarized_zone = yes
+			}
+			578 = {
+				set_demilitarized_zone = yes
+			}
+			579 = {
+				set_demilitarized_zone = yes
+			}
+			516 = {
+				set_demilitarized_zone = yes
+			}
+			575 = {
+				set_demilitarized_zone = yes
+			}
+			567 = {
+				set_demilitarized_zone = yes
+			}
+            568 = {
+				set_demilitarized_zone = yes
+			}
+            569 = {
+				set_demilitarized_zone = yes
+			}
+			654 = {
+				set_demilitarized_zone = yes
+			}
+			824 = {
+				set_demilitarized_zone = yes
+			}
+			329 = {
+				set_demilitarized_zone = yes
+			}
+			818 = {
+				set_demilitarized_zone = yes
+			}
+			820 = {
+				set_demilitarized_zone = yes
+			}
+			566 = {
+				set_demilitarized_zone = yes
+			}
+			564 = {
+				set_demilitarized_zone = yes
+			}
+		}
+ 	}
+}
+
+country_event = { #Failure - Plan Hydra fails, outlying territories secede.
+	id = ruscollapse.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ruscollapse.2"}
+ 	title = ruscollapse.2.t
+ 	desc = ruscollapse.2.d
+ 	picture = GFX_report_event_russia_omsk_endgame
+	
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = ruscollapse.2.a
+	
+			country_event = { id = ruscollapse.3 days = 10 }
+		
+		
+		
+		hidden_effect = {
+		
+			end_puppet = MON
+
+
+			516 = {
+				set_demilitarized_zone = no
+			}
+			
+			569 = {
+				set_demilitarized_zone = no
+			}
+			
+			654 = {
+				set_demilitarized_zone = no
+			}
+
+
+			ZZZ = {
+				transfer_state = 516
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+				
+			}
+			
+			FSR = {
+				transfer_state = 569
+				transfer_state = 654
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+				
+			}
+			
+			
+			if = {
+				limit = {
+					has_war = yes
+				}
+				every_other_country = {
+					limit = {
+						has_war_with = RUS
+					}
+					declare_war_on = {
+						target = ZZZ
+						type = annex_everything
+					}
+					declare_war_on = {
+						target = FSR
+						type = annex_everything
+					}
+				}
+			}
+		}	
+ 	}
+}
+
+country_event = {  #Failure - Batov forms the Russian National Salvation Commission out of Chelyabinsk, Tyumen, and Sverdlovsk
+	id = ruscollapse.3
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ruscollapse.3"}
+ 	title = ruscollapse.3.t
+ 	desc = ruscollapse.3.d
+ 	picture = GFX_report_event_russia_omsk_endgame
+	
+	is_triggered_only = yes
+
+ 	option = {
+ 		name = ruscollapse.3.a
+		hidden_effect = {
+			country_event = { id = ruscollapse.4 days = 10 }
+
+			566 = {
+				set_demilitarized_zone = no
+			}
+			564 = {
+				set_demilitarized_zone = no
+			}
+		    575 = {
+				set_demilitarized_zone = no
+			}
+		    579 = {
+				set_demilitarized_zone = no
+			}
+		    824 = {
+				set_demilitarized_zone = no
+			}
+						
+			
+			
+			BMD = {
+				transfer_state = 566
+				transfer_state = 564
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+				
+				
+				add_ideas = {
+
+				}
+				
+			}
+			
+			
+			CEK = {
+				transfer_state = 575
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+				
+				
+				add_ideas = {
+
+				}
+				
+			}
+			
+			818 = {
+				set_demilitarized_zone = no
+			}
+			
+			
+		    329 = {
+				set_demilitarized_zone = no
+			}
+			
+			820 = {
+				set_demilitarized_zone = no
+			}
+			
+			MON = {
+			
+				transfer_state = 818
+				transfer_state = 329
+				transfer_state = 820
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+			
+			}
+			
+			SMF = {
+				transfer_state = 579
+				transfer_state = 824
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+				
+				
+				add_ideas = {
+
+				}
+				
+			}
+			
+			
+			if = {
+				limit = {
+					has_war = yes
+				}
+				every_other_country = {
+					limit = {
+						has_war_with = RUS
+					}
+					declare_war_on = {
+						target = BMD
+						type = annex_everything
+					}
+				    declare_war_on = {
+						target = CEK
+						type = annex_everything
+					}
+					declare_war_on = {
+						target = SMF
+						type = annex_everything
+					}
+				}
+			}
+		}
+ 	}
+}
+
+country_event = { #Failure - collapse is complete
+	id = ruscollapse.4
+	immediate = {log = "[GetDateText]: [Root.GetName]: event ruscollapse.4"}
+ 	title = ruscollapse.4.t
+ 	desc = ruscollapse.4.d
+ 	picture = GFX_report_event_russia_omsk_endgame
+	
+	is_triggered_only = yes
+
+ 	option = {
+		name = ruscollapse.4.a
+		hidden_effect = {
+		
+		
+			577 = {
+				set_demilitarized_zone = no
+			}
+			
+			578 = {
+				set_demilitarized_zone = no
+			}
+			
+			568 = {
+				set_demilitarized_zone = no
+			}
+			
+			567 = {
+				set_demilitarized_zone = no
+			}
+		
+		    FRR = {
+			
+				transfer_state = 577
+				transfer_state = 578
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+			
+			
+				add_ideas = {
+					Generic_Vacant_hog
+
+				}
+			}
+			
+		    NTS = {
+			
+				transfer_state = 568
+				transfer_state = 567
+				every_owned_state = {
+					remove_core_of = RUS
+					add_core_of = PREV
+				}
+			
+			
+				add_ideas = {
+					Generic_Vacant_hog
+
+				}
+			}
+		   	
+			
+			RUS = { set_cosmetic_tag = RUS_KOLCHAK_DEAD }
+			
+			if = {
+				limit = {
+					has_war = yes
+				}
+				every_other_country = {
+					limit = {
+						has_war_with = RUS
+					}
+					declare_war_on = {
+						target = FRR
+						type = annex_everything
+				}
+			}
+		}
+ 	}
+}

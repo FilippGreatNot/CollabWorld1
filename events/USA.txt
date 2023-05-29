@@ -1,0 +1,671 @@
+add_namespace = ripbozo
+
+
+
+country_event = {
+	id = ripbozo.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ripbozo.1" }
+	title = ripbozo.1.t
+	desc = ripbozo.1.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = ripbozo.1.a
+		
+		
+		
+		hidden_effect = {
+			news_event = WORLDNEWS.13
+			kill_country_leader = yes
+
+			country_event = {
+				id = ripbozo.15
+				days = 14
+			}	
+		
+			create_country_leader = {
+				name = "Board of Directors"
+				desc = "POLITICS_BOARD_OF_DIRECTORS_DESC"
+				picture = "gfx/leaders/USA/BoardofDirectors.png"
+				expire = "1999.1.1"
+				ideology = corporatocracy
+				traits = { cabinet_crisis }
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = ripbozo.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event ripbozo.15" }
+	title = ripbozo.15.t
+	desc = ripbozo.15.d
+	is_triggered_only = yes
+
+	option = {
+		name = ripbozo.15.a
+		
+		hidden_effect = {
+			kill_country_leader = yes
+			
+			country_event = {
+				id = ripbozo.2
+				days = 14
+			}			
+		
+		create_country_leader = {
+			name = "John D. Rockefeller Jr."
+			desc = "POLITICS_JDR_JR_DESC"
+			picture = "gfx/leaders/USA/JDRJR.png"
+			expire = "1999.1.1"
+			ideology = rockfellerism
+			traits = {
+		
+			}
+		}
+	}
+}
+
+country_event = { #SHIT BEGINS
+	id = ripbozo.2
+	title = ripbozo.2.t
+	desc = ripbozo.2.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.2"
+		USA_release_ASF = yes
+	}
+
+
+	option = {
+		name = ripbozo.2.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		country_event = {
+			id = ripbozo.5
+			days = 7
+		}	
+
+		add_stability = 0.15
+		add_war_support = 0.2
+	
+	}
+	
+	
+	option = {
+		name = ripbozo.2.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		add_popularity = {
+			ideology = bolshevism
+			popularity = -0.3
+		}
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = -0.3
+		}
+		add_popularity = {
+			ideology = marxism
+			popularity = -0.3
+		}
+		
+		
+		country_event = {
+			id = ripbozo.5
+			days = 7
+		}
+		
+		
+		add_stability = 0.15
+		add_war_support = 0.2
+		
+		ASF = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+
+
+
+country_event = { #буржуи ебаные 
+	id = ripbozo.5
+	title = ripbozo.5.t
+	desc = ripbozo.5.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.5"
+		USA_release_FOC = yes
+	}
+	
+	option = {
+		name = ripbozo.5.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		country_event = {
+			id = ripbozo.10
+			days = 5
+		}
+	
+	}
+	
+	option = {
+		name = ripbozo.5.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		country_event = {
+			id = ripbozo.10
+			days = 5
+		}
+
+		FOC = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+
+
+country_event = { #та самая сук мышь
+	id = ripbozo.10
+	title = ripbozo.10.t
+	desc = ripbozo.10.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.10"
+		USA_release_DIC = yes
+	}
+
+
+	option = {
+		name = ripbozo.10.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		country_event = {
+			id = ripbozo.8
+			days = 10
+		}		
+	}
+	
+	
+	option = {
+		name = ripbozo.10.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		country_event = {
+			id = ripbozo.8
+			days = 10
+		}	
+		
+		DIC = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+country_event = { #CANNCELED BY TWITTER
+	id = ripbozo.8
+	title = ripbozo.8.t
+	desc = ripbozo.8.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.8"
+		USA_release_KKK = yes
+	}
+
+
+	option = {
+		name = ripbozo.8.a
+		
+		ai_chance = {
+			factor = 100
+		
+		}
+		
+		country_event = {
+			id = ripbozo.11
+			days = 3
+		}
+	
+	}
+	
+	
+	option = {
+		name = ripbozo.8.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		country_event = {
+		id = ripbozo.11
+		days = 3
+		}	
+
+		KKK = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+
+
+
+
+
+country_event = { #ААААААААААААААААА НЕГРЫ
+	id = ripbozo.11
+	title = ripbozo.11.t
+	desc = ripbozo.11.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.11"
+		USA_release_BRE = yes
+	}
+
+
+	option = {
+		name = ripbozo.11.a
+		
+		ai_chance = {
+			factor = 100
+		
+		}
+		
+		country_event = {
+			id = ripbozo.9
+			days = 6
+		}
+	}
+	
+	
+	option = {
+		name = ripbozo.11.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		country_event = {
+			id = ripbozo.9
+			days = 6
+		}	
+
+		BRE = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+
+country_event = { #идём снимать вестерны
+	id = ripbozo.9
+	title = ripbozo.9.t
+	desc = ripbozo.9.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.9"
+		USA_release_TEX = yes
+	}
+
+	option = {
+		name = ripbozo.9.a
+		country_event = {
+			id = ripbozo.12
+			days = 7
+		}
+		ai_chance = {
+			factor = 100
+		}
+	
+	}
+	
+	option = {
+		name = ripbozo.9.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+		id = ripbozo.12
+		days = 7
+		}
+		TEX = {
+			change_tag_from = USA
+		}
+	}
+
+}
+
+
+country_event = { #калифорния
+	id = ripbozo.12
+	title = ripbozo.12.t
+	desc = ripbozo.12.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.12"
+		USA_release_CAL = yes
+	}
+
+
+	option = {
+		name = ripbozo.12.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		country_event = {
+			id = ripbozo.3
+			days = 4
+		}
+	}
+	
+	
+	option = {
+		name = ripbozo.12.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+			id = ripbozo.3
+			days = 4
+		}
+		CAL = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+
+
+
+
+
+country_event = { #military says bye
+	id = ripbozo.3
+	title = ripbozo.3.t
+	desc = ripbozo.3.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.3"
+		USA_release_CCC = yes
+	}
+	
+	option = {
+		name = ripbozo.3.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		USA = {
+			set_cosmetic_tag = USA_JDR_Corp
+		}	
+		country_event = {
+			id = ripbozo.6
+			days = 7
+		}	
+	}
+	
+	option = {
+		name = ripbozo.3.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+			id = ripbozo.6
+			days = 7
+		}
+		USA = {
+		set_cosmetic_tag = USA_JDR_Corp
+		}
+		CCC = {
+			change_tag_from = USA
+		}
+	}
+}
+
+
+
+
+
+country_event = { #Масоны ебать
+	id = ripbozo.6
+	title = ripbozo.6.t
+	desc = ripbozo.6.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.6"
+		USA_release_MAL = yes
+	}
+
+	option = {
+		name = ripbozo.6.a
+		country_event = {
+			id = ripbozo.14
+			days = 3
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = ripbozo.6.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+			id = ripbozo.14
+			days = 3
+		}
+		MAL = {
+			change_tag_from = USA
+		}
+	}
+}
+
+
+
+country_event = { #Индейцы
+	id = ripbozo.14
+	title = ripbozo.14.t
+	desc = ripbozo.14.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.14"
+		USA_release_FTS = yes
+	}
+
+	option = {
+		name = ripbozo.14.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		country_event = {
+			id = ripbozo.13
+			days = 8
+		}
+	}	
+	
+	option = {
+		name = ripbozo.14.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+			id = ripbozo.13
+			days = 8
+		}
+		FTS = {
+			change_tag_from = USA
+		}
+	}
+}
+
+country_event = { #аЛЯСКАЯ
+	id = ripbozo.13
+	title = ripbozo.13.t
+	desc = ripbozo.13.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.13"
+		USA_release_ALA = yes
+	}
+
+	option = {
+		name = ripbozo.13.a
+		country_event = {
+			id = ripbozo.7
+			days = 8
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = ripbozo.13.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+			id = ripbozo.7
+			days = 8
+		}
+		ALA = {
+			change_tag_from = USA
+		}
+	
+	}
+
+}
+
+
+
+country_event = { #Нью_йорк и зачем?
+	id = ripbozo.7
+	title = ripbozo.7.t
+	desc = ripbozo.7.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.7"
+		USA_release_NYC = yes
+	}
+
+
+	option = {
+		name = ripbozo.7.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		country_event = {
+			id = ripbozo.4
+			days = 8
+		}
+	}
+	
+	option = {
+		name = ripbozo.7.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		country_event = {
+			id = ripbozo.4
+			days = 8
+		}
+		NYC = {
+			change_tag_from = USA
+		}
+	}
+}
+
+country_event = { #RACIST CATMAN
+	id = ripbozo.4
+	title = ripbozo.4.t
+	desc = ripbozo.4.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.4"
+		USA_release_NEE = yes
+	}
+
+	option = {
+		name = ripbozo.4.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		news_event = WORLDNEWS.20
+	
+	}
+	
+	option = {
+		name = ripbozo.4.b
+		
+		ai_chance = {
+			factor = 0
+		}
+
+		NEE = {
+			change_tag_from = USA
+		}
+		
+		news_event = WORLDNEWS.20
+	}
+}

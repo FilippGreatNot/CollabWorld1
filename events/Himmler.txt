@@ -1,0 +1,46 @@
+add_namespace = reichsbanner
+
+country_event = { 
+	id = reichsbanner.1 
+	immediate = {log = "[GetDateText]: [Root.GetName]: event reichsbanner.1"}
+	title = reichsbanner.1.t
+	desc = reichsbanner.1.d
+	picture = GFX_report_event_russia_nkvd_officer
+	is_triggered_only = yes
+	
+	immediate = {
+		reichsbanner_rebel_begins = yes
+	}
+
+	option = {
+		name = reichsbanner.1.a
+		
+		WRD_release_RBR = yes
+		
+
+		
+	RBR = { 
+	declare_war_on = { target = WRD type = annex_everything	}
+	inherit_technology = WRD
+	 load_oob = RBR_reb	
+	}
+	
+}
+	
+  option = {
+		name = reichsbanner.1.b
+		WRD_release_RBR = yes
+		
+	
+	RBR = {
+			change_tag_from = WRD
+			inherit_technology = WRD		
+		}
+		
+	RBR = { 
+	declare_war_on = { target = WRD type = annex_everything	}
+	
+	 load_oob = RBR_reb	
+	}
+ }
+}
