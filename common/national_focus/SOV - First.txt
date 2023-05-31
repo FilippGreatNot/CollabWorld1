@@ -36,14 +36,11 @@ focus_tree = {
 
 		relative_position_id = SOV_first_end_of_civil_war_question
 		y = 1
-		
-		
 
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_the_outcome_of_half_revolution"
 			add_political_power	= 75
 		}
-		
 	}
 	#Middle branch
 	focus = {
@@ -79,8 +76,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_unhold_the_prodnalog"
-			add_political_power	= -50
-			add_stability = -0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
 			
 			add_ideas = SOV_prodnalog
 		}	
