@@ -17,21 +17,6 @@ ideas = {
 			}
 		}	
 		
-		SOV_abrupt_change_of_course = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_abrupt_change_of_course"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = GFX_idea_SOV_abrupt_change_of_course
-			modifier = {
-				production_factory_start_efficiency_factor = 0.05
-				trade_opinion_factor = 0.05
-				party_popularity_stability_factor = -0.02
-				army_leader_cost_factor = 0.04	
-				stability_factor = -0.1
-				stability_weekly = 0.002
-			}
-		}	
-		
 		SOV_peasant_displeasure = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_peasant_displeasure"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
@@ -60,9 +45,8 @@ ideas = {
 
 			picture = GFX_idea_SOV_carrot_and_stick_method
 			modifier = {
-				stability_factor = -0.1
 				political_power_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.5
+				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
 		
@@ -73,6 +57,7 @@ ideas = {
 			modifier = {
 				political_power_gain = 0.1
 				war_support_factor = 0.05
+				conscription_factor = 0.1
 				stability_factor = 0.1
 				bolshevism_drift = 0.01
 			}
@@ -85,16 +70,16 @@ ideas = {
 			picture = GFX_idea_SOV_land_socialisation
 		}
 		
-		SOV_agriculture_collectivization = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_agriculture_collectivization"}
+		SOV_agriculture_collectivisation = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_agriculture_collectivisation"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 
-			picture = GFX_idea_SOV_agriculture_collectivization
+			picture = GFX_idea_SOV_agriculture_collectivisation
 			modifier = {
-				
+				local_resources_factor = 0.05
+				global_building_slots_factor = 0.05
 			}
 		}
-		
 		
 		SOV_prodnalog = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_prodnalog"}
@@ -102,8 +87,10 @@ ideas = {
 
 			picture = GFX_idea_SOV_prodrazverstka
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = -0.05
 				bolshevism_drift = 0.05
+				global_building_slots_factor = 0.05
+				local_resources_factor = -0.1
 			}
 		}
 		
@@ -115,13 +102,13 @@ ideas = {
 			modifier = {
 				stability_factor = -0.05
 				production_factory_start_efficiency_factor = 0.1
+				production_factory_max_efficiency_factor = 0.1
 				production_speed_buildings_factor = 0.1
-				resistance_growth = 0.1
-				resistance_target = 0.1
+				resistance_growth = -0.1
+				resistance_target = -0.1
 				local_resources_factor = 2.0
 			}
 		}
-		
 		
 		
 		SOV_socialist_market = {
@@ -130,8 +117,8 @@ ideas = {
 
 			picture = GFX_idea_SOV_socialist_market
 			modifier = {
-				consumer_goods_factor = 0.05
-				production_factory_start_efficiency_factor = 0.5
+				consumer_goods_factor = -0.05
+				production_factory_start_efficiency_factor = 0.05
 			}
 		}
 		
@@ -143,9 +130,9 @@ ideas = {
 			picture = GFX_idea_SOV_pure_pragmatism
 			modifier = {
 				drift_defence_factor = 0.15
+				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.05
-				drift_defence_factor = 0.15
-				production_speed_buildings_factor = 0.05
+				production_factory_start_efficiency_factor = 0.05
 			}
 		}
 		
@@ -156,22 +143,26 @@ ideas = {
 			picture = GFX_idea_SOV_pure_pragmatism_1
 			modifier = {
 				drift_defence_factor = 0.15
+				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.05
 				production_factory_start_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
 			}
-		}		
+		}
 		SOV_pragmatism_above_all_else = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_pragmatism_above_all_else"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 
 			picture = GFX_idea_SOV_pragmatism_above_all_else
 			modifier = {
-				drift_defence_factor = 0.1
-				production_factory_start_efficiency_factor = 0.15
-				production_speed_buildings_factor = 0.07
+				drift_defence_factor = 0.25
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
 			}
-		}		
-			
+		}
+		
 		KMD_defenders_of_the_north = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KMD_defenders_of_the_north"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }

@@ -12,6 +12,31 @@ characters = {
 			traits = { leader_of_the_proletariat }
 		}
 	}
+	SOV_joseph_stalin = {
+		name = SOV_joseph_stalin
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/JosephStalin.dds"
+			}
+		}
+		country_leader = {
+			ideology = leninist_pragmatism
+			traits = { man_of_steel }
+		}
+	}
+	SOV_leon_trotsky = {
+		name = SOV_leon_trotsky
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/LeonTrotsky.dds"
+			}
+		}
+		country_leader = {
+			ideology = trotskyism
+			traits = { }
+			desc = "POLITICS_TROTSKY_DESC"
+		}
+	}
 	SOV_maria_spiridonova = {
 		name = SOV_maria_spiridonova
 		gender = female
@@ -78,6 +103,39 @@ characters = {
 			#traits = {  }
 		}
 	}
+	SOV_sovnarkom = {
+		name = SOV_sovnarkom
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Sovnarkom.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_SOVNARKOM_DESC"
+			ideology = marxism_leninism
+			traits = { power_struggle }
+		}
+	}
+	
+	### Mulrirole characters ###
+	SOV_nikolai_bukharin = {
+		name = SOV_nikolai_bukharin
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Bukharin"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = SOV_nikolai_bukharin_ec
+			traits = { NEP_supporter }
+			can_be_fired = no
+			visible = {
+				is_alive = yes
+			}
+		}
+	}
+	
 	
 	### Unit leaders ###
 	## Land ##
@@ -448,23 +506,6 @@ characters = {
 	}
 	
 	## Economy minister ##
-	SOV_nikolai_bukharin = {
-		name = SOV_nikolai_bukharin
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Bukharin"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = SOV_nikolai_bukharin_ec
-			traits = { NEP_supporter }
-			can_be_fired = no
-			visible = {
-				is_alive = yes
-			}
-		}
-	}
 	SOV_gleb_krzhizhanovsky = {
 		name = SOV_gleb_krzhizhanovsky
 		portraits = {

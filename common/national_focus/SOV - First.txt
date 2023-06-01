@@ -57,10 +57,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_total_cancel_of_war_communism"
 			add_war_support = 0.025
 			add_stability = 0.1
-			swap_ideas = { 
-				remove_idea = SOV_war_communism 
-				add_idea = SOV_abrupt_change_of_course 
-			}
+			remove_ideas = SOV_war_communism
 		}
 	}
 	focus = {
@@ -100,7 +97,11 @@ focus_tree = {
 
 			add_manpower = -30000
 			add_political_power = 50
-			
+			add_stability = 0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.025
+			}
 		}
 	}
 	focus = {
@@ -114,10 +115,12 @@ focus_tree = {
 		relative_position_id = SOV_first_total_cancel_of_war_communism
 		y = 2
 		
-		completion_reward = {	
+		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_efficiency_of_violence"
 			add_political_power	= 80
-			add_manpower = -150
+			add_manpower = -15000
+
+			add_ideas = SOV_efficiency_of_violence
 		}
 	}
 	focus = {
@@ -129,6 +132,16 @@ focus_tree = {
 
 		relative_position_id = SOV_first_efficiency_of_violence
 		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_loyalty_to_the_revolution"
+			add_stability = 0.1
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.15
+			}
+			add_political_power = 100
+		}
 	}
 
 	#Left branch
@@ -165,6 +178,10 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_final_solution_of_the_peasant_question"
 			
 			add_ideas = SOV_land_socialisation
+			swap_ideas = {
+				add_idea = SOV_peasant_displeasure_1
+				remove_idea = SOV_peasant_displeasure_1
+			}
 		}
 	}
 	focus = {
@@ -220,6 +237,12 @@ focus_tree = {
 		relative_position_id = SOV_first_total_cancel_of_war_communism
 		x = 4
 		y = 1
+
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_socialist_market"
+			
+			add_ideas = SOV_socialist_market
+		}
 	}
 	focus = {
 		id = SOV_first_all_methods_are_good
@@ -231,6 +254,15 @@ focus_tree = {
 		relative_position_id = SOV_first_socialist_market
 		x = -1
 		y = 1
+
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_all_methods_are_good"
+			
+			swap_ideas = {
+				add_idea = SOV_pure_pragmatism
+				remove_idea = SOV_socialist_market
+			}
+		}
 	}
 	focus = {
 		id = SOV_first_increase_the_influence_of_the_nep
@@ -242,6 +274,15 @@ focus_tree = {
 		relative_position_id = SOV_first_socialist_market
 		x = 1
 		y = 1
+
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_first_increase_the_influence_of_the_nep"
+			
+			swap_ideas = {
+				add_idea = SOV_pure_pragmatism_1
+				remove_idea = SOV_pure_pragmatism
+			}
+		}
 	}
 	focus = {
 		id = SOV_first_nepmans_the_builders_of_communism
@@ -292,7 +333,7 @@ focus_tree = {
 			
 			hidden_effect = {
 				country_event = {
-					id = prowerstruggle.1
+					id = powerstruggle.1
 					days = 12
 				}		 
 			}
