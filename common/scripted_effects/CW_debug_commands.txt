@@ -1,3 +1,17 @@
-d_load_dressler_focus_tree = {
-	load_focus_tree = FGB_dressler
+d_print_goof_var_localized_contents = {
+	log = "[?goof.GetTokenLocalizedKey]"
+}
+get_leader = { #Why the heck do I have to do this instead of just accessing leader in loc. But it only works this way. I don't understand HoI4.
+	meta_effect = {
+		text = {
+			set_variable = { test = token:[LEADER] }
+		}
+		LEADER = "[GetLeader]"
+	}
+}
+d_print_subideology = {
+	log = "[?subideology.GetIdeology]"
+}
+d_get_stalin = {
+	promote_character = SOV_joseph_stalin
 }
