@@ -6,6 +6,31 @@ add_namespace = unification
 add_namespace = yezhovgang
 add_namespace = stalin
 add_namespace = revizionisti
+add_namespace = sov
+
+country_event = { #Fate of the royal famile
+	id = sov.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov.1" }
+	title = sov.1.t
+	desc = sov.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = sov.1.a
+	}
+}
+country_event = { #Lenin's speech
+	id = sov.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov.2" }
+	title = sov.2.t
+	desc = sov.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = sov.2.a
+	}
+}
+
 
 country_event = {
 	id = powerstruggle.1
@@ -17,9 +42,7 @@ country_event = {
 
 	option = {
 		name = powerstruggle.1.a
-		SOV_sovnarkom = {
-			promote_character = marxism_leninism
-		}
+		promote_character = SOV_sovnarkom
 	}
 }
 
@@ -196,9 +219,7 @@ country_event = {
 		}
 		power_struggle_increase_stalin_authority = yes
 		
-		SOV_joseph_stalin = {
-			promote_character = leninist_pragmatism
-		}
+		promote_character = SOV_joseph_stalin
 		
 		remove_all_ministers = no
 		
@@ -225,9 +246,7 @@ country_event = {
 		}
 		power_struggle_increase_trotsky_authority = yes
 		
-		SOV_leon_trotsky = {
-			promote_character = trotskyism
-		}
+		promote_character = SOV_leon_trotsky
 		
 		remove_all_ministers = no
 		add_ideas = {
