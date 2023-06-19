@@ -14,12 +14,6 @@ music = {
 			has_stability < 0.5
 			factor = 1.5
 		}
-		modifier = {
-			original_tag = ENG
-			has_idea_with_trait = fascist_demagogue
-			not = { has_government = fascism }
-			factor = 2
-		}
 	}
 
 }
@@ -30,18 +24,12 @@ music = {
 	chance = {
 		factor = 1
 		modifier = {
-			not = { has_completed_focus = USA_suspend_the_presecution }
-			not = { has_government = communism }
+			ideology_socialist = no
 			factor = 0
 		}
 		modifier = {
 			original_tag = USA
-			has_idea_with_trait = communist_revolutionary
-			not = { has_government = communism }
-			factor = 2
-		}
-		modifier = {
-			has_completed_focus = USA_democratic_socialism
+			ideology_socialist = yes
 			factor = 3
 		}
 		modifier = {
@@ -58,22 +46,20 @@ music = {
 	chance = {
 		factor = 1
 		modifier = {
-			not = { has_completed_focus = USA_america_first }
+			NOT = {
+				original_tag = USA
+				ideology_goofy_ahh = yes
+			}
 			factor = 0
 		}
 		modifier = {
 			original_tag = USA
-			has_idea_with_trait = fascist_demagogue
-			not = { has_government = fascism }
-			factor = 2
-		}
-		modifier = {
-			has_completed_focus = USA_honor_the_confederacy
+			ideology_goofy_ahh = yes
 			factor = 3
 		}
 		modifier = {
 			has_civil_war = yes
-			has_government = fascism
+			ideology_goofy_ahh = yes
 			factor = 1.5
 		}
 	}
@@ -86,13 +72,13 @@ music = {
 		factor = 1
 		modifier = {
 			OR = {
-				not = { 
+				NOT = { 
 					OR = { 
 						original_tag = USA 
 						original_tag = ENG
 					}
 				}
-				not = { has_government = democratic }
+				ideology_liberal = no
 			}
 			factor = 0
 		}
