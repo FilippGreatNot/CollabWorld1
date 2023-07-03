@@ -1,14 +1,14 @@
-add_namespace = powerstruggle
-add_namespace = bolsheviks
-add_namespace = mladorossi
-add_namespace = leadership
-add_namespace = unification
-add_namespace = yezhovgang
-add_namespace = stalin
-add_namespace = revizionisti
+add_namespace = sov_powerstruggle
+add_namespace = sov_bolsheviks
+add_namespace = sov_mladorossi
+add_namespace = sov_leadership
+add_namespace = sov_unification
+add_namespace = sov_yezhovgang
+add_namespace = sov_stalin
+add_namespace = sov_revizionisti
 add_namespace = sov
 
-country_event = { #Fate of the royal famile
+country_event = { #Fate of the royal family
 	id = sov.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event sov.1" }
 	title = sov.1.t
@@ -31,31 +31,30 @@ country_event = { #Lenin's speech
 	}
 }
 
-
 country_event = {
-	id = powerstruggle.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.1" }
-	title = powerstruggle.1.t
-	desc = powerstruggle.1.d
+	id = sov_powerstruggle.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_powerstruggle.1" }
+	title = sov_powerstruggle.1.t
+	desc = sov_powerstruggle.1.d
 	picture = GFX_report_event_red_army_order
 	is_triggered_only = yes
 
 	option = {
-		name = powerstruggle.1.a
+		name = sov_powerstruggle.1.a
 		promote_character = SOV_sovnarkom
 	}
 }
 
 country_event = {
-	id = powerstruggle.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.2" }
-	title = powerstruggle.2.t
-	desc = powerstruggle.2.d
+	id = sov_powerstruggle.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_powerstruggle.2" }
+	title = sov_powerstruggle.2.t
+	desc = sov_powerstruggle.2.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 
 	option = {
-		name = powerstruggle.2.a
+		name = sov_powerstruggle.2.a
 		add_political_power = 100
 		set_country_flag = SOV_power_struggle_began
 		unlock_decision_category_tooltip = SOV_power_struggle_decisions
@@ -64,49 +63,49 @@ country_event = {
 }
 
 country_event = {
-	id = powerstruggle.3 #Основной Экономический Курс
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.3" }
-	title = powerstruggle.3.t
-	desc = powerstruggle.3.d
+	id = sov_powerstruggle.3 #Основной Экономический Курс
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_powerstruggle.3" }
+	title = sov_powerstruggle.3.t
+	desc = sov_powerstruggle.3.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 
 	option = {
-		name = powerstruggle.3.a #####Только Плановая Экономика
+		name = sov_powerstruggle.3.a #####Только Плановая Экономика
 		power_struggle_increase_stalin_authority = yes
 		PowerStruggle_decrease_bukharin_authority = yes
 		power_struggle_increase_yagoda_authority = yes
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.4
+				id = sov_powerstruggle.4
 				days = 5
 			}
 		}
 	}
 	
 	option = {
-		name = powerstruggle.3.b #Планова экономика
+		name = sov_powerstruggle.3.b #Планова экономика
 		power_struggle_increase_prokhanov_authority = yes
 		power_struggle_increase_trotsky_authority = yes
 		power_struggle_increase_gastev_authority = yes
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.4
+				id = sov_powerstruggle.4
 				days = 5
 			}
 		}
 	}
 	
 	option = {
-		name = powerstruggle.3.f ###что-то среднее
+		name = sov_powerstruggle.3.f ###что-то среднее
 		PowerStruggle_decrease_stalin_authority = yes
 		PowerStruggle_decrease_trotsky_authority = yes
 		PowerStruggle_decrease_yagoda_authority = yes
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.4
+				id = sov_powerstruggle.4
 				days = 5
 			}
 		}
@@ -114,50 +113,50 @@ country_event = {
 }
 
 country_event = {
-	id = powerstruggle.4 #Армия
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.4" }
-	title = powerstruggle.4.t
-	desc = powerstruggle.4.d
+	id = sov_powerstruggle.4 #Армия
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_powerstruggle.4" }
+	title = sov_powerstruggle.4.t
+	desc = sov_powerstruggle.4.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 
 	option = {
-		name = powerstruggle.4.a #####Большая
+		name = sov_powerstruggle.4.a #####Большая
 		
 		power_struggle_increase_spiridonova_authority = yes
 		power_struggle_increase_trotsky_authority = yes
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.5
+				id = sov_powerstruggle.5
 				days = 5
 			}
 		}
 	}
 	
 	option = {
-		name = powerstruggle.4.b #оставим то что сейчас
+		name = sov_powerstruggle.4.b #оставим то что сейчас
 		
 		power_struggle_increase_stalin_authority = yes
 		power_struggle_increase_yagoda_authority = yes
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.5
+				id = sov_powerstruggle.5
 				days = 5
 			}
 		}
 	}
 	
 	option = {
-		name = powerstruggle.4.f ###Пацифизм с**а
+		name = sov_powerstruggle.4.f ###Пацифизм с**а
 		power_struggle_increase_prokhanov_authority = yes
 		PowerStruggle_decrease_spiridonova_authority = yes
 		PowerStruggle_decrease_trotsky_authority = yes
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.5
+				id = sov_powerstruggle.5
 				days = 5
 			}
 		}
@@ -165,15 +164,15 @@ country_event = {
 }
 
 country_event = {
-	id = powerstruggle.5 #Что с централизацией?
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.5" }
-	title = powerstruggle.5.t
-	desc = powerstruggle.5.d
+	id = sov_powerstruggle.5 #Что с централизацией?
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_powerstruggle.5" }
+	title = sov_powerstruggle.5.t
+	desc = sov_powerstruggle.5.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 
 	option = {
-		name = powerstruggle.5.a #####ДА ДАВАЙ УРА ДАВАЙ
+		name = sov_powerstruggle.5.a #####ДА ДАВАЙ УРА ДАВАЙ
 		power_struggle_increase_stalin_authority = yes
 		power_struggle_increase_yagoda_authority = yes
 		power_struggle_increase_trotsky_authority = yes
@@ -181,14 +180,14 @@ country_event = {
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.6
+				id = sov_powerstruggle.6
 				days = 5
 			}
 		}
 	}
 	
 	option = {
-		name = powerstruggle.5.b #СТОЙ НЕТ НЕ НАДО
+		name = sov_powerstruggle.5.b #СТОЙ НЕТ НЕ НАДО
 		power_struggle_increase_spiridonova_authority = yes
 		power_struggle_increase_bukharin_authority = yes
 		power_struggle_increase_prokhanov_authority = yes
@@ -197,23 +196,23 @@ country_event = {
 		
 		hidden_effect = {
 			country_event = {
-				id = powerstruggle.6
+				id = sov_powerstruggle.6
 				days = 5
 			}
 		}
 	}
 }
 
-country_event = {
-	id = powerstruggle.35
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.35" }
-	title = powerstruggle.35.t
-	desc = powerstruggle.35.d
+country_event = { #"Выбери любимого советского шизополитика 20-х годов"
+	id = sov_powerstruggle.35
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_powerstruggle.35" }
+	title = sov_powerstruggle.35.t
+	desc = sov_powerstruggle.35.d
 	is_triggered_only = yes
 	fire_only_once = yes
 	
 	option = {
-		name = powerstruggle.35.a
+		name = sov_powerstruggle.35.a
 		trigger = {
 			PowerStruggleStalinLeader = yes
 		}
@@ -240,7 +239,7 @@ country_event = {
 	}
 	
 	option = {
-		name = powerstruggle.35.b
+		name = sov_powerstruggle.35.b
 		trigger = {
 			PowerStruggleTrotskyLeader = yes
 		}
@@ -258,16 +257,16 @@ country_event = {
 		set_country_flag = SOV_power_struggle_ended
 		hidden_effect = {
 			random_other_country = {
-				news_event = {
+				#news_event = {
 				#	id = 
-					days = 1
-				}
+				#	days = 1
+				#}
 			}
 		}
 	}	
 	
 	option = {
-		name = powerstruggle.35.f
+		name = sov_powerstruggle.35.f
 		trigger = {
 			PowerStruggleBukharinLeader = yes
 		}
@@ -277,24 +276,13 @@ country_event = {
 			ruling_party = social_democrat
 		}
 		
-		create_country_leader = {
-			name = "Nikolai Bukharin"
-			desc = "POLITICS_NIKOLAI BUKHARIN_DESC"
-			picture = "gfx/leaders/SOV/Portrait_SOV_Nikolay_Bukharin.dds"
-			expire = "1965.1.1"
-			ideology = market_socialism 
-			traits = { NEP_supporter party_favorite}
-		}
+		promote_character = SOV_nikolai_bukharin
 		set_country_flag = SOV_power_struggle_ended
-		add_ideas = {
-			
-		}
 		
 		set_cosmetic_tag = SOV_bukharin_regional
 		complete_national_focus = SOV_the_businessman
 		remove_all_ministers = no
 		clr_country_flag = yagoda_personal_hell
-		set_country_flag = SOV_power_struggle_ended
 	}	
 	
 	
@@ -304,17 +292,9 @@ country_event = {
 			PowerStruggleGastevLeader = yes
 		}
 		power_struggle_increase_increase_gastev_authority = yes
-		create_country_leader = {
-			name = "Aleksei Gastev"
-			desc = "POLITICS_ALEKSEI_GASTEV_DESC"
-			picture = "gfx/leaders/SOV/Aleksei_Gastev.dds"
-			expire = "1965.1.1"
-			ideology = technocratic_socialism
-		}
+		promote_character = SOV_alexei_gastev
+		
 		remove_all_ministers = no
-		add_ideas = {
-			
-		}
 		set_cosmetic_tag = SOV_gastev_regional
 		complete_national_focus = SOV_the_vanguardist
 		set_country_flag = SOV_power_struggle_ended
@@ -322,10 +302,10 @@ country_event = {
 		clr_country_flag = yagoda_personal_hell
 		hidden_effect = {
 			random_other_country = {
-				news_event = {
+				#news_event = {
 				#	id = bolsheviks.67
-					days = 1
-				}
+				#	days = 1
+				#}
 			}
 		}
 	}
@@ -336,14 +316,9 @@ country_event = {
 			PowerStruggleSpiridonovaLeader = yes
 		}
 		power_struggle_increase_increase_spiridonova_authority = yes
-		create_country_leader = {
-			name = "Maria Spiridonova"
-			desc = "POLITICS_MARIA SPIRIDONOVA_DESC"
-			picture = "gfx/leaders/SOV/MariaSpiridonova.dds"
-			expire = "1965.1.1"
-			ideology = syndicalism
-			traits = { valkyrie_of_the_revolution }
-		}
+		
+		promote_character = SOV_maria_spiridonova
+		
 		remove_all_ministers = no
 		
 		set_politics = {
