@@ -7,12 +7,374 @@ focus_tree = {
     initial_show_position = { focus = FGB_dressler_creation_of_the_national_vanguard }
     continuous_focus_position = { x = 700 y = 0 }
 
+
+
+
+
+
+
+
+    focus = {
+        id = FGB_dressler_the_beginining_of_our_path
+		icon = GFX_focus_FGB_dressler_creation_of_the_national_vanguard
+		cost = 10
+
+		x = 15
+    }
+
+
+
+    focus = {
+        id = FGB_dressler_ethnic_question
+		icon = GFX_focus_FGB_ethnic_question
+		cost = 10
+
+        prerequisite = { focus = FGB_dressler_the_beginining_of_our_path }
+
+        relative_position_id = FGB_dressler_the_beginining_of_our_path
+		x = -4
+        y = 1
+    }
+	
+	
+	
+    focus = {
+        id = FGB_the_end_of_zion_menance 
+		icon = GFX_focus_FGB_the_end_of_zion_menance
+		cost = 10
+
+        prerequisite = { focus = FGB_dressler_ethnic_question }
+
+        relative_position_id = FGB_dressler_ethnic_question
+		x = -1
+        y = 1
+    }
+
+    focus = {
+        id = FGB_dressler_appeal_to_brethren_abroad
+		icon = GFX_focus_FGB_dressler_appeal_to_brethren_abroad
+		cost = 10
+
+        prerequisite = { focus = FGB_dressler_ethnic_question }
+
+        relative_position_id = FGB_dressler_ethnic_question
+		x = 1
+        y = 1
+    }
+
+    focus = {
+        id = FGB_dressler_the_plan_of_our_revivavl 
+		icon = GFX_focus_FGB_the_plan_of_our_revivavl
+		cost = 10
+
+        prerequisite = { focus = FGB_dressler_the_beginining_of_our_path }
+
+        relative_position_id = FGB_dressler_the_beginining_of_our_path
+		x = 0
+        y = 1
+    }
+	
+    focus = {
+        id = FGB_dressler_alone_in_the_circle_of_enemies
+		icon = GFX_focus_FGB_alone_in_the_circle_of_enemies
+		cost = 10
+
+        prerequisite = { focus = FGB_dressler_the_plan_of_our_revivavl }
+
+        relative_position_id = FGB_dressler_the_plan_of_our_revivavl
+		x = 0
+        y = 1
+    }
+
+
+	focus = {
+		id = FGB_dressler_destroy_red_bavaria
+		icon = GFX_goal_FGB_dressler_destroy_red_bavaria
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_alone_in_the_circle_of_enemies
+		
+		prerequisite = {
+			focus = FGB_dressler_alone_in_the_circle_of_enemies
+		}
+
+		available = {
+			has_war = no
+			is_neighbor_of = BSR
+		}
+		
+		bypass = {
+			BSR = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_destroy_red_bavaria_log"
+			
+			declare_war_on = {
+				target = BSR
+				type = annex_everything
+			}
+		}
+	}
+	
+	
+
+	focus = {
+		id = FGB_dressler_finish_the_remanants_of_the_empire
+		icon = GFX_goal_FGB_dressler_finish_the_remanants_of_the_empire
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_alone_in_the_circle_of_enemies
+		
+		prerequisite = {
+			focus = FGB_dressler_alone_in_the_circle_of_enemies
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = WRD
+		}
+		bypass = {
+			WRD = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_finish_the_remanants_of_the_empire_log"
+		
+			declare_war_on = {
+				target = WRD
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_dressler_end_of_the_syndicates
+		icon = GFX_goal_FGB_dressler_end_of_the_syndicates
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_finish_the_remanants_of_the_empire
+		
+		prerequisite = {
+			focus = FGB_dressler_finish_the_remanants_of_the_empire
+		}
+		prerequisite = {
+			focus = FGB_dressler_destroy_red_bavaria
+		}
+		
+		bypass = {
+			FWG = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_end_of_the_syndicates_log"
+		
+			declare_war_on = {
+				target = FWG
+				type = annex_everything
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = FGB_dressler_burn_the_debris_of_the_republic
+		icon = GFX_goal_FGB_dressler_burn_the_debris_of_the_republic
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_destroy_red_bavaria
+		
+		prerequisite = {
+			focus = FGB_dressler_finish_the_remanants_of_the_empire
+		}
+		prerequisite = {
+			focus = FGB_dressler_destroy_red_bavaria
+		}
+		bypass = {
+			GER = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = GER
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_burn_the_debris_of_the_republic_log"
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+	}
+
+
+	focus = {
+		id = FGB_dressler_liberate_their_army_from_the_living
+		icon = GFX_goal_FGB_dressler_liberate_their_army_from_the_living
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_end_of_the_syndicates
+		
+		prerequisite = {
+			focus = FGB_dressler_end_of_the_syndicates
+		}
+		prerequisite = {
+			focus = FGB_dressler_burn_the_debris_of_the_republic
+		}
+		
+		bypass = {
+			PLA = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_liberate_their_army_from_the_living_log"
+		
+			declare_war_on = {
+				target = PLA
+				type = annex_everything
+			}
+		}
+	}
+
+
+
+	focus = {
+		id = FGB_dressler_let_their_red_blood_be_on_the_red_flag
+		icon = GFX_goal_FGB_dressler_let_their_red_blood_be_on_the_red_flag
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_burn_the_debris_of_the_republic
+		
+		prerequisite = {
+			focus = FGB_dressler_burn_the_debris_of_the_republic
+		}
+		prerequisite = {
+			focus = FGB_dressler_end_of_the_syndicates
+		}
+		
+		bypass = {
+			UVS = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_let_their_red_blood_be_on_the_red_flag_log"
+		
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = FGB_dressler_german_eagle_rises_from_the_ashes
+		icon = GFX_goal_FGB_dressler_german_eagle_rises_from_the_ashes
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = FGB_dressler_liberate_their_army_from_the_living
+		
+		prerequisite = {
+			focus = FGB_dressler_liberate_their_army_from_the_living
+		}
+		prerequisite = {
+			focus = FGB_dressler_let_their_red_blood_be_on_the_red_flag
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_german_eagle_rises_from_the_ashes_log"
+		
+
+		}
+	}	
+	
+	
+	
+    focus = {
+        id = FGB_valkist_reforms
+		icon = GFX_focus_FGB_valkist_reforms
+		cost = 10
+
+        prerequisite = { focus = FGB_dressler_the_beginining_of_our_path }
+
+        relative_position_id = FGB_dressler_the_beginining_of_our_path
+		x = 8
+        y = 1
+    }
+
+ ####################SS
     focus = {
         id = FGB_dressler_creation_of_the_national_vanguard
 		icon = GFX_focus_FGB_dressler_creation_of_the_national_vanguard
 		cost = 10
 
-		x = 3
+		x = 30
     }
     focus = {
         id = FGB_dressler_spirit_of_chivalry
