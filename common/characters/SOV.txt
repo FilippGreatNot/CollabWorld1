@@ -122,6 +122,7 @@ characters = {
 		name = SOV_nikolai_bukharin
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/SOV/Portrait_SOV_Nikolay_Bukharin.dds"
 				small = "GFX_idea_SOV_Bukharin"
 			}
 		}
@@ -134,8 +135,34 @@ characters = {
 				is_alive = yes
 			}
 		}
+		country_leader = {
+			ideology = market_socialism
+			traits = { NEP_supporter party_favorite }
+			desc = "POLITICS_NIKOLAI_BUKHARIN_DESC"
+		}
 	}
-	
+	SOV_alexei_gastev = {
+		name = SOV_alexei_gastev
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Aleksei_Gastev.dds"
+				small = "GFX_idea_SOV_Alexei_Gastev"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = SOV_alexei_gastev_ec
+			traits = { proletkultist }
+			can_be_fired = no
+			visible = {
+				is_alive = yes
+			}
+		}
+		country_leader = {
+			ideology = technocratic_socialism
+			desc = "POLITICS_ALEKSEI_GASTEV_DESC"
+		}
+	}
 	
 	### Unit leaders ###
 	## Land ##
@@ -540,23 +567,7 @@ characters = {
 			}
 		}
 	}
-	SOV_alexei_gastev = {
-		name = SOV_alexei_gastev
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Alexei_Gastev"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = SOV_alexei_gastev_ec
-			traits = { proletkultist }
-			can_be_fired = no
-			visible = {
-				is_alive = yes
-			}
-		}
-	}
+
 	
 	## Propaganda minister ##
 	SOV_ruben_katanyan = {
