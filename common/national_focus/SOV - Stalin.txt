@@ -855,48 +855,9 @@ focus_tree = {
 				}
 			}
 			
-			UNR = {
-				every_core_state = {
-					add_claim_by = SOV
-				}
-			}
 		}
 	}
 	
-	focus = {
-		id = SOV_stalin_finish_off_their_rebellion
-		icon = GFX_focus_SOV_stalin_finish_off_their_rebellion
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		bypass = {
-			UNR = {
-				exists = no
-			}
-		}
-		relative_position_id = SOV_stalin_everythin_that_lies_beyond_the_ural
-		
-		prerequisite = {
-			focus = SOV_stalin_everythin_that_lies_beyond_the_ural
-		}
-		available = {
-			has_war = no
-			is_neighbor_of = UNR
-		}
-				
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_finish_off_their_rebellion"
-		
-			declare_war_on = {
-				target = UNR
-				type = annex_everything
-			}
-		}
-	}
 	
 	focus = {
 		id = SOV_stalin_destroy_the_main_head_of_the_hydra
@@ -910,10 +871,10 @@ focus_tree = {
 				exists = no
 			}
 		}
-		relative_position_id = SOV_stalin_finish_off_their_rebellion
+		relative_position_id = SOV_stalin_everythin_that_lies_beyond_the_ural
 		
 		prerequisite = {
-			focus = SOV_stalin_finish_off_their_rebellion
+			focus = SOV_stalin_everythin_that_lies_beyond_the_ural
 		}
 		available = {
 			has_war = no
