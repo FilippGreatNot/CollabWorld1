@@ -1,24 +1,6 @@
 ﻿capital = 300
 
-#oob = "URG"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		#set_naval_oob = "URG_1936_naval_mtg"
-	else = {
-		#set_naval_oob = "URG_1936_naval_legacy"
-	}
-}
-
-# Starting tech
 add_1922_modern_tech = yes
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
 
 set_convoys = 5
 
@@ -41,33 +23,5 @@ create_country_leader = {
 	ideology = syncretic_liberalism
 	traits = {
 		#
-	}
-}
-
-
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	# Destroyers #
-	create_equipment_variant = {
-		name = "Uruguay Class"				
-		type = ship_hull_light_1
-		name_group = URG_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
 	}
 }

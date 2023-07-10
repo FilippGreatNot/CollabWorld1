@@ -1,43 +1,12 @@
 ﻿capital = 46
 
-
-	set_oob = "ROM"
-
-
-
 set_research_slots = 3
 set_stability = 0.6
 set_war_support = 0.6
 
 
-
 add_1922_modern_tech = yes
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
-
-#Ideas
-
-
 set_convoys = 10
-
 
 set_politics = {
 	ruling_party = despotism
@@ -52,11 +21,6 @@ set_popularities = {
 	bolshevism = 20
 }
 
-
-
-
-
-
 create_country_leader = {
 	name = "Ferdinand I"
 	desc = "POLITICS_FERDINAND_I_DESC"
@@ -67,71 +31,3 @@ create_country_leader = {
 		
 	}
 }
-
-
-### VARIANTS ###
-# 1936 Start #
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	### Ship Variants ###
-	create_equipment_variant = {
-		name = "Regele Ferdinand Class"
-		type = destroyer_1
-		upgrades = {
-			ship_torpedo_upgrade = 1
-			destroyer_engine_upgrade = 1
-			ship_ASW_upgrade = 1
-			ship_anti_air_upgrade = 1
-		}
-	}
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	# Submarines #
-	create_equipment_variant = {
-		name = "Delfinul Class"				
-		type = ship_hull_submarine_2
-		name_group = ROM_SS_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = ship_mine_layer_sub
-		}
-	}
-	# Destroyers #
-	create_equipment_variant = {
-		name = "Marasti Class"				
-		type = ship_hull_light_1
-		name_group = ROM_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_mine_layer_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Regele Ferdinand Class"	
-		type = ship_hull_light_1
-		name_group = ROM_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_mine_layer_1
-			rear_1_custom_slot = ship_depth_charge_1
-		}
-	}
-}
-

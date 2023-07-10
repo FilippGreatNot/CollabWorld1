@@ -1,5 +1,6 @@
 ideas = {
 	country = {
+		### Lenin ###
 		SOV_war_communism = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_war_communism"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
@@ -277,7 +278,6 @@ ideas = {
 			}
 		}
 		
-		
 		SOV_collectivization_plan = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_collectivization_plan"}
 			
@@ -314,6 +314,7 @@ ideas = {
 			}
 		}	
 		
+		### Stalin ###
 		SOV_skilled_leadership = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_skilled_leadership"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
@@ -327,10 +328,17 @@ ideas = {
 				command_power_gain	= 0.05
 			}
 		}
-		
-		
-		
-		
-		
+		SOV_five_year_plan = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_five_year_plan"}
+			picture = GFX_idea_SOV_five_year_plan
+			
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				production_speed_industrial_complex_factor = 0.2
+				production_speed_arms_factory_factor = 0.2
+				local_resources_factor = 0.15
+				consumer_goods_factor = -0.05
+			}
+		}
 	}
 }

@@ -8,8 +8,7 @@ focus_tree = {
 	focus = {
 		id = SOV_stalin_faithful_leninist_in_power
 		icon = GFX_focus_SOV_stalin_faithful_leninist_in_power
-		x = 0
-		y = 1
+
 		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -819,8 +818,8 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SOV_stalin_everythin_that_lies_beyond_the_ural
-		icon = GFX_focus_SOV_stalin_everythin_that_lies_beyond_the_ural
+		id = SOV_stalin_everything_that_lies_beyond_the_ural
+		icon = GFX_focus_SOV_stalin_everything_that_lies_beyond_the_ural
 		x = 0
 		y = 1
 		cost = 4
@@ -836,7 +835,7 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_everythin_that_lies_beyond_the_ural"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_everything_that_lies_beyond_the_ural"
 			RUS = {
 				every_core_state = {
 					add_claim_by = SOV
@@ -871,10 +870,10 @@ focus_tree = {
 				exists = no
 			}
 		}
-		relative_position_id = SOV_stalin_everythin_that_lies_beyond_the_ural
+		relative_position_id = SOV_stalin_everything_that_lies_beyond_the_ural
 		
 		prerequisite = {
-			focus = SOV_stalin_everythin_that_lies_beyond_the_ural
+			focus = SOV_stalin_everything_that_lies_beyond_the_ural
 		}
 		available = {
 			has_war = no
@@ -1128,8 +1127,9 @@ focus_tree = {
 	focus = {
 		id = SOV_stalin_reformation_of_the_ogpu
 		icon = GFX_focus_SOV_stalin_reformation_of_the_ogpu
+		
 		x = 20
-		y = 1
+		
 		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1721,15 +1721,140 @@ focus_tree = {
 		}
 	}
 	
-	
-	
-	
-	
-	##########Economy Regional
-
-
+	focus = {
+		id = SOV_stalin_first_five_year_plan
+		icon = GFX_focus_SOV_stalin_first_five_year_plan
+		cost = 5
 		
+		x = -10
+	}
+	focus = {
+		id = SOV_stalin_increase_mic_funding
+		icon = GFX_focus_SOV_stalin_increase_mic_funding
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_first_five_year_plan }
+		
+		relative_position_id = SOV_stalin_first_five_year_plan
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_economy_modernisation
+		icon = GFX_focus_SOV_stalin_economy_modernisation
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_increase_mic_funding }
+		
+		relative_position_id = SOV_stalin_increase_mic_funding
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_requisition_peasant_grain_suprlus
+		icon = GFX_focus_SOV_stalin_requisition_peasant_grain_suprlus
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_economy_modernisation }
+		
+		relative_position_id = SOV_stalin_economy_modernisation
+		x = -2
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_forced_industrialisation
+		icon = GFX_focus_SOV_stalin_forced_industrialisation
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_economy_modernisation }
+		
+		relative_position_id = SOV_stalin_economy_modernisation
+		x = 2
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_artel_self_governance
+		icon = GFX_focus_SOV_stalin_artel_self_governance
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_requisition_peasant_grain_suprlus }
+		
+		relative_position_id = SOV_stalin_requisition_peasant_grain_suprlus
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_attract_village_resources_to_cities
+		icon = GFX_focus_SOV_stalin_attract_village_resources_to_cities
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_requisition_peasant_grain_suprlus }
+		
+		relative_position_id = SOV_stalin_requisition_peasant_grain_suprlus
+		x = 1
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_create_the_social_security_system
+		icon = GFX_focus_SOV_stalin_create_the_social_security_system
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_artel_self_governance }
+		prerequisite = { focus = SOV_stalin_attract_village_resources_to_cities }
+		
+		relative_position_id = SOV_stalin_requisition_peasant_grain_suprlus
+		y = 2
+	}
+	focus = {
+		id = SOV_stalin_estabilish_the_planning_councils
+		icon = GFX_focus_SOV_stalin_estabilish_the_planning_councils
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_forced_industrialisation }
+		
+		relative_position_id = SOV_stalin_forced_industrialisation
+		x = -1
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_estabilish_the_gulags
+		icon = GFX_focus_SOV_stalin_estabilish_the_gulags
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_forced_industrialisation }
+		
+		relative_position_id = SOV_stalin_forced_industrialisation
+		x = 1
+		y = 1
+	}
+	focus = {
+		id = SOV_stalin_use_gulag_prisoners_in_the_construction
+		icon = GFX_focus_SOV_stalin_use_gulag_prisoners_in_the_construction
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_estabilish_the_planning_councils }
+		prerequisite = { focus = SOV_stalin_estabilish_the_gulags }
+		
+		relative_position_id = SOV_stalin_forced_industrialisation
+		y = 2
+	}
+	focus = {
+		id = SOV_stalin_workforce_is_everything
+		icon = GFX_focus_SOV_stalin_workforce_is_everything
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_use_gulag_prisoners_in_the_construction }
+		prerequisite = { focus = SOV_stalin_create_the_social_security_system }
+		
+		relative_position_id = SOV_stalin_economy_modernisation
+		y = 4
+	}
+	focus = {
+		id = SOV_stalin_economical_autakry
+		icon = GFX_focus_SOV_stalin_economical_autakry
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_workforce_is_everything }
+		
+		relative_position_id = SOV_stalin_workforce_is_everything
+		y = 1
+	}
 }
-
-
-			
