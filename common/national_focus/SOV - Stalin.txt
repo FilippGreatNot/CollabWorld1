@@ -1,3 +1,4 @@
+#!gfx:interface/country_SOV.gfx
 focus_tree = {
 	id = SOV_stalin
 	country = {
@@ -1727,6 +1728,14 @@ focus_tree = {
 		cost = 5
 		
 		x = -10
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_first_five_year_plan"
+			add_timed_idea = {
+				idea = SOV_five_year_plan
+				days = 1825
+			}
+		}
 	}
 	focus = {
 		id = SOV_stalin_increase_mic_funding
@@ -1737,6 +1746,11 @@ focus_tree = {
 		
 		relative_position_id = SOV_stalin_first_five_year_plan
 		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_increase_mic_funding"
+			add_ideas = war_economy
+		}
 	}
 	focus = {
 		id = SOV_stalin_economy_modernisation
