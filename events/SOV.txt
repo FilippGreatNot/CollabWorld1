@@ -81,7 +81,7 @@ country_event = {
 		
 		hidden_effect = {
 			kill_country_leader = yes
-		    set_cosmetic_tag = SOV_yezhov_regional
+			set_cosmetic_tag = SOV_yezhov_regional
 		}
 		
 		promote_character = SOV_nikolai_yezhov
@@ -104,46 +104,34 @@ country_event = {
 
 	option = {
 		name = sov_leadership.1.a
+		promote_character = SOV_joseph_stalin
 		set_cosmetic_tag = SOV_stalin
 	}
 	
-	
-	
-option = {
+	option = {
 		name = sov_leadership.1.b
-	hidden_effect = {
-		kill_country_leader = yes
-		create_country_leader = {
-			name = "Alexander Bogdanov"
-			desc = "POLITICS_BOGDANOV_DESC"
-			picture = "gfx/leaders/SOV/Portrait_SOV_Alexander_Bogdanov.png"
-			expire = "1965.1.1"
-			ideology = technocratic_socialism
-			traits = { 
-			technocrat
+		hidden_effect = {
+			promote_character = SOV_alexander_bogdanov	
+			set_cosmetic_tag = SOV_bogdanov_regional
+			complete_national_focus = SOV_the_vanguardist		
 			
+			set_party_name = { 
+				ideology = bolshevism 
+				long_name = SOV_BOGDANOV_LONG
+				name = SOV_BOGDANOV_SHORT
 			}
-		}	
-        set_cosmetic_tag = SOV_bogdanov_regional
-		complete_national_focus = SOV_the_vanguardist		
-		
-	set_party_name = { 
-		ideology = bolshevism 
-		long_name = SOV_BOGDANOV_LONG
-		name = SOV_BOGDANOV_SHORT
-	}
-	}
+		}
 	}
 	
-option = {
+	option = {
 		name = sov_leadership.1.c
 		remove_all_ministers = no
 		hidden_effect = {
 			set_politics = {
 				ruling_party = libertarian_socialism
 			}
-		
-		set_cosmetic_tag = SOV_spiridonova_regional		
+			
+			set_cosmetic_tag = SOV_spiridonova_regional
 		}
 	}
 	
@@ -151,17 +139,8 @@ option = {
 		name = sov_leadership.1.e
 		
 		hidden_effect = {
-		kill_country_leader = yes
-		create_country_leader = {
-			name = "Felix Dzerzhinsky"
-			desc = "POLITICS_FELIX_DZERZHINSKY_DESC"
-			picture = "gfx/leaders/SOV/Portrait_SOV_Felix_Dzerzhinsky.png"
-			expire = "1965.1.1"
-			ideology = stratocratic_bolshevism
-			
-			traits = { iron_phoenix }
-		}	
-		set_cosmetic_tag = SOV_felix_regional
+			promote_character = SOV_felix_dzerzhinsky	
+			set_cosmetic_tag = SOV_felix_regional
 		}
 	}
 }
@@ -184,74 +163,73 @@ country_event = {
 			target = PBD
 			transfer_troops = yes 
 		}
-	}
 		
 		PBD = {
 			every_unit_leader = {
 				set_nationality = SOV
 			}
-	if = {
-SOV = {
-has_country_leader = { name = "Joseph Stalin" ruling_only = yes }
-}
-
-	  
-SOV = {
-complete_national_focus = SOV_peaceful_integration	  
-}
-
-}
-
-
-
-if = {
-	SOV = {
-	has_country_leader = { name = "Alexander Bogdanov" ruling_only = yes }
-	}
-	
-   SOV = {
-	complete_national_focus = SOV_welcome_home_tukh
-   	   } 
-   }			
-}
+			if = {
+				limit = {
+					SOV = {
+						has_country_leader = { character = SOV_joseph_stalin ruling_only = yes }
+					}
+				}
 		
-
-	
-option = {
-	name = unification.1.b	
-	ai_chance = { factor = 10 }
-	SOV = {
-	 declare_war_on = {
-                target = PBD
-                type = annex_everything
-            }
-          }	
-		  
-if = {
-SOV = {
-has_country_leader = { name = "Joseph Stalin" ruling_only = yes }
-}
-		  SOV = {
-		complete_national_focus = SOV_teach_the_impudent_marshal_a_lesson
-   		} 
-}
-
-
-
-
-if = {
-	SOV = {
-	has_country_leader = { name = "Alexander Bogdanov" ruling_only = yes }
+				SOV = {
+					complete_national_focus = SOV_peaceful_integration		
+				}
+			}
+			
+			if = {
+				limit = {
+					SOV = {
+						has_country_leader = { character = SOV_alexander_bogdanov ruling_only = yes }
+					}
+				}
+				
+				SOV = {
+					complete_national_focus = SOV_welcome_home_tukh
+				} 
+			}
+		}
 	}
 	
-   SOV = {
-	complete_national_focus = SOV_this_is_treason_marshal
-   	   } 
-   }			
-}
+	option = {
+		name = unification.1.b	
+		ai_chance = { factor = 10 }
+		SOV = {
+			declare_war_on = {
+				target = PBD
+				type = annex_everything
+			}
+		}	
+		
+		if = {
+			limit = {
+				SOV = {
+					has_country_leader = { character = SOV_joseph_stalin ruling_only = yes }
+				}
+			}
+			
+			SOV = {
+				complete_national_focus = SOV_teach_the_impudent_marshal_a_lesson
+			} 
+		}
 	
-
-	
+		if = {
+			limit = {
+				SOV = {
+					has_country_leader = { character = SOV_alexander_bogdanov ruling_only = yes }
+				}
+			}
+			
+			
+			SOV = {
+				complete_national_focus = SOV_this_is_treason_marshal
+				} 
+			}			
+		}
+	}
 }
 
 
@@ -268,50 +246,34 @@ country_event = {
 		
 		
 		swap_ideas = { 
-		remove_idea = SOV_Felix_Dzerzhinsky_sec 
-		add_idea = SOV_Beria_sec 
-         }
+			remove_idea = SOV_Felix_Dzerzhinsky_sec 
+			add_idea = SOV_Beria_sec 
+		}
 		
 		complete_national_focus = SOV_beria_leader
 	}
 	
 	
-	
-option = {
+	option = {
 		name = stalin.1.b
 		swap_ideas = { 
-		remove_idea = SOV_Felix_Dzerzhinsky_sec 
-		add_idea = SOV_nikolai_yezhov_sec 
-         }
-       complete_national_focus = SOV_yezhov_leader 		
+			remove_idea = SOV_Felix_Dzerzhinsky_sec 
+			add_idea = SOV_nikolai_yezhov_sec 
+		}
+		complete_national_focus = SOV_yezhov_leader 		
 	}
 	
 	
-option = {
+	option = {
 		name = stalin.1.c
 		swap_ideas = { 
-		remove_idea = SOV_Felix_Dzerzhinsky_sec 
-		add_idea = SOV_gleb_bokii_sec 
-         }
+			remove_idea = SOV_Felix_Dzerzhinsky_sec 
+			add_idea = SOV_gleb_bokii_sec 
+		}
 		
 		complete_national_focus = SOV_bokii_leader
 	}
-		
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ##### Revizionisti
@@ -326,43 +288,25 @@ country_event = {
 	
 	
 	immediate = {
-	hidden_effect = {
-			end_puppet = KMD
-		}
+		end_puppet = KMD
 	}
 
 	option = {
 		name = revizionisti.1.a
 		
 		
-		create_country_leader = {
-			name = "Nikolay Ustryalov"
-			desc = "POLITICS_USTRYALOV_DESC"
-			picture = "gfx/leaders/SOV/Portrait_SOV_Nikolay_Ustryalov.png"
-			expire = "1965.1.1"
-			ideology = national_marxism
-			traits = {  }
-		}
+		promote_character = SOV_nikolay_ustryalov
 #		remove_all_ministers = yes
 		remove_ideas = SOV_Alexei_Rykov_hog
 		remove_ideas = SOV_Gleb_Krzhizhanovsky_ec
 		remove_ideas = SOV_Ruben_Katanyan_pro
 		remove_ideas = SOV_Felix_Dzerzhinsky_sec
-	
-	
-	
 		
-	set_party_name = { 
-		ideology = bolshevism 
-		long_name = SOV_REVEZIONISTI_LONG
-		name = SOV_REVEZIONISTI_SHORT
-	}
-		
-		add_ideas = {
-			
-		}	
-
-		
+		set_party_name = { 
+			ideology = bolshevism 
+			long_name = SOV_REVEZIONISTI_LONG
+			name = SOV_REVEZIONISTI_SHORT
+		}
 		
 		set_politics = {
 			ruling_party = bolshevism
@@ -371,7 +315,5 @@ country_event = {
 		
 		set_cosmetic_tag = SOV_utryalov_regional
 		load_focus_tree = revizionisti_start
-		
-		
 	}
 }

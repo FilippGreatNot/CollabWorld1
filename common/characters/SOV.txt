@@ -10,6 +10,7 @@ characters = {
 		country_leader = {
 			ideology = marxism_leninism
 			traits = { leader_of_the_proletariat }
+			desc = "POLITICS_LENIN_DESC"
 		}
 	}
 	SOV_joseph_stalin = {
@@ -22,6 +23,19 @@ characters = {
 		country_leader = {
 			ideology = leninist_pragmatism
 			traits = { man_of_steel }
+		}
+	}
+	SOV_alexander_bogdanov = {
+		name = SOV_alexander_bogdanov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Portrait_SOV_Alexander_Bogdanov.dds"
+			}
+		}
+		country_leader = {
+			ideology = technocratic_socialism
+			traits = { technocrat }
+			desc = "POLITICS_BOGDANOV_DESC"
 		}
 	}
 	SOV_leon_trotsky = {
@@ -75,6 +89,18 @@ characters = {
 			ideology = christian_socialism
 			desc = "POLITICS_IVAN_PROKHANOV_DESC"
 			traits = { religious_socialist }
+		}
+	}
+	SOV_nikolay_ustryalov = {
+		name = SOV_nikolay_ustryalov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Portrait_SOV_Nikolay_Ustryalov.dds"
+			}
+		}
+		country_leader = {
+			ideology = national_marxism
+			desc = "POLITICS_USTRYALOV_DESC"
 		}
 	}
 	SOV_alexander_dubrovin = {
@@ -218,6 +244,29 @@ characters = {
 			ideology = stratocratic_bolshevism
 			desc = "POLITICS_NIKOLAI_YEZHOV_DESC"
 			traits = { war_veteran militarist dictator }
+		}
+	}
+	SOV_felix_dzerzhinsky = {
+		name = SOV_felix_dzerzhinsky
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Portrait_SOV_Felix_Dzerzhinsky.dds"
+				small = "GFX_idea_SOV_Felix_Dzerzhinsky"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = SOV_felix_dzerzhinsky_sec
+			traits = { iron_phoenix }
+			can_be_fired = no
+			visible = {
+				is_alive = yes
+			}
+		}
+		country_leader = {
+			ideology = stratocratic_bolshevism
+			desc = "POLITICS_FELIX_DZERZHINSKY_DESC"
+			traits = { iron_phoenix }
 		}
 	}
 	
@@ -503,23 +552,6 @@ characters = {
 	}
 	
 	## Security minister ##
-	SOV_felix_dzerzhinsky = {
-		name = SOV_felix_dzerzhinsky
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Felix_Dzerzhinsky"
-			}
-		}
-		advisor = {
-			slot = security_minister
-			idea_token = SOV_felix_dzerzhinsky_sec
-			traits = { iron_phoenix }
-			can_be_fired = no
-			visible = {
-				is_alive = yes
-			}
-		}
-	}
 	SOV_lavrentiy_beria = {
 		name = SOV_lavrentiy_beria
 		portraits = {

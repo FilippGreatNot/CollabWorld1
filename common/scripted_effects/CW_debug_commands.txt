@@ -15,3 +15,10 @@ d_print_subideology = {
 d_get_stalin = {
 	promote_character = SOV_joseph_stalin
 }
+d_print_amount_of_states = {
+	set_temp_variable  = { states_count = 0 }
+	every_owned_state = {
+		add_to_temp_variable = { states_count = 1 }
+	}
+	log = "States amount: [?states_count]"
+}
