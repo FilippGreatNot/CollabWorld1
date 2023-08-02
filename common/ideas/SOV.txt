@@ -32,7 +32,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_peasant_displeasure_1"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 			
-			picture = GFX_idea_SOV_peasant_displeasure_1
+			picture = GFX_idea_SOV_peasant_displeasure
 			modifier = {
 				stability_factor = -0.075
 				political_power_factor = -0.1 
@@ -178,54 +178,6 @@ ideas = {
 			}
 		}
 		
-		SOV_science_support = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_science_support"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = GFX_idea_SOV_science_support
-			modifier = {
-				research_speed_factor = 0.1
-				decryption_factor = 0.1
-				production_speed_buildings_factor = 0.05
-				command_power_gain = 0.1
-			}
-		}
-	
-		SOV_humiliating_defeat = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_humiliating_defeat"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = GFX_idea_SOV_humiliating_defeat
-			modifier = {
-				stability_factor = -0.1
-                stability_weekly = -0.06
-				occupation_cost = 0.05
-				research_speed_factor = -0.10
-				offensive_war_stability_factor = -0.08
-				party_popularity_stability_factor = -0.05
-				war_support_factor = -0.05
-				command_power_gain = -0.03
-				army_attack_factor = -0.1
-			}
-		}
-		
-		SOV_new_economic_policy = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_new_economic_policy"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = GFX_idea_SOV_new_economic_policy
-			modifier = {
-				trade_opinion_factor = 0.1
-				stability_weekly = 0.02
-				justify_war_goal_time 0.05
-				equipment_conversion_speed = 0.08
-				production_factory_efficiency_gain_factor = 0.05
-				consumer_goods_factor = 0.3
-				conversion_cost_civ_to_mil_factor = 0.3
-				industry_free_repair_factor = 0.02
-			}
-		}
-		
 		SOV_unfinished_electrification = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_unfinished_electrification"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
@@ -260,45 +212,6 @@ ideas = {
 				monthly_population = -0.05
 				political_power_factor = -0.15
 				stability_factor = -0.08
-			}
-		}
-		
-		SOV_industrialisation_plan = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_industrialisation_plan"}
-			
-            cancel = { has_country_flag = stalin_industry_dead }
-			picture = GFX_idea_SOV_industrialisation_plan
-			modifier = {
-				production_factory_max_efficiency_factor = 0.1
-				production_factory_start_efficiency_factor = 0.1
-				local_resources = 0.01
-				research_speed_factor = 0.01
-				production_speed_buildings_factor = 0.09
-				industrial_capacity_factory = 0.05
-			}
-		}
-		
-		SOV_collectivization_plan = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_collectivization_plan"}
-			
-			on_add = {
-				set_country_flag = SOV_collectivization_plan_one
-			}
-			on_remove = {
-				clr_country_flag = SOV_collectivization_plan_one
-	        } 
-			
-            cancel = { 
-				has_country_flag = yagoda_dead 
-				has_country_flag = felix_dead 
-			}
-
-			picture = SOV_collectivization_plan
-			modifier = {
-				command_power_gain = 0.07
-				weekly_manpower = 50
-				political_power_gain = 0.06
-				drift_defence_factor = -0.05
 			}
 		}
 		
@@ -362,7 +275,7 @@ ideas = {
 			}
 		}
 		SOV_soviet_economy_2 = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_1"}
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_2"}
 			
 			picture = GFX_idea_SOV_soviet_economy
 			
@@ -371,11 +284,13 @@ ideas = {
 				production_factory_max_efficiency_factor = 0.115
 				production_factory_start_efficiency_factor = 0.15
 				
-				production_speed_buildings_factor = 0.03
+				monthly_population = -0.2
+				local_resources_factor = 0.2
+				production_speed_buildings_factor = 0.1
 			}
 		}
 		SOV_soviet_economy_3 = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_1"}
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_3"}
 			
 			picture = GFX_idea_SOV_soviet_economy
 			
@@ -384,7 +299,24 @@ ideas = {
 				production_factory_max_efficiency_factor = 0.115
 				production_factory_start_efficiency_factor = 0.15
 				
-				production_speed_buildings_factor = 0.03
+				monthly_population = -0.2
+				local_resources_factor = 0.2
+				production_speed_buildings_factor = 0.13
+			}
+		}
+		SOV_soviet_economy_4 = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_4"}
+			
+			picture = GFX_idea_SOV_soviet_economy
+			
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.13
+				production_factory_max_efficiency_factor = 0.115
+				production_factory_start_efficiency_factor = 0.15
+				
+				monthly_population = -0.2
+				local_resources_factor = 0.2
+				production_speed_buildings_factor = 0.13
 				
 				consumer_goods_factor = -0.15
 				min_export = -0.15
