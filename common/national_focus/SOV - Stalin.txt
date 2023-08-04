@@ -966,46 +966,9 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SOV_stalin_middle_asia
-		icon = GFX_focus_SOV_stalin_middle_asia
-		x = 3
-		y = 1
-		cost = 4
-		available_if_capitulated = yes
-		
-		relative_position_id = SOV_stalin_look_to_the_east
-		
-		prerequisite = {
-			focus = SOV_stalin_look_to_the_east
-		}
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_middle_asia"
-			OCG = {
-				every_core_state = {
-					add_claim_by = SOV
-				}
-			}
-			KAA = {
-				every_core_state = {
-					add_claim_by = SOV
-				}
-			}
-			KSR = {
-				every_core_state = {
-					add_claim_by = SOV
-				}
-			}
-		}
-	}
-	
-	focus = {
 		id = SOV_stalin_destroy_the_cossack_republic
 		icon = GFX_focus_SOV_stalin_destroy_the_cossack_republic
-		y = 1
+		x = 2
 		cost = 5
 		available_if_capitulated = yes
 		bypass = {
@@ -1013,10 +976,10 @@ focus_tree = {
 				exists = no
 			}
 		}
-		relative_position_id = SOV_stalin_middle_asia
+		relative_position_id = SOV_stalin_look_to_the_east
 		
 		prerequisite = {
-			focus = SOV_stalin_middle_asia
+			focus = SOV_stalin_unification_plan
 		}
 		available = {
 			has_war = no
@@ -1032,6 +995,11 @@ focus_tree = {
 			declare_war_on = {
 				target = OCG
 				type = annex_everything
+			}
+			OCG = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
 			}
 		}
 	}
@@ -1067,6 +1035,11 @@ focus_tree = {
 				target = KAA
 				type = annex_everything
 			}
+			KAA = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
+			}
 		}
 	}
 	
@@ -1096,6 +1069,11 @@ focus_tree = {
 			annex_country = { 
 				target = KSR
 				transfer_troops = yes 
+			}
+			KSR = {
+				every_core_state = {
+					add_claim_by = SOV
+				}
 			}
 		}
 	}

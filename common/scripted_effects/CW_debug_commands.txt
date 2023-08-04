@@ -1,24 +1,18 @@
-d_print_goof_var_localized_contents = {
-	log = "[?goof.GetTokenLocalizedKey]"
-}
-get_leader = { #Why the heck do I have to do this instead of just accessing leader in loc. But it only works this way. I don't understand HoI4.
-	meta_effect = {
-		text = {
-			set_variable = { test = token:[LEADER] }
-		}
-		LEADER = "[GetLeader]"
-	}
-}
-d_print_subideology = {
-	log = "[?subideology.GetIdeology]"
-}
-d_get_stalin = {
-	promote_character = SOV_joseph_stalin
-}
 d_print_amount_of_states = {
 	set_temp_variable  = { states_count = 0 }
 	every_owned_state = {
 		add_to_temp_variable = { states_count = 1 }
 	}
 	log = "States amount: [?states_count]"
+}
+d_print = {
+	log = "[SOV.SOV_vladimir_lenin.GetIdeology]"
+}
+d_get_stalin = {
+	SOV_joseph_stalin = {
+		promote_character = yes
+	}
+}
+d_ee = {
+	set_variable = { leader = SOV_vladimir_lenin }
 }
