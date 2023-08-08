@@ -6,7 +6,14 @@ d_print_amount_of_states = {
 	log = "States amount: [?states_count]"
 }
 d_print = {
-	log = "[SOV.SOV_vladimir_lenin.GetIdeology]"
+	PBD = {
+		every_owned_state = {
+			limit = {
+				is_core_of = BLR
+			}
+			transfer_state_to = UNR
+		}
+	}
 }
 d_get_stalin = {
 	SOV_joseph_stalin = {
@@ -14,5 +21,5 @@ d_get_stalin = {
 	}
 }
 d_ee = {
-	set_variable = { leader = SOV_vladimir_lenin }
+	load_focus_tree = SOV_Felix_regional
 }

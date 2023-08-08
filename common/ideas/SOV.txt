@@ -1,6 +1,29 @@
 ideas = {
 	country = {
-		### Lenin ###
+		### Start ###
+		SOV_unfinished_electrification = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_unfinished_electrification"}
+            cancel = { has_country_flag = RUS_cancel_all_ideas }
+
+			picture = SOV_unfinished_electrification
+			modifier = {
+				research_speed_factor = 0.02
+				political_power_gain = 0.05
+				stability_factor = -0.02
+			}
+		}
+		
+		SOV_kronstadt_legacy = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_kronstadt_legacy"}
+            cancel = { has_country_flag = RUS_cancel_all_ideas }
+
+			picture = SOV_kronstadt_legacy
+			modifier = {
+				drift_defence_factor = -0.1
+				political_power_gain = -0.04
+				stability_factor = -0.05
+			}
+		}
 		SOV_war_communism = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_war_communism"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
@@ -15,9 +38,22 @@ ideas = {
 				stability_weekly = -0.03
 				occupation_cost = 0.05
 			}
-		}	
+		}
+		SOV_food_problems = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_food_problems"}
+            cancel = { has_country_flag = RUS_cancel_all_ideas }
+
+			picture = GFX_idea_SOV_food_problems
+			modifier = {
+				monthly_population = -0.05
+				political_power_factor = -0.15
+				stability_factor = -0.08
+			}
+		}
 		
+		### first ###
 		SOV_peasant_displeasure = {
+			name = SOV_peasant_displeasure
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_peasant_displeasure"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 
@@ -29,6 +65,7 @@ ideas = {
 			}
 		}	
 		SOV_peasant_displeasure_1 = {
+			name = SOV_peasant_displeasure
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_peasant_displeasure_1"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 			
@@ -39,7 +76,6 @@ ideas = {
 				consumer_goods_factor = 0.05
 			}
 		}
-		
 		SOV_carrot_and_stick_method = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_carrot_and_stick_method"}
 
@@ -49,7 +85,6 @@ ideas = {
 				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
-		
 		SOV_perfect_obedience = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_perfect_obedience"}
 			
@@ -62,7 +97,6 @@ ideas = {
 				bolshevism_drift = 0.01
 			}
 		}
-		
 		SOV_land_socialisation = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_land_socialisation"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
@@ -106,10 +140,9 @@ ideas = {
 				production_speed_buildings_factor = 0.1
 				resistance_growth = -0.1
 				resistance_target = -0.1
-				local_resources_factor = 2.0
+				local_resources_factor = 0.2
 			}
 		}
-		
 		
 		SOV_socialist_market = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_socialist_market"}
@@ -122,8 +155,8 @@ ideas = {
 			}
 		}
 		
-		
 		SOV_pure_pragmatism = {
+			name = SOV_pure_pragmatism
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_pure_pragmatism"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 
@@ -137,6 +170,7 @@ ideas = {
 		}
 		
 		SOV_pure_pragmatism_1 = {
+			name = SOV_pure_pragmatism
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_pure_pragmatism_1"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 
@@ -163,11 +197,11 @@ ideas = {
 			}
 		}
 		
-		KMD_defenders_of_the_north = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KMD_defenders_of_the_north"}
+		KAR_defenders_of_the_north = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea KAR_defenders_of_the_north"}
             cancel = { has_country_flag = RUS_cancel_all_ideas }
 
-			picture = GFX_idea_KMD_defenders_of_the_north
+			picture = GFX_idea_KAR_defenders_of_the_north
 			modifier = {
 				army_core_defence_factor = 0.35
 				special_forces_cap = 0.11
@@ -178,42 +212,10 @@ ideas = {
 			}
 		}
 		
-		SOV_unfinished_electrification = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_unfinished_electrification"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = SOV_unfinished_electrification
-			modifier = {
-				research_speed_factor = 0.02
-				political_power_gain = 0.05
-				stability_factor = -0.02
-			}
-		}
-		
-		SOV_kronstadt_legacy = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_kronstadt_legacy"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = SOV_kronstadt_legacy
-			modifier = {
-				drift_defence_factor = -0.1
-				political_power_gain = -0.04
-				stability_factor = -0.05
-			}
-		}
 		
 		
-		SOV_food_problems = {
-			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_food_problems"}
-            cancel = { has_country_flag = RUS_cancel_all_ideas }
-
-			picture = GFX_idea_SOV_food_problems
-			modifier = {
-				monthly_population = -0.05
-				political_power_factor = -0.15
-				stability_factor = -0.08
-			}
-		}
+		
+		
 		
 		SOV_tukhachevsky_case = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_tukhachevsky_case"}
@@ -264,6 +266,7 @@ ideas = {
 			}
 		}
 		SOV_soviet_economy_1 = {
+			name = SOV_soviet_economy
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_1"}
 			
 			picture = GFX_idea_SOV_soviet_economy
@@ -275,6 +278,7 @@ ideas = {
 			}
 		}
 		SOV_soviet_economy_2 = {
+			name = SOV_soviet_economy
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_2"}
 			
 			picture = GFX_idea_SOV_soviet_economy
@@ -290,6 +294,7 @@ ideas = {
 			}
 		}
 		SOV_soviet_economy_3 = {
+			name = SOV_soviet_economy
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_3"}
 			
 			picture = GFX_idea_SOV_soviet_economy
@@ -305,6 +310,7 @@ ideas = {
 			}
 		}
 		SOV_soviet_economy_4 = {
+			name = SOV_soviet_economy
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea SOV_soviet_economy_4"}
 			
 			picture = GFX_idea_SOV_soviet_economy

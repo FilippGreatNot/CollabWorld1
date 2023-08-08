@@ -1,0 +1,153 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = {
+					has_start_date > 1983.12.31
+				}
+				
+				LUX = { #Empire of Luxembourg
+					set_cosmetic_tag = LUX_empire
+					
+					annex_country = {
+						target = BEL
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = HOL
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = WRD
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = FGB
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = BSR
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = FWG
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = GER
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = UVS
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = PLA
+						transfer_troops = yes
+					}
+					
+					#French states
+					transfer_state = 18
+					transfer_state = 28
+					transfer_state = 17
+					
+					#They need cores
+					every_owned_state = {
+						add_core_of = PREV
+					}
+					
+					set_major = yes #Dunno why but the game doesn't count them as majors
+				}
+				IRE = {
+					annex_country = { #Why not?
+						target = ENG
+						transfer_troops = yes
+					}
+				}
+				UNR = { #I just need it
+					set_cosmetic_tag = SOV_stalin_reunicicated
+					
+					annex_country = {
+						target = SOV
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = KAR
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = UFT
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = SRF
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = LAT
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = OCG
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = KAA
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = KSR
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = RUS
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = SEA
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = FER
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = KMP
+						transfer_troops = yes
+					}
+					
+					#Sakhalin
+					transfer_state = 655
+					transfer_state = 537
+					
+					#They should get Belarus
+					PBD = {
+						every_owned_state = {
+							limit = {
+								is_core_of = BLR
+							}
+							transfer_state_to = PREV.PREV
+							log = "[THIS.GetName]"
+						}
+					}
+					
+					#They need cores
+					every_owned_state = {
+						add_core_of = PREV
+						if = {
+							limit = {
+								is_core_of = MON
+							}
+							transfer_state_to = MON #Annexed Mongolia looks weird
+							#Damn, I wrote while making the USSR which is united by Urals
+						}
+					}
+					
+					set_major = yes #Dunno why but the game doesn't count them as majors
+				}
+				
+				USA = { country_event = nevada.1 } } #Yee
+			}
+		}
+	}
+}
