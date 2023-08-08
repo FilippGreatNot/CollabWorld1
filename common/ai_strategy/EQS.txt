@@ -1,0 +1,36 @@
+EQS_rush_new_capital_cairo = {
+	ai_strategy = {
+		type = front_control
+		state = 719
+		
+		ordertype = invasion
+		execution_type = rush
+		execute_order = yes
+		
+		priority = 1000 #Just friccin spam the state with bodies of pones or whoever fights for Keurgelen
+	}
+}
+EQS_rush_719 = { #It is vital to land here and thus get a frontline to R U S H, the state is just a piece of SAF
+	allowed = {
+		tag = EQS
+	}
+	enable = {
+		num_of_controlled_states < 2 #Only controls Keurgelen
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		state = 719
+		
+		ordertype = invasion
+		execution_type = rush
+		execute_order = yes
+		
+		priority = 1000 #Just friccin spam the state with bodies of pones or whoever fights for Keurgelen
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 100
+	}
+}

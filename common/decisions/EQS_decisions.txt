@@ -1,5 +1,5 @@
 EQS_move_capital = {
-	EQS_move_capital_to_446 = {
+	EQS_move_capital_to_446 = { #Cairo
 		available = {
 			NOT = {
 				capital_scope = {
@@ -14,8 +14,19 @@ EQS_move_capital = {
 				state = 446
 			}
 		}
+		
+		ai_will_do = {
+			base = 0
+			
+			modifier = {
+				add = 100 #This is very important
+				capital_scope = {
+					state = 713 #Kerguelen
+				}
+			}
+		}
 	}
-	EQS_move_capital_to_361 = {
+	EQS_move_capital_to_361 = { #Maryland
 		available = {
 			NOT = {
 				capital_scope = {
@@ -30,8 +41,19 @@ EQS_move_capital = {
 				state = 361
 			}
 		}
+		
+		ai_will_do = {
+			base = 0
+			
+			modifier = {
+				add = 100 #This is very important
+				capital_scope = {
+					state = 713 #Kerguelen
+				}
+			}
+		}
 	}
-	EQS_move_capital_to_58 = {
+	EQS_move_capital_to_58 = { #Schleswig - Holstein
 		available = {
 			NOT = {
 				capital_scope = {
@@ -44,6 +66,26 @@ EQS_move_capital = {
 		complete_effect = {
 			set_capital	= {
 				state = 58
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			
+			modifier = {
+				add = 100 #This is very important
+				capital_scope = {
+					state = 713 #Kerguelen
+				}
+			}
+			modifier = {
+				add = 20
+				capital_scope = {
+					OR = {
+						is_on_continent = africa #Usually Cairo, not a good place to steamroll everyone with military
+						is_on_continent = north_america #Usually Maryland, same thing
+					}
+				}
 			}
 		}
 	}

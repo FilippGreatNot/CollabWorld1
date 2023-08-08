@@ -1,63 +1,8 @@
 ﻿capital = 112
 
-#oob = "POR"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		#set_naval_oob = "POR_1936_naval_mtg"
-	else = {
-		#set_naval_oob = "POR_1936_naval_legacy"
-	}
-}
-
 set_research_slots = 3
 
 add_1922_modern_tech = yes
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
-
-if = {
-	limit = { has_dlc = "La Resistance" }	
-
-	set_stability = 0.60
-	set_war_support = 0.15	
-	set_research_slots = 2
-
-	ENG = {
-		add_opinion_modifier = {
-			target = POR 
-			modifier  = POR_anglo_portuguese_alliance
-		}
-	}
-
-	POR = {
-		add_opinion_modifier = {
-			target = ENG 
-			modifier  = POR_anglo_portuguese_alliance
-		}
-	}
-
-	GER = {
-		add_opinion_modifier = {
-			target = POR
-			modifier = fascism_leanings_good
-		}
-	}
-
-	ITA = {
-		add_opinion_modifier = {
-			target = POR
-			modifier = fascism_leanings_good
-		}
-	}
-	
-}
-
 
 set_convoys = 50
 set_politics = {
@@ -73,128 +18,15 @@ set_popularities = {
 	despotism = 11
 	libertarian_socialism = 11
 	anarchist = 17
-	
-
 }
 
-set_convoys = 150
-set_stability = 0.5
+create_country_leader = {
+	name = "António José de Almeida"
+	desc = "POLITICS_ANTÓNIO_JOSÉ_ALMEIDA_DESC"
+	picture = "gfx/leaders/POR/Antonio.dds"
+	expire = "1965.1.1"
+	ideology = liberalism_subtype
+	traits = {
 
-	create_country_leader = {
-		name = "António José de Almeida"
-		desc = "POLITICS_ANTÓNIO_JOSÉ_ALMEIDA_DESC"
-		picture = "gfx/leaders/POR/Antonio.dds"
-		expire = "1965.1.1"
-		ideology = liberalism_subtype
-		traits = {
-
-		}
-	}
-
-
-set_convoys = 100
-set_stability = 0.75
-
-if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	
-	create_field_marshal = {
-		name = "José Vicente de Freitas"
-		gfx = "GFX_portrait_por_jose_vicente_de_freitas"
-		traits = { old_guard politically_connected }
-		skill = 3
-	
-		attack_skill = 4
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 3
-	}
-	
-	create_corps_commander = {
-		name = "Luís Augusto Ferreira Martins"
-		gfx = "GFX_portrait_por_luis_augusto_ferreira_martins"
-		traits = { infantry_officer }
-		skill = 3
-	
-		attack_skill = 2
-		defense_skill = 4
-		planning_skill = 3
-		logistics_skill = 4
-	}
-	
-	create_corps_commander = {
-		name = "Raul Augusto Esteves"
-		portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
-		traits = { cavalry_officer }
-		skill = 3
-	
-		attack_skill = 4
-		defense_skill = 2
-		planning_skill = 2
-		logistics_skill = 3
-	}
-	
-	create_navy_leader = {
-		name = "José Mendes Cabeçadas"
-		gfx = "GFX_portrait_por_jose_mendes_cabecadas"
-		traits = { gentlemanly old_guard_navy }
-		skill = 4
-		attack_skill = 3
-		defense_skill = 2
-		maneuvering_skill = 4
-		coordination_skill = 4
-	}
-}
-
-if = {
-	limit = {
-		NOT = { has_dlc = "La Resistance" }
-	}
-	create_country_leader = {
-		name = "António de Oliveira Salazar"
-		desc = "POLITICS_ANTÓNIO_DE_OLIVEIRA_SALAZAR_DESC"
-		picture = "gfx/leaders/POR/portrait_por_antonio_de_oliveira_salazar.dds"
-		expire = "1965.1.1"
-		ideology = despotism_subtype
-		traits = {
-			conservative_nationalist
-		}
-	}
-	
-	create_country_leader = {
-		name = "Bento Gonçalves"
-		desc = "POLITICS_BENTO_GONCALVES_DESC"
-		picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_5.dds"
-		expire = "1965.1.1"
-		ideology = marxism_subtype
-		traits = {
-			#
-		}
-	}
-	
-	create_country_leader = {
-		name = "Francisco de Barcelos Rolão Preto"
-		desc = "POLITICS_FRANSISCO_BARCELOS_ROLAO_PRETO_DESC"
-		picture = "gfx/leaders/South America/Portrait_South_America_Generic_land_4.dds"
-		expire = "1965.1.1"
-		ideology = national_syndicalism_subtype
-		traits = {
-			#
-		}
-	}
-	
-	
-	create_corps_commander = {
-		name = "José Vicente de Freitas"
-		portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
-		traits = {  }
-		skill = 3
-	
-		attack_skill = 2
-		defense_skill = 3
-		planning_skill = 2
-		logistics_skill = 3
 	}
 }

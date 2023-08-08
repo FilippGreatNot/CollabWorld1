@@ -1,20 +1,4 @@
 on_actions = {
-	# country
-	on_new_term_election = {
-		random_events = {
-			100 = election.2
-			100 = election.3
-			100 = election.4
-			100 = election.5
-			100 = election.6
-			100 = election.11
-			100 = election.12
-			100 = election.13
-			100 = election.14
-			100 = election.15
-		}
-	}
-
 	# Ace pilots
 	# country, FROM = ace
 	on_ace_promoted = {
@@ -68,41 +52,6 @@ on_actions = {
 
 	}
 
-	# During justifying wargoals
-	# triggered daily, so make sure there is a sink somewhere not firing events
-	# country, FROM = target nation
-	on_justifying_wargoal_pulse = {
-
-		random_events = {
-			100 = war_justification.1
-			100 = war_justification.2
-			100 = war_justification.3
-			100 = war_justification.4
-			100 = war_justification.5
-			100 = war_justification.6
-			100 = war_justification.7
-			100 = war_justification.8
-			100 = war_justification.9
-			100 = war_justification.10
-			100 = war_justification.11
-			100 = war_justification.12
-			100 = war_justification.13
-			100 = war_justification.14
-			100 = war_justification.15
-			100 = war_justification.16
-			100 = war_justification.17
-			100 = war_justification.18
-			100 = war_justification.19
-			17000 = 0
-		}
-	}
-
-	on_wargoal_expire = {
-		random_events = {
-			100 = war_justification.301
-		}
-	}
-
 	# country random events
 	#on_bi_yearly_pulse = {
 	#
@@ -130,94 +79,10 @@ on_actions = {
 		}
 	}
 
-	#FROM is country getting invited.
-	on_offer_join_faction = {
-		effect = {
-			#Give achievement to nation joining a faction, but not in one from game start
-			if = {
-				limit = {
-					date > 1936.01.02
-				}
-				FROM = {
-					if = {
-						limit = {
-							is_faction_leader = no
-						}
-						set_country_flag = achievement_has_joined_faction
-					}
-				}
-			}
-		}
-	}
-
-	#FROM is faction leader on join faction requests. THIS DOES NOT FIRE ON ADD_TO_FACTION EFFECT! USE ON_OFFER_JOIN_FACTION!
-	on_join_faction = {
-		effect = {
-			set_country_flag = achievement_has_joined_faction
-		}
-	}
-
-	#FROM is war target
-	on_declare_war = {
-		effect = {
-			#If prepared by siphoning equipment, receive equipment back
-			if = {
-				limit = {
-					FROM = {
-						has_civil_war = yes
-						has_country_flag = siphoned_equipment_stockpiles_for_civil_war
-					}
-					has_civil_war = yes
-				}
-				FROM = {
-					clr_country_flag = siphoned_equipment_stockpiles_for_civil_war
-					add_equipment_to_stockpile = {
-						type = infantry_equipment
-						amount = 1000
-					}
-				}
-			}
-
-			#If prepared with surprise attack plan, get bonus
-			if = {
-				limit = {
-					FROM = {
-						original_tag = ROOT
-						#has_civil_war = yes
-						has_country_flag = formulated_surprise_attack_plan_for_civil_war
-					}
-					#has_civil_war = yes
-				}
-				FROM = {
-					clr_country_flag = formulated_surprise_attack_plan_for_civil_war
-					add_timed_idea = {
-						idea = civil_war_surprise_attack_plan
-						days = 30
-					}
-				}
-			}
-		}
-	}
-
 	# When a new faction is formed
 	on_faction_formed = {
 		effect = {
 			news_event = { id = news.159 }
-		}
-	}
-
-	#ROOT is winner #FROM gets annexed - This will also fire on_annex
-	on_civil_war_end = {
-		effect = {
-			#End of ideology Civil War
-			if = {
-				limit = {
-					has_country_flag = ideology_civil_war
-				}
-				clr_country_flag = ideology_civil_war
-				set_country_flag = { flag = won_ideology_civil_war value = 1 days = 365 }
-				country_event = { id = generic.11 days = 1 }
-			}
 		}
 	}
 
