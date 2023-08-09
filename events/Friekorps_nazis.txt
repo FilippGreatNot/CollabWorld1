@@ -11,117 +11,76 @@ country_event = {
 
 	option = {
 		name = fuhrerreich.1.a
-		
+
 		set_country_flag = FGB_the_party_lies
 		
-	hidden_effect = {
-	
-	set_party_name = { 
-		ideology = national_syndicalism 
-		long_name = FGB_VALKISTS
-		name = FGB_VALKISTS_SHORT
-	}
-
-	load_focus_tree = FGB_dressler
-	
-	kill_country_leader = yes
-		    set_cosmetic_tag = FGB_dressler
+		hidden_effect = {
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
 			
+			set_party_name = { 
+				ideology = national_syndicalism 
+				long_name = FGB_VALKISTS
+				name = FGB_VALKISTS_SHORT
+			}
+	
+			load_focus_tree = FGB_dressler
+			kill_country_leader = yes
+			set_cosmetic_tag = FGB_dressler
 			
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.11
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.11
+			}
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.06
+			}
+			promote_character = FGB_adam_dressler
 		}
-		add_popularity = {
-			ideology = esotericism
-			popularity = 0.06
-		}
-		
-		
-		set_politics = {
-			ruling_party = national_syndicalism
-		}
-		
-		create_country_leader = {
-			name = "Adam Dressler"
-			desc = "POLITICS_ADAM_DRESSLER_DESC"
-			picture = "gfx/leaders/FGB/Portrait_FGB_Adam_Dressler.png"
-			expire = "1965.1.1"
-			ideology = valkism
-		}
+		custom_effect_tooltip = rise_of_valkism
 	}
-	
-	custom_effect_tooltip = rise_of_valkism
-	
 }
-
-}
-
-
-
-
-
-
-
-
-
 
 country_event = {
 	id = nazi.2
 	immediate = { log = "[GetDateText]: [Root.GetName]: event nazi.1" }
 	title = nazi.2.t
 	desc = nazi.2.d
-#	picture = GFX_report_event_valknut
+	#picture = GFX_report_event_valknut
 	is_triggered_only = yes
 
 	option = {
 		name = nazi.2.a
 		
-		
-		
-	hidden_effect = {
-
-	
-	       kill_country_leader = yes
-		    set_cosmetic_tag = FGB_Drexler
+		hidden_effect = {
+			kill_country_leader = yes
+			set_cosmetic_tag = FGB_Drexler
 			
 			
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.15
-		}
-		
-		
-		set_politics = {
-			ruling_party = national_syndicalism
-		}
-		
-		create_country_leader = {
-			name = "Anton Drexler"
-			desc = "POLITICS_ANTON_DREXLER_DESC"
-			picture = "gfx/leaders/FGB/Portrait_FGB_Anton_Drexler.png"
-			expire = "1965.1.1"
-			ideology = revolutionary_nationalism 
-			
-			traits = {
-			
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.15
 			}
-		}
+		
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
+		
+		promote_character = FGB_anton_drexler
 	}
 	
-#	custom_effect_tooltip = rise_of_valkism
-	
+	#custom_effect_tooltip = rise_of_valkism
+	}
 }
-
-}
-
 
 country_event = {
 	id = nazi.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event nazi.1" }
 	title = nazi.1.t
 	desc = nazi.1.d
-#	picture = GFX_report_event_valknut
+	#picture = GFX_report_event_valknut
 	is_triggered_only = yes
 
 	option = {
@@ -129,48 +88,28 @@ country_event = {
 		
 		
 		
-	hidden_effect = {
-	
-	set_party_name = { 
-		ideology = national_syndicalism 
-		long_name = FGB_RHOM 
-		name = FGB_RHOM_SHORT
-	}
-
-	
-	       kill_country_leader = yes
-		    set_cosmetic_tag = FGB_Rohm
-			
-			
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.15
-		}
-		
-		
-		set_politics = {
-			ruling_party = national_syndicalism
-		}
-		
-		create_country_leader = {
-			name = "Ernst Röhm"
-			desc = "POLITICS_ERNST_ROHM_DESC"
-			picture = "gfx/leaders/FGB/Portrait_FGB_Ernst_Röhm.png"
-			expire = "1965.1.1"
-			ideology = ultranationalism
-			
-			traits = {
-			nationalist_symbol
-			stormtrooper
+		hidden_effect = {
+			set_party_name = { 
+				ideology = national_syndicalism 
+				long_name = FGB_RHOM 
+				name = FGB_RHOM_SHORT
 			}
+			set_cosmetic_tag = FGB_Rohm
+				
+				
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.15
+			}
+			
+			
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
+			
+			promote_character = FGB_ernst_rohm
 		}
+	
+	#custom_effect_tooltip = rise_of_valkism
 	}
-	
-#	custom_effect_tooltip = rise_of_valkism
-	
 }
-
-}
-
-
-
