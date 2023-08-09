@@ -151,64 +151,55 @@ GER_reunification = {
 					if = {
 						limit = {
 							has_country_leader = {
-								name = "Ernst Röhm"
+								character = FGB_ernst_rohm
 								ruling_only = yes
 							}
 						}
 						hidden_effect = {
-
 							set_cosmetic_tag = FGB_rohm_GER
-							kill_country_leader = yes
-									create_country_leader = {
-									name = "Ernst Röhm"
-									desc = "POLITICS_ERNST_ROHM_POST_UNIFIC_DESC"
-									picture = "gfx/leaders/FGB/Portrait_FGB_Ernst_Röhm_full_drip.png"
-									expire = "1965.1.1"
-									ideology = ultranationalism
-			
-									traits = {
-										new_fuhrer
-										stormtrooper
+							
+							FGB_ernst_rohm = {
+								set_portraits = {
+									civilian = {
+										large = "gfx/leaders/FGB/FGB_ernst_rohm_war_criminal.tga"
 									}
 								}
-							
+								add_trait = {
+									ideology = ultranationalism
+									trait = new_fuhrer
+								}
+							}
+							set_country_leader_description = {
+								ideology = national_syndicalism
+								desc = "POLITICS_ERNST_ROHM_POST_UNIFIC_DESC"
+							}
 							
 							set_country_flag = ger_reunificated
 							news_event = WORLDNEWS.15
-							
 						}
 					}
-					
-					
-					
-					
-					
 					
 					if = {
 						limit = {
 							has_country_leader = {
-								name = "Anton Drexler"
+								character = FGB_anton_drexler
 								ruling_only = yes
 							}
 						}
 						hidden_effect = {
-
 							set_cosmetic_tag = FGB_Drexler_GER
-							kill_country_leader = yes
-									create_country_leader = {
-									name = "Anton Drexler"
-									desc = "POLITICS_ERNST_ROHM_POST_UNIFIC_DESC"
-									picture = "gfx/leaders/FGB/Portrait_FGB_Anton_Drexler_Führer.png"
-									expire = "1965.1.1"
-									ideology = revolutionary_nationalism
-			
-										traits = {
-										
-										new_fuhrer
-										
+							
+							FGB_anton_drexler = {
+								set_portraits = {
+									civilian = {
+										large = "gfx/leaders/FGB/FGB_anton_drexler_fuhrer.tga"
 									}
 								}
-							
+								add_trait = {
+									ideology = revolutionary_nationalism
+									trait = new_fuhrer
+								}
+							}
 							
 							
 							set_country_flag = ger_reunificated
@@ -220,32 +211,36 @@ GER_reunification = {
 					if = {
 						limit = {
 							has_country_leader = {
-								name = "Adam Dressler"
+								character = FGB_adam_dressler
 								ruling_only = yes
 							}
 						}
 						hidden_effect = {
-
+							FGB_adam_dressler = {
+								set_portraits = {
+									civilian = {
+										large = "gfx/leaders/FGB/FGB_adam_dressler_funeh.tga"
+									}
+								}
+								add_trait = {
+									ideology = valkism
+									trait = new_fuhrer
+								}
+							}
+							
+							
 							set_cosmetic_tag = FGB_Dressler_GER
 							set_country_flag = ger_reunificated
 							news_event = WORLDNEWS.18
 							
 						}
 					}
-					
 				}
 			}
 		}
-			
-		
 		
 		ai_will_do = {
 			factor = 2000
 		}
-		}
-		
-		
 	}
-		
-		
 }

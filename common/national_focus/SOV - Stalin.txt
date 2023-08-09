@@ -1573,4 +1573,72 @@ focus_tree = {
 			}
 		}
 	}
+	
+	### Army ###
+	focus = {
+		id = SOV_stalin_army_modernisation
+		icon = GFX_focus_SOV_stalin_army_modernisation
+		cost = 5
+		
+		relative_position_id = SOV_stalin_reliable_mechanism
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_army_modernisation"
+			
+			army_experience = 50
+			navy_experience = 50
+			air_experience = 50
+		}
+	}
+	focus = {
+		id = SOV_stalin_rkka
+		icon = GFX_focus_SOV_stalin_rkka
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_army_modernisation }
+		
+		relative_position_id = SOV_stalin_army_modernisation
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_army_modernisation"
+			
+			army_experience = 200
+		}
+	}
+	focus = {
+		id = SOV_stalin_new_methods_of_war
+		icon = GFX_focus_SOV_stalin_new_methods_of_war
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_rkka }
+		
+		relative_position_id = SOV_stalin_rkka
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_army_modernisation"
+			
+			army_experience = 200
+		}
+	}
+	focus = {
+		id = SOV_stalin_open_the_tsarist_stockpiles
+		icon = GFX_focus_SOV_stalin_open_the_tsarist_stockpiles
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_rkka }
+		
+		relative_position_id = SOV_stalin_rkka
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_army_modernisation"
+			
+			army_experience = 200
+		}
+	}
 }

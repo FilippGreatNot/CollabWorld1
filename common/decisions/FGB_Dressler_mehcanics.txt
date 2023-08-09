@@ -1,15 +1,4 @@
 FGB_dressler_lie_category = {
-
-
-
-
-
-
-
-
-
-
-
 	FGB_masquerade_of_valkism = {
 		icon = GFX_decision_revolt
 		allowed = { tag = FGB }
@@ -20,7 +9,7 @@ FGB_dressler_lie_category = {
 			has_country_flag = FGB_the_party_lies
 		}
 		available = {
-		has_country_flag = FGB_lie_revealed
+			has_country_flag = FGB_lie_revealed
 		}
 		
 		is_good = no
@@ -34,33 +23,27 @@ FGB_dressler_lie_category = {
 				has_country_flag = FGB_lie_revealed
 				NOT = { has_country_flag = FGB_the_party_lies }
 			}
-			
-			
 		}
 
 		complete_effect = {
-		
-		
 			
 		}
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout FGB_masquerade_of_valkism"
 			
-			country_event = { id = reichsbanner.1  days = 2}
+			country_event = {
+				id = reichsbanner.1
+				days = 2
+			}
 			set_country_flag = FGB_lie_revealed
 		}
 	}
 
-
-
-
-
-
 	FGB_hire_an_actor = {
 		icon = GFX_decision_infiltrate_state
 
-		allowed = {
-		 has_country_flag = FGB_the_party_lies	
+		available = {
+			has_country_flag = FGB_the_party_lies	
 		}
 
 		fire_only_once = no
@@ -71,19 +54,10 @@ FGB_dressler_lie_category = {
 		}
 		
 		complete_effect = {
-		add_days_remove  = {
-        decision = FGB_masquerade_of_valkism
-         days = -100
-          }
+			add_days_remove	= {
+				decision = FGB_masquerade_of_valkism
+				days = -100
+			}
 		}
 	}
-
-
-
-
-
-
-
-
-
 }

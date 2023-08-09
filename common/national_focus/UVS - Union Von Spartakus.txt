@@ -28,7 +28,7 @@ focus_tree = {
 			add_political_power = 50
 			
 			add_equipment_to_stockpile = {
-				type = infantry_weapons0_25
+				type = infantry_equipment_0
 				amount = 555
 				producer = UVS
 			}
@@ -87,10 +87,7 @@ focus_tree = {
 			add_political_power = 50
 		}
 	}
-	
-	
-	
-focus = {
+	focus = {
 		id = UVS_congress_of_the_spartakusbund
 		icon = GFX_goal_UVS_congress_of_the_spartakusbund
 		x = 1
@@ -120,6 +117,31 @@ focus = {
 			hidden_effect  = {
 				country_event = { id = spartakus.1 days = 1 }
 			}	
+		}
+	}
+	focus = {
+		id = UVS_spartakists_continue_the_work
+		icon = GFX_goal_UVS_spartakists_continue_the_work
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_congress_of_the_spartakusbund
+		
+		prerequisite = {
+			focus = UVS_congress_of_the_spartakusbund
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_spartakists_continue_the_work"
 		}
 	}
 	
@@ -628,41 +650,6 @@ focus = {
 	}
 	
 	focus = {
-		id = UVS_invite_menzhinsky
-		icon = GFX_goal_UVS_invite_menzhinsky
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = UVS_tough_methods
-		relative_position_id = UVS_invite_experts
-		prerequisite = {
-			focus = UVS_tough_methods
-		}
-		
-		prerequisite = {
-			focus = UVS_invite_experts
-		}
-		
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_invite_menzhinsky_log"
-			
-			create_intelligence_agency = {
-				name = "Volkspolizei"
-				icon = GFX_intelligence_agency_logo_agency
-			}
-			add_ideas = {
-				UVS_volkspolizei
-			}
-		}
-	}
-	
-	focus = {
 		id = UVS_finish_off_the_german_bourgeois
 		icon = GFX_goal_UVS_finish_off_the_german_bourgeois
 		x = -1
@@ -804,30 +791,37 @@ focus = {
 			}
 		}
 	}
-	
 	focus = {
-		id = UVS_spartakists_continue_the_work
-		icon = GFX_goal_UVS_spartakists_continue_the_work
-		x = 0
+		id = UVS_invite_menzhinsky
+		icon = GFX_goal_UVS_invite_menzhinsky
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = UVS_congress_of_the_spartakusbund
+		relative_position_id = UVS_invite_experts
+		prerequisite = {
+			focus = UVS_tough_methods
+		}
 		
 		prerequisite = {
-			focus = UVS_congress_of_the_spartakusbund
+			focus = UVS_invite_experts
 		}
 		
-		available = {
-			always = no
-		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_spartakists_continue_the_work"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_invite_menzhinsky_log"
+			
+			create_intelligence_agency = {
+				name = "Volkspolizei"
+				icon = GFX_intelligence_agency_logo_agency
+			}
+			add_ideas = {
+				UVS_volkspolizei
+			}
 		}
 	}
 	
@@ -881,32 +875,37 @@ focus = {
 		}
 	}
 	
-	
-	
 	focus = {
-		id = UVS_our_economic_plan
-		icon = GFX_goal_UVS_our_economic_plan
+		id = UVS_searching_for_the_imposters_among_us
+		icon = GFX_goal_UVS_searching_for_the_imposters_among_us
 		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
 		relative_position_id = UVS_liberators_of_germany
-		relative_position_id = UVS_worker_soviets
 		
 		prerequisite = {
-			focus = UVS_worker_soviets
+			focus = UVS_liberators_of_germany
 		}
+		
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_our_economic_plan"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_searching_for_the_imposters_among_us"
+		
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_political_power = 50
+			add_war_support = 0.025
+			add_stability = 0.025
 		}
 	}
-	
-	focus = {
+		focus = {
 		id = UVS_caution_is_a_priority
 		icon = GFX_goal_UVS_blackmail
 		x = -1
@@ -994,38 +993,6 @@ focus = {
 				set_state_flag = GER_industrial_effort_2IC
 			}
 		
-		}
-	}
-	
-	
-	focus = {
-		id = UVS_searching_for_the_imposters_among_us
-		icon = GFX_goal_UVS_searching_for_the_imposters_among_us
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = UVS_liberators_of_germany
-		
-		prerequisite = {
-			focus = UVS_liberators_of_germany
-		}
-		
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_searching_for_the_imposters_among_us"
-		
-			add_popularity = {
-				ideology = social_democrat
-				popularity = -0.05
-			}
-			add_political_power = 50
-			add_war_support = 0.025
-			add_stability = 0.025
 		}
 	}
 	
@@ -1266,6 +1233,28 @@ focus = {
 	}
 	
 	focus = {
+		id = UVS_our_economic_plan
+		icon = GFX_goal_UVS_our_economic_plan
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_worker_soviets
+		
+		prerequisite = {
+			focus = UVS_worker_soviets
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_our_economic_plan"
+		}
+	}
+	
+	focus = {
 		id = UVS_cooperate_with_demsocs
 		icon = GFX_goal_UVS_cooperate_with_demsocs
 		x = 0
@@ -1340,96 +1329,7 @@ focus = {
 			add_political_power = 25
 		}
 	}
-	
-	
-	
-	focus = {
-		id = UVS_experience_of_syndicalism
-		icon = GFX_goal_UVS_experience_of_syndicalism
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = UVS_monitor_the_situation
-		
-		prerequisite = {
-			focus = UVS_monitor_the_situation
-		}
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
-			add_research_slot = 1
-		}
-	}
-	
-	focus = {
-		id = UVS_decentralized_research
-		icon = GFX_goal_UVS_decentralized_research
-		x = -1
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		
-		relative_position_id = UVS_experience_of_syndicalism
-		
-		prerequisite = {
-			focus = UVS_experience_of_syndicalism
-		}
-		prerequisite = {
-			focus = UVS_retribution_of_the_proletariat
-		}
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
-			add_research_slot = 1
-		}
-	}
-	
-	focus = {
-		id = UVS_free_revolution
-		icon = GFX_goal_UVS_free_revolution
-		x = 1
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		
-		relative_position_id = UVS_decentralized_research
-		
-		prerequisite = {
-			focus = UVS_experience_of_syndicalism
-		}
-		prerequisite = {
-			focus = UVS_unity_in_diversity
-		}
-		prerequisite = {
-			focus = UVS_retribution_of_the_proletariat
-		}
-		
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
-			
-			add_country_leader_trait = {
-				ideology = marxism
-				trait = guardian_of_freedom
-			}
-			
-			add_stability = 0.05
-			add_political_power = 25
-			
-		}
-	}
-	
-	focus = {
+		focus = {
 		id = UVS_monitor_the_situation
 		icon = GFX_goal_UVS_monitor_the_situation
 		x = 1
@@ -1499,6 +1399,92 @@ focus = {
 				}
 				
 			}
+		}
+	}
+	focus = {
+		id = UVS_experience_of_syndicalism
+		icon = GFX_goal_UVS_experience_of_syndicalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_monitor_the_situation
+		
+		prerequisite = {
+			focus = UVS_monitor_the_situation
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = UVS_free_revolution
+		icon = GFX_goal_UVS_free_revolution
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_experience_of_syndicalism
+		
+		prerequisite = {
+			focus = UVS_experience_of_syndicalism
+		}
+		prerequisite = {
+			focus = UVS_unity_in_diversity
+		}
+		prerequisite = {
+			focus = UVS_retribution_of_the_proletariat
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
+			
+			add_country_leader_trait = {
+				ideology = marxism
+				trait = guardian_of_freedom
+			}
+			
+			add_stability = 0.05
+			add_political_power = 25
+			
+		}
+	}
+
+	
+
+	
+	focus = {
+		id = UVS_decentralized_research
+		icon = GFX_goal_UVS_decentralized_research
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_experience_of_syndicalism
+		
+		prerequisite = {
+			focus = UVS_experience_of_syndicalism
+		}
+		prerequisite = {
+			focus = UVS_retribution_of_the_proletariat
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
+			add_research_slot = 1
 		}
 	}
 	

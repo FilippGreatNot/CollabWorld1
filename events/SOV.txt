@@ -31,10 +31,10 @@ country_event = { #Lenin's speech
 }
 
 country_event = {
-	id = mladorossi.1 ####OH SHIT	
-	immediate = { log = "[GetDateText]: [Root.GetName]: event mladorossi.1" }
-	title = mladorossi.1.t
-	desc = mladorossi.1.d
+	id = sov_mladorossi.1 ####OH SHIT	
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_mladorossi.1" }
+	title = sov_mladorossi.1.t
+	desc = sov_mladorossi.1.d
 	picture = GFX_report_event_red_army_order
 	is_triggered_only = yes
 	
@@ -44,7 +44,7 @@ country_event = {
 	}
 
 	option = {
-		name = mladorossi.1.a
+		name = sov_mladorossi.1.a
 		
 		promote_character = SOV_alexander_kazembek
 		
@@ -67,17 +67,17 @@ country_event = {
 }
 
 country_event = {
-	id = yezhovgang.1 ####OH FUCK	
+	id = sov_yezhovgang.1 ####OH FUCK	
 	immediate = { log = "[GetDateText]: [Root.GetName]: event yezhovgang.1" }
-	title = yezhovgang.1.t
-	desc = yezhovgang.1.d
+	title = sov_yezhovgang.1.t
+	desc = sov_yezhovgang.1.d
 	picture = GFX_report_event_red_army_order
 	is_triggered_only = yes
 	
 	option = {
-		name = yezhovgang.1.a
+		name = sov_yezhovgang.1.a
 		
-		load_focus_tree = SOV_Yezhov_regional
+		#load_focus_tree = SOV_Yezhov_regional
 		
 		hidden_effect = {
 			kill_country_leader = yes
@@ -148,20 +148,21 @@ country_event = {
 
 
 country_event = {
-	id = unification.1 #tukh
+	id = sov_unification.1 #tukh
 	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.1" }
-	title = unification.1.t
-	desc = unification.1.d
+	title = sov_unification.1.t
+	desc = sov_unification.1.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 	
 	option = {
-		name = unification.1.a #####Тухач Согласился
+		name = sov_unification.1.a #####Тухач Согласился
 		ai_chance = { factor = 90 }
 		SOV = {
 			annex_country = {
-			target = PBD
-			transfer_troops = yes 
+				target = PBD
+				transfer_troops = yes 
+			}
 		}
 		
 		PBD = {
@@ -195,7 +196,7 @@ country_event = {
 	}
 	
 	option = {
-		name = unification.1.b	
+		name = sov_unification.1.b	
 		ai_chance = { factor = 10 }
 		SOV = {
 			declare_war_on = {
@@ -226,7 +227,6 @@ country_event = {
 			
 			SOV = {
 				complete_national_focus = SOV_this_is_treason_marshal
-				} 
 			}			
 		}
 	}
@@ -234,15 +234,15 @@ country_event = {
 
 
 country_event = {
-	id = stalin.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event stalin.1" }
-	title = stalin.1.t
-	desc = stalin.1.d
+	id = sov_stalin.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.1" }
+	title = sov_stalin.1.t
+	desc = sov_stalin.1.d
 	picture = GFX_report_event_SOV_Felix
 	is_triggered_only = yes
 
 	option = {
-		name = stalin.1.a
+		name = sov_stalin.1.a
 		
 		add_ideas = SOV_lavrentiy_beria_sec 
 		
