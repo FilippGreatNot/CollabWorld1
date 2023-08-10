@@ -6,26 +6,6 @@ set_research_slots = 3
 
 add_1922_modern_tech = yes
 
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
 set_politics = {
 	ruling_party = despotism 
 	last_election = "1920.1.1"
@@ -34,26 +14,11 @@ set_politics = {
 }
 
 set_popularities = {
-
     despotism = 42
 	reactionism = 28
 	national_syndicalism = 22
 	esotericism = 8
-
-
 }
-
-create_country_leader = {
-    name = "August Mackensen"
-    desc = "POLITICS_AUGUST_MACKENSEN_DESC"
-    picture = "gfx/leaders/WRD/August_Mackensen.dds"
-    expire = "1950.1.1"
-    ideology = military_junta
-    traits = {
-        #
-    }
-}
-
 
 add_ideas = {
 	partial_economic_mobilisation
@@ -62,39 +27,15 @@ add_ideas = {
 	WRD_mackensen_regency
 }
 ### Character recruitments ###
-recruit_character = WRD_hans_seeckt
+recruit_character = WRD_august_mackensen
+recruit_character = WRD_hans_von_seeckt
+recruit_character = WRD_ferdinand_schorner
 recruit_character = WRD_max_wallraf
 recruit_character = WRD_alfred_hugenberg
 recruit_character = WRD_herbert_windt
 
 ### Advisor activations ###
-activate_advisor = WRD_hans_seeckt_hog
+activate_advisor = WRD_hans_von_seeckt_hog
 activate_advisor = WRD_alfred_hugenberg_ec
 activate_advisor = WRD_max_wallraf_sec
 activate_advisor = WRD_herbert_windt_pro
-
-create_field_marshal = { 
-	name = "Hans von Seeckt"
-	picture = "Portrait_WRD_Hans_von_Seeckt.dds"
-	traits = { war_hero combined_arms_expert infantry_expert harsh_leader inflexible_strategist }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 4
-	id = 7
-}
-
-
-create_corps_commander = { 
-	name = "Ferdinand Schörner"
-	picture = "Portrait_WRD_Ferdinand_Schorner.dds"
-	traits = { war_hero organizer harsh_leader infantry_leader }
-	skill = 2
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-	id = 2
-}
-

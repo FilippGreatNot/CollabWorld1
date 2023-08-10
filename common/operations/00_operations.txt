@@ -1019,8 +1019,15 @@ operation_coup_government = { ### 7 1/70
 	operatives = 2
 	is_staged_coup = yes
 
+	visible = {
+		network_strength = {
+			target = FROM
+			value > 35
+		}
+	}
+
 	equipment = {
-		infantry_equipment = 12000
+		infantry_equipment = 1
 	}
 	# Cannot spawn a civil war in the capital
 	selection_target_state = {
@@ -1030,16 +1037,58 @@ operation_coup_government = { ### 7 1/70
 		targets = { FROM }
 	}
 	allowed = {
-		always = no  #I'm too lazy to fix it so I just deleted it lol
+		always = no
 	}
 
+	available = {
+		always = no
+	}
+
+	on_start = { #SCOPE_OPERATION
+		
+	}
 	risk_chance = 0.3
 	experience = 2.5
 	cost_modifiers = { operation_coup_cost }
+	outcome_execute = { # SCOPE_OPERATION
+		custom_effect_tooltip = "Bing Chilling"
+	}
+
+	outcome_potential = {
+		FROM = {
+			start_civil_war = {
+				ideology = bolshevism
+			}
+		}
+	}
 
 	phases = { #infiltration
 		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+		}
 	}
+	phases = { lar_fra_coup_pre_position_units = { base = 100 } }
+	phases = { lar_fra_launch_coup = { base = 100 } }
 }
 
 operation_boost_resistance = { ### 8 2/40

@@ -16,7 +16,6 @@ set_convoys = 400
 if = {
 	limit = {
 		has_dlc = "Together for Victory"
-		not = { has_dlc = "Waking the Tiger" }
 	}
 	set_autonomy = {
 		target = MEN
@@ -28,11 +27,8 @@ if = {
 	}
 }
 if = {
-	limit = { 
-		not = {
-			has_dlc = "Waking the Tiger"
-			has_dlc = "Together for Victory"
-		}
+	limit = {
+		NOT = { has_dlc = "Together for Victory" }
 	}
 	set_autonomy = {
 		target = MEN
@@ -41,19 +37,6 @@ if = {
 	set_autonomy = {
 		target = MAN
 		autonomous_state = autonomy_puppet
-	}
-}
-if = {
-	limit = { 
-		has_dlc = "Waking the Tiger"
-	}
-	set_autonomy = {
-		target = MEN
-		autonomous_state = autonomy_wtt_imperial_protectorate
-	}
-	set_autonomy = {
-		target = MAN
-		autonomous_state = autonomy_wtt_imperial_protectorate
 	}
 }
 

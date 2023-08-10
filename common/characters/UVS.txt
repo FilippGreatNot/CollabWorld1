@@ -1,29 +1,42 @@
 characters = {
-	### Ministers ###
-	## Head of Government ##
-	UVS_karl_liebknecht = {
-		name = UVS_karl_liebknecht
+	### Multirole characters ###
+	UVS_rosa_luxemburg = {
+		name = UVS_rosa_luxemburg
 		portraits = {
 			civilian = {
-				small = "GFX_idea_UVS_Karl_Liebknecht"
+				large = "gfx/leaders/UVS/UVS_rosa_luxemburg.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_rosa_luxemburg.tga"
 			}
 		}
-		advisor = {
-			slot = head_of_government
-			idea_token = UVS_karl_liebknecht_hog
-			traits = { council_communist }
-			can_be_fired = no
-			visible = {
-				is_alive = yes
+		country_leader = {
+			ideology = luxemburgism
+			desc = "POLITICS_ROSA_DESC"
+			traits = {
+				successful_revolutionary
+				red_rose
 			}
+		}
+		field_marshal = {
+			traits = { UVS_spartakusbund_officer politically_connected brilliant_strategist media_personality }
+			skill = 4
+			
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 1
 		}
 	}
-	
-	## Security Minister ##
 	UVS_ernst_thalmann = {
 		name = UVS_ernst_thalmann
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/UVS/UVS_ernst_thalmann.tga"
+				small = "GFX_idea_UVS_Ernst_Thalmann"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_ernst_thalmann.tga"
 				small = "GFX_idea_UVS_Ernst_Thalmann"
 			}
 		}
@@ -36,8 +49,135 @@ characters = {
 				is_alive = yes
 			}
 		}
+		country_leader = {
+			ideology = marxism_leninism
+			desc = "POLITICS_ERNST_THALMANN_DESC"
+		}
+		field_marshal = {
+			traits = { UVS_spartakusbund_officer politically_connected }
+			skill = 4
+
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	UVS_karl_liebknecht = {
+		name = UVS_karl_liebknecht
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_karl_liebknecht.tga"
+				small = "GFX_idea_UVS_Karl_Liebknecht"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_karl_liebknecht.tga"
+				small = "GFX_idea_UVS_Karl_Liebknecht"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = UVS_karl_liebknecht_hog
+			traits = { council_communist }
+			can_be_fired = no
+			visible = {
+				is_alive = yes
+			}
+		}
+		field_marshal = {
+			traits = { UVS_spartakusbund_officer politically_connected }
+			skill = 3
+			
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+		
+	}
+	### Unit leaders ###
+	## Corps commanders ##
+	UVS_hans_speidel = {
+		name = UVS_hans_speidel
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_hans_speidel.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_hans_speidel.tga"
+			}
+		}
+		field_marshal = {
+			traits = { UVS_spartakusbund_officer organizer panzer_expert infantry_leader armor_officer  }
+			skill = 3
+			
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+	UVS_hermann_goring = {
+		name = UVS_hermann_goring
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_hermann_goring.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_hermann_goring.tga"
+			}
+		}
+		field_marshal = {
+			traits = { UVS_spartakusbund_officer war_hero trait_reckless }
+			skill = 3
+			
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+		}
+	}
+	UVS_joachim_von_ribbentrop = {
+		name = UVS_hermann_goring
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_joachim_von_ribbentrop.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_joachim_von_ribbentrop.tga"
+			}
+		}
+		field_marshal = {
+			traits = { UVS_spartakusbund_officer trait_reckless }
+			skill = 1
+			
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
 	}
 	
+	### Country leaders ###
+	UVS_uspd_council = {
+		name = UVS_uspd_council
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_uspd_council.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_uspd_council.tga"
+			}
+		}
+		country_leader = {
+			ideology = liberal_socialism
+			desc = "POLITICS_USPD_COUNCIL_DESC"
+		}
+	}
+	
+	### Ministers ###
+	## Head of Government ##
+	## Security Minister ##
 	## Economy Minister ##
 	UVS_vacant = {
 		name = UVS_vacant

@@ -1,24 +1,76 @@
 characters = {
-	### Ministers ###
-	## Head of Government ##
-	WRD_hans_seeckt = { #Ham
-		name = WRD_hans_seeckt
+	### Country leaders ###
+	WRD_august_mackensen = {
+		name = WRD_august_mackensen
 		portraits = {
 			civilian = {
+				large = "gfx/leaders/WRD/WRD_august_mackensen.tga"
+			}
+		}
+		country_leader = {
+			ideology = military_junta
+			desc = "POLITICS_AUGUST_MACKENSEN_DESC"
+			
+		}
+	}
+	### Multirole characters ###
+	WRD_hans_von_seeckt = { #Ham
+		name = WRD_hans_von_seeckt
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/WRD/WRD_hans_von_seeckt.tga"
+				small = "GFX_idea_WRD_Hans_Seeckt"
+			}
+			army = {
+				large = "gfx/leaders/WRD/WRD_hans_von_seeckt.tga"
 				small = "GFX_idea_WRD_Hans_Seeckt"
 			}
 		}
 		advisor = {
 			slot = head_of_government
-			idea_token = WRD_hans_seeckt_hog
+			idea_token = WRD_hans_von_seeckt_hog
 			traits = { militarist }
 			can_be_fired = no
 			visible = {
 				is_alive = yes
 			}
 		}
+		field_marshal = {
+			traits = { war_hero combined_arms_expert infantry_expert harsh_leader inflexible_strategist }
+			skill = 4
+			
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 4
+		}
 	}
 	
+	### Unit leaders ###
+	## Corps commanders ##
+	WRD_ferdinand_schorner = {
+		name = WRD_ferdinand_schorner
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/WRD/WRD_ferdinand_schorner.tga"
+			}
+			army = {
+				large = "gfx/leaders/WRD/WRD_ferdinand_schorner.tga"
+			}
+		}
+		field_marshal = {
+			traits = { war_hero organizer harsh_leader infantry_leader }
+			skill = 2
+			
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	
+	### Ministers ###
+	## Head of Government ##
 	## Security Minister ##
 	WRD_max_wallraf = {
 		name = WRD_max_wallraf

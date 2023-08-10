@@ -6,13 +6,6 @@ set_research_slots = 3
 
 add_1922_modern_tech = yes
 
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	add_1922_modern_tech = yes
-}
-
 set_politics = {
 	ruling_party = marxism 
 	last_election = "1920.1.1"
@@ -29,9 +22,25 @@ add_ideas = {
 	UVS_post_poverty
 }
 ### Character recruitments ###
-recruit_character = UVS_karl_liebknecht
-recruit_character = UVS_vacant
+### Multirole characters ###
+recruit_character = UVS_rosa_luxemburg
 recruit_character = UVS_ernst_thalmann
+recruit_character = UVS_karl_liebknecht
+
+### Unit leaders ###
+## Corps commanders ##
+recruit_character = UVS_hans_speidel
+recruit_character = UVS_hermann_goring
+recruit_character = UVS_joachim_von_ribbentrop
+
+### Country leaders ###
+recruit_character = UVS_uspd_council
+
+### Ministers ###
+## Economy Minister ##
+recruit_character = UVS_vacant
+
+## Propaganda Minister ##
 recruit_character = UVS_ernst_busch
 
 ### Advisor activations ###
@@ -48,113 +57,3 @@ set_popularities = {
 	national_syndicalism = 6
 	libertarian_socialism = 19
 }
-
-create_country_leader = {
-    name = "Rosa Luxemburg"
-    desc = "POLITICS_ROSA_DESC"
-    picture = "gfx/leaders/UVS/Rosa.dds"
-    expire = "1950.1.1"
-    ideology = luxemburgism
-    traits = {
-        successful_revolutionary
-		red_rose
-    }
-}
-
-create_country_leader = {
-	name = "Ernst Thälmann"
-	desc = "POLITICS_ERNST_THÄLMANN_DESC"
-	picture = "gfx/leaders/UVS/Portrait_Spartakusbund_Ernst_Thälmann.dds"
-	expire = "1987.1.1"
-	ideology = marxism_leninism
-}
-
-create_country_leader = {
-	name = "USPD council"
-	desc = "POLITICS_USPD_COUNCIL_DESC"
-	picture = "gfx/leaders/UVS/USPD_council.png"
-	expire = "1990.1.1"
-	ideology = liberal_socialism
-}
-
-
-
-create_field_marshal = {
-	name = "Ernst Thälmann"
-	picture = "Portrait_Spartakusbund_Ernst_Thälmann.dds"
-	traits = {UVS_spartakusbund_officer politically_connected }
-	skill = 4
-	id = 3
-
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-	
-	
-create_field_marshal = {
-	name = "Rosa Luxemburg"
-	picture = "Rosa.dds"
-	traits = {UVS_spartakusbund_officer politically_connected brilliant_strategist media_personality }
-	skill = 4
-	id = 8
-
-	attack_skill = 1
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 1
-}
-
-create_field_marshal = {
-	name = "Karl Liebknecht"
-	picture = "Portrait_Spartakusbund_Karl_Liebknecht.dds"
-	traits = { UVS_spartakusbund_officer politically_connected }
-	skill = 3
-	id = 4
-	
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 3
-}
-
-
-create_corps_commander = {
-	name = "Hans Speidel"
-	picture = "Portrait_Spartakusbund_Hans_Speidel.dds"
-	traits = {UVS_spartakusbund_officer organizer panzer_expert infantry_leader armor_officer  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 3
-	
-	id = 5
-}
-
-create_corps_commander = {
-	name = "Hermann Göring"
-	picture = "Portrait_Spartakusbund_Hermann_Göring.dds"
-	traits = {UVS_spartakusbund_officer war_hero trait_reckless  }
-	skill = 3
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 4
-	
-	id = 9
-}
-
-create_corps_commander = {
-	name = "Hermann Göring"
-	picture = "Portrait_UVS_joachim_von_ribbentrop.dds"
-	traits = {UVS_spartakusbund_officer trait_reckless  }
-	skill = 1
-	attack_skill = 2
-	defense_skill = 1
-	planning_skill = 1
-	logistics_skill = 1
-	
-	id = 101
-}						

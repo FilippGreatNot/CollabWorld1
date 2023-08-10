@@ -4,34 +4,7 @@ oob = "PBD"
 
 set_research_slots = 3 
 
-
-# Starting tech
 add_1922_modern_tech = yes
-	
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
-
-if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	add_1922_modern_tech = yes
-}
-
-
-
 
 set_politics = {
 	ruling_party = bolshevism 
@@ -39,62 +12,20 @@ set_politics = {
 	election_frequency = 48 
 	elections_allowed = no 
 }
-
 set_popularities = {
-
     anarchist = 14 
 	marxism = 24
 	bolshevism = 62
-
 }
-
+recruit_character = PBD_mikhail_tukhachevsky
 
 add_ideas = {
-
-RUS_to_end_all_wars
-PBD_polish_resistance
-
-}
-
-
-
-# Лидер Страны
-create_country_leader = {
-    name = "Mikhail Tukhachevsky"
-    desc = "POLITICS_TUKHACHEVSKY_DESC"
-    picture = "gfx/leaders/PBD/Tukhachevsky.dds" #Картинка
-    expire = "1980.1.1" #Когда умрет
-    ideology = stratocratic_bolshevism
-
-    traits = {
-        red_napoleon
-    }
-}
-
-
-
-add_ideas = {
-		#laws
-		war_economy
-		extensive_conscription
-		closed_economy
-	}
+	#spirits
+	RUS_to_end_all_wars
+	PBD_polish_resistance
 	
-	
-create_field_marshal = {
-	name = "Mikhail Tukhachevskiy"
-	portrait_path = "gfx/leaders/PBD/Tukhachevsky.dds"
-	traits = { 
-		offensive_doctrine
-		SOV_red_militarist
-		brilliant_strategist 
-		infantry_officer 
-		trait_reckless
-	}
-	id = 6
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 2
+	#laws
+	war_economy
+	extensive_conscription
+	closed_economy
 }
