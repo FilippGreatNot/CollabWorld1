@@ -1,37 +1,9 @@
 capital = 680
 
-#oob = "MSL"
-
 set_stability = 0.6
 set_war_support = 0.1
-# Starting tech
 add_1922_modern_tech = yes
 
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	add_1922_modern_tech = yes
-}
-
-if = {
-	limit = {
-		not = { has_dlc = "Man the Guns" }
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	add_1922_modern_tech = yes
-}
 set_convoys = 25
 set_politics = {
 	ruling_party = authoritarian_democrat 
@@ -45,21 +17,13 @@ set_popularities = {
 	authoritarian_democrat = 60
 }
 
+create_country_leader = {
+	name = "French Management Committee"
+	desc = "POLITICS_FMC_E_DESC"
+	picture = "gfx/leaders/MSL/Congress.dds"
+	ideology = authoritarian_democrat_subtype
+}
 
-	create_country_leader = {
-		name = "French Management Committee"
-		desc = "POLITICS_FMC_E_DESC"
-		picture = "gfx/leaders/MSL/Congress.dds"
-		expire = "1965.1.1"
-		ideology = authoritarian_democrat_subtype
-		traits = {
-			#
-		}
-	}
-	
-	add_ideas = {
-		#laws
-		volunteer_only
-		low_economic_mobilisation
-	}	
-
+add_ideas = {
+	volunteer_only
+}

@@ -1,174 +1,90 @@
 ideas = {
-
 	economy_laws = { 
 		law = yes
 		use_list_view = yes
 		
-		civilian_economy = {
+		free_market_economy = {
 			cost = 150
-			removal_cost = -1
+			level = 1
 			
 			modifier = {
-				consumer_goods_factor = 0.35
-				production_speed_industrial_complex_factor = -0.3
-				production_speed_arms_factory_factor = -0.3
-				conversion_cost_civ_to_mil_factor= 0.3
-				conversion_cost_mil_to_civ_factor = 0.3
-				max_fuel_factor = -0.25
-				fuel_gain_factor = -0.4
-			}
-			
-			default = yes
-			
-			cancel_if_invalid = no
-		}
-		
-		low_economic_mobilisation = {
-			available = {
-				has_war_support > 0.15
-			}
-			
-			cost = 150
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = 0.3
-				production_speed_industrial_complex_factor = -0.1
-				production_speed_arms_factory_factor = -0.1
-				fuel_gain_factor = -0.25
-			}
-			
-			cancel_if_invalid = no
-
-			ai_will_do = {
-   				factor = 2
-
-   				modifier = {
-					factor = 20
-					
-					is_major = yes
-				}
-				modifier = {
-					has_war_support > 0.25
-					factor = 0 #don't even look at it if you could be taking partial mob
-				}
-   			}
-		}
-		
-		partial_economic_mobilisation = {
-			available = {
-				has_war_support > 0.25
-			}
-
-			cost = 150
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = 0.25
-				production_speed_arms_factory_factor = 0.1
-				conversion_cost_civ_to_mil_factor= -0.1
-				conversion_cost_mil_to_civ_factor = -0.1
-				fuel_gain_factor = -0.1
-			}
-			
-			cancel_if_invalid = no
-			ai_will_do = {
-   				factor = 2
-
-   				modifier = {
-					factor = 20
-					
-					is_major = yes
-				}
-				modifier = {
-					has_war_support > 0.5
-					factor = 0 #War economy is based, this isn't
-					#Did I just buffed the AI?
-				}
-   			}
-		}
-		
-		war_economy = {
-			available = {
-				has_war_support > 0.5
-			}
-		
-			cost = 150
-			removal_cost = -1
-			
-			modifier = {
-				consumer_goods_factor = 0.2
-				production_speed_arms_factory_factor = 0.2
-				conversion_cost_civ_to_mil_factor= -0.2
-				conversion_cost_mil_to_civ_factor = -0.2
-			}
-			
-			cancel_if_invalid = no
-			ai_will_do = {
-   				factor = 5
-
-				modifier = {
-					#High prio on production
-					factor = 20
-					manpower_per_military_factory >  1000
-				}
 				
-				modifier = {
-					add = 1800
-					
-					# revert from closed_economy if we have large allies
-					has_idea = closed_economy
-					has_large_ally_not_pick_closed_economy = yes
-				}
-   			}
-		}
-		
-		tot_economic_mobilisation = {
+			}
 			available = {
-				has_war = yes
-				has_war_support > 0.8
-				any_enemy_country = {
-					ic_ratio = { 
-						tag = ROOT 
-						ratio > 0.5
+				OR = {
+					AND = {
+						has_content = no
+						can_have_market_economy = yes
 					}
+					
+					has_idea = free_market_economy
 				}
 			}
-			ai_will_do = {
-   				factor = 1
-
-				modifier = {
-					factor = 25
-					#Prio this if nation has a lot of manpower compared to MIC
-					manpower_per_military_factory > 15000
-				}
-
-				modifier = {
-					#Block  unless nation has a lot of manpower
-					factor = 0
-					manpower_per_military_factory <  7000
-				}
-
-				
-				modifier = {
-					# never take this if we are on low conscription laws for safety
-					factor = 0
-					OR = {
-						has_idea = volunteer_only
-						has_idea = limited_conscription
-					}
-				}
-   			}
 			
+			cancel_if_invalid = no
+		}
+		regulated_market_economy = {
 			cost = 150
-			removal_cost = -1
+			level = 2
 			
 			modifier = {
-				consumer_goods_factor = 0.10
-				conscription = -0.03
-				production_speed_arms_factory_factor = 0.3
-				conversion_cost_civ_to_mil_factor= -0.3
-				conversion_cost_mil_to_civ_factor = -0.3
+				
+			}
+			available = {
+				OR = {
+					AND = {
+						has_content = no
+						can_have_market_economy = yes
+					}
+					
+					has_idea = regulated_market_economy
+				}
+			}
+			
+			cancel_if_invalid = no
+		}
+		mixed_economy = {
+			cost = 150
+			level = 3
+			
+			modifier = {
+				
+			}
+			available = {
+				OR = {
+					AND = {
+						has_content = no
+						OR = {
+							can_have_socialist_economy = yes
+							has_government = social_democrat #Some of them are quite radical, right?
+						}
+					}
+					
+					has_idea = mixed_economy
+				}
+			}
+			
+			cancel_if_invalid = no
+		}
+		state_economy = {
+			cost = 150
+			level = 4
+			
+			modifier = {
+				
+			}
+			available = {
+				OR = {
+					AND = {
+						has_content = no
+						OR = {
+							can_have_socialist_economy = yes
+							has_government = anarchist
+						}
+					}
+					
+					has_idea = state_economy
+				}
 			}
 			
 			cancel_if_invalid = no

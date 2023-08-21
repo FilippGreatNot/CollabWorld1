@@ -1,71 +1,28 @@
-capital = 579  ##Наша столица
+capital = 579
 
-#oob = "SMF" 
+set_research_slots = 3
 
-set_research_slots = 3 #Количество ячеек исследования
-
-# Starting tech
 add_1922_modern_tech = yes
-
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
-
-if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	add_1922_modern_tech = yes
-}
 
 set_politics = {
 	ruling_party = despotism 
-	last_election = "1921.1.1" ##Последние выборы (если есть)
-	election_frequency = 48 ##Через сколько проводят выборы
-	elections_allowed = no ##Есть ли выборы
+	last_election = "1921.1.1"
+	election_frequency = 48
+	elections_allowed = no
 }
 
 set_popularities = {
-
 	despotism = 100
-	
-
 }
 
 create_country_leader = {
     name = "Sergey Timirev"
     desc = "POLITICS_SERGEY_TIMIREV_DESC"
-    picture = "gfx/leaders/SMF/SergeyTimirev.dds" #Картинка
-    expire = "1947.1.11" #Когда умрет
+    picture = "gfx/leaders/SMF/SergeyTimirev.dds"
     ideology = military_junta
-
-    traits = {
-       
-    }
 }
 
 add_ideas = {
-		#laws
-	
-		war_economy
-		extensive_conscription
-		closed_economy
-
-	}
+	extensive_conscription
+	closed_economy
+}

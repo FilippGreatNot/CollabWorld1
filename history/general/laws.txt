@@ -1,0 +1,37 @@
+every_possible_country = {
+	limit = {
+		has_content = no
+		NOT = {
+			has_country_flag = dont_add_generic_laws_on_start
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_government = liberalism
+				has_government = esotericism #They need default economy
+			}
+		}
+		add_ideas = free_market_economy
+	}
+	if = {
+		limit = {
+			OR = {
+				ideology_authoritarian = yes
+				has_government = conservatism
+				has_government = social_democrat
+			}
+		}
+		add_ideas = regulated_market_economy
+	}
+	if = {
+		limit = {
+			OR = {
+				ideology_socialist = yes
+				has_government = anarchist
+				has_government = national_syndicalism
+			}
+		}
+		add_ideas = state_economy
+	}
+}
