@@ -1,42 +1,8 @@
 ﻿capital = 47
 
-#oob = "GRE"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		#set_naval_oob = "GRE_1936_naval_mtg"
-	else = {
-		#set_naval_oob = "GRE_1936_naval_legacy"
-	}
-}
-
-###################
-#### 3D MODELS ####
-###################
-
-#Cosmetic tags used (3D models will look for these cosmetic tags when hooking themselves):
-
-set_cosmetic_tag = GRE_neutrality
-
-
-
 set_research_slots = 3
 
 add_1922_modern_tech = yes
-if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-	add_1922_modern_tech = yes
-}
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	add_1922_modern_tech = yes
-}
-
-
-set_convoys = 10
-
-
-#generic focuses
-
 
 set_politics = {
 	ruling_party = conservatism
@@ -47,40 +13,12 @@ set_popularities = {
 	conservatism = 38
 }
 
-set_stability = 0.72
-set_war_support = 0.23
-set_convoys = 80
-
-
-	create_country_leader = {
-		name = "Dimitrios Gounaris"
-		desc = "POLITICS_DIMITRIOS_GOUNARIS_DESC"
-		picture = "gfx/leaders/GRE/DimitriosGounaris.dds"
-		ideology = conservatism_subtype
-		traits = {
-			#
-		}
-	}
-
-
-
-
-if = {
-	limit = {
-		AND = {
-			has_dlc = "La Resistance"
-			has_dlc = "Battle for the Bosporus"
-		}
-	}
-	create_operative_leader = {
-		name = "Patrick Leigh Fermor"
-		GFX = GFX_portrait_eng_patrick_fermor
-		traits = { operative_tough operative_commando }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		female = no
-		nationalities = { ENG GRE }
+create_country_leader = {
+	name = "Dimitrios Gounaris"
+	desc = "POLITICS_DIMITRIOS_GOUNARIS_DESC"
+	picture = "gfx/leaders/GRE/DimitriosGounaris.dds"
+	ideology = conservatism_subtype
+	traits = {
+		#
 	}
 }
-
-
