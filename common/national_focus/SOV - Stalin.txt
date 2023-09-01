@@ -198,10 +198,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_be_useful_by_skills"
-		
-			add_ideas = {
-				SOV_skilled_leadership	
-			}
 		}
 	}
 	
@@ -501,7 +497,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_call_to_tukhachevsky"
 			PBD = {	
 				country_event = {
-					id = unification.1
+					id = sov_unification.1
 				}
 			}
 		}
@@ -1137,7 +1133,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_dzerzhinskys_resignation"
 			country_event = {
-				id = stalin.1
+				id = sov_stalin.1
 			}
 		}
 	}
@@ -1307,7 +1303,7 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_increase_mic_funding"
-			add_ideas = war_economy
+			#add_ideas = war_economy
 		}
 	}
 	focus = {
@@ -1762,8 +1758,176 @@ focus_tree = {
 				#	
 				#}
 			}
+		}
+	}
+	
+	#Balance of Pelmeni branch
+	focus = {
+		id = SOV_stalin_purges_of_the_unloyal_in_the_party
+		icon = GFX_focus_SOV_stalin_purges_of_the_unloyal_in_the_party
+		cost = 5
+		
+		x = -14
+		y = 1
+		
+		available = {
+			has_political_power > 100
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_purges_of_the_unloyal_in_the_party"
 			
-			
+			add_political_power = -100
+			add_power_balance_value = {
+				id = SOV_stalin_support
+				value = 0.2
+				tooltip_side = high_support_side
+			}
+		}
+	}
+	focus = {
+		id = SOV_stalin_arrest_bukharin
+		icon = GFX_focus_SOV_stalin_arrest_bukharin
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_purges_of_the_unloyal_in_the_party }
+		mutually_exclusive = { focus = SOV_stalin_negotations_with_bukharinists }
+		
+		relative_position_id = SOV_stalin_purges_of_the_unloyal_in_the_party
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_arrest_bukharin"
+		}
+	}
+	focus = {
+		id = SOV_stalin_negotations_with_bukharinists
+		icon = GFX_focus_SOV_stalin_negotations_with_bukharinists
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_purges_of_the_unloyal_in_the_party }
+		mutually_exclusive = { focus = SOV_stalin_arrest_bukharin }
+		
+		relative_position_id = SOV_stalin_purges_of_the_unloyal_in_the_party
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_negotations_with_bukharinists"
+		}
+	}
+	focus = {
+		id = SOV_stalin_discredit_the_trotskyism
+		icon = GFX_focus_SOV_stalin_discredit_the_trotskyism
+		cost = 5
+		
+		prerequisite = {
+			focus = SOV_stalin_arrest_bukharin
+			focus = SOV_stalin_negotations_with_bukharinists
+		}
+		mutually_exclusive = { focus = SOV_stalin_compromise_with_the_trotskyists }
+		
+		relative_position_id = SOV_stalin_arrest_bukharin
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_discredit_the_trotskyism"
+		}
+	}
+	focus = {
+		id = SOV_stalin_compromise_with_the_trotskyists
+		icon = GFX_focus_SOV_stalin_compromise_with_the_trotskyists
+		cost = 5
+		
+		prerequisite = {
+			focus = SOV_stalin_arrest_bukharin
+			focus = SOV_stalin_negotations_with_bukharinists
+		}
+		mutually_exclusive = { focus = SOV_stalin_discredit_the_trotskyism }
+		
+		relative_position_id = SOV_stalin_negotations_with_bukharinists
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_compromise_with_the_trotskyists"
+		}
+	}
+	focus = {
+		id = SOV_stalin_stalins_constitution
+		icon = GFX_focus_SOV_stalin_stalins_constitution
+		cost = 5
+		
+		prerequisite = { focus = SOV_stalin_discredit_the_trotskyism }
+		mutually_exclusive = {
+			focus = SOV_stalin_kalinins_constitution
+		}
+		
+		relative_position_id = SOV_stalin_discredit_the_trotskyism
+		x = -1
+		y = 1
+		
+		available = {
+			has_completed_focus = SOV_stalin_arrest_bukharin
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_stalins_constitution"
+		}
+	}
+	focus = {
+		id = SOV_stalin_kalinins_constitution
+		icon = GFX_focus_SOV_stalin_kalinins_constitution
+		cost = 5
+		
+		prerequisite = {
+			focus = SOV_stalin_discredit_the_trotskyism
+			focus = SOV_stalin_compromise_with_the_trotskyists
+		}
+		mutually_exclusive = {
+			focus = SOV_stalin_stalins_constitution
+			focus = SOV_stalin_bukharins_constitution
+		}
+		
+		relative_position_id = SOV_stalin_purges_of_the_unloyal_in_the_party
+		y = 3
+		
+		available = {
+			OR = {
+				AND = {
+					has_completed_focus = SOV_stalin_arrest_bukharin
+					has_completed_focus = SOV_stalin_compromise_with_the_trotskyists
+				}
+				AND = {
+					has_completed_focus = SOV_stalin_negotations_with_bukharinists
+					has_completed_focus = SOV_stalin_discredit_the_trotskyism
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_molotovs_constitution"
+		}
+	}
+	focus = {
+		id = SOV_stalin_bukharins_constitution
+		icon = GFX_focus_SOV_stalin_bukharins_constitution
+		cost = 5
+		
+		prerequisite = {
+			focus = SOV_stalin_discredit_the_trotskyism
+			focus = SOV_stalin_compromise_with_the_trotskyists
+		}
+		mutually_exclusive = {
+			focus = SOV_stalin_kalinins_constitution
+		}
+		
+		relative_position_id = SOV_stalin_compromise_with_the_trotskyists
+		x = 1
+		y = 1
+		
+		available = {
+			has_completed_focus = SOV_stalin_negotations_with_bukharinists
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_molotovs_constitution"
 		}
 	}
 }
