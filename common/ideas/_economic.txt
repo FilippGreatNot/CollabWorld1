@@ -9,7 +9,14 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
+				consumer_goods_factor = 0.7
+				min_export = 0.4
+				political_power_gain = 0.1
 				
+				trade_opinion_factor = 0.5
+				civilian_intel_to_others = 30
+				line_change_production_efficiency_factor = 0.15
+				industry_free_repair_factor = 0.3
 			}
 			available = {
 				OR = {
@@ -30,7 +37,12 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
+				consumer_goods_factor = 0.4
+				min_export = 0.2
 				
+				trade_opinion_factor = 0.3
+				civilian_intel_to_others = 15
+				industry_free_repair_factor = 0.1
 			}
 			available = {
 				OR = {
@@ -51,7 +63,9 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				
+				political_power_gain = -0.2
+				consumer_goods_factor = 0.25
+				min_export = 0.1
 			}
 			available = {
 				OR = {
@@ -75,7 +89,12 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
+				political_power_gain = -0.4
+				consumer_goods_factor = 0.1
 				
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_dockyard = 0.1
+				industrial_capacity_factory = 0.1
 			}
 			available = {
 				OR = {
@@ -114,10 +133,10 @@ ideas = {
 			}
 			
 			cancel_if_invalid = no
-
+			
 			ai_will_do = {
-					factor = 1
-				}
+				factor = 1
+			}
 		}
 		
 		export_focus = {
@@ -137,10 +156,16 @@ ideas = {
 			default = yes
 			
 			cancel_if_invalid = no
-
+			
+			available = {
+				NOT = {
+					has_idea = free_market_economy
+				}
+			}
+			
 			ai_will_do = {
-					factor = 1
-
+				factor = 1
+				
 				modifier = {
 					factor = 0
 					
@@ -148,7 +173,7 @@ ideas = {
 					has_war = no
 					is_in_faction = no
 				}
-				}
+			}
 		}
 		
 		limited_exports = {
@@ -165,19 +190,24 @@ ideas = {
 				navy_intel_to_others = 5
 			}
 			
+			available = {
+				NOT = {
+					has_idea = free_market_economy
+				}
+			}
+			
 			cancel_if_invalid = no
 
 			ai_will_do = {
-					factor = 1
+				factor = 1
 
-					modifier = {
+				modifier = {
 					add = -1
 					
 					is_major = no
 					is_in_faction = yes
 					has_war = yes
 				}
-
 				# minors not at war should want to get the bonuses from free trade
 				modifier = {
 					add = -1
@@ -193,7 +223,7 @@ ideas = {
 					has_idea = closed_economy
 					has_large_ally_not_pick_closed_economy = yes
 				}
-				}
+			}
 		}
 		
 		closed_economy = {
@@ -211,11 +241,17 @@ ideas = {
 			}
 			
 			cancel_if_invalid = no
-
+			
+			available = {
+				NOT = {
+					has_idea = free_market_economy
+				}
+			}
+			
 			ai_will_do = {
-					factor = 1
+				factor = 1
 
-					modifier = {
+				modifier = {
 					factor = 0
 					
 					is_major = no
@@ -238,7 +274,7 @@ ideas = {
 					# since they will require our trades
 					has_large_ally_not_pick_closed_economy = yes
 				}
-				}
+			}
 		}
 	}
 }

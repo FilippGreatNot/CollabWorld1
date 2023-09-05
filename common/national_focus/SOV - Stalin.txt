@@ -269,7 +269,7 @@ focus_tree = {
 			else = {
 				custom_effect_tooltip = SOV_where_nep_tt #Yee
 			}
-			
+			add_ideas = state_economy
 		}
 	}
 	
@@ -1132,9 +1132,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_dzerzhinskys_resignation"
+			hidden_effect = {
+				SOV_nikolai_bukharin = {
+					set_character_flag = retired
+				}
+			}
+			custom_effect_tooltip = SOV_fire_dzerzhinsky_tt
 			country_event = {
 				id = sov_stalin.1
 			}
+			
 		}
 	}
 	
@@ -1779,7 +1786,7 @@ focus_tree = {
 			add_political_power = -100
 			add_power_balance_value = {
 				id = SOV_stalin_support
-				value = 0.2
+				value = 0.1
 				tooltip_side = high_support_side
 			}
 		}
@@ -1796,8 +1803,18 @@ focus_tree = {
 		x = -1
 		y = 1
 		
+		available = {
+			has_political_power > 50
+		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_arrest_bukharin"
+			add_political_power = -50
+			retire_character = SOV_nikolai_bukharin
+			add_power_balance_value = {
+				id = SOV_stalin_support
+				value = 0.2
+				tooltip_side = high_support_side
+			}
 		}
 	}
 	focus = {
@@ -1812,8 +1829,23 @@ focus_tree = {
 		x = 1
 		y = 1
 		
+		available = {
+			has_political_power > 100
+		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_negotations_with_bukharinists"
+			add_political_power = -100
+			hidden_effect = {
+				SOV_nikolai_bukharin = {
+					set_character_flag = allowed_as_advisor
+				}
+			}
+			custom_effect_tooltip = SOV_bukharin_becomes_allowed_as_advisor_tt
+			add_power_balance_value = {
+				id = SOV_stalin_support
+				value = 0.1
+				tooltip_side = high_support_side
+			}
 		}
 	}
 	focus = {
