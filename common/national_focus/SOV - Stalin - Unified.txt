@@ -5,11 +5,16 @@ focus_tree = {
 		factor = 0
 	}
 	default = no
+	continuous_focus_position = { x = 1000 y = 1000 }
 	
 	focus = {
 		id = SOV_stalin_unified_situation_analysis
 		icon = GFX_focus_SOV_stalin_unified_situation_analysis
 		cost = 10
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_situation_analysis"
+		}
 	}
 	focus = {
 		id = SOV_stalin_unified_its_time_for
@@ -20,154 +25,370 @@ focus_tree = {
 		
 		relative_position_id = SOV_stalin_unified_situation_analysis
 		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_its_time_for"
+		}
 	}
-
-	#Goofy ahh building projects branch
+	
+	### Right branch ###
 	focus = {
-		id = SOV_stalin_unified_mega_projects
-		icon = GFX_focus_SOV_stalin_unified_mega_projects
+		id = SOV_stalin_unified_our_true_plans
+		icon = GFX_focus_SOV_stalin_unified_our_true_plans
 		cost = 10
 		
 		prerequisite = { focus = SOV_stalin_unified_its_time_for }
 		
 		relative_position_id = SOV_stalin_unified_its_time_for
-		y = 1
-		x = -2
-	}
-	focus = {
-		id = SOV_stalin_unified_uranium_caves_under_irkutsk
-		icon = GFX_focus_SOV_stalin_unified_uranium_caves_under_irkutsk
-		cost = 10
-		
-		prerequisite = { focus = SOV_stalin_unified_mega_projects }
-		
-		relative_position_id = SOV_stalin_unified_mega_projects
-		y = 1
 		x = -1
-	}
-	focus = {
-		id = SOV_stalin_unified_prisoner_scientists
-		icon = GFX_focus_SOV_stalin_prisoner_scientists
-		cost = 10
-		
-		prerequisite = { focus = SOV_stalin_unified_uranium_caves_under_irkutsk }
-		
-		relative_position_id = SOV_stalin_unified_uranium_caves_under_irkutsk
 		y = 1
-	}
-	focus = {
-		id = SOV_stalin_unified_develop_mineral_fields_countrywide
-		icon = GFX_focus_SOV_stalin_unified_develop_mineral_fields_countrywide
-		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_mega_projects }
-		
-		relative_position_id = SOV_stalin_unified_mega_projects
-		y = 1
-		x = 1
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_our_true_plans"
+		}
 	}
 	focus = {
 		id = SOV_stalin_unified_build_the_soviet_palace
 		icon = GFX_focus_SOV_unified_stalin_build_the_soviet_palace
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_develop_mineral_fields_countrywide }
+		prerequisite = { focus = SOV_stalin_unified_our_true_plans }
 		
-		relative_position_id = SOV_stalin_unified_develop_mineral_fields_countrywide
+		relative_position_id = SOV_stalin_unified_our_true_plans
 		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_build_the_soviet_palace"
+		}
 	}
 	focus = {
-		id = SOV_stalin_unified_socialism_in_one_country
-		icon = GFX_focus_SOV_stalin_unified_socialism_in_one_country
+		id = SOV_stalin_unified_project_grid
+		icon = GFX_focus_SOV_stalin_unified_project_grid
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_prisoner_scientists }
 		prerequisite = { focus = SOV_stalin_unified_build_the_soviet_palace }
 		
-		relative_position_id = SOV_stalin_unified_mega_projects
-		y = 3
+		relative_position_id = SOV_stalin_unified_build_the_soviet_palace
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_project_grid"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_from_the_secret_corners_of_science
+		icon = GFX_focus_SOV_stalin_unified_from_the_secret_corners_of_science
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_project_grid }
+		
+		relative_position_id = SOV_stalin_unified_project_grid
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_from_the_secret_corners_of_science"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_project_aurora
+		icon = GFX_focus_SOV_stalin_unified_project_aurora
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_from_the_secret_corners_of_science }
+		
+		relative_position_id = SOV_stalin_unified_from_the_secret_corners_of_science
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_project_aurora"
+		}
 	}
 	
-	#I M P E R I A L I S M
+	### Central branch ###
 	focus = {
-		id = SOV_stalin_unified_returning_to_the_world_arena
-		icon = GFX_focus_SOV_stalin_unified_return_to_the_world_arena
+		id = SOV_stalin_unified_internal_transformations
+		icon = GFX_focus_SOV_stalin_unified_internal_transformations
 		cost = 10
 		
 		prerequisite = { focus = SOV_stalin_unified_its_time_for }
 		
 		relative_position_id = SOV_stalin_unified_its_time_for
-		y = 1
-		x = 3
-	}
-	focus = {
-		id = SOV_stalin_unified_the_comintern
-		icon = GFX_focus_SOV_stalin_unified_the_comintern
-		cost = 10
-		
-		prerequisite = { focus = SOV_stalin_unified_returning_to_the_world_arena }
-		
-		relative_position_id = SOV_stalin_unified_returning_to_the_world_arena
-		y = 1
-		x = -1
-	}
-	focus = {
-		id = SOV_stalin_unified_asian_campaign
-		icon = GFX_focus_SOV_stalin_unified_asian_campaign
-		cost = 10
-		
-		prerequisite = { focus = SOV_stalin_unified_returning_to_the_world_arena }
-		
-		relative_position_id = SOV_stalin_unified_returning_to_the_world_arena
-		y = 1
 		x = 2
-	}
-	focus = {
-		id = SOV_stalin_unified_end_the_german_reaction
-		icon = GFX_focus_SOV_stalin_unified_end_the_german_reaction
-		cost = 10
-		
-		prerequisite = { focus = SOV_stalin_unified_the_comintern }
-		mutually_exclusive = { focus = SOV_stalin_unified_invite_germany_to_comintern }
-		
-		relative_position_id = SOV_stalin_unified_the_comintern
 		y = 1
-		x = -1
-	}
-	focus = {
-		id = SOV_stalin_unified_invite_germany_to_comintern
-		icon = GFX_focus_SOV_stalin_unified_invite_germany_to_comintern
-		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_the_comintern }
-		mutually_exclusive = { focus = SOV_stalin_unified_end_the_german_reaction }
-		
-		relative_position_id = SOV_stalin_unified_the_comintern
-		y = 1
-		x = 1
-	}
-	focus = {
-		id = SOV_stalin_unified_invite_egypt
-		icon = GFX_focus_SOV_stalin_unified_invite_egypt
-		cost = 10
-		
-		prerequisite = { focus = SOV_stalin_unified_the_comintern }
-		
-		relative_position_id = SOV_stalin_unified_the_comintern
-		y = 1
-		x = 3
-	}
-	focus = {
-		id = SOV_stalin_europe_will_burn_in_the_flame_of_the_revolution
-		icon = GFX_focus_SOV_stalin_europe_will_burn_in_the_flame_of_the_revolution
-		cost = 10
-		
-		prerequisite = {
-			focus = SOV_stalin_unified_end_the_german_reaction
-			focus = SOV_stalin_unified_invite_germany_to_comintern
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_internal_transformations"
 		}
+	}
+	focus = {
+		id = SOV_stalin_unified_the_image_of_the_soviet_human
+		icon = GFX_focus_SOV_stalin_unified_the_image_of_the_soviet_human
+		cost = 10
 		
-		relative_position_id = SOV_stalin_unified_the_comintern
+		prerequisite = { focus = SOV_stalin_unified_internal_transformations }
+		
+		relative_position_id = SOV_stalin_unified_internal_transformations
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_image_of_the_soviet_human"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_the_new_proletarian_culture
+		icon = GFX_focus_SOV_stalin_unified_the_new_proletarian_culture
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_internal_transformations }
+		
+		relative_position_id = SOV_stalin_unified_internal_transformations
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_new_proletarian_culture"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_promote_the_correct_lifestyle
+		icon = GFX_focus_SOV_stalin_unified_promote_the_correct_lifestyle
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_image_of_the_soviet_human }
+		prerequisite = { focus = SOV_stalin_unified_the_new_proletarian_culture }
+		
+		relative_position_id = SOV_stalin_unified_internal_transformations
 		y = 2
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_promote_the_correct_lifestyle"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_the_fear_of_opinion
+		icon = GFX_focus_SOV_stalin_unified_the_fear_of_opinion
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_promote_the_correct_lifestyle }
+		
+		relative_position_id = SOV_stalin_unified_promote_the_correct_lifestyle
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_fear_of_opinion"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_the_lumpenproletariat_speaks_in_the_voice_of_the_party
+		icon = GFX_focus_SOV_stalin_unified_the_lumpenproletariat_speaks_in_the_voice_of_the_party
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_fear_of_opinion }
+		
+		relative_position_id = SOV_stalin_unified_the_fear_of_opinion
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_lumpenproletariat_speaks_in_the_voice_of_the_party"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_mass_politcollectorisation
+		icon = GFX_focus_SOV_stalin_unified_mass_politcollectorisation
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_lumpenproletariat_speaks_in_the_voice_of_the_party }
+		
+		relative_position_id = SOV_stalin_unified_the_lumpenproletariat_speaks_in_the_voice_of_the_party
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_mass_politcollectorisation"
+		}
+	}
+	
+	### Left branch ###
+	focus = {
+		id = SOV_stalin_unified_to_return_to_the_world_scene
+		icon = GFX_focus_SOV_stalin_unified_to_return_to_the_world_scene
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_its_time_for }
+		
+		relative_position_id = SOV_stalin_unified_its_time_for
+		x = 7
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_to_return_to_the_world_scene"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_create_the_comintern
+		icon = GFX_focus_SOV_stalin_unified_create_the_comintern
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_to_return_to_the_world_scene }
+		
+		relative_position_id = SOV_stalin_unified_to_return_to_the_world_scene
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_create_the_comintern"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_invite_the_friendly_countries
+		icon = GFX_focus_SOV_unified_stalin_invite_the_friendly_countries
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_create_the_comintern }
+		
+		relative_position_id = SOV_stalin_unified_create_the_comintern
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_invite_the_friendly_countries"
+		}
+	}
+	
+	## Left ##
+	focus = {
+		id = SOV_stalin_unified_the_last_southern_attack
+		icon = GFX_focus_SOV_stalin_unified_the_last_southern_attack
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_invite_the_friendly_countries }
+		
+		relative_position_id = SOV_stalin_unified_invite_the_friendly_countries
+		x = -2
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_last_southern_attack"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_take_the_straits
+		icon = GFX_focus_SOV_stalin_unified_take_the_straits
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_last_southern_attack }
+		
+		relative_position_id = SOV_stalin_unified_the_last_southern_attack
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_take_the_straits"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_finish_the_alexanders_case
+		icon = GFX_focus_SOV_stalin_unified_finish_the_alexanders_case
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_last_southern_attack }
+		
+		relative_position_id = SOV_stalin_unified_the_last_southern_attack
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_finish_the_alexanders_case"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_death_to_the_dragon
+		icon = GFX_focus_SOV_stalin_unified_death_to_the_dragon
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_take_the_straits }
+		prerequisite = { focus = SOV_stalin_unified_finish_the_alexanders_case }
+		
+		relative_position_id = SOV_stalin_unified_the_last_southern_attack
+		y = 2
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_death_to_the_dragon"
+		}
+	}
+	
+	## Center ##
+	focus = {
+		id = SOV_stalin_unified_march_to_the_west
+		icon = GFX_focus_SOV_stalin_unified_march_to_the_west
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_invite_the_friendly_countries }
+		
+		relative_position_id = SOV_stalin_unified_invite_the_friendly_countries
+		x = 2
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_march_to_the_west"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_the_revolution_goes_to_south
+		icon = GFX_focus_SOV_stalin_unified_the_revolution_goes_to_south
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_march_to_the_west }
+		
+		relative_position_id = SOV_stalin_unified_march_to_the_west
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_revolution_goes_to_south"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_the_english_channel_in_two_weeks
+		icon = GFX_focus_SOV_stalin_unified_the_english_channel_in_two_weeks
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_revolution_goes_to_south }
+		
+		relative_position_id = SOV_stalin_unified_the_revolution_goes_to_south
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_english_channel_in_two_weeks"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_sink_the_albion
+		icon = GFX_focus_SOV_stalin_unified_sink_the_albion
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_english_channel_in_two_weeks }
+		
+		relative_position_id = SOV_stalin_unified_the_english_channel_in_two_weeks
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_sink_the_albion"
+		}
+	}
+	
+	focus = {
+		id = SOV_stalin_unified_plan_sokol
+		icon = GFX_focus_SOV_stalin_unified_plan_sokol
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_project_aurora }
+		prerequisite = { focus = SOV_stalin_unified_mass_politcollectorisation }
+		prerequisite = { focus = SOV_stalin_unified_death_to_the_dragon }
+		prerequisite = { focus = SOV_stalin_unified_sink_the_albion }
+		
+		relative_position_id = SOV_stalin_unified_its_time_for
+		y = 8
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_plan_sokol"
+		}
 	}
 }
