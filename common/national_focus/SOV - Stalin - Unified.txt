@@ -1,4 +1,4 @@
-
+#!gfx:interface/country_SOV.gfx
 focus_tree = {
 	id = SOV_stalin_unified
 	country = {
@@ -17,8 +17,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SOV_stalin_unified_its_time_for
-		icon = GFX_focus_SOV_stalin_unified_its_time_for
+		id = SOV_stalin_unified_its_time
+		icon = GFX_focus_SOV_stalin_unified_its_time
 		cost = 10
 		
 		prerequisite = { focus = SOV_stalin_unified_situation_analysis }
@@ -27,24 +27,24 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_its_time_for"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_its_time"
 		}
 	}
 	
 	### Right branch ###
 	focus = {
-		id = SOV_stalin_unified_our_true_plans
-		icon = GFX_focus_SOV_stalin_unified_our_true_plans
+		id = SOV_stalin_unified_for_our_true_plans
+		icon = GFX_focus_SOV_stalin_unified_for_our_true_plans
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_its_time_for }
+		prerequisite = { focus = SOV_stalin_unified_its_time }
 		
-		relative_position_id = SOV_stalin_unified_its_time_for
+		relative_position_id = SOV_stalin_unified_its_time
 		x = -1
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_our_true_plans"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_for_our_true_plans"
 		}
 	}
 	focus = {
@@ -52,9 +52,9 @@ focus_tree = {
 		icon = GFX_focus_SOV_unified_stalin_build_the_soviet_palace
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_our_true_plans }
+		prerequisite = { focus = SOV_stalin_unified_for_our_true_plans }
 		
-		relative_position_id = SOV_stalin_unified_our_true_plans
+		relative_position_id = SOV_stalin_unified_for_our_true_plans
 		y = 1
 		
 		completion_reward = {
@@ -106,18 +106,18 @@ focus_tree = {
 	
 	### Central branch ###
 	focus = {
-		id = SOV_stalin_unified_internal_transformations
-		icon = GFX_focus_SOV_stalin_unified_internal_transformations
+		id = SOV_stalin_unified_for_internal_transformations
+		icon = GFX_focus_SOV_stalin_unified_for_internal_transformations
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_its_time_for }
+		prerequisite = { focus = SOV_stalin_unified_its_time }
 		
-		relative_position_id = SOV_stalin_unified_its_time_for
+		relative_position_id = SOV_stalin_unified_its_time
 		x = 2
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_internal_transformations"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_for_internal_transformations"
 		}
 	}
 	focus = {
@@ -125,9 +125,9 @@ focus_tree = {
 		icon = GFX_focus_SOV_stalin_unified_the_image_of_the_soviet_human
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_internal_transformations }
+		prerequisite = { focus = SOV_stalin_unified_for_internal_transformations }
 		
-		relative_position_id = SOV_stalin_unified_internal_transformations
+		relative_position_id = SOV_stalin_unified_for_internal_transformations
 		x = -1
 		y = 1
 		
@@ -140,9 +140,9 @@ focus_tree = {
 		icon = GFX_focus_SOV_stalin_unified_the_new_proletarian_culture
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_internal_transformations }
+		prerequisite = { focus = SOV_stalin_unified_for_internal_transformations }
 		
-		relative_position_id = SOV_stalin_unified_internal_transformations
+		relative_position_id = SOV_stalin_unified_for_internal_transformations
 		x = 1
 		y = 1
 		
@@ -158,7 +158,7 @@ focus_tree = {
 		prerequisite = { focus = SOV_stalin_unified_the_image_of_the_soviet_human }
 		prerequisite = { focus = SOV_stalin_unified_the_new_proletarian_culture }
 		
-		relative_position_id = SOV_stalin_unified_internal_transformations
+		relative_position_id = SOV_stalin_unified_for_internal_transformations
 		y = 2
 		
 		completion_reward = {
@@ -214,10 +214,10 @@ focus_tree = {
 		icon = GFX_focus_SOV_stalin_unified_to_return_to_the_world_scene
 		cost = 10
 		
-		prerequisite = { focus = SOV_stalin_unified_its_time_for }
+		prerequisite = { focus = SOV_stalin_unified_its_time }
 		
-		relative_position_id = SOV_stalin_unified_its_time_for
-		x = 7
+		relative_position_id = SOV_stalin_unified_its_time
+		x = 10
 		y = 1
 		
 		completion_reward = {
@@ -240,7 +240,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_stalin_unified_invite_the_friendly_countries
-		icon = GFX_focus_SOV_unified_stalin_invite_the_friendly_countries
+		icon = GFX_focus_SOV_stalin_unified_invite_the_friendly_countries
 		cost = 10
 		
 		prerequisite = { focus = SOV_stalin_unified_create_the_comintern }
@@ -267,6 +267,35 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_the_last_southern_attack"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_sahrawi_march
+		icon = GFX_focus_SOV_stalin_unified_sahrawi_march
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_the_last_southern_attack }
+		
+		relative_position_id = SOV_stalin_unified_the_last_southern_attack
+		x = -3
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_sahrawi_march"
+		}
+	}
+	focus = {
+		id = SOV_stalin_unified_african_colonies
+		icon = GFX_focus_SOV_stalin_unified_african_colonies
+		cost = 10
+		
+		prerequisite = { focus = SOV_stalin_unified_sahrawi_march }
+		
+		relative_position_id = SOV_stalin_unified_sahrawi_march
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_unified_african_colonies"
 		}
 	}
 	focus = {
@@ -383,8 +412,9 @@ focus_tree = {
 		prerequisite = { focus = SOV_stalin_unified_mass_politcollectorisation }
 		prerequisite = { focus = SOV_stalin_unified_death_to_the_dragon }
 		prerequisite = { focus = SOV_stalin_unified_sink_the_albion }
+		prerequisite = { focus = SOV_stalin_unified_african_colonies }
 		
-		relative_position_id = SOV_stalin_unified_its_time_for
+		relative_position_id = SOV_stalin_unified_its_time
 		y = 8
 		
 		completion_reward = {
