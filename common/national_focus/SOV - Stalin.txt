@@ -198,6 +198,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_be_useful_by_skills"
+			
+			add_political_power = 100
 		}
 	}
 	
@@ -219,6 +221,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_knights_of_the_revolution"
+			add_ideas = SOV_knights_of_the_revolution
 		}
 	}
 	
@@ -292,28 +295,17 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_expand_industry"
 		
-			random_owned_controlled_state = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 6
+				
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -337,19 +329,17 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_country_infrastructure"
-		
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_country_infrastructure"
+			
+			every_core_state = {
+				tooltip = every_owned_core_with_less_than_4_infrastructure_tt
+				limit = {
+					is_owned_by = SOV
+					infrastructure < 4
 				}
-			}	
-			random_owned_controlled_state = {
 				add_building_construction = {
 					type = infrastructure
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -382,6 +372,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_step_towards_unity"
+			
+			add_war_support = 0.05
+			add_stability = 0.05
 		}
 	}
 	
@@ -403,6 +396,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_unification_plan"
+			
+			add_ideas = SOV_russia_unification_plan
 		}
 	}
 	
@@ -427,6 +422,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_dash_to_the_west"
 			LAT = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -661,6 +657,7 @@ focus_tree = {
 			
 			KAR = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -716,12 +713,14 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_southern_threat_assessment"
 			SRF = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
 			
 			UKR = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -839,18 +838,21 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_everything_that_lies_beyond_the_ural"
 			RUS = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			} 
 			
 			FER = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
 			
 			KMP = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -1017,6 +1019,7 @@ focus_tree = {
 			}
 			OCG = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -1056,6 +1059,7 @@ focus_tree = {
 			}
 			KAZ = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -1091,6 +1095,7 @@ focus_tree = {
 			}
 			KYR = {
 				every_core_state = {
+					tooltip = every_core_state_tt
 					add_claim_by = SOV
 				}
 			}
@@ -1402,28 +1407,25 @@ focus_tree = {
 			add_manpower = -10000
 			add_stability = -0.05
 			
-			custom_effect_tooltip = SOV_add_factories_to_11_random_states_tt
-			
-			for_loop_effect = {
-				end = 11
-				
-				random_owned_state = {
-					limit = {
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
-						}
+			every_core_state = {
+				tooltip = 11_random_core_owned_states
+				random_select_amount = 11
+				limit = {
+					is_owned_by = SOV
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
 					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-					}
-					add_building_construction = {
-						type = arms_factory
-						level = 1
-					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
 				}
 			}
 		}
@@ -1670,7 +1672,26 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_open_the_tsarist_stockpiles"
 			
-			army_experience = 200
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 30000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 2500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 1500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment_0
+				amount = 1000
+				producer = SOV
+			}
 		}
 	}
 	focus = {
@@ -1687,7 +1708,24 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_newest_weapons"
 			
-			army_experience = 200
+			add_tech_bonus = {
+				bonus = 1
+				uses = 3
+				category = infantry_weapons
+				name = SOV_stalin_newest_weapons
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 3
+				category = artillery
+				name = SOV_stalin_newest_weapons
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 3
+				category = armor
+				name = SOV_stalin_newest_weapons
+			}
 		}
 	}
 	
@@ -1789,9 +1827,30 @@ focus_tree = {
 				limit = {
 					has_dlc = "By Blood Alone"
 				}
-				#add_equipment_to_stockpile = {
-				#	
-				#}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 500
+					producer = SOV
+					variant_name = "I-15"
+				}
+				add_equipment_to_stockpile = {
+					type = medium_plane_airframe_0
+					amount = 200
+					producer = SOV
+					variant_name = "DB-3"
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 500
+					producer = SOV
+				}
+				add_equipment_to_stockpile = {
+					type = CAS_equipment_1
+					amount = 200
+					producer = SOV
+				}
 			}
 		}
 	}
