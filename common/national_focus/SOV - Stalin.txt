@@ -540,16 +540,6 @@ focus_tree = {
 		icon = GFX_focus_SOV_stalin_congratulations_on_the_promotion
 		y = 1
 		cost = 5
-		bypass = {
-			206 = {
-				owner = {
-					NOT = {
-						tag = PBD
-						tag = SOV
-					}
-				}
-			}
-		}
 		
 		available_if_capitulated = yes
 		relative_position_id = SOV_stalin_peaceful_integration
@@ -560,10 +550,24 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_congratulations_on_the_promotion"	
-			add_ideas = {
-				SOV_red_napoleon_in_command	
-			}	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_congratulations_on_the_promotion"
+			
+			PBD = {
+				remove_country_leader_role = {
+					character = PBD_mikhail_tukhachevsky
+					ideology = stratocratic_bolshevism
+				}
+				every_character = {
+					tooltip = every_advisor_and_unit_leader_tt
+					limit = {
+						OR = { #We don't need Polish country leaders, only advisors and generals
+							is_advisor = yes
+							is_unit_leader = yes
+						}
+					}
+					set_nationality = PREV.PREV
+				}
+			}
 		}
 	}
 
@@ -606,16 +610,6 @@ focus_tree = {
 		icon = GFX_focus_SOV_stalin_tukhachevsky_case
 		y = 1
 		cost = 5
-		bypass = {
-			206 = {
-				owner = {
-					NOT = {
-						tag = PBD
-						tag = SOV
-					}
-				}
-			}
-		}
 		
 		available_if_capitulated = yes
 		
@@ -1408,7 +1402,7 @@ focus_tree = {
 			add_stability = -0.05
 			
 			every_core_state = {
-				tooltip = 11_random_core_owned_states
+				tooltip = 11_random_owned_core_states_tt
 				random_select_amount = 11
 				limit = {
 					is_owned_by = SOV
@@ -1462,12 +1456,10 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_attract_village_resources_to_cities"
 			
 			add_stability = -0.1
-			custom_effect_tooltip = SOV_delete_5000_manpower_from_random_12_states_tt
-			for_loop_effect = {
-				end = 12
-				random_owned_state = {
-					add_manpower = -5000
-				}
+			every_owned_state = {
+				
+				random_select_amount = 12
+				add_manpower = -5000
 			}
 			247 = { #Kalinin
 				add_extra_state_shared_building_slots = 4
