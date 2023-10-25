@@ -461,7 +461,10 @@ focus_tree = {
 				target = LAT
 				type = annex_everything
 			}
-			
+			create_wargoal = {
+				type = annex_everything
+				target = FIN
+			}
 		}
 	}
 	
@@ -505,16 +508,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 3
-		bypass = {
-			206 = {
-				owner = {
-					NOT = {
-						tag = PBD
-						tag = SOV
-					}
-				}
-			}
-		}
 		available_if_capitulated = yes
 		
 		mutually_exclusive = {
@@ -531,7 +524,27 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_peaceful_integration"	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_peaceful_integration"
+			
+			PBD = {
+				PBD_mikhail_tukhachevsky = { #His unit leader role will be recreated later
+					remove_unit_leader_role = yes
+					remove_country_leader_role = {
+						ideology = stratocratic_bolshevism
+					}
+				}
+				
+				every_character = {
+					tooltip = every_advisor_and_unit_leader_tt
+					limit = {
+						OR = { #We don't need Polish country leaders, only advisors and generals
+							is_advisor = yes
+							is_unit_leader = yes
+						}
+					}
+					set_nationality = PREV.PREV
+				}
+			}
 		}
 	}
 	
@@ -551,21 +564,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_congratulations_on_the_promotion"
-			
-			PBD = {
-				remove_country_leader_role = {
-					character = PBD_mikhail_tukhachevsky
-					ideology = stratocratic_bolshevism
+			if = {
+				limit = {
+					has_character = PBD_mikhail_tukhachevsky
 				}
-				every_character = {
-					tooltip = every_advisor_and_unit_leader_tt
-					limit = {
-						OR = { #We don't need Polish country leaders, only advisors and generals
-							is_advisor = yes
-							is_unit_leader = yes
+				PBD_mikhail_tukhachevsky = {
+					add_field_marshal_role = {
+						traits = { 
+							offensive_doctrine
+							SOV_red_militarist
+							brilliant_strategist 
+							infantry_officer 
+							trait_reckless
 						}
+						skill = 4
+						
+						attack_skill = 4
+						defense_skill = 3
+						planning_skill = 3
+						logistics_skill = 2
 					}
-					set_nationality = PREV.PREV
 				}
 			}
 		}
@@ -809,6 +827,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_look_to_the_east"
+			
+			add_war_support = 0.05
 		}
 	}
 	

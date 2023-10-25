@@ -237,7 +237,7 @@ country_event = {
 	}
 }
 
-
+### Stalin ###
 country_event = {
 	id = sov_stalin.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.1" }
@@ -256,7 +256,7 @@ country_event = {
 	
 	
 	option = {
-		name = stalin.1.b
+		name = sov_stalin.1.b
 		
 		add_ideas = SOV_nikolai_yezhov_sec
 		complete_national_focus = SOV_yezhov_leader 		
@@ -264,7 +264,7 @@ country_event = {
 	
 	
 	option = {
-		name = stalin.1.c
+		name = sov_stalin.1.c
 		
 		add_ideas = SOV_gleb_bokii_sec 
 		
@@ -282,5 +282,28 @@ country_event = {
 	
 	option = {
 		name = sov_stalin.2.a
+	}
+}
+
+country_event = {
+	id = sov_stalin.3 #Unification
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.3" }
+	title = sov_stalin.3.t
+	desc = sov_stalin.3.d
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = SOV_show_easter_egg_decision
+	}
+	
+	option = {
+		name = sov_stalin.3.a
+		
+		set_cosmetic_tag = SOV_stalin_united
+		hidden_effect = {
+			news_event = WORLDNEWS.5
+			clr_country_flag = SOV_show_easter_egg_decision
+		}
+		set_country_flag = SOV_united
 	}
 }

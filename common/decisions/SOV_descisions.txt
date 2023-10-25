@@ -1,168 +1,92 @@
 SOV_create_ussr_decisions = {
-	create_soviet_union = {
+	SOV_create_soviet_union = { #This is no longer needed, but the description is so good that we can't really delete it
 		icon = generic_form_nation
 		
 		fire_only_once = yes
 		
 		
 		visible = {
-			NOT = { has_country_flag = SOV_reunificated }
+			#NOT = { has_country_flag = SOV_united }
+			has_country_flag = SOV_show_easter_egg_decision
 		}
 		
 		available = {
-			is_subject = no
-			has_war = no
+			#is_subject = no
+			#has_war = no
 			
 			custom_trigger_tooltip = {
-				tooltip = SOV_controls_all_the_ussr_states_tt
-				RUS = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KAR = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				UKR = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				SRF = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				LAT = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				OCG = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KAZ = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KYR = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				SEA = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				FER = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KMP = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KAR = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				UKR = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				SRF = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				LAT = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				OCG = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KAZ = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KYR = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				SEA = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				FER = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
-				KMP = {
-					all_core_state = {
-						is_fully_controlled_by = PREV.PREV
-					}
-				}
+				tooltip = SOV_never_tt
+				always = no
 			}
+			
+			#custom_trigger_tooltip = {
+			#	tooltip = SOV_controls_all_the_ussr_states_tt
+			#	RUS = { PREV_controls_all_cores = yes }
+			#	KAR = { PREV_controls_all_cores = yes }
+			#	UKR = { PREV_controls_all_cores = yes }
+			#	SRF = { PREV_controls_all_cores = yes }
+			#	LAT = { PREV_controls_all_cores = yes }
+			#	OCG = { PREV_controls_all_cores = yes }
+			#	KAZ = { PREV_controls_all_cores = yes }
+			#	KYR = { PREV_controls_all_cores = yes }
+			#	SEA = { PREV_controls_all_cores = yes }
+			#	FER = { PREV_controls_all_cores = yes }
+			#	KMP = { PREV_controls_all_cores = yes }
+			#	KAR = { PREV_controls_all_cores = yes }
+			#	UKR = { PREV_controls_all_cores = yes }
+			#	SRF = { PREV_controls_all_cores = yes }
+			#	LAT = { PREV_controls_all_cores = yes }
+			#	OCG = { PREV_controls_all_cores = yes }
+			#	KAZ = { PREV_controls_all_cores = yes }
+			#	KYR = { PREV_controls_all_cores = yes }
+			#	SEA = { PREV_controls_all_cores = yes }
+			#	FER = { PREV_controls_all_cores = yes }
+			#	KMP = { PREV_controls_all_cores = yes }
+			#}
 		}
 
 		
 		complete_effect = {
-			if = {
-				limit = {
-					has_country_leader = {
-						character = SOV_felix_dzerzhinsky
-						ruling_only = yes
-					}
-				}
-				
-				set_cosmetic_tag = SOV_felix_reunificated
-				set_country_flag = SOV_reunificated
-				hidden_effect = { news_event = WORLDNEWS.19 }
-			}
-			if = {
-				limit = {
-					has_country_leader = {
-						character = SOV_alexander_bogdanov
-						ruling_only = yes
-					}
-				}
-				hidden_effect = {
-					set_cosmetic_tag = SOV_bogdanov_reunificated
-					set_country_flag = SOV_reunificated
-					
-					news_event = WORLDNEWS.1
-				}
-			}
+			#if = {
+			#	limit = {
+			#		has_country_leader = {
+			#			character = SOV_felix_dzerzhinsky
+			#			ruling_only = yes
+			#		}
+			#	}
+			#	
+			#	set_cosmetic_tag = SOV_felix_reunificated
+			#	set_country_flag = SOV_united
+			#	hidden_effect = { news_event = WORLDNEWS.19 }
+			#}
+			#if = {
+			#	limit = {
+			#		has_country_leader = {
+			#			character = SOV_alexander_bogdanov
+			#			ruling_only = yes
+			#		}
+			#	}
+			#	hidden_effect = {
+			#		set_cosmetic_tag = SOV_bogdanov_reunificated
+			#		set_country_flag = SOV_united
+			#		
+			#		news_event = WORLDNEWS.1
+			#	}
+			#}
+			#
+			#if = {
+			#	limit = {
+			#		has_country_leader = {
+			#			name = "Joseph Stalin"
+			#			ruling_only = yes
+			#		}
+			#	}
+			#	set_cosmetic_tag = SOV_stalin_united
+			#	hidden_effect = { news_event = WORLDNEWS.5 }
+			#	set_country_flag = SOV_united
+			#}
 			
-			if = {
-				limit = {
-					has_country_leader = {
-						name = "Joseph Stalin"
-						ruling_only = yes
-					}
-				}
-				set_cosmetic_tag = SOV_stalin_united
-				hidden_effect = { news_event = WORLDNEWS.5 }
-				set_country_flag = SOV_reunificated
-			}
+			custom_effect_tooltip = SOV_funny_effect_tt
 		}
 		
 		

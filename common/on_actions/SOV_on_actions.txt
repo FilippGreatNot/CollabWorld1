@@ -1,0 +1,29 @@
+on_actions = {
+	on_weekly_SOV = { #Fires unification event after, well, unification, for Stalin's path
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = SOV_united
+					}
+					
+					has_focus_tree = SOV_stalin
+					
+					RUS = { PREV_controls_all_cores = yes }
+					KAR = { PREV_controls_all_cores = yes }
+					UKR = { PREV_controls_all_cores = yes }
+					SRF = { PREV_controls_all_cores = yes }
+					LAT = { PREV_controls_all_cores = yes }
+					OCG = { PREV_controls_all_cores = yes }
+					KAZ = { PREV_controls_all_cores = yes }
+					KYR = { PREV_controls_all_cores = yes }
+					SEA = { PREV_controls_all_cores = yes }
+					FER = { PREV_controls_all_cores = yes }
+					KMP = { PREV_controls_all_cores = yes }
+					PBD = { PREV_controls_all_cores = yes }
+				}
+				country_event = sov_stalin.3 #Unification
+			}
+		}
+	}
+}
