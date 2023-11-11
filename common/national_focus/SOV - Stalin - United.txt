@@ -14,6 +14,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_situation_analysis"
+			
+			add_political_power = 75
 		}
 	}
 	focus = {
@@ -28,6 +30,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_its_time"
+			
+			add_stability = 0.02
 		}
 	}
 	
@@ -45,6 +49,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_for_our_true_plans"
+			
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -59,6 +65,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_build_the_soviet_palace"
+			
+			add_ideas = SOV_the_soviet_palace
 		}
 	}
 	focus = {
@@ -73,6 +81,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_project_setka"
+			
+			add_ideas = SOV_project_setka
 		}
 	}
 	focus = {
@@ -87,6 +97,11 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_from_the_secret_corners_of_science"
+			
+			swap_ideas = {
+				remove_idea = SOV_project_setka
+				add_idea = SOV_great_progress
+			}
 		}
 	}
 	focus = {
@@ -101,6 +116,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_project_avrora"
+			
+			add_ideas = SOV_project_avrora
 		}
 	}
 	
@@ -118,6 +135,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_for_internal_transformations"
+			
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -133,6 +152,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_image_of_the_soviet_human"
+			
+			add_ideas = SOV_the_new_historical_unity
 		}
 	}
 	focus = {
@@ -148,6 +169,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_new_proletarian_culture"
+			
+			add_ideas = SOV_pure_worker_culture
 		}
 	}
 	focus = {
@@ -163,6 +186,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_promote_the_correct_lifestyle"
+			
+			add_ideas = SOV_correct_lifestyle_propaganda
 		}
 	}
 	focus = {
@@ -177,6 +202,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_fear_of_opinion"
+			
+			add_ideas = SOV_the_fear_of_opinion
 		}
 	}
 	focus = {
@@ -194,8 +221,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SOV_stalin_united_mass_politcollectorisation
-		icon = GFX_focus_SOV_stalin_united_mass_politcollectorisation
+		id = SOV_stalin_united_mass_politcorrectisation
+		icon = GFX_focus_SOV_stalin_united_mass_politcorrectisation
 		cost = 10
 		
 		prerequisite = { focus = SOV_stalin_united_the_lumpenproletariat_speaks_in_the_voice_of_the_party }
@@ -204,7 +231,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_mass_politcollectorisation"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_mass_politcorrectisation"
 		}
 	}
 	
@@ -222,6 +249,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_to_return_to_the_world_scene"
+			
+			add_threat = 5
 		}
 	}
 	focus = {
@@ -236,6 +265,14 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_create_the_comintern"
+			
+			create_faction = faction_SOV_comintern
+			hidden_effect = {
+				news_event = {
+					id = sov_stalin.4
+					hours = 5
+				}
+			}
 		}
 	}
 	focus = {
@@ -250,6 +287,19 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_invite_the_friendly_countries"
+			
+			every_other_country = {
+				limit = {
+					ideology_socialist = yes
+					should_be_unfriendly_to_PREV = no
+				}
+				tooltip = every_non_hostile_socialist_country_tt
+				
+				country_event = {
+					id = sov_stalin.5
+					days = 1
+				}
+			}
 		}
 	}
 	
@@ -267,6 +317,35 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_last_southern_attack"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PER
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AFG
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BGI
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = MSL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SAU
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = OMA
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YEM
+			}
 		}
 	}
 	focus = {
@@ -280,8 +359,23 @@ focus_tree = {
 		x = -3
 		y = 1
 		
+		available = {
+			PER = { PREV_controls_all_cores_or_is_ally = yes }
+			AFG = { PREV_controls_all_cores_or_is_ally = yes }
+			BGI = { PREV_controls_all_cores_or_is_ally = yes }
+			MSL = { PREV_controls_all_cores_or_is_ally = yes }
+			SAU = { PREV_controls_all_cores_or_is_ally = yes }
+			OMA = { PREV_controls_all_cores_or_is_ally = yes }
+			YEM = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_sahrawi_march"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = EGY
+			}
 		}
 	}
 	focus = {
@@ -294,8 +388,26 @@ focus_tree = {
 		relative_position_id = SOV_stalin_united_sahrawi_march
 		y = 1
 		
+		available = {
+			EGY = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_african_colonies"
+			
+			every_other_country = {
+				limit = {
+					capital_scope = {
+						is_on_continent = africa
+					}
+				}
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -309,8 +421,23 @@ focus_tree = {
 		x = -1
 		y = 1
 		
+		available = {
+			PER = { PREV_controls_all_cores_or_is_ally = yes }
+			AFG = { PREV_controls_all_cores_or_is_ally = yes }
+			BGI = { PREV_controls_all_cores_or_is_ally = yes }
+			MSL = { PREV_controls_all_cores_or_is_ally = yes }
+			SAU = { PREV_controls_all_cores_or_is_ally = yes }
+			OMA = { PREV_controls_all_cores_or_is_ally = yes }
+			YEM = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_take_the_straits"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = TUR
+			}
 		}
 	}
 	focus = {
@@ -324,8 +451,23 @@ focus_tree = {
 		x = 1
 		y = 1
 		
+		available = {
+			PER = { PREV_controls_all_cores = yes }
+			AFG = { PREV_controls_all_cores = yes }
+			BGI = { PREV_controls_all_cores = yes }
+			MSL = { PREV_controls_all_cores = yes }
+			SAU = { PREV_controls_all_cores = yes }
+			OMA = { PREV_controls_all_cores = yes }
+			YEM = { PREV_controls_all_cores = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_finish_the_alexanders_case"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = RAJ
+			}
 		}
 	}
 	focus = {
@@ -339,8 +481,25 @@ focus_tree = {
 		relative_position_id = SOV_stalin_united_the_last_southern_attack
 		y = 2
 		
+		available = {
+			PER = { PREV_controls_all_cores_or_is_ally = yes }
+			AFG = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_death_to_the_dragon"
+			
+			every_other_country = {
+				limit = {
+					is_chinese_tag = yes
+				}
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+					}
+				}
+			}
 		}
 	}
 	
@@ -358,6 +517,50 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_march_to_the_west"
+			
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						is_german_tag = yes
+					}
+					ROOT = {
+						create_wargoal = {
+							type = puppet_wargoal_focus
+							target = PREV
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = create_wargoal_for_every_german_tag_tt
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FIN
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = NOR
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SWE
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CZE
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AUS
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HUN
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = DEN
+			}
 		}
 	}
 	focus = {
@@ -370,8 +573,58 @@ focus_tree = {
 		relative_position_id = SOV_stalin_united_march_to_the_west
 		y = 1
 		
+		available = {
+			all_other_country = {
+				OR = {
+					PREV_controls_all_cores_or_is_ally = yes
+					is_german_tag = no
+				}
+			}
+			FIN = { PREV_controls_all_cores_or_is_ally = yes }
+			NOR = { PREV_controls_all_cores_or_is_ally = yes }
+			SWE = { PREV_controls_all_cores_or_is_ally = yes }
+			CZE = { PREV_controls_all_cores_or_is_ally = yes }
+			AUS = { PREV_controls_all_cores_or_is_ally = yes }
+			HUN = { PREV_controls_all_cores_or_is_ally = yes }
+			DEN = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_revolution_goes_to_south"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROM
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BUL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YUG
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ALB
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GRE
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ITA
+			}
+			if = {
+				limit = {
+					country_exists = ITS
+				}
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ITS
+				}
+			}
 		}
 	}
 	focus = {
@@ -384,8 +637,46 @@ focus_tree = {
 		relative_position_id = SOV_stalin_united_the_revolution_goes_to_south
 		y = 1
 		
+		available = {
+			ROM = { PREV_controls_all_cores_or_is_ally = yes }
+			BUL = { PREV_controls_all_cores_or_is_ally = yes }
+			YUG = { PREV_controls_all_cores_or_is_ally = yes }
+			ALB = { PREV_controls_all_cores_or_is_ally = yes }
+			GRE = { PREV_controls_all_cores_or_is_ally = yes }
+			ITA = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_english_channel_in_two_weeks"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LUX
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BEL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HOL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SWI
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SPR
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = POR
+			}
 		}
 	}
 	focus = {
@@ -398,8 +689,23 @@ focus_tree = {
 		relative_position_id = SOV_stalin_united_the_english_channel_in_two_weeks
 		y = 1
 		
+		available = {
+			LUX = { PREV_controls_all_cores_or_is_ally = yes }
+			BEL = { PREV_controls_all_cores_or_is_ally = yes }
+			HOL = { PREV_controls_all_cores_or_is_ally = yes }
+			FRA = { PREV_controls_all_cores_or_is_ally = yes }
+			SWI = { PREV_controls_all_cores_or_is_ally = yes }
+			SPR = { PREV_controls_all_cores_or_is_ally = yes }
+			POR = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_sink_the_albion"
+			
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ENG
+			}
 		}
 	}
 	
@@ -409,7 +715,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { focus = SOV_stalin_united_project_avrora }
-		prerequisite = { focus = SOV_stalin_united_mass_politcollectorisation }
+		prerequisite = { focus = SOV_stalin_united_mass_politcorrectisation }
 		prerequisite = { focus = SOV_stalin_united_death_to_the_dragon }
 		prerequisite = { focus = SOV_stalin_united_sink_the_albion }
 		prerequisite = { focus = SOV_stalin_united_african_colonies }
@@ -417,8 +723,25 @@ focus_tree = {
 		relative_position_id = SOV_stalin_united_its_time
 		y = 8
 		
+		available = {
+			ENG = { PREV_controls_all_cores_or_is_ally = yes }
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_plan_sokol"
+			
+			every_other_country = {
+				limit = {
+					NOT = { is_ally_with = PREV }
+				}
+				ROOT = {
+					declare_war_on = {
+						target = PREV
+						type = puppet_wargoal_focus
+					}
+				}
+			}
+			set_country_flag = wages_war_with_everyone #Used to declare war whenever a new tag appears on the map
 		}
 	}
 }

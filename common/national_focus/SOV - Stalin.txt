@@ -397,6 +397,20 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_unification_plan"
 			
+			every_other_country = {
+				limit = {
+					is_russian_tag = yes
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = SOV_soviet_imperialism
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = SOV_soviet_imperialism_trade
+				}
+			}
+			
 			add_ideas = SOV_russia_unification_plan
 		}
 	}
@@ -1326,7 +1340,7 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_increase_mic_funding"
-			#add_ideas = war_economy
+			add_ideas = SOV_extensive_mic_funding
 		}
 	}
 	focus = {

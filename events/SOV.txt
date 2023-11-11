@@ -1,10 +1,6 @@
-add_namespace = sov_bolsheviks
-add_namespace = sov_mladorossi
 add_namespace = sov_leadership
 add_namespace = sov_unification
-add_namespace = sov_yezhovgang
 add_namespace = sov_stalin
-add_namespace = sov_revizionisti
 add_namespace = sov
 
 country_event = { #Fate of the royal family
@@ -27,70 +23,6 @@ country_event = { #Lenin's speech
 	
 	option = {
 		name = sov.2.a
-	}
-}
-
-country_event = {
-	id = sov_mladorossi.1 ####OH SHIT	
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_mladorossi.1" }
-	title = sov_mladorossi.1.t
-	desc = sov_mladorossi.1.d
-	picture = GFX_report_event_red_army_order
-	is_triggered_only = yes
-	
-	
-	immediate = {
-		end_puppet = KMD
-	}
-
-	option = {
-		name = sov_mladorossi.1.a
-		
-		promote_character = SOV_alexander_kazembek
-		
-		#remove_all_ministers = yes
-		
-		set_party_name = { 
-			ideology = despotism 
-			long_name = SOV_MLADOROSS_LONG
-			name = SOV_MLADOROSS_SHORT
-		}
-		
-		set_politics = {
-			ruling_party = despotism
-		}
-		
-		set_cosmetic_tag = SOV_maldorossi_regional
-		
-		set_country_flag = SOV_power_struggle_ended
-	}
-}
-
-country_event = {
-	id = sov_yezhovgang.1 ####OH FUCK	
-	immediate = { log = "[GetDateText]: [Root.GetName]: event yezhovgang.1" }
-	title = sov_yezhovgang.1.t
-	desc = sov_yezhovgang.1.d
-	picture = GFX_report_event_red_army_order
-	is_triggered_only = yes
-	
-	option = {
-		name = sov_yezhovgang.1.a
-		
-		#load_focus_tree = SOV_Yezhov_regional
-		
-		hidden_effect = {
-			kill_country_leader = yes
-			set_cosmetic_tag = SOV_yezhov_regional
-		}
-		
-		promote_character = SOV_nikolai_yezhov
-		
-		#remove_all_ministers = yes
-		
-		set_politics = {
-			ruling_party = bolshevism
-		}
 	}
 }
 
@@ -287,14 +219,13 @@ country_event = {
 
 country_event = {
 	id = sov_stalin.3 #Unification
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.3" }
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event sov_stalin.3"
+		set_country_flag = SOV_show_easter_egg_decision
+	}
 	title = sov_stalin.3.t
 	desc = sov_stalin.3.d
 	is_triggered_only = yes
-	
-	immediate = {
-		set_country_flag = SOV_show_easter_egg_decision
-	}
 	
 	option = {
 		name = sov_stalin.3.a
@@ -306,5 +237,115 @@ country_event = {
 		}
 		set_country_flag = SOV_united
 		load_focus_tree = SOV_stalin_united_tree
+	}
+}
+
+# Unified #
+news_event = {
+	id = sov_stalin.4 #Creation of Comintern
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.4" }
+	title = sov_stalin.4.t
+	desc = sov_stalin.4.d
+	is_triggered_only = yes
+	
+	option = {
+		name = sov_stalin.4.procommunist
+		trigger = {
+			ideology_socialist = yes
+		}
+	}
+	option = {
+		name = sov_stalin.4.neutral
+		trigger = {
+			OR = {
+				has_government = social_democrat
+				has_government = anarchist
+			}
+		}
+	}
+	option = {
+		name = sov_stalin.4.anticommunist
+		trigger = {
+			OR = {
+				AND = {
+					ideology_goofy_ahh = yes
+					NOT = { has_government = anarchist }
+				}
+				AND = {
+					ideology_liberal = yes
+					NOT = { has_government = social_democrat }
+				}
+				ideology_authoritarian = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = sov_stalin.5 #Invite to Comintern
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.3" }
+	title = sov_stalin.5.t
+	desc = sov_stalin.5.d
+	is_triggered_only = yes
+	
+	option = {
+		name = sov_stalin.5.accept
+		FROM = { add_to_faction = PREV }
+		
+		trigger = {
+			ROOT = { is_in_faction = no }
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_opinion = {
+					target = FROM
+					value > 9
+				}
+			}
+		}
+	}
+	option = {
+		name = sov_stalin.5.reject_friendly
+		trigger = {
+			has_opinion = {
+				target = FROM
+				value > -1
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_opinion = {
+					target = FROM
+					value < 10
+				}
+			}
+		}
+	}
+	option = {
+		name = sov_stalin.5.reject
+		reverse_add_opinion_modifier = {
+			target = FROM
+			modifier = faction_traitor
+		}
+		log = "THIS: [THIS.GetName], FROM: [FROM.GetName]"
+		trigger = {
+			has_opinion = {
+				target = FROM
+				value < 0
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_opinion = {
+					target = FROM
+					value < 0
+				}
+			}
+		}
 	}
 }

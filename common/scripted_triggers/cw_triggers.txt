@@ -1,0 +1,13 @@
+should_be_unfriendly_to_PREV = {
+	OR = {
+		is_enemy_ideology_of_PREV = yes
+		has_border_war_with = PREV
+		has_war_with = PREV
+		any_allied_country = {
+			has_war_with = PREV.PREV
+		}
+		any_guaranteed_country = {
+			has_war_with = PREV.PREV
+		}
+	}
+}

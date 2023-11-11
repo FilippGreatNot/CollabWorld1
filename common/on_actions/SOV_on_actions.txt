@@ -1,11 +1,9 @@
 on_actions = {
-	on_weekly_SOV = { #Fires unification event after, well, unification, for Stalin's path
+	on_weekly_SOV = { #Fires unification event after, well, unification, for the Stalin's path
 		effect = {
 			if = {
 				limit = {
-					NOT = {
-						has_country_flag = SOV_united
-					}
+					reunitied_russia = no
 					
 					has_focus_tree = SOV_stalin
 					
@@ -21,6 +19,25 @@ on_actions = {
 					FER = { PREV_controls_all_cores = yes }
 					KMP = { PREV_controls_all_cores = yes }
 					PBD = { PREV_controls_all_cores = yes }
+					
+					has_completed_focus = SOV_stalin_economical_autakry
+					OR = {
+						has_completed_focus = SOV_stalin_congratulations_on_the_promotion
+						has_completed_focus = SOV_stalin_tukhachevsky_case
+					}
+					has_completed_focus = SOV_stalin_trip_to_karelia
+					has_completed_focus = SOV_stalin_cut_off_the_second_head_of_the_hydra
+					has_completed_focus = SOV_stalin_drive_the_japanese_back
+					has_completed_focus = SOV_stalin_abandoned_admiral
+					has_completed_focus = SOV_stalin_old_comrade
+					has_completed_focus = SOV_stalin_resurrection_of_the_russian_fleet
+					has_completed_focus = SOV_stalin_newest_weapons
+					has_completed_focus = SOV_stalin_stalins_falcons
+					OR = {
+						has_completed_focus = SOV_stalin_power_expansion
+						has_completed_focus = SOV_stalin_reliable_mechanism
+						has_completed_focus = SOV_stalin_extraordinary_work
+					}
 				}
 				country_event = sov_stalin.3 #Unification
 			}

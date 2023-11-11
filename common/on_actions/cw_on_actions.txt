@@ -1,0 +1,22 @@
+on_actions = {
+	on_weekly = { #Make sure a country that wars the entire world wars the entire world
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = wages_war_with_everyone
+				}
+				every_other_country = {
+					limit = {
+						NOT = { is_ally_with = PREV }
+					}
+					ROOT = {
+						declare_war_on = {
+							target = PREV
+							type = puppet_wargoal_focus
+						}
+					}
+				}
+			}
+		}
+	}
+}
