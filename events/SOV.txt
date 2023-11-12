@@ -93,41 +93,37 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_unification.1.a #####Тухач Согласился
+		name = sov_unification.1.a
 		ai_chance = { factor = 90 }
-		SOV = {
-			annex_country = {
-				target = PBD
-				transfer_troops = yes 
+		
+		if = {
+			limit = {
+				SOV = {
+					has_focus_tree = SOV_stalin
+				}
+			}
+		
+			SOV = {
+				complete_national_focus = SOV_stalin_peaceful_integration		
 			}
 		}
 		
-		PBD = {
-			every_unit_leader = {
-				set_nationality = SOV
-			}
-			if = {
-				limit = {
-					SOV = {
-						has_country_leader = { character = SOV_joseph_stalin ruling_only = yes }
-					}
-				}
-		
+		if = {
+			limit = {
 				SOV = {
-					complete_national_focus = SOV_peaceful_integration		
+					has_country_leader = { character = SOV_alexander_bogdanov ruling_only = yes }
 				}
 			}
 			
-			if = {
-				limit = {
-					SOV = {
-						has_country_leader = { character = SOV_alexander_bogdanov ruling_only = yes }
-					}
-				}
-				
-				SOV = {
-					complete_national_focus = SOV_welcome_home_tukh
-				} 
+			SOV = {
+				complete_national_focus = SOV_welcome_home_tukh
+			} 
+		}
+		
+		SOV = {
+			annex_country = {
+				target = PREV
+				transfer_troops = yes 
 			}
 		}
 	}
@@ -137,7 +133,7 @@ country_event = {
 		ai_chance = { factor = 10 }
 		SOV = {
 			declare_war_on = {
-				target = PBD
+				target = PREV
 				type = annex_everything
 			}
 		}	
@@ -145,12 +141,12 @@ country_event = {
 		if = {
 			limit = {
 				SOV = {
-					has_country_leader = { character = SOV_joseph_stalin ruling_only = yes }
+					has_focus_tree = SOV_stalin
 				}
 			}
 			
 			SOV = {
-				complete_national_focus = SOV_teach_the_impudent_marshal_a_lesson
+				complete_national_focus = SOV_stalin_teach_the_impudent_marshal_a_lesson
 			} 
 		}
 	
@@ -171,7 +167,7 @@ country_event = {
 
 ### Stalin ###
 country_event = {
-	id = sov_stalin.1
+	id = sov_stalin.1 #NKBD leader
 	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.1" }
 	title = sov_stalin.1.t
 	desc = sov_stalin.1.d
@@ -182,8 +178,7 @@ country_event = {
 		name = sov_stalin.1.a
 		
 		add_ideas = SOV_lavrentiy_beria_sec 
-		
-		complete_national_focus = SOV_beria_leader
+		complete_national_focus = SOV_stalin_beria_leader
 	}
 	
 	
@@ -191,7 +186,7 @@ country_event = {
 		name = sov_stalin.1.b
 		
 		add_ideas = SOV_nikolai_yezhov_sec
-		complete_national_focus = SOV_yezhov_leader 		
+		complete_national_focus = SOV_stalin_yezhov_leader 		
 	}
 	
 	
@@ -199,8 +194,7 @@ country_event = {
 		name = sov_stalin.1.c
 		
 		add_ideas = SOV_gleb_bokii_sec 
-		
-		complete_national_focus = SOV_bokii_leader
+		complete_national_focus = SOV_stalin_bokii_leader
 	}
 }
 
@@ -214,6 +208,13 @@ country_event = {
 	
 	option = {
 		name = sov_stalin.2.a
+		
+		complete_national_focus = SOV_stalin_be_useful_by_skills
+	}
+	option = {
+		name = sov_stalin.2.b
+		
+		complete_national_focus = SOV_stalin_serve_the_cause_of_the_revolution_by_deed
 	}
 }
 
@@ -236,6 +237,11 @@ country_event = {
 			SOV_get_30s_stalin = yes
 		}
 		set_country_flag = SOV_united
+		set_party_name = {
+			ideology = bolshevism
+			name = SOV_kpss
+			long_name = SOV_kpss_long
+		}
 		load_focus_tree = SOV_stalin_united_tree
 	}
 }
