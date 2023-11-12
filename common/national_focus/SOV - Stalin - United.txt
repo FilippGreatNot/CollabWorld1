@@ -218,6 +218,11 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_the_lumpenproletariat_speaks_in_the_voice_of_the_party"
+			
+			swap_ideas = {
+				remove_idea = SOV_the_fear_of_opinion
+				add_idea = SOV_the_voice_of_lumpenproletariat
+			}
 		}
 	}
 	focus = {
@@ -232,6 +237,11 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_united_mass_politcorrectisation"
+			
+			swap_ideas = {
+				remove_idea = SOV_the_voice_of_lumpenproletariat
+				add_idea = SOV_politically_correct_society
+			}
 		}
 	}
 	
@@ -360,13 +370,17 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			PER = { PREV_controls_all_cores_or_is_ally = yes }
-			AFG = { PREV_controls_all_cores_or_is_ally = yes }
-			BGI = { PREV_controls_all_cores_or_is_ally = yes }
-			MSL = { PREV_controls_all_cores_or_is_ally = yes }
-			SAU = { PREV_controls_all_cores_or_is_ally = yes }
-			OMA = { PREV_controls_all_cores_or_is_ally = yes }
-			YEM = { PREV_controls_all_cores_or_is_ally = yes }
+			custom_trigger_tooltip = {
+				tooltip = every_previous_focus_country_defeated_tt
+				
+				PER = { PREV_controls_all_cores = yes }
+				AFG = { PREV_controls_all_cores = yes }
+				BGI = { PREV_controls_all_cores = yes }
+				MSL = { PREV_controls_all_cores = yes }
+				SAU = { PREV_controls_all_cores = yes }
+				OMA = { PREV_controls_all_cores = yes }
+				YEM = { PREV_controls_all_cores = yes }
+			}
 		}
 		
 		completion_reward = {
@@ -422,13 +436,17 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			PER = { PREV_controls_all_cores_or_is_ally = yes }
-			AFG = { PREV_controls_all_cores_or_is_ally = yes }
-			BGI = { PREV_controls_all_cores_or_is_ally = yes }
-			MSL = { PREV_controls_all_cores_or_is_ally = yes }
-			SAU = { PREV_controls_all_cores_or_is_ally = yes }
-			OMA = { PREV_controls_all_cores_or_is_ally = yes }
-			YEM = { PREV_controls_all_cores_or_is_ally = yes }
+			custom_trigger_tooltip = {
+				tooltip = every_previous_focus_country_defeated_tt
+				
+				PER = { PREV_controls_all_cores = yes }
+				AFG = { PREV_controls_all_cores = yes }
+				BGI = { PREV_controls_all_cores = yes }
+				MSL = { PREV_controls_all_cores = yes }
+				SAU = { PREV_controls_all_cores = yes }
+				OMA = { PREV_controls_all_cores = yes }
+				YEM = { PREV_controls_all_cores = yes }
+			}
 		}
 		
 		completion_reward = {
@@ -452,13 +470,17 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			PER = { PREV_controls_all_cores = yes }
-			AFG = { PREV_controls_all_cores = yes }
-			BGI = { PREV_controls_all_cores = yes }
-			MSL = { PREV_controls_all_cores = yes }
-			SAU = { PREV_controls_all_cores = yes }
-			OMA = { PREV_controls_all_cores = yes }
-			YEM = { PREV_controls_all_cores = yes }
+			custom_trigger_tooltip = {
+				tooltip = every_previous_focus_country_defeated_tt
+				
+				PER = { PREV_controls_all_cores = yes }
+				AFG = { PREV_controls_all_cores = yes }
+				BGI = { PREV_controls_all_cores = yes }
+				MSL = { PREV_controls_all_cores = yes }
+				SAU = { PREV_controls_all_cores = yes }
+				OMA = { PREV_controls_all_cores = yes }
+				YEM = { PREV_controls_all_cores = yes }
+			}
 		}
 		
 		completion_reward = {
@@ -574,19 +596,23 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			all_other_country = {
-				OR = {
-					PREV_controls_all_cores_or_is_ally = yes
-					is_german_tag = no
+			custom_trigger_tooltip = {
+				tooltip = every_previous_focus_country_defeated_tt
+				
+				all_other_country = {
+					OR = {
+						PREV_controls_all_cores_or_is_ally = yes
+						is_german_tag = no
+					}
 				}
+				FIN = { PREV_controls_all_cores_or_is_ally = yes }
+				NOR = { PREV_controls_all_cores_or_is_ally = yes }
+				SWE = { PREV_controls_all_cores_or_is_ally = yes }
+				CZE = { PREV_controls_all_cores_or_is_ally = yes }
+				AUS = { PREV_controls_all_cores_or_is_ally = yes }
+				HUN = { PREV_controls_all_cores_or_is_ally = yes }
+				DEN = { PREV_controls_all_cores_or_is_ally = yes }
 			}
-			FIN = { PREV_controls_all_cores_or_is_ally = yes }
-			NOR = { PREV_controls_all_cores_or_is_ally = yes }
-			SWE = { PREV_controls_all_cores_or_is_ally = yes }
-			CZE = { PREV_controls_all_cores_or_is_ally = yes }
-			AUS = { PREV_controls_all_cores_or_is_ally = yes }
-			HUN = { PREV_controls_all_cores_or_is_ally = yes }
-			DEN = { PREV_controls_all_cores_or_is_ally = yes }
 		}
 		
 		completion_reward = {
@@ -638,12 +664,22 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			ROM = { PREV_controls_all_cores_or_is_ally = yes }
-			BUL = { PREV_controls_all_cores_or_is_ally = yes }
-			YUG = { PREV_controls_all_cores_or_is_ally = yes }
-			ALB = { PREV_controls_all_cores_or_is_ally = yes }
-			GRE = { PREV_controls_all_cores_or_is_ally = yes }
-			ITA = { PREV_controls_all_cores_or_is_ally = yes }
+			custom_trigger_tooltip = {
+				tooltip = every_previous_focus_country_defeated_tt
+				
+				all_other_country = {
+					OR = {
+						PREV_controls_all_cores_or_is_ally = yes
+						is_german_tag = no
+					}
+				}
+				ROM = { PREV_controls_all_cores_or_is_ally = yes }
+				BUL = { PREV_controls_all_cores_or_is_ally = yes }
+				YUG = { PREV_controls_all_cores_or_is_ally = yes }
+				ALB = { PREV_controls_all_cores_or_is_ally = yes }
+				GRE = { PREV_controls_all_cores_or_is_ally = yes }
+				ITA = { PREV_controls_all_cores_or_is_ally = yes }
+			}
 		}
 		
 		completion_reward = {
@@ -690,13 +726,17 @@ focus_tree = {
 		y = 1
 		
 		available = {
-			LUX = { PREV_controls_all_cores_or_is_ally = yes }
-			BEL = { PREV_controls_all_cores_or_is_ally = yes }
-			HOL = { PREV_controls_all_cores_or_is_ally = yes }
-			FRA = { PREV_controls_all_cores_or_is_ally = yes }
-			SWI = { PREV_controls_all_cores_or_is_ally = yes }
-			SPR = { PREV_controls_all_cores_or_is_ally = yes }
-			POR = { PREV_controls_all_cores_or_is_ally = yes }
+			custom_trigger_tooltip = {
+				tooltip = every_previous_focus_country_defeated_tt
+				
+				LUX = { PREV_controls_all_cores_or_is_ally = yes }
+				BEL = { PREV_controls_all_cores_or_is_ally = yes }
+				HOL = { PREV_controls_all_cores_or_is_ally = yes }
+				FRA = { PREV_controls_all_cores_or_is_ally = yes }
+				SWI = { PREV_controls_all_cores_or_is_ally = yes }
+				SPR = { PREV_controls_all_cores_or_is_ally = yes }
+				POR = { PREV_controls_all_cores_or_is_ally = yes }
+			}
 		}
 		
 		completion_reward = {
