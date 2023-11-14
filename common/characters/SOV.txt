@@ -9,7 +9,7 @@ characters = {
 		}
 		country_leader = {
 			ideology = marxism_leninism
-			traits = { leader_of_the_proletariat }
+			traits = { SOV_leader_of_the_proletariat }
 			desc = "POLITICS_LENIN_DESC"
 		}
 	}
@@ -22,7 +22,7 @@ characters = {
 		}
 		country_leader = {
 			ideology = leninist_pragmatism
-			traits = { man_of_steel }
+			traits = { SOV_man_of_steel }
 		}
 	}
 	SOV_alexander_bogdanov = {
@@ -49,20 +49,7 @@ characters = {
 		country_leader = {
 			desc = "POLITICS_MARIA_SPIRIDONOVA_DESC"
 			ideology = sr_maximalism
-			traits = { valkyrie_of_the_revolution }
-		}
-	}
-	SOV_genrikh_yagoda = {
-		name = SOV_genrikh_yagoda
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/SOV/SOV_genrikh_yagoda.dds"
-			}
-		}
-		country_leader = {
-			ideology = blanquism
-			desc = "POLITICS_GENRIKH_YAGODA_DESC"
-			traits = { man_from_the_cheka }
+			traits = { SOV_valkyrie_of_the_revolution }
 		}
 	}
 	SOV_ivan_prokhanov = {
@@ -75,7 +62,7 @@ characters = {
 		country_leader = {
 			ideology = christian_socialism
 			desc = "POLITICS_IVAN_PROKHANOV_DESC"
-			traits = { religious_socialist }
+			traits = { SOV_religious_socialist }
 		}
 	}
 	SOV_nikolay_ustryalov = {
@@ -177,53 +164,14 @@ characters = {
 			slot = economy_minister
 			idea_token = SOV_nikolai_bukharin_ec
 			traits = { SOV_market_reformist }
+			can_be_fired = no
 			available = {
 				hidden_trigger = { has_character_flag = allowed_as_advisor }
 			}
 		}
 		country_leader = {
-			ideology = market_socialism
-			traits = { }
+			ideology = market_socialism	
 			desc = "POLITICS_NIKOLAI_BUKHARIN_DESC"
-		}
-	}
-	SOV_alexei_gastev = {
-		name = SOV_alexei_gastev
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/SOV/SOV_alexei_gastev.dds"
-				small = "GFX_idea_SOV_Alexei_Gastev"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = SOV_alexei_gastev_ec
-			traits = { proletkultist }
-			allowed = { always = no } #Unused right now
-		}
-		country_leader = {
-			ideology = technocratic_socialism
-			desc = "POLITICS_ALEKSEI_GASTEV_DESC"
-		}
-	}
-	SOV_nikolai_yezhov = {
-		name = SOV_nikolai_yezhov
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/SOV/SOV_nikolai_yezhov.dds"
-				small = "GFX_idea_SOV_nikolai_yezhov"
-			}
-		}
-		advisor = {
-			slot = security_minister
-			idea_token = SOV_nikolai_yezhov_sec
-			traits = { iron_gloves }
-			allowed = { always = no } #Unused right now
-		}
-		country_leader = {
-			ideology = stratocratic_bolshevism
-			desc = "POLITICS_NIKOLAI_YEZHOV_DESC"
-			traits = { war_veteran militarist dictator }
 		}
 	}
 	SOV_felix_dzerzhinsky = {
@@ -237,7 +185,8 @@ characters = {
 		advisor = {
 			slot = security_minister
 			idea_token = SOV_felix_dzerzhinsky_sec
-			traits = { iron_phoenix }
+			traits = { SOV_iron_phoenix }
+			can_be_fired = no
 			allowed = {
 				NOT = { has_character_flag = retired }
 			}
@@ -245,15 +194,209 @@ characters = {
 		country_leader = {
 			ideology = stratocratic_bolshevism
 			desc = "POLITICS_FELIX_DZERZHINSKY_DESC"
-			traits = { iron_phoenix }
+			traits = { SOV_iron_phoenix }
 		}
 	}
-	SOV_leon_trotsky = { #Umm acshually he is a no-role charater :nerd:, but he lives here because he doesn't need his own header
+	SOV_leon_trotsky = { #Umm actshually he is a no-role charater :nerd:, but he lives here because he doesn't need his own header (his roles are assigned in the code... probably)
 		name = SOV_leon_trotsky
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/SOV/SOV_leon_trotsky.dds"
 			}
+		}
+	}
+	
+	### Ministers ###
+	## Head of government ##
+	SOV_alexei_rykov = {
+		name = SOV_alexei_rykov
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Alexei_Rykov"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = SOV_alexei_rykov_hog
+			traits = { skilled_ruler }
+			can_be_fired = no
+		}
+	}
+	SOV_vyacheslav_molotov = {
+		name = SOV_vyacheslav_molotov
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Vyacheslav_Molotov"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = SOV_Vyacheslav_Molotov_hog
+			traits = { SOV_faithful_stalinist }
+			can_be_fired = no
+		}
+	}
+	SOV_abram_ioffe = {
+		name = SOV_abram_ioffe
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_abram_ioffe"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = SOV_abram_ioffe_hog
+			traits = { physics_scientist }
+			can_be_fired = no
+		}
+	}
+	
+	## Security minister ##
+	SOV_lavrentiy_beria = {
+		name = SOV_lavrentiy_beria
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Beria"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = SOV_lavrentiy_beria_sec
+			traits = { SOV_vanguard_reformist }
+			can_be_fired = no
+		}
+	}
+	SOV_gleb_bokii = {
+		name = SOV_gleb_bokii
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_gleb_bokii"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = SOV_gleb_bokii_sec
+			traits = { occultist }
+			can_be_fired = no
+		}
+	}
+	SOV_trofim_lysenko = {
+		name = SOV_trofim_lysenko
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Trofim_Lysenko"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = SOV_trofim_lysenko_sec
+			traits = { }
+			can_be_fired = no
+		}
+	}
+	SOV_nikolai_yezhov = {
+		name = SOV_nikolai_yezhov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/SOV_nikolai_yezhov.dds"
+				small = "GFX_idea_SOV_nikolai_yezhov"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = SOV_nikolai_yezhov_sec
+			traits = { SOV_iron_gloves }
+			can_be_fired = no
+		}
+	}
+	
+	## Economy minister ##
+	SOV_alexei_gastev = {
+		name = SOV_alexei_gastev
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/SOV_alexei_gastev.dds"
+				small = "GFX_idea_SOV_Alexei_Gastev"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = SOV_alexei_gastev_ec
+			traits = { proletkultist }
+			can_be_fired = no
+			allowed = { always = no } #Unused right now
+		}
+	}
+	SOV_gleb_krzhizhanovsky = {
+		name = SOV_gleb_krzhizhanovsky
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Gleb_Krzhizhanovsky"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = SOV_gleb_krzhizhanovsky_ec
+			traits = { SOV_energy_scientist }
+			can_be_fired = no
+		}
+	}
+	SOV_valerian_kuybyshev = {
+		name = SOV_valerian_kuybyshev
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Valerian_Kuybyshev"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = SOV_valerian_kuybyshev_ec
+			traits = { SOV_hardline_planner }
+			can_be_fired = no
+		}
+	}
+	
+	## Propaganda minister ##
+	SOV_ruben_katanyan = {
+		name = SOV_ruben_katanyan
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Ruben_Katanyan"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = SOV_ruben_katanyan_pro
+			traits = { SOV_man_from_the_cheka }
+			can_be_fired = no
+		}
+	}
+	SOV_mikhail_bulgakov = {
+		name = SOV_mikhail_bulgakov
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Mikhail_Bulgakov"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = SOV_mikhail_bulgakov_pro
+			traits = { SOV_science_fiction_writer }
+			can_be_fired = no
+		}
+	}
+	SOV_vladimir_mayakovsky = {
+		name = SOV_vladimir_mayakovsky
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SOV_Vladimir_Mayakovsky"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = SOV_vladimir_mayakovsky_pro
+			traits = { SOV_science_fiction_writer }
+			can_be_fired = no
 		}
 	}
 	
@@ -480,195 +623,6 @@ characters = {
 			logistics_skill = 2
 			
 			traits = { armor_officer harsh_leader politically_connected }
-		}
-	}
-	
-	
-	### Ministers ###
-	## Head of government ##
-	SOV_alexei_rykov = {
-		name = SOV_alexei_rykov
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Alexei_Rykov"
-			}
-		}
-		advisor = {
-			slot = head_of_government
-			idea_token = SOV_alexei_rykov_hog
-			traits = { skilled_ruler }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-	SOV_vyacheslav_molotov = {
-		name = SOV_vyacheslav_molotov
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Vyacheslav_Molotov"
-			}
-		}
-		advisor = {
-			slot = head_of_government
-			idea_token = SOV_Vyacheslav_Molotov_hog
-			traits = { faithful_stalinist }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-	SOV_abram_ioffe = {
-		name = SOV_abram_ioffe
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_abram_ioffe"
-			}
-		}
-		advisor = {
-			slot = head_of_government
-			idea_token = SOV_abram_ioffe_hog
-			traits = { physics_scientist }
-			can_be_fired = no
-		}
-	}
-	
-	## Security minister ##
-	SOV_lavrentiy_beria = {
-		name = SOV_lavrentiy_beria
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Beria"
-			}
-		}
-		advisor = {
-			slot = security_minister
-			idea_token = SOV_lavrentiy_beria_sec
-			traits = { vanguard_reformist }
-			can_be_fired = no
-		}
-	}
-	SOV_gleb_bokii = {
-		name = SOV_gleb_bokii
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_gleb_bokii"
-			}
-		}
-		advisor = {
-			slot = security_minister
-			idea_token = SOV_gleb_bokii_sec
-			traits = { occultist }
-			can_be_fired = no
-		}
-	}
-	SOV_trofim_lysenko = {
-		name = SOV_trofim_lysenko
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Trofim_Lysenko"
-			}
-		}
-		advisor = {
-			slot = security_minister
-			idea_token = SOV_trofim_lysenko_sec
-			traits = { headstrong }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-	
-	## Economy minister ##
-	SOV_gleb_krzhizhanovsky = {
-		name = SOV_gleb_krzhizhanovsky
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Gleb_Krzhizhanovsky"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = SOV_gleb_krzhizhanovsky_ec
-			traits = { energy_scientist }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-	SOV_valerian_kuybyshev = {
-		name = SOV_valerian_kuybyshev
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Valerian_Kuybyshev"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = SOV_valerian_kuybyshev_ec
-			traits = { hardline_planner }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-
-	
-	## Propaganda minister ##
-	SOV_ruben_katanyan = {
-		name = SOV_ruben_katanyan
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Ruben_Katanyan"
-			}
-		}
-		advisor = {
-			slot = propaganda_minister
-			idea_token = SOV_ruben_katanyan_pro
-			traits = { man_from_the_cheka }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-	SOV_mikhail_bulgakov = {
-		name = SOV_mikhail_bulgakov
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Mikhail_Bulgakov"
-			}
-		}
-		advisor = {
-			slot = propaganda_minister
-			idea_token = SOV_mikhail_bulgakov_pro
-			traits = { science_fiction_writer }
-			can_be_fired = no
-			visible = {
-				
-			}
-		}
-	}
-	SOV_vladimir_mayakovsky = {
-		name = SOV_vladimir_mayakovsky
-		portraits = {
-			civilian = {
-				small = "GFX_idea_SOV_Vladimir_Mayakovsky"
-			}
-		}
-		advisor = {
-			slot = propaganda_minister
-			idea_token = SOV_vladimir_mayakovsky_pro
-			traits = { science_fiction_writer }
-			can_be_fired = no
-			visible = {
-				
-			}
 		}
 	}
 }

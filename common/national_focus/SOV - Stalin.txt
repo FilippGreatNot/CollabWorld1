@@ -445,7 +445,7 @@ focus_tree = {
 			LAT = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 		}
@@ -700,7 +700,7 @@ focus_tree = {
 			KAR = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 		}
@@ -756,14 +756,14 @@ focus_tree = {
 			SRF = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 			
 			UKR = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 		}
@@ -883,21 +883,21 @@ focus_tree = {
 			RUS = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			} 
 			
 			FER = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 			
 			KMP = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 			
@@ -1064,7 +1064,7 @@ focus_tree = {
 			OCG = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 		}
@@ -1104,7 +1104,7 @@ focus_tree = {
 			KAZ = {
 				every_core_state = {
 					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 		}
@@ -1139,8 +1139,7 @@ focus_tree = {
 			}
 			KYR = {
 				every_core_state = {
-					tooltip = every_core_state_tt
-					add_claim_by = SOV
+					add_core_of = SOV
 				}
 			}
 		}
@@ -1218,6 +1217,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_beria_leader"
+			
+			activate_advisor = SOV_lavrentiy_beria_sec
 		}
 	}
 	focus = {
@@ -1236,9 +1237,20 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		available = {
+			has_political_power > 50
+		}
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_power_expansion"
+			
+			add_political_power = -50
+			add_tech_bonus = {
+				bonus = 1
+				uses = 3
+				category = construction_tech
+				name = SOV_stalin_beria_leader
+			}
 		}
 	}
 	
@@ -1268,6 +1280,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_yezhov_leader"
+			
+			activate_advisor = SOV_nikolai_yezhov_sec
 		}
 	}
 	focus = {
@@ -1286,8 +1300,15 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		available = {
+			has_political_power > 25
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_reliable_mechanism"
+			
+			add_political_power = -25
+			add_stability = 0.2
 		}
 	}
 	
@@ -1319,6 +1340,8 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_yezhov_leader"
+			
+			activate_advisor = SOV_gleb_bokii_sec
 		}
 	}
 	focus = {
@@ -1337,8 +1360,34 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		available = {
+			has_political_power > 100
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_stalin_extraordinary_work"
+			
+			add_political_power = -100
+			add_stability = -0.025
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 3
+				category = electronics
+				name = SOV_stalin_bokii_leader
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = nuclear
+				name = SOV_stalin_bokii_leader
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = rocketry
+				name = SOV_stalin_bokii_leader
+			}
 		}
 	}
 	
