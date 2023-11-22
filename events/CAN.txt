@@ -1,53 +1,33 @@
 add_namespace = canada
 
-
-
 country_event = { #####CPGB-ML COUP
 	id = canada.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event canada.1" }
 	title = canada.1.t
 	desc = canada.1.d
-#	picture = GFX_report_event_valknut
 	is_triggered_only = yes
 
 	option = {
 		name = canada.1.a
 		
-		
-		
-	hidden_effect = {
-	
-
-	
+		hidden_effect = {
 			kill_country_leader = yes
 			set_cosmetic_tag = CAN_ENGBOL
 			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.15
+			}
 			
-		add_popularity = {
-			ideology = bolshevism
-			popularity = 0.15
-		}
-		
-		
-		set_politics = {
-			ruling_party = bolshevism
-		}
-		
-		create_country_leader = {
-			name = "Willie Gallacher"
-			desc = "POLITICS_WILLIE_GALLACHER_DESC"
-			picture = "gfx/leaders/CAN/Portrait_CAN_Willie_Gallacher.tga"
-			expire = "1965.1.1"
-			ideology = english_bolshevism
-			
-			traits = {
-			
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			create_country_leader = {
+				name = "Willie Gallacher"
+				desc = "POLITICS_WILLIE_GALLACHER_DESC"
+				picture = "gfx/leaders/CAN/Portrait_CAN_Willie_Gallacher.tga"
+				ideology = english_bolshevism
 			}
 		}
 	}
-	
-#	custom_effect_tooltip = rise_of_valkism
-	
-}
-
 }
