@@ -55,7 +55,9 @@
 			
 			add_war_support = 0.05
 			
-			add_political_power = -25
+			add_political_power = -50
+			
+			army_experience = 10
 			
 			add_ideas = {
 				ENG_reforming_armed_forces
@@ -262,8 +264,133 @@
 			add_political_power = 50
 			remove_ideas = {
 			    ENG_his_majestys_royal_resistance4
+				ENG_his_majestys_royal_resistance3
+				ENG_his_majestys_royal_resistance2
+				ENG_his_majestys_royal_resistance
 			}
 		
+		}
+	}
+	
+	focus = {
+		id = ENG_department_of_truth
+		icon = GFX_goal_FRA_illuminati_spy
+		x = -5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_squash_the_uprising
+		prerequisite = {
+			focus = ENG_squash_the_uprising
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+
+			
+			add_stability = 0.05
+			
+			add_political_power = -50
+			
+			add_ideas = {
+				ENG_british_department_of_truth
+			}
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_use_great_war_guns
+		icon = GFX_goal_ENG_gun_production
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_the_future_of_the_british_army
+		prerequisite = {
+			focus = ENG_the_future_of_the_british_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+
+			
+			army_experience = 15
+			
+			add_political_power = -25
+			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = ENG
+			}
+			
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_reorganize_chain_of_command
+		icon = GFX_focus_SOV_first_the_outcome_of_half_revolution
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_use_great_war_guns
+		prerequisite = {
+			focus = ENG_use_great_war_guns
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+			
+			add_political_power = -25
+			
+			swap_ideas = {
+				remove_idea = ENG_reforming_armed_forces
+				add_idea = ENG_reforming_armed_forces2
+			}
+			
+		
+		}
+	}
+	
+	focus = {
+		id = ENG_review_navy
+		icon = none
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		relative_position_id = ENG_the_future_of_the_british_army
+		prerequisite = {
+			focus = ENG_the_future_of_the_british_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+
+			navy_experience = 25
+			add_command_power = 15
+			
 		}
 	}
 }
