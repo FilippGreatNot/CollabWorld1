@@ -14,7 +14,7 @@
 		id = ENG_fullers_britain
 		icon = GFX_goal_ENG_amongus
 		x = 6
-		y = 1
+		y = 0
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -24,9 +24,7 @@
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus ENG_fullers_britain"
 			
-			add_war_support = 0.05
-			
-			add_stability = 0.05
+			add_stability = -0.05
 			
 			add_political_power = 50
 			
@@ -38,188 +36,41 @@
 		}
 	}
 	
-	focus = {
-		id = ENG_britons_never_slaves
-		icon = GFX_goal_ENG_britons_never_slaves
-		x = 2
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		mutually_exclusive = {
-			focus = ENG_against_degeneracy
-		}
-		
-		relative_position_id = ENG_fullers_britain
-		prerequisite = {
-			focus = ENG_fullers_britain
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
-			
-			add_war_support = 0.05
-			
-			add_stability = 0.05
-			
-			add_political_power = 50
-			
-		
-		}
-	}
+	
 	
 	focus = {
-		id = ENG_contact_exiles
-		icon = GFX_goal_ENG_contact_exiles
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		relative_position_id = ENG_britons_never_slaves
-		prerequisite = {
-			focus = ENG_britons_never_slaves
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
-			
-			add_war_support = 0.05
-			
-			add_stability = 0.05
-			
-			add_political_power = 50
-
-		}
-	}
-	
-	focus = {
-		id = ENG_loyalists_in_military
+		id = ENG_the_future_of_the_british_army
 		icon = GFX_goal_ENG_loyalists_in_military
-		x = 0
-		y = 1
+		x = 20
+		y = 0
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
 		
-		relative_position_id = ENG_contact_exiles
-		prerequisite = {
-			focus = ENG_contact_exiles
-		}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
 			
 			add_war_support = 0.05
 			
-			add_stability = 0.05
+			add_political_power = -25
 			
-			add_political_power = 50
+			add_ideas = {
+				ENG_reforming_armed_forces
+			}
 
 		}
 	}
 	
-	focus = {
-		id = ENG_uprising_begin
-		icon = GFX_goal_ENG_uprising_begin
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		relative_position_id = ENG_loyalists_in_military
-		prerequisite = {
-			focus = ENG_loyalists_in_military
-		}
-		prerequisite = {
-			focus = ENG_red_flag
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
-			
-			add_war_support = 0.05
-			
-			add_stability = 0.05
-			
-			add_political_power = 50
 
-		}
-	}
-	
-	focus = {
-		id = ENG_popular_support
-		icon = GFX_goal_ENG_popular_support
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		relative_position_id = ENG_britons_never_slaves
-		prerequisite = {
-			focus = ENG_britons_never_slaves
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
-			
-			add_war_support = 0.05
-			
-			add_stability = 0.05
-			
-			add_political_power = 50
-
-		}
-	}
-	
-	focus = {
-		id = ENG_red_flag
-		icon = GFX_goal_ENG_red_flag
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		relative_position_id = ENG_popular_support
-		prerequisite = {
-			focus = ENG_popular_support
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
-			
-			add_war_support = 0.05
-			
-			add_stability = 0.05
-			
-			add_political_power = 50
-
-		}
-	}
-	
 	focus = {
 		id = ENG_against_degeneracy
 		icon = GFX_goal_ENG_against_degeneracy
-		x = -2
+		x = 0
 		y = 1
-		cost = 5
+		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -239,9 +90,10 @@
 			
 			add_war_support = 0.05
 			
-			add_stability = 0.05
-			
-			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ENG_his_majestys_royal_resistance
+				add_idea = ENG_his_majestys_royal_resistance2
+			}
 			
 		
 		}
@@ -266,11 +118,12 @@
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
 			
-			add_war_support = 0.05
+			add_political_power = -50
 			
-			add_stability = 0.05
-			
-			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ENG_his_majestys_royal_resistance2
+				add_idea = ENG_his_majestys_royal_resistance3
+			}
 			
 		
 		}
@@ -279,27 +132,32 @@
 	focus = {
 		id = ENG_radicals
 		icon = GFX_goal_ENG_radicals
-		x = 0
+		x = -3
 		y = 1
-		cost = 5
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
 		
-		relative_position_id = ENG_purge_military
+		relative_position_id = ENG_against_degeneracy
 		prerequisite = {
-			focus = ENG_purge_military
+			focus = ENG_against_degeneracy
 		}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
 			
-			add_war_support = 0.05
+			add_war_support = 0.02
 			
-			add_stability = 0.05
+			add_stability = -0.01
 			
-			add_political_power = 50
+			add_political_power = 15
+			
+			add_popularity = {
+					ideology = esotericism
+					popularity = 0.02
+				}
 			
 		
 		}
@@ -308,7 +166,7 @@
 	focus = {
 		id = ENG_arrest_dissidents
 		icon = GFX_goal_ENG_arrest_dissidents
-		x = 1many
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -324,11 +182,14 @@
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
 			
-			add_war_support = 0.05
+			add_stability = -0.01
 			
-			add_stability = 0.05
+			add_political_power = -10
 			
-			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ENG_his_majestys_royal_resistance3
+				add_idea = ENG_his_majestys_royal_resistance4
+			}
 			
 		
 		}
@@ -337,27 +198,29 @@
 	focus = {
 		id = ENG_shoot_reds
 		icon = GFX_goal_ENG_shoot_reds
-		x = 0
+		x = 3
 		y = 1
-		cost = 5
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
 		
-		relative_position_id = ENG_arrest_dissidents
+		relative_position_id = ENG_against_degeneracy
 		prerequisite = {
-			focus = ENG_arrest_dissidents
+			focus = ENG_against_degeneracy
 		}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+
 			
-			add_war_support = 0.05
+			add_stability = -0.02
 			
-			add_stability = 0.05
-			
-			add_political_power = 50
+			add_popularity = {
+					ideology = bolshevism
+					popularity = -0.05
+				}
 			
 		
 		}
@@ -366,9 +229,9 @@
 	focus = {
 		id = ENG_squash_the_uprising
 		icon = GFX_goal_ENG_squash_the_uprising
-		x = -1
+		x = -3
 		y = 1
-		cost = 5
+		cost = 7
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -381,6 +244,13 @@
 		prerequisite = {
 			focus = ENG_radicals
 		}
+		prerequisite = {
+			focus = ENG_purge_military
+		}
+		prerequisite = {
+			focus = ENG_arrest_dissidents
+		}
+		
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
@@ -390,7 +260,9 @@
 			add_stability = 0.05
 			
 			add_political_power = 50
-			
+			remove_ideas = {
+			    ENG_his_majestys_royal_resistance4
+			}
 		
 		}
 	}
