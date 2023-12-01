@@ -1,0 +1,68 @@
+# this mtth entries can be used as variables
+# example set_variable = { a = mtth:entry_name }
+# and define entry_name here
+#
+# entry_name = {
+# 	base = 50
+# 	
+# 	modifier = {
+# 		tag = GER
+# 		add = 50
+# 	}
+# }
+
+#state_development = { #How much economy a state has
+#	base = 0
+#	modifier = {
+#		add = mtth:state_civilian_economy
+#	}
+#	modifier = {
+#		add = mtth:state_military_economy
+#	}
+#	modifier = {
+#		add = mtth:state_infrastructure
+#	}
+#}
+#state_civilian_economy = { #Currently not needed, but it can change later
+#	base = 1
+#	modifier = {
+#		factor = non_damaged_building_level@industrial_complex
+#	}
+#}
+#state_military_economy = {
+#	base = 1.5
+#	modifier = {
+#		factor = non_damaged_building_level@arms_factory
+#	}
+#}
+#state_infrastructure = {
+#	base = 0.5
+#	modifier = {
+#		factor = non_damaged_building_level@infrastructure
+#	}
+#}
+
+militia_amount = { #I'm just addicted to MTTH variables at this point
+	modifier = {
+		factor = state_strategic_value
+	}
+	modifier = {
+		factor = 0.1
+	}
+}
+infantry_amount = {
+	modifier = {
+		factor = state_strategic_value
+	}
+	modifier = {
+		factor = 0.05
+	}
+}
+tank_amount = {
+	modifier = {
+		factor = state_strategic_value
+	}
+	modifier = {
+		factor = 0.005 #They were very rare then and there
+	}
+}

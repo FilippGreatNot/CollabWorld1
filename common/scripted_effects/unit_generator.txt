@@ -1,0 +1,167 @@
+generate_units = {
+	### Adding templates ###
+	if = {
+		limit = {
+			has_tech = infantry_weapons
+			has_tech = tech_support
+			has_tech = tech_engineers
+			has_tech = tech_recon
+		}
+		division_template = {
+			name = "Infantry Division" #An OK (I hope...) infantry template
+			
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				artillery_brigade = { x = 0 y = 3 }
+				
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				artillery_brigade = { x = 1 y = 3 }
+			}
+			
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon  = { x = 0 y = 1 }
+			}
+		}
+		division_template = {
+			name = "Cavalry Division" #This is not pones, also I think this is shit but I don't know how to play this game lol
+			
+			regiments = {
+				cavalry = { x = 0 y = 0 }
+				cavalry = { x = 0 y = 1 }
+				cavalry = { x = 0 y = 2 }
+				
+				cavalry = { x = 1 y = 0 }
+				cavalry = { x = 1 y = 1 }
+				cavalry = { x = 1 y = 2 }
+			}
+			
+			support = {
+				artillery = { x = 0 y = 0 }
+				recon  = { x = 0 y = 1 }
+			}
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_tech = gwtank_chassis
+				has_tech = gwtank
+			}
+		}
+		division_template = {
+			name = "Armoured Division" #Tonk my beloved
+			#I didn't research the interbellum tank doctrine at all to be honest, but I see it like this and it looks funny, so let it be
+			regiments = {
+				light_armor = { x = 0 y = 0 }
+				light_armor = { x = 0 y = 1 }
+				light_armor = { x = 0 y = 2 }
+				
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+			}
+			
+			support = {
+				#Idk what to add here
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_tech = infantry_weapons
+		}
+		division_template = {
+			name = "Militia Brigade" #A stupid template that can only paint land (and cav still outperforms this in it)
+			
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+			}
+		}
+		division_template = {
+			name = "Cavalry Brigade" #POV: Mongolia is going to paint da world
+			
+			regiments = {
+				cavalry = { x = 0 y = 0 }
+				cavalry = { x = 0 y = 1 }
+				cavalry = { x = 0 y = 2 }
+			}
+		}
+	}
+	
+	every_owned_state = {
+		if = {
+			limit = {
+				check_variable = { state_strategic_value < 20 } #Cannon fodder
+			}
+			for_loop_effect = {
+				end = mtth:militia_amount
+				start = 1 #We start at 1 since we don't really need to have that 1 div for completely pissed states
+				compare = less_than_or_equals
+				
+				create_unit = {
+					division = "division_template = \"Militia Brigade\""
+					owner = PREV
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				state_strategic_value < 40 #We can have some Mongolia
+			}
+			for_loop_effect = {
+				end = mtth:militia_amount
+				start = 1
+				compare = less_than_or_equals
+				
+				create_unit = {
+					division = "division_template = \"Cavalry Brigade\""
+					owner = PREV
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				state_strategic_value < 200 #Finally good divisions
+			}
+			for_loop_effect = {
+				end = mtth:infantry_amount
+				start = 1
+				compare = less_than_or_equals
+				
+				create_unit = {
+					division = "division_template = \"Infantry Division\""
+					owner = PREV
+				}
+			}
+		}
+		else = { #We're rich
+			for_loop_effect = {
+				end = mtth:infantry_amount
+				start = 1
+				compare = less_than_or_equals
+				
+				create_unit = {
+					division = "division_template = \"Infantry Division\""
+					owner = PREV
+				}
+			}
+			for_loop_effect = {
+				end = mtth:tank_amount
+				start = 0 #But now we want to have at least 1 since we're rich
+				compare = less_than_or_equals
+				
+				create_unit = {
+					division = "division_template = \"Armoured Division\""
+					owner = PREV
+				}
+			}
+		}
+	}
+}
