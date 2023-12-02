@@ -27,24 +27,6 @@ generate_units = {
 				recon  = { x = 0 y = 1 }
 			}
 		}
-		division_template = {
-			name = "Cavalry Division" #This is not pones, also I think this is shit but I don't know how to play this game lol
-			
-			regiments = {
-				cavalry = { x = 0 y = 0 }
-				cavalry = { x = 0 y = 1 }
-				cavalry = { x = 0 y = 2 }
-				
-				cavalry = { x = 1 y = 0 }
-				cavalry = { x = 1 y = 1 }
-				cavalry = { x = 1 y = 2 }
-			}
-			
-			support = {
-				artillery = { x = 0 y = 0 }
-				recon  = { x = 0 y = 1 }
-			}
-		}
 	}
 	if = {
 		limit = {
@@ -84,21 +66,12 @@ generate_units = {
 				infantry = { x = 0 y = 2 }
 			}
 		}
-		division_template = {
-			name = "Cavalry Brigade" #POV: Mongolia is going to paint da world
-			
-			regiments = {
-				cavalry = { x = 0 y = 0 }
-				cavalry = { x = 0 y = 1 }
-				cavalry = { x = 0 y = 2 }
-			}
-		}
 	}
 	
 	every_owned_state = {
 		if = {
 			limit = {
-				check_variable = { state_strategic_value < 20 } #Cannon fodder
+				check_variable = { state_strategic_value < 30 } #Cannon fodder
 			}
 			for_loop_effect = {
 				end = mtth:militia_amount
@@ -107,21 +80,6 @@ generate_units = {
 				
 				create_unit = {
 					division = "division_template = \"Militia Brigade\""
-					owner = PREV
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				state_strategic_value < 40 #We can have some Mongolia
-			}
-			for_loop_effect = {
-				end = mtth:militia_amount
-				start = 1
-				compare = less_than_or_equals
-				
-				create_unit = {
-					division = "division_template = \"Cavalry Brigade\""
 					owner = PREV
 				}
 			}
