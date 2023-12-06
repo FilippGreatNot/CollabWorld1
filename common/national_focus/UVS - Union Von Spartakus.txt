@@ -1543,7 +1543,7 @@ focus_tree = {
 	focus = {
 		id = UVS_victory_of_dspd
 		icon = GFX_goal_UVS_liberators_of_germany
-		x = -13
+		x = -12
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1567,6 +1567,394 @@ focus_tree = {
 			custom_effect_tooltip = effect_name3
 		}
 	}
+
+	focus = {
+		id = UVS_keep_council_rule
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+
+		mutually_exclusive = {
+			focus = UVS_give_rule_to_ebert
+		}
+		
+		relative_position_id = UVS_victory_of_dspd
+		
+		prerequisite = {
+			focus = UVS_victory_of_dspd
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_give_rule_to_ebert
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_dspd
+		
+		prerequisite = {
+			focus = UVS_victory_of_dspd
+		}
+
+		mutually_exclusive = {
+			focus = UVS_keep_council_rule
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	
+	focus = {
+		id = UVS_question_of_anarchists
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_keep_council_rule
+		
+		prerequisite = {
+			focus = UVS_keep_council_rule
+			focus = UVS_give_rule_to_ebert
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_cooperate_with_liebknecht
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_question_of_anarchists
+		
+		prerequisite = {
+			focus = UVS_question_of_anarchists
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_support_labor_unions
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_victory_of_dspd
+		
+		prerequisite = {
+			focus = UVS_victory_of_dspd
+		}
+		
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_a_benevolent_industry
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_support_labor_unions
+		
+		prerequisite = {
+			focus = UVS_support_labor_unions
+		}	
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_the_progress_initiative
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = UVS_a_benevolent_industry
+		
+		prerequisite = {
+			focus = UVS_a_benevolent_industry
+		}	
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_social_security_program
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = -5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_victory_of_dspd
+		
+		prerequisite = {
+			focus = UVS_victory_of_dspd
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_buy_swedish_guns
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_social_security_program
+		
+		prerequisite = {
+			focus = UVS_social_security_program
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_buy_swedish_guns
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_social_security_program
+		
+		prerequisite = {
+			focus = UVS_social_security_program
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_fighting_for_freedom
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_buy_swedish_guns
+		
+		prerequisite = {
+			focus = UVS_buy_swedish_guns
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_die_freie_deutsche_jugend
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_the_progress_initiative
+		
+		prerequisite = {
+			focus = UVS_the_progress_initiative
+		}
+
+		prerequisite = {
+			focus = UVS_fighting_for_freedom
+		}
+		prerequisite = {
+			focus = UVS_cooperate_with_liebknecht
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_perfect_example_of_democratic socialism
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_die_freie_deutsche_jugend
+		
+		prerequisite = {
+			focus = UVS_die_freie_deutsche_jugend
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+
+	focus = {
+		id = UVS_international_socialist_brigades
+		icon = GFX_goal_UVS_liberators_of_germany
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+	    relative_position_id = UVS_victory_of_dspd
+		
+		prerequisite = {
+			focus = UVS_victory_of_dspd
+			focus = UVS_victory_of_kpvd
+		}
+		available = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		
+		}
+	}
+	
 	
 	focus = {
 		id = UVS_path_to_reunification
