@@ -11,6 +11,47 @@ SOV_get_30s_stalin = { #I have no idea why did a make this a scripted effect lol
 russia_add_agrarian_region = {
 	add_dynamic_modifier = {
 		modifier = russia_agrarian_region
+		scope = THIS #The tooltip doesn't work without this for some reason
+	}
+	set_state_flag = russia_agrarian_region
+}
+russia_remove_agrarian_region = {
+	remove_dynamic_modifier = {
+		modifier = russia_agrarian_region
+	}
+	clear_variable = russia_agrarian_region_industrialisation
+	clr_state_flag = russia_agrarian_region
+}
+russia_agrarian_region_increase_industrialisation_level_1 = {
+	add_to_variable = {
+		var = russia_agrarian_region_industrialisation
+		value = 1
+		tooltip = russia_agrarian_region_increase_industrialisation_level_tt
+	}
+	russia_check_if_agrarian_region_completed = yes
+}
+russia_agrarian_region_increase_urbanisation_level_1 = {
+	next_state_category = yes
+	add_to_variable = {
+		var = russia_agrarian_region_urbanisation
+		value = 1
+		tooltip = russia_agrarian_region_increase_urbanisation_level_tt
+	}
+	russia_check_if_agrarian_region_completed = yes
+}
+russia_check_if_agrarian_region_completed = { #Removes agrarian region if a state has max industrialisation (always 3) and urbanisation (depends on state, usually 1)
+	if = {
+		limit = {
+			check_variable = { #The default compare is greater_than_or_equals
+				var = russia_agrarian_region_industrialisation
+				value = 3
+			}
+			check_variable = {
+				var = russia_agrarian_region_urbanisation
+				value = russia_agrarian_region_max_urbanisation?1
+			}
+		}
+		russia_remove_agrarian_region = yes
 	}
 }
 
