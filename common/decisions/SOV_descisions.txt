@@ -118,35 +118,34 @@ russia_industrialisation = {
 		remove_effect = {
 			FROM = {
 				russia_agrarian_region_increase_industrialisation_level_1 = yes
-				russia_check_if_agrarian_region_completed = yes
-			}
-			custom_effect_tooltip = russia_agrarian_region_can_remove_idea_if_completed_tt
-		}
-	}
-	russia_industrialisation_urbanisation = {
-		icon = russia_industrialisation_urbanisation
-		state_target = yes
-		on_map_mode = map_only
-		target_trigger = {
-			FROM = {
-				has_state_flag = russia_agrarian_region
-				check_variable = { russia_agrarian_region_urbanisation < russia_agrarian_region_max_urbanisation?1 }
-				is_owned_by = PREV
-			}
-		}
-		visible = {
-			NOT = { has_decision = russia_industrialisation_disable }
-		}
-		
-		days_remove = 200
-		cost = 60
-		remove_effect = {
-			FROM = {
-				russia_agrarian_region_increase_urbanisation_level_1 = yes
-				russia_check_if_agrarian_region_completed = yes
+				russia_remove_agrarian_region_if_completed = yes
 			}
 		}
 	}
+	#russia_industrialisation_urbanisation = {
+	#	icon = russia_industrialisation_urbanisation
+	#	state_target = yes
+	#	on_map_mode = map_only
+	#	target_trigger = {
+	#		FROM = {
+	#			has_state_flag = russia_agrarian_region
+	#			check_variable = { russia_agrarian_region_urbanisation < russia_agrarian_region_max_urbanisation?1 }
+	#			is_owned_by = PREV
+	#		}
+	#	}
+	#	visible = {
+	#		NOT = { has_decision = russia_industrialisation_disable }
+	#	}
+	#	
+	#	days_remove = 200
+	#	cost = 60
+	#	remove_effect = {
+	#		FROM = {
+	#			russia_agrarian_region_increase_urbanisation_level_1 = yes
+	#			russia_check_if_agrarian_region_completed = yes
+	#		}
+	#	}
+	#}
 	russia_industrialisation_disable = {
 		days_remove = -1 #Eternity
 		complete_effect = {
