@@ -1,0 +1,27 @@
+on_actions = {
+	on_declare_war = {
+		effect = {
+			if = { #Set the flag that we declared war on Poland for wrong_timeline_buddy
+				limit = {
+					is_german_tag = yes
+					FROM = {
+						OR = {
+							original_tag = POL
+							AND = {
+								original_tag = PBD
+								POL = {
+									PREV_controls_all_cores = yes
+								}
+							}
+						}
+					}
+				}
+				set_country_flag = {
+					flag = has_declared_war_on_poland_today
+					value = 1
+					days = 1
+				}
+			}
+		}
+	}
+}
