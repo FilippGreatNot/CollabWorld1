@@ -16,11 +16,6 @@ focus_tree = {
 		x = 27
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
 			
@@ -44,16 +39,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 3
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_rise_germany
 		
 		prerequisite = {
 			focus = UVS_rise_germany
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_well_organized_revolution_log"
@@ -70,16 +60,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 4
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_rise_germany
 		
 		prerequisite = {
 			focus = UVS_rise_germany
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_hold_back_the_reactionaries_log"
@@ -94,7 +79,6 @@ focus_tree = {
 		x = 1
 		y = 2
 		cost = 3
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_hold_back_the_reactionaries
 		relative_position_id = UVS_well_organized_revolution
@@ -106,17 +90,13 @@ focus_tree = {
 		prerequisite = {
 			focus = UVS_hold_back_the_reactionaries
 		}
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_congress_of_the_spartakusbund_log"
 			
 			custom_effect_tooltip = congress_of_the_spartakusbund
 			
 			hidden_effect	= {
-				country_event = { id = spartakus.1 days = 1 }
+				country_event = { id = uvs_spartakus.1 days = 1 }
 			}	
 		}
 	}
@@ -126,7 +106,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
 		
@@ -136,10 +115,6 @@ focus_tree = {
 		
 		available = {
 			always = no
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 	}
 	
@@ -149,7 +124,6 @@ focus_tree = {
 		x = 10
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
 		
@@ -160,12 +134,27 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		
-		ai_will_do = {
-			factor = 10
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_daa"
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.16
+			}
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			promote_character = UVS_joachim_von_ribbentrop
+			
+			set_cosmetic_tag = UVS_ribbentrop
+			
+			set_party_name = { 
+				ideology = bolshevism 
+				long_name = UVS_DAA_LONG
+				name = UVS_DAA_SHORT
+			}
 		}
 	}
-	
 	
 	focus = {
 		id = UVS_paving_the_way_to_victory
@@ -173,16 +162,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_daa
 		
 		prerequisite = {
 			focus = UVS_victory_of_daa
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_paving_the_way_to_victory_log"
@@ -199,7 +183,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_daa
 		
@@ -207,10 +190,6 @@ focus_tree = {
 			focus = UVS_victory_of_daa
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_take_into_account_the_mistakes_of_lenin_log"
 		
@@ -233,7 +212,6 @@ focus_tree = {
 		x = 5
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
 		
@@ -245,8 +223,17 @@ focus_tree = {
 			always = no
 		}
 		
-		ai_will_do = {
-			factor = 10
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_kdp_b"
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.17
+			}
+		
+			set_politics = {
+				ruling_party = bolshevism
+			}
 		}
 	}
 	
@@ -256,7 +243,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_kdp_b
 		
@@ -264,10 +250,6 @@ focus_tree = {
 			focus = UVS_victory_of_kdp_b
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_thalmannomics_log"
 			add_ideas = {
@@ -282,7 +264,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
 		relative_position_id = UVS_thalmannomics
@@ -292,10 +273,6 @@ focus_tree = {
 			focus = UVS_thalmannomics
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_full_nationalisation_log"
 		
@@ -335,7 +312,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
 		relative_position_id = UVS_paving_the_way_to_victory
@@ -345,10 +321,6 @@ focus_tree = {
 
 		prerequisite = {
 			focus = UVS_paving_the_way_to_victory
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_militarization_log"
@@ -366,17 +338,12 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_take_into_account_the_mistakes_of_lenin
 		relative_position_id = UVS_paving_the_way_to_victory
 		
 		prerequisite = {
 			focus = UVS_paving_the_way_to_victory
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_propaganda_campaign_log"
@@ -393,16 +360,11 @@ focus_tree = {
 		x = 4
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_paving_the_way_to_victory
 		
 		prerequisite = {
 			focus = UVS_paving_the_way_to_victory
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_ban_demsocs_log"
@@ -422,7 +384,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_militarization
 		relative_position_id = UVS_propaganda_campaign
@@ -435,10 +396,6 @@ focus_tree = {
 			focus = UVS_propaganda_campaign
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_german_socialist_patriotism_log"
 		
@@ -455,7 +412,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_militarization
 		relative_position_id = UVS_full_nationalisation
@@ -466,10 +422,6 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = UVS_full_nationalisation
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_strengthen_our_positions_log"
@@ -486,16 +438,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_strengthen_our_positions
 		
 		prerequisite = {
 			focus = UVS_strengthen_our_positions
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_ribentrop_doctrine_log"
@@ -527,16 +474,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_german_socialist_patriotism
 		
 		prerequisite = {
 			focus = UVS_german_socialist_patriotism
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_tighten_economic_control_log"
@@ -555,7 +497,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_ribentrop_doctrine
 
@@ -570,10 +511,6 @@ focus_tree = {
 			focus = UVS_ribentrop_doctrine
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_UVS_red_bismarck_log"
 		
@@ -592,15 +529,10 @@ focus_tree = {
 		x = 0
 		y = 2
 		cost = 10
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_full_nationalisation
 		prerequisite = {
 			focus = UVS_full_nationalisation
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_UVS_Volksforschung_log"
@@ -614,7 +546,6 @@ focus_tree = {
 		x = -1.5
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_thalmannomics
 		
@@ -622,10 +553,6 @@ focus_tree = {
 			focus = UVS_thalmannomics
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_tough_methods_log"
 			
@@ -645,7 +572,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_tough_methods
 		relative_position_id = UVS_full_nationalisation
@@ -655,10 +581,6 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = UVS_full_nationalisation
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_finish_off_the_german_bourgeois_log"
@@ -673,7 +595,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		available = {
 			has_completed_focus = UVS_invite_menzhinsky
@@ -685,10 +606,6 @@ focus_tree = {
 			focus = UVS_tough_methods
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_german_chekists_log"
 			
@@ -705,7 +622,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_german_chekists
 		
@@ -717,10 +633,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_invite_menzhinsky
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_strong_communist_germany_log"
@@ -739,17 +651,12 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_spartakists_continue_the_work
 		
 		prerequisite = {
 			focus = UVS_victory_of_kdp_b
 			focus = UVS_spartakists_continue_the_work
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_negotiations_with_the_rsfsr_log"
@@ -762,7 +669,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_negotiations_with_the_rsfsr
 		
@@ -770,9 +676,7 @@ focus_tree = {
 			focus = UVS_negotiations_with_the_rsfsr
 		}
 		 
-		ai_will_do = {
-			factor = 10
-		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_invite_experts"
 			
@@ -787,7 +691,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_invite_experts
 		prerequisite = {
@@ -798,10 +701,6 @@ focus_tree = {
 			focus = UVS_invite_experts
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus_UVS_invite_menzhinsky_log"
 			
@@ -821,21 +720,16 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_spartakists_continue_the_work
 		
 		prerequisite = {
 			focus = UVS_spartakists_continue_the_work
 		}
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rosas_speech"
 			
-			country_event = spartakus.3
+			country_event = uvs_spartakus.3
 		}
 	}
 	
@@ -845,16 +739,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_rosas_speech
 		
 		prerequisite = {
 			focus = UVS_rosas_speech
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_liberators_of_germany_log"
@@ -871,7 +760,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_liberators_of_germany
 		
@@ -879,10 +767,6 @@ focus_tree = {
 			focus = UVS_liberators_of_germany
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_searching_for_the_imposters_among_us"
 		
@@ -901,7 +785,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_searching_for_the_imposters_among_us
 		
@@ -910,10 +793,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_criticize_nationalists
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_our_economic_plan"
@@ -936,15 +815,10 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 7
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_caution_is_a_priority
 		prerequisite = {
 			focus = UVS_caution_is_a_priority
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_left_accelerationism"
@@ -992,16 +866,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_liberators_of_germany
 		
 		prerequisite = {
 			focus = UVS_liberators_of_germany
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_invite_zinoviev"
@@ -1016,7 +885,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_searching_for_the_imposters_among_us
 		
@@ -1025,10 +893,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_searching_for_the_imposters_among_us
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_revolutionary_research_organization"
@@ -1043,18 +907,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
-		
-		
 		relative_position_id = UVS_invite_zinoviev
 		
 		prerequisite = {
 			focus = UVS_invite_zinoviev
 			focus = UVS_invite_menzhinsky
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_deal_with_social_fascists"
@@ -1073,18 +930,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_left_accelerationism
 		relative_position_id = UVS_deal_with_social_fascists
-		
-		
 		prerequisite = {
 			focus = UVS_deal_with_social_fascists
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_roads_for_the_people"
@@ -1107,8 +957,6 @@ focus_tree = {
 			add_political_power = 25
 			
 			
-		
-		
 		}
 	}
 	
@@ -1119,7 +967,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_roads_for_the_people
 		
@@ -1132,10 +979,6 @@ focus_tree = {
 		}
 		
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_awaits"
 		
@@ -1156,10 +999,8 @@ focus_tree = {
 		x = -7
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
-		
 		prerequisite = {
 			focus = UVS_congress_of_the_spartakusbund
 		}
@@ -1168,8 +1009,21 @@ focus_tree = {
 			always = no
 		}
 		
-		ai_will_do = {
-			factor = 10
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_kpvd"
+			
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
+			
+			promote_character = UVS_karl_liebknecht
+			
+			set_party_name = { 
+				ideology = marxism 
+				long_name = UVS_KPVD_LONG
+				name = UVS_KPVD_SHORT
+			}
 		}
 	}
 	
@@ -1179,16 +1033,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_kpvd
 		
 		prerequisite = {
 			focus = UVS_victory_of_kpvd
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_worker_soviets_log"
@@ -1201,16 +1050,11 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_worker_soviets
 		
 		prerequisite = {
 			focus = UVS_worker_soviets
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_promised_freedom_log"
@@ -1223,16 +1067,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_worker_soviets
 		
 		prerequisite = {
 			focus = UVS_worker_soviets
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_our_economic_plan"
@@ -1245,16 +1084,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_promised_freedom
 		
 		prerequisite = {
 			focus = UVS_promised_freedom
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_promised_freedom_log"
@@ -1267,17 +1101,12 @@ focus_tree = {
 		x = 4
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_worker_soviets
 		
 		prerequisite = {
 			focus = UVS_worker_soviets
 			focus = UVS_spartakists_continue_the_work
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_promised_freedom_log"
@@ -1297,16 +1126,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_cooperate_with_demsocs
 		
 		prerequisite = {
 			focus = UVS_cooperate_with_demsocs
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_promised_freedom_log"
@@ -1320,16 +1144,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_our_economic_plan
 		
 		prerequisite = {
 			focus = UVS_our_economic_plan
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_monitor_the_situation"
@@ -1392,16 +1211,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_monitor_the_situation
 		
 		prerequisite = {
 			focus = UVS_monitor_the_situation
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
@@ -1413,7 +1227,6 @@ focus_tree = {
 		icon = GFX_goal_UVS_free_revolution
 		y = 2
 		cost = 10
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_experience_of_syndicalism
 		
@@ -1425,10 +1238,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_retribution_of_the_proletariat
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
@@ -1453,7 +1262,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_experience_of_syndicalism
 		
@@ -1462,10 +1270,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_retribution_of_the_proletariat
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_experience_of_syndicalism"
@@ -1479,7 +1283,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_our_economic_plan
 		
@@ -1487,10 +1290,6 @@ focus_tree = {
 			focus = UVS_our_economic_plan
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_unions_and_syndicates_log"
 		}
@@ -1502,16 +1301,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_unions_and_syndicates
 		
 		prerequisite = {
 			focus = UVS_unions_and_syndicates
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_retribution_of_the_proletariat"
@@ -1526,14 +1320,12 @@ focus_tree = {
 	
 	focus = {
 		id = UVS_victory_of_dspd
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_victory_of_dspd
 		x = -12
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_congress_of_the_spartakusbund
-		
 		prerequisite = {
 			focus = UVS_congress_of_the_spartakusbund
 		}
@@ -1542,18 +1334,25 @@ focus_tree = {
 			always = no
 		}
 		
-		ai_will_do = {
-			factor = 10
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_kpvd"
+			
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.04
+			}
+			set_politics = {
+				ruling_party = libertarian_socialism
+			}
 		}
 	}
 
 	focus = {
 		id = UVS_keep_council_rule
-		icon = GFX_focus_SOV_first_the_outcome_of_half_revolution
+		icon = GFX_focus_UVS_keep_council_rule
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 
 		mutually_exclusive = {
 			focus = UVS_give_rule_to_ebert
@@ -1565,10 +1364,6 @@ focus_tree = {
 			focus = UVS_victory_of_dspd
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1577,11 +1372,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_give_rule_to_ebert
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_give_rule_to_ebert
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_dspd
 		
@@ -1594,24 +1388,19 @@ focus_tree = {
 		}
 		
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
-		
+			promote_character = UVS_friedrich_ebert_jr
 		}
 	}
 
 	
 	focus = {
 		id = UVS_question_of_anarchists
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_question_of_anarchists
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_keep_council_rule
 		
@@ -1621,10 +1410,6 @@ focus_tree = {
 		}
 		
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1633,11 +1418,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_cooperate_with_liebknecht
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_cooperate_with_liebknecht
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_question_of_anarchists
 		
@@ -1646,10 +1430,6 @@ focus_tree = {
 		}
 		
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1662,7 +1442,6 @@ focus_tree = {
 		x = -3
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_victory_of_dspd
 		
@@ -1670,10 +1449,6 @@ focus_tree = {
 			focus = UVS_victory_of_dspd
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1682,21 +1457,16 @@ focus_tree = {
 
 	focus = {
 		id = UVS_a_benevolent_industry
-		icon = GFX_goal_SOV_industrial_reorganization
+		icon = GFX_goal_UVS_a_benevolent_industry
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_support_labor_unions
 		
 		prerequisite = {
 			focus = UVS_support_labor_unions
 		}	
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1705,11 +1475,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_the_progress_initiative
-		icon = GFX_goal_UVS_revolutionary_research_organization
+		icon = GFX_goal_UVS_the_progress_initiative
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_a_benevolent_industry
 		
@@ -1717,10 +1486,6 @@ focus_tree = {
 			focus = UVS_a_benevolent_industry
 		}	
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1729,11 +1494,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_social_security_program
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_social_security_program
 		x = -5
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 	    relative_position_id = UVS_victory_of_dspd
 		
@@ -1741,10 +1505,6 @@ focus_tree = {
 			focus = UVS_victory_of_dspd
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1753,11 +1513,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_buy_swedish_guns
-		icon = GFX_goal_ENG_gun_production
+		icon = GFX_goal_UVS_buy_swedish_guns
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 	    relative_position_id = UVS_social_security_program
 		
@@ -1765,10 +1524,6 @@ focus_tree = {
 			focus = UVS_social_security_program
 		}
 	
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1778,11 +1533,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_fighting_for_freedom
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_fighting_for_freedom
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 	    relative_position_id = UVS_buy_swedish_guns
 		
@@ -1790,10 +1544,6 @@ focus_tree = {
 			focus = UVS_buy_swedish_guns
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1802,11 +1552,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_die_freie_deutsche_jugend
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_die_freie_deutsche_jugend
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 	    relative_position_id = UVS_the_progress_initiative
 		
@@ -1821,10 +1570,6 @@ focus_tree = {
 			focus = UVS_cooperate_with_liebknecht
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1833,11 +1578,10 @@ focus_tree = {
 
 	focus = {
 		id = UVS_perfect_example_of_democratic_socialism
-		icon = GFX_goal_UVS_liberators_of_germany
+		icon = GFX_goal_UVS_perfect_example_of_democratic_socialism
 		x = 0
 		y = 1
 		cost = 10
-		available_if_capitulated = yes
 		
 	    relative_position_id = UVS_die_freie_deutsche_jugend
 		
@@ -1845,10 +1589,6 @@ focus_tree = {
 			focus = UVS_die_freie_deutsche_jugend
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1861,7 +1601,6 @@ focus_tree = {
 		x = 3
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 	    relative_position_id = UVS_victory_of_dspd
 		
@@ -1870,10 +1609,6 @@ focus_tree = {
 			focus = UVS_victory_of_kpvd
 		}
 		
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 		
@@ -1887,13 +1622,8 @@ focus_tree = {
 		x = 50
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		available = { 
 			date > 1923.1.30
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_path_to_reunification_log"
@@ -1910,7 +1640,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_path_to_reunification
 		
@@ -1922,10 +1651,6 @@ focus_tree = {
 			NOT = {
 				country_exists = PLA
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_contact_german_partisans_log"	
@@ -1945,7 +1670,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_contact_german_partisans
 		
@@ -1960,10 +1684,6 @@ focus_tree = {
 			NOT = {
 				country_exists = PLA
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
@@ -1981,7 +1701,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_crush_the_invaders
 		
@@ -1992,10 +1711,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_crush_the_invaders
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
@@ -2011,7 +1726,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_path_to_reunification
 		
@@ -2025,10 +1739,6 @@ focus_tree = {
 					exists = no 
 				}
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_polish_question_log"
@@ -2055,7 +1765,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_rally_northern_leftists
 		
@@ -2067,10 +1776,6 @@ focus_tree = {
 			NOT = {
 				country_exists = GER
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		available = {
 			has_war = no
@@ -2091,7 +1796,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_destroy_capitalist_swine
 		
@@ -2102,10 +1806,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = UVS_destroy_capitalist_swine
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
@@ -2125,7 +1825,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_destroy_monuments
 		
@@ -2135,10 +1834,6 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = UVS_destroy_monuments
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_north_is_red_log"
@@ -2157,7 +1852,6 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_north_is_red
 		
@@ -2169,10 +1863,6 @@ focus_tree = {
 			NOT = {
 				country_exists = FWG
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_destroy_anarchists_log"
@@ -2190,7 +1880,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_north_is_red
 		
@@ -2205,10 +1894,6 @@ focus_tree = {
 			NOT = {
 				country_exists = WRD
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_destroy_monarchists_log"
@@ -2226,7 +1911,6 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_north_is_red
 		
@@ -2244,10 +1928,6 @@ focus_tree = {
 				country_exists = FGB
 			}
 		}
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_destroy_nationalists_log"
 			
@@ -2264,7 +1944,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_destroy_anarchists
 		
@@ -2276,10 +1955,6 @@ focus_tree = {
 			FWG = {
 				PREV_controls_all_cores = yes
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_open_trade_log"
@@ -2297,7 +1972,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_destroy_monarchists
 		
@@ -2309,10 +1983,6 @@ focus_tree = {
 			WRD = {
 				PREV_controls_all_cores = yes
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appease_monsocs_log"
@@ -2333,7 +2003,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_destroy_nationalists
 		
@@ -2345,10 +2014,6 @@ focus_tree = {
 			FGB = {
 				PREV_controls_all_cores = yes
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_open_trade_log"
@@ -2369,7 +2034,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_open_trade
 		
@@ -2395,10 +2059,6 @@ focus_tree = {
 			NOT = {
 				country_exists = BAY
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_go_south_log"
@@ -2416,7 +2076,6 @@ focus_tree = {
 		x = 3
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_open_trade
 		
@@ -2445,15 +2104,11 @@ focus_tree = {
 			has_war = no
 			is_neighbor_of = BAY
 		}
-		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_south_negotiate_log"
 		
 			BAY = {	
-				country_event = spartakus.2
+				country_event = uvs_spartakus.2
 			}
 		}
 	}
@@ -2464,7 +2119,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
 		relative_position_id = UVS_go_south
 		
@@ -2477,10 +2131,6 @@ focus_tree = {
 			BAY = {
 				PREV_controls_all_cores = yes
 			}
-		}
-		
-		ai_will_do = {
-			factor = 10
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_endlich_einigkeit_log"

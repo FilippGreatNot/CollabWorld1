@@ -122,6 +122,76 @@ characters = {
 			desc = "POLITICS_RIBBENTROP_DESC"
 		}
 	}
+	
+	### Country leaders ###
+	UVS_dspd_council = {
+		name = UVS_dspd_council
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_dspd_council.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_dspd_council.tga"
+			}
+		}
+		country_leader = {
+			ideology = libertarian_socialism_subtype
+			desc = "POLITICS_dspd_COUNCIL_DESC"
+		}
+	}
+	UVS_friedrich_ebert_jr = {
+		name = UVS_friedrich_ebert_jr
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_friedrich_ebert_jr.tga"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_friedrich_ebert_jr.tga"
+			}
+		}
+		country_leader = {
+			ideology = democratic_socialism
+		}
+	}
+	
+	### Ministers ###
+	## Head of Government ##
+	## Security Minister ##
+	## Economy Minister ##
+	UVS_vacant = {
+		name = UVS_vacant
+		portraits = {
+			civilian = {
+				small = "GFX_idea_UVS_Vacant"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = UVS_vacant_ec
+			traits = { cabinet_crisis }
+			can_be_fired = no
+		}
+	}
+	
+	## Propaganda Minister ##
+	UVS_ernst_busch = {
+		name = UVS_ernst_busch
+		portraits = {
+			civilian = {
+				small = "GFX_idea_UVS_Ernst_Busch"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = UVS_ernst_busch_sec
+			traits = { propaganda_expert }
+			can_be_fired = no
+			visible = {
+				is_alive = yes
+			}
+		}
+	}
+	
 	### Unit leaders ###
 	## Corps commanders ##
 	UVS_hans_speidel = {
@@ -166,61 +236,6 @@ characters = {
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 4
-		}
-	}
-	
-	### Country leaders ###
-	UVS_uspd_council = {
-		name = UVS_uspd_council
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/UVS/UVS_uspd_council.tga"
-			}
-			army = {
-				large = "gfx/leaders/UVS/UVS_uspd_council.tga"
-			}
-		}
-		country_leader = {
-			ideology = liberal_socialism
-			desc = "POLITICS_USPD_COUNCIL_DESC"
-		}
-	}
-	
-	### Ministers ###
-	## Head of Government ##
-	## Security Minister ##
-	## Economy Minister ##
-	UVS_vacant = {
-		name = UVS_vacant
-		portraits = {
-			civilian = {
-				small = "GFX_idea_UVS_Vacant"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = UVS_vacant_ec
-			traits = { cabinet_crisis }
-			can_be_fired = no
-		}
-	}
-	
-	## Propaganda Minister ##
-	UVS_ernst_busch = {
-		name = UVS_ernst_busch
-		portraits = {
-			civilian = {
-				small = "GFX_idea_UVS_Ernst_Busch"
-			}
-		}
-		advisor = {
-			slot = propaganda_minister
-			idea_token = UVS_ernst_busch_sec
-			traits = { propaganda_expert }
-			can_be_fired = no
-			visible = {
-				is_alive = yes
-			}
 		}
 	}
 }
