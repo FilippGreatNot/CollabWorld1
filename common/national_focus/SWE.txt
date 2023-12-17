@@ -12,7 +12,7 @@ focus_tree = {
 	focus = {
 		id = SWE_lindman_presidency
 		icon = GFX_goal_SWE_lindman_presidency
-		x = 7
+		x = 8
 		y = 0
 		cost = 5
 		available_if_capitulated = yes
@@ -122,6 +122,8 @@ focus_tree = {
 			add_political_power = 50
 			add_stability = 0.05
 			
+			country_event = { id = swe_sweden.2 days = 1 }
+			
 			
 		}
 			
@@ -150,12 +152,118 @@ focus_tree = {
 			add_political_power = -50
 			add_stability = -0.05
 			
-			country_event = { id = sweden.1 days = 1 }
+			country_event = { id = swe_sweden.1 days = 1 }
 			
+			
+		}
+	}
+		
+	
+	focus = {
+		id = SWE_another_term_for_lindman
+		icon = GFX_goal_SWE_lindman_presidency
+		x = -5
+		y = 1
+		cost = 2
+		relative_position_id = SWE_snap_elections
+					
+		prerequisite = {
+			focus = SWE_snap_elections
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			always = no
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+			
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.07
+			}
+			add_political_power = 50
 			
 		}
 			
 			
 		}
+		
+	focus = {
+		id = SWE_social_democrat_victory
+		icon = GFX_goal_UVS_decentralized_research
+		x = 0
+		y = 1
+		cost = 2
+		relative_position_id = SWE_snap_elections
+					
+		prerequisite = {
+			focus = SWE_snap_elections
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			always = no
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_social_democrat_victory log"
+			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = social_democrat
+			}
+			
+		}
+			
+			
+		}
+		
+		focus = {
+		id = SWE_peaceful_revolution
+		icon = GFX_goal_UVS_demokratisch
+		x = 5
+		y = 1
+		cost = 2
+		relative_position_id = SWE_snap_elections
+					
+		prerequisite = {
+			focus = SWE_snap_elections
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			always = no
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_social_democrat_victory log"
+			
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = marxism
+			}
+			
+		}
+			
+			
+		}
+
 
 	}
