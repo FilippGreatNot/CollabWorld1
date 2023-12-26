@@ -1,6 +1,6 @@
 #!gfx:interface/country/russia/SOV/SOV_goals.gfx
 focus_tree = {
-	id = SOV_bogdanov
+	id = SOV_bogdanov_tree
 	country = {
 		factor = 0
 	}
@@ -313,8 +313,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SOV_bogdanov_warcry_of_the_deadman
-		icon = GFX_focus_SOV_bogdanov_warcry_of_the_deadman
+		id = SOV_bogdanov_warcry_of_the_dead_man
+		icon = GFX_focus_SOV_bogdanov_warcry_of_the_dead_man
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_rocket_trains
@@ -326,7 +326,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_black_heart_of_siberia"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_warcry_of_the_dead_man"
 		}
 	}
 	
@@ -402,25 +402,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SOV_bogdanov_rethink_the_gulag
-		icon = GFX_focus_SOV_bogdanov_rethink_the_gulag
-		cost = 6
-		
-		relative_position_id = SOV_bogdanov_start_the_red_terror
-		y = 2
-		
-		prerequisite = {
-			focus = SOV_bogdanov_estabilish_the_revolutionary_action_groups
-		}
-		prerequisite = {
-			focus = SOV_bogdanov_expand_the_ogpus_powers
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_rethink_the_gulag"
-		}
-	}
-	focus = {
 		id = SOV_bogdanov_kill_them_the_chairman_knows_those_that_are_his_own
 		icon = GFX_focus_SOV_bogdanov_kill_them_the_chairman_knows_those_that_are_his_own
 		cost = 6
@@ -449,7 +430,7 @@ focus_tree = {
 			focus = SOV_bogdanov_the_black_heart_of_siberia
 		}
 		prerequisite = {
-			focus = SOV_bogdanov_warcry_of_the_deadman
+			focus = SOV_bogdanov_warcry_of_the_dead_man
 		}
 		prerequisite = {
 			focus = SOV_bogdanov_kill_them_the_chairman_knows_those_that_are_his_own
@@ -541,12 +522,44 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SOV_bogdanov_march_to_the_north
-		icon = GFX_focus_SOV_bogdanov_march_to_the_north
+		id = SOV_bogdanov_annex_the_kmd
+		icon = GFX_focus_SOV_bogdanov_annex_the_kmd
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_march_to_the_north
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_march_to_the_north
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_annex_the_kmd"
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_boil_the_snow
+		icon = GFX_focus_SOV_bogdanov_boil_the_snow
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_annex_the_kmd
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_annex_the_kmd
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_boil_the_snow"
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_march_to_the_south
+		icon = GFX_focus_SOV_bogdanov_march_to_the_south
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
-		x = 2
+		x = 3
 		y = 1
 		
 		prerequisite = {
@@ -554,7 +567,40 @@ focus_tree = {
 		}
 		
 		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_north"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_south"
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_restore_the_order_on_the_black_sea
+		icon = GFX_focus_SOV_bogdanov_restore_the_order_on_the_black_sea
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_march_to_the_south
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_march_to_the_south
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_restore_the_order_on_the_black_sea"
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_march_to_the_east
+		icon = GFX_focus_SOV_bogdanov_march_to_the_east
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
+		x = 5
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_east"
 		}
 	}
 }
