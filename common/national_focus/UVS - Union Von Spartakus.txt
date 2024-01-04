@@ -1217,7 +1217,7 @@ focus_tree = {
 		icon = GFX_goal_UVS_monitor_the_situation
 		x = 1
 		y = 1
-		cost = 5
+		cost = 7
 		
 		relative_position_id = UVS_our_economic_plan
 		
@@ -1685,7 +1685,22 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
-		
+		    
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = UVS
+			}
+			add_manpower = 20000
+			
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.025
+				}
+				add_popularity = {
+					ideology = libertarian_socialism
+					popularity = 0.025
+				}
 		}
 	}
 	
@@ -1693,7 +1708,7 @@ focus_tree = {
 	focus = {
 		id = UVS_path_to_reunification
 		icon = GFX_goal_UVS_path_to_reunification
-		x = 50
+		x = 47
 		y = 1
 		cost = 5
 		available = { 
@@ -2217,4 +2232,210 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = UVS_post_reunification_economic_recovery
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = 60
+		y = 1
+		cost = 5
+		
+		
+		available = {
+			}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_support_the_poor
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = -1
+		y = 1
+		cost = 7
+		
+		relative_position_id = UVS_post_reunification_economic_recovery
+		
+		
+		available = {
+			}
+			
+		mutually_exclusive = {
+			focus = UVS_economic_austerity
+		}
+			
+		prerequisite = {
+		    focus = UVS_post_reunification_economic_recovery
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	
+	focus = {
+		id = UVS_economic_austerity
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = 1
+		y = 1
+		cost = 3
+		
+		relative_position_id = UVS_post_reunification_economic_recovery
+		
+		mutually_exclusive = {
+			focus = UVS_support_the_poor
+		}
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_post_reunification_economic_recovery
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_first_four_year_plan
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_support_the_poor
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_economic_austerity
+			focus = UVS_support_the_poor
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_east_railway_expansion
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = -5
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_first_four_year_plan
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_first_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_silesian_aluminium
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_east_railway_expansion
+		
+		mutually_exclusive = {
+			focus = UVS_pomeranian_steel
+		}
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_east_railway_expansion
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_pomeranian_steel
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_east_railway_expansion
+		
+		mutually_exclusive = {
+			focus = UVS_silesian_aluminium
+		}
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_east_railway_expansion
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_swedish_tungsten_trade_deal
+		icon = GFX_goal_UVS_labor_unions_industry
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_silesian_aluminium
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_silesian_aluminium
+			focus = UVS_pomeranian_steel
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		
+			add_political_power = 25
+		}
+	}
+	
 }
