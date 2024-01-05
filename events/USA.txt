@@ -2,18 +2,15 @@ add_namespace = ripbozo
 
 country_event = {
 	id = ripbozo.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ripbozo.1" }
 	title = ripbozo.1.t
 	desc = ripbozo.1.d
 	picture = GFX_report_event_valknut
 	is_triggered_only = yes
-
-	option = {
-		name = ripbozo.1.a
-		
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.1"
+		news_event = WORLDNEWS.13
 		hidden_effect = {
-			news_event = WORLDNEWS.13
-			
 			country_event = {
 				id = ripbozo.15
 				days = 14
@@ -24,31 +21,35 @@ country_event = {
 			promote_character = USA_board_of_directors
 		}
 	}
+	
+	option = {
+		name = ripbozo.1.a
+	}
 }
-
 country_event = {
 	id = ripbozo.15
-	immediate = { log = "[GetDateText]: [Root.GetName]: event ripbozo.15" }
 	title = ripbozo.15.t
 	desc = ripbozo.15.d
 	is_triggered_only = yes
-
-	option = {
-		name = ripbozo.15.a
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event ripbozo.15"
 		
 		hidden_effect = {
-			country_event = {
-				id = ripbozo.2
-				days = 14
-			}			
-		
 			USA_board_of_directors = {
 				retire = yes
 			}
+			country_event = {
+				id = ripbozo.2
+				days = 14
+			}
 		}
 	}
+	
+	option = {
+		name = ripbozo.15.a
+	}
 }
-
 country_event = { #SHIT BEGINS
 	id = ripbozo.2
 	title = ripbozo.2.t
@@ -57,65 +58,49 @@ country_event = { #SHIT BEGINS
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.2"
-		USA_release_ASF = yes
+		
+		hidden_effect = {
+			USA_release_ASF = yes
+			country_event = {
+				id = ripbozo.5
+				days = 7
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.3
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.3
+			}
+			
+			add_stability = 0.15
+			add_war_support = 0.2
+		}
 	}
-
 
 	option = {
 		name = ripbozo.2.a
-		
 		ai_chance = {
 			factor = 100
 		}
-		
-		country_event = {
-			id = ripbozo.5
-			days = 7
-		}	
-
-		add_stability = 0.15
-		add_war_support = 0.2
 	}
-	
 	
 	option = {
 		name = ripbozo.2.b
-		
 		ai_chance = {
 			factor = 0
 		}
 		
-		add_popularity = {
-			ideology = bolshevism
-			popularity = -0.3
-		}
-		add_popularity = {
-			ideology = libertarian_socialism
-			popularity = -0.3
-		}
-		add_popularity = {
-			ideology = marxism
-			popularity = -0.3
-		}
-		
-		
-		country_event = {
-			id = ripbozo.5
-			days = 7
-		}
-		
-		
-		add_stability = 0.15
-		add_war_support = 0.2
-		
 		ASF = {
 			change_tag_from = USA
 		}
-	
 	}
 }
-
-
 country_event = { #буржуи ебаные 
 	id = ripbozo.5
 	title = ripbozo.5.t
@@ -124,45 +109,33 @@ country_event = { #буржуи ебаные
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.5"
-		USA_release_FOC = yes
+		hidden_effect = {
+			USA_release_FOC = yes
+			country_event = {
+				id = ripbozo.10
+				days = 5
+			}
+		}
 	}
 	
 	option = {
 		name = ripbozo.5.a
-		
 		ai_chance = {
 			factor = 100
 		}
-		
-		country_event = {
-			id = ripbozo.10
-			days = 5
-		}
-	
 	}
 	
 	option = {
 		name = ripbozo.5.b
-		
 		ai_chance = {
 			factor = 0
-		}
-		
-		country_event = {
-			id = ripbozo.10
-			days = 5
 		}
 
 		FOC = {
 			change_tag_from = USA
 		}
-	
 	}
-
 }
-
-
-
 country_event = { #та самая сук мышь
 	id = ripbozo.10
 	title = ripbozo.10.t
@@ -171,9 +144,14 @@ country_event = { #та самая сук мышь
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.10"
-		USA_release_DIC = yes
+		hidden_effect = {
+			USA_release_DIC = yes
+			country_event = {
+				id = ripbozo.8
+				days = 10
+			}
+		}
 	}
-
 
 	option = {
 		name = ripbozo.10.a
@@ -181,13 +159,7 @@ country_event = { #та самая сук мышь
 		ai_chance = {
 			factor = 100
 		}
-		
-		country_event = {
-			id = ripbozo.8
-			days = 10
-		}		
 	}
-	
 	
 	option = {
 		name = ripbozo.10.b
@@ -196,17 +168,10 @@ country_event = { #та самая сук мышь
 			factor = 0
 		}
 		
-		country_event = {
-			id = ripbozo.8
-			days = 10
-		}	
-		
 		DIC = {
 			change_tag_from = USA
 		}
-	
 	}
-
 }
 
 country_event = { #CANNCELED BY TWITTER
@@ -217,50 +182,33 @@ country_event = { #CANNCELED BY TWITTER
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.8"
-		USA_release_KKK = yes
+		hidden_effect = {
+			USA_release_KKK = yes
+			country_event = {
+				id = ripbozo.11
+				days = 3
+			}
+		}
 	}
-
 
 	option = {
 		name = ripbozo.8.a
-		
 		ai_chance = {
-			factor = 100
-		
+			factor = 1
 		}
-		
-		country_event = {
-			id = ripbozo.11
-			days = 3
-		}
-	
 	}
-	
 	
 	option = {
 		name = ripbozo.8.b
-		
 		ai_chance = {
 			factor = 0
 		}
-		
-		country_event = {
-		id = ripbozo.11
-		days = 3
-		}	
 
 		KKK = {
 			change_tag_from = USA
 		}
-	
 	}
-
 }
-
-
-
-
-
 
 country_event = { #ААААААААААААААААА НЕГРЫ
 	id = ripbozo.11
@@ -272,7 +220,6 @@ country_event = { #ААААААААААААААААА НЕГРЫ
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.11"
 		USA_release_BRE = yes
 	}
-
 
 	option = {
 		name = ripbozo.11.a
@@ -288,7 +235,6 @@ country_event = { #ААААААААААААААААА НЕГРЫ
 		}
 	}
 	
-	
 	option = {
 		name = ripbozo.11.b
 		
@@ -299,16 +245,12 @@ country_event = { #ААААААААААААААААА НЕГРЫ
 		country_event = {
 			id = ripbozo.9
 			days = 6
-		}	
-
+		}
 		BRE = {
 			change_tag_from = USA
 		}
-	
 	}
-
 }
-
 
 country_event = { #идём снимать вестерны
 	id = ripbozo.9
@@ -535,15 +477,17 @@ country_event = { #аЛЯСКАЯ
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.13"
-		USA_release_ALA = yes
+		hidden_effect = {
+			country_event = {
+				id = ripbozo.7
+				days = 8
+			}
+			USA_release_ALA = yes
+		}
 	}
 
 	option = {
 		name = ripbozo.13.a
-		country_event = {
-			id = ripbozo.7
-			days = 8
-		}
 		ai_chance = {
 			factor = 100
 		}
@@ -551,18 +495,13 @@ country_event = { #аЛЯСКАЯ
 	
 	option = {
 		name = ripbozo.13.b
-		
 		ai_chance = {
 			factor = 0
 		}
-		country_event = {
-			id = ripbozo.7
-			days = 8
-		}
+		
 		ALA = {
 			change_tag_from = USA
 		}
-	
 	}
 
 }
@@ -583,7 +522,6 @@ country_event = { #Нью_йорк и зачем?
 
 	option = {
 		name = ripbozo.7.a
-		
 		ai_chance = {
 			factor = 100
 		}
@@ -596,10 +534,10 @@ country_event = { #Нью_йорк и зачем?
 	
 	option = {
 		name = ripbozo.7.b
-		
 		ai_chance = {
 			factor = 0
 		}
+		
 		country_event = {
 			id = ripbozo.4
 			days = 8
@@ -609,7 +547,6 @@ country_event = { #Нью_йорк и зачем?
 		}
 	}
 }
-
 country_event = { #RACIST CATMAN
 	id = ripbozo.4
 	title = ripbozo.4.t
@@ -618,23 +555,24 @@ country_event = { #RACIST CATMAN
 	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event ripbozo.4"
-		USA_release_NEE = yes
+		hidden_effect = {
+			USA_release_NEE = yes
+			
+		}
+		
 	}
 
 	option = {
 		name = ripbozo.4.a
-		
 		ai_chance = {
 			factor = 100
 		}
 		
 		news_event = WORLDNEWS.20
-	
 	}
 	
 	option = {
 		name = ripbozo.4.b
-		
 		ai_chance = {
 			factor = 0
 		}
