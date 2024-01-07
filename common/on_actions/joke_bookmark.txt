@@ -63,16 +63,24 @@ on_actions = {
 					}
 				}
 				URL = { #I just need it
+					SOV = {
+						release = URL
+					}
 					set_cosmetic_tag = SOV_stalin_united
 					
 					set_politics = {
-						
+						ruling_party = libertarian_socialism
+					}
+					set_popularities = {
+						libertarian_socialism = 100
 					}
 					
 					add_country_leader_role = {
 						character = URL_pelmeni
+						promote_leader = yes
 						country_leader = {
 							ideology = utopian_socialism
+							desc = "URL_pelmeni_desc"
 							traits = { URL_trait_pelmeni }
 						}
 					}
@@ -154,36 +162,12 @@ on_actions = {
 					}
 				}
 				
-				USA = { country_event = nevada.1 } #Yee
+				USA = {
+					country_event = nevada.1
+					country_event = hell.1
+				}
 				
 				EQS = { set_country_flag = EQS_allow_cyka_blyat } #"A country to surpass Bread League"
-				
-				HEL = { #Where am I wrong?
-					transfer_state = 402
-					transfer_state = 404
-					transfer_state = 406
-					transfer_state = 407
-					transfer_state = 583
-					transfer_state = 586
-					transfer_state = 587
-					transfer_state = 588
-					transfer_state = 589
-					transfer_state = 590
-					transfer_state = 881
-					transfer_state = 882
-					
-					#They need cores
-					every_owned_state = {
-						add_core_of = PREV
-						if = {
-							limit = {
-								is_core_of = MON
-							}
-							transfer_state_to = MON #Annexed Mongolia looks weird
-							#Damn, I wrote this while making the USSR which is united by Ural pelmeni
-						}
-					}
-				}
 				
 				### Bing Chilling ###
 				SHC = {
@@ -191,6 +175,7 @@ on_actions = {
 					
 					add_country_leader_role = {
 						character = CHI_john_xina
+						promote_leader = yes
 						country_leader = {
 							ideology = war_socialism
 						}
