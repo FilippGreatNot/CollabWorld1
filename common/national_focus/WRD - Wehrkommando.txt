@@ -11,13 +11,12 @@ focus_tree = {
 	default = no
 	
 	focus = {
-		id = WRD_catastrophe_of_the_weltkrieg
+		id = WRD_first_catastrophe_of_the_weltkrieg
 		icon = GFX_goal_FRA_condemn_the_traitors
-		x = 5
-		y = 1
 		cost = 5
+		
 		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_catastrophe_of_the_weltkrieg log"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
 			
 			add_war_support = -0.15
 			add_stability = -0.10
@@ -30,6 +29,165 @@ focus_tree = {
 			}
 		}
 	}
-	
-	
+	focus = {
+		id = WRD_first_reorganise_government_institutions
+		icon = GFX_focus_WRD_first_reorganise_government_institutions
+		cost = 5
+		
+		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
+		x = -3
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_catastrophe_of_the_weltkrieg
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_reorganise_government_institutions log"
+		}
 	}
+	focus = {
+		id = WRD_first_provisional_martial_law
+		icon = GFX_focus_WRD_first_provisional_martial_law
+		cost = 5
+		
+		relative_position_id = WRD_first_reorganise_government_institutions
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_reorganise_government_institutions
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_provisional_martial_law log"
+		}
+	}
+	focus = {
+		id = WRD_first_provisional_martial_law
+		icon = GFX_focus_WRD_first_provisional_martial_law
+		cost = 5
+		
+		relative_position_id = WRD_first_reorganise_government_institutions
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_reorganise_government_institutions
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_provisional_martial_law log"
+		}
+	}
+	focus = {
+		id = WRD_first_restore_public_trust
+		icon = GFX_focus_WRD_first_restore_public_trust
+		cost = 5
+		
+		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_catastrophe_of_the_weltkrieg
+		}
+		mutually_exclusive = {
+			focus = WRD_first_fight_for_international_recognition
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_restore_public_trust log"
+		}
+	}
+	focus = {
+		id = WRD_first_fight_for_international_recognition
+		icon = GFX_focus_WRD_first_fight_for_international_recognition
+		cost = 5
+		
+		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_catastrophe_of_the_weltkrieg
+		}
+		mutually_exclusive = {
+			focus = WRD_first_restore_public_trust
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_fight_for_international_recognition log"
+		}
+	}
+	focus = {
+		id = WRD_first_introduce_economic_austerity
+		icon = GFX_focus_WRD_first_introduce_economic_austerity
+		cost = 5
+		
+		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
+		y = 2
+		
+		prerequisite = {
+			focus = WRD_first_fight_for_international_recognition
+			focus = WRD_first_restore_public_trust
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_introduce_economic_austerity log"
+		}
+	}
+	focus = {
+		id = WRD_first_end_the_december_mutiny
+		icon = GFX_focus_WRD_first_end_the_december_mutiny
+		cost = 5
+		
+		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
+		x = 3
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_catastrophe_of_the_weltkrieg
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_end_the_december_mutiny log"
+		}
+	}
+	focus = {
+		id = WRD_first_ask_for_an_exchange_of_pows
+		icon = GFX_focus_WRD_first_ask_for_an_exchange_of_pows
+		cost = 5
+		
+		relative_position_id = WRD_first_end_the_december_mutiny
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_end_the_december_mutiny
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_ask_for_an_exchange_of_pows log"
+		}
+	}
+	focus = {
+		id = WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
+		y = 3
+		
+		prerequisite = {
+			focus = WRD_first_provisional_martial_law
+		}
+		prerequisite = {
+			focus = WRD_first_introduce_economic_austerity
+		}
+		prerequisite = {
+			focus = WRD_first_ask_for_an_exchange_of_pows
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+		}
+	}
+}
