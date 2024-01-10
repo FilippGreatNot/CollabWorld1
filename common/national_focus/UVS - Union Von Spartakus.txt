@@ -111,9 +111,6 @@ focus_tree = {
 		}
 	}
 	
-	
-	
-	
 	focus = {
 		id = UVS_hold_back_the_reactionaries
 		icon = GFX_goal_SOV_the_hunt_for_counterrevolutionaries
@@ -2524,30 +2521,31 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
 		
-			
 			66 = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
+				if = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				}
+			}
 			
 			67 = {
 				add_resource = {
 					type = aluminium
 					amount = 16
 				}
+			}
 		}
-	}
 	}
 	
 	focus = {
@@ -2588,8 +2586,8 @@ focus_tree = {
 					type = steel
 					amount = 20
 				}
+			}
 		}
-	}
 	}
 	
 	focus = {
