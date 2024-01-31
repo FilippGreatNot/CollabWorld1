@@ -480,25 +480,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_peaceful_integration"
 			
-			PBD = {
-				PBD_mikhail_tukhachevsky = { #His unit leader role will be recreated later
-					remove_unit_leader_role = yes
-					remove_country_leader_role = {
-						ideology = stratocratic_bolshevism
-					}
-				}
-				
-				every_character = {
-					tooltip = every_advisor_and_unit_leader_tt
-					limit = {
-						OR = { #We don't need Polish country leaders, only advisors and generals
-							is_advisor = yes
-							is_unit_leader = yes
-						}
-					}
-					set_nationality = PREV.PREV
-				}
-			}
+			SOV_eat_PBD_generals = yes
 		}
 	}
 	

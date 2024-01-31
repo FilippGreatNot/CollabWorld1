@@ -1,25 +1,93 @@
 {
-	"Focus": {
-		"prefix": "focus",
-		"body": [
-				"focus = {",
-				"\tid = ${1:id}",
-				"\ticon = GFX_focus_${1}",
-				"\tcost = ${2:cost}",
-				"\t",
-				"\trelative_position_id = ${3:relative focus}",
-				"\tx = ${4:x}",
-				"\ty = ${5:y}",
-				"\tcompletion_reward = {${0:effects}}",
-				"}"
-				]
+	"add_political_power": {
+		"prefix": ["add_political_power"],
+		"body": ["add_political_power = $0"]
 	},
-	"Country idea": {
-		"prefix": "country idea",
+	"add_manpower": {
+		"prefix": ["add_manpower"],
+		"body": ["add_manpower = $0"]
+	},
+	"add_stability": {
+		"prefix": ["add_stability"],
+		"body": ["add_stability = $0"]
+	},
+	"add_popularity": {
+		"prefix": ["add_popularity"],
 		"body": [
-				"\t${1:id} = {",
-				"\ton_add = {log = \"[GetDateText]: [Root.GetName]: add idea ${1}\"}",
-				""
-				]
-	}
+			"add_popularity = {",
+			"\tideology = $1",
+			"\tpopularity = $0",
+			"}"
+		]
+	},
+	"add_ideas (short)": {
+		"prefix": ["add_ideas"],
+		"body": ["add_ideas = $0"]
+	},
+	"add_ideas (long)": {
+		"prefix": ["add_ideas"],
+		"body": [
+			"add_ideas = {",
+			"\t$0",
+			"}"
+		]
+	},
+	"remove_ideas (short)": {
+		"prefix": ["remove_ideas"],
+		"body": ["remove_ideas = $0"]
+	},
+	"remove_ideas (long)": {
+		"prefix": ["remove_ideas"],
+		"body": [
+			"remove_ideas = {",
+			"\t$0",
+			"}"
+		]
+	},
+	"swap_ideas": {
+		"prefix": ["swap_ideas"],
+		"body": [
+			"swap_ideas = {",
+			"\tremove_idea = $1",
+			"\tadd_idea  = $0",
+			"}"
+		]
+	},
+	"annex_country": {
+		"prefix": ["annex_country"],
+		"body": [
+			"annex_country = {",
+			"\ttarget = $1",
+			"\ttransfer_troops = ${2|yes,no|}",
+			"}"
+		]
+	},
+	"log": {
+		"prefix": ["log"],
+		"body": ["log = \"$0\""]
+	},
+	"add_tech_bonus": {
+		"prefix": ["add_tech_bonus"],
+		"body": [
+			"add_tech_bonus = {",
+			"\tbonus = $1",
+			"\tuses = ${2:1}",
+			"\tcategory = $0",
+			"}"
+		]
+	},
+	"add_building_construction": {
+		"prefix": ["add_building_construction"],
+		"body": [
+			"add_building_construction = {",
+			"\ttype = $1",
+			"\tlevel = $2",
+			"\tinstant_build  = ${3|yes,no|}",
+			"}"
+		]
+	},
+	"add_extra_state_shared_building_slots": {
+		"prefix": ["add_extra_state_shared_building_slots"],
+		"body": ["add_extra_state_shared_building_slots = $0"]
+	},
 }

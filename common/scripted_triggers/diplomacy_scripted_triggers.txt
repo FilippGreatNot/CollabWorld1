@@ -143,6 +143,7 @@ DIPLOMACY_MILACC_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
 	if = {
@@ -178,6 +179,7 @@ DIPLOMACY_OFFER_MILACC_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER = {
 	if = {
@@ -213,6 +215,7 @@ DIPLOMACY_DOCKING_RIGHTS_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
 	if = {
@@ -248,6 +251,7 @@ DIPLOMACY_OFFER_DOCKING_RIGHTS_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
 	if = {
@@ -304,6 +308,7 @@ DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
 	if = {
@@ -360,6 +365,7 @@ DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 	if = {
@@ -407,6 +413,7 @@ DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
 	if = {
@@ -558,6 +565,7 @@ DIPLOMACY_BOOST_PARTY_POPULARITY_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_STAGE_COUP_ENABLE_TRIGGER = {
 	if = {
@@ -593,6 +601,7 @@ DIPLOMACY_STAGE_COUP_ENABLE_TRIGGER = {
 			always = no
 		}
 	}
+	can_have_diplomacy = yes
 }
 DIPLOMACY_LEAVE_FACTION_ENABLE_TRIGGER = {
 	if = {
@@ -664,5 +673,14 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 			tooltip = RULE_VOLUNTEERS_BLOCKED_TT
 			always = no
 		}
+	}
+	can_have_diplomacy = yes
+}
+DIPLOMACY_NONAGGRESSIONPACT_ENABLE_TRIGGER = { can_have_diplomacy = yes }
+
+can_have_diplomacy = {
+	NOT = {
+		has_idea = UNT_idea_no_mans_land
+		FROM = { has_idea = UNT_idea_no_mans_land }
 	}
 }

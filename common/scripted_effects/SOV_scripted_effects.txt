@@ -1,4 +1,4 @@
-SOV_get_30s_stalin = { #I have no idea why did a make this a scripted effect lol
+SOV_get_30s_stalin = { #I have no idea why did I make this a scripted effect lol
 	SOV = {
 		set_portraits = {
 			character = SOV_joseph_stalin
@@ -8,6 +8,27 @@ SOV_get_30s_stalin = { #I have no idea why did a make this a scripted effect lol
 		}
 	}
 }
+SOV_eat_PBD_generals = {
+	PBD = {
+		PBD_mikhail_tukhachevsky = {
+			remove_unit_leader_role = yes
+			remove_country_leader_role = {
+				ideology = stratocratic_bolshevism
+			}
+		}
+		every_character = {
+			tooltip = every_advisor_and_unit_leader_tt
+			limit = {
+				OR = { #We don't need Polish country leaders, only advisors and generals
+					is_advisor = yes
+					is_unit_leader = yes
+				}
+			}
+			set_nationality = PREV.PREV
+		}
+	}
+}
+
 russia_add_agrarian_region = {
 	add_dynamic_modifier = {
 		modifier = russia_agrarian_region
