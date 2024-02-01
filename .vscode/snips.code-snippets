@@ -57,15 +57,6 @@
 			"}"
 		]
 	},
-	"annex_country": {
-		"prefix": ["annex_country"],
-		"body": [
-			"annex_country = {",
-			"\ttarget = $1",
-			"\ttransfer_troops = ${2|yes,no|}",
-			"}"
-		]
-	},
 	"log": {
 		"prefix": ["log"],
 		"body": ["log = \"$0\""]
@@ -136,12 +127,402 @@
 		"prefix": ["add_core_of"],
 		"body": ["add_core_of = $0"]
 	},
+	"set_country_flag (short)": {
+		"prefix": ["set_country_flag"],
+		"body": ["set_country_flag = $0"]
+	},
+	"set_country_flag (long)": {
+		"prefix": ["set_country_flag"],
+		"body": [
+			"set_country_flag = {",
+			"flag = $1",
+			"days = $0",
+			"}"
+		]
+	},
+	"set_cosmetic_tag": {
+		"prefix": ["set_cosmetic_tag"],
+		"body": ["set_cosmetic_tag = $0"]
+	},
+	"drop_cosmetic_tag": {
+		"prefix": ["drop_cosmetic_tag"],
+		"body": ["drop_cosmetic_tag = yes"]
+	},
+	"add_command_power": {
+		"prefix": ["add_command_power"],
+		"body": ["add_command_power = $0"]
+	},
+	"army_experience": {
+		"prefix": ["army_experience"],
+		"body": ["army_experience = $0"]
+	},
+	"navy_experience": {
+		"prefix": ["navy_experience"],
+		"body": ["navy_experience = $0"]
+	},
+	"air_experience": {
+		"prefix": ["air_experience"],
+		"body": ["air_experience = $0"]
+	},
+	
+	// Diplomacy //
+	"create_faction": {
+		"prefix": ["create_faction"],
+		"body": ["create_faction = $0"]
+	},
+	"set_major": {
+		"prefix": ["set_major"],
+		"body": ["set_major = yes"]
+	},
+	"add_to_faction": {
+		"prefix": ["add_to_faction"],
+		"body": ["add_to_faction = $0"]
+	},
+	"leave_faction": {
+		"prefix": ["leave_faction"],
+		"body": ["leave_faction = yes"]
+	},
+	"remove_from_faction": {
+		"prefix": ["remove_from_faction"],
+		"body": ["remove_from_faction = $0"]
+	},
+	"dismantle_faction": {
+		"prefix": ["dismantle_faction"],
+		"body": ["dismantle_faction = yes"]
+	},
+	"set_faction_name": {
+		"prefix": ["set_faction_name"],
+		"body": ["set_faction_name = $0"]
+	},
+	"set_faction_leader": {
+		"prefix": ["set_faction_leader"],
+		"body": ["set_faction_leader = yes"]
+	},
+	"set_faction_spymaster": {
+		"prefix": ["set_faction_spymaster"],
+		"body": ["set_faction_spymaster = yes"]
+	},
+	"release": {
+		"prefix": ["release"],
+		"body": ["release = $0"]
+	},
+	"release_on_controlled": {
+		"prefix": ["release_on_controlled"],
+		"body": ["release_on_controlled = $0"]
+	},
+	"release_puppet": {
+		"prefix": ["release_puppet"],
+		"body": ["release_puppet = $0"]
+	},
+	"release_puppet_on_controlled": {
+		"prefix": ["release_puppet_on_controlled"],
+		"body": ["release_puppet_on_controlled = $0"]
+	},
+	"release_autonomy": {
+		"prefix": ["release_autonomy"],
+		"body": [
+			"release_puppet_on_controlled = {",
+			"\ttarget = $1",
+			"\tautonomy_state = ${2:autonomy_puppet}",
+			"freedom_level = ${0:0.5}",
+			"}"
+		]
+	},
+	"give_guarantee": {
+		"prefix": ["give_guarantee"],
+		"body": ["give_guarantee = $0"]
+	},
+	"give_military_access": {
+		"prefix": ["give_military_access"],
+		"body": ["give_military_access = $0"]
+	},
+	"recall_attache": {
+		"prefix": ["recall_attache"],
+		"body": ["recall_attache = $0"]
+	},
+	"diplomatic_relation": {
+		"prefix": ["diplomatic_relation"],
+		"body": [
+			"diplomatic_relation = {",
+			"\tcountry = $1",
+			"\trelation = ${2|non_aggression_pact,guarantee,puppet,military_access,docking_rights|}",
+			"\tactive = ${3|yes,no|}",
+			"}"
+		]
+	},
+	"add_opinion_modifier": {
+		"prefix": ["add_opinion_modifier"],
+		"body": [
+			"add_opinion_modifier = {",
+			"\ttarget = $1",
+			"\tmodifier = $0",
+			"}"
+		]
+	},
+	"remove_opinion_modifier": {
+		"prefix": ["remove_opinion_modifier"],
+		"body": [
+			"remove_opinion_modifier = {",
+			"\ttarget = $1",
+			"\tmodifier = $0",
+			"}"
+		]
+	},
+	"reverse_add_opinion_modifier": {
+		"prefix": ["reverse_add_opinion_modifier"],
+		"body": [
+			"reverse_add_opinion_modifier = {",
+			"\ttarget = $1",
+			"\tmodifier = $0",
+			"}"
+		]
+	},
+	"remove_relation_modifier": {
+		"prefix": ["remove_relation_modifier"],
+		"body": [
+			"remove_relation_modifier = {",
+			"\ttarget = $1",
+			"\tmodifier = $0",
+			"}"
+		]
+	},
+	"add_collaboration": {
+		"prefix": ["add_collaboration"],
+		"body": [
+			"add_collaboration = {",
+			"\ttarget = $1",
+			"\tvalue = $0",
+			"}"
+		]
+	},
+	"set_collaboration": {
+		"prefix": ["set_collaboration"],
+		"body": [
+			"set_collaboration = {",
+			"\ttarget = $1",
+			"\tvalue = $0",
+			"}"
+		]
+	},
+	"recall_volunteers_from": {
+		"prefix": ["recall_volunteers_from"],
+		"body": ["recall_volunteers_from = $0"]
+	},
+	"send_embargo": {
+		"prefix": ["send_embargo"],
+		"body": ["send_embargo = $0"]
+	},
+	"break_embargo": {
+		"prefix": ["break_embargo"],
+		"body": ["break_embargo = $0"]
+	},
+	"give_market_access": {
+		"prefix": ["give_market_access"],
+		"body": ["give_market_access = $0"]
+	},
+	
+	// Autonomy //
+	"puppet (short)": {
+		"prefix": ["puppet"],
+		"body": ["puppet = $0"]
+	},
+	"puppet (long)": {
+		"prefix": ["puppet"],
+		"body": [
+			"puppet = {",
+			"\ttarget = $1",
+			"\tend_wars = ${2|yes,no|}",
+			"}"
+		]
+	},
+	"end_puppet": {
+		"prefix": ["end_puppet"],
+		"body": ["end_puppet = $0"]
+	},
+	"add_autonomy_ratio": {
+		"prefix": ["add_autonomy_ratio"],
+		"body": [
+			"add_autonomy_ratio = {",
+			"\tvalue = $1",
+			"\tlocalization = $0",
+			"}"
+		]
+	},
+	"add_autonomy_score": {
+		"prefix": ["add_autonomy_score"],
+		"body": [
+			"add_autonomy_score = {",
+			"\tvalue = $1",
+			"\tlocalization = $0",
+			"}"
+		]
+	},
+	"set_autonomy": {
+		"prefix": ["set_autonomy"],
+		"body": [
+			"set_autonomy = {",
+			"\ttarget = $1",
+			"\tautonomous_state = ${2:autonomy_free}",
+			"\tend_wars = ${3|yes,no|}",
+			"\tend_civil_wars = ${4|yes,no|}",
+			"}"
+		]
+	},
+	
+	// Governments in exile //
+	"add_legitimacy": {
+		"prefix": ["add_legitimacy"],
+		"body": ["add_legitimacy = $0"]
+	},
+	"set_legitimacy": {
+		"prefix": ["set_legitimacy"],
+		"body": ["set_legitimacy = $0"]
+	},
+	"become_exiled_in": {
+		"prefix": ["become_exiled_in"],
+		"body": [
+			"become_exiled_in = {",
+			"\ttarget = $1",
+			"\tlegitimacy = $0",
+			"}"
+		]
+	},
+	"end_exile": {
+		"prefix": ["end_exile"],
+		"body": ["end_exile = yes"]
+	},
+	
+	// War //
+	"add_threat": {
+		"prefix": ["add_threat"],
+		"body": ["add_threat = $0"]
+	},
+	"add_named_threat": {
+		"prefix": ["add_named_threat"],
+		"body": [
+			"add_named_threat = {",
+			"\tthreat = $1",
+			"\tname = $0",
+			"}"
+		]
+	},
+	"add_named_threat": {
+		"prefix": ["add_named_threat"],
+		"body": [
+			"add_named_threat = {",
+			"\tthreat = $1",
+			"\tname = $0",
+			"}"
+		]
+	},
+	"annex_country": {
+		"prefix": ["annex_country"],
+		"body": [
+			"annex_country = {",
+			"\ttarget = $1",
+			"\ttransfer_troops = ${2|yes,no|}",
+			"}"
+		]
+	},
+	"add_to_war": {
+		"prefix": ["add_to_war"],
+		"body": [
+			"add_to_war = {",
+			"\ttargeted_alliance = $1",
+			"\tenemy = $2",
+			"\thostility_reason = ${0:asked_to_join}"
+			"}"
+		]
+	},
+	"declare_war_on": {
+		"prefix": ["declare_war_on"],
+		"body": [
+			"declare_war_on = {",
+			"\ttarget = $1",
+			"\ttype = ${0:annex_everything}",
+			"}"
+		]
+	},
+	"white_peace (short)": {
+		"prefix": ["white_peace"],
+		"body": ["white_peace = $0"]
+	},
+	"white_peace (long)": {
+		"prefix": ["white_peace"],
+		"body": [
+			"white_peace = {",
+			"\ttag = $1",
+			"\tmessage = $0",
+			"}"
+		]
+	},
+	"start_peace_conference": {
+		"prefix": ["start_peace_conference"],
+		"body": [
+			"start_peace_conference = {",
+			"\ttag = $1",
+			"\tscore_factor = $2",
+			"\tmessage = $3",
+			"\twinner_scope = ${4|ALL,FACTION,LIMITED_FACTION,LIMITED|}",
+			"\tloser_scope = ${5|ALL,FACTION,LIMITED_FACTION,LIMITED|}",
+			"}"
+		]
+	},
+	"set_truce": {
+		"prefix": ["set_truce"],
+		"body": [
+			"set_truce = {",
+			"\ttarget = $1",
+			"\tdays = $0",
+			"}"
+		]
+	},
 	"create_wargoal": {
 		"prefix": ["create_wargoal"],
 		"body": [
 			"create_wargoal = {",
 			"\ttype = ${1:annex_everything}",
 			"\ttarget = $0",
+			"}"
+		]
+	},
+	"remove_wargoal": {
+		"prefix": ["remove_wargoal"],
+		"body": [
+			"remove_wargoal = {",
+			"\ttype = ${1:all}",
+			"\ttarget = $0",
+			"}"
+		]
+	},
+	"add_civil_war_target": {
+		"prefix": ["add_civil_war_target"],
+		"body": ["add_civil_war_target = $0"]
+	},
+	"remove_civil_war_target": {
+		"prefix": ["remove_civil_war_target"],
+		"body": ["remove_civil_war_target = $0"]
+	},
+	"add_nuclear_bombs": {
+		"prefix": ["add_nuclear_bombs"],
+		"body": ["add_nuclear_bombs = $0"]
+	},
+	"launch_nuke (province)": {
+		"prefix": ["launch_nuke"],
+		"body": [
+			"launch_nuke = {",
+			"\tprovince = $1",
+			"\tuse_nuke = ${2|yes,no|}"
+			"}"
+		]
+	},
+	"launch_nuke (state)": {
+		"prefix": ["launch_nuke"],
+		"body": [
+			"launch_nuke = {",
+			"\tstate = $1",
+			"\tcontroller = $2",
+			"\tuse_nuke = ${3|yes,no|}",
 			"}"
 		]
 	},
