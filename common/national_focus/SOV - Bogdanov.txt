@@ -157,6 +157,12 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_glory_to_the_chairman"
+			
+			add_trait = {
+				character = SOV_alexander_bogdanov
+				ideology = technocratic_socialism
+				trait = SOV_the_man_of_the_future
+			}
 		}
 	}
 	focus = {
@@ -275,16 +281,14 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = SOV_bogdanov_the_terrorists
-		}
-		prerequisite = {
 			focus = SOV_bogdanov_the_pragmatists
-		}
-		prerequisite = {
 			focus = SOV_bogdanov_the_opportunists
 		}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_loyal_ogpu"
+			
+			add_ideas = SOV_deal_with_the_secutity
 		}
 	}
 	focus = {
@@ -298,11 +302,7 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = SOV_bogdanov_the_terrorists
-		}
-		prerequisite = {
 			focus = SOV_bogdanov_the_pragmatists
-		}
-		prerequisite = {
 			focus = SOV_bogdanov_the_opportunists
 		}
 		
@@ -422,8 +422,14 @@ focus_tree = {
 			focus = SOV_bogdanov_rocket_trains
 		}
 		
+		available = {
+			controls_state = 403
+		}
+		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_warcry_of_the_dead_man"
+			
+			403 = { kill_the_entire_state = yes }
 		}
 	}
 	
@@ -546,6 +552,13 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_state_like_a_clock"
+			
+			add_ideas = SOV_the_perfect_clockwork
+			add_trait = {
+				character = SOV_alexander_bogdanov
+				ideology = technocratic_socialism
+				trait = SOV_the_great_watchmaker
+			}
 		}
 	}
 	
@@ -559,6 +572,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future"
+			
+			add_stability = 0.05
+			add_war_support = 0.1
 		}
 	}
 	focus = {
@@ -576,6 +592,17 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_west"
+			
+			PBD = {
+				every_owned_state = {
+					add_core_of = PREV.PREV
+				}
+			}
+			LAT = {
+				every_owned_state = {
+					add_core_of = PREV.PREV
+				}
+			}
 		}
 	}
 	focus = {
@@ -593,6 +620,11 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_baltics"
+			
+			create_wargoal = {
+				type = annex_everything
+				target = LAT
+			}
 		}
 	}
 	focus = {
@@ -611,11 +643,11 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_baltics"
 			
+			SOV_eat_PBD_generals = yes
 			annex_country = {
 				target = PBD
 				transfer_troops = yes
 			}
-			SOV_eat_PBD_generals = yes
 		}
 	}
 	focus = {
