@@ -7,10 +7,13 @@ set_stability = 0.75
 set_war_support = 0
 
 add_1922_modern_tech = yes
+news_event = { id = usa_collapse.1 days = 90 } 
 
-set_convoys = 500
-
-country_event = { id = ripbozo.1 days = 90 } 
+### Characters ###
+## Country leaders ##
+recruit_character = USA_john_d_rockfeller
+recruit_character = USA_john_d_rockfeller_jr
+recruit_character = USA_board_of_directors
 
 set_politics = {
 	ruling_party = despotism
@@ -35,34 +38,4 @@ add_ideas = {
 	USA_uninstitutional_slavery
 	USA_socialist_nightmare
 	USA_corporate_military
-}
-
-### Characters ###
-## Country leaders ##
-recruit_character = USA_john_d_rockfeller
-recruit_character = USA_john_d_rockfeller_jr
-recruit_character = USA_board_of_directors
-
-
-if = {
-	limit = { has_dlc = "La Resistance" }
-	create_operative_leader = {
-		name = "Josephine Baker"
-		GFX = GFX_portrait_josephine_baker
-		traits = { operative_well_groomed }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		female = yes
-		nationalities = { USA }
-	}
-
-	create_operative_leader = {
-		name = "Virginia Hall"
-		GFX = GFX_portrait_virginia_hall
-		traits = { operative_demolition_expert }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		female = yes
-		nationalities = { USA }
-	}
 }

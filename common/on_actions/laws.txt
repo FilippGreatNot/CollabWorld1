@@ -1,0 +1,27 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_possible_country = {
+				limit = {
+					NOT = {
+						has_country_flag = dont_add_generic_laws_on_start
+						ideology_authoritarian = yes
+						has_government = conservatism
+						has_government = social_democrat
+						has_government = esotericism
+					}
+					has_idea = regulated_market_economy #They have one assigned already if they don't
+				}
+				if = {
+					limit = {
+						has_government = liberalism
+					}
+					add_ideas = free_market_economy
+				}
+				else = { #They are either socialists, nat synds or anarchists
+					add_ideas = state_economy
+				}
+			}
+		}
+	}
+}

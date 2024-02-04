@@ -1,72 +1,73 @@
-add_namespace = ripbozo
+add_namespace = usa_collapse
 
-country_event = {
-	id = ripbozo.1
-	title = ripbozo.1.t
-	desc = ripbozo.1.d
-	picture = GFX_report_event_valknut
+news_event = {
+	id = usa_collapse.1
+	title = usa_collapse.1.t
+	desc = usa_collapse.1.d
+	picture = GFX_news_event_USA_JDR_dead
+	major = yes
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.1"
-		news_event = WORLDNEWS.13
-		hidden_effect = {
-			country_event = {
-				id = ripbozo.15
-				days = 14
-			}	
-			USA_john_d_rockfeller_jr = {
-				retire = yes
+		if = {
+			limit = {
+				tag = USA
 			}
-			promote_character = USA_board_of_directors
+			log = "[GetDateText]: [Root.GetName]: event usa_collapse.1"
+			hidden_effect = {
+				country_event = {
+					id = usa_collapse.15
+					days = 14
+				}	
+				USA_john_d_rockfeller = {
+					retire = yes
+				}
+				promote_character = USA_board_of_directors
+			}
 		}
 	}
 	
 	option = {
-		name = ripbozo.1.a
+		name = usa_collapse.1.a
 	}
 }
 country_event = {
-	id = ripbozo.15
-	title = ripbozo.15.t
-	desc = ripbozo.15.d
+	id = usa_collapse.15
+	title = usa_collapse.15.t
+	desc = usa_collapse.15.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.15"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.15"
 		
 		hidden_effect = {
 			USA_board_of_directors = {
 				retire = yes
 			}
 			country_event = {
-				id = ripbozo.2
+				id = usa_collapse.2
 				days = 14
 			}
 		}
 	}
 	
 	option = {
-		name = ripbozo.15.a
+		name = usa_collapse.15.a
 	}
 }
 country_event = { #SHIT BEGINS
-	id = ripbozo.2
-	title = ripbozo.2.t
-	desc = ripbozo.2.d
+	id = usa_collapse.2
+	title = usa_collapse.2.t
+	desc = usa_collapse.2.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.2"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.2"
 		
 		hidden_effect = {
 			USA_release_ASF = yes
-			ASF = {
-				load_oob = USA_ASF
-			}
-			
 			country_event = {
-				id = ripbozo.5
+				id = usa_collapse.5
 				days = 7
 			}
 			add_popularity = {
@@ -88,14 +89,14 @@ country_event = { #SHIT BEGINS
 	}
 
 	option = {
-		name = ripbozo.2.a
+		name = usa_collapse.2.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.2.b
+		name = usa_collapse.2.b
 		ai_chance = {
 			factor = 0
 		}
@@ -106,31 +107,31 @@ country_event = { #SHIT BEGINS
 	}
 }
 country_event = { #буржуи ебаные 
-	id = ripbozo.5
-	title = ripbozo.5.t
-	desc = ripbozo.5.d
+	id = usa_collapse.5
+	title = usa_collapse.5.t
+	desc = usa_collapse.5.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.5"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.5"
 		hidden_effect = {
 			USA_release_FOC = yes
 			country_event = {
-				id = ripbozo.10
+				id = usa_collapse.10
 				days = 5
 			}
 		}
 	}
 	
 	option = {
-		name = ripbozo.5.a
+		name = usa_collapse.5.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.5.b
+		name = usa_collapse.5.b
 		ai_chance = {
 			factor = 0
 		}
@@ -141,24 +142,24 @@ country_event = { #буржуи ебаные
 	}
 }
 country_event = { #та самая сук мышь
-	id = ripbozo.10
-	title = ripbozo.10.t
-	desc = ripbozo.10.d
+	id = usa_collapse.10
+	title = usa_collapse.10.t
+	desc = usa_collapse.10.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.10"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.10"
 		hidden_effect = {
 			USA_release_DIC = yes
 			country_event = {
-				id = ripbozo.8
+				id = usa_collapse.8
 				days = 10
 			}
 		}
 	}
 
 	option = {
-		name = ripbozo.10.a
+		name = usa_collapse.10.a
 		
 		ai_chance = {
 			factor = 100
@@ -166,7 +167,7 @@ country_event = { #та самая сук мышь
 	}
 	
 	option = {
-		name = ripbozo.10.b
+		name = usa_collapse.10.b
 		
 		ai_chance = {
 			factor = 0
@@ -178,31 +179,31 @@ country_event = { #та самая сук мышь
 	}
 }
 country_event = { #CANNCELED BY TWITTER
-	id = ripbozo.8
-	title = ripbozo.8.t
-	desc = ripbozo.8.d
+	id = usa_collapse.8
+	title = usa_collapse.8.t
+	desc = usa_collapse.8.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.8"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.8"
 		hidden_effect = {
 			USA_release_KKK = yes
 			country_event = {
-				id = ripbozo.11
+				id = usa_collapse.11
 				days = 3
 			}
 		}
 	}
 
 	option = {
-		name = ripbozo.8.a
+		name = usa_collapse.8.a
 		ai_chance = {
 			factor = 1
 		}
 	}
 	
 	option = {
-		name = ripbozo.8.b
+		name = usa_collapse.8.b
 		ai_chance = {
 			factor = 0
 		}
@@ -213,32 +214,32 @@ country_event = { #CANNCELED BY TWITTER
 	}
 }
 country_event = { #ААААААААААААААААА НЕГРЫ
-	id = ripbozo.11
-	title = ripbozo.11.t
-	desc = ripbozo.11.d
+	id = usa_collapse.11
+	title = usa_collapse.11.t
+	desc = usa_collapse.11.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.11"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.11"
 		
 		hidden_effect = {
 			USA_release_BRE = yes
 			country_event = {
-				id = ripbozo.9
+				id = usa_collapse.9
 				days = 6
 			}
 		}
 	}
 
 	option = {
-		name = ripbozo.11.a
+		name = usa_collapse.11.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.11.b
+		name = usa_collapse.11.b
 		ai_chance = {
 			factor = 0
 		}
@@ -249,31 +250,31 @@ country_event = { #ААААААААААААААААА НЕГРЫ
 	}
 }
 country_event = { #идём снимать вестерны
-	id = ripbozo.9
-	title = ripbozo.9.t
-	desc = ripbozo.9.d
+	id = usa_collapse.9
+	title = usa_collapse.9.t
+	desc = usa_collapse.9.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.9"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.9"
 		hidden_effect = {
 			USA_release_TEX = yes
 			country_event = {
-				id = ripbozo.12
+				id = usa_collapse.12
 				days = 7
 			}
 		}
 	}
 	
 	option = {
-		name = ripbozo.9.a
+		name = usa_collapse.9.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.9.b
+		name = usa_collapse.9.b
 		ai_chance = {
 			factor = 0
 		}
@@ -284,25 +285,25 @@ country_event = { #идём снимать вестерны
 	}
 }
 country_event = { #калифорния
-	id = ripbozo.12
-	title = ripbozo.12.t
-	desc = ripbozo.12.d
+	id = usa_collapse.12
+	title = usa_collapse.12.t
+	desc = usa_collapse.12.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.12"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.12"
 		
 		hidden_effect = {
 			USA_release_CAL = yes
 			country_event = {
-				id = ripbozo.3
+				id = usa_collapse.3
 				days = 4
 			}
 		}
 	}
 	
 	option = {
-		name = ripbozo.12.a
+		name = usa_collapse.12.a
 		
 		ai_chance = {
 			factor = 100
@@ -311,7 +312,7 @@ country_event = { #калифорния
 	}
 	
 	option = {
-		name = ripbozo.12.b
+		name = usa_collapse.12.b
 		ai_chance = {
 			factor = 0
 		}
@@ -322,13 +323,13 @@ country_event = { #калифорния
 	}
 }
 country_event = { #military says bye
-	id = ripbozo.3
-	title = ripbozo.3.t
-	desc = ripbozo.3.d
+	id = usa_collapse.3
+	title = usa_collapse.3.t
+	desc = usa_collapse.3.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.3"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.3"
 		
 		hidden_effect = {
 			USA_release_CCC = yes
@@ -337,21 +338,21 @@ country_event = { #military says bye
 			}
 			set_cosmetic_tag = USA_JDR
 			country_event = {
-				id = ripbozo.6
+				id = usa_collapse.6
 				days = 7
 			}
 		}
 	}
 	
 	option = {
-		name = ripbozo.3.a
+		name = usa_collapse.3.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.3.b
+		name = usa_collapse.3.b
 		ai_chance = {
 			factor = 0
 		}
@@ -362,25 +363,25 @@ country_event = { #military says bye
 	}
 }
 country_event = { #Масоны ебать
-	id = ripbozo.6
-	title = ripbozo.6.t
-	desc = ripbozo.6.d
+	id = usa_collapse.6
+	title = usa_collapse.6.t
+	desc = usa_collapse.6.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.6"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.6"
 		
 		hidden_effect = {
 			USA_release_MAL = yes
 			country_event = {
-				id = ripbozo.14
+				id = usa_collapse.14
 				days = 3
 			}
 		}
 	}
 
 	option = {
-		name = ripbozo.6.a
+		name = usa_collapse.6.a
 		
 		ai_chance = {
 			factor = 100
@@ -388,7 +389,7 @@ country_event = { #Масоны ебать
 	}
 	
 	option = {
-		name = ripbozo.6.b
+		name = usa_collapse.6.b
 		ai_chance = {
 			factor = 0
 		}
@@ -399,31 +400,31 @@ country_event = { #Масоны ебать
 	}
 }
 country_event = { #Индейцы
-	id = ripbozo.14
-	title = ripbozo.14.t
-	desc = ripbozo.14.d
+	id = usa_collapse.14
+	title = usa_collapse.14.t
+	desc = usa_collapse.14.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.14"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.14"
 		hidden_effect = {
 			USA_release_FTS = yes
 			country_event = {
-				id = ripbozo.13
+				id = usa_collapse.13
 				days = 8
 			}
 		}
 	}
 
 	option = {
-		name = ripbozo.14.a
+		name = usa_collapse.14.a
 		ai_chance = {
 			factor = 100
 		}
 	}	
 	
 	option = {
-		name = ripbozo.14.b
+		name = usa_collapse.14.b
 		ai_chance = {
 			factor = 0
 		}
@@ -434,16 +435,16 @@ country_event = { #Индейцы
 	}
 }
 country_event = { #аЛЯСКАЯ
-	id = ripbozo.13
-	title = ripbozo.13.t
-	desc = ripbozo.13.d
+	id = usa_collapse.13
+	title = usa_collapse.13.t
+	desc = usa_collapse.13.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.13"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.13"
 		hidden_effect = {
 			country_event = {
-				id = ripbozo.7
+				id = usa_collapse.7
 				days = 8
 			}
 			USA_release_ALA = yes
@@ -451,14 +452,14 @@ country_event = { #аЛЯСКАЯ
 	}
 
 	option = {
-		name = ripbozo.13.a
+		name = usa_collapse.13.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.13.b
+		name = usa_collapse.13.b
 		ai_chance = {
 			factor = 0
 		}
@@ -470,18 +471,18 @@ country_event = { #аЛЯСКАЯ
 
 }
 country_event = { #Нью_йорк и зачем?
-	id = ripbozo.7
-	title = ripbozo.7.t
-	desc = ripbozo.7.d
+	id = usa_collapse.7
+	title = usa_collapse.7.t
+	desc = usa_collapse.7.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.7"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.7"
 		
 		hidden_effect = {
 			USA_release_NYC = yes
 			country_event = {
-				id = ripbozo.4
+				id = usa_collapse.4
 				days = 8
 			}
 		}
@@ -489,14 +490,14 @@ country_event = { #Нью_йорк и зачем?
 
 
 	option = {
-		name = ripbozo.7.a
+		name = usa_collapse.7.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.7.b
+		name = usa_collapse.7.b
 		ai_chance = {
 			factor = 0
 		}
@@ -507,13 +508,13 @@ country_event = { #Нью_йорк и зачем?
 	}
 }
 country_event = { #RACIST CATMAN
-	id = ripbozo.4
-	title = ripbozo.4.t
-	desc = ripbozo.4.d
+	id = usa_collapse.4
+	title = usa_collapse.4.t
+	desc = usa_collapse.4.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event ripbozo.4"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.4"
 		hidden_effect = {
 			USA_release_NEE = yes
 			
@@ -522,14 +523,14 @@ country_event = { #RACIST CATMAN
 	}
 	
 	option = {
-		name = ripbozo.4.a
+		name = usa_collapse.4.a
 		ai_chance = {
 			factor = 100
 		}
 	}
 	
 	option = {
-		name = ripbozo.4.b
+		name = usa_collapse.4.b
 		ai_chance = {
 			factor = 0
 		}
