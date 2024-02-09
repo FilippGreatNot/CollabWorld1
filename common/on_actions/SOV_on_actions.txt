@@ -56,4 +56,26 @@ on_actions = {
 			}
 		}
 	}
+	
+	#ROOT - winner
+	#FROM - country that gets annexed
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					tag = SOV
+					FROM = { tag = PBD }
+				}
+				#SOV defeats PBD
+				SOV_eat_PBD_generals = yes
+				PBD_mikhail_tukhachevsky = {
+					remove_unit_leader_role = yes
+				}
+				if = {
+					limit = { has_country_flag = SOV_PBD_rejected_ultimatum }
+					complete_national_focus = SOV_stalin_teach_the_impudent_marshal_a_lesson
+				}
+			}
+		}
+	}
 }

@@ -3,6 +3,7 @@
 add_namespace = sov_leadership
 add_namespace = sov_unification
 add_namespace = sov_stalin
+add_namespace = sov_stalin_united
 add_namespace = sov
 
 country_event = { #Fate of the royal family
@@ -33,7 +34,6 @@ country_event = { #Lenin's speech
 		name = sov.2.a
 	}
 }
-
 country_event = {
 	id = sov_leadership.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_leadership.1" }
@@ -57,8 +57,8 @@ country_event = {
 		promote_character = SOV_alexander_bogdanov	
 		set_cosmetic_tag = SOV_bogdanov
 		
-		set_party_name = { 
-			ideology = bolshevism 
+		set_party_name = {
+			ideology = bolshevism
 			long_name = SOV_BOGDANOV_LONG
 			name = SOV_BOGDANOV_SHORT
 		}
@@ -67,28 +67,20 @@ country_event = {
 	
 	option = {
 		name = sov_leadership.1.c
-		#remove_all_ministers = no
-		#hidden_effect = {
-			set_politics = {
-				ruling_party = libertarian_socialism
-			}
-			
-			set_cosmetic_tag = SOV_spiridonova_regional
-		#}
+		set_politics = {
+			ruling_party = libertarian_socialism
+		}
+		
+		set_cosmetic_tag = SOV_spiridonova_regional
 	}
 	
 	option = {
 		name = sov_leadership.1.e
 		
-		#hidden_effect = {
-			promote_character = SOV_felix_dzerzhinsky	
-			set_cosmetic_tag = SOV_felix_regional
-		#}
+		promote_character = SOV_felix_dzerzhinsky	
+		set_cosmetic_tag = SOV_felix_regional
 	}
 }
-
-
-
 country_event = {
 	id = sov_unification.1 #tukh
 	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.1" }
@@ -99,80 +91,56 @@ country_event = {
 	
 	option = {
 		name = sov_unification.1.a
-		ai_chance = { factor = 90 }
-		
-		if = {
-			limit = {
-				SOV = {
-					has_focus_tree = SOV_stalin
+		ai_chance = {
+			modifier = {
+				factor = 0
+				
+				has_opinion = {
+					target = FROM
+					value < 0
 				}
-			}
-		
-			SOV = {
-				complete_national_focus = SOV_stalin_peaceful_integration		
 			}
 		}
 		
-		if = {
-			limit = {
-				SOV = {
-					has_country_leader = { character = SOV_alexander_bogdanov ruling_only = yes }
-				}
+		FROM = {
+			SOV_eat_PBD_generals = yes
+			PBD_mikhail_tukhachevsky = {
+				remove_unit_leader_role = yes
 			}
-			
-			SOV = {
-				complete_national_focus = SOV_welcome_home_tukh
-			} 
-		}
-		
-		SOV = {
 			annex_country = {
 				target = PREV
-				transfer_troops = yes 
+				transfer_troops = no
 			}
+			hidden_effect = { complete_national_focus = SOV_stalin_peaceful_integration }
 		}
 	}
 	
 	option = {
 		name = sov_unification.1.b	
-		ai_chance = { factor = 10 }
-		SOV = {
+		ai_chance = {
+			modifier = {
+				factor = 0
+				
+				has_opinion = {
+					target = FROM
+					value > 0
+				}
+			}
+		}
+		
+		FROM = {
 			declare_war_on = {
 				target = PREV
 				type = annex_everything
 			}
-		}	
-		
-		if = {
-			limit = {
-				SOV = {
-					has_focus_tree = SOV_stalin
-				}
-			}
-			
-			SOV = {
-				complete_national_focus = SOV_stalin_teach_the_impudent_marshal_a_lesson
-			} 
-		}
-	
-		if = {
-			limit = {
-				SOV = {
-					has_country_leader = { character = SOV_alexander_bogdanov ruling_only = yes }
-				}
-			}
-			
-			
-			SOV = {
-				complete_national_focus = SOV_this_is_treason_marshal
-			}			
+			set_country_flag = SOV_PBD_rejected_ultimatum
 		}
 	}
 }
 
 ### Stalin ###
 country_event = {
-	id = sov_stalin.1 #NKBD leader
+	id = sov_stalin.1 #NKVD leader
 	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.1" }
 	title = sov_stalin.1.t
 	desc = sov_stalin.1.d
@@ -186,14 +154,12 @@ country_event = {
 		complete_national_focus = SOV_stalin_beria_leader
 	}
 	
-	
 	option = {
 		name = sov_stalin.1.b
 		
 		add_ideas = SOV_nikolai_yezhov_sec
 		complete_national_focus = SOV_stalin_yezhov_leader 		
 	}
-	
 	
 	option = {
 		name = sov_stalin.1.c
@@ -253,20 +219,20 @@ country_event = {
 
 # Unified #
 news_event = {
-	id = sov_stalin.4 #Creation of Comintern
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.4" }
-	title = sov_stalin.4.t
-	desc = sov_stalin.4.d
+	id = sov_stalin_united.4 #Creation of Comintern
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.4" }
+	title = sov_stalin_united.4.t
+	desc = sov_stalin_united.4.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin.4.procommunist
+		name = sov_stalin_united.4.procommunist
 		trigger = {
 			ideology_socialist = yes
 		}
 	}
 	option = {
-		name = sov_stalin.4.neutral
+		name = sov_stalin_united.4.neutral
 		trigger = {
 			OR = {
 				has_government = social_democrat
@@ -275,7 +241,7 @@ news_event = {
 		}
 	}
 	option = {
-		name = sov_stalin.4.anticommunist
+		name = sov_stalin_united.4.anticommunist
 		trigger = {
 			OR = {
 				AND = {
@@ -292,14 +258,14 @@ news_event = {
 	}
 }
 country_event = {
-	id = sov_stalin.5 #Invite to Comintern
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.3" }
-	title = sov_stalin.5.t
-	desc = sov_stalin.5.d
+	id = sov_stalin_united.5 #Invite to Comintern
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.3" }
+	title = sov_stalin_united.5.t
+	desc = sov_stalin_united.5.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin.5.accept
+		name = sov_stalin_united.5.accept
 		FROM = { add_to_faction = PREV }
 		
 		trigger = {
@@ -317,7 +283,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = sov_stalin.5.reject_friendly
+		name = sov_stalin_united.5.reject_friendly
 		trigger = {
 			has_opinion = {
 				target = FROM
@@ -336,7 +302,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = sov_stalin.5.reject
+		name = sov_stalin_united.5.reject
 		reverse_add_opinion_modifier = {
 			target = FROM
 			modifier = faction_traitor
