@@ -593,18 +593,8 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_west"
 			
-			PBD = {
-				every_owned_state = {
-					tooltip = every_core_state_tt
-					add_core_of = PREV.PREV
-				}
-			}
-			LAT = {
-				every_owned_state = {
-					tooltip = every_core_state_tt
-					add_core_of = PREV.PREV
-				}
-			}
+			PBD = { make_every_core_national_for_PREV = yes }
+			LAT = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -663,6 +653,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_north"
+			
+			KAR = { make_every_core_national_for_PREV = yes }
+			FIN = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -679,6 +672,11 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_annex_the_kmd"
+			
+			annex_country = {
+				target = KAR
+				transfer_troops = yes
+			}
 		}
 	}
 	focus = {
@@ -695,6 +693,11 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_boil_the_snow"
+			
+			create_wargoal = {
+				type = annex_everything
+				target = FIN
+			}
 		}
 	}
 	focus = {
@@ -712,6 +715,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_south"
+			
+			SRF = { make_every_core_national_for_PREV = yes }
+			UKR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -728,6 +734,15 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_restore_the_order_on_the_black_sea"
+			
+			create_wargoal = {
+				type = annex_everything
+				target = SRF
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = RUS
+			}
 		}
 	}
 	focus = {
@@ -745,6 +760,48 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_march_to_the_east"
+			
+			OCG = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = OCG
+			}
+			
+			KAZ = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = KAZ
+			}
+			
+			KYR = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = KYR
+			}
+			
+			RUS = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = RUS
+			}
+			
+			SEA = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = SEA
+			}
+			
+			FER = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = FER
+			}
+			
+			KMP = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = KMP
+			}
 		}
 	}
 }
