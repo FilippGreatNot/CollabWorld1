@@ -120,11 +120,6 @@ country_event = { #Failure - Yazov assassinated, collapse begins
 
 
 		hidden_effect = {
-
-			add_ideas = {
-
-			}
-
 			577 = {
 				set_demilitarized_zone = yes
 			}
@@ -188,55 +183,51 @@ country_event = { #Failure - Plan Hydra fails, outlying territories secede.
 	
 			country_event = { id = ruscollapse.3 days = 10 }
 		
-		
-		
-		hidden_effect = {
-		
-			end_puppet = MON
-
-
-			516 = {
-				set_demilitarized_zone = no
-			}
-			
-			569 = {
-				set_demilitarized_zone = no
-			}
-			
-			654 = {
-				set_demilitarized_zone = no
-			}
-			
-			FSR = {
-				transfer_state = 569
-				transfer_state = 654
-				every_owned_state = {
-					remove_core_of = RUS
-					add_core_of = PREV
+			hidden_effect = {
+				end_puppet = MON
+	
+	
+				516 = {
+					set_demilitarized_zone = no
 				}
 				
-			}
-			
-			
-			if = {
-				limit = {
-					has_war = yes
+				569 = {
+					set_demilitarized_zone = no
 				}
-				every_other_country = {
+				
+				654 = {
+					set_demilitarized_zone = no
+				}
+				
+				FSR = {
+					transfer_state = 569
+					transfer_state = 654
+					every_owned_state = {
+						remove_core_of = RUS
+						add_core_of = PREV
+					}
+					
+				}
+				
+				if = {
 					limit = {
-						has_war_with = RUS
+						has_war = yes
 					}
-					declare_war_on = {
-						target = ZZZ
-						type = annex_everything
-					}
-					declare_war_on = {
-						target = FSR
-						type = annex_everything
+					every_other_country = {
+						limit = {
+							has_war_with = RUS
+						}
+						declare_war_on = {
+							target = ZZZ
+							type = annex_everything
+						}
+						declare_war_on = {
+							target = FSR
+							type = annex_everything
+						}
 					}
 				}
 			}
-		}	
  	}
 }
 
@@ -288,12 +279,9 @@ country_event = {	#Failure - Batov forms the Russian National Salvation Commissi
 			818 = {
 				set_demilitarized_zone = no
 			}
-			
-			
 			329 = {
 				set_demilitarized_zone = no
 			}
-			
 			820 = {
 				set_demilitarized_zone = no
 			}
@@ -307,7 +295,6 @@ country_event = {	#Failure - Batov forms the Russian National Salvation Commissi
 					remove_core_of = RUS
 					add_core_of = PREV
 				}
-			
 			}
 			
 			SMF = {
@@ -317,14 +304,7 @@ country_event = {	#Failure - Batov forms the Russian National Salvation Commissi
 					remove_core_of = RUS
 					add_core_of = PREV
 				}
-				
-				
-				add_ideas = {
-
-				}
-				
 			}
-			
 			
 			if = {
 				limit = {
@@ -387,10 +367,8 @@ country_event = { #Failure - collapse is complete
 					add_core_of = PREV
 				}
 			
-			
 				add_ideas = {
 					Generic_Vacant_hog
-
 				}
 			}
 			

@@ -804,4 +804,542 @@ focus_tree = {
 			}
 		}
 	}
+	
+	### Military ###
+	focus = {
+		id = SOV_bogdanov_the_new_soviet_army
+		icon = GFX_focus_SOV_bogdanov_the_new_soviet_army
+		cost = 6
+		
+		x = 13
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_new_soviet_army"
+			
+			add_war_support = 0.05
+		}
+	}
+	
+	## Navy ##
+	focus = {
+		id = SOV_bogdanov_the_navy
+		icon = GFX_focus_SOV_bogdanov_the_navy
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_new_soviet_army
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_new_soviet_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_navy"
+			
+			navy_experience = 50
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_underwater_fleet_superiority
+		icon = GFX_focus_SOV_bogdanov_underwater_fleet_superiority
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_navy
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_navy
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_stake_on_capital_ships
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_underwater_fleet_superiority"
+			
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 4
+				category = ss_tech
+				category = dd_tech
+				name = SOV_bogdanov_underwater_fleet_superiority
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_stake_on_capital_ships
+		icon = GFX_focus_SOV_bogdanov_stake_on_capital_ships
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_navy
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_navy
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_underwater_fleet_superiority
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_stake_on_capital_ships"
+			
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 4
+				category = cl_tech
+				category = bb_tech
+				name = SOV_bogdanov_stake_on_capital_ships
+			}
+		}
+	}
+	
+	## Army ##
+	focus = {
+		id = SOV_bogdanov_the_army
+		icon = GFX_focus_SOV_bogdanov_the_army
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_new_soviet_army
+		x = 3
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_new_soviet_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_army"
+			
+			army_experience = 50
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_evaluation_of_warfare_methods
+		icon = GFX_focus_SOV_bogdanov_evaluation_of_warfare_methods
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_army
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_evaluation_of_warfare_methods"
+			
+			add_ideas = SOV_army_reforms
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_motor_war
+		icon = GFX_focus_SOV_bogdanov_motor_war
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_evaluation_of_warfare_methods
+		x = -3
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_evaluation_of_warfare_methods
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_motor_war"
+			
+			add_ideas = SOV_lightning_fast_war_doctrine
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_the_queen_of_battle
+		icon = GFX_focus_SOV_bogdanov_the_queen_of_battle
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_motor_war
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_motor_war
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_queen_of_battle"
+			
+			swap_ideas = {
+				remove_idea = SOV_lightning_fast_war_doctrine
+				add_idea = SOV_lightning_fast_war_doctrine_1
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_examine_foreign_models
+		icon = GFX_focus_SOV_bogdanov_examine_foreign_models
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_queen_of_battle
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_queen_of_battle
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_examine_foreign_models"
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = armor
+				name = SOV_bogdanov_examine_foreign_models
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_iron_cavalry
+		icon = GFX_focus_SOV_bogdanov_iron_cavalry
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_examine_foreign_models
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_examine_foreign_models
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_examine_foreign_models"
+			
+			swap_ideas = {
+				remove_idea = SOV_lightning_fast_war_doctrine_1
+				add_idea = SOV_lightning_fast_war_doctrine_2
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_mobility_is_the_reason_of_victory
+		icon = GFX_focus_SOV_bogdanov_mobility_is_the_reason_of_victory
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_iron_cavalry
+		x = -2
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_iron_cavalry
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_symbiosis_is_the_principle_of_success
+			focus = SOV_bogdanov_mechanisation_is_the_recipe_for_success
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_mobility_is_the_reason_of_victory"
+			
+			add_ideas = SOV_mobility_is_the_reason_of_victory
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_symbiosis_is_the_principle_of_success
+		icon = GFX_focus_SOV_bogdanov_symbiosis_is_the_principle_of_success
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_iron_cavalry
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_iron_cavalry
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_mobility_is_the_reason_of_victory
+			focus = SOV_bogdanov_mechanisation_is_the_recipe_for_success
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_mobility_is_the_reason_of_victory"
+			
+			add_ideas = SOV_symbiosis_is_the_principle_of_success
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_mechanisation_is_the_recipe_for_success
+		icon = GFX_focus_SOV_bogdanov_mechanisation_is_the_recipe_for_success
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_iron_cavalry
+		x = 2
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_iron_cavalry
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_mobility_is_the_reason_of_victory
+			focus = SOV_bogdanov_symbiosis_is_the_principle_of_success
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_mobility_is_the_reason_of_victory"
+			
+			add_ideas = SOV_mechanisation_is_the_recipe_for_success
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_tanks_tanks_tanks
+		icon = GFX_focus_SOV_bogdanov_tanks_tanks_tanks
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_iron_cavalry
+		y = 2
+		
+		prerequisite = {
+			focus = SOV_bogdanov_mobility_is_the_reason_of_victory
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_symbiosis_is_the_principle_of_success
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_mechanisation_is_the_recipe_for_success
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_tanks_tanks_tanks"
+			
+			swap_ideas = {
+				remove_idea = SOV_lightning_fast_war_doctrine_1
+				add_idea = SOV_lightning_fast_war_doctrine_2
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_superiority_of_the_god_of_war
+		icon = GFX_focus_SOV_bogdanov_superiority_of_the_god_of_war
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_evaluation_of_warfare_methods
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_evaluation_of_warfare_methods
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_superiority_of_the_god_of_war"
+			
+			add_ideas = SOV_firepower_superiority_doctrine
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_the_basis_of_any_army
+		icon = GFX_focus_SOV_bogdanov_the_basis_of_any_army
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_superiority_of_the_god_of_war
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_superiority_of_the_god_of_war
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_basis_of_any_army"
+			
+			swap_ideas = {
+				remove_idea = SOV_firepower_superiority_doctrine
+				add_idea = SOV_firepower_superiority_doctrine_1
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_punishment_from_the_skies
+		icon = GFX_focus_SOV_bogdanov_the_basis_of_any_army
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_basis_of_any_army
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_basis_of_any_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_punishment_from_the_skies"
+			
+			add_ideas = SOV_punishment_from_the_skies
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_steel_horses
+		icon = GFX_focus_SOV_bogdanov_steel_horses
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_basis_of_any_army
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_basis_of_any_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_steel_horses"
+			
+			add_ideas = SOV_steel_horses
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_blood_and_steel_alliance
+		icon = GFX_focus_SOV_bogdanov_blood_and_steel_alliance
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_basis_of_any_army
+		y = 2
+		
+		prerequisite = {
+			focus = SOV_bogdanov_punishment_from_the_skies
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_steel_horses
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_blood_and_steel_alliance"
+			
+			swap_ideas = {
+				remove_idea = SOV_firepower_superiority_doctrine_1
+				add_idea = SOV_firepower_superiority_doctrine_2
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_strikes_terror_into_enemy_hearts
+		icon = GFX_focus_SOV_bogdanov_strikes_terror_into_enemy_hearts
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_blood_and_steel_alliance
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_blood_and_steel_alliance
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_strikes_terror_into_enemy_hearts"
+			
+			swap_ideas = {
+				remove_idea = SOV_firepower_superiority_doctrine_2
+				add_idea = SOV_firepower_superiority_doctrine_3
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_stimulator_usage_program
+		icon = GFX_focus_SOV_bogdanov_stimulator_usage_program
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_strikes_terror_into_enemy_hearts
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_strikes_terror_into_enemy_hearts
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_stimulator_usage_program"
+			
+			swap_ideas = {
+				remove_idea = SOV_firepower_superiority_doctrine_3
+				add_idea = SOV_firepower_superiority_doctrine_4
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_foreign_models_testing
+		icon = GFX_focus_SOV_bogdanov_foreign_models_testing
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_stimulator_usage_program
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_stimulator_usage_program
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_foreign_models_testing"
+			
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = infantry_weapons
+				name = SOV_bogdanov_foreign_models_testing
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_our_steel_rats
+		icon = GFX_focus_SOV_bogdanov_our_steel_rats
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_foreign_models_testing
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_foreign_models_testing
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_our_steel_rats"
+			
+			swap_ideas = {
+				remove_idea = SOV_firepower_superiority_doctrine_4
+				add_idea = SOV_firepower_superiority_doctrine_5
+			}
+		}
+	}
+	
+	## HELICOPTER HELICOPTER ##
+	focus = {
+		id = SOV_bogdanov_the_airforce
+		icon = GFX_focus_SOV_bogdanov_the_airforce
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_new_soviet_army
+		x = 6
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_new_soviet_army
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_airforce"
+			
+			air_experience = 50
+		}
+	}
+	
+	# sped #
+	focus = {
+		id = SOV_bogdanov_stake_on_maneuverability
+		icon = GFX_focus_SOV_bogdanov_stake_on_maneuverability
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_airforce
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_airforce
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_stake_on_maneuverability"
+			
+			air_experience = 50
+		}
+	}
 }

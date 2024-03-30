@@ -53,7 +53,7 @@
 		"body": [
 			"swap_ideas = {",
 			"\tremove_idea = $1",
-			"\tadd_idea  = $2",
+			"\tadd_idea = $2",
 			"}"
 		]
 	},
@@ -67,7 +67,9 @@
 			"add_tech_bonus = {",
 			"\tbonus = $1",
 			"\tuses = ${2:1}",
-			"\tcategory = $2",
+			"\tcategory = $3",
+			"\tahead_reduction = $4",
+			"\tname = $5",
 			"}"
 		]
 	},
@@ -164,8 +166,6 @@
 		"prefix": ["air_experience"],
 		"body": ["air_experience = $0"]
 	},
-	
-	// Diplomacy //
 	"create_faction": {
 		"prefix": ["create_faction"],
 		"body": ["create_faction = $0"]
@@ -320,8 +320,6 @@
 		"prefix": ["give_market_access"],
 		"body": ["give_market_access = $0"]
 	},
-	
-	// Autonomy //
 	"puppet (short)": {
 		"prefix": ["puppet"],
 		"body": ["puppet = $0"]
@@ -368,8 +366,6 @@
 			"}"
 		]
 	},
-	
-	// Governments in exile //
 	"add_legitimacy": {
 		"prefix": ["add_legitimacy"],
 		"body": ["add_legitimacy = $0"]
@@ -391,20 +387,9 @@
 		"prefix": ["end_exile"],
 		"body": ["end_exile = yes"]
 	},
-	
-	// War //
 	"add_threat": {
 		"prefix": ["add_threat"],
 		"body": ["add_threat = $0"]
-	},
-	"add_named_threat": {
-		"prefix": ["add_named_threat"],
-		"body": [
-			"add_named_threat = {",
-			"\tthreat = $1",
-			"\tname = $2",
-			"}"
-		]
 	},
 	"add_named_threat": {
 		"prefix": ["add_named_threat"],
@@ -430,7 +415,7 @@
 			"add_to_war = {",
 			"\ttargeted_alliance = $1",
 			"\tenemy = $2",
-			"\thostility_reason = ${0:asked_to_join}"
+			"\thostility_reason = ${0:asked_to_join}",
 			"}"
 		]
 	},
@@ -512,7 +497,7 @@
 		"body": [
 			"launch_nuke = {",
 			"\tprovince = $1",
-			"\tuse_nuke = ${2|yes,no|}"
+			"\tuse_nuke = ${2|yes,no|}",
 			"}"
 		]
 	},
@@ -525,5 +510,9 @@
 			"\tuse_nuke = ${3|yes,no|}",
 			"}"
 		]
+	},
+	"custom_effect_tooltip": {
+		"prefix": ["custom_effect_tooltip"],
+		"body": ["custom_effect_tooltip = $0"]
 	},
 }
