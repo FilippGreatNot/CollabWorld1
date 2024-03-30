@@ -579,7 +579,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_bogdanov_march_to_the_west
-		icon = GFX_focus_SOV_bogdanov_march_to_the_west
+		icon = GFX_focus_SOV_stalin_dash_to_the_west
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
@@ -640,7 +640,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_bogdanov_march_to_the_north
-		icon = GFX_focus_SOV_bogdanov_march_to_the_north
+		icon = GFX_focus_SOV_stalin_a_trip_to_karelia
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
@@ -702,7 +702,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SOV_bogdanov_march_to_the_south
-		icon = GFX_focus_SOV_bogdanov_march_to_the_south
+		icon = GFX_focus_SOV_stalin_the_hydras_second_head
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
@@ -811,7 +811,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_bogdanov_the_new_soviet_army
 		cost = 6
 		
-		x = 13
+		x = 15
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_new_soviet_army"
@@ -827,6 +827,7 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_the_new_soviet_army
+		x = -3
 		y = 1
 		
 		prerequisite = {
@@ -903,7 +904,6 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_the_new_soviet_army
-		x = 3
 		y = 1
 		
 		prerequisite = {
@@ -940,11 +940,14 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_evaluation_of_warfare_methods
-		x = -3
+		x = -4
 		y = 1
 		
 		prerequisite = {
 			focus = SOV_bogdanov_evaluation_of_warfare_methods
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_superiority_of_the_god_of_war
 		}
 		
 		completion_reward = {	
@@ -1119,11 +1122,13 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_evaluation_of_warfare_methods
-		x = 1
 		y = 1
 		
 		prerequisite = {
 			focus = SOV_bogdanov_evaluation_of_warfare_methods
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_motor_war
 		}
 		
 		completion_reward = {	
@@ -1309,7 +1314,7 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_the_new_soviet_army
-		x = 6
+		x = 5
 		y = 1
 		
 		prerequisite = {
@@ -1330,16 +1335,343 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = SOV_bogdanov_the_airforce
+		x = -1
 		y = 1
 		
 		prerequisite = {
 			focus = SOV_bogdanov_the_airforce
 		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_stake_on_firepower
+		}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_stake_on_maneuverability"
 			
-			air_experience = 50
+			add_tech_bonus = {
+				bonus = 0.7
+				uses = 3
+				category = strategic_destruction_tree
+				category = battlefield_support_tree
+				name = SOV_bogdanov_stake_on_maneuverability
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_wings_of_superiority
+		icon = GFX_focus_SOV_bogdanov_wings_of_superiority
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_stake_on_maneuverability
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_stake_on_maneuverability
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_wings_of_superiority"
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = light_fighter
+				name = SOV_bogdanov_wings_of_superiority
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_army_support
+		icon = GFX_focus_SOV_bogdanov_army_support
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_wings_of_superiority
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_wings_of_superiority
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_army_support"
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = light_fighter
+				name = SOV_bogdanov_army_support
+			}
+		}
+	}
+	
+	# NOT ENOUGH DAKKA #
+	focus = {
+		id = SOV_bogdanov_stake_on_firepower
+		icon = GFX_focus_SOV_bogdanov_stake_on_firepower
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_airforce
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_airforce
+		}
+		mutually_exclusive = {
+			focus = SOV_bogdanov_stake_on_maneuverability
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_stake_on_firepower"
+			
+			add_tech_bonus = {
+				bonus = 0.7
+				uses = 3
+				category = operational_integrity_tree
+				name = SOV_bogdanov_stake_on_firepower
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_heavy_fighters
+		icon = GFX_focus_SOV_bogdanov_heavy_fighters
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_stake_on_firepower
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_stake_on_firepower
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_heavy_fighters"
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_heavy_fighter
+				name = SOV_bogdanov_stake_on_firepower
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_iron_birds_of_destruction
+		icon = GFX_focus_SOV_bogdanov_iron_birds_of_destruction
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_heavy_fighters
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_heavy_fighters
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_iron_birds_of_destruction"
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_strategic_bomber
+				name = SOV_bogdanov_iron_birds_of_destruction
+			}
+		}
+	}
+	
+	# ze end #
+	focus = {
+		id = SOV_bogdanov_rubber_for_the_aviation
+		icon = GFX_focus_SOV_bogdanov_rubber_for_the_aviation
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_airforce
+		x = -2
+		y = 4
+		
+		prerequisite = {
+			focus = SOV_bogdanov_army_support
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_rubber_for_the_aviation"
+			
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = cat_synth_rubber
+				name = SOV_bogdanov_rubber_for_the_aviation
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_fuel_for_the_aviation
+		icon = GFX_focus_SOV_bogdanov_fuel_for_the_aviation
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_airforce
+		y = 4
+		
+		prerequisite = {
+			focus = SOV_bogdanov_army_support
+			focus = SOV_bogdanov_iron_birds_of_destruction
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_fuel_for_the_aviation"
+			
+			random_owned_state = {
+				add_resource = {
+					type = oil
+					amount = 20
+				}
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_aluminium_for_the_iron_birds
+		icon = GFX_focus_SOV_bogdanov_aluminium_for_the_iron_birds
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_airforce
+		x = 2
+		y = 4
+		
+		prerequisite = {
+			focus = SOV_bogdanov_iron_birds_of_destruction
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_aluminium_for_the_iron_birds"
+			
+			add_resource = {
+				type = aluminium
+				amount = 40
+				state = 219
+			}
+		}
+	}
+	
+	### Economy ###
+	focus = {
+		id = SOV_bogdanov_revolutionary_economic_policy
+		icon = GFX_focus_SOV_bogdanov_revolutionary_economic_policy
+		cost = 6
+		
+		x = 24
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_revolutionary_economic_policy"
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.02
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_war_communism_experience
+		icon = GFX_focus_SOV_bogdanov_war_communism_experience
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_revolutionary_economic_policy
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_revolutionary_economic_policy
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_war_communism_experience"
+			
+			add_ideas = state_economy
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_commissariat_of_military_industry
+		icon = GFX_focus_SOV_bogdanov_commissariat_of_military_industry
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_war_communism_experience
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_war_communism_experience
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_commissariat_of_military_industry"
+			
+			195 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_continuous_production
+		icon = GFX_focus_SOV_bogdanov_continuous_production
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_revolutionary_economic_policy
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_revolutionary_economic_policy
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_continuous_production"
+			
+			add_ideas = SOV_perpetual_production
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_rationalisation_standardisation_maximisation
+		icon = GFX_focus_SOV_bogdanov_rationalisation_standardisation_maximisation
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_continuous_production
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_continuous_production
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_rationalisation_standardisation_maximisation"
+			
+			add_ideas = SOV_perpetual_production
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_ten_year_plan
+		icon = GFX_focus_SOV_bogdanov_ten_year_plan
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_revolutionary_economic_policy
+		y = 3
+		
+		prerequisite = {
+			focus = SOV_bogdanov_commissariat_of_military_industry
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_rationalisation_standardisation_maximisation
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_ten_year_plan"
+			
+			add_timed_idea = {
+				idea = SOV_ten_year_plan
+				years = 10
+			}
 		}
 	}
 }
