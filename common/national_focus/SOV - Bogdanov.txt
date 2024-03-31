@@ -1558,7 +1558,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_bogdanov_revolutionary_economic_policy
 		cost = 6
 		
-		x = 24
+		x = 26
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_revolutionary_economic_policy"
@@ -1672,6 +1672,210 @@ focus_tree = {
 				idea = SOV_ten_year_plan
 				years = 10
 			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_every_worker_is_a_stakhanovite
+		icon = GFX_focus_SOV_bogdanov_every_worker_is_a_stakhanovite
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_ten_year_plan
+		x = -2
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_ten_year_plan
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_every_worker_is_a_stakhanovite"
+			
+			swap_ideas = {
+				remove_idea = SOV_perpetual_production
+				add_idea = SOV_perpetual_production_1
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_katorga_12
+		icon = GFX_focus_SOV_bogdanov_katorga_12
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_every_worker_is_a_stakhanovite
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_every_worker_is_a_stakhanovite
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_katorga_12"
+			
+			add_ideas = SOV_katorga_12
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_the_iron_skeleton_of_russia
+		icon = GFX_focus_SOV_bogdanov_the_iron_skeleton_of_russia
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_ten_year_plan
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_ten_year_plan
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_every_worker_is_a_stakhanovite"
+			
+			add_ideas = SOV_iron_skeleton
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_smelt_the_junk
+		icon = GFX_focus_SOV_bogdanov_smelt_the_junk
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_the_iron_skeleton_of_russia
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_the_iron_skeleton_of_russia
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_smelt_the_junk"
+			
+			add_stability = -0.2
+			capital_scope = {
+				add_resource = {
+					type = steel
+					amount = 40
+				}
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_two_digit_growth
+		icon = GFX_focus_SOV_bogdanov_two_digit_growth
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_ten_year_plan
+		x = 2
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_ten_year_plan
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_two_digit_growth"
+			
+			add_ideas = SOV_industry_above_all_else
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_military_is_the_industrys_best_friend
+		icon = GFX_focus_SOV_bogdanov_military_is_the_industrys_best_friend
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_two_digit_growth
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_two_digit_growth
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_military_is_the_industrys_best_friend"
+			
+			add_ideas = SOV_soldiers_in_production
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_bourgeois_ecoholism
+		icon = GFX_focus_SOV_bogdanov_bourgeois_ecoholism
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_ten_year_plan
+		x = -1
+		y = 3
+		
+		prerequisite = {
+			focus = SOV_bogdanov_katorga_12
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_smelt_the_junk
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_military_is_the_industrys_best_friend
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_bourgeois_ecoholism"
+			
+			swap_ideas = {
+				remove_idea = SOV_perpetual_production_1
+				add_idea = SOV_perpetual_production_2
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_overindustrialisation
+		icon = GFX_focus_SOV_bogdanov_overindustrialisation
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_ten_year_plan
+		x = 1
+		y = 3
+		
+		prerequisite = {
+			focus = SOV_bogdanov_katorga_12
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_smelt_the_junk
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_military_is_the_industrys_best_friend
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_overindustrialisation"
+			
+			swap_ideas = {
+				remove_idea = SOV_industry_above_all_else
+				add_idea = SOV_industrialisation_at_any_cost
+			}
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_the_all_consuming_machine
+		icon = GFX_focus_SOV_bogdanov_the_all_consuming_machine
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_ten_year_plan
+		y = 4
+		
+		prerequisite = {
+			focus = SOV_bogdanov_bourgeois_ecoholism
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_overindustrialisation
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_the_all_consuming_machine"
+			
+			remove_ideas = {
+				SOV_industrialisation_at_any_cost
+				SOV_soldiers_in_production
+				SOV_iron_skeleton
+				SOV_katorga_12
+				SOV_perpetual_production_2
+			}
+			
+			add_ideas = SOV_the_all_consuming_machine
 		}
 	}
 }
