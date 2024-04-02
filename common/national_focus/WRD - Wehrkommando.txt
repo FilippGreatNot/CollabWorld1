@@ -13,7 +13,7 @@ focus_tree = {
 	focus = {
 		id = WRD_first_catastrophe_of_the_weltkrieg
 		icon = GFX_focus_WRD_first_catastrophe_of_the_weltkrieg
-		x = 10
+		x = 15
 		cost = 5
 		
 		completion_reward = {	
@@ -198,6 +198,397 @@ focus_tree = {
 			country_event = {
 			id = wrd_dusseldorf.1
 		}
+		}
+	}
+	
+	focus = {
+		id = WRD_first_himmler_assumes_control
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_first_beaten_but_not_defeated
+		y = 1
+		x = 8
+		
+		prerequisite = {
+			focus = WRD_first_beaten_but_not_defeated
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.05
+			}
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = WRD_abandon_monarchism
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_first_himmler_assumes_control
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = WRD_first_himmler_assumes_control
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_expand_the_schutzstaffel
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 7
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_first_himmler_assumes_control
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_first_himmler_assumes_control
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_securing_state_apparatus
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 6
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_abandon_monarchism
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_abandon_monarchism
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_the_purple_regime
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_expand_the_schutzstaffel
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_expand_the_schutzstaffel
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_an_agricultural_renewal
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_securing_state_apparatus
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = WRD_securing_state_apparatus
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_increase_working_hours
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_securing_state_apparatus
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_securing_state_apparatus
+			focus = WRD_the_purple_regime
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_prepare_the_arms_production
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_the_purple_regime
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_the_purple_regime
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_embrace_germanic_supremacy
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_increase_working_hours
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_prepare_the_arms_production
+		}
+		prerequisite = {
+			focus = WRD_increase_working_hours
+		}
+		prerequisite = {
+			focus = WRD_an_agricultural_renewal
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_a_purple_germany
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = esotericism }
+		
+		relative_position_id = WRD_embrace_germanic_supremacy
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_embrace_germanic_supremacy
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_first_prepare_mackensens_retirement
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = despotism }
+		
+		relative_position_id = WRD_first_beaten_but_not_defeated
+		y = 1
+		
+		prerequisite = {
+			focus = WRD_first_beaten_but_not_defeated
+		}
+		
+		
+		available = {
+			NOT = { 
+			has_completed_focus = WRD_first_end_the_regency
+			}
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_stability = 0.05
+			country_event = {
+			id = wrd_dusseldorf.5
+		}
+		}
+	}
+	
+	focus = {
+		id = WRD_the_hindenburg_regency
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		mutually_exclusive = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		relative_position_id = WRD_first_prepare_mackensens_retirement
+		y = 1
+		x = -3
+		
+		prerequisite = {
+			focus = WRD_first_prepare_mackensens_retirement
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_rise_of_ludendorff
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		mutually_exclusive = {
+			focus = WRD_the_hindenburg_regency
+		}
+		
+		relative_position_id = WRD_first_prepare_mackensens_retirement
+		y = 1
+		x = 3
+		
+		prerequisite = {
+			focus = WRD_first_prepare_mackensens_retirement
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_permanent_martial_law
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		
+		relative_position_id = WRD_rise_of_ludendorff
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_first_end_the_regency
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		available = { has_government = despotism }
+		
+		relative_position_id = WRD_first_beaten_but_not_defeated
+		y = 1
+		x = -8
+		
+		prerequisite = {
+			focus = WRD_first_beaten_but_not_defeated
+		}
+		
+		available = {
+			NOT = { 
+			has_completed_focus = WRD_first_prepare_mackensens_retirement
+			}
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_the_old_kaiser
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		mutually_exclusive = {
+			focus = WRD_the_new_kaiser
+		}
+		
+		relative_position_id = WRD_first_end_the_regency
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = WRD_first_end_the_regency
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_the_new_kaiser
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		
+		mutually_exclusive = {
+			focus = WRD_the_old_kaiser
+		}
+		
+		relative_position_id = WRD_first_end_the_regency
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_first_end_the_regency
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
 		}
 	}
 }
