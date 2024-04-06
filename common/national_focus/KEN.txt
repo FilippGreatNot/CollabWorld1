@@ -1,0 +1,43 @@
+
+focus_tree = {
+	id = KEN_first
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KEN
+		}
+	}
+	default = no
+	
+	
+	
+	focus = {
+		id = KEN_spread_revolution_to_uganda
+		icon = GFX_goal_FRA_calm_down_the_republic
+		x = 5
+		y = 0
+		cost = 50
+		
+	
+		
+		bypass = {
+			NOT = {
+				country_exists = UGA
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = UGA
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_destroy_capitalist_swine_log"
+			declare_war_on = {
+				target = UGA
+				type = annex_everything
+			}
+		}
+	}
+}
+	
+	
