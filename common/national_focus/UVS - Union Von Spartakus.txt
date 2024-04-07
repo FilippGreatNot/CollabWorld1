@@ -504,6 +504,7 @@ focus_tree = {
 			add_ideas = {
 				UVS_stasi
 			}
+			add_political_power = 50
 		}
 	}
 	
@@ -1714,6 +1715,35 @@ focus_tree = {
 			add_political_power = -200
 		}
 	}
+	
+	focus = {
+		id = UVS_find_the_kaiserliche_armee_depots
+		icon = GFX_goal_ENG_gun_production
+		x = 0
+		y = 2
+		cost = 10
+		
+	    relative_position_id = UVS_path_to_reunification
+		
+		prerequisite = {
+			focus = UVS_path_to_reunification
+		}
+	
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		    add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 3000
+				producer = WRD
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = WRD
+			}
+		    army_experience = 25
+		}
+	}
 		
 
 	focus = {
@@ -1873,7 +1903,7 @@ focus_tree = {
 	focus = {
 		id = UVS_crush_the_invaders
 		icon = GFX_goal_UVS_crush_the_invaders
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		
@@ -1904,7 +1934,7 @@ focus_tree = {
 	focus = {
 		id = UVS_destroy_monuments
 		icon = GFX_goal_UVS_destroy_monuments
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		
@@ -1968,7 +1998,7 @@ focus_tree = {
 	focus = {
 		id = UVS_destroy_capitalist_swine
 		icon = GFX_goal_UVS_finish_revolution
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		
@@ -1999,7 +2029,7 @@ focus_tree = {
 	focus = {
 		id = UVS_turn_spd_voters
 		icon = GFX_goal_UVS_turn_spd_voters
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		

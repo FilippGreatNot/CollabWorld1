@@ -11,7 +11,7 @@ focus_tree = {
     
 	focus = {
 		id = FRA_france_on_the_world_stage
-		icon = GFX_FRA_amongus
+		icon = GFX_goal_FRA_viva_la_coty
 		x = 20
 		y = 1
 		cost = 5
@@ -36,7 +36,7 @@ focus_tree = {
 	focus = {
 		id = FRA_into_the_benelux
 		icon = GFX_FRA_amongus
-		x = 0
+		x = 2
 		y = 1
 		cost = 4
 		available_if_capitulated = yes
@@ -55,6 +55,131 @@ focus_tree = {
 		    LUX = {	
 				country_event = coty.2
 			}
+			
+		}
+	}
+
+    focus = {
+		id = FRA_the_iberian_game
+		icon = GFX_FRA_amongus
+		x = -2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_france_on_the_world_stage
+		
+		prerequisite = {
+			focus = FRA_france_on_the_world_stage
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		    army_experience = 25
+			POR = {	
+				country_event = coty.3
+			}
+			SPR = {	
+				country_event = coty.3
+			}
+			
+			
+		}
+	}
+
+    focus = {
+		id = FRA_take_down_spain
+		icon = GFX_FRA_amongus
+		x = -1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_iberian_game
+		
+		prerequisite = {
+			focus = FRA_the_iberian_game
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = SPR
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		    
+			declare_war_on = {
+				target = SPR
+				type = annex_everything
+			}
+			
+		}
+	}	
+	
+	focus = {
+		id = FRA_neutralize_portugal
+		icon = GFX_FRA_amongus
+		x = 1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_iberian_game
+		
+		prerequisite = {
+			focus = FRA_the_iberian_game
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			has_war = no
+			is_neighbor_of = POR
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		    
+			declare_war_on = {
+				target = POR
+				type = annex_everything
+			}
+			
+		}
+	}	
+	
+	 focus = {
+		id = FRA_catalonia_and_basque
+		icon = GFX_FRA_amongus
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_neutralize_portugal
+		
+		prerequisite = {
+			focus = FRA_neutralize_portugal
+		}
+		prerequisite = {
+			focus = FRA_take_down_spain
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
+		   add_state_core = 165
+		   add_state_core = 172
+		   add_state_core = 792
 			
 		}
 	}	
@@ -76,6 +201,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		
+		available = {
+			has_war = no
+			is_neighbor_of = BEL
+		}
+		
 		completion_reward = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
 		    declare_war_on = {
@@ -103,6 +234,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		
+		available = {
+			has_war = no
+			is_neighbor_of = HOL
+		}
+		
 		completion_reward = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
 		    declare_war_on = {
@@ -139,7 +276,43 @@ focus_tree = {
 		   add_state_core = 8
 			
 		}
-	}			
+	}	
+    
+     focus = {
+		id = FRA_end_the_african_exiles
+		icon = GFX_goal_FRA_condemn_the_traitors
+		x = -2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_integrate_wallony_and_luxembourg
+		
+		prerequisite = {
+			focus = FRA_integrate_wallony_and_luxembourg
+		}
+		
+		prerequisite = {
+			focus = FRA_catalonia_and_basque
+		}
+		
+		available = {
+			has_war = no
+			is_neighbor_of = TFE
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
+		    declare_war_on = {
+				target = TFE
+				type = annex_everything
+			}
+			
+		}
+	}	
 	
 	focus = {
 		id = FRA_coty_presidency

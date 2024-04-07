@@ -88,7 +88,7 @@ characters = {
 			ideology = council_communism
 			desc = "POLITICS_KARL_LIEBKNECHT_DESC"
 		}
-		field_marshal = {
+		corps_commander = {
 			traits = { UVS_spartakusbund_officer politically_connected }
 			skill = 3
 			
@@ -108,7 +108,7 @@ characters = {
 				large = "gfx/leaders/UVS/UVS_joachim_von_ribbentrop.tga"
 			}
 		}
-		field_marshal = {
+		corps_commander = {
 			traits = { UVS_spartakusbund_officer trait_reckless }
 			skill = 1
 			
@@ -168,7 +168,7 @@ characters = {
 		advisor = {
 			slot = economy_minister
 			idea_token = UVS_vacant_ec
-			traits = { cabinet_crisis }
+			traits = {  }
 			can_be_fired = no
 		}
 	}
@@ -199,16 +199,18 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/UVS/UVS_hans_speidel.tga"
+				small = "GFX_idea_UVS_Hans_Speidel"
 			}
 			army = {
 				large = "gfx/leaders/UVS/UVS_hans_speidel.tga"
+				small = "GFX_idea_UVS_Hans_Speidel"
 			}
 		}
 		country_leader = {
 			ideology = stratocratic_bolshevism
 			desc = "POLITICS_HANS_SPEIDEL_DESC"
 		}
-		field_marshal = {
+		corps_commander = {
 			traits = { UVS_spartakusbund_officer organizer panzer_expert infantry_leader armor_officer	}
 			skill = 3
 			
@@ -217,7 +219,16 @@ characters = {
 			planning_skill = 4
 			logistics_skill = 3
 		}
-	}
+	advisor = {
+			slot = army_chief
+			idea_token = UVS_hans_speidel_hog
+			traits = { army_chief_offensive_2 }
+			can_be_fired = yes
+			visible = {
+				is_alive = yes
+			}
+		}
+		}
 	UVS_hermann_goring = {
 		name = UVS_hermann_goring
 		portraits = {
@@ -228,7 +239,7 @@ characters = {
 				large = "gfx/leaders/UVS/UVS_hermann_goring.tga"
 			}
 		}
-		field_marshal = {
+		corps_commander = {
 			traits = { UVS_spartakusbund_officer war_hero trait_reckless }
 			skill = 3
 			
