@@ -8,11 +8,143 @@ focus_tree = {
 		}
 	}
 	default = no
+    
+	focus = {
+		id = FRA_france_on_the_world_stage
+		icon = GFX_FRA_amongus
+		x = 20
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+	    available = {
+			has_completed_focus = FRA_ban_sfoi
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_france_on_the_world_stage"
+			
+			add_war_support = 0.05
+				add_timed_idea = { 
+				idea = FRA_preparing_for_expansion
+				days = 365
+				}	
+		}
+	}
+	
+	focus = {
+		id = FRA_into_the_benelux
+		icon = GFX_FRA_amongus
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_france_on_the_world_stage
+		
+		prerequisite = {
+			focus = FRA_france_on_the_world_stage
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		    LUX = {	
+				country_event = coty.2
+			}
+			
+		}
+	}	
+	
+	focus = {
+		id = FRA_destroy_the_false_state
+		icon = GFX_FRA_amongus
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_into_the_benelux
+		
+		prerequisite = {
+			focus = FRA_into_the_benelux
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
+		    declare_war_on = {
+				target = BEL
+				type = annex_everything
+			}
+			
+		}
+	}
 
+    focus = {
+		id = FRA_reunite_with_the_dutch
+		icon = GFX_FRA_amongus
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_into_the_benelux
+		
+		prerequisite = {
+			focus = FRA_into_the_benelux
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
+		    declare_war_on = {
+				target = HOL
+				type = annex_everything
+			}
+			
+		}
+	}
+
+     focus = {
+		id = FRA_integrate_wallony_and_luxembourg
+		icon = GFX_FRA_amongus
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_destroy_the_false_state
+		
+		prerequisite = {
+			focus = FRA_destroy_the_false_state
+		}
+		prerequisite = {
+			focus = FRA_reunite_with_the_dutch
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
+		   add_state_core = 34
+		   add_state_core = 8
+			
+		}
+	}			
+	
 	focus = {
 		id = FRA_coty_presidency
 		icon = GFX_FRA_Cotys_Presidency
-		x = 20
+		x = 10
 		y = 1
 		cost = 2
 		available_if_capitulated = yes

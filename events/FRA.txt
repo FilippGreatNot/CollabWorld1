@@ -47,4 +47,41 @@ country_event = {
 
 }
 
+country_event = {
+	id = coty.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.2" }
+	title = coty.2.t
+	desc = coty.2.d
+	picture = GFX_report_event_soviet_people
+	is_triggered_only = yes
+
+	option = {
+		name = coty.2.a 
+		ai_chance = { factor = 30 }
+		FRA = {
+			annex_country = { 
+				target = LUX
+				transfer_troops = no
+			}
+		}
+		
+		LUX = {
+			every_unit_leader = {
+				set_nationality = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = coty.2.b	
+		ai_chance = { factor = 70 }
+		FRA = {
+			declare_war_on = {
+				target = LUX
+				type = annex_everything
+			}
+		}
+	}
+}
+
 
