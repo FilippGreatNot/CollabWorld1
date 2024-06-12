@@ -1,0 +1,52 @@
+#!gfx:interface/country/russia/SOV/SOV_goals.gfx
+focus_tree = {
+	id = SOV_bogdanov_united_tree
+	country = {
+		factor = 0
+	}
+	default = no
+
+	focus = {
+		id = SOV_bogdanov_united_forward_to_the_utopia
+		icon = GFX_focus_SOV_bogdanov_united_forward_to_the_utopia
+		cost = 6
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_united_forward_to_the_utopia"
+		}
+	}
+	focus = {
+		id = SOV_bogdanov_there_is_only_the_committee
+		icon = GFX_focus_SOV_bogdanov_there_is_only_the_committee
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_united_forward_to_the_utopia
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_united_forward_to_the_utopia
+		}
+
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_there_is_only_the_committee"
+		}
+	}
+
+	# Left #
+	focus = {
+		id = SOV_bogdanov_physical_ascension
+		icon = GFX_focus_SOV_bogdanov_physical_ascension
+		cost = 6
+		
+		relative_position_id = SOV_bogdanov_united_forward_to_the_utopia
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_united_forward_to_the_utopia
+		}
+
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_physical_ascension"
+		}
+	}
+}
