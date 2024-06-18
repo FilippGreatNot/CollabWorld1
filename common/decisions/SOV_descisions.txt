@@ -102,48 +102,6 @@ SOV_bogdanov_burn_stuff = {
 		}
 	}
 }
-russia_industrialisation = {
-	russia_industrialisation_expand_mechanisation = {
-		icon = russia_industrialisation_expand_mechanisation
-		state_target = yes
-		on_map_mode = map_only
-		target_trigger = {
-			FROM = {
-				has_state_flag = russia_agrarian_region
-				is_owned_by = PREV
-			}
-		}
-		visible = {
-			NOT = { has_decision = russia_industrialisation_disable }
-		}
-		
-		days_remove = 100
-		cost = 30
-		remove_effect = {
-			FROM = {
-				russia_agrarian_region_increase_industrialisation_level_1 = yes
-				russia_remove_agrarian_region_if_completed = yes
-			}
-		}
-	}
-	russia_industrialisation_disable = {
-		days_remove = -1 #Eternity
-		complete_effect = {
-			set_country_flag = russia_industrialisation_disabled
-			remove_decision_on_cooldown = russia_industrialisation_enable
-		}
-	}
-	russia_industrialisation_enable = {
-		visible = {
-			has_decision = russia_industrialisation_disable
-		}
-		complete_effect = {
-			clr_country_flag = russia_industrialisation_disabled
-			remove_decision_on_cooldown = russia_industrialisation_disable
-		}
-	}
-}
-
 #SOV_power_struggle_decisions = {
 #
 #	

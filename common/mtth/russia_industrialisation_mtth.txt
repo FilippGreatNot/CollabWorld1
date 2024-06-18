@@ -1,0 +1,29 @@
+russia_industrialisation_debuff_modifier = { #So it's 1 - (level / 4)
+	modifier = {
+		add = mtth:russia_industrialisation_level_divided_by_minus_4
+	}
+}
+russia_industrialisation_level_divided_by_minus_4 = {
+	modifier = {
+		factor = russia_agrarian_region_industrialisation #Fun fact: base modifier and all root modifiers don't support variables for some reason. Dear PDX, why can't you just unify the code to handle variables already?
+	}
+	
+	modifier = {
+		factor = -0.25
+	}
+}
+
+russia_industrialisation_minus_30_percent = {
+	base = -0.3
+	
+	modifier = {
+		factor = mtth:russia_industrialisation_debuff_modifier
+	}
+}
+russia_industrialisation_minus_40_percent = {
+	base = -0.4
+	
+	modifier = {
+		factor = mtth:russia_industrialisation_debuff_modifier
+	}
+}

@@ -1,17 +1,25 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			every_country = { #Add the industrialisation mechanic to every Russian state
-				limit = {
-					is_russian_tag = yes
-				}
-				every_owned_state = {
+			every_country = { 
+				if = {
 					limit = {
-						NOT = { has_state_flag = do_not_add_agrarian_region_on_start }
+						is_russian_tag = yes
 					}
-					russia_add_agrarian_region = yes
+					every_owned_state = { #Add the industrialisation mechanic to every Russian state
+						limit = {
+							NOT = { has_state_flag = do_not_add_agrarian_region_on_start }
+						}
+						russia_add_agrarian_region = yes
+					}
 				}
+				russia_agrarian_region_update_modifiers = yes
 			}
+		}
+	}
+	on_daily = {
+		effect = {
+			russia_agrarian_region_update_modifiers = yes #Update modifiers. Yep it's executed by every single country in the world
 		}
 	}
 	
@@ -59,6 +67,8 @@ on_actions = {
 			}
 		}
 	}
+	
+	
 	
 	#ROOT - winner
 	#FROM - country that gets annexed
