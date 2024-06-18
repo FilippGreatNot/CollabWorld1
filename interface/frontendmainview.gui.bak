@@ -1,25 +1,5 @@
 guiTypes = {
-	containerWindowType = {
-		name = "cw_superevent_note_container"
-		position = { x = 400 y = 400 }
-		size = { 
-			width = 100
-			height = 100
-		}
-		
-		orientation = lower_right
-		clipping = no
-		
-		instantTextBoxType = {
-			name = "cw_superevent_music_note"
-			text = "cw_superevent_music_note"
-			font = "hoi_16mbs"
-			format = right
-			orientation = lower_right
-			position = { x = 100 y = 100 }
-		}
-	}
-	
+
 	containerWindowType = {
 		name ="frontend_background"
 		position = { x=0 y =0 }	
@@ -40,28 +20,137 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 	}
-
+	
+	containerWindowType = {
+		name = "owned_dlc_item"
+		size = { width = 50 height = 50 }
+		position = { x=100000 y =0 }
+		
+		buttonType =
+		{
+			position = { x = -230 y = 0 }
+			name ="dlc_button"
+			spriteType = "GFX_frontend_banner_dlc018"
+		}
+		
+		iconType = {
+			name = "glowup"
+			position = { x = -50 y = -21 }
+			spriteType = "GFX_spirit_glow"
+			scale = 0.8
+			#hide = yes
+		}
+		
+		buttonType = {
+			name = "owned_tick"
+			spriteType = "GFX_BPT_area_defense_setting_tick"
+			position = { x = -6 y = 1 }
+			Orientation = center_left
+			scale = 0.56
+			alwaysTransparent = yes
+			#hide = yes
+		}
+		
+		buttonType = {
+			name = "enabled_tick"
+			spriteType = "GFX_general_check"
+			position = { x = 28 y = 24 }
+			Orientation = center_left
+			alwaysTransparent = yes
+		}
+		
+	}
+	
+	containerWindowType = {
+		name = "unowned_dlc_item"
+		size = { width = 50 height = 50 }
+		position = { x=100000 y =0 }
+		
+		buttonType =
+		{
+			position = { x = -230 y = 0 }
+			name ="dlc_button"
+			spriteType = "GFX_frontend_banner_dlc018"
+		}
+		
+		buttonType = {
+			name = "owned_tick"
+			spriteType = "GFX_BPT_area_defense_setting_tick"
+			position = { x = -6 y = 1 }
+			Orientation = center_left
+			scale = 0.56
+			alwaysTransparent = yes
+			#enabled = no
+		}
+		
+		buttonType = {
+			name = "enabled_tick"
+			spriteType = "GFX_general_check"
+			position = { x = 28 y = 24 }
+			Orientation = center_left
+			alwaysTransparent = yes
+		}
+		
+	}
+	
+	### MAIN MENU PANEL (DLC Ownership) 
+	containerWindowType = {
+		name  ="mainmenu_dlc_ownership"
+		position = { x=5 y =0 }
+		size = { width = 370 height = 528}
+		Orientation = lower_left
+		origo = lower_left
+		
+		gridBoxType = {
+			name = "potential_dlc_list"
+			position = { x = 0 y = 0}
+			size = { width = 50 height = 400 }
+			#Orientation = upper_left
+			slotsize = {width=50 height=51 }
+			max_slots_vertical = 1
+			format = "RIGHT"
+		}
+		
+	}
+	
 	### MAIN MENU PANEL (upperleft)
 	containerWindowType = {
-		name  ="mainmenu_panel_upperleft"
-		position = { x=-225 y =-1200 }	
-			orientation = center
-			origo = center
-			
-			show_position = { x = -230 y = -376 }
-			animation_type = decelerated
-			animation_time = 2000
+		name  = "mainmenu_panel_upperleft"
+		#position = { x=0 y =-200 }
+		#show_position = { x=0 y =-1 }
+		#animation_type = decelerated
+		#animation_time = 1000
+		#size = { width = 256 height = 768}
+		orientation = CENTER
 		
 		iconType =
 		{
 			name ="frontend_game_logo"
 			spriteType = "GFX_frontend_game_logo"
-		
-				position = { x = -570 y = 50 } # vanilla is position = { x= 35 y = 22 }
-				Orientation = "CENTER"
-				alwaystransparent = yes
+			#position = { x = 35 y = -120 }
+			Orientation = "CENTER"
+			centerposition = yes
+			
+			alwaystransparent = yes
 		}
+		
 	}
+
+	#containerWindowType = {
+	#	name  ="frontend_alpha_stamp"
+	#	position = { x=100 y =-100  }
+	#	size = { width = 131 height = 132}
+	#	orientation = lower_left
+	#	origo = lower_left
+	#	
+	#	iconType =
+	#	{
+	#		name ="frontend_alpha_stamp"
+	#		spriteType = "GFX_alpha_stamp"
+	#		position = { x= 0 y = 20 }
+	#	}		
+	#	
+	#}	
 	
 	### MAIN MENU PANEL (upperright)
 	containerWindowType = {
@@ -101,8 +190,8 @@ guiTypes = {
 		name = "mainmenu_single_player"
 		position = { x=0 y =0}
 		size = { width = 320 height = 395}
-		Orientation = CENTER
-		Origo = center	
+		Orientation = LOWER_LEFT #CENTER
+		Origo = LOWER_LEFT #center	
 				
 		background = {
 			name = "Background"		
@@ -197,9 +286,9 @@ guiTypes = {
 	containerWindowType = {
 		name ="mainmenu_panel_bottom"
 		position = { x=0 y =0}
-		size = { width = 320 height = 395}
-		Orientation = CENTER
-		Origo = center		
+		size = { width = 320 height = 435 }
+		Orientation = LOWER_LEFT #CENTER
+		Origo = LOWER_LEFT #center		
 
 		positionType = {
 			name = "subscription_size"
@@ -241,7 +330,7 @@ guiTypes = {
 		instantTextBoxType = {
 
 			name ="version_label"
-			position = { x = 35 y = 356 }
+			position = { x = 35 y = 396 }
 			textureFile = ""
 			font = "hoi_18b"
 			borderSize = {x = 0 y = 0}
@@ -298,7 +387,7 @@ guiTypes = {
 
 		ButtonType = {
 			name = "credits_button"
-			position = {  x = 16 y = 138000 } #{  x = 16 y = 138 }
+			position = {  x = 16 y = 218 }
 			quadTextureSprite ="GFX_main_lobby_button"	
 			buttonText = "FE_CREDITS"
 			buttonFont = "hoi_24header"
@@ -308,16 +397,15 @@ guiTypes = {
 		
 		ButtonType = {
 			name = "nudge_button"
-			position = { x = 16 y = 260 } #{ x = 16 y = 178 }
+			position = { x = 16 y = 258 }
 			quadTextureSprite ="GFX_main_lobby_button"	
 			buttonText = "Nudge!"
 			buttonFont = "hoi_24header"
 		}
-		
 
 		ButtonType = {
 			name = "exit_button"
-			position = { x = 16 y = 178 } #{ x = 16 y = 260 }
+			position = { x = 16 y = 300 }
 			quadTextureSprite ="GFX_main_lobby_button"
 			font = "hoi_24header"			
 			text = "FE_EXIT"			
@@ -437,6 +525,7 @@ guiTypes = {
 			quadTextureSprite ="homepage"
 			clicksound = click_default
 			pdx_tooltip = "MENU_HOMEPAGE"
+			scale = 0.9
 		}
 		ButtonType = {
 			name = "forum_button"
@@ -444,7 +533,8 @@ guiTypes = {
 			quadTextureSprite ="forum"
 			clicksound = click_default
 			pdx_tooltip = "MENU_FORUM"
-			web_link = "http:/forum.paradoxplaza.com/forum/forumdisplay.php?844-Hearts-of-Iron-IV"
+			web_link = "http://forum.paradoxplaza.com/forum/forumdisplay.php?844-Hearts-of-Iron-IV"
+			scale = 0.9
 		}
 		ButtonType = {
 			name = "facebook_button"
@@ -452,7 +542,8 @@ guiTypes = {
 			quadTextureSprite ="facebook"
 			clicksound = click_default
 			pdx_tooltip = "MENU_FACEBOOK"
-			web_link = "https:/www.facebook.com/Heartsofiron"
+			web_link = "https://www.facebook.com/Heartsofiron"
+			scale = 0.9
 		}
 		ButtonType = {
 			name = "twitter_button"
@@ -468,6 +559,7 @@ guiTypes = {
 			quadTextureSprite ="privacy"
 			#clicksound = click_default
 			pdx_tooltip = "MENU_PRIVACY_POLICY"
+			scale = 0.9
 		}
 	}
 
