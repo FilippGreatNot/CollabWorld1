@@ -29,19 +29,10 @@ russia_agrarian_region_increase_industrialisation_level_1 = {
 			tooltip = russia_agrarian_region_increase_industrialisation_level_tt
 		}
 	}
-	
+	force_update_dynamic_modifier = yes
 }
 d_russia_set_industrialisation_level = {
 	set_variable = { russia_agrarian_region_industrialisation = args^0 }
 	log = "State [?THIS.GetName]'s level set to [?THIS.russia_agrarian_region_industrialisation]"
 	force_update_dynamic_modifier = yes
-}
-russia_agrarian_region_update_modifiers = {
-	every_owned_state = {
-		limit = {
-			has_state_flag = russia_agrarian_region
-		}
-		set_variable = { russia_industrialisation_minus_30_percent = mtth:russia_industrialisation_minus_30_percent }
-		set_variable = { russia_industrialisation_minus_40_percent = mtth:russia_industrialisation_minus_40_percent }
-	}
 }
