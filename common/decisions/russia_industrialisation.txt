@@ -1,25 +1,35 @@
 russia_industrialisation = {
 	russia_industrialisation_expand_mechanisation = {
 		icon = russia_industrialisation_expand_mechanisation
-		state_target = yes
+		state_target = any_owned_state
 		on_map_mode = map_only
 		target_trigger = {
-			FROM = {
-				has_state_flag = russia_agrarian_region
-				is_owned_by = PREV
-			}
+			FROM = { has_state_flag = russia_agrarian_region }
 		}
 		visible = {
 			NOT = { has_decision = russia_industrialisation_disable }
 		}
+		available = {
+			num_of_civilian_factories_available_for_projects > 0
+		}
 		
-		days_remove = 50
-		modifier = { civilian_factory_use = 4 }
+		days_remove = 30
+		modifier = { civilian_factory_use = 1 }
 		
-		cost = 20
+		cost = 10
 		remove_effect = {
 			FROM = {
 				russia_agrarian_region_increase_industrialisation_level_1 = yes
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				
+				has_political_power > 125 #We have enough pp
+				num_of_civilian_factories_available_for_projects > 5 #We have enough factories
 			}
 		}
 	}

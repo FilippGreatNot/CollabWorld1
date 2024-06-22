@@ -1,6 +1,66 @@
 add_namespace = ruscollapse
 add_namespace = afterkolchak
+add_namespace = rus
 
+country_event = {
+	id = rus.1 #Kolchak's offer
+	title = rus.1.t
+	desc = rus.1.d
+	immediate = { log = "[GetDateText]: [Root.GetName]: event rus.1" }
+	is_triggered_only = yes
+	
+	option = {
+		name = rus.1.a
+		ai_chance = { base = 100 }
+		
+		FROM = {
+			force_capitulate = yes
+			
+			if = {
+				limit = {
+					has_character = RUS_alexander_kolchak
+				}
+				RUS_alexander_kolchak = {
+					set_nationality = PREV.PREV
+					remove_country_leader_role = { ideology = police_statism }
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = { ideology = despotism_subtype }
+					}
+					
+					remove_unit_leader_role = yes
+					add_naval_commander_role = {
+						skill = 4
+						
+						attack_skill = 4
+						defense_skill = 4
+						maneuvering_skill = 4
+						coordination_skill = 4
+					}
+				}
+				PREV = {
+					add_popularity = {
+						ideology = despotism
+						popularity = 0.05
+					}
+					add_stability = -0.05
+				}
+			}
+		}
+	}
+	option = {
+		name = rus.1.b_sov
+		ai_chance = { base = 0 }
+		trigger = { original_tag = SOV }
+	}
+	option = {
+		name = rus.1.b_generic
+		ai_chance = { base = 0 }
+		trigger = {
+			NOT = { original_tag = SOV }
+		}
+	}
+}
 country_event = {
 	id = afterkolchak.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event afterkolchak.1" }

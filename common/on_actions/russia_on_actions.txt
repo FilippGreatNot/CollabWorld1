@@ -1,0 +1,43 @@
+on_actions = {
+	on_daily_FER = {
+		effect = {
+			if = {
+				limit = {
+					surrender_progress > 0.2
+					is_ai = yes #I have no idea why would a sentinent, thinking being that makes decisions based on actual common sense play as a piece of nothing that is sovereign for some reason and is barely supposed to have any content, but in case someone does want to play as FER
+				}
+				force_capitulate = yes #Conquering Far Eastern Russian warlords is a very annoying process and it would instantly surrender in a properly made game anyway
+			}
+		}
+	}
+	on_daily_KMP = {
+		effect = {
+			if = {
+				limit = {
+					surrender_progress > 0.2
+					is_ai = yes
+				}
+				force_capitulate = yes
+			}
+		}
+	}
+	on_daily_RUS = {
+		effect = {
+			if = {
+				limit = {
+					surrender_progress > 0.2
+					is_ai = yes
+				}
+				if = {
+					limit = {
+						any_enemy_country = { tag = SOV }
+					}
+					SOV = { country_event = rus.1 }
+				}
+				else = {
+					random_enemy_country = { country_event = rus.1 }
+				}
+			}
+		}
+	}
+}

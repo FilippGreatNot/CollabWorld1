@@ -251,7 +251,15 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_expand_industry"
 		
-			capital_scope = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 5
+						include_locked = yes
+					}
+				}
+
 				add_extra_state_shared_building_slots = 6
 				
 				add_building_construction = {
@@ -402,10 +410,6 @@ focus_tree = {
 				target = LAT
 				type = annex_everything
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = FIN
-			}
 		}
 	}
 	focus = {
@@ -555,6 +559,7 @@ focus_tree = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_question_of_the_north"
 			
 			KAR = { make_every_core_national_for_PREV = yes }
+			FIN = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -575,6 +580,10 @@ focus_tree = {
 			annex_country = { 
 				target = KAR
 				transfer_troops = yes 
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FIN
 			}
 		}
 	}
