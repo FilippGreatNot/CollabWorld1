@@ -12,23 +12,30 @@ country_event = {
 	option = {
 		name = rus.1.a
 		ai_chance = { base = 100 }
-		
-		FROM = {
-			force_capitulate = yes
+		FROM = { force_capitulate = yes }
+		if = {
+			limit = {
+				FROM = { has_character = RUS_alexander_kolchak }
+			}
 			
-			if = {
-				limit = {
-					has_character = RUS_alexander_kolchak
-				}
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			add_stability = -0.05
+			
+			FROM = {
 				RUS_alexander_kolchak = {
 					set_nationality = PREV.PREV
-					remove_country_leader_role = { ideology = police_statism }
-					add_country_leader_role = {
-						promote_leader = yes
-						country_leader = { ideology = despotism_subtype }
-					}
 					
-					remove_unit_leader_role = yes
+					hidden_effect = { #The tooltip is frogged up
+						remove_country_leader_role = { ideology = police_statism }
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = { ideology = despotism_subtype }
+						}
+						remove_unit_leader_role = yes
+					}
 					add_naval_commander_role = {
 						skill = 4
 						
@@ -37,13 +44,6 @@ country_event = {
 						maneuvering_skill = 4
 						coordination_skill = 4
 					}
-				}
-				PREV = {
-					add_popularity = {
-						ideology = despotism
-						popularity = 0.05
-					}
-					add_stability = -0.05
 				}
 			}
 		}
