@@ -1,5 +1,4 @@
 conservative_decisions = {
-
 	spread_conservative_values = {
 		days_re_enable = 180
 		icon = ger_mefo_bills
@@ -7,9 +6,9 @@ conservative_decisions = {
 		cost = 75
 		
 		complete_effect = {
-		add_popularity = {
-			ideology = conservatism
-			popularity = 0.05
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
 			}
 		}
 
@@ -24,8 +23,8 @@ conservative_decisions = {
 		cost = 125
 		
 		complete_effect = {
-		add_war_support = 0.05
-		random_owned_state = {
+			add_war_support = 0.05
+			random_owned_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -40,26 +39,23 @@ conservative_decisions = {
 		}
 	}
 	protect_nuclear_family = {
-		days_re_enable = 365
+		days_re_enable = 180
+		days_remove = 180
 		icon = ger_mefo_bills
 	
 		cost = 150
 		
-		complete_effect = {
-			add_timed_idea = { 
-				idea = supporting_the_nuclear_family
-				days = 180
-				}
-        }
+		modifier = {
+			monthly_population = 0.2
+			stability_factor = 0.05
+		}
 	   
 		ai_will_do = {
 			factor = 5
 		}
 	}
-	}
-
+}
 social_democrat_decisions = {
-
 	promise_worker_rights = {
 		days_re_enable = 180
 		icon = ger_mefo_bills
@@ -67,12 +63,12 @@ social_democrat_decisions = {
 		cost = 75
 		
 		complete_effect = {
-		add_popularity = {
-			ideology = social_democrat
-			popularity = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
 			}
 		}
-
+		
 		ai_will_do = {
 			factor = 5
 		}
@@ -85,7 +81,7 @@ social_democrat_decisions = {
 		cost = 100
 		
 		complete_effect = {
-		random_owned_state = {
+			random_owned_state = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -102,7 +98,6 @@ social_democrat_decisions = {
 }
 
 despotism_decisions = {
-
 	secure_political_control = {
 		days_re_enable = 180
 		icon = ger_mefo_bills
@@ -110,9 +105,9 @@ despotism_decisions = {
 		cost = 50
 		
 		complete_effect = {
-		add_popularity = {
-			ideology = despotism
-			popularity = 0.05
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
 			}
 		}
 
@@ -122,38 +117,33 @@ despotism_decisions = {
 	}
 	mobilize_the_population = {
 		days_re_enable = 180
+		days_remove = 180
 		icon = ger_mefo_bills
 
 		cost = 120
 		
-		complete_effect = {
-		    add_timed_idea = { 
-				idea = mobilizing_the_people
-				days = 180
-				}
-        }
+		modifier = {
+			mobilization_speed = 0.2
+			conscription = 0.01
+		}
 		ai_will_do = {
 			factor = 5
 		}
 	}
 	control_the_people = {
 		days_re_enable = 180
+		days_remove = 180
 		icon = ger_mefo_bills
 
 		cost = 25
 		
-		complete_effect = {
-		    add_timed_idea = { 
-				idea = controlling_the_population
-				days = 180
-				}
-        }
+		modifier = {
+			political_power_gain = 0.2
+			stability_factor = 0.05
+		}
 
 		ai_will_do = {
 			factor = 5
 		}
 	}
 }
-
-	
-	

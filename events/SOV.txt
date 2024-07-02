@@ -85,7 +85,7 @@ country_event = {
 }
 country_event = {
 	id = sov_unification.1 #tukh
-	immediate = { log = "[GetDateText]: [Root.GetName]: event powerstruggle.1" }
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_unification.1" }
 	title = sov_unification.1.t
 	desc = sov_unification.1.d
 	picture = GFX_report_event_soviet_people
@@ -282,6 +282,11 @@ country_event = {
 					value > 9
 				}
 			}
+			modifier = {
+				add = 100
+				
+				has_country_flag = UVS_pro_soviet_ai_plan #Pro-Soviet UVS should always accept the invite
+			}
 		}
 	}
 	option = {
@@ -300,6 +305,10 @@ country_event = {
 					target = FROM
 					value < 10
 				}
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = UVS_pro_soviet_ai_plan
 			}
 		}
 	}
@@ -324,6 +333,10 @@ country_event = {
 					target = FROM
 					value < 0
 				}
+			}
+			modifier = {
+				factor = 0
+				has_country_flag = UVS_pro_soviet_ai_plan
 			}
 		}
 	}

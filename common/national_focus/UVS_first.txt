@@ -1,5 +1,6 @@
 #!gfx:interface/country/germany/UVS/UVS_focus.gfx
 #!gfx:interface/country/russia/SOV/SOV_focus.gfx
+#!gfx:interface/country/western_europe/ENG/ENG_focus.gfx
 focus_tree = {
 	id = UVS_first
 	country = {
@@ -14,8 +15,6 @@ focus_tree = {
 	focus = {
 		id = UVS_rise_germany
 		icon = GFX_focus_UVS_rise_germany
-		x = 27
-		y = 1
 		cost = 5
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
@@ -158,10 +157,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_congress_of_the_spartakusbund_log"
-			
-			
-			
-				country_event = { id = uvs_spartakus.1 days = 1 }
+			country_event =  uvs_spartakus.1
 				
 		}
 	}
@@ -716,7 +712,7 @@ focus_tree = {
 			
 			add_country_leader_trait = {
 				ideology = marxism
-				trait = hero_of_revolution
+				trait = UVS_hero_of_revolution
 			}
 			add_stability = 0.05
 		}
@@ -1372,7 +1368,7 @@ focus_tree = {
 			
 			add_country_leader_trait = {
 				ideology = marxism
-				trait = guardian_of_freedom
+				trait = UVS_guardian_of_freedom
 			}
 			
 			add_stability = 0.05
@@ -1827,8 +1823,8 @@ focus_tree = {
 	focus = {
 		id = UVS_path_to_reunification
 		icon = GFX_focus_UVS_path_to_reunification
-		x = 47
-		y = 1
+		x = -12
+		y = 12
 		cost = 5
 		available = { 
 			date > 1923.1.30
@@ -2383,8 +2379,7 @@ focus_tree = {
 	focus = {
 		id = UVS_post_reunification_economic_recovery
 		icon = GFX_focus_SOV_first_socialist_market
-		x = 53
-		y = 1
+		y = 12
 		cost = 6
 		
 		available = {
@@ -2654,24 +2649,57 @@ focus_tree = {
 		icon = GFX_focus_UVS_first_red_germany_on_the_world_stage
 		cost = 5
 		
-		prerequisite = {
-		    focus = UVS_silesian_aluminium
-			focus = UVS_pomeranian_steel
-		}
+		x = -6
+		y = 12
 
-		relative_position_id = UVS_silesian_aluminium
-		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_red_germany_on_the_world_stage"
+		}
+	}
+
+	## Independent ##
+	focus = {
+		id = UVS_first_estabilish_the_european_revolutionary_front
+		icon = GFX_focus_UVS_first_estabilish_the_european_revolutionary_front
+		cost = 5
 		
-			add_political_power = 25
-			58 = {
-				add_resource = {
-					type = tungsten
-					amount = 10
-				}
-			}
-			SWE = { country_event = { id = uvs_spartakus.6 days = 5 } }
+		prerequisite = { focus = UVS_first_red_germany_on_the_world_stage }
+
+		relative_position_id = UVS_first_red_germany_on_the_world_stage
+		x = -1
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_estabilish_the_european_revolutionary_front"
+		}
+	}
+	focus = {
+		id = UVS_first_invite_our_hungarian_comrades
+		icon = GFX_focus_UVS_first_invite_our_hungarian_comrades
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_estabilish_the_european_revolutionary_front }
+
+		relative_position_id = UVS_first_estabilish_the_european_revolutionary_front
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_invite_our_hungarian_comrades"
+		}
+	}
+	focus = {
+		id = UVS_first_end_the_tukhachevist_dictatorship
+		icon = GFX_focus_		id = UVS_first_end_the_tukhachevist_dictatorship
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_estabilish_the_european_revolutionary_front }
+
+		relative_position_id = UVS_first_estabilish_the_european_revolutionary_front
+		x = -2
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_invite_our_hungarian_comrades"
 		}
 	}
 }
