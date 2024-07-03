@@ -297,18 +297,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_united_invite_the_friendly_countries"
 			
-			every_other_country = {
-				limit = {
-					ideology_socialist = yes
-					should_be_unfriendly_to_PREV = no
-				}
-				tooltip = every_non_hostile_socialist_country_tt
-				
-				country_event = {
-					id = sov_stalin.5
-					days = 1
-				}
-			}
+			set_country_flag = SOV_comintern_decisions_available
+			unlock_decision_category_tooltip = SOV_comintern_decisions
 		}
 	}
 	
@@ -543,6 +533,7 @@ focus_tree = {
 				every_other_country = {
 					limit = {
 						is_german_tag = yes
+						NOT = { is_in_faction_with = PREV }
 					}
 					ROOT = {
 						create_wargoal = {

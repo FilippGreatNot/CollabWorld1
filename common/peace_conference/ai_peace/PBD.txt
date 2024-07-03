@@ -1,0 +1,32 @@
+peace_ai_desires = {
+	UVS_PBD_take_east_prussia = { #They should always just take East Prussia, puppet Poland and frog off
+		peace_action_type = take_states
+		
+		enable = {
+			FROM = { original_tag = UVS }
+			FROM.FROM.FROM = { is_core_of = EPR }
+		}
+		
+		ai_desire = 200
+	}
+	UVS_PBD_puppet_poland = {
+		peace_action_type = puppet
+		
+		enable = {
+			original_tag = UVS
+			FROM = { original_tag = POL }
+		}
+		
+		ai_desire = 100
+	}
+	UVS_PBD_dont_take_states = {
+		peace_action_type = take_states
+		
+		enable = {
+			original_tag = UVS
+			FROM.FROM = { original_tag = PBD }
+		}
+		
+		ai_desire = -100
+	}
+}

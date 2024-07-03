@@ -1,5 +1,5 @@
 SOV_unite_russia_decisions = {
-	SOV_create_soviet_union = { #This is no longer needed, but the description is so good that we can't really delete it
+	SOV_create_soviet_union = { #This is no longer needed, but the description is so good we can't really delete it
 		icon = generic_form_nation
 		
 		fire_only_once = yes
@@ -112,268 +112,6 @@ SOV_bogdanov_burn_stuff = {
 		}
 	}
 }
-#SOV_power_struggle_decisions = {
-#
-#	
-#	SOV_increase_stalin_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = stalin_dead }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 5
-#			
-#		}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_stalin }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_stalin
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_stalin_authority = yes
-#		}
-#	}
-#
-#	SOV_increase_trotsky_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = proletkultist_opposition_exists }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 25
-#			}
-#			modifier = {
-#				factor = 0
-#				has_game_rule = {
-#					rule = SOV_path
-#					option = RULE_OPTION_SOV_PATH_ZINOVIEV
-#				}
-#			}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_trotsky }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_trotsky
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_trotsky_authority = yes
-#		}
-#	}
-#
-#
-#	
-#		
-#
-#	SOV_increase_bukharin_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = bukharin_dead }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 25
-#			
-#		}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_bukharin }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_bukharin
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_bukharin_authority = yes
-#
-#		}
-#	}
-#	
-#	
-#	SOV_increase_gastev_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = proletkultist_opposition_exists }
-#			NOT = { has_country_flag = gastev_dead }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 25
-#	
-#		}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_gastev }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_gastev
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_gastev_authority = yes
-#		}
-#	}
-#
-#
-#	SOV_increase_spiridonova_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = spiridonova_dead }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 25
-#
-#		}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_spiridonova }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_spiridonova
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_spiridonova_authority = yes
-#		}
-#	}
-#
-#
-#
-#
-#
-#
-#	SOV_increase_yagoda_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = molyagkag_opposition_exists }
-#			NOT = { has_country_flag = yagoda_dead }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 25
-#			
-#		}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_yagoda }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_yagoda
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_yagoda_authority = yes
-#
-#		}
-#	}
-#
-#
-#
-#	SOV_increase_prokhanov_influence = {
-#		icon = GFX_decision_generic_political_rally
-#		available = {
-#			NOT = { has_country_flag = power_struggle_political_rally_ongoing }
-#		}
-#		visible = {
-#			NOT = { has_country_flag = prokhanov_dead }
-#			NOT = { has_country_flag = congress_of_soviets_ended }
-#		}
-#		cost = 15
-#		days_remove = 9
-#		days_re_enable = 14
-#		fire_only_once = no
-#		ai_will_do = {
-#			factor = 25
-#			
-#		}
-#		
-#		complete_effect = {
-#			set_country_flag = power_struggle_political_rally_ongoing
-#			if = {
-#				limit = {
-#					NOT = { has_country_flag = power_struggle_ai_chosen_prokhanov }
-#				}
-#				set_country_flag = power_struggle_ai_chosen_prokhanov
-#			}
-#		}
-#		remove_effect = {
-#			clr_country_flag = power_struggle_political_rally_ongoing
-#			power_struggle_increase_prokhanov_authority = yes
-#
-#		}
-#	}
-#	
-#
-#
-#
-#}
 SOV_stalin_support_decisions_category = {
 	SOV_stalin_support_debug_plus = {
 		visible = {
@@ -395,6 +133,23 @@ SOV_stalin_support_decisions_category = {
 				id = SOV_stalin_support
 				value = -0.1
 			}
+		}
+	}
+}
+SOV_comintern_decisions = {
+	SOV_comintern_invite_germany = {
+		days_remove = 120
+		
+		visible = {
+			UVS = {
+				exists = yes
+				is_in_faction = no
+				UVS_can_join_comintern = yes
+				is_subject = no
+			}
+		}
+		complete_effect = {
+			UVS = { country_event = sov_stalin_united.2 }
 		}
 	}
 }

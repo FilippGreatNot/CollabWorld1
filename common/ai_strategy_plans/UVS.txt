@@ -1,3 +1,4 @@
+### Diplomacy ###
 UVS_pro_soviet = {
 	name = "UVS pro-Soviet diplomacy"
 	desc = "UVS will do the Membership in the Comintern path and join the USSR"
@@ -7,9 +8,97 @@ UVS_pro_soviet = {
 	}
 	
 	enable = {
-		has_country_flag = UVS_pro_soviet_ai_plan
+		has_country_flag = UVS_pro_soviet_ai_diplomacy
 	}
 	abort = {
-		NOT = { has_country_flag = UVS_pro_soviet_ai_plan }
+		NOT = { has_country_flag = UVS_pro_soviet_ai_diplomacy }
+	}
+	
+	focus_factors = {
+		UVS_first_estabilish_the_european_revolutionary_front = 0 #No independent
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = SOV
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = SOV
+		value = 100
+	}
+}
+#Independent UVS will have its own plan one day, but nothing to add here right now, since whether will AI accept the Soviet invite depends on the country flag
+
+### Paths ###
+UVS_spartakists_path = {
+	name = "UVS spartakists path"
+	desc = "Rosa moment"
+	
+	allowed = {
+		original_tag = UVS
+	}
+	enable = {
+		has_country_flag = UVS_ai_spartakists_path
+	}
+	abort = {
+		NOT = { has_country_flag = UVS_ai_spartakists_path }
+	}
+}
+UVS_kdp_b_path = {
+	name = "UVS KDP(B) path"
+	desc = "Thalmann moment"
+	
+	allowed = {
+		original_tag = UVS
+	}
+	enable = {
+		has_country_flag = UVS_ai_kdp_b_path
+	}
+	abort = {
+		NOT = { has_country_flag = UVS_ai_kdp_b_path }
+	}
+}
+UVS_daa_path = {
+	name = "UVS DAA path"
+	desc = "Ribbentrop moment"
+	
+	allowed = {
+		original_tag = UVS
+	}
+	enable = {
+		has_country_flag = UVS_ai_daa_path
+	}
+	abort = {
+		NOT = { has_country_flag = UVS_ai_daa_path }
+	}
+}
+UVS_kpvd_path = {
+	name = "UVS KPVD path"
+	desc = "Liebknecht moment"
+	
+	allowed = {
+		original_tag = UVS
+	}
+	enable = {
+		has_country_flag = UVS_ai_kpvd_path
+	}
+	abort = {
+		NOT = { has_country_flag = UVS_ai_kpvd_path }
+	}
+}
+UVS_dspd_path = {
+	name = "UVS DSPD path"
+	desc = "Ebert moment"
+	
+	allowed = {
+		original_tag = UVS
+	}
+	enable = {
+		has_country_flag = UVS_ai_dspd_path
+	}
+	abort = {
+		NOT = { has_country_flag = UVS_ai_dspd_path }
 	}
 }

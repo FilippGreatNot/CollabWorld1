@@ -1,55 +1,87 @@
-add_namespace = uvs_spartakus
-
+add_namespace = uvs
+add_namespace = uvs.diplomacy
 
 country_event = {
-	id = uvs_spartakus.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.1" }
-	title = uvs_spartakus.1.t
-	desc = uvs_spartakus.1.d
+	id = uvs.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.1" }
+	title = uvs.1.t
+	desc = uvs.1.d
 	is_triggered_only = yes
 	
-	
 	option = {
-		name = uvs_spartakus.1.a
+		name = uvs.1.a
+		
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = UVS_ai_spartakists_path }
+			}
+		}
 		
 		complete_national_focus = UVS_spartakists_continue_the_work
 	}
-
 	option = {
-		name = uvs_spartakus.1.b
+		name = uvs.1.b
+		
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = UVS_ai_kdp_b_path }
+			}
+		}
 		
 		complete_national_focus = UVS_victory_of_kdp_b
 	}
 	
 	option = {
-		name = uvs_spartakus.1.c
+		name = uvs.1.c
+		
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = UVS_ai_daa_path }
+			}
+		}
+		
 		complete_national_focus = UVS_victory_of_daa
 	}
 	
 	option = {
-		name = uvs_spartakus.1.e
+		name = uvs.1.e
+		
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = UVS_kpvd_path }
+			}
+		}
 		
 		complete_national_focus = UVS_victory_of_kpvd
 	}
 	
 	option = {
-		name = uvs_spartakus.1.f
+		name = uvs.1.f
+		
+		ai_chance = {
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = UVS_ai_dspd_path }
+			}
+		}
 		
 		complete_national_focus = UVS_victory_of_dspd
-		
 	}
 }
 country_event = {
-	id = uvs_spartakus.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.2" }
-	title = uvs_spartakus.2.t
-	desc = uvs_spartakus.2.d
+	id = uvs.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.2" }
+	title = uvs.2.t
+	desc = uvs.2.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 
 	option = {
-		name = uvs_spartakus.2.a #####бср Согласился
-		ai_chance = { factor = 50 }
+		name = uvs.2.a
 		UVS = {
 			annex_country = { 
 				target = BAV
@@ -63,10 +95,8 @@ country_event = {
 			}
 		}
 	}
-	
 	option = {
-		name = uvs_spartakus.2.b	
-		ai_chance = { factor = 50 }
+		name = uvs.2.b	
 		UVS = {
 			declare_war_on = {
 				target = BAV
@@ -75,90 +105,89 @@ country_event = {
 		}
 	}
 }
-
 country_event = {
-	id = uvs_spartakus.3 #Rosa's Speech
-	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.3" }
-	title = uvs_spartakus.3.t
-	desc = uvs_spartakus.3.d
+	id = uvs.3 #Rosa's Speech
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.3" }
+	title = uvs.3.t
+	desc = uvs.3.d
 	#picture = GFX_report_event_soviet_people #Idk what to paste here
 	is_triggered_only = yes
 	
 	option = {
-		name = uvs_spartakus.3.a
-		ai_chance = { factor = 100 }
+		name = uvs.3.a
 		add_stability = 0.1
 		add_war_support = 0.1
 		add_political_power = 100
 	}
 }
-
 country_event = {
-	id = uvs_spartakus.4
-	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.4" }
-	title = uvs_spartakus.4.t
-	desc = uvs_spartakus.4.d
+	id = uvs.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.4" }
+	title = uvs.4.t
+	desc = uvs.4.d
 	is_triggered_only = yes
 	
-	
 	option = {
-		name = uvs_spartakus.4.a
+		name = uvs.4.a
 		
 		add_popularity = {
-				ideology = anarchist
-				popularity = 0.05
-			}
+			ideology = anarchist
+			popularity = 0.05
+		}
 		add_political_power = 50
 	}
-
 	option = {
-		name = uvs_spartakus.4.b
+		name = uvs.4.b
 		
 		add_popularity = {
-				ideology = anarchist
-				popularity = -0.05
-			}
+			ideology = anarchist
+			popularity = -0.05
+		}
 		add_political_power = -50
 	}
 }
-
 country_event = {
-	id = uvs_spartakus.5
-	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.5" }
-	title = uvs_spartakus.5.t
-	desc = uvs_spartakus.5.d
+	id = uvs.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.5" }
+	title = uvs.5.t
+	desc = uvs.5.d
 	is_triggered_only = yes
 	
-	
 	option = {
-		name = uvs_spartakus.5.a
+		name = uvs.5.a
 		
 		add_ideas = {
-				UVS_economic_transition_troubles
-			}
+			UVS_economic_transition_troubles
+		}
 		add_political_power = -100
-		
 	}
-
 }
-
 country_event = {
-	id = uvs_spartakus.6
-	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs_spartakus.6" }
-	title = uvs_spartakus.6.t
-	desc = uvs_spartakus.6.d
+	id = uvs.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.6" }
+	title = uvs.6.t
+	desc = uvs.6.d
 	is_triggered_only = yes
 	
-	
 	option = {
-		name = uvs_spartakus.6.a
+		name = uvs.6.a
 		
 		add_timed_idea = { 
-				idea = UVS_economic_boost
-				months = 4
-				}
+			idea = UVS_economic_boost
+			months = 4
+		}
 		add_political_power = 25
 		
 	}
-
+}
+country_event = {
+	id = uvs.diplomacy.1 #Red Germany rises
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.1" }
+	title = uvs.diplomacy.1.t
+	desc = uvs.diplomacy.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.1.a
+	}
 }

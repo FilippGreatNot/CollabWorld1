@@ -221,20 +221,20 @@ country_event = {
 
 # Unified #
 news_event = {
-	id = sov_stalin_united.4 #Creation of Comintern
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.4" }
-	title = sov_stalin_united.4.t
-	desc = sov_stalin_united.4.d
+	id = sov_stalin_united.1 #Creation of Comintern
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.1" }
+	title = sov_stalin_united.1.t
+	desc = sov_stalin_united.1.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin_united.4.procommunist
+		name = sov_stalin_united.1.procommunist
 		trigger = {
 			ideology_socialist = yes
 		}
 	}
 	option = {
-		name = sov_stalin_united.4.neutral
+		name = sov_stalin_united.1.neutral
 		trigger = {
 			OR = {
 				has_government = social_democrat
@@ -243,7 +243,7 @@ news_event = {
 		}
 	}
 	option = {
-		name = sov_stalin_united.4.anticommunist
+		name = sov_stalin_united.1.anticommunist
 		trigger = {
 			OR = {
 				AND = {
@@ -260,83 +260,35 @@ news_event = {
 	}
 }
 country_event = {
-	id = sov_stalin_united.5 #Invite to Comintern
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.3" }
-	title = sov_stalin_united.5.t
-	desc = sov_stalin_united.5.d
+	id = sov_stalin_united.2 #Invite to Comintern (UVS)
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.2" }
+	title = sov_stalin_united.invite_to_comintern.t
+	desc = sov_stalin_united.invite_to_comintern.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin_united.5.accept
-		FROM = { add_to_faction = PREV }
+		name = sov_stalin_united.invite_to_comintern.accept
 		
 		trigger = {
-			ROOT = { is_in_faction = no }
+			is_in_faction = no
 		}
 		ai_chance = {
-			base = 0
-			modifier = {
-				add = 1
-				has_opinion = {
-					target = FROM
-					value > 9
-				}
-			}
-			modifier = {
-				add = 100
-				
-				has_country_flag = UVS_pro_soviet_ai_plan #Pro-Soviet UVS should always accept the invite
-			}
-		}
-	}
-	option = {
-		name = sov_stalin_united.5.reject_friendly
-		trigger = {
-			has_opinion = {
-				target = FROM
-				value > -1
-			}
-		}
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 1
-				has_opinion = {
-					target = FROM
-					value < 10
-				}
-			}
 			modifier = {
 				factor = 0
-				has_country_flag = UVS_pro_soviet_ai_plan
+				NOT = { has_country_flag = UVS_pro_soviet_ai_diplomacy }
 			}
 		}
+		
+		complete_national_focus = UVS_first_membership_in_the_comintern
+		FROM = { add_to_faction = PREV }
 	}
 	option = {
-		name = sov_stalin_united.5.reject
-		reverse_add_opinion_modifier = {
-			target = FROM
-			modifier = faction_traitor
-		}
-		log = "THIS: [THIS.GetName], FROM: [FROM.GetName]"
-		trigger = {
-			has_opinion = {
-				target = FROM
-				value < 0
-			}
-		}
+		name = sov_stalin_united.invite_to_comintern.reject
+		
 		ai_chance = {
-			base = 0
-			modifier = {
-				add = 1
-				has_opinion = {
-					target = FROM
-					value < 0
-				}
-			}
 			modifier = {
 				factor = 0
-				has_country_flag = UVS_pro_soviet_ai_plan
+				NOT = { has_country_flag = UVS_independent_ai_diplomacy }
 			}
 		}
 	}

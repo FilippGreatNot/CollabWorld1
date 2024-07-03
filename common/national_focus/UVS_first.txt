@@ -157,7 +157,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_congress_of_the_spartakusbund_log"
-			country_event =  uvs_spartakus.1
+			country_event =  uvs.1
 				
 		}
 	}
@@ -225,6 +225,8 @@ focus_tree = {
 				long_name = UVS_DAA_LONG
 				name = UVS_DAA_SHORT
 			}
+
+			UVS_ai_set_independent_diplomacy = yes #Would be kinda weird if he had a chance to become a Soviet simp
 		}
 	}
 	
@@ -306,6 +308,7 @@ focus_tree = {
 			set_politics = {
 				ruling_party = bolshevism
 			}
+			UVS_ai_set_pro_soviet_diplomacy = yes #Kinda obvious
 		}
 	}
 	
@@ -815,7 +818,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rosas_speech"
 			
-			country_event = uvs_spartakus.3
+			country_event = uvs.3
 		}
 	}
 	
@@ -1472,6 +1475,7 @@ focus_tree = {
 			set_politics = {
 				ruling_party = libertarian_socialism
 			}
+			UVS_ai_set_independent_diplomacy = yes #He doesn't look like he would enjoy the Soviets
 		}
 	}
 
@@ -1543,7 +1547,7 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
-		    country_event = uvs_spartakus.4
+		    country_event = uvs.4
 		}
 	}
 
@@ -1823,8 +1827,8 @@ focus_tree = {
 	focus = {
 		id = UVS_path_to_reunification
 		icon = GFX_focus_UVS_path_to_reunification
-		x = -12
-		y = 12
+		x = -14
+		y = 10
 		cost = 5
 		available = { 
 			date > 1923.1.30
@@ -1861,8 +1865,8 @@ focus_tree = {
 		
 			PLA = {
 				add_timed_idea = { 
-				idea = PLA_german_partisans	
-				days = 90 
+					idea = PLA_german_partisans	
+					days = 90 
 				}
 			}
 		}
@@ -1901,6 +1905,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
+		will_lead_to_war_with = PLA
 		
 		relative_position_id = UVS_contact_german_partisans
 		
@@ -1996,6 +2001,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		will_lead_to_war_with = GER
 		
 		relative_position_id = UVS_rally_northern_leftists
 		
@@ -2083,6 +2089,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 5
+		will_lead_to_war_with = FWG
 		
 		relative_position_id = UVS_north_is_red
 		
@@ -2111,6 +2118,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		will_lead_to_war_with = WRD
 		
 		relative_position_id = UVS_north_is_red
 		
@@ -2142,6 +2150,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
+		will_lead_to_war_with = FGB
 		
 		relative_position_id = UVS_north_is_red
 		
@@ -2265,6 +2274,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		will_lead_to_war_with = BAV
 		
 		relative_position_id = UVS_open_trade
 		
@@ -2339,7 +2349,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_south_negotiate_log"
 		
 			BAV = {	
-				country_event = uvs_spartakus.2
+				country_event = uvs.2
 			}
 		}
 	}
@@ -2372,15 +2382,17 @@ focus_tree = {
 				idea = UVS_recent_victory 
 				months = 2
 			}
-			country_event = uvs_spartakus.5
+			country_event = uvs.5
 		}
 	}
 	
 	focus = {
 		id = UVS_post_reunification_economic_recovery
 		icon = GFX_focus_SOV_first_socialist_market
-		y = 12
 		cost = 6
+		
+		y = 13
+		x = -10
 		
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
@@ -2639,7 +2651,7 @@ focus_tree = {
 					amount = 10
 				}
 			}
-			SWE = { country_event = { id = uvs_spartakus.6 days = 5 } }
+			SWE = { country_event = { id = uvs.6 days = 5 } }
 		}
 	}
 
@@ -2649,11 +2661,55 @@ focus_tree = {
 		icon = GFX_focus_UVS_first_red_germany_on_the_world_stage
 		cost = 5
 		
-		x = -6
-		y = 12
+		x = -5
+		y = 10
 
+		available = {
+			has_completed_focus = UVS_endlich_einigkeit
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_red_germany_on_the_world_stage"
+			add_war_support = 0.05
+			country_event = uvs.diplomacy.1
+		}
+	}
+	focus = {
+		id = UVS_first_bring_the_revolution_to_austria
+		icon = GFX_focus_UVS_first_bring_the_revolution_to_austria
+		cost = 5
+		will_lead_to_war_with = AUS
+		
+		prerequisite = {
+			focus = UVS_first_estabilish_the_european_revolutionary_front
+			focus = UVS_first_membership_in_the_comintern
+		}
+
+		relative_position_id = UVS_first_red_germany_on_the_world_stage
+		y = 2
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_bring_the_revolution_to_austria"
+			
+			AUS = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = AUS
+			}
+		}
+	}
+	focus = {
+		id = UVS_first_the_czechoslovak_question
+		icon = GFX_focus_UVS_first_the_czechoslovak_question
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_bring_the_revolution_to_austria }
+
+		relative_position_id = UVS_first_bring_the_revolution_to_austria
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_the_czechoslovak_question"
 		}
 	}
 
@@ -2664,13 +2720,17 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = { focus = UVS_first_red_germany_on_the_world_stage }
-
+		mutually_exclusive = { focus = UVS_first_membership_in_the_comintern }
+		
 		relative_position_id = UVS_first_red_germany_on_the_world_stage
-		x = -1
+		x = -2
 		y = 1
 
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_estabilish_the_european_revolutionary_front"
+			
+			create_faction = faction_UVS_european_revolutionary_front
+			set_country_flag = UVS_european_revolutionary_front_decisions_available
 		}
 	}
 	focus = {
@@ -2685,12 +2745,16 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_invite_our_hungarian_comrades"
+			
+			set_country_flag = UVS_invite_hungary_available
+			unlock_decision_tooltip = UVS_invite_hungary
 		}
 	}
 	focus = {
 		id = UVS_first_end_the_tukhachevist_dictatorship
-		icon = GFX_focus_		id = UVS_first_end_the_tukhachevist_dictatorship
+		icon = GFX_focus_UVS_first_end_the_tukhachevist_dictatorship
 		cost = 5
+		will_lead_to_war_with = PBD
 		
 		prerequisite = { focus = UVS_first_estabilish_the_european_revolutionary_front }
 
@@ -2700,6 +2764,182 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_invite_our_hungarian_comrades"
+			
+			hidden_effect = {
+				EPR = {
+					every_core_state = {
+						add_core_of = PREV.PREV
+					}
+				}
+			}
+			declare_war_on = {
+				target = PBD
+				type = take_state_focus
+			}
+		}
+	}
+	focus = {
+		id = UVS_first_cooperation_with_the_swedish_revolution
+		icon = GFX_focus_UVS_first_cooperation_with_the_swedish_revolution
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_invite_our_hungarian_comrades }
+
+		relative_position_id = UVS_first_invite_our_hungarian_comrades
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_cooperation_with_the_swedish_revolution"
+		}
+	}
+
+	## Pro-Soviet ##
+	focus = {
+		id = UVS_first_membership_in_the_comintern
+		icon = GFX_focus_UVS_first_membership_in_the_comintern
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_red_germany_on_the_world_stage }
+		mutually_exclusive = { focus = UVS_first_estabilish_the_european_revolutionary_front }
+		
+		relative_position_id = UVS_first_red_germany_on_the_world_stage
+		x = 2
+		y = 1
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = UVS_first_membership_in_the_comintern_tt
+				always = no
+			}
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_membership_in_the_comintern"
+		}
+	}
+	focus = {
+		id = UVS_first_military_exercise_on_the_rhine
+		icon = GFX_focus_UVS_first_military_exercise_on_the_rhine
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_membership_in_the_comintern }
+
+		relative_position_id = UVS_first_membership_in_the_comintern
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_military_exercise_on_the_rhine"
+			
+			every_country = {
+				limit = {
+					is_in_faction_with = PREV
+				}
+				tooltip = every_country_in_the_same_faction_tt
+				
+				army_experience = 100
+				reverse_add_opinion_modifier = {
+					target = FRA
+					modifier = UVS_suspicious_exercises
+				}
+				reverse_add_opinion_modifier = {
+					target = FRA
+					modifier = UVS_suspicious_exercises_trade
+				}
+			}
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = UVS_first_request_east_prussia
+		icon = GFX_focus_UVS_first_request_east_prussia
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_membership_in_the_comintern }
+
+		relative_position_id = UVS_first_membership_in_the_comintern
+		x = 2
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_request_east_prussia"
+		}
+	}
+	focus = {
+		id = UVS_first_comintern_technological_sharing
+		icon = GFX_focus_UVS_first_comintern_technological_sharing
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_military_exercise_on_the_rhine }
+		
+		relative_position_id = UVS_first_military_exercise_on_the_rhine
+		y = 1
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_comintern_technological_sharing"
+		}
+	}
+	
+	focus = {
+		id = UVS_first_the_revolution_marches_west
+		icon = GFX_focus_UVS_first_the_revolution_marches_west
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_the_czechoslovak_question }
+		prerequisite = {
+			focus = UVS_first_cooperation_with_the_swedish_revolution
+			focus = UVS_first_comintern_technological_sharing
+		}
+		
+		relative_position_id = UVS_first_the_czechoslovak_question
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_the_revolution_marches_west"
+		}
+	}
+	focus = {
+		id = UVS_first_paint_the_benelux_red
+		icon = GFX_focus_UVS_first_the_revolution_marches_west
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_the_revolution_marches_west }
+		
+		relative_position_id = UVS_first_the_revolution_marches_west
+		x = -1
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_paint_the_benelux_red"
+		}
+	}
+	focus = {
+		id = UVS_first_end_the_reign_of_the_swiss_bankers
+		icon = GFX_focus_UVS_first_end_the_reign_of_the_swiss_bankers
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_the_revolution_marches_west }
+		
+		relative_position_id = UVS_first_the_revolution_marches_west
+		x = 1
+		y = 1
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_end_the_reign_of_the_swiss_bankers"
+		}
+	}
+	focus = {
+		id = UVS_first_end_the_french_reactionary_state
+		icon = GFX_focus_UVS_first_end_the_french_reactionary_state
+		cost = 5
+		
+		prerequisite = { focus = UVS_first_paint_the_benelux_red }
+		prerequisite = { focus = UVS_first_end_the_reign_of_the_swiss_bankers }
+		
+		relative_position_id = UVS_first_the_revolution_marches_west
+		y = 2
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_end_the_french_reactionary_state"
 		}
 	}
 }
