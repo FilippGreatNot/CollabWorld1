@@ -146,10 +146,42 @@ SOV_comintern_decisions = {
 				is_in_faction = no
 				UVS_can_join_comintern = yes
 				is_subject = no
+				ideology_socialist = yes
 			}
 		}
 		complete_effect = {
-			UVS = { country_event = sov_stalin_united.2 }
+			UVS = { country_event = sov_stalin_united.comintern.2 }
+		}
+		
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				UVS = { has_country_flag = rejected_invite_to_comintern }
+			}
+		}
+	}
+	SOV_comintern_invite_generic = {
+		days_remove = 120
+		targets = { HUN SWE KEN  }
+		
+		target_trigger = {
+			FROM = {
+				ideology_socialist = yes
+				is_in_faction = no
+				is_subject = no
+			}
+		}
+		complete_effect = {
+			FROM = { country_event = sov_stalin_united.comintern.1 }
+		}
+		
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 0
+				FROM = { has_country_flag = rejected_invite_to_comintern }
+			}
 		}
 	}
 }

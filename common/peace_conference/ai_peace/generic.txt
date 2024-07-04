@@ -1,0 +1,18 @@
+# ROOT - Negotiator country (who is doing the negotiation)
+# FROM - Taker country (who will be the owner after the conference)
+# FROM.FROM - Giver country (who was the owner before the conference)
+# FROM.FROM.FROM - State (if peace action refers to a state)
+peace_ai_desires = {
+	only_make_puppets_when_not_imperialist = { #These ideologies appear to love to play respect for national self-identity and not act like your average Victorian era empire
+		peace_action_type = puppet
+		
+		enable = {
+			OR = {
+				ideology_socialist = yes
+				ideology_liberal = yes
+			}
+		}
+		
+		ai_desire = 10
+	}
+}

@@ -4,6 +4,7 @@ add_namespace = sov_leadership
 add_namespace = sov_unification
 add_namespace = sov_stalin
 add_namespace = sov_stalin_united
+add_namespace = sov_stalin_united.comintern
 add_namespace = sov
 
 country_event = { #Fate of the royal family
@@ -260,8 +261,32 @@ news_event = {
 	}
 }
 country_event = {
-	id = sov_stalin_united.2 #Invite to Comintern (UVS)
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.2" }
+	id = sov_stalin_united.comintern.1 #Invite to Comintern (Default)
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.comintern.1" }
+	title = sov_stalin_united.invite_to_comintern.t
+	desc = sov_stalin_united.invite_to_comintern.d
+	is_triggered_only = yes
+	
+	option = {
+		name = sov_stalin_united.invite_to_comintern.accept
+		
+		trigger = {
+			is_in_faction = no
+		}
+		
+		FROM = { add_to_faction = PREV }
+	}
+	option = {
+		name = sov_stalin_united.invite_to_comintern.reject
+		
+		set_country_flag = rejected_invite_to_comintern
+		
+		ai_chance = { base = 0 }
+	}
+}
+country_event = {
+	id = sov_stalin_united.comintern.2 #Invite to Comintern (UVS)
+	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.comintern.2" }
 	title = sov_stalin_united.invite_to_comintern.t
 	desc = sov_stalin_united.invite_to_comintern.d
 	is_triggered_only = yes
@@ -284,6 +309,8 @@ country_event = {
 	}
 	option = {
 		name = sov_stalin_united.invite_to_comintern.reject
+		
+		set_country_flag = rejected_invite_to_comintern #Used for AI to prevent from spamming the invite every 120 days
 		
 		ai_chance = {
 			modifier = {

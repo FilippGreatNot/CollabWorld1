@@ -1,9 +1,14 @@
+# ROOT - Negotiator country (who is doing the negotiation)
+# FROM - Taker country (who will be the owner after the conference)
+# FROM.FROM - Giver country (who was the owner before the conference)
+# FROM.FROM.FROM - State (if peace action refers to a state)
 peace_ai_desires = {
 	UVS_PBD_take_east_prussia = { #They should always just take East Prussia, puppet Poland and frog off
 		peace_action_type = take_states
 		
 		enable = {
-			FROM = { original_tag = UVS }
+			FROM = { original_tag = PREV } #I'm not sure what it is needed for but seems like it's important
+			original_tag = UVS
 			FROM.FROM.FROM = { is_core_of = EPR }
 		}
 		
@@ -29,4 +34,6 @@ peace_ai_desires = {
 		
 		ai_desire = -100
 	}
+	
+	
 }

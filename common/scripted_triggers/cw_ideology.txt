@@ -29,12 +29,12 @@ ideology_goofy_ahh = {
 is_enemy_ideology_of_PREV = {
 	OR = {
 		AND = {
-			ideology_goofy_ahh = yes #They surely dislike everyone else
-			PREV = { ideology_goofy_ahh = no }
-		}
-		AND = {
-			ideology_goofy_ahh = no
-			PREV = { ideology_goofy_ahh = yes }
+			OR = {
+				ideology_goofy_ahh = yes #They surely do dislike everyone else
+				PREV = { ideology_goofy_ahh = yes }
+			}
+			
+			NOT = { has_government = PREV }
 		}
 		
 		AND = {

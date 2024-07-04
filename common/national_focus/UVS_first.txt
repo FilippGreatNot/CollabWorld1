@@ -2702,6 +2702,7 @@ focus_tree = {
 		id = UVS_first_the_czechoslovak_question
 		icon = GFX_focus_UVS_first_the_czechoslovak_question
 		cost = 5
+		will_lead_to_war_with = CZE
 		
 		prerequisite = { focus = UVS_first_bring_the_revolution_to_austria }
 
@@ -2710,6 +2711,7 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_the_czechoslovak_question"
+			country_event = uvs.diplomacy.2
 		}
 	}
 
@@ -2876,6 +2878,15 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_comintern_technological_sharing"
+			
+			every_country = {
+				limit = {
+					is_in_faction_with = PREV
+				}
+				tooltip = every_country_in_the_same_faction_tt
+				
+				add_to_tech_sharing_group = comintern_technological_sharing
+			}
 		}
 	}
 	

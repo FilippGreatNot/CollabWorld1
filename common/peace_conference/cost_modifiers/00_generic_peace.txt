@@ -80,34 +80,6 @@ peace_action_modifiers = {
 	}
 
 
-	### Ideology ###
-	#I don't really know what to set up here
-	liberalism_annex_only_if_core = {
-		category = ideology
-		peace_action_type = take_states
-		enable = {
-			ideology_liberal = yes
-			NOT = {
-				FROM.FROM.FROM = {
-					OR = {
-						is_core_of = ROOT
-						is_claimed_by = ROOT
-					}
-				}
-			}
-		}
-	}
-	
-	liberals_puppet = {
-		category = ideology
-		peace_action_type = puppet
-		enable = {
-			ROOT = { has_government = liberalism }
-		}
-		cost_multiplier = 1.2
-	}
-
-
 	### Ally has Core Modifiers
 
 	generic_major_participant_has_core = {
@@ -215,41 +187,6 @@ peace_action_modifiers = {
 		}
 		cost_multiplier = 0.5
 	}
-
-
-	eat_the_rich = {
-		category = ideology
-		peace_action_type = { take_states puppet force_government liberate }
-
-		enable = {
-			ROOT = { is_major = yes }
-			ROOT.FROM = { tag = ROOT }
-			ROOT.FROM.FROM = {
-				is_major = yes
-				NOT = { has_government = national_syndicalism }
-				NOT = { has_government = despotism }
-			}
-		}
-		cost_multiplier = 0.80
-	}
-
-
-	democracy_major_force_gov = {
-		category = ideology
-		peace_action_type = { force_government }
-
-		enable = {
-			ROOT = {
-				has_government = liberalism
-				is_major = yes
-			}
-			ROOT.FROM.FROM = {
-				is_major = yes
-			}
-		}
-		cost_multiplier = 0.70
-	}
-
 
 	continuous_force_gov = {
 		category = continuous_political_action

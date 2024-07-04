@@ -177,9 +177,10 @@ country_event = {
 			months = 4
 		}
 		add_political_power = 25
-		
 	}
 }
+
+### Diplomacy ###
 country_event = {
 	id = uvs.diplomacy.1 #Red Germany rises
 	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.1" }
@@ -189,5 +190,116 @@ country_event = {
 	
 	option = {
 		name = uvs.diplomacy.1.a
+	}
+}
+country_event = {
+	id = uvs.diplomacy.2 #The Czechoslovak question
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.2" }
+	title = uvs.diplomacy.2.t
+	desc = uvs.diplomacy.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.2.war
+		
+		declare_war_on = {
+			target = CZE
+			type = puppet_wargoal_focus
+		}
+	}
+	option = {
+		name = uvs.diplomacy.2.sudetenland
+	}
+	option = {
+		name = uvs.diplomacy.2.flip_commie
+	}
+}
+country_event = {
+	id = uvs.diplomacy.3 #Spartacists demand Sudetenland
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.3" }
+	title = uvs.diplomacy.3.t
+	desc = uvs.diplomacy.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.3.accept
+		
+		if = {
+			limit = {
+				owns_state = 69
+			}
+			FROM = {
+				set_state_owner = 69
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 74
+			}
+			FROM = {
+				set_state_owner = 74
+			}
+		}
+	}
+	option = {
+		name = uvs.diplomacy.3.reject
+		
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+country_event = {
+	id = uvs.diplomacy.4 #Spartacists demand regime change
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.4" }
+	title = uvs.diplomacy.4.t
+	desc = uvs.diplomacy.4.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.4.accept
+		
+		if = {
+			limit = {
+				FROM = { has_government = bolshevism }
+			}
+			set_politics = {
+				ruling_party = bolshevism
+			}
+		}
+		else_if = {
+			limit = {
+				FROM = { has_government = libertarian_socialism }
+			}
+			set_politics = {
+				ruling_party = libertarian_socialism
+			}
+		}
+		else = {
+			set_politics = {
+				ruling_party = marxism
+			}
+		}
+		FROM = {
+			set_autonomy = {
+				target = PREV
+				autonomous_state = autonomy_puppet
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+	}
+	option = {
+		name = uvs.diplomacy.4.reject
+		
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
 	}
 }
