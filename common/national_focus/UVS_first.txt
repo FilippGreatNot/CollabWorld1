@@ -2723,8 +2723,6 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_estabilish_the_european_revolutionary_front"
-			
 			create_faction = faction_UVS_european_revolutionary_front
 			set_country_flag = UVS_european_revolutionary_front_decisions_available
 		}
@@ -2740,8 +2738,6 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_invite_our_hungarian_comrades"
-			
 			set_country_flag = UVS_invite_hungary_available
 			unlock_decision_tooltip = UVS_invite_hungary
 		}
@@ -2759,8 +2755,6 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_invite_our_hungarian_comrades"
-			
 			hidden_effect = {
 				EPR = {
 					every_core_state = {
@@ -2785,7 +2779,8 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_cooperation_with_the_swedish_revolution"
+			set_country_flag = UVS_invite_sweden_available
+			unlock_decision_tooltip = UVS_invite_sweden
 		}
 	}
 
@@ -2808,10 +2803,6 @@ focus_tree = {
 				always = no
 			}
 		}
-		
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_membership_in_the_comintern"
-		}
 	}
 	focus = {
 		id = UVS_first_military_exercise_on_the_rhine
@@ -2824,8 +2815,6 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_military_exercise_on_the_rhine"
-			
 			every_country = {
 				limit = {
 					is_in_faction_with = PREV
@@ -2851,13 +2840,19 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = { focus = UVS_first_membership_in_the_comintern }
-
+		
 		relative_position_id = UVS_first_membership_in_the_comintern
 		x = 2
 		y = 1
-
+		
+		available = {
+			SOV = {
+				EPR = { PREV_controls_all_cores = yes }
+			}
+		}
+		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_request_east_prussia"
+			SOV = { country_event = uvs.diplomacy.7 }
 		}
 	}
 	focus = {
@@ -2871,8 +2866,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_comintern_technological_sharing"
-			
 			every_country = {
 				limit = {
 					is_in_faction_with = PREV
@@ -2899,13 +2892,16 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_the_revolution_marches_west"
+			country_event = uvs.diplomacy.5
 		}
 	}
 	focus = {
 		id = UVS_first_paint_the_benelux_red
-		icon = GFX_focus_UVS_first_the_revolution_marches_west
+		icon = GFX_focus_UVS_first_paint_the_benelux_red
 		cost = 5
+		will_lead_to_war_with = BEL
+		will_lead_to_war_with = HOL
+		will_lead_to_war_with = LUX
 		
 		prerequisite = { focus = UVS_first_the_revolution_marches_west }
 		
@@ -2914,13 +2910,25 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_paint_the_benelux_red"
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BEL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HOL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LUX
+			}
 		}
 	}
 	focus = {
 		id = UVS_first_end_the_reign_of_the_swiss_bankers
 		icon = GFX_focus_UVS_first_end_the_reign_of_the_swiss_bankers
 		cost = 5
+		will_lead_to_war_with = SWI
 		
 		prerequisite = { focus = UVS_first_the_revolution_marches_west }
 		
@@ -2929,13 +2937,17 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_end_the_reign_of_the_swiss_bankers"
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SWI
+			}
 		}
 	}
 	focus = {
 		id = UVS_first_end_the_french_reactionary_state
 		icon = GFX_focus_UVS_first_end_the_french_reactionary_state
 		cost = 5
+		will_lead_to_war_with = FRA
 		
 		prerequisite = { focus = UVS_first_paint_the_benelux_red }
 		prerequisite = { focus = UVS_first_end_the_reign_of_the_swiss_bankers }
@@ -2944,7 +2956,7 @@ focus_tree = {
 		y = 2
 
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_end_the_french_reactionary_state"
+			country_event = uvs.diplomacy.6
 		}
 	}
 }

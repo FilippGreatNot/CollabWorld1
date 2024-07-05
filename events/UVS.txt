@@ -1,5 +1,6 @@
 add_namespace = uvs
 add_namespace = uvs.diplomacy
+add_namespace = uvs.diplomacy.erf_invite
 
 country_event = {
 	id = uvs.1
@@ -260,7 +261,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = uvs.diplomacy.4.accept
+		name = uvs.diplomacy.3.accept
 		
 		if = {
 			limit = {
@@ -293,7 +294,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = uvs.diplomacy.4.reject
+		name = uvs.diplomacy.3.reject
 		
 		FROM = {
 			declare_war_on = {
@@ -301,5 +302,92 @@ country_event = {
 				type = puppet_wargoal_focus
 			}
 		}
+	}
+}
+country_event = {
+	id = uvs.diplomacy.5 #The Revolution Marches West
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.5" }
+	title = uvs.diplomacy.5.t
+	desc = uvs.diplomacy.5.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.5.a
+		
+		army_experience = 25
+		add_war_support = 0.05
+	}
+}
+country_event = {
+	id = uvs.diplomacy.6 #The Duel of the Fates
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.6" }
+	title = uvs.diplomacy.6.t
+	desc = uvs.diplomacy.6.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.6.a
+		
+		declare_war_on = {
+			target = FRA
+			type = puppet_wargoal_focus
+		}
+	}
+}
+country_event = {
+	id = uvs.diplomacy.7 #Spartakusbund asks for East Prussia
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.7" }
+	title = uvs.diplomacy.7.t
+	desc = uvs.diplomacy.7.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.7.accept
+		
+		every_controlled_state = {
+			limit = {
+				is_core_of = EPR
+			}
+			transfer_state_to = FROM
+		}
+	}
+	option = {
+		name = uvs.diplomacy.7.reject
+		ai_chance = { base = 0 }
+		
+		every_controlled_state = {
+			limit = {
+				is_core_of = EPR
+			}
+			add_claim_by = FROM
+		}
+	}
+}
+country_event = {
+	id = uvs.diplomacy.erf_invite.1 #Invite to ERF
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.diplomacy.1" }
+	title = uvs.diplomacy.erf_invite.t
+	
+	desc = {
+		text = uvs.diplomacy.HUN
+		original_tag = HUN
+	}
+	desc = {
+		text = uvs.diplomacy.SWE
+		original_tag = SWE
+	}
+	desc = uvs.diplomacy.erf_invite.d
+	is_triggered_only = yes
+	
+	option = {
+		name = uvs.diplomacy.erf_invite.accept
+		
+		FROM = { add_to_faction = PREV }
+	}
+	option = {
+		name = uvs.diplomacy.erf_invite.reject
+		ai_chance = { base = 0 }
+		
+		set_country_flag = rejected_invite_to_european_revolutionary_front
 	}
 }
