@@ -66,6 +66,8 @@ country_event = {
 		load_focus_tree = SOV_bogdanov_tree
 		
 		custom_effect_tooltip = SOV_bogdanov_wip_tt
+		
+		ai_chance = { base = 0 } #He is probably broken
 	}
 	
 	#option = {
@@ -232,6 +234,7 @@ news_event = {
 		name = sov_stalin_united.1.procommunist
 		trigger = {
 			ideology_socialist = yes
+			NOT = { has_government = libertarian_socialism }
 		}
 	}
 	option = {
@@ -239,7 +242,7 @@ news_event = {
 		trigger = {
 			OR = {
 				has_government = social_democrat
-				has_government = anarchist
+				has_government = libertarian_socialism
 			}
 		}
 	}
@@ -247,10 +250,7 @@ news_event = {
 		name = sov_stalin_united.1.anticommunist
 		trigger = {
 			OR = {
-				AND = {
-					ideology_goofy_ahh = yes
-					NOT = { has_government = anarchist }
-				}
+				ideology_goofy_ahh = yes
 				AND = {
 					ideology_liberal = yes
 					NOT = { has_government = social_democrat }
