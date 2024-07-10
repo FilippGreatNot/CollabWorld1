@@ -1,15 +1,13 @@
 #!localisation:localisation\russian\country_SOV_l_russian.yml
-
-add_namespace = sov_leadership
-add_namespace = sov_unification
-add_namespace = sov_stalin
-add_namespace = sov_stalin_united
-add_namespace = sov_stalin_united.comintern
+add_namespace = sov.lenin
+add_namespace = sov.unification
+add_namespace = sov.stalin
+add_namespace = sov.stalin_united
+add_namespace = sov.stalin_united.comintern
 add_namespace = sov
 
 country_event = { #Fate of the royal family
 	id = sov.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov.1" }
 	title = sov.1.t
 	desc = sov.1.d
 	is_triggered_only = yes
@@ -26,7 +24,6 @@ country_event = { #Fate of the royal family
 }
 country_event = { #Lenin's speech
 	id = sov.2
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov.2" }
 	title = sov.2.t
 	desc = sov.2.d
 	is_triggered_only = yes
@@ -36,15 +33,14 @@ country_event = { #Lenin's speech
 	}
 }
 country_event = {
-	id = sov_leadership.1
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_leadership.1" }
-	title = sov_leadership.1.t
-	desc = sov_leadership.1.d
+	id = sov.lenin.1 #Assassination attempt on Lenin
+	title = sov.lenin.1.t
+	desc = sov.lenin.1.d
 	picture = GFX_report_event_red_army_order
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_leadership.1.a
+		name = sov.lenin.1.stalin
 		promote_character = SOV_joseph_stalin
 		set_cosmetic_tag = SOV_stalin
 		#set_power_balance = { #Unused, read bop file for details
@@ -54,7 +50,7 @@ country_event = {
 	}
 	
 	option = {
-		name = sov_leadership.1.b
+		name = sov.lenin.1.bogdanov
 		promote_character = SOV_alexander_bogdanov	
 		set_cosmetic_tag = SOV_bogdanov
 		
@@ -71,31 +67,47 @@ country_event = {
 	}
 	
 	#option = {
-	#	name = sov_leadership.1.c
-	#	set_politics = {
-	#		ruling_party = libertarian_socialism
-	#	}
-	#	
-	#	set_cosmetic_tag = SOV_spiridonova_regional
-	#}
-	
-	#option = {
-	#	name = sov_leadership.1.e
+	#	name = sov.lenin.1.e
 	#	
 	#	promote_character = SOV_felix_dzerzhinsky	
 	#	set_cosmetic_tag = SOV_felix_regional
 	#}
 }
+news_event = {
+	id = sov.lenin.2 #Lenin assassinated
+	title = sov.lenin.2.t
+	desc = sov.lenin.2.d
+	is_triggered_only = yes
+	major = yes
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { tag = FROM }
+				
+				SOV_vladimir_lenin = { retire = yes }
+			}
+		}
+	}
+	
+	option = {
+		name = sov.lenin.1.socialist #AHHHH OH NYOOOOO
+		trigger = { ideology_socialist = yes }
+	}
+	option = {
+		name = sov.lenin.1.antisocialist #bruh
+		trigger = { ideology_socialist = no }
+	}
+}
 country_event = {
-	id = sov_unification.1 #tukh
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_unification.1" }
-	title = sov_unification.1.t
-	desc = sov_unification.1.d
+	id = sov.unification.1 #tukh
+	title = sov.unification.1.t
+	desc = sov.unification.1.d
 	picture = GFX_report_event_soviet_people
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_unification.1.a
+		name = sov.unification.1.a
 		ai_chance = {
 			modifier = {
 				factor = 0
@@ -121,7 +133,7 @@ country_event = {
 	}
 	
 	option = {
-		name = sov_unification.1.b	
+		name = sov.unification.1.b	
 		ai_chance = {
 			modifier = {
 				factor = 0
@@ -145,29 +157,28 @@ country_event = {
 
 ### Stalin ###
 country_event = {
-	id = sov_stalin.1 #NKVD leader
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.1" }
-	title = sov_stalin.1.t
-	desc = sov_stalin.1.d
+	id = sov.stalin.1 #NKVD leader
+	title = sov.stalin.1.t
+	desc = sov.stalin.1.d
 	picture = GFX_report_event_SOV_Felix
 	is_triggered_only = yes
 
 	option = {
-		name = sov_stalin.1.a
+		name = sov.stalin.1.a
 		
 		add_ideas = SOV_lavrentiy_beria_sec 
 		complete_national_focus = SOV_stalin_the_georgian_architect
 	}
 	
 	option = {
-		name = sov_stalin.1.b
+		name = sov.stalin.1.b
 		
 		add_ideas = SOV_nikolai_yezhov_sec
 		complete_national_focus = SOV_stalin_1_5_meters_of_a_pure_chekist 		
 	}
 	
 	option = {
-		name = sov_stalin.1.c
+		name = sov.stalin.1.c
 		
 		add_ideas = SOV_gleb_bokii_sec 
 		complete_national_focus = SOV_stalin_eighth_division
@@ -176,36 +187,32 @@ country_event = {
 
 
 country_event = {
-	id = sov_stalin.2 #The fate of opportunists
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin.2" }
-	title = sov_stalin.2.t
-	desc = sov_stalin.2.d
+	id = sov.stalin.2 #The fate of opportunists
+	title = sov.stalin.2.t
+	desc = sov.stalin.2.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin.2.a
+		name = sov.stalin.2.a
 		
 		complete_national_focus = SOV_stalin_be_useful_by_skills
 	}
 	option = {
-		name = sov_stalin.2.b
+		name = sov.stalin.2.b
 		
 		complete_national_focus = SOV_stalin_serve_the_revolution_by_deed
 	}
 }
 
 country_event = {
-	id = sov_stalin.3 #Unification
-	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event sov_stalin.3"
-		set_country_flag = SOV_show_easter_egg_decision
-	}
-	title = sov_stalin.3.t
-	desc = sov_stalin.3.d
+	id = sov.stalin.3 #Unification
+	title = sov.stalin.3.t
+	desc = sov.stalin.3.d
 	is_triggered_only = yes
 	
+	immediate = { set_country_flag = SOV_show_easter_egg_decision }
 	option = {
-		name = sov_stalin.3.a
+		name = sov.stalin.3.a
 		
 		set_cosmetic_tag = SOV_stalin_united
 		hidden_effect = {
@@ -224,21 +231,20 @@ country_event = {
 
 # Unified #
 news_event = {
-	id = sov_stalin_united.1 #Creation of Comintern
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.1" }
-	title = sov_stalin_united.1.t
-	desc = sov_stalin_united.1.d
+	id = sov.stalin_united.1 #Creation of Comintern
+	title = sov.stalin_united.1.t
+	desc = sov.stalin_united.1.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin_united.1.procommunist
+		name = sov.stalin_united.1.procommunist
 		trigger = {
 			ideology_socialist = yes
 			NOT = { has_government = libertarian_socialism }
 		}
 	}
 	option = {
-		name = sov_stalin_united.1.neutral
+		name = sov.stalin_united.1.neutral
 		trigger = {
 			OR = {
 				has_government = social_democrat
@@ -247,7 +253,7 @@ news_event = {
 		}
 	}
 	option = {
-		name = sov_stalin_united.1.anticommunist
+		name = sov.stalin_united.1.anticommunist
 		trigger = {
 			OR = {
 				ideology_goofy_ahh = yes
@@ -261,14 +267,13 @@ news_event = {
 	}
 }
 country_event = {
-	id = sov_stalin_united.comintern.1 #Invite to Comintern (Default)
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.comintern.1" }
-	title = sov_stalin_united.invite_to_comintern.t
-	desc = sov_stalin_united.invite_to_comintern.d
+	id = sov.stalin_united.comintern.1 #Invite to Comintern (Default)
+	title = sov.stalin_united.invite_to_comintern.t
+	desc = sov.stalin_united.invite_to_comintern.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin_united.invite_to_comintern.accept
+		name = sov.stalin_united.invite_to_comintern.accept
 		
 		trigger = {
 			is_in_faction = no
@@ -277,7 +282,7 @@ country_event = {
 		FROM = { add_to_faction = PREV }
 	}
 	option = {
-		name = sov_stalin_united.invite_to_comintern.reject
+		name = sov.stalin_united.invite_to_comintern.reject
 		
 		set_country_flag = rejected_invite_to_comintern
 		
@@ -285,14 +290,13 @@ country_event = {
 	}
 }
 country_event = {
-	id = sov_stalin_united.comintern.2 #Invite to Comintern (UVS)
-	immediate = { log = "[GetDateText]: [Root.GetName]: event sov_stalin_united.comintern.2" }
-	title = sov_stalin_united.invite_to_comintern.t
-	desc = sov_stalin_united.invite_to_comintern.d
+	id = sov.stalin_united.comintern.2 #Invite to Comintern (UVS)
+	title = sov.stalin_united.invite_to_comintern.t
+	desc = sov.stalin_united.invite_to_comintern.d
 	is_triggered_only = yes
 	
 	option = {
-		name = sov_stalin_united.invite_to_comintern.accept
+		name = sov.stalin_united.invite_to_comintern.accept
 		
 		trigger = {
 			is_in_faction = no
@@ -308,7 +312,7 @@ country_event = {
 		FROM = { add_to_faction = PREV }
 	}
 	option = {
-		name = sov_stalin_united.invite_to_comintern.reject
+		name = sov.stalin_united.invite_to_comintern.reject
 		
 		set_country_flag = rejected_invite_to_comintern #Used for AI to prevent from spamming the invite every 120 days
 		

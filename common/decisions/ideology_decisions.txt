@@ -165,7 +165,6 @@ bolshevism_decisions = {
 			factor = 5
 		}
 	}
-
 	utilize_prison_labor = {
 		days_re_enable = 360
 		days_remove = 90
@@ -174,7 +173,7 @@ bolshevism_decisions = {
 		cost = 75
 		
 		modifier = {
-			industrial_capacity_factor = 0.05
+			industrial_capacity_factory = 0.05
 		}
 
 		ai_will_do = {
@@ -205,7 +204,7 @@ bolshevism_decisions = {
 }
 
 marxism_decisions = {
- print_communist_manifestos = {
+	print_communist_manifestos = {
 		days_re_enable = 180
 		icon = ger_mefo_bills
 		
@@ -221,8 +220,7 @@ marxism_decisions = {
 			factor = 5
 		}
 	}
-
-seize_the_means_of_production = {
+	seize_the_means_of_production = {
 		days_re_enable = 270
 		icon = ger_mefo_bills
 	
@@ -242,7 +240,7 @@ seize_the_means_of_production = {
 			factor = 5
 		}
 	}
-agricultural_collectivization = {
+	agricultural_collectivization = {
 		days_re_enable = 360
 		days_remove = 180
 		icon = ger_mefo_bills
@@ -250,15 +248,63 @@ agricultural_collectivization = {
 		cost = 250
 		
 		modifier = {
-		consumer_goods_factories = -0.075
-  stability_factor = -0.05
-  monthly_population = -0.02
-
+			consumer_goods_factor = -0.075
+			stability_factor = -0.05
+			monthly_population = -0.02
 		}
 
 		ai_will_do = {
 			factor = 5
 		}
 	}
-
+}
+libertarian_socialism_decisions = {
+	rally_the_workers = {
+		days_re_enable = 180
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		complete_effect = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	public_infrastructure_ownership = {
+		days_re_enable = 240
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		complete_effect = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	support_regional_councils = {
+		days_re_enable = 360
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		complete_effect = {
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
 }
