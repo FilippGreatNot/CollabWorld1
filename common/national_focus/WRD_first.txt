@@ -69,7 +69,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WRD_first_restore_public_trust
-		icon = GFX_focus_FRA_return_to_traditional
+		icon = GFX_focus_FRA_return_to_traditional_values
 		cost = 5
 		
 		relative_position_id = WRD_first_catastrophe_of_the_weltkrieg
@@ -476,6 +476,129 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = WRD_promise_a_new_future
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		mutually_exclusive = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		relative_position_id = WRD_the_hindenburg_regency
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_the_hindenburg_regency
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_rebuild_the_rhineland
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		mutually_exclusive = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		relative_position_id = WRD_the_hindenburg_regency
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = WRD_the_hindenburg_regency
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_establish_new_universities
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 10
+		
+		mutually_exclusive = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		relative_position_id = WRD_the_hindenburg_regency
+		y = 2
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_promise_a_new_future
+		}
+		prerequisite = {
+			focus = WRD_rebuild_the_rhineland
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_establish_new_universities log"
+			add_research_slot = 1
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {
+		id = WRD_plot_against_ludendorff
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		mutually_exclusive = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		relative_position_id = WRD_the_hindenburg_regency
+		y = 3
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_establish_new_universities
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_deutschland_uber_alles
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 10
+		
+		mutually_exclusive = {
+			focus = WRD_rise_of_ludendorff
+		}
+		
+		relative_position_id = WRD_plot_against_ludendorff
+		y = 1
+		x = 3
+		
+		prerequisite = {
+			focus = WRD_plot_against_ludendorff
+			focus = WRD_establish_a_corporate_state
+		}
+		prerequisite = {
+			focus = WRD_analyze_the_okws_mistakes
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
 		id = WRD_rise_of_ludendorff
 		icon = GFX_focus_WRD_first_beaten_but_not_defeated
 		cost = 5
@@ -495,6 +618,14 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
+		
+			set_politics = {
+				ruling_party = reactionism
+			}
 		}
 	}
 	
@@ -600,6 +731,48 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_remember_the_fallen_heroes
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		
+		relative_position_id = WRD_use_the_guns_of_the_weltkrieg
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_rise_of_ludendorff focus = WRD_use_the_guns_of_the_weltkrieg
+		}
+		
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_analyze_the_okws_mistakes
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		
+		relative_position_id = WRD_use_the_guns_of_the_weltkrieg
+		y = 2
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_rise_of_ludendorff focus = WRD_remember_the_fallen_heroes
+		}
+		
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_analyze_the_okws_mistakes log"
 			
 		}
 	}

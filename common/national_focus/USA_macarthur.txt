@@ -892,8 +892,27 @@ focus_tree = {
 
 		cost = 5
 		
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = CAL
+			}
+		}
+		
 		prerequisite =	{ focus = USA_mc_declare_a_great_crusade }
 		mutually_exclusive = { focus = USA_mc_offer_them_reunification }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_destroy_the_californian_traitors_log"
+		
+			declare_war_on = {
+				target = CAL
+				type = annex_everything
+			}
+		}
+		
 	}
 	focus = {
 		id = USA_mc_offer_them_reunification
@@ -903,7 +922,16 @@ focus_tree = {
 		y = 1
 		x = 1
 
-		cost = 5
+		cost = 6
+		
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = CAL
+			}
+		}
 		
 		prerequisite =	{ focus = USA_mc_declare_a_great_crusade }
 		mutually_exclusive = { focus = USA_mc_destroy_the_californian_traitors }
