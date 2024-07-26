@@ -1,4 +1,5 @@
 version="0.0.1 beta"
+picture="thumbnail.png"
 tags={
 	"Alternative History"
 	"Events"
