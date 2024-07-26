@@ -1,0 +1,40 @@
+WRD_release_RBR = {
+	if = {
+			
+	}
+	hidden_effect = {
+		RBR = {
+			add_state_core = 836   	
+	}
+
+		every_owned_state = {
+			limit = { is_core_of = RBR }
+			RBR = { transfer_state = PREV }
+		}
+WRD = {
+		every_state = {
+			limit = {
+				is_core_of = WRD
+				NOT = { is_core_of = RBR }
+				NOT = { is_claimed_by = RBR }
+			}
+			add_claim_by = RBR
+		}
+}
+		RBR = {
+			add_ideas = {
+			#	extensive_conscription
+			}
+		}
+
+}
+
+}
+reichsbanner_rebel_begins = {
+
+		if = {
+			limit = { country_exists = RBR 	}
+			RBR = { declare_war_on = { target = WRD type = annex_everything	} }
+		}
+		
+}
