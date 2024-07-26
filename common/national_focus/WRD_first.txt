@@ -274,6 +274,11 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
+			swap_ideas = {
+				remove_idea = WRD_die_schutzstaffel
+				add_idea = WRD_die_schutzstaffel2
+			}
+			
 		}
 	}
 	
@@ -294,6 +299,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+			add_political_power = 100
+			add_stability = -0.05
 			
 		}
 	}
@@ -316,6 +324,10 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
+			add_ideas = {
+				WRD_purple_regime
+			}
+			
 		}
 	}
 	
@@ -336,6 +348,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+			add_ideas = {
+				WRD_agricultural_renewal
+			}
 			
 		}
 	}
@@ -359,6 +375,10 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_increase_working_hours log"
 			
+			add_ideas = {
+				WRD_increased_working_hours
+			}
+			
 		}
 	}
 	
@@ -379,8 +399,28 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_prepare_the_arms_production log"
-			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			army_experience = 20
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = WRD
 		}
+	}
+	}
 	}
 	
 	focus = {
@@ -417,7 +457,7 @@ focus_tree = {
 	focus = {
 		id = WRD_a_purple_germany
 		icon = GFX_focus_WRD_first_beaten_but_not_defeated
-		cost = 5
+		cost = 10
 		
 		available = { has_government = esotericism }
 		
@@ -431,7 +471,11 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			
+			    
+				add_country_leader_trait = {
+				ideology = esotericism
+				trait = the_chicken_farmer
+			}
 		}
 	}
 	
@@ -569,7 +613,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_deutschland_uber_alles
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_DOA_temporary_compromise
 		cost = 10
 		
 		relative_position_id = WRD_plot_against_ludendorff
@@ -661,7 +705,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_destroy_socialist_menace
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_USA_ban_communist_parties
 		cost = 5
 		
 		relative_position_id = WRD_permanent_martial_law
@@ -684,7 +728,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_establish_a_corporate_state
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_UVS_labor_unions_industry
 		cost = 5
 		
 		relative_position_id = WRD_destroy_socialist_menace
