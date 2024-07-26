@@ -529,6 +529,15 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+			
 		}
 	}
 	
@@ -892,6 +901,91 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
+		}
+	}
+	focus = {
+		id = WRD_road_to_reunification
+		icon = GFX_focus_DOA_temporary_compromise
+		x = 30
+		cost = 5
+		available = { 
+			date > 1923.1.30
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			
+			add_political_power = 50
+			
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = WRD_spies_in_wilhelmshaven
+		icon = GFX_focus_UVS_destroy_anarchists
+		cost = 4
+		x = -1
+		y = 1
+		relative_position_id = WRD_road_to_reunification
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = FWG
+		}
+		prerequisite = {
+			focus = WRD_road_to_reunification
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			 add_intel = {
+               target = FWG 
+               amount = 20  
+               type = army_intel			   
+           }
+		    add_intel = {
+               target = FWG  
+               amount = 15 
+               type = civil_intel 
+           }
+			
+
+		}
+	}
+	
+	focus = {
+		id = WRD_snap_back_to_reality
+		icon = GFX_focus_UVS_destroy_anarchists
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = WRD_spies_in_wilhelmshaven
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = FWG
+		}
+		prerequisite = {
+			focus = WRD_spies_in_wilhelmshaven
+		}
+		will_lead_to_war_with = FWG
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = FWG
+				type = annex_everything
+			}
+			
+
 		}
 	}
 }
