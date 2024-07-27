@@ -279,4 +279,35 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = LUX_demand_our_old_lands
+		icon = GFX_focus_FRA_destroy_the_false_state
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LUX_embrace_luxembourgian_nationalism
+		prerequisite = {
+			focus = LUX_women_in_the_army
+		}
+		prerequisite = {
+			focus = LUX_embrace_luxembourgian_nationalism
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus LUX_build_the_defenses_of_the_nation"
+			
+			add_state_core = 840
+			BEL = {
+			country_event = {
+			id = lux.3
+		    }
+			}
+			
+			
+		}
+	}
+	
 	}

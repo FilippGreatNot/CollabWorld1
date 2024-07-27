@@ -51,6 +51,43 @@ country_event = {
 	
  }
  
+ country_event = {
+	id = lux.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event lux.3" }
+	title = lux.3.t
+	desc = lux.3.d
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = lux.3.a
+		
+		if = {
+			limit = {
+				owns_state = 840
+			}
+			FROM = {
+				set_state_owner = 840
+			}
+		}
+		
+	}
+
+	option = {
+		name = lux.3.b
+		
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+		ai_chance = { base = 0 }
+	}
+	
+	
+ }
+ 
 
 
 
