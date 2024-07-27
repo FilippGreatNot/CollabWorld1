@@ -176,13 +176,105 @@ focus_tree = {
 					instant_build = yes
 				}
 				}
-			add_building_construction = {
-            type = land_fort
-            level = 2
-            instant_build = yes
-            province = 6583
+			    8 = {
+				add_building_construction = { type = bunker province = 6583 level = 2 instant_build = yes }
+			    }
 			
-            }
+		}
+	}
+	
+	focus = {
+		id = LUX_mobilize_those_who_remain
+		icon = GFX_focus_LUX_build_the_defenses_of_the_nation
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LUX_build_the_defenses_of_the_nation
+		prerequisite = {
+			focus = LUX_build_the_defenses_of_the_nation
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus LUX_build_the_defenses_of_the_nation"
+			
+			add_ideas = {
+				extensive_conscription
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = LUX_embrace_luxembourgian_nationalism
+		icon = GFX_focus_LUX_embrace_luxembourgian_nationalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LUX_mobilize_those_who_remain
+		prerequisite = {
+			focus = LUX_mobilize_those_who_remain
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus LUX_build_the_defenses_of_the_nation"
+			
+			add_war_support = 0.1
+			
+		}
+	}
+	
+	focus = {
+		id = LUX_a_tour_across_the_nation
+		icon = GFX_focus_LUX_embrace_luxembourgian_nationalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LUX_arrest_the_communists
+		prerequisite = {
+			focus = LUX_arrest_the_communists
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus LUX_build_the_defenses_of_the_nation"
+			
+			country_event = {
+			id = lux.2
+		}
+			
+			
+		}
+	}
+	
+	focus = {
+		id = LUX_women_in_the_army
+		icon = GFX_focus_LUX_embrace_luxembourgian_nationalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LUX_a_tour_across_the_nation
+		prerequisite = {
+			focus = LUX_a_tour_across_the_nation
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus LUX_build_the_defenses_of_the_nation"
+			
+			add_ideas = {
+				LUX_female_army
+			}
+			
 			
 		}
 	}
