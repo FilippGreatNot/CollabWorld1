@@ -90,12 +90,15 @@ GER_reunification = {
 					
 					
 					if = {
+						
 						limit = {
 							has_country_leader = {
-								name = "Ernst Thalmann"
+								character = UVS_ernst_thalmann
 								ruling_only = yes
 							}
 						}
+						
+						
 						hidden_effect = {
 						set_cosmetic_tag = UVS_thalmann_germany
 							
@@ -104,6 +107,35 @@ GER_reunification = {
 							set_country_flag = ger_reunificated
 						}
 					}
+					
+					
+					
+					if = {
+						
+						limit = {
+							has_country_leader = {
+								character = UVS_friedrich_ebert_jr
+								ruling_only = yes
+							}
+							
+						OR = {
+							has_country_leader = {
+								character = UVS_dspd_council
+								ruling_only = yes
+							}
+						}
+						
+						
+						hidden_effect = {
+						set_cosmetic_tag = UVS_dspd_germany
+							
+								news_event = WORLDNEWS.21
+							
+							set_country_flag = ger_reunificated
+						}
+					}					
+					
+
 				}
 			}
 			
@@ -264,6 +296,7 @@ GER_reunification = {
 		
 		ai_will_do = {
 			factor = 2000
+			}
 		}
 	}
 }
