@@ -1,10 +1,16 @@
 GER_reunification = {
-	reunificate_deutschland = {
+	unite_germany_rosa = {
 		icon = generic_form_nation
 		
 		fire_only_once = yes
 		
 		visible = {
+			limit = {
+				has_country_leader = {
+					character = UVS_rosa_luxemburg
+					ruling_only = yes
+				}
+			}
 			NOT = { has_country_flag = ger_reunificated }
 		}
 		
@@ -42,52 +48,43 @@ GER_reunification = {
 					original_tag = UVS
 				}
 				hidden_effect = {
+					set_country_flag = ger_reunificated
 					if = {
 						limit = {
 							has_country_leader = {
-								name = "Rosa Luxemburg"
+								character = UVS_rosa_luxemburg
 								ruling_only = yes
 							}
 						}
+						set_cosmetic_tag = UVS_rosa_germany
 						hidden_effect = {
-							set_cosmetic_tag = UVS_rosa_germany
-							
 							news_event = WORLDNEWS.2
-							
-							set_country_flag = ger_reunificated
-							
 						}
 					}
 					
 					if = {
 						limit = {
 							has_country_leader = {
-								name = "Hans Speidel"
+								character = UVS_hans_speidel
 								ruling_only = yes
 							}
 						}
-						hidden_effect = {
 						set_cosmetic_tag = UVS_Hans_tank_GER
-							
-								news_event = WORLDNEWS.6
-							
-							set_country_flag = ger_reunificated
+						hidden_effect = {
+							news_event = WORLDNEWS.6
 						}
 					}
 					
 					if = {
 						limit = {
 							has_country_leader = {
-								name = "Joachim von Ribbentrop"
+								character = UVS_joachim_von_ribbentrop
 								ruling_only = yes
 							}
 						}
-						hidden_effect = {
 						set_cosmetic_tag = UVS_ribbentrop_germany
-							
-								news_event = WORLDNEWS.8
-							
-							set_country_flag = ger_reunificated
+						hidden_effect = {
+							news_event = WORLDNEWS.8
 						}
 					}
 					
@@ -110,9 +107,6 @@ GER_reunification = {
 				}
 			}
 			
-			
-			
-			
 			if = {
 				limit = {
 					original_tag = WRD
@@ -130,11 +124,7 @@ GER_reunification = {
 							set_cosmetic_tag = WRD_himmler_GER
 							
 							set_country_flag = ger_reunificated
-							
-							
-								news_event = WORLDNEWS.3
-							
-							
+							news_event = WORLDNEWS.3
 						}
 					}
 					if = {
