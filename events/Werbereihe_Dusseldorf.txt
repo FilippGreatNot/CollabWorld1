@@ -137,3 +137,66 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = wrd_dusseldorf.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd_dusseldorf.7.t
+	desc = wrd_dusseldorf.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd_dusseldorf.7.a
+		ai_chance = { base = 0 }
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	option = {
+		name = wrd_dusseldorf.7.b
+	    if = {
+			limit = {
+				owns_state = 743
+			}
+			FROM = {
+				set_state_owner = 743
+			}
+		}
+		
+	}
+}
+
+country_event = {
+	id = wrd_dusseldorf.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd_dusseldorf.8.t
+	desc = wrd_dusseldorf.8.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd_dusseldorf.8.a
+		add_ideas = {
+				WRD_loyalty_check
+			}
+	}
+	
+	option = {
+		name = wrd_dusseldorf.8.b
+	    add_ideas = {
+				WRD_early_blitzkrieg_tactics
+			}
+		
+	}
+	
+	option = {
+		name = wrd_dusseldorf.8.c
+	    add_ideas = {
+				WRD_reorganized_army
+			}
+		
+	}
+}
+
