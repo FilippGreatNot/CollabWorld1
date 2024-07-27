@@ -1,18 +1,20 @@
 GER_reunification = {
-	unite_germany_rosa = {
+	unite_germany = {
 		icon = generic_form_nation
 		
 		fire_only_once = yes
 		
-		visible = {
-			limit = {
-				has_country_leader = {
-					character = UVS_rosa_luxemburg
-					ruling_only = yes
-				}
+	visible = {
+			OR = {
+			original_tag = FWG
+			original_tag = WRD
+			original_tag = GER
+			original_tag = FGB
+			original_tag = UVS
+			original_tag = BAV
 			}
-			NOT = { has_country_flag = ger_reunificated }
-		}
+		NOT = { has_country_flag = ger_reunificated }
+	}
 		
 		ai_will_do = {
 			factor = 100
@@ -113,12 +115,12 @@ GER_reunification = {
 					if = {
 						
 						limit = {
+							OR = {
 							has_country_leader = {
 								character = UVS_friedrich_ebert_jr
 								ruling_only = yes
 							}
 							
-						OR = {
 							has_country_leader = {
 								character = UVS_dspd_council
 								ruling_only = yes
@@ -127,12 +129,12 @@ GER_reunification = {
 						}	
 						
 						hidden_effect = {
-						set_cosmetic_tag = UVS_dspd_germany
+							set_cosmetic_tag = UVS_dspd_germany
 							
 								news_event = WORLDNEWS.21
 							
 							set_country_flag = ger_reunificated
-							}
+						}
 						}					
 					}
 				}
