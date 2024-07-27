@@ -910,6 +910,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			remove_ideas = {
+			    WRD_mackensen_regency
+		    }
+			add_stability = 0.05
 			
 		}
 	}
@@ -952,6 +956,19 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_popularity = {
+		        ideology = bolshevism
+		        popularity = -0.05
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+			add_political_power = 50
 			
 		}
 	}
@@ -977,6 +994,15 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+			
 		}
 	}
 	focus = {
@@ -994,6 +1020,103 @@ focus_tree = {
 			add_political_power = 50
 			
 			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = WRD_cause_panic_in_the_reichstag
+		icon = GFX_focus_WRD_cause_panic_in_the_reichstag
+		cost = 4
+		x = 1
+		y = 1
+		relative_position_id = WRD_road_to_reunification
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = FWG
+		}
+		prerequisite = {
+			focus = WRD_road_to_reunification
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			
+			GER = {
+			add_stability = -0.05
+			
+           
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			}
+		}
+	}
+	focus = {
+		id = WRD_strike_the_republic
+		icon = GFX_focus_WRD_strike_the_republic
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = WRD_cause_panic_in_the_reichstag
+		
+		bypass = {
+			NOT = {
+				country_exists = GER
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = GER
+		}
+		prerequisite = {
+			focus = WRD_cause_panic_in_the_reichstag
+		}
+		will_lead_to_war_with = GER
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_strike_the_republic log"
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+			
+
+		}
+	}
+	focus = {
+		id = WRD_trial_the_traitors
+		icon = GFX_focus_WRD_trial_the_traitors
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = WRD_strike_the_republic
+		
+		bypass = {
+			NOT = {
+				country_exists = GER
+			}
+		}
+		available = {
+			GER = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = WRD_strike_the_republic
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			
+
 		}
 	}
 	focus = {
@@ -1029,6 +1152,100 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = WRD_offer_amnesty_to_the_freikorps
+		icon = GFX_focus_WRD_offer_amnesty
+		cost = 6
+		x = -3
+		y = 1
+		relative_position_id = WRD_road_to_reunification
+		
+		bypass = {
+			NOT = {
+				country_exists = FGB
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = FGB
+		}
+		prerequisite = {
+			focus = WRD_road_to_reunification
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			FGB = {
+			country_event = {
+			id = wrd_dusseldorf.9
+		    }
+			}
+			
+
+		}
+	}
+	focus = {
+		id = WRD_experience_of_the_freikorp_coup
+		icon = GFX_focus_WRD_true_patriots
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = WRD_offer_amnesty_to_the_freikorps
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+		available = {
+			FWG = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = WRD_offer_amnesty_to_the_freikorps
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			
+			add_war_support = 0.1
+			army_experience = 50
+			
+
+		}
+	}
+	
+	focus = {
+		id = WRD_down_south
+		icon = GFX_focus_UVS_down_south
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = WRD_experience_of_the_freikorp_coup
+		
+		bypass = {
+			NOT = {
+				country_exists = BAV
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = BAV
+		}
+		prerequisite = {
+			focus = WRD_experience_of_the_freikorp_coup
+		}
+		will_lead_to_war_with = BAV
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = BAV
+				type = annex_everything
+			}
+			
+
+		}
+	}
+	
+	focus = {
 		id = WRD_snap_back_to_reality
 		icon = GFX_focus_UVS_destroy_anarchists
 		cost = 5
@@ -1056,6 +1273,96 @@ focus_tree = {
 				type = annex_everything
 			}
 			
+
+		}
+	}
+	focus = {
+		id = WRD_end_the_spartakusbund
+		icon = GFX_focus_WRD_end_the_sparakusbund
+		cost = 5
+		x = 3
+		y = 1
+		relative_position_id = WRD_road_to_reunification
+		
+		bypass = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = UVS
+		}
+		prerequisite = {
+			focus = WRD_road_to_reunification
+		}
+		will_lead_to_war_with = UVS
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+			
+
+		}
+	}
+	focus = {
+		id = WRD_the_final_frontier
+		icon = GFX_focus_UVS_crush_the_invaders
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = WRD_end_the_spartakusbund
+		
+		bypass = {
+			NOT = {
+				country_exists = PLA
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = PLA
+		}
+		prerequisite = {
+			focus = WRD_end_the_spartakusbund
+		}
+		will_lead_to_war_with = PLA
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = PLA
+				type = annex_everything
+			}
+			
+
+		}
+	}
+	focus = {
+		id = WRD_destroy_monuments
+		icon = GFX_focus_UVS_destroy_monuments
+		cost = 6
+		x = 0
+		y = 1
+		relative_position_id = WRD_the_final_frontier
+		
+		bypass = {
+			NOT = {
+				country_exists = PLA
+			}
+		}
+		available = {
+			PLA = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = WRD_the_final_frontier
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			add_stability = 0.03
+			add_political_power = 50
 
 		}
 	}
@@ -1109,8 +1416,20 @@ focus_tree = {
 				PREV_controls_all_cores = yes
 			}
 		}
+		available = {
+		    has_war = no
+		}
 		prerequisite = {
 			focus = WRD_reopen_to_the_world
+		}
+		prerequisite = {
+			focus = WRD_destroy_monuments
+		}
+		prerequisite = {
+			focus = WRD_trial_the_traitors
+		}
+		prerequisite = {
+			focus = WRD_down_south
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"

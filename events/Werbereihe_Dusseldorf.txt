@@ -200,3 +200,38 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = wrd_dusseldorf.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd_dusseldorf.9.t
+	desc = wrd_dusseldorf.9.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd_dusseldorf.9.a
+		WRD = {
+			annex_country = { 
+				target = FGB
+				transfer_troops = yes 
+			}
+		}
+		
+		FGB = {
+			every_unit_leader = {
+				set_nationality = WRD
+			}
+		}
+	}
+	
+	option = {
+		name = wrd_dusseldorf.9.b
+	    WRD = {
+			declare_war_on = {
+				target = FGB
+				type = annex_everything
+			}
+		}
+		
+	}
+}
+
