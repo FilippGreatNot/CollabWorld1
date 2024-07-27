@@ -104,3 +104,36 @@ country_event = {
 
 }
 
+country_event = {
+	id = wrd_dusseldorf.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd_dusseldorf.6.t
+	desc = wrd_dusseldorf.6.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd_dusseldorf.6.a
+		add_stability = -0.1
+		ai_chance = { base = 0 }
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	option = {
+		name = wrd_dusseldorf.6.b
+		add_stability = 0.1
+		FROM = {
+			set_autonomy = {
+				target = PREV
+				autonomous_state = autonomy_puppet
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+	}
+}
+

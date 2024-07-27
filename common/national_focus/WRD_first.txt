@@ -456,7 +456,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_a_purple_germany
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_purple_germany
 		cost = 10
 		
 		available = { has_government = esotericism }
@@ -714,7 +714,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_destroy_socialist_menace
-		icon = GFX_focus_USA_ban_communist_parties
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
 		cost = 5
 		
 		relative_position_id = WRD_permanent_martial_law
@@ -737,7 +737,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_establish_a_corporate_state
-		icon = GFX_focus_UVS_labor_unions_industry
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
 		cost = 5
 		
 		relative_position_id = WRD_destroy_socialist_menace
@@ -922,7 +922,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WRD_spies_in_wilhelmshaven
-		icon = GFX_focus_UVS_destroy_anarchists
+		icon = GFX_focus_SOV_bogdanov_blackmail_the_revisionists
 		cost = 4
 		x = -1
 		y = 1
@@ -942,16 +942,11 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-			add_intel = {
-               target = FWG 
-               amount = 20  
-               type = army_intel			   
-            }
-		    add_intel = {
-               target = FWG  
-               amount = 15 
-               type = civil_intel 
-            }
+			create_intelligence_agency = {
+				name = "Die Kaiserliche Abwehr"
+				icon = GFX_intelligence_agency_logo_agency
+			}
+			add_war_support = 0.05
 			
 
 		}
