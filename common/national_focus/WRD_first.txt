@@ -413,13 +413,13 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+				}
 			army_experience = 20
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
 				amount = 1000
 				producer = WRD
 		}
-	}
 	}
 	}
 	
@@ -919,6 +919,122 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = WRD_organize_democratic_institutions
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_the_new_kaiser
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_the_new_kaiser
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_popularity = {
+		        ideology = conservatism
+		        popularity = 0.05
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_stability = 0.1
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_promise_our_people_peace
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_organize_democratic_institutions
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_organize_democratic_institutions
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+			add_war_support = 0.05
+			add_stability = 0.1
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_keep_the_radicals_out
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_promise_our_people_peace
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_promise_our_people_peace
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_popularity = {
+		        ideology = national_syndicalism
+		        popularity = -0.05
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_trust_in_the_kaiser
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 10
+		
+		relative_position_id = WRD_keep_the_radicals_out
+		y = 1
+		x = 2
+		
+		prerequisite = {
+			focus = WRD_keep_the_radicals_out
+			focus = WRD_blame_everything_on_the_okw
+		}
+		
+		prerequisite = {
+			focus = WRD_organize_a_royal_tour
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+
+			remove_ideas = {
+			    WRD_low_public_trust
+				WRD_less_public_trust
+		    }
+			add_war_support = 0.05
+			
+		}
+	}
+	
+	focus = {
 		id = WRD_the_old_kaiser
 		icon = GFX_focus_WRD_first_beaten_but_not_defeated
 		cost = 5
@@ -969,6 +1085,144 @@ focus_tree = {
 				popularity = -0.05
 			}
 			add_political_power = 50
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_rebuild_our_roads
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_the_old_kaiser
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_the_old_kaiser
+			focus = WRD_the_new_kaiser
+		}
+		
+	
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_political_power = 25
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_strenghten_the_military_industrial_complex
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_rebuild_our_roads
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_rebuild_our_roads
+		}
+		
+		
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+            
+
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_political_power = 25
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_royal_tour
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_strenghten_the_military_industrial_complex
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_strenghten_the_military_industrial_complex
+		}
+		
+		
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+            
+
+			add_stability = 0.1
+			add_political_power = 50
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_the_experience_of_the_prewar_era
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_supress_socialists
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_supress_socialists
+		}
+		
+		completion_reward = {	
+		
+		    add_country_leader_trait = {
+				ideology = despotism
+				trait = experienced_monarch
+			}
+			
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_blame_everything_on_the_okw
+		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		cost = 5
+		
+		relative_position_id = WRD_the_experience_of_the_prewar_era
+		y = 1
+		x = 0
+		
+		prerequisite = {
+			focus = WRD_the_experience_of_the_prewar_era
+		}
+		
+		completion_reward = {	
+			
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
 			
 		}
 	}
