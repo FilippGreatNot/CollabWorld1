@@ -1,302 +1,392 @@
 GER_reunification = {
-	unite_germany = {
+	UVS_unite_germany_rosa = {
 		icon = generic_form_nation
 		
 		fire_only_once = yes
 		
-	visible = {
-			OR = {
-			original_tag = FWG
-			original_tag = WRD
-			original_tag = GER
-			original_tag = FGB
+		allowed = {
 			original_tag = UVS
-			original_tag = BAV
-			}
-		NOT = { has_country_flag = ger_reunificated }
-	}
-		
-		ai_will_do = {
-			factor = 100
 		}
+		
+		visible = {
+			has_country_leader = {
+				character = UVS_rosa_luxemburg
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
  
 		available = {
 			is_subject = no
 			has_war = no
-			42 = { is_controlled_by_ROOT_or_subject = yes }
-			50 = { is_controlled_by_ROOT_or_subject = yes }
-			51 = { is_controlled_by_ROOT_or_subject = yes }
-			52 = { is_controlled_by_ROOT_or_subject = yes }
-			53 = { is_controlled_by_ROOT_or_subject = yes }
-			54 = { is_controlled_by_ROOT_or_subject = yes }
-			55 = { is_controlled_by_ROOT_or_subject = yes }
-			56 = { is_controlled_by_ROOT_or_subject = yes }
-			57 = { is_controlled_by_ROOT_or_subject = yes }
-			58 = { is_controlled_by_ROOT_or_subject = yes }
-			59 = { is_controlled_by_ROOT_or_subject = yes }
-			60 = { is_controlled_by_ROOT_or_subject = yes }
-			63 = { is_controlled_by_ROOT_or_subject = yes }
-			64 = { is_controlled_by_ROOT_or_subject = yes }
-			65 = { is_controlled_by_ROOT_or_subject = yes }
-			66 = { is_controlled_by_ROOT_or_subject = yes }
-			67 = { is_controlled_by_ROOT_or_subject = yes }
-			68 = { is_controlled_by_ROOT_or_subject = yes }
-			836 = { is_controlled_by_ROOT_or_subject = yes }
+			fully_controls_germany = yes
 		}
 
 		complete_effect = {
-			if = {
-				limit = {
-					original_tag = UVS
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_rosa_germany
+			
+			
+		}
+	}
+	UVS_unite_germany_spiedel = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = UVS
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = UVS_hans_speidel
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_Hans_tank_GER
+			hidden_effect = { news_event = WORLDNEWS.6 }
+		}
+	}
+	UVS_unite_germany_ribbentrop = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = UVS
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = UVS_joachim_von_ribbentrop
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_ribbentrop_germany
+			hidden_effect = { news_event = WORLDNEWS.8 }
+		}
+	}
+	UVS_unite_germany_ribbentrop = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = UVS
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = UVS_joachim_von_ribbentrop
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_ribbentrop_germany
+			hidden_effect = { news_event = WORLDNEWS.8 }
+		}
+	}
+	UVS_unite_germany_thalmann = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = UVS
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = UVS_ernst_thalmann
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_thalmann_germany
+			hidden_effect = { news_event = WORLDNEWS.20 }
+		}
+	}
+	UVS_unite_germany_dspd = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = UVS
+		}
+		
+		visible = {
+			OR = {
+				has_country_leader = {
+					character = UVS_friedrich_ebert_jr
+					ruling_only = yes
 				}
-				hidden_effect = {
-					set_country_flag = ger_reunificated
-					if = {
-						limit = {
-							has_country_leader = {
-								character = UVS_rosa_luxemburg
-								ruling_only = yes
-							}
-						}
-						set_cosmetic_tag = UVS_rosa_germany
-						hidden_effect = {
-							news_event = WORLDNEWS.2
+				has_country_leader = {
+					character = UVS_dspd_council
+					ruling_only = yes
+				}
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_dspd_germany
+			hidden_effect = { news_event = WORLDNEWS.21 }
+		}
+	}
+	WRD_unite_germany_himmler = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = WRD
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = WRD_heinrich_himmler
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = WRD_himmler_GER
+			hidden_effect = {
+				country_event = { id = reichsbanner.1	days = 10 random = 48 }
+				news_event = WORLDNEWS.3
+			}
+		}
+	}
+	WRD_unite_germany_mackensen = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = WRD
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = WRD_august_mackensen
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = WRD_himmler_GER
+			hidden_effect = {
+				country_event = { id = reichsbanner.1	days = 10 random = 48 }
+				news_event = WORLDNEWS.3
+			}
+		}
+	}
+	FGB_unite_germany_rohm = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = FGB
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = FGB_ernst_rohm
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = FGB_rohm_GER
+			
+			hidden_effect = {
+				FGB_ernst_rohm = {
+					set_portraits = {
+						civilian = {
+							large = "gfx/leaders/FGB/FGB_ernst_rohm_war_criminal.tga"
 						}
 					}
-					
-					if = {
-						limit = {
-							has_country_leader = {
-								character = UVS_hans_speidel
-								ruling_only = yes
-							}
-						}
-						set_cosmetic_tag = UVS_Hans_tank_GER
-						hidden_effect = {
-							news_event = WORLDNEWS.6
+					add_trait = {
+						ideology = ultranationalism
+						trait = new_fuhrer
+					}
+				}
+				set_country_leader_description = {
+					ideology = national_syndicalism
+					desc = "POLITICS_ERNST_ROHM_POST_UNIFIC_DESC"
+				}
+				news_event = WORLDNEWS.15
+			}
+		}
+	}
+	FGB_unite_germany_drexler = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = FGB
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = FGB_anton_drexler
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = FGB_Drexler_GER
+			
+			hidden_effect = {
+				FGB_anton_drexler = {
+					set_portraits = {
+						civilian = {
+							large = "gfx/leaders/FGB/FGB_anton_drexler_fuhrer.tga"
 						}
 					}
-					
-					if = {
-						limit = {
-							has_country_leader = {
-								character = UVS_joachim_von_ribbentrop
-								ruling_only = yes
-							}
-						}
-						set_cosmetic_tag = UVS_ribbentrop_germany
-						hidden_effect = {
-							news_event = WORLDNEWS.8
+					add_trait = {
+						ideology = revolutionary_nationalism
+						trait = new_fuhrer
+					}
+				}
+				news_event = WORLDNEWS.17
+			}
+		}
+	}
+	FGB_unite_germany_dressler = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = FGB
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = FGB_adam_dressler
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = FGB_Dressler_GER
+			
+			hidden_effect = {
+				FGB_adam_dressler = {
+					set_portraits = {
+						civilian = {
+							large = "gfx/leaders/FGB/FGB_adam_dressler_funeh.tga"
 						}
 					}
-					
-					
-					if = {
-						
-						limit = {
-							has_country_leader = {
-								character = UVS_ernst_thalmann
-								ruling_only = yes
-							}
-						}
-						
-						
-						hidden_effect = {
-						set_cosmetic_tag = UVS_thalmann_germany
-							
-								news_event = WORLDNEWS.20
-							
-							set_country_flag = ger_reunificated
-						}
-					}
-					
-					
-					
-					if = {
-						
-						limit = {
-							OR = {
-							has_country_leader = {
-								character = UVS_friedrich_ebert_jr
-								ruling_only = yes
-							}
-							
-							has_country_leader = {
-								character = UVS_dspd_council
-								ruling_only = yes
-								}
-							}
-						}	
-						
-						hidden_effect = {
-							set_cosmetic_tag = UVS_dspd_germany
-							
-								news_event = WORLDNEWS.21
-							
-							set_country_flag = ger_reunificated
-						}
-						}					
+					add_trait = {
+						ideology = valkism
+						trait = new_fuhrer
 					}
 				}
 				
-			if = {
-				limit = {
-					original_tag = WRD
-				}
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_leader = {
-								name = "Heinrich Himmler"
-								ruling_only = yes
-							}
-						}
-						hidden_effect = {
-							country_event = { id = reichsbanner.1	days = 10 random = 48 }
-							set_cosmetic_tag = WRD_himmler_GER
-							
-							set_country_flag = ger_reunificated
-							news_event = WORLDNEWS.3
-						}
-					}
-					if = {
-						limit = {
-							has_country_leader = {
-								name = "August von Mackensen"
-								ruling_only = yes
-							}
-						}
-						hidden_effect = {
-							country_event = { id = reichsbanner.1	days = 10 random = 48 }
-							set_cosmetic_tag = WRD_himmler_GER
-							
-								news_event = WORLDNEWS.
-							
-							
-						}
-					}
-					if = {
-						limit = {
-							has_country_leader = {
-								name = "Herman Wirth"
-								ruling_only = yes
-							}
-						}
-						hidden_effect = {
-							set_cosmetic_tag = WRD_wirth_GER
-
-							set_country_flag = ger_reunificated
-							
-							
-								news_event = WORLDNEWS.4
-							
-							
-						}
-					}
-				}
-			}
-			
-			
-			
-			if = {
-				limit = {
-					original_tag = FGB
-				}
-				hidden_effect = {
-					if = {
-						limit = {
-							has_country_leader = {
-								character = FGB_ernst_rohm
-								ruling_only = yes
-							}
-						}
-						hidden_effect = {
-							set_cosmetic_tag = FGB_rohm_GER
-							
-							FGB_ernst_rohm = {
-								set_portraits = {
-									civilian = {
-										large = "gfx/leaders/FGB/FGB_ernst_rohm_war_criminal.tga"
-									}
-								}
-								add_trait = {
-									ideology = ultranationalism
-									trait = new_fuhrer
-								}
-							}
-							set_country_leader_description = {
-								ideology = national_syndicalism
-								desc = "POLITICS_ERNST_ROHM_POST_UNIFIC_DESC"
-							}
-							
-							set_country_flag = ger_reunificated
-							news_event = WORLDNEWS.15
-						}
-					}
-					
-					if = {
-						limit = {
-							has_country_leader = {
-								character = FGB_anton_drexler
-								ruling_only = yes
-							}
-						}
-						hidden_effect = {
-							set_cosmetic_tag = FGB_Drexler_GER
-							
-							FGB_anton_drexler = {
-								set_portraits = {
-									civilian = {
-										large = "gfx/leaders/FGB/FGB_anton_drexler_fuhrer.tga"
-									}
-								}
-								add_trait = {
-									ideology = revolutionary_nationalism
-									trait = new_fuhrer
-								}
-							}
-							
-							
-							set_country_flag = ger_reunificated
-							news_event = WORLDNEWS.17
-							
-						}
-					}
-					
-					if = {
-						limit = {
-							has_country_leader = {
-								character = FGB_adam_dressler
-								ruling_only = yes
-							}
-						}
-						hidden_effect = {
-							FGB_adam_dressler = {
-								set_portraits = {
-									civilian = {
-										large = "gfx/leaders/FGB/FGB_adam_dressler_funeh.tga"
-									}
-								}
-								add_trait = {
-									ideology = valkism
-									trait = new_fuhrer
-								}
-							}
-							
-							
-							set_cosmetic_tag = FGB_Dressler_GER
-							set_country_flag = ger_reunificated
-							news_event = WORLDNEWS.18
-							
-						}
-					}
-				}
+				news_event = WORLDNEWS.18
 			}
 		}
-		
-		ai_will_do = {
-			factor = 2000
-			}
 	}
-
 }
