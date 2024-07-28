@@ -1,38 +1,38 @@
-russia_add_agrarian_region = {
+russia_add_backward_region = {
 	add_dynamic_modifier = {
-		modifier = russia_agrarian_region
+		modifier = russia_backward_region
 		scope = THIS #The tooltip doesn't work without this for some reason
 	}
-	set_state_flag = russia_agrarian_region
+	set_state_flag = russia_backward_region
 }
-russia_remove_agrarian_region = {
+russia_remove_backward_region = {
 	remove_dynamic_modifier = {
-		modifier = russia_agrarian_region
+		modifier = russia_backward_region
 	}
-	clear_variable = russia_agrarian_region_industrialisation
-	clr_state_flag = russia_agrarian_region
+	clear_variable = russia_backward_region_industrialisation
+	clr_state_flag = russia_backward_region
 }
-russia_agrarian_region_increase_industrialisation_level_1 = {
+russia_backward_region_increase_industrialisation_level_1 = {
 	if = {
 		limit = { #Max level reached, remove the debuff
 			check_variable = { #Default compare is greater_than_or_equals
-				var = russia_agrarian_region_industrialisation
+				var = russia_backward_region_industrialisation
 				value = 3
 			}
 		}
-		russia_remove_agrarian_region = yes
+		russia_remove_backward_region = yes
 	}
 	else = {
 		add_to_variable = {
-			var = russia_agrarian_region_industrialisation
+			var = russia_backward_region_industrialisation
 			value = 1
-			tooltip = russia_agrarian_region_increase_industrialisation_level_tt
+			tooltip = russia_backward_region_increase_industrialisation_level_tt
 		}
 	}
 	force_update_dynamic_modifier = yes
 }
 d_russia_set_industrialisation_level = {
-	set_variable = { russia_agrarian_region_industrialisation = args^0 }
-	log = "State [?THIS.GetName]'s level set to [?THIS.russia_agrarian_region_industrialisation]"
+	set_variable = { russia_backward_region_industrialisation = args^0 }
+	log = "State [?THIS.GetName]'s level set to [?THIS.russia_backward_region_industrialisation]"
 	force_update_dynamic_modifier = yes
 }
