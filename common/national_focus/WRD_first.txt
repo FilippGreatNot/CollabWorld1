@@ -917,7 +917,39 @@ focus_tree = {
 			
 		}
 	}
-	
+	focus = {
+		id = WRD_the_new_kaiser
+		icon = GFX_focus_WRD_new_kaiser
+		cost = 5
+		
+		
+		mutually_exclusive = {
+			focus = WRD_the_old_kaiser
+		}
+		
+		relative_position_id = WRD_first_end_the_regency
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = WRD_first_end_the_regency
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+			promote_character = WRD_wilhelm_iii
+			
+		}
+	}
 	focus = {
 		id = WRD_organize_democratic_institutions
 		icon = GFX_focus_WRD_organize_democratic_institutions
@@ -1228,40 +1260,6 @@ focus_tree = {
 				ideology = authoritarian_democrat
 				popularity = -0.05
 			}
-			
-		}
-	}
-	
-	focus = {
-		id = WRD_the_new_kaiser
-		icon = GFX_focus_WRD_new_kaiser
-		cost = 5
-		
-		
-		mutually_exclusive = {
-			focus = WRD_the_old_kaiser
-		}
-		
-		relative_position_id = WRD_first_end_the_regency
-		y = 1
-		x = -1
-		
-		prerequisite = {
-			focus = WRD_first_end_the_regency
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			
-			add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = 0.05
-			}
-		
-			set_politics = {
-				ruling_party = authoritarian_democrat
-			}
-			promote_character = WRD_wilhelm_iii
 			
 		}
 	}
