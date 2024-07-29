@@ -938,16 +938,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			
-			add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = 0.05
-			}
-		
-			set_politics = {
-				ruling_party = authoritarian_democrat
-			}
-			promote_character = WRD_wilhelm_iii
-			
+			country_event = wrd.10
 		}
 	}
 	focus = {
@@ -961,6 +952,11 @@ focus_tree = {
 		
 		prerequisite = {
 			focus = WRD_the_new_kaiser
+		}
+		available = { has_government = authoritarian_democrat }
+		
+		mutually_exclusive = {
+			focus = WRD_every_revolution_has_a_reaction
 		}
 		
 		completion_reward = {	
@@ -978,6 +974,90 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_stability = 0.1
+		}
+	}
+	
+	focus = {
+		id = WRD_every_revolution_has_a_reaction
+		icon = GFX_focus_WRD_every_revolution_has_a_reaction
+		cost = 5
+		
+		relative_position_id = WRD_the_new_kaiser
+		y = 1
+		x = -3
+		
+		available = { has_government = national_syndicalism }
+		
+		mutually_exclusive = {
+			focus = WRD_organize_democratic_institutions
+		}
+		
+		prerequisite = {
+			focus = WRD_the_new_kaiser
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_popularity = {
+		        ideology = national_syndicalism
+		        popularity = 0.1
+			}
+			add_war_support = 0.1
+			
+		}
+	}
+	focus = {
+		id = WRD_promise_revenge_for_the_weltkrieg
+		icon = GFX_focus_WRD_promise_revenge
+		cost = 5
+		
+		relative_position_id = WRD_every_revolution_has_a_reaction
+		y = 1
+		x = 0
+		
+		available = { has_government = national_syndicalism }
+		
+		prerequisite = {
+			focus = WRD_every_revolution_has_a_reaction
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_war_support = 0.1
+			
+		}
+	}
+	
+	focus = {
+		id = WRD_murder_the_bolshevik_degenerates
+		icon = GFX_focus_WRD_murder_the_bolshevik_degenerates
+		cost = 5
+		
+		relative_position_id = WRD_every_revolution_has_a_reaction
+		y = 2
+		x = 0
+		
+		available = { has_government = national_syndicalism }
+		
+		prerequisite = {
+			focus = WRD_promise_revenge_for_the_weltkrieg
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			
+			add_popularity = {
+		        ideology = bolshevism
+		        popularity = -0.1
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.1
+			}
 			
 		}
 	}
@@ -991,14 +1071,15 @@ focus_tree = {
 		y = 1
 		x = 0
 		
+		available = { has_government = authoritarian_democrat }
+		
 		prerequisite = {
 			focus = WRD_organize_democratic_institutions
 		}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			
-			add_war_support = 0.05
+
 			add_stability = 0.1
 			
 		}
@@ -1016,6 +1097,8 @@ focus_tree = {
 		prerequisite = {
 			focus = WRD_promise_our_people_peace
 		}
+		
+		available = { has_government = authoritarian_democrat }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
@@ -1048,6 +1131,7 @@ focus_tree = {
 		prerequisite = {
 			focus = WRD_keep_the_radicals_out
 			focus = WRD_blame_everything_on_the_okw
+			focus = WRD_murder_the_bolshevik_degenerates
 		}
 		
 		prerequisite = {
@@ -1288,14 +1372,16 @@ focus_tree = {
 		y = 1
 		relative_position_id = WRD_road_to_reunification
 		
+	    
 		bypass = {
 			NOT = {
-				country_exists = FWG
+				country_exists = GER
 			}
 		}
+		
 		available = {
 		    has_war = no
-			is_neighbor_of = FWG
+			is_neighbor_of = GER
 		}
 		prerequisite = {
 			focus = WRD_road_to_reunification
@@ -1353,11 +1439,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = WRD_strike_the_republic
 		
-		bypass = {
-			NOT = {
-				country_exists = GER
-			}
-		}
+		
 		available = {
 			GER = {
 				PREV_controls_all_cores = yes
@@ -1448,13 +1530,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = WRD_offer_amnesty_to_the_freikorps
 		
-		bypass = {
-			NOT = {
-				country_exists = FWG
-			}
-		}
+
 		available = {
-			FWG = {
+			FGB = {
 				PREV_controls_all_cores = yes
 			}
 		}
@@ -1604,11 +1682,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = WRD_the_final_frontier
 		
-		bypass = {
-			NOT = {
-				country_exists = PLA
-			}
-		}
+
 		available = {
 			PLA = {
 				PREV_controls_all_cores = yes
@@ -1632,11 +1706,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = WRD_spies_in_wilhelmshaven
 		
-		bypass = {
-			NOT = {
-				country_exists = FWG
-			}
-		}
+		
 		available = {
 			FWG = {
 				PREV_controls_all_cores = yes
@@ -1664,16 +1734,8 @@ focus_tree = {
 		y = 1
 		relative_position_id = WRD_reopen_to_the_world
 		
-		bypass = {
-			NOT = {
-				country_exists = FWG
-			}
-		}
-		available = {
-			FWG = {
-				PREV_controls_all_cores = yes
-			}
-		}
+		
+		
 		available = {
 		    has_war = no
 		}

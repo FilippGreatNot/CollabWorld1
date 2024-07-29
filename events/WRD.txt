@@ -235,3 +235,46 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = wrd.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.10.t
+	desc = wrd.10.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.10.a
+		promote_character = WRD_wilhelm_iii
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+		}
+	}
+	
+	option = {
+		name = wrd.10.b
+		WRD_wilhelm_iii = {
+			remove_country_leader_role = { ideology = constitutional_monarchy }
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = ultranationalism
+					desc = "POLITICS_WILHELM_III_DESC"
+				}
+			}
+		}
+		
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
+		
+		set_politics = {
+			ruling_party = national_syndicalism
+		}
+	}
+}
+
