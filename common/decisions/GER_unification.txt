@@ -221,6 +221,50 @@ GER_reunification = {
 			}
 		}
 	}
+	WRD_unite_germany_german_empire = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = WRD
+		}
+		
+		visible = {
+			OR = {
+				has_country_leader = {
+					character = WRD_paul_von_hindenburg
+					ruling_only = yes
+				}
+				has_country_leader = {
+					character = WRD_erich_ludendorff
+					ruling_only = yes
+				}
+				has_country_leader = {
+					character = WRD_wilhelm_ii
+					ruling_only = yes
+				}
+				has_country_leader = {
+					character = WRD_wilhelm_iii
+					ruling_only = yes
+				}
+			}
+			
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = WRD_german_empire
+		}
+	}
 	FGB_unite_germany_rohm = {
 		icon = generic_form_nation
 		
