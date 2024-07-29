@@ -10,115 +10,16 @@ focus_tree = {
 	default = no
 
 	focus = {
-		id = FGB_freikorps_legacy
-		icon = GFX_focus_FGB_freikorps_legacy
-		x = 30
+		id = FGB_train_soldiers
+		icon = GFX_focus_FGB_train_soldiers
+		x = 10
 		y = 1
-		cost = 6
+		cost = 1
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			army_experience = 30
-			add_tech_bonus = {
-				name = infantry_artillery_bonus
-				bonus = 1.0
-				uses = 1
-				category = infantry_weapons
-				category = artillery
-			}
-		}
-	}
-	
-	focus = {
-		id = FGB_study_tactics
-		icon = GFX_focus_FGB_study_tactics
-		prerequisite = { focus = FGB_freikorps_legacy }
-		x = 28
-		y = 2
-		cost = 6
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			army_experience = 20
-                        add_doctrine_cost_reduction = {
-				name = land_doc_bonus
-				cost_reduction = 0.75
-				uses = 2
-				category = land_doctrine
-			}
-		}
-	}
-	
-	focus = {
-		id = FGB_analyse_mistakes
-		icon = GFX_focus_FGB_analyse_mistakes
-		prerequisite = { focus = FGB_freikorps_legacy }
-		x = 32
-		y = 2
-		cost = 6
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			army_experience = 10
-		}
-	}
-
-	focus = {
-		id = FGB_repair_factories
-		icon = GFX_focus_FGB_repair_factories
-		prerequisite = { focus = FGB_study_tactics }
-		x = 28 
-		y = 3
-		cost = 5
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 2
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}	
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_repair_airbases
-		icon = GFX_focus_FGB_repair_airbases
-		prerequisite = { focus = FGB_analyse_mistakes }
-		x = 32
-		y = 3
-		cost = 5
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = air_base							
-						size > 1
-					}
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
 		}
 	}
 	
