@@ -72,6 +72,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		relative_position_id = DEN_acknowledge_communism_speech
 		prerequisite = { focus = DEN_acknowledge_communism_speech }
+		mutually_exclusive = { focus = DEN_fight_communism }
 		x = -4
 		y = 1
 		
@@ -261,19 +262,19 @@ focus_tree = {
 				limit = {
 					set_temp_variable = { commie_pop = party_popularity@marxism }
 					add_to_temp_variable = { commie_pop = party_popularity@bolshevism }
-					check_variable = {party_popularity@liberalism < commie_pop}
+					check_variable = {party_popularity@liberalism > commie_pop}
 				}
-				#Peaceful
+				#Civil war
 				country_event = {
 					id = den.0004
 					days = 1
 				}
 			}
 			
-			# Civil war
+			#Peaceful
 			else = {
 				country_event = {
-					id = den.0005
+					id = den.0007
 					days = 1
 				}
 			}
@@ -343,7 +344,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		relative_position_id = DEN_acknowledge_communism_speech
 		prerequisite = { focus = DEN_acknowledge_communism_speech }
-		
+		mutually_exclusive = { focus = DEN_embrace_communism }
 		x = 4
 		y = 1
 		
