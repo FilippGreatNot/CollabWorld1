@@ -11,10 +11,953 @@ focus_tree = {
 	default = no
 	
 	focus = {
+		id = FRA_reform_the_french_high_command
+		icon = GFX_focus_FRA_reform_the_french_high_command
+		x = 33
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_completed_focus = FRA_ban_sfoi
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_france_on_the_world_stage"
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_analyze_our_mistakes_in_the_great_war
+		icon = GFX_focus_FRA_analyze_our_mistakes
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_reform_the_french_high_command
+		
+		prerequisite = {
+			focus = FRA_reform_the_french_high_command
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_our_soldiers_were_disloyal_cowards
+		icon = GFX_focus_FRA_disloyal_cowards
+		x = 6
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_analyze_our_mistakes_in_the_great_war
+		
+		prerequisite = {
+			focus = FRA_analyze_our_mistakes_in_the_great_war
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		
+		    mutually_exclusive = {
+			focus = FRA_our_logistical_efforts_failed
+			}	
+			mutually_exclusive = {
+			focus = FRA_the_trenches_were_our_biggest_enemy
+			}	
+			
+			
+		}
+	}
+	focus = {
+		id = FRA_weekly_loyalty_checks
+		icon = GFX_focus_FRA_loyalty_checks
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_soldiers_were_disloyal_cowards
+		
+		prerequisite = {
+			focus = FRA_our_soldiers_were_disloyal_cowards
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_pure_french_recruitment_only
+		icon = GFX_focus_FRA_pure_french_recruitment
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_soldiers_were_disloyal_cowards
+		
+		prerequisite = {
+			focus = FRA_our_soldiers_were_disloyal_cowards
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_purge_those_who_are_weak
+		icon = GFX_focus_FRA_purge_the_weak
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_weekly_loyalty_checks
+		
+		prerequisite = {
+			focus = FRA_weekly_loyalty_checks
+		}
+		
+		prerequisite = {
+			focus = FRA_pure_french_recruitment_only
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_make_superhuman_soldiers
+		icon = GFX_focus_FRA_superhumans
+		x = 0
+		y = 1
+		cost = 9
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_purge_those_who_are_weak
+		
+
+		prerequisite = {
+			focus = FRA_purge_those_who_are_weak
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_drugs_are_the_queen_of_the_battlefield
+		icon = GFX_focus_FRA_superhumans
+		x = 0
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_make_superhuman_soldiers
+		
+
+		prerequisite = {
+			focus = FRA_make_superhuman_soldiers
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_reuse_guns_of_the_great_war
+		icon = GFX_focus_FRA_loyalty_checks
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_soldiers_were_disloyal_cowards
+		
+		prerequisite = {
+			focus = FRA_our_soldiers_were_disloyal_cowards
+			focus = FRA_our_logistical_efforts_failed
+			focus = FRA_the_trenches_were_our_biggest_enemy
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_contact_weapon_contractors
+		icon = GFX_focus_FRA_contractors
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_reuse_guns_of_the_great_war
+		
+		prerequisite = {
+            focus = FRA_reuse_guns_of_the_great_war
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_power_of_the_radio
+		icon = GFX_focus_FRA_contractors
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_contact_weapon_contractors
+		
+		prerequisite = {
+            focus = FRA_contact_weapon_contractors
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_adaptable_army_uniforms
+		icon = GFX_focus_FRA_adaptable_army_uniforms
+		x = 1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_strenghten_the_southern_supply_lines
+		
+		prerequisite = {
+			focus = FRA_strenghten_the_southern_supply_lines
+		}
+		prerequisite = {
+			focus = FRA_reorganize_the_northern_supply_lines
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_alternative_ways_of_logistics
+		icon = GFX_focus_FRA_alternative_logistics
+		x = 0
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_adaptable_army_uniforms
+		
+		prerequisite = {
+			focus = FRA_adaptable_army_uniforms
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_our_logistical_efforts_failed
+		icon = GFX_focus_FRA_logistics_failed
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_analyze_our_mistakes_in_the_great_war
+		
+		prerequisite = {
+			focus = FRA_analyze_our_mistakes_in_the_great_war
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = {
+			focus = FRA_the_trenches_were_our_biggest_enemy
+			}	
+	    mutually_exclusive = {
+			focus = FRA_our_soldiers_were_disloyal_cowards
+			}	
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+		focus = {
+		id = FRA_the_trenches_were_our_biggest_enemy
+		icon = GFX_focus_FRA_the_trenches
+		x = -6
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_analyze_our_mistakes_in_the_great_war
+		
+		prerequisite = {
+			focus = FRA_analyze_our_mistakes_in_the_great_war
+		}
+		
+		mutually_exclusive = {
+			focus = FRA_our_soldiers_were_disloyal_cowards
+			}
+		mutually_exclusive = {
+			focus = FRA_our_logistical_efforts_failed
+			}	
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_develop_early_mobile_warfare_tactics
+		icon = GFX_focus_FRA_develop_early_mobile_warfare_tactics
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_trenches_were_our_biggest_enemy
+		
+		prerequisite = {
+			focus = FRA_the_trenches_were_our_biggest_enemy
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_motorized_and_mechanized
+		icon = GFX_focus_FRA_motorized_and_mechanized
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_trenches_were_our_biggest_enemy
+		
+		prerequisite = {
+			focus = FRA_the_trenches_were_our_biggest_enemy
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_the_monster_of_the_battlefield
+		icon = GFX_focus_FRA_monster_of_the_battlefield
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_motorized_and_mechanized
+		prerequisite = {
+			focus = FRA_motorized_and_mechanized
+		}
+		prerequisite = {
+			focus = FRA_develop_early_mobile_warfare_tactics
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_mass_tank_production
+		icon = GFX_focus_FRA_mass_tank_production
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_monster_of_the_battlefield
+		prerequisite = {
+			focus = FRA_the_monster_of_the_battlefield
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_break_through_every_defensive_line
+		icon = GFX_focus_FRA_break_through_every_defensive_line
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_mass_tank_production
+		prerequisite = {
+			focus = FRA_mass_tank_production
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_every_man_shall_serve_the_state_of_france
+		icon = GFX_focus_FRA_every_man_shall_serve
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_department_of_defense_and_logistics
+		
+		prerequisite = {
+			focus = FRA_break_through_every_defensive_line
+			focus = FRA_the_department_of_defense_and_logistics
+			focus = FRA_drugs_are_the_queen_of_the_battlefield
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_prepare_for_the_second_great_war
+		icon = GFX_focus_FRA_prepare_for_the_second_great_war
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_every_man_shall_serve_the_state_of_france
+		prerequisite = {
+			focus = FRA_every_man_shall_serve_the_state_of_france
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_the_great_war_of_survival
+		icon = GFX_focus_FRA_the_great_war_of_survival
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_prepare_for_the_second_great_war
+		prerequisite = {
+			focus = FRA_prepare_for_the_second_great_war
+		}
+		
+		mutually_exclusive = {
+			    focus = FRA_the_reaction_marches_east
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_assemble_the_maginot_line
+		icon = GFX_focus_FRA_maginot_line
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_great_war_of_survival
+		prerequisite = {
+			focus = FRA_the_great_war_of_survival
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_prepare_the_anti_air_defenses
+		icon = GFX_focus_FRA_anti_air
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_great_war_of_survival
+		prerequisite = {
+			focus = FRA_the_great_war_of_survival
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_build_the_paris_defense_line
+		icon = GFX_focus_FRA_anti_air
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_assemble_the_maginot_line
+		prerequisite = {
+			focus = FRA_assemble_the_maginot_line
+		}
+		prerequisite = {
+			focus = FRA_prepare_the_anti_air_defenses
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_declare_the_guerre_totale
+		icon = GFX_focus_FRA_guerre_totale
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_build_the_paris_defense_line
+		prerequisite = {
+			focus = FRA_build_the_paris_defense_line
+		}
+		prerequisite = {
+			focus = FRA_use_local_collaborators
+		}
+		
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_the_reaction_marches_east
+		icon = GFX_focus_FRA_the_reaction_marches_east
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_prepare_for_the_second_great_war
+		prerequisite = {
+			focus = FRA_prepare_for_the_second_great_war
+		}
+		
+		mutually_exclusive = {
+			    focus = FRA_the_great_war_of_survival
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		        
+			
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_prepare_winter_equipment
+		icon = GFX_focus_FRA_the_reaction_marches_east
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_reaction_marches_east
+		prerequisite = {
+			focus = FRA_the_reaction_marches_east
+		}
+		
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		        
+			
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_rapid_logistical_development
+		icon = GFX_focus_FRA_the_reaction_marches_east
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_reaction_marches_east
+		prerequisite = {
+			focus = FRA_the_reaction_marches_east
+		}
+		
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		        
+			
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_use_local_collaborators
+		icon = GFX_focus_FRA_use_local_collaborators
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_prepare_winter_equipment
+		prerequisite = {
+			focus = FRA_prepare_winter_equipment
+		}
+		prerequisite = {
+			focus = FRA_rapid_logistical_development
+		}
+		
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+		        
+			
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_our_artillery_will_pound_the_enemy_to_dust
+		icon = GFX_focus_FRA_our_artillery
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_the_trenches_were_our_biggest_enemy
+		
+		prerequisite = {
+			focus = FRA_the_trenches_were_our_biggest_enemy
+			focus = FRA_our_logistical_efforts_failed
+			focus = FRA_our_soldiers_were_disloyal_cowards
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_choose_a_support_company
+		icon = GFX_focus_FRA_choose_a_support_company
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_artillery_will_pound_the_enemy_to_dust
+		
+		prerequisite = {
+			focus = FRA_our_artillery_will_pound_the_enemy_to_dust
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_import_fords_trucks
+		icon = GFX_focus_FRA_import_fords_trucks
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_artillery_will_pound_the_enemy_to_dust
+		
+		prerequisite = {
+			focus = FRA_choose_a_support_company
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_strenghten_the_southern_supply_lines
+		icon = GFX_focus_FRA_southern_supply_lines
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_logistical_efforts_failed
+		
+		prerequisite = {
+			focus = FRA_our_logistical_efforts_failed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_reorganize_the_northern_supply_lines
+		icon = GFX_focus_FRA_northern_suppply_lines
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_our_logistical_efforts_failed
+		
+		prerequisite = {
+			focus = FRA_our_logistical_efforts_failed
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = FRA_the_department_of_defense_and_logistics
+		icon = GFX_focus_FRA_department_of_logistics
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		
+		relative_position_id = FRA_alternative_ways_of_logistics
+		
+		prerequisite = {
+			focus = FRA_alternative_ways_of_logistics
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
+			
+			
+		}
+	}
+	
+	focus = {
 		id = FRA_france_on_the_world_stage
 		icon = GFX_focus_FRA_viva_la_coty
 		x = 20
-		y = 1
+		y = 0
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -31,6 +974,7 @@ focus_tree = {
 				idea = FRA_preparing_for_expansion
 				days = 365
 				}
+				create_faction = faction_FRA_axis_of_reaction
 		}
 	}
 	
@@ -304,7 +1248,7 @@ focus_tree = {
 		id = FRA_coty_presidency
 		icon = GFX_focus_FRA_coty_presidency
 		x = 10
-		y = 1
+		y = 0
 		cost = 2
 		available_if_capitulated = yes
 		ai_will_do = {
