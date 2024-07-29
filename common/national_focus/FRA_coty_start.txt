@@ -91,7 +91,7 @@ focus_tree = {
 	focus = {
 		id = FRA_take_down_spain
 		icon = GFX_focus_FRA_take_down_spain
-		x = -1
+		x = 0
 		y = 1
 		cost = 7
 		available_if_capitulated = yes
@@ -122,15 +122,15 @@ focus_tree = {
 	focus = {
 		id = FRA_neutralize_portugal
 		icon = GFX_focus_FRA_neutralize_portugal
-		x = 1
+		x = 0
 		y = 1
 		cost = 8
 		available_if_capitulated = yes
 		
-		relative_position_id = FRA_the_iberian_game
+		relative_position_id = FRA_take_down_spain
 		
 		prerequisite = {
-			focus = FRA_the_iberian_game
+			focus = FRA_take_down_spain
 		}
 		
 		ai_will_do = {
@@ -141,11 +141,7 @@ focus_tree = {
 			has_war = no
 			is_neighbor_of = POR
 		}
-		available = {
-			SPR = {
-				PREV_controls_all_cores = yes
-			}
-		}
+		
 		completion_reward = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_into_the_benelux"
 			
@@ -158,7 +154,7 @@ focus_tree = {
 	focus = {
 		id = FRA_catalonia_and_basque
 		icon = GFX_focus_FRA_catalonia_and_basque
-		x = -1
+		x = 0
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
@@ -168,9 +164,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FRA_neutralize_portugal
 		}
-		prerequisite = {
-			focus = FRA_take_down_spain
-		}
+		
 		
 		ai_will_do = {
 			factor = 10
@@ -185,7 +179,7 @@ focus_tree = {
 	focus = {
 		id = FRA_destroy_the_false_state
 		icon = GFX_focus_FRA_destroy_the_false_state
-		x = -1
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -216,15 +210,15 @@ focus_tree = {
 	focus = {
 		id = FRA_reunite_with_the_dutch
 		icon = GFX_focus_FRA_reunite_with_the_dutch
-		x = 1
+		x = 0
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
 		
-		relative_position_id = FRA_into_the_benelux
+		relative_position_id = FRA_destroy_the_false_state
 		
 		prerequisite = {
-			focus = FRA_into_the_benelux
+			focus = FRA_destroy_the_false_state
 		}
 		
 		ai_will_do = {
@@ -236,11 +230,6 @@ focus_tree = {
 			is_neighbor_of = HOL
 		}
 		
-		available = {
-			BEL = {
-				PREV_controls_all_cores = yes
-			}
-		}
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus FRA_destroy_the_false_state"
@@ -253,16 +242,14 @@ focus_tree = {
 	focus = {
 		id = FRA_integrate_wallony_and_luxembourg
 		icon = GFX_focus_FRA_integrate_wallony_and_luxembourg
-		x = 1
+		x = 0
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
 		
-		relative_position_id = FRA_destroy_the_false_state
+		relative_position_id = FRA_reunite_with_the_dutch
 		
-		prerequisite = {
-			focus = FRA_destroy_the_false_state
-		}
+		
 		prerequisite = {
 			focus = FRA_reunite_with_the_dutch
 		}
