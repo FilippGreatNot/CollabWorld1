@@ -119,6 +119,40 @@ GER_reunification = {
 			hidden_effect = { news_event = WORLDNEWS.20 }
 		}
 	}
+	
+	
+	UVS_unite_germany_liebknecht = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = UVS
+		}
+		
+		visible = {
+			has_country_leader = {
+				character = UVS_karl_liebknecht
+				ruling_only = yes
+			}
+			NOT = { has_country_flag = ger_reunificated }
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = UVS_liebknecht_germany
+			hidden_effect = { news_event = WORLDNEWS.22 }
+		}
+	}	
+	
+	
 	UVS_unite_germany_dspd = {
 		icon = generic_form_nation
 		
