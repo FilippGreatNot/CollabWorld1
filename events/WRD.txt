@@ -244,30 +244,37 @@ country_event = {
 
 	option = {
 		name = wrd.10.a
+		promote_character = WRD_wilhelm_iii
 		add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = 0.05
-			}
-		
-			set_politics = {
-				ruling_party = authoritarian_democrat
-			}
-			promote_character = WRD_wilhelm_iii
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+		}
 	}
 	
 	option = {
 		name = wrd.10.b
+		WRD_wilhelm_iii = {
+			remove_country_leader_role = { ideology = constitutional_monarchy }
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = ultranationalism
+					desc = "POLITICS_WILHELM_III_DESC"
+				}
+			}
+		}
+		
 		add_popularity = {
-				ideology = national_syndicalism
-				popularity = 0.05
-			}
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
 		
-			set_politics = {
-				ruling_party = national_syndicalism
-			}
-			promote_character = WRD_wilhelm_iii_based
-	    
-		
+		set_politics = {
+			ruling_party = national_syndicalism
+		}
 	}
 }
 
