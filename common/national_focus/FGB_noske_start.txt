@@ -308,4 +308,46 @@ focus_tree = {
 		}
 	}
 	
+	focus = { 
+		id = FGB_expand_army
+		icon = GFX_focus_FGB_expand_army
+		prerequisite = { focus = FGB_repair_airbases }
+		prerequisite = { focus = FGB_repair_factories }
+		x = 20.25
+		y = 4
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			war_support_factor = 0.1
+			command_power = 10
+			manpower = 230000
+			division_template = {
+				name = "Wiederhergestellte Divisionen"
+				priority = 1
+				division_names_group = FGB_INF_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+				}
+				support = {
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 95 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Wiederhergestellte Divisionen\" division_template = \"Wiederhergestellte Divisionen\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"Wiederhergestellte Divisionen\" division_template = \"Wiederhergestellte Divisionen\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+		}
+	}
 }
