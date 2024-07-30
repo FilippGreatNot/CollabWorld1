@@ -481,7 +481,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_first_prepare_mackensens_retirement
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_retire_mackensen
 		cost = 5
 		
 		available = { has_government = despotism }
@@ -511,7 +511,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_the_hindenburg_regency
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_hindenburg
 		cost = 5
 		
 		mutually_exclusive = {
@@ -543,7 +543,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_promise_a_new_future
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_promise_future
 		cost = 5
 		
 		relative_position_id = WRD_the_hindenburg_regency
@@ -685,7 +685,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_rise_of_ludendorff
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_ludendorff
 		cost = 5
 		
 		mutually_exclusive = {
@@ -844,7 +844,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_remember_the_fallen_heroes
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_fallen_heroes
 		cost = 5
 		
 		
@@ -1350,7 +1350,7 @@ focus_tree = {
 	focus = {
 		id = WRD_road_to_reunification
 		icon = GFX_focus_DOA_temporary_compromise
-		x = 30
+		x = 35
 		cost = 5
 		available = { 
 			date > 1923.1.30
@@ -1614,7 +1614,7 @@ focus_tree = {
 	}
 	focus = {
 		id = WRD_end_the_spartakusbund
-		icon = GFX_focus_WRD_end_the_sparakusbund
+		icon = GFX_focus_WRD_destroy_spartakusbund
 		cost = 5
 		x = 3
 		y = 1
@@ -1760,6 +1760,65 @@ focus_tree = {
 				idea = UVS_recent_victory 
 				months = 2
 			}
+
+		}
+	}
+	
+	focus = {
+		id = WRD_first_the_german_kaiserreich_back_on_the_world_stage
+		icon = GFX_focus_WRD_first_the_kaiserreich_is_back
+		cost = 8
+		x = 0
+		y = 2
+		relative_position_id = WRD_the_rebirth_of_the_vaterland
+		
+		
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+		
+
+		}
+	}
+	
+	focus = {
+		id = WRD_first_establish_the_reichspakt
+		icon = GFX_focus_WRD_first_reichspakt
+		cost = 5
+		x = 2
+		y = 1
+		relative_position_id = WRD_first_the_german_kaiserreich_back_on_the_world_stage
+		
+		
+		
+		prerequisite = {
+			focus = WRD_first_the_german_kaiserreich_back_on_the_world_stage
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+		
+
+		}
+	}
+	
+	focus = {
+		id = WRD_first_restore_the_intercontinental_empire
+		icon = GFX_focus_WRD_first_the_intercontinental_empire
+		cost = 5
+		x = 2
+		y = 1
+		relative_position_id = WRD_first_the_german_kaiserreich_back_on_the_world_stage
+		
+		
+		
+		prerequisite = {
+			focus = WRD_first_the_german_kaiserreich_back_on_the_world_stage
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+		
 
 		}
 	}
