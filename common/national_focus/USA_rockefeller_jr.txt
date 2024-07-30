@@ -89,11 +89,13 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_joseph_kenedy_focus
-		x = 0
+		x = 4
 		y = 1
 		cost = 4
 		prerequisite = {focus = USA_new_america}
 		relative_position_id = USA_new_america
+		mutually_exclusive = {focus = USA_edward_dohney_focus}
+		mutually_exclusive = {focus = USA_rockefeller_jr_focus}
 		
 		completion_reward = {
 
@@ -101,11 +103,12 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_william_randolf_focus
-		x = -6
+		x = -4
 		y = 1
 		cost = 4
 		prerequisite = {focus = USA_new_america}
 		relative_position_id = USA_new_america
+		mutually_exclusive = {focus = USA_rockefeller_jr_focus}
 		
 		completion_reward = {
  
@@ -113,11 +116,12 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_edward_dohney_focus
-		x = 6
+		x = 8
 		y = 1
 		cost = 4
 		prerequisite = {focus = USA_new_america}
 		relative_position_id = USA_new_america
+		mutually_exclusive = {focus = USA_joseph_kenedy_focuss}
 		
 		completion_reward = {
 
@@ -142,42 +146,6 @@ focus_tree = {
 		cost = 4
 		prerequisite = {focus = USA_edward_dohney_focus}
 		relative_position_id = USA_edward_dohney_focus
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_american_economy
-		x = 3
-		y = 2
-		cost = 4
-		prerequisite = {focus = USA_william_randolf_focus focus = USA_joseph_kenedy_focus}
-		relative_position_id = USA_william_randolf_focus
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_industrial_nation
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_american_economy}
-		relative_position_id = USA_american_economy
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_cut_taxes
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_american_economy}
-		relative_position_id = USA_american_economy
 		
 		completion_reward = {
  
@@ -583,6 +551,117 @@ focus_tree = {
 		cost = 4
 		prerequisite = {focus = USA_fight_poverty}
 		relative_position_id = USA_fight_poverty
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_rockefeller_jr_focus
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_new_america}
+		relative_position_id = USA_new_america
+		mutually_exclusive = {focus = USA_joseph_kenedy_focus}
+		mutually_exclusive = {focus = USA_william_randolf_focus}
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_rockefeller_legacy
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_rockefeller_jr_focus}
+		relative_position_id = USA_rockefeller_jr_focus
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_cut_taxes
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_rockefeller_legacy}
+		relative_position_id = USA_rockefeller_legacy
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_industrial_nation
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_rockefeller_legacy}
+		relative_position_id = USA_rockefeller_legacy
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_polarize_the_public
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_cut_taxes}
+		relative_position_id = USA_cut_taxes
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_maximize_growth
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_industrial_nation}
+		relative_position_id = USA_industrial_nation
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_plan_dream
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_maximize_growth}
+		prerequisite = {focus = USA_polarize_the_public}
+		relative_position_id = USA_maximize_growth
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_stable_nation
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_plan_dream focus = USA_self_sustain}
+		relative_position_id = USA_plan_dream
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_true_american_dream
+		x = 0
+		y = 3
+		cost = 4
+		prerequisite = {focus = USA_plan_dream focus = USA_stable_nation}
+		relative_position_id = USA_plan_dream
 		
 		completion_reward = {
 
