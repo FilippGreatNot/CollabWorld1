@@ -70,6 +70,13 @@
         }
 
         completion_reward = { 
+		add_extra_state_shared_building_slots = 2
+		  add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+					
+		}			
         } 
     }
 
@@ -169,12 +176,7 @@
         }
 
       completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			
-			add_ideas = {
-				VNE_venetian_agricultural_expansion
-        }
-    }   
+      }   
     }	
 
     focus = {
@@ -215,4 +217,633 @@
       completion_reward = {	
         }
     }    
-}
+	
+    focus = {
+        id = VNE_call_upon_the_aristocrats
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_begin_our_economical_reconstruction}
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_begin_our_economical_reconstruction
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+	
+	 focus = {
+        id = VNE_fund_fishing_companies
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_begin_our_economical_reconstruction}
+        mutually_exclusive = { }
+        x = -2
+        y = 1
+        cost = 3
+		relative_position_id = VNE_begin_our_economical_reconstruction
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+	
+		 focus = {
+        id = VNE_the_workers_are_our_veins
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_begin_our_economical_reconstruction}
+        mutually_exclusive = { }
+        x = 2
+        y = 1
+        cost = 3
+		relative_position_id = VNE_begin_our_economical_reconstruction
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+	
+	 focus = {
+        id = VNE_bring_in_investors
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_call_upon_the_aristocrats }
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_call_upon_the_aristocrats
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+	
+	 focus = {
+        id = VNE_promote_maritime_trade_and_buisnesses
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_fund_fishing_companies }
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_fund_fishing_companies
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+			
+	 focus = {
+        id = VNE_promote_maritime_trade_and_buisnesses
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_fund_fishing_companies }
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_fund_fishing_companies
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+	
+	 focus = {
+        id = VNE_the_farmers_are_our_arteries
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_the_workers_are_our_veins }
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_the_workers_are_our_veins
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+      }   
+    }	
+	
+	focus = {
+        id = VNE_the_fate_of_venetia_awaits
+        icon = GFX_goal_generic_construction
+        prerequisite = { 
+		focus = VNE_promote_maritime_trade_and_buisnesses 
+		}
+		prerequisite = { 
+		focus = VNE_bring_in_investors
+		}
+		prerequisite = { 
+		focus = VNE_the_farmers_are_our_arteries
+		}
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_bring_in_investors		
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }    
+
+    
+	focus = {
+        id = VNE_a_venetian_meeting
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_the_fate_of_venetia_awaits }
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_the_fate_of_venetia_awaits
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }    
+	
+	
+	focus = {
+        id = VNE_the_worst_outcome
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_a_venetian_meeting }
+        mutually_exclusive = { }
+        x = 0
+        y = 4
+        cost = 3
+		relative_position_id = VNE_a_venetian_meeting
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }    
+	
+		focus = {
+        id = VNE_glory_to_democracy
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_a_venetian_meeting }
+        mutually_exclusive = { }
+        x = -10
+        y = 2
+        cost = 3
+		relative_position_id = VNE_a_venetian_meeting
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }    
+	
+	focus = {
+        id = VNE_a_turn_to_the_left
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_a_venetian_meeting }
+        mutually_exclusive = { }
+        x = 10
+        y = 2
+        cost = 3
+		relative_position_id = VNE_a_venetian_meeting
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }   
+
+		focus = {
+        id = VNE_encourage_entrepreneurship
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_glory_to_democracy }
+        mutually_exclusive = { }
+        x = -3
+        y = 2
+        cost = 3
+		relative_position_id = VNE_glory_to_democracy
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+	focus = {
+        id = VNE_expand_our_maritime_fleet
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_encourage_entrepreneurship }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_encourage_entrepreneurship
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+	focus = {
+        id = VNE_the_sea_is_our_friend
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_expand_our_maritime_fleet }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_expand_our_maritime_fleet
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+    	focus = {
+        id = VNE_the_unknown_lands_are_now_your_land
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_the_sea_is_our_friend }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_the_sea_is_our_friend
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+    focus = {
+        id = VNE_encourage_entrepreneurship
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_glory_to_democracy }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_glory_to_democracy
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+	focus = {
+        id = VNE_expand_our_maritime_fleet
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_encourage_entrepreneurship }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_encourage_entrepreneurship
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+	focus = {
+        id = VNE_the_sea_is_our_friend
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_expand_our_maritime_fleet }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_expand_our_maritime_fleet
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+    	focus = {
+        id = VNE_the_unknown_lands_are_now_your_land
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_the_sea_is_our_friend }
+        mutually_exclusive = { }
+        x = 0
+        y = 2
+        cost = 3
+		relative_position_id = VNE_the_sea_is_our_friend
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
