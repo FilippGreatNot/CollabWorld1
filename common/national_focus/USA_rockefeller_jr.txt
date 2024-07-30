@@ -1,0 +1,593 @@
+
+focus_tree = {
+	id = USA_rockefeller_jr
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = USA
+			has_country_leader = {
+    			name = USA_john_d_rockfeller_jr
+    			ruling_only = yes
+			}
+		}
+	}
+	default = no
+	
+	
+	
+	focus = {
+		id = USA_rockefeller_jr_presidency
+		x = 10
+		y = 0
+		cost = 4
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_reform_military
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_rockefeller_jr_presidency}
+		relative_position_id = USA_rockefeller_jr_presidency
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_rally_people
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_rockefeller_jr_presidency}
+		relative_position_id = USA_rockefeller_jr_presidency
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_coporate_oligarchy
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_rally_people}
+		relative_position_id = USA_rally_people
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_economic_growth
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_reform_military}
+		relative_position_id = USA_reform_military
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_new_america
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_coporate_oligarchy}
+		prerequisite = {focus = USA_economic_growth}
+		relative_position_id = USA_economic_growth
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_joseph_kenedy_focus
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_new_america}
+		relative_position_id = USA_new_america
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_william_randolf_focus
+		x = -6
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_new_america}
+		relative_position_id = USA_new_america
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_edward_dohney_focus
+		x = 6
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_new_america}
+		relative_position_id = USA_new_america
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_democrat_state
+		x = -2
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_william_randolf_focus}
+		relative_position_id = USA_william_randolf_focus
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_oil_production
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_edward_dohney_focus}
+		relative_position_id = USA_edward_dohney_focus
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_american_economy
+		x = 3
+		y = 2
+		cost = 4
+		prerequisite = {focus = USA_william_randolf_focus focus = USA_joseph_kenedy_focus}
+		relative_position_id = USA_william_randolf_focus
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_industrial_nation
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_american_economy}
+		relative_position_id = USA_american_economy
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_cut_taxes
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_american_economy}
+		relative_position_id = USA_american_economy
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_ban_extremists
+		x = -2
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_democrat_state}
+		relative_position_id = USA_democrat_state
+		mutually_exclusive = {focus = USA_calm_extremeists}
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_outlaw_socialists
+		x = 2
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_democrat_state}
+		relative_position_id = USA_democrat_state
+		mutually_exclusive = {focus = USA_calm_extremeists}
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_fight_radicalism
+		x = -1
+		y = 2
+		cost = 4
+		prerequisite = {focus = USA_outlaw_socialists focus = USA_ban_extremists}
+		relative_position_id = USA_democrat_state
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_free_speech
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_fight_radicalism}
+		relative_position_id = USA_fight_radicalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_civil_rights
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_fight_radicalism focus = USA_radicalist_peace}
+		relative_position_id = USA_fight_radicalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_american_pride
+		x = 0
+		y = 2
+		cost = 4
+		prerequisite = {focus = USA_free_speech focus = USA_civil_rights}
+		relative_position_id = USA_fight_radicalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_favor_capitalism
+		x = 2
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_edward_dohney_focus}
+		relative_position_id = USA_edward_dohney_focus
+		mutually_exclusive = {focus = USA_nationalism}
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_build_industry
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_favor_capitalism focus = USA_nationalism}
+		relative_position_id = USA_favor_capitalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_iron_deposites
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_favor_capitalism}
+		prerequisite = {focus = USA_oil_production}
+		relative_position_id = USA_favor_capitalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_money_produce
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_iron_deposites}
+		relative_position_id = USA_iron_deposites
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_industrial_nationalism
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_build_industry}
+		relative_position_id = USA_build_industry
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_build_factories
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_industrial_nationalism}
+		relative_position_id = USA_industrial_nationalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_trust_companies
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_money_produce}
+		relative_position_id = USA_money_produce
+		
+		completion_reward = {
+ 
+		}
+	}
+
+	focus = {
+		id = USA_five_yr_plan
+		x = 1
+		y = 2
+		cost = 4
+		prerequisite = {focus = USA_build_factories focus = USA_trust_companies}
+		relative_position_id = USA_money_produce
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_american_dream
+		x = 0
+		y = 2
+		cost = 4
+		prerequisite = {focus = USA_five_yr_plan focus = USA_auth_democracy focus = USA_build_factories}
+		relative_position_id = USA_five_yr_plan
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_nationalism
+		x = 5
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_edward_dohney_focus}
+		relative_position_id = USA_edward_dohney_focus
+		mutually_exclusive = {focus = USA_favor_capitalism}
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_calm_extremeists
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_democrat_state}
+		relative_position_id = USA_democrat_state
+		mutually_exclusive = {focus = USA_ban_extremists focus = USA_outlaw_socialists}
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_radicalist_peace
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_calm_extremeists}
+		relative_position_id = USA_calm_extremeists
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_american_companies
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_nationalism}
+		relative_position_id = USA_nationalism
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_american_patriots
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_american_companies}
+		relative_position_id = USA_american_companies
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_auth_democracy
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_american_patriots}
+		relative_position_id = USA_american_patriots
+		
+		completion_reward = {
+ 
+		}
+	}
+	focus = {
+		id = USA_neutral_state
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_joseph_kenedy_focus}
+		relative_position_id = USA_joseph_kenedy_focus
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_end_slavery
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_neutral_state}
+		relative_position_id = USA_neutral_state
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_end_corporate_military
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_neutral_state}
+		relative_position_id = USA_neutral_state
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_improve_nation
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_end_slavery}
+		prerequisite = {focus = USA_end_corporate_military}
+		relative_position_id = USA_end_slavery
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_self_sustain
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_improve_nation}
+		relative_position_id = USA_improve_nation
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_army_improve
+		x = 2
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_improve_nation}
+		relative_position_id = USA_improve_nation
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_prevent_inflation
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_self_sustain}
+		relative_position_id = USA_self_sustain
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_company_deals
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_self_sustain}
+		relative_position_id = USA_self_sustain
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_civilian_economy
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_company_deals}
+		prerequisite = {focus = USA_prevent_inflation}
+		relative_position_id = USA_company_deals
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_military_economy
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_army_improve}
+		relative_position_id = USA_army_improve
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_fight_poverty
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_civilian_economy}
+		relative_position_id = USA_civilian_economy
+		
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = USA_new_american_state
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = USA_fight_poverty}
+		relative_position_id = USA_fight_poverty
+		
+		completion_reward = {
+
+		}
+	}
+}
+	
+	
