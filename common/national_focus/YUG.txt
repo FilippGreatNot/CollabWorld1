@@ -15,7 +15,7 @@ focus_tree = {
         icon = GFX_goal_generic_demand_territory
         cost = 6
 
-        x = 9
+        x = 11
     
     completion_reward = {
 			add_political_power	= 25
@@ -35,4 +35,32 @@ focus_tree = {
         add_command_power = 25
     }
     }
-}
+    #Middle branch
+     focus = {
+        id = YUG_electoral_gridlock
+        icon = GFX_focus_YUG_electoral_gridlock
+        cost = 5
+
+        prerequisite = {focus = YUG_the_legacy_of_the_coup}
+
+        relative_position_id = YUG_the_legacy_of_the_coup
+        y = 1
+    completion_reward = {
+        add_political_power = -40
+    }
+     }
+    focus = {
+        id = YUG_test_1
+        icon = GFX_goal_generic_demand_territory
+        cost = 7
+
+        prerequisite = {focus = YUG_electoral_gridlock}
+
+        relative_position_id = YUG_electoral_gridlock
+        x = -1
+        y = 1
+    completion_reward = {
+        add_manpower = 5
+    }
+    }
+}    
