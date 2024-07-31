@@ -12,18 +12,22 @@ focus_tree = {
 
     focus = {
         id = YUG_a_broken_kingdom
-        icon = GFX_goal_generic_demand_territory
+        icon = GFX_focus_YUG_a_broken_nation
         cost = 6
 
         x = 11
     
     completion_reward = {
-			add_political_power	= 25
+            log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_a_broken_kingdom"
+			add_political_power	= -25
+            add_stability = -0.05
+            
+			country_event = yugo.1
     	}
     }
     focus = {
-        id = YUG_the_legacy_of_the_coup
-        icon = GFX_goal_generic_demand_territory
+        id = YUG_the_legacy_of_the_uprising
+        icon = GFX_focus_YUG_legacy_of_the_uprising
         cost = 4
 
         prerequisite = {focus = YUG_a_broken_kingdom}
@@ -41,16 +45,20 @@ focus_tree = {
         icon = GFX_focus_YUG_electoral_gridlock
         cost = 5
 
-        prerequisite = {focus = YUG_the_legacy_of_the_coup}
+        prerequisite = {focus = YUG_the_legacy_of_the_uprising}
 
-        relative_position_id = YUG_the_legacy_of_the_coup
+        relative_position_id = YUG_the_legacy_of_the_uprising
         y = 1
     completion_reward = {
         add_political_power = -40
+        add_popularity = {
+            ideology = marxism
+            popularity = 0.05
+        }
     }
      }
     focus = {
-        id = YUG_test_1
+        id = YUG_introduce_veteran_pensions
         icon = GFX_goal_generic_demand_territory
         cost = 7
 
@@ -60,7 +68,9 @@ focus_tree = {
         x = -1
         y = 1
     completion_reward = {
-        add_manpower = 5
+        add_political_power = 50
+        add_stability = 0.05
+        add_war_support = -0.08
     }
     }
-}    
+}
