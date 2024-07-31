@@ -356,13 +356,15 @@ focus_tree = {
 		icon = GFX_focus_FGB_recruit_prisoners
 		prerequisite = { focus = FGB_expand_army }
 		x = 22
-		y = 4
+		y = 4.5
 		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
+			add_political_power -10
 			add_stability = -0.05
+			add_war_support = 0.05
 			add_manpower = 10000
 			add_popularity = {
 				ideology = bolshevism
@@ -370,7 +372,7 @@ focus_tree = {
 			division_template = {
 				name = "Penal Battalionn"
 				priority = 1
-				division_names_group = FGB_INF_01
+				division_names_group = FGB_INF_02
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 1 y = 0 }
@@ -384,7 +386,7 @@ focus_tree = {
 				prioritize = { 95 }
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
-					division = "name = \"Penal Battalion\" division_template = \"Penal Battalion\" start_experience_factor = 0" 
+					division = "name = \"Penal Battalion\" division_template = \"Troupes Coloniales\" start_experience_factor = 0.1" 
 					owner = PREV
 				}
 			}
