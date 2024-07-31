@@ -563,7 +563,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_rebuild_the_rhineland
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_rebuild_the_rhineland
 		cost = 5
 		
 		relative_position_id = WRD_the_hindenburg_regency
@@ -659,7 +659,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_deutschland_uber_alles
-		icon = GFX_focus_DOA_temporary_compromise
+		icon = GFX_focus_WRD_uber_alles
 		cost = 10
 		
 		relative_position_id = WRD_plot_against_ludendorff
@@ -819,7 +819,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_use_the_guns_of_the_weltkrieg
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_weltkrieg_guns
 		cost = 5
 		
 		relative_position_id = WRD_first_prepare_mackensens_retirement
@@ -865,7 +865,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_analyze_the_okws_mistakes
-		icon = GFX_focus_WRD_first_beaten_but_not_defeated
+		icon = GFX_focus_WRD_analyze_the_ohl
 		cost = 5
 		
 		
@@ -1801,7 +1801,8 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		
+		    create_faction = WRD_reichspakt
+			add_political_power = 50
 
 		}
 	}
@@ -1822,6 +1823,25 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			    
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+				prioritize = { 21 } #Bouches du Rhone
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+			}
+			navy_experience = 100
 		
 
 		}
@@ -1891,7 +1911,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = WRD_first_reichspakt_economic_cooperation
+		id = WRD_first_end_the_bolshevik_threat
 		icon = GFX_focus_WRD_first_ally_the_iberians
 		cost = 5
 		x = 1
@@ -1909,6 +1929,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
 		
 
 		}
@@ -1963,7 +1987,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		
+		    	declare_war_on = {
+				target = PBD
+				type = annex_everything
+			}
 
 		}
 	}
@@ -1986,7 +2013,26 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		
+		    create_wargoal = {
+				type = annex_everything
+				target = BEL
+				expire = 0
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = LUX
+				expire = 0
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = HOL
+				expire = 0
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = FRA
+				expire = 0
+			}
 
 		}
 	}
@@ -2050,7 +2096,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		
+		    declare_war_on = {
+				target = SAF
+				type = annex_everything
+			}
 
 		}
 	}
@@ -2073,7 +2122,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		
+		    declare_war_on = {
+				target = YEM
+				type = annex_everything
+			}
 
 		}
 	}
@@ -2166,7 +2218,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		
+		     declare_war_on = {
+				target = MAL
+				type = annex_everything
+			}
 
 		}
 	}
