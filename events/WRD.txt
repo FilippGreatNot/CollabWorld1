@@ -277,4 +277,75 @@ country_event = {
 		}
 	}
 }
+	country_event = {
+	id = wrd.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.11.t
+	desc = wrd.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.11.a
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = wrd.7.b
+	    if = {
+			limit = {
+				owns_state = 841
+			}
+			FROM = {
+				set_state_owner = 841
+			}
+		}
+		
+	}
+}
+
+    country_event = {
+	id = wrd.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.12.t
+	desc = wrd.12.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.12.a
+		ai_chance = { base = 0 }
+	}
+	
+	option = {
+		name = wrd.12.b
+	    if = {
+			limit = {
+				owns_state = 737
+			}
+			FROM = {
+				set_state_owner = 737
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 523
+			}
+			FROM = {
+				set_state_owner = 523
+			}
+		}
+		add_ideas = {
+				WRD_papua_new_guinea_sale
+			}
+		WRD = {
+		    add_political_power = -200
+		}
+		
+	}
+}
+}
 
