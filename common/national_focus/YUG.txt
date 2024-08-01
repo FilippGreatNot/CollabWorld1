@@ -123,10 +123,7 @@ focus_tree = {
 
         available = { has_completed_focus = YUG_the_ethnic_situation }
         completion_reward = {
-            add_building_construction = {
-                type = industrial_complex
-                level = 2
-                instant_build  = yes
+            add_political_power = 25            
             }
         }
     }
@@ -139,8 +136,12 @@ focus_tree = {
         cost = 10
 
         prerequisite = {focus = YUG_paying_our_debts}
+        available = { has_completed_focus = YUG_paying_our_debts }
         completion_reward = {
-            add_political_power = 5
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis
+                add_idea = YUG_debt_crisis2
+            }
         }
     }
     #Left branch
@@ -152,8 +153,12 @@ focus_tree = {
         cost = 10
 
         prerequisite = {focus = YUG_paying_our_debts}
+        available = { has_completed_focus = YUG_paying_the_british }
         completion_reward = {
-            add_political_power = 5
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis2
+                add_idea = YUG_debt_crisis3
+            }
         }
     }
     #Right branch
@@ -164,12 +169,16 @@ focus_tree = {
         y = 1
         cost = 10
 
-        prerequisite ={focus = YUG_paying_our_debts}
+        prerequisite = { focus = YUG_paying_our_debts }
+        available = { has_completed_focus = YUG_paying_the_french }
         completion_reward = {
-            add_political_power = 5
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis3
+                add_idea = YUG_debt_crisis4
+            }
         }
     }
-}
+
 
 
 
