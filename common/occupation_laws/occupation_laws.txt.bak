@@ -103,7 +103,7 @@ no_garrison = {
 		}
 
 		modifier = {
-			check_variable  = { uncapped_resistance_target > -0.4 }
+			check_variable	= { uncapped_resistance_target > -0.4 }
 			add = -60
 		}
 	}
@@ -155,7 +155,7 @@ foreign_civilian_oversight = {
 	ai_will_do = {
 		base = 120
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.05}
+			check_variable	= { resistance_target_without_law > 0.05}
 			add = 100
 		}
 	}
@@ -179,13 +179,13 @@ local_police_force_garrison = {
 	ai_will_do = {
 		base = 100
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.09}
+			check_variable	= { resistance_target_without_law > 0.09}
 			add = 200
 		}
 
 
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.34}
+			check_variable	= { resistance_target_without_law > 0.34}
 
 			set_temp_variable = { requirement_limit = 0.25 }
 			if = {
@@ -268,23 +268,9 @@ military_governor_occupation = {
 		#	add = 150
 		#}
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.24}
+			check_variable	= { resistance_target_without_law > 0.24}
 			add = 400
 		}
-		
-		modifier = {
-			check_variable  = { resistance_target_without_law > 0.34}
-
-			set_temp_variable = { requirement_limit = 0.25 }
-			if = {
-				limit = { occupation_law = military_governor_occupation }
-				set_temp_variable = { requirement_limit = 0.45 }
-			}
-			check_variable = { garrison_min_support_ratio < requirement_limit }
-
-			add = 400
-		}
-		
 	}
 }
 
@@ -468,7 +454,7 @@ brutally_oppressive_occupation = {
 		base = 0
 
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.84 }
+			check_variable	= { resistance_target_without_law > 0.84 }
 
 			set_temp_variable = { resistance_limit = 40 }
 			set_temp_variable = { requirement_limit = 2.0 }
@@ -482,135 +468,5 @@ brutally_oppressive_occupation = {
 
 			add = 1000
 		}
-	}
-}
-
-reconciliation = {
-	icon = 12
-	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
-
-	visible = {
-		always = no
-	}
-
-	state_modifier = {
-		compliance_gain 				= 0.03
-		required_garrison_factor 		= -0.5
-		resistance_damage_to_garrison 	= -0.3
-		resistance_decay 				= 0.5
-	}
-
-	ai_will_do = {
-		base = 200
-	}
-}
-
-colonial_police = {
-	icon = 13
-	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
-
-	fallback_law = colonial_police_improved
-
-	visible = {
-		always = no
-	}
-
-	state_modifier = { #CHANGES HERE NEED TO BE APPLIED ALSO IN ITA_fake_colonial_police_law idea
-		resistance_target 				= -0.3
-		compliance_gain 				= -0.02
-		required_garrison_factor 		= -0.30
-		resistance_damage_to_garrison	= -0.4
-	}
-
-
-	ai_will_do = {
-		base = 250
-		modifier = {
-			check_variable  = { resistance_target_without_law > 0.3}
-			add = 200
-		}
-
-
-		modifier = {
-			check_variable  = { resistance_target_without_law > 0.44}
-
-			set_temp_variable = { requirement_limit = 0.35 }
-			if = {
-				limit = { occupation_law = local_police_force_garrison }
-				set_temp_variable = { requirement_limit = 0.55 }
-			}
-			check_variable = { garrison_min_support_ratio < requirement_limit }
-
-			add = 350
-		}
-	}
-}
-
-colonial_police_improved = {
-	icon = 13
-	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
-
-	fallback_law = colonial_police_final
-
-	visible = {
-		always = no
-	}
-
-	state_modifier = {
-		resistance_target 				= -0.35
-		compliance_gain 				= -0.015
-		required_garrison_factor 		= -0.35
-		resistance_damage_to_garrison	= -0.45
-		local_factories 				= 0.25
-		local_resources 				= 0.25
-	}
-
-
-	ai_will_do = {
-		base = 250
-		modifier = {
-			check_variable  = { resistance_target_without_law > 0.3}
-			add = 200
-		}
-
-
-		modifier = {
-			check_variable  = { resistance_target_without_law > 0.44}
-
-			set_temp_variable = { requirement_limit = 0.35 }
-			if = {
-				limit = { occupation_law = local_police_force_garrison }
-				set_temp_variable = { requirement_limit = 0.55 }
-			}
-			check_variable = { garrison_min_support_ratio < requirement_limit }
-
-			add = 350
-		}
-	}
-}
-
-colonial_police_final = {
-	icon = 13
-	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
-
-	fallback_law = foreign_civilian_oversight
-
-	visible = {
-		always = no
-	}
-
-	state_modifier = {
-		resistance_target 				= -0.45
-		compliance_gain 				= -0.01
-		required_garrison_factor 		= -0.4
-		resistance_damage_to_garrison	= -0.55
-		local_factories 				= 0.25
-		local_resources 				= 0.25
-		local_manpower 					= 0.05
-
-	}
-
-	ai_will_do = {
-		base = 0
 	}
 }
