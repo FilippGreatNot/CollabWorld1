@@ -374,6 +374,10 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = -0.05
 			}
+			add_popularity = {
+				ideology = marxism 
+				popularity = -0.05
+			}
 			division_template = {
 				name = "Penal Battalion"
 				priority = 1
@@ -402,6 +406,12 @@ focus_tree = {
 		id = FGB_army_reform
 		icon = GFX_focus_FGB_army_reform
 		prerequisite = { focus = FGB_expand_army }
+		available = {
+			is_subject = no
+			army_experience = { > 49 }
+			political_power = { > 99 }
+		}
+		cancel_if_invalid = yes
 		x = 20.25
 		y = 5
 		cost = 7
@@ -411,6 +421,8 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.1
 			country_event = fgb.1
+			add_political_power = -100
+			army_experience = -50
 		}
 	}
 	
@@ -419,6 +431,8 @@ focus_tree = {
 		icon = GFX_focus_FGB_definitive_attack
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
+		available = {
+			always = no
 		x = 19
 		y = 6
 		cost = 1
@@ -435,6 +449,8 @@ focus_tree = {
 		icon = GFX_focus_FGB_prepared_offensive
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
+		available = {
+			always = no
 		x = 21.5
 		y = 6
 		cost = 1
