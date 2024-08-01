@@ -37,6 +37,7 @@ focus_tree = {
 
     completion_reward = {
         add_command_power = 25
+        add_political_power = -25
     }
     }
     #Middle branch
@@ -54,13 +55,21 @@ focus_tree = {
         add_popularity = {
             ideology = marxism
             popularity = 0.05
+        add_popularity = {
+            ideology = liberalism
+            popularity = 0.10
+        add_popularity = {
+            ideology = conservatism
+            popularity = 0.15
+        }
+        }
         }
     }
      }
     focus = {
         id = YUG_introduce_veteran_pensions
         icon = GFX_goal_generic_demand_territory
-        cost = 7
+        cost = 5
 
         prerequisite = {focus = YUG_electoral_gridlock}
 
@@ -70,7 +79,39 @@ focus_tree = {
     completion_reward = {
         add_political_power = 50
         add_stability = 0.05
-        add_war_support = -0.08
+        add_war_support = -0.10
+        add_manpower = -100
     }
+    }
+    focus = {
+        id = YUG_celebrating_national_unity_day
+        icon = GFX_goal_generic_demand_territory
+        cost = 5
+
+        prerequisite = { focus = YUG_electoral_gridlock }
+        
+        relative_position_id = YUG_electoral_gridlock
+        x = 1
+        y = 1
+        completion_reward = {
+            add_political_power = 15
+            add_stability = 0.03
+        }
+    }
+    focus = {
+        id = YUG_the_ethnic_situation
+        icon = GFX_goal_generic_demand_territory
+        cost = 6
+
+        prerequisite = { focus = YUG_celebrating_national_unity_day }
+        prerequisite = { focus = YUG_introduce_veteran_pensions }
+
+        relative_position_id = YUG_a_broken_kingdom
+        y = 4
+        completion_reward = {
+            add_command_power = 0.10
+        }
     }
 }
+
+
