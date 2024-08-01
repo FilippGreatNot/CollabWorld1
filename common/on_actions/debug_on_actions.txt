@@ -1,10 +1,30 @@
 #on_actions = {
-#	on_declare_war = {
+#	on_daily_EQS = {
 #		effect = {
-#			#FROM = {
-#				add_political_power = 1
-#			#}
-#			
+#			if = {
+#				limit = {
+#					any_neighbor_country = { exists = yes }
+#				}
+#				every_neighbor_country = {
+#					every_owned_state = {
+#						limit = {
+#							any_neighbor_state = {
+#								is_owned_by = EQS
+#							}
+#						}
+#						transfer_state_to = EQS
+#					}
+#				}
+#			}
+#			else = {
+#				random_state = {
+#					limit = {
+#						is_coastal = yes
+#						NOT = { is_owned_by = EQS }
+#					}
+#					transfer_state_to = EQS
+#				}
+#			}
 #		}
 #	}
 #}
