@@ -408,8 +408,8 @@ focus_tree = {
 		prerequisite = { focus = FGB_expand_army }
 		available = {
 			is_subject = no
-			has_army_experience = { 50 }
-			has_political_power = { 100 }
+			army_experience = { > 49 }
+			political_power = { > 99 }
 		}
 		cancel_if_invalid = yes
 		x = 20.25
@@ -431,6 +431,8 @@ focus_tree = {
 		icon = GFX_focus_FGB_definitive_attack
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
+		available = {
+			always = no
 		x = 19
 		y = 6
 		cost = 1
@@ -447,6 +449,8 @@ focus_tree = {
 		icon = GFX_focus_FGB_prepared_offensive
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
+		available = {
+			always = no
 		x = 21.5
 		y = 6
 		cost = 1
