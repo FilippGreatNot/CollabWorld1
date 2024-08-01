@@ -9,11 +9,18 @@ set_convoys = 10
 set_politics = {
 	ruling_party = authoritarian_democrat
 }
+add_ideas = {
+	limited_conscription
+	YUG_consequences_of_the_great_war
+}
 set_popularities = {
-	despotism = 40
-	national_syndicalism = 8
-	bolshevism = 7
-	authoritarian_democrat = 45
+	despotism = 20
+	national_syndicalism = 5
+	bolshevism = 3
+	marxism = 7
+	liberalism =  20
+	conservatism = 20
+	authoritarian_democrat = 25
 }
 
 set_stability = 0.6
@@ -22,15 +29,14 @@ create_country_leader = {
 	name = "Alexander I"
 	desc = "POLITICS_ALEXANDER_I_YUG_DESC"
 	picture = "gfx/leaders/YUG/Alexander1.dds"
-	ideology = authoritarian_democrat_subtype
-	traits = {
-		#
+	ideology = constitutional_monarchy
+	traits = { unpopular_king }
 	}
-}
+
 
 
 create_country_leader = {
-	name = "Josip Broz Tito"
+	name = "Nikola Pasic"
 	desc = "POLITICS_JOSIP_BROZ_TITO_DESC"
 	picture = "Portrait_Yugoslavia_Josip_Broz_Tito.dds"
 	ideology = liberal_conservatism
@@ -38,6 +44,16 @@ create_country_leader = {
 		#
 	}
 }
+create_country_leader = {
+	name = "Sima Markovic"
+	desc = "POLITICS_SIMA_MARKOVIC_DESC"
+	picture = ""
+	ideology = social_democracy
+	traits = {
+		#
+	}
+}
+
 
 create_corps_commander = {
 	name = "Vladimir Čukavac"
@@ -116,4 +132,6 @@ create_navy_leader = {
 	defense_skill = 2
 	maneuvering_skill = 1
 	coordination_skill = 2
+oob = "YUG"
+
 }
