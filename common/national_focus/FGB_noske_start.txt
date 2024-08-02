@@ -194,7 +194,24 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_no_more_loyalty log"
 		}
 	}
-
+	
+	focus = {
+		id = FGB_death_of_kapp
+		icon = GFX_focus_FGB_death_of_kapp
+		x = 9
+		y = 1
+		cost = 1
+		available = {
+			always = no 
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			}
+		}
+	}
+	
 	focus = {
 		id = FGB_freikorps_legacy
 		icon = GFX_focus_FGB_freikorps_legacy
@@ -342,11 +359,11 @@ focus_tree = {
 				limit = { ROOT = { has_full_control_of_state = PREV } }
 				prioritize = { 50 }
 				create_unit = {
-					division = "name = \"1st. Neues Heer\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.5" 
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
 					owner = FGB
 				}
 				create_unit = {
-					division = "name = \"2nd. Neues Heer\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.5" 
+					division = "name = \"2nd. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
 					owner = FGB
 				}
 			}
