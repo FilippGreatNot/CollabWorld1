@@ -4,7 +4,7 @@ oob = "FRA"
 load_oob = "FRA_air"
 
 set_naval_oob = "FRA_navy"
-
+add_lotgw = yes
 set_war_support = 0.1
 
 set_research_slots = 3
@@ -22,82 +22,6 @@ recruit_character = FRA_philippe_petain
 recruit_character = FRA_marie_eugene_debeney
 recruit_character = FRA_robert_nivelle
 recruit_character = FRA_henri_gouraud
-
-
-
-
-set_popularities = {
-	social_democrat = 5
-	conservatism = 8
-	liberalism = 4
-	marxism = 6
-	bolshevism = 3
-	libertarian_socialism = 20
-	authoritarian_democrat = 5
-	national_syndicalism = 11	
-	esotericism = 2
-	reactionism = 31
-	despotism = 5
-
-}
-
-add_ideas = {
-	FRA_nationwide_strikes
-	FRA_destroyed_economy
-	FRA_broken_nation
-	FRA_all_eyes_on_coty
-}
-
-create_country_leader = {
-	name = "François Coty"
-	desc = "POLITICS_FRANCOIS_COTY_DESC"
-	picture = "gfx/leaders/FRA/Francois_Coty.png"
-	ideology = revolutionary_conservatism
-	traits = {
-		
-	}
-}
-
-if = {
-	limit = { has_dlc = "La Resistance" }
-	create_operative_leader = {
-		name = "Jeannie Rousseau"
-		GFX = GFX_portrait_jennie_rousseau
-		traits = { operative_linguist }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		female = yes
-		nationalities = { FRA }
-	}
-
-	create_operative_leader = {
-		name = "Odette Samson"
-		GFX = GFX_portrait_odette_samson
-		traits = { operative_tough }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		female = yes
-		nationalities = { FRA }
-	}
-
-	create_operative_leader = {
-		name = "René Joyeuse"
-		GFX = GFX_portrait_rene_joyeuse
-		traits = { operative_infiltrator }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		nationalities = { FRA }
-	}
-
-	create_operative_leader = {
-		name = "Gilbert Renault"
-		GFX = GFX_portrait_gilbert_renault
-		traits = { }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		nationalities = { FRA }
-	}
-}
 
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -142,4 +66,32 @@ if = {
 		basic_dp_light_battery = 1
 		cruiser_submarines = 1
 	}
+}
+
+set_popularities = {
+	social_democrat = 5
+	conservatism = 8
+	liberalism = 4
+	marxism = 6
+	bolshevism = 3
+	libertarian_socialism = 20
+	authoritarian_democrat = 5
+	national_syndicalism = 11	
+	esotericism = 2
+	reactionism = 31
+	despotism = 5
+}
+
+add_ideas = {
+	FRA_nationwide_strikes
+	FRA_destroyed_economy
+	FRA_broken_nation
+	FRA_all_eyes_on_coty
+}
+
+create_country_leader = {
+	name = "François Coty"
+	desc = "POLITICS_FRANCOIS_COTY_DESC"
+	picture = "gfx/leaders/FRA/Francois_Coty.png"
+	ideology = revolutionary_conservatism
 }

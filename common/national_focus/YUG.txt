@@ -36,7 +36,11 @@ focus_tree = {
 		y = 1
 
     completion_reward = {
+        log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_the_legacy_of_the_uprising"
         add_command_power = 25
+        add_political_power = -25
+
+        country_event = yugo.2
     }
     }
     #Middle branch
@@ -54,13 +58,21 @@ focus_tree = {
         add_popularity = {
             ideology = marxism
             popularity = 0.05
+        add_popularity = {
+            ideology = liberalism
+            popularity = 0.10
+        add_popularity = {
+            ideology = conservatism
+            popularity = 0.15
+        }
+        }
         }
     }
      }
     focus = {
         id = YUG_introduce_veteran_pensions
-        icon = GFX_goal_generic_demand_territory
-        cost = 7
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 5
 
         prerequisite = {focus = YUG_electoral_gridlock}
 
@@ -70,7 +82,99 @@ focus_tree = {
     completion_reward = {
         add_political_power = 50
         add_stability = 0.05
-        add_war_support = -0.08
+        add_war_support = -0.10
+        add_manpower = -100
     }
+    }
+    focus = {
+        id = YUG_celebrating_national_unity_day
+        icon = GFX_focus_YUG_celebrate_national_unity_day
+        cost = 5
+
+        prerequisite = { focus = YUG_electoral_gridlock }
+        
+        relative_position_id = YUG_electoral_gridlock
+        x = 1
+        y = 1
+        completion_reward = {
+            add_political_power = 15
+            add_stability = 0.03
+        }
+    }
+    focus = {
+        id = YUG_the_ethnic_situation
+        icon = GFX_focus_YUG_the_ethnic_situation
+        cost = 6
+
+        prerequisite = { focus = YUG_celebrating_national_unity_day }
+        prerequisite = { focus = YUG_introduce_veteran_pensions }
+
+        relative_position_id = YUG_a_broken_kingdom
+        y = 4
+        completion_reward = {
+            add_command_power = 0.10
+        }
+    }
+    focus = {
+        id = YUG_paying_our_debts
+        icon = GFX_focus_paying_our_debts
+        x = 18
+        cost = 6
+
+        available = { has_completed_focus = YUG_the_ethnic_situation }
+        completion_reward = {
+            add_political_power = 25            
+            
+        }
+    }
+    #Middle branch
+    focus = {
+        id = YUG_paying_the_british
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 18
+        y = 1
+        cost = 10
+
+        prerequisite = { focus = YUG_paying_our_debts }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis
+                add_idea = YUG_debt_crisis2
+            }
+        }
+    }
+    #Left branch
+    focus = {
+        id = YUG_paying_the_french
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 16
+        y = 1
+        cost = 10
+
+        prerequisite = { focus = YUG_paying_our_debts }
+        available = { has_completed_focus = YUG_paying_the_british }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis2
+                add_idea = YUG_debt_crisis3
+            }
+        }
+    }
+    #Right branch
+    focus = {
+        id = YUG_paying_the_americans
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 20
+        y = 1
+        cost = 10
+
+        prerequisite = { focus = YUG_paying_our_debts }
+        available = { has_completed_focus = YUG_paying_the_french }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis3
+                add_idea = YUG_debt_crisis4
+            }
+        }
     }
 }
