@@ -1,5 +1,4 @@
-units= {
-
+﻿units = {
 	##### NAVAL UNITS #####
 	### METRPOLITAN FRANCE ###
 	fleet = {
@@ -18,6 +17,8 @@ units= {
 			# 16e Division des Sous-Marins
 			ship = { name = "Orphée" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "630 Series" } } }
 			ship = { name = "Amazone" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "630 Series" } } }
+			ship = { name = "La Sybille" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "630 Series" } } }
+			ship = { name = "Antiope" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "630 Series" } } }
 		}				
 	}
 		
@@ -27,21 +28,29 @@ units= {
 		task_force = {
 			name = "2ème Région Navale"
 			location = 3552 # Brest			
+			ship = { name = "Béarn" definition = carrier equipment = { carrier_1 = { amount = 1 owner = FRA } } 
+			}
 			# 2e Division des Contre-Torpilleurs
 			ship = { name = "Jaguar" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA version_name = "Chacal Class" } } }
 			ship = { name = "Chacal" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA version_name = "Chacal Class" } } }
+			ship = { name = "Léopard" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA version_name = "Chacal Class" } } }
+			ship = { name = "Panthère" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA version_name = "Chacal Class" } } }
 			# 2e Légère Division des Contre-Torpilleurs
 			ship = { name = "Fougueux" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 			ship = { name = "Frondeur" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
+			ship = { name = "L'Adroit" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 			# 4e Légère Division des Contre-Torpilleurs
 			ship = { name = "Bourrasque" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 			ship = { name = "Ouragan" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }
+			ship = { name = "Orage" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 			# 5e Légère Division des Contre-Torpilleurs
 			ship = { name = "Brestois" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 			ship = { name = "Le Foudroyant" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
+			ship = { name = "Boulonnais" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 			# 6e Légère Division des Contre-Torpilleurs
 			ship = { name = "Cyclone" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }
 			ship = { name = "Siroco" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
+			ship = { name = "Mistral" definition = destroyer equipment = { destroyer_1 = { amount = 1 owner = FRA } } }	
 		}				
 		task_force = {				
 			name = "4ème Escadron Sous-Marins"			
@@ -52,6 +61,11 @@ units= {
 			# 6e Division des Sous-Marins
 			ship = { name = "Persée" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "Redoutable Class" } } }
 			ship = { name = "Poncelet" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "Redoutable Class" } } }
+			ship = { name = "Ajax" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "Redoutable Class" } } }
+			ship = { name = "Archimède" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "Redoutable Class" } } }
+			# 8e Division des Sous-Marins
+			ship = { name = "Surcouf" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "Redoutable Class" } } }
+			ship = { name = "Phénix" definition = submarine equipment = { submarine_1 = { amount = 1 owner = FRA version_name = "Redoutable Class" } } }
 		}				
 	}
 
@@ -119,8 +133,6 @@ units= {
 		}				
 	}
 
-
-
 	### FAR EAST ###				
 	fleet = {
 		name = "Flotte d'Extrême Orient"
@@ -133,102 +145,3 @@ units= {
 		}
 	}
 } 
-
-
-
-#########################
-## STARTING PRODUCTION ##
-#########################
-instant_effect = {
-
-	# Ship Production
-	# SS: Redoutable variant (x7) ("Le Héros" "Le Conquérant" "Le Tonnant" "Agosta" "Sfax" "Casabianca" "Bévéziers")
-	add_equipment_production = {
-		equipment = {
-			type = submarine_1
-			creator = "FRA" 
-			version_name = "Redoutable Class"
-		}
-		requested_factories = 1
-		progress = 0.90
-		amount = 4
-		industrial_manufacturer = mio:FRA_acf_organization
-	}
-	add_equipment_production = {
-		equipment = {
-			type = submarine_1
-			creator = "FRA" 
-			version_name = "Redoutable Class"
-		}
-		requested_factories = 1
-		progress = 0.85
-		amount = 3
-		industrial_manufacturer = mio:FRA_acf_organization
-	}
-	# SS: Minerve class (x4) ("Iris" "Minerve" "Vénus" "Junon")
-	add_equipment_production = {
-		equipment = {
-			type = submarine_2
-			creator = "FRA" 
-		}
-		requested_factories = 1
-		progress = 0.70
-		amount = 4
-		industrial_manufacturer = mio:FRA_acf_organization
-	}
-	# DD: Le Fantasque class (x4) ("Le Malin" "L'Indomptable" "Le Fantasque" "Le Triomphant")
-	add_equipment_production = {
-		equipment = {
-			type = destroyer_2
-			creator = "FRA" 
-		}
-		requested_factories = 1
-		progress = 0.70
-		amount = 4
-		industrial_manufacturer = mio:FRA_fcm_organization
-	}
-	# BC: Dunkerque (Comm. 16-Apr, 1937)	# REVISIT -- class vs. ship type vs. starting techs inconsistent
-	add_equipment_production = {
-		equipment = {
-			type = battle_cruiser_2
-			creator = "FRA" 
-		}
-		requested_factories = 1
-		progress = 0.20
-		amount = 1
-		industrial_manufacturer = mio:FRA_acl_organization
-	}
-	 # CL: La Galissonnière class (x4) ("Jean de Vienne" "Marseillaise" "Gloire" "Montcalm") ("Georges Leygues" launched 24-Mar 1936)
-	add_equipment_production = {
-		equipment = {
-			type = light_cruiser_2
-			creator = "FRA" 
-		}
-		requested_factories = 1
-		progress = 0.35
-		amount = 2
-		industrial_manufacturer = mio:FRA_aeb_organization
-	}
-	add_equipment_production = {
-		equipment = {
-			type = light_cruiser_2
-			creator = "FRA" 
-		}
-		requested_factories = 1
-		progress = 0.20
-		amount = 1
-		industrial_manufacturer = mio:FRA_aeb_organization
-	}
-	add_equipment_production = {
-		equipment = {
-			type = light_cruiser_2
-			creator = "FRA" 
-		}
-		requested_factories = 1
-		progress = 0.15
-		amount = 1
-		industrial_manufacturer = mio:FRA_aeb_organization
-	}
-}
-
-#####################

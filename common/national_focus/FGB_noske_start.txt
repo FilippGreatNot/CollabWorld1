@@ -327,28 +327,27 @@ focus_tree = {
 			add_command_power = 10
 			add_manpower = 230000
 			division_template = {
-				name = "Wiederhergestellte Divisionen"
-				priority = 1
-				division_names_group = FGB_INF_01
+
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
 					infantry = { x = 0 y = 2 }
-					infantry = { x = 0 y = 3 }
-				}
-				support = {
+					infantry = { x = 1 y = 2 }
+					artillery_brigade = { x = 2 y = 0 }
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = { 95 }
-				limit = { PREV = { has_full_control_of_state = PREV } }
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
 				create_unit = {
-					division = "name = \"Wiederhergestellte Divisionen\" division_template = \"Wiederhergestellte Divisionen\" start_experience_factor = 0.5" 
-					owner = PREV
+					division = "name = \"1st. Neues Heer\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.5" 
+					owner = FGB
 				}
 				create_unit = {
-					division = "name = \"Wiederhergestellte Divisionen\" division_template = \"Wiederhergestellte Divisionen\" start_experience_factor = 0.5" 
-					owner = PREV
+					division = "name = \"2nd. Neues Heer\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.5" 
+					owner = FGB
 				}
 			}
 		}
@@ -374,25 +373,28 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = -0.05
 			}
+			add_popularity = {
+				ideology = marxism 
+				popularity = -0.05
+			}
 			division_template = {
-				name = "Penal Battalion"
-				priority = 1
-				division_names_group = FGB_INF_02
+
 				regiments = {
 					infantry = { x = 0 y = 0 }
 					infantry = { x = 0 y = 1 }
 					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
-				}
-				support = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = { 95 }
-				limit = { PREV = { has_full_control_of_state = PREV } }
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
 				create_unit = {
-					division = "name = \"Penal Battalion\" division_template = \"Penal Battalion\" start_experience_factor = 0.1" 
-					owner = PREV
+					division = "name = \"1st. Penal Battalion\" division_template = \"Penal Battalion\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"2nd. Penal Battalion\" division_template = \"Penal Battalion\" start_experience_factor = 0.1" 
+					owner = FGB
 				}
 			}
 		}
@@ -402,15 +404,24 @@ focus_tree = {
 		id = FGB_army_reform
 		icon = GFX_focus_FGB_army_reform
 		prerequisite = { focus = FGB_expand_army }
+		available = {
+			is_subject = no
+			has_army_experience > 49
+			has_political_power > 99
+		}
+		cancel_if_invalid = yes
 		x = 20.25
 		y = 5
 		cost = 7
 		ai_will_do = {
 			factor = 10
 		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
 			add_war_support = 0.1
-			country_event = freikorps.2
+			country_event = fgb.1
+			add_political_power = -100
+			army_experience = -50
 		}
 	}
 	
@@ -419,12 +430,12 @@ focus_tree = {
 		icon = GFX_focus_FGB_definitive_attack
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
+		available = {
+			always = no
+		}
 		x = 19
 		y = 6
 		cost = 1
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			army_experience = 5
 		}
@@ -435,14 +446,30 @@ focus_tree = {
 		icon = GFX_focus_FGB_prepared_offensive
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
+		available = {
+			always = no
+		}
 		x = 21.5
 		y = 6
 		cost = 1
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
 			army_experience = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_military_academy
+		icon = GFX_focus_FGB_military_academy
+		prerequisite = { focus = FGB_prepared_offensive focus = FGB_definitive_attack }
+		available = {
+			always = no
+		}
+		x = 20.25
+		y = 7
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
 		}
 	}
 }

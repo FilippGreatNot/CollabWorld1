@@ -46,7 +46,7 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_manpower = 100
 		}
 	}
 	focus = {
@@ -73,7 +73,7 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -87,7 +87,7 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			army_experience = 20
 		}
 	}
 	focus = {
@@ -98,15 +98,7 @@ focus_tree = {
 		cost = 3
 
 		available = {
-			date > 1925.01.01
-		}
-
-		allowed = {
-			date > 1925.01.01
-		}
-
-		completion_reward = {
-
+			date > 1923.01.01
 		}
 	}
 	focus = {
@@ -292,7 +284,11 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_resource = {
+    			type = oil
+    			amount = 10
+    			state = 839
+			}
 		}
 	}
 	focus = {
@@ -304,7 +300,11 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_resource = {
+    			type = rubber
+    			amount = 24
+    			state = 839
+			}
 		}
 	}
 	focus = {
@@ -353,7 +353,8 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_political_power = 5
+			set_war_support = 0.2
 		}
 	}
 	focus = {
@@ -365,7 +366,7 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_political_power = 10
 		}
 	}
 	focus = {
@@ -377,7 +378,9 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			PEN = {
+				country_event = pen.1
+			}
 		}
 	}
 	focus = {
@@ -390,7 +393,7 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -401,7 +404,10 @@ focus_tree = {
 		relative_position_id = NYC_purchase_ny
 		mutually_exclusive = {focus = NYC_new_england_union}
 		cost = 3
-
+		available = {
+			has_war = no
+			is_neighbor_of = NEE
+		}
 		completion_reward = {
 			declare_war_on = {
     			target = NEE
@@ -418,15 +424,33 @@ focus_tree = {
 		cost = 3
 
 		completion_reward = {
-
+			create_faction = american_cotalition
 		}
 	}
 	focus = {
-		id = NYC_northern_liberty
+		id = NYC_end_masons
 		x = 2
 		y = 1
 		prerequisite = {focus = NYC_new_england_union focus = NYC_invade_new_england}
 		relative_position_id = NYC_new_england_union
+		cost = 3
+		available = {
+			has_war = no
+			is_neighbor_of = PEN
+		}
+		completion_reward = {
+			declare_war_on = {
+    			target = PEN
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = NYC_northern_liberty
+		x = 0
+		y = 1
+		prerequisite = {focus = NYC_end_masons}
+		relative_position_id = NYC_end_masons
 		cost = 3
 
 		completion_reward = {
@@ -440,7 +464,10 @@ focus_tree = {
 		prerequisite = {focus = NYC_northern_liberty}
 		relative_position_id = NYC_northern_liberty
 		cost = 3
-
+		available = {
+			has_war = no
+			is_neighbor_of = USA
+		}
 		completion_reward = {
 			declare_war_on = {
     			target = USA
@@ -455,7 +482,10 @@ focus_tree = {
 		prerequisite = {focus = NYC_invade_america}
 		relative_position_id = NYC_invade_america
 		cost = 3
-
+		available = {
+			has_war = no
+			is_neighbor_of = ASF
+		}
 		completion_reward = {
 			declare_war_on = {
     			target = ASF
@@ -470,7 +500,10 @@ focus_tree = {
 		prerequisite = {focus = NYC_invade_america}
 		relative_position_id = NYC_invade_america
 		cost = 3
-
+		available = {
+			has_war = no
+			is_neighbor_of = KKK
+		}
 		completion_reward = {
 			declare_war_on = {
     			target = KKK
