@@ -1,0 +1,194 @@
+add_namespace = den
+
+	country_event={
+		id = den.0001
+		title = den.0001.t
+		desc = den.0001.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0001.a
+			ai_chance = {
+				base=50
+			}
+		}
+		
+	}
+	
+	country_event={
+		id = den.0002
+		title = den.0002.t
+		desc = den.0002.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0002.a
+			ai_chance = {
+				base=50
+			}
+			remove_dynamic_modifier = { modifier = DEN_agrarian_economy}
+			add_dynamic_modifier = { modifier = DEN_industrialized_economy }
+			
+		}
+		
+	}
+	
+	country_event={
+		id = den.0003
+		title = den.0003.t
+		desc = den.0003.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0003.a
+			ai_chance = {
+				base=1
+				
+			}
+			
+			
+		}
+		
+		option{
+			name=den.0003.b
+			ai_chance = {
+				base=1
+				
+				modifier = {
+					
+				}
+			}
+			
+			
+		}
+		
+	}
+	
+	country_event={
+		id = den.0004
+		title = den.0004.t
+		desc = den.0004.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0004.a
+			ai_chance = {
+				base=1
+				
+			}
+			complete_national_focus = DEN_side_with_marxism
+			country_event = {
+				id = den.0005
+				days=1
+			}
+		}
+		
+		option{
+			name=den.0004.b
+			ai_chance = {
+				base=1
+				
+				modifier = {
+					
+				}
+				
+				
+			}
+			
+			complete_national_focus = DEN_side_with_bolshevism
+			country_event = {
+				id = den.0006
+				days=1
+			}
+		}
+		
+	}
+	
+	country_event={
+		id = den.0005
+		title = den.0005.t
+		desc = den.0005.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0005.a
+			ai_chance = {
+				base=50
+			}
+			
+			set_capital = { state = 99 }
+			start_civil_war = {
+				ruling_party = marxism
+				ideology = ROOT
+				size = 0
+				capital = 37
+				states = { 37 }
+			}
+		}
+		
+	}
+	
+	country_event={
+		id = den.0006
+		title = den.0006.t
+		desc = den.0006.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0006.a
+			ai_chance = {
+				base=50
+			}
+			
+			set_capital = { state = 99 }
+			start_civil_war = {
+				ruling_party = bolshevism
+				ideology = ROOT
+				size = 0
+				capital = 37
+				states = { 37 }
+			}
+		}
+		
+	}
+	
+	country_event={
+		id = den.0007
+		title = den.0007.t
+		desc = den.0007.d
+		picture = GFK_normal
+		is_triggered_only = yes
+		
+		option{
+			name=den.0007.a
+			ai_chance = {
+				base=1
+				
+			}
+			complete_national_focus = DEN_side_with_marxism
+			
+		}
+		
+		option{
+			name=den.0007.b
+			ai_chance = {
+				base=1
+				
+				modifier = {
+					
+				}
+				
+				
+			}
+			
+			complete_national_focus = DEN_side_with_bolshevism
+			
+		}
+		
+	}

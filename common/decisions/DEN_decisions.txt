@@ -1,0 +1,142 @@
+
+#every_country = {
+#				limit = {capital_scope = {is_on_continent = europe}}
+#				country_event = {
+#					id = den.0003
+#					days = 1
+	#			}
+	#		}
+
+
+
+DEN_communism_civil_war_cat = {
+	DEN_equip_uprisings_dec={
+		icon = GFX_decision_revolt
+		fire_only_once = yes
+		allowed = {
+			OR = {
+				original_tag = DEN
+			}
+		}
+		
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 2500
+			}
+		}
+		custom_cost_text = decision_cost_IE_2500
+		
+		
+
+		available = {
+
+		}
+
+		visible = {				
+			#has_completed_focus = DEN_equip_uprisings
+		}
+		
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -2500
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+			
+		}
+	}
+	
+	DEN_propaganda_mission_dec={
+		icon = GFX_decision_generic_political_discourse
+			priority=100
+			fire_only_once = yes
+			allowed = {
+				OR = {
+					original_tag = DEN
+				}
+			}
+
+			available = {
+				
+			}
+
+			visible = {				
+				#has_completed_focus = DEN_propaganda_mission
+			}
+			cost = 250
+			
+			complete_effect = {
+				add_stability = -0.025
+				add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.1
+				}
+				
+				
+			}
+
+			ai_will_do = {
+				factor = 200
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+			
+			}
+	}
+	
+	
+	
+	
+	DEN_seek_foreign_support_dec={
+		icon = GFX_decision_eng_blackshirt_march
+		priority=100
+		fire_only_once = yes
+		allowed = {
+			OR = {
+				original_tag = DEN
+			}
+		}
+
+		available = {
+			
+		}
+
+		visible = {				
+			#has_completed_focus = DEN_seek_foreign_support
+		}
+		cost = 50
+		
+		complete_effect = {
+			SOV = {
+				country_event = {
+					id = den.0003
+					days = 1
+				} 
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+			
+		}
+	}
+	
+	
+}

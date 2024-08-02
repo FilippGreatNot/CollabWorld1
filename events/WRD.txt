@@ -11,6 +11,7 @@ country_event = {
 
 	option = {
 		name = wrd.1.a
+		ai_chance = { base = 7 }
 		add_popularity = {
 			ideology = esotericism
 			popularity = -0.1
@@ -22,6 +23,7 @@ country_event = {
 	
 	option = {
 		name = wrd.1.b
+		ai_chance = { base = 3 }
 		add_popularity = {
 			ideology = esotericism
 			popularity = 0.15
@@ -234,4 +236,137 @@ country_event = {
 		
 	}
 }
+
+country_event = {
+	id = wrd.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.10.t
+	desc = wrd.10.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.10.a
+		promote_character = WRD_wilhelm_iii
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+		}
+	}
+	
+	option = {
+		name = wrd.10.b
+		WRD_wilhelm_iii = {
+			remove_country_leader_role = { ideology = constitutional_monarchy }
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = ultranationalism
+					desc = "POLITICS_WILHELM_III_DESC"
+				}
+			}
+		}
+		
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
+		
+		set_politics = {
+			ruling_party = national_syndicalism
+		}
+	}
+}
+	country_event = {
+	id = wrd.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.11.t
+	desc = wrd.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.11.a
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = wrd.7.b
+	    if = {
+			limit = {
+				owns_state = 841
+			}
+			FROM = {
+				set_state_owner = 841
+			}
+		}
+		
+	}
+}
+
+    country_event = {
+	id = wrd.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.12.t
+	desc = wrd.12.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.12.a
+		ai_chance = { base = 0 }
+	}
+	
+	option = {
+		name = wrd.12.b
+	    if = {
+			limit = {
+				owns_state = 737
+			}
+			FROM = {
+				set_state_owner = 737
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 523
+			}
+			FROM = {
+				set_state_owner = 523
+			}
+		}
+		add_ideas = {
+				WRD_papua_new_guinea_sale
+			}
+		WRD = {
+		    add_political_power = -200
+		}
+		
+	}
+}
+    country_event = {
+	id = wrd.13
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wrd.13.t
+	desc = wrd.13.d
+	is_triggered_only = yes
+
+	option = {
+		name = wrd.13.a
+		ai_chance = { base = 1 }
+	}
+	
+	option = {
+		name = wrd.13.b
+		ai_chance = { base = 9 }
+	    FROM = { add_to_faction = PREV }
+		
+	}
+}
+
 
