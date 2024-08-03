@@ -158,6 +158,94 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = IRQ_first_invest_in_industrialization
+		icon = GFX_focus_IRQ_invest_industry
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_modernize_our_infrastructure
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_modernize_our_infrastructure }
+		mutually_exclusive = { focus = IRQ_first_introduce_land_reforms }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_introduce_land_reforms
+		icon = GFX_focus_IRQ_land_reforms
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_modernize_our_infrastructure
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_modernize_our_infrastructure }
+		mutually_exclusive = { focus = IRQ_first_invest_in_industrialization }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_kirkuk_oil_discovery
+		icon = GFX_focus_IRQ_kirkuk_oil
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_introduce_land_reforms
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_invest_in_industrialization }
+		prerequisite = { focus = IRQ_first_introduce_land_reforms }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_baghdad_power_plant
+		icon = GFX_focus_IRQ_power_blant
+		x = -3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_introduce_land_reforms
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_invest_in_industrialization }
+		prerequisite = { focus = IRQ_first_introduce_land_reforms }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			
+		}
+	}
+	
 	}
 	
 	
