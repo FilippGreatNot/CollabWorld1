@@ -365,7 +365,7 @@ focus_tree = {
 		id = FGB_recruit_prisoners
 		icon = GFX_focus_FGB_recruit_prisoners
 		prerequisite = { focus = FGB_expand_army }
-		x = 25.75
+		x = 26.25
 		y = 4
 		cost = 5
 		ai_will_do = {
@@ -639,6 +639,47 @@ focus_tree = {
 		prerequisite = { focus = FGB_modernise_taxes }
 		x = 19
 		y = 4
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_autarky
+		icon = GFX_focus_FGB_rhine_factories
+		prerequisite = { focus = FGB_nationalise_industry }
+		prerequisite = { focus = FGB_increase_tariffs }
+		x = 14
+		y = 5
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_market_decentralisation
+		icon = GFX_focus_FGB_rhine_factories
+		prerequisite = { focus = FGB_increase_imports }
+		prerequisite = { focus = FGB_buy_businesses }
+		x = 18
+		y = 5
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_complete_recovery
+		icon = GFX_focus_FGB_rhine_factories
+		prerequisite = { focus = FGB_autarky focus = FGB_market_decentralisation }
+		x = 16
+		y = 6
 		cost = 5
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
