@@ -116,83 +116,6 @@ focus_tree = {
         }
     }
     focus = {
-        id = YUG_paying_our_debts
-        icon = GFX_focus_YUG_paying_our_debts
-        x = 18
-        cost = 6
-
-        available = { has_completed_focus = YUG_the_ethnic_situation }
-        completion_reward = {
-            add_political_power = 25            
-            
-        }
-    }
-    #Middle branch
-    focus = {
-        id = YUG_paying_the_british
-        icon = GFX_focus_YUG_paying_the_british
-        x = 18
-        y = 1
-        cost = 10
-
-        prerequisite = { focus = YUG_paying_our_debts }
-        completion_reward = {
-            swap_ideas = {
-                remove_idea = YUG_debt_crisis
-                add_idea = YUG_debt_crisis2
-            }
-        }
-    }
-    #Left branch
-    focus = {
-        id = YUG_paying_the_french
-        icon = GFX_focus_YUG_paying_the_french
-        x = 16
-        y = 1
-        cost = 10
-
-        prerequisite = { focus = YUG_paying_our_debts }
-        available = { has_completed_focus = YUG_paying_the_british }
-        completion_reward = {
-            swap_ideas = {
-                remove_idea = YUG_debt_crisis2
-                add_idea = YUG_debt_crisis3
-            }
-        }
-    }
-    #Right branch
-    focus = {
-        id = YUG_paying_the_americans
-        icon = GFX_focus_YUG_paying_the_americans
-        x = 20
-        y = 1
-        cost = 10
-
-        prerequisite = { focus = YUG_paying_our_debts }
-        available = { has_completed_focus = YUG_paying_the_french }
-        completion_reward = {
-            swap_ideas = {
-                remove_idea = YUG_debt_crisis3
-                add_idea = YUG_debt_crisis4
-            }
-        }
-    }
-	focus = {
-		id = YUG_writing_the_last_checks
-		icon = GFX_focus_YUG_writing_the_last_checks
-		x = 18
-		y = 3
-		cost = 5
-		
-		prerequisite = { focus = YUG_paying_the_british }
-		prerequisite = { focus = YUG_paying_the_americans }
-		prerequisite = { focus = YUG_paying_the_french }
-		completion_reward = {
-            remove_ideas = YUG_debt_crisis4
-            add_political_power = 55
-        }
-    }
-    focus = {
         id = YUG_infrastructure_program
         icon = GFX_focus_YUG_paying_our_debts
         x = 28
@@ -321,7 +244,88 @@ focus_tree = {
             add_political_power = 5
         }
     }
+    ##Debt tree 
+       focus = {
+        id = YUG_paying_our_debts
+        icon = GFX_focus_YUG_paying_our_debts
+        x = 36
+        y = 2
+        cost = 6
+
+        available = { has_completed_focus = YUG_the_ethnic_situation }
+        completion_reward = {
+            add_political_power = 25            
+            
+        }
+    }
+    #Middle branch
+    focus = {
+        id = YUG_paying_the_british
+        icon = GFX_focus_YUG_paying_the_british
+        x = 36
+        y = 3
+        cost = 10
+
+        prerequisite = { focus = YUG_paying_our_debts }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis
+                add_idea = YUG_debt_crisis2
+            }
+        }
+    }
+    #Left branch
+    focus = {
+        id = YUG_paying_the_french
+        icon = GFX_focus_YUG_paying_the_french
+        x = 38
+        y = 3
+        cost = 10
+
+        prerequisite = { focus = YUG_paying_our_debts }
+        available = { has_completed_focus = YUG_paying_the_british }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis2
+                add_idea = YUG_debt_crisis3
+            }
+        }
+    }
+    #Right branch
+    focus = {
+        id = YUG_paying_the_americans
+        icon = GFX_focus_YUG_paying_the_americans
+        x = 34
+        y = 3
+        cost = 10
+
+        prerequisite = { focus = YUG_paying_our_debts }
+        available = { has_completed_focus = YUG_paying_the_french }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_debt_crisis3
+                add_idea = YUG_debt_crisis4
+            }
+        }
+    }
+	focus = {
+		id = YUG_writing_the_last_checks
+		icon = GFX_focus_YUG_writing_the_last_checks
+		x = 36
+		y = 4
+		cost = 5
+		
+		prerequisite = { focus = YUG_paying_the_british }
+		prerequisite = { focus = YUG_paying_the_americans }
+		prerequisite = { focus = YUG_paying_the_french }
+		completion_reward = {
+            remove_ideas = YUG_debt_crisis4
+            add_political_power = 55
+        }
+    }
 }
+
+
 
 
 
