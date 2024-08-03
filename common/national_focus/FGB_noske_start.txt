@@ -198,7 +198,7 @@ focus_tree = {
 	focus = {
 		id = FGB_death_of_kapp
 		icon = GFX_focus_FGB_death_of_kapp
-		x = 9
+		x = 8
 		y = 0
 		cost = 1
 		available = {
@@ -215,7 +215,7 @@ focus_tree = {
 	focus = {
 		id = FGB_freikorps_legacy
 		icon = GFX_focus_FGB_freikorps_legacy
-		x = 20.25
+		x = 24
 		y = 0
 		cost = 6
 		ai_will_do = {
@@ -238,7 +238,7 @@ focus_tree = {
 		id = FGB_study_tactics
 		icon = GFX_focus_FGB_study_tactics
 		prerequisite = { focus = FGB_freikorps_legacy }
-		x = 19
+		x = 22.75
 		y = 1
 		cost = 6
 		ai_will_do = {
@@ -259,7 +259,7 @@ focus_tree = {
 		id = FGB_analyse_mistakes
 		icon = GFX_focus_FGB_analyse_mistakes
 		prerequisite = { focus = FGB_freikorps_legacy }
-		x = 21.5
+		x = 25.25
 		y = 1
 		cost = 6
 		ai_will_do = {
@@ -274,7 +274,7 @@ focus_tree = {
 		id = FGB_repair_factories
 		icon = GFX_focus_FGB_repair_factories
 		prerequisite = { focus = FGB_study_tactics }
-		x = 19
+		x = 22.75
 		y = 2
 		cost = 5
 		ai_will_do = {
@@ -304,7 +304,7 @@ focus_tree = {
 		id = FGB_repair_airbases
 		icon = GFX_focus_FGB_repair_airbases
 		prerequisite = { focus = FGB_analyse_mistakes }
-		x = 21.5
+		x = 25.25
 		y = 2
 		cost = 5
 		ai_will_do = {
@@ -332,7 +332,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_expand_army
 		prerequisite = { focus = FGB_repair_airbases }
 		prerequisite = { focus = FGB_repair_factories }
-		x = 20.25
+		x = 24
 		y = 3
 		cost = 6
 		ai_will_do = {
@@ -349,16 +349,13 @@ focus_tree = {
 			random_owned_controlled_state = {
 				limit = { ROOT = { has_full_control_of_state = PREV } }
 				prioritize = { 50 }
-				custom_effect_tooltip = FGB_neues_heer_tt
-				effect_tooltip = {
-					create_unit = {
-						division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
-						owner = FGB
-					}
-					create_unit = {
-						division = "name = \"2nd. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
-						owner = FGB
-					}
+				create_unit = {
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"2nd. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
+					owner = FGB
 				}
 			}
 		}
@@ -368,7 +365,7 @@ focus_tree = {
 		id = FGB_recruit_prisoners
 		icon = GFX_focus_FGB_recruit_prisoners
 		prerequisite = { focus = FGB_expand_army }
-		x = 22
+		x = 25.75
 		y = 4
 		cost = 5
 		ai_will_do = {
@@ -416,7 +413,7 @@ focus_tree = {
 			has_political_power > 99
 		}
 		cancel_if_invalid = yes
-		x = 20.25
+		x = 24
 		y = 4
 		cost = 7
 		ai_will_do = {
@@ -439,7 +436,7 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		x = 19
+		x = 22.75
 		y = 5
 		cost = 1
 		completion_reward = {
@@ -455,7 +452,7 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		x = 21.5
+		x = 25.25
 		y = 5
 		cost = 1
 		completion_reward = {
@@ -470,7 +467,7 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		x = 20.25
+		x = 24
 		y = 6
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
@@ -482,7 +479,7 @@ focus_tree = {
 	focus = {
 		id = FGB_rhine_factories
 		icon = GFX_focus_FGB_rhine_factories
-		x = 15
+		x = 16
 		y = 0
 		cost = 5
 		search_filters = { FOCUS_FILTER_INDUSTRY }
