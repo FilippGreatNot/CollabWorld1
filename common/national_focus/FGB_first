@@ -1,7 +1,13 @@
 focus_tree = {
-	id = FGB_noske_start
+	id = FGB_first
+	
 	country = {
 		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FGB
+		}
 	}
 	default = no
 	
@@ -9,6 +15,9 @@ focus_tree = {
 		id = FGB_germany_needs_strong_hand
 		icon = GFX_focus_FGB_Germany_Needs_strong_hand
 		cost = 3
+		available = {
+			country_leader = gustav_noske
+		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -20,8 +29,8 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_consolidation_of_friekrops_power
-		icon = GFX_focus_FGB_consolidation_of_friekrops_power
+		id = FGB_consolidation_of_freikrops_power
+		icon = GFX_focus_FGB_consolidation_of_freikrops_power
 		x = 0
 		y = 1
 		cost = 6
@@ -38,7 +47,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_consolidation_of_friekrops_power log"
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_consolidation_of_freikrops_power log"
 		}
 	}
 	
@@ -53,7 +62,7 @@ focus_tree = {
 		relative_position_id = FGB_consolidation_of_friekrops_power
 		
 		prerequisite = {
-			focus = FGB_consolidation_of_friekrops_power
+			focus = FGB_consolidation_of_freikrops_power
 		}		
 		
 		ai_will_do = {
@@ -213,10 +222,43 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_freikorps_legacy
-		icon = GFX_focus_FGB_freikorps_legacy
+		id = FGB_electing_new_leader
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 8
+		y = 1
+		cost = 1
+		prerequisite = { focus = FGB_death_of_kapp }
+		completion_reward = {
+			add_political_power = 40
+		}
+	}
+	
+	focus = {
+		id = FGB_train_soldiers
+		icon = GFX_focus_FGB_train_soldiers
 		x = 24
 		y = 0
+		cost = 1.5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			army_experience = 10
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 300
+				producer = FGB
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_freikorps_legacy
+		icon = GFX_focus_FGB_freikorps_legacy
+		prerequisite = { focus = FGB_train_soldiers }
+		x = 24
+		y = 1
 		cost = 6
 		ai_will_do = {
 			factor = 10
@@ -231,6 +273,9 @@ focus_tree = {
 				category = infantry_weapons
 				category = artillery
 			}
+			add_ideas = {
+				FGB_legacy_freikorps
+			}
 		}
 	}
 	
@@ -239,18 +284,31 @@ focus_tree = {
 		icon = GFX_focus_FGB_study_tactics
 		prerequisite = { focus = FGB_freikorps_legacy }
 		x = 23.75
-		y = 1
+		y = 2
 		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			army_experience = 20
-                        add_doctrine_cost_reduction = {
+            add_doctrine_cost_reduction = {
 				name = land_doc_bonus
 				cost_reduction = 0.75
 				uses = 2
 				category = land_doctrine
+			}
+			IF = {
+				limit = { has_idea = FGB_legacy_freikorps2 }
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps2
+					add_idea = FGB_legacy_freikorps3
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps
+					add_idea = FGB_legacy_freikorps2
+				}
 			}
 		}
 	}
@@ -260,13 +318,30 @@ focus_tree = {
 		icon = GFX_focus_FGB_analyse_mistakes
 		prerequisite = { focus = FGB_freikorps_legacy }
 		x = 25.25
-		y = 1
+		y = 2
 		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
 			army_experience = 10
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias
+				add_idea = FGB_disorganised_militias2
+			}
+			IF = {
+				limit = { has_idea = FGB_legacy_freikorps2 }
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps2
+					add_idea = FGB_legacy_freikorps3
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps
+					add_idea = FGB_legacy_freikorps2
+				}
+			}
 		}
 	}
 
@@ -275,7 +350,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_repair_factories
 		prerequisite = { focus = FGB_study_tactics }
 		x = 23.75
-		y = 2
+		y = 3
 		cost = 5
 		ai_will_do = {
 			factor = 10
@@ -305,7 +380,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_repair_airbases
 		prerequisite = { focus = FGB_analyse_mistakes }
 		x = 25.25
-		y = 2
+		y = 3
 		cost = 5
 		ai_will_do = {
 			factor = 10
@@ -333,7 +408,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_repair_airbases }
 		prerequisite = { focus = FGB_repair_factories }
 		x = 24
-		y = 3
+		y = 4
 		cost = 6
 		ai_will_do = {
 			factor = 10
@@ -358,6 +433,10 @@ focus_tree = {
 					owner = FGB
 				}
 			}
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias2
+				add_idea = FGB_disorganised_militias3
+			}
 		}
 	}
 
@@ -366,7 +445,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_recruit_prisoners
 		prerequisite = { focus = FGB_expand_army }
 		x = 26.25
-		y = 4
+		y = 5
 		cost = 5
 		ai_will_do = {
 			factor = 10
@@ -414,7 +493,7 @@ focus_tree = {
 		}
 		cancel_if_invalid = yes
 		x = 24
-		y = 4
+		y = 5
 		cost = 7
 		ai_will_do = {
 			factor = 10
@@ -437,7 +516,7 @@ focus_tree = {
 			always = no
 		}
 		x = 23.75
-		y = 5
+		y = 6
 		cost = 1
 		completion_reward = {
 			army_experience = 5
@@ -453,7 +532,7 @@ focus_tree = {
 			always = no
 		}
 		x = 25.25
-		y = 5
+		y = 6
 		cost = 1
 		completion_reward = {
 			army_experience = 5
@@ -468,7 +547,7 @@ focus_tree = {
 			always = no
 		}
 		x = 24
-		y = 6
+		y = 7
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
@@ -477,10 +556,45 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_rhine_factories
-		icon = GFX_focus_FGB_rhine_factories
+		id = FGB_reconstruction
+		icon = GFX_focus_FGB_reconstruction
 		x = 16
 		y = 0
+		cost = 4
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			country_leader = gustav_noske
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_consequences_of_the_great_war
+				add_idea = FGB_rebuilding_economy
+			}
+			50 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_resource_smuggling
+		icon = GFX_focus_FGB_rhine_factories
+		prerequisite = { focus = FGB_reconstruction }
+		x = 14
+		y = 1
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -489,10 +603,10 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_resource_smuggling
-		icon = GFX_focus_FGB_rhine_factories
-		prerequisite = { focus = FGB_rhine_factories }
-		x = 14
+		id = FGB_repair_the_countryside
+		icon = GFX_FGB_repair_the_countryside
+		prerequisite = { focus = FGB_reconstruction }
+		x = 18
 		y = 1
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -504,13 +618,16 @@ focus_tree = {
 	focus = {
 		id = FGB_welfare_programmes
 		icon = GFX_focus_FGB_rhine_factories
-		prerequisite = { focus = FGB_rhine_factories }
+		prerequisite = { focus = FGB_reconstruction }
 		x = 16
 		y = 2
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			swap_ideas = {
+				remove_idea = FGB_rebuilding_economy
+				add_idea = FGB_recovering_industry
+			}
 		}
 	}
 	
