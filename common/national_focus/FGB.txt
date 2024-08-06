@@ -230,6 +230,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_death_of_kapp }
 		completion_reward = {
 			add_political_power = 40
+			country_event = fgb.2
 		}
 	}
 	
@@ -239,8 +240,11 @@ focus_tree = {
 		x = 5
 		y = 2
 		cost = 0
-		available = {
+		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
+			NOT = { has_completed_focus = FGB_pabst }
+			NOT = { has_completed_focus = FGB_rohm }
+			NOT = { has_completed_focus = FGB_other }
 		}
 	}
 	
@@ -250,8 +254,11 @@ focus_tree = {
 		x = 7
 		y = 2
 		cost = 0
-		available = {
+		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
+			NOT = { has_completed_focus = FGB_noske }
+			NOT = { has_completed_focus = FGB_rohm }
+			NOT = { has_completed_focus = FGB_other }
 		}
 	}
 	
@@ -261,19 +268,25 @@ focus_tree = {
 		x = 9
 		y = 2
 		cost = 0
-		available = {
+		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
+			NOT = { has_completed_focus = FGB_noske }
+			NOT = { has_completed_focus = FGB_pabst }
+			NOT = { has_completed_focus = FGB_other }
 		}
 	}
 	
 	focus = {
 		id = FGB_other
 		icon = GFX_focus_FGB_other
-		x = 9
+		x = 11
 		y = 2
 		cost = 0
-		available = {
+		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
+			NOT = { has_completed_focus = FGB_noske }
+			NOT = { has_completed_focus = FGB_pabst }
+			NOT = { has_completed_focus = FGB_rohm }
 		}
 	}
 	
@@ -456,14 +469,19 @@ focus_tree = {
 	focus = {
 		id = FGB_kaiser_silos
 		icon = GFX_focus_FGB_kaiser_silos
-		prerequisite = FGB_repair_factories
+		prerequisite = { focus = FGB_repair_factories }
+		available = {
+			check_variable = { num_equipment_in_armies_k@infantry_equipment_1 > 1 }
+			custom_trigger_tooltip = {
+			 	tooltip = FGB_kaiser_silos_tt
+			 	check_variable = { num_equipment_in_armies_k@infantry_equipment_1 > 1 }
+			}
+		}
 		x = 22
 		y = 4
 		cost = 5
-		available = {
-			has_researched = infantry_equipment_1
-		}
 		completion_reward = {
+			army_experience = 25
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_1
 				amount = 2000
@@ -474,12 +492,10 @@ focus_tree = {
 				amount = 500
 				producer = FGB
 			}
-			army_experience = 25
-			}
 		}
 	}
 		
-	focus = { 
+	focus = {
 		id = FGB_expand_army
 		icon = GFX_focus_FGB_expand_army
 		prerequisite = { focus = FGB_repair_airbases }
@@ -657,6 +673,10 @@ focus_tree = {
 					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
 					owner = FGB
 				}
+			}
+			set_division_template_lock = {
+				division_template = "Neues Heer"
+				is_locked = no
 			}
 		}
 	}
