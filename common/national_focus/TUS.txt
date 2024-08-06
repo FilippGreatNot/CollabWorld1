@@ -330,7 +330,7 @@
 		}
 		available = {
 			check_variable = {
-				var = TUS_com_part_unif
+				var = TUS_can_speech
 				value = 1
 			}
 		}
@@ -538,9 +538,6 @@
 		prerequisite = {
 			focus = TUS_secure_northen_italy
 		}
-		prerequisite = {
-			focus = TUS_rebuild_its
-		}
 		
 		cancel_if_invalid = yes		
 		available = {
@@ -583,9 +580,6 @@
 		prerequisite = {
 			focus = TUS_destroy_the_frauds
 		}
-		prerequisite = {
-			focus = TUS_rebuild_vne
-		}
 		
 		available = {
 			2 = {is_core_of = ROOT}
@@ -627,9 +621,6 @@
 		prerequisite = {
 			focus = TUS_bring_order_to_chaos
 		}
-		prerequisite = {
-			focus = TUS_rebuild_ita
-		}
 		
 		available = {
 			115 = {is_core_of = ROOT}
@@ -669,13 +660,16 @@
 		icon = GFX_goal_generic_construction
 					
 		prerequisite = {
-			focus = TUS_rebuild_mss
-		}
-		prerequisite = {
 			focus = TUS_bring_order_to_chaos
 		}
 		
-		available = {115 = {is_core_of = ROOT}}
+		available = {
+			115 = {is_core_of = ROOT}
+			has_completed_focus = TUS_rebuild_its
+			has_completed_focus = TUS_rebuild_vne
+			has_completed_focus = TUS_rebuild_ita
+			has_completed_focus = TUS_rebuild_mss
+		}
 		
 		relative_position_id = TUS_bring_order_to_chaos
 		
@@ -683,5 +677,37 @@
         y = 1
 		
         cost = 3
+	}
+	
+	focus = {
+		id = TUS_balbos_speech_2
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_convene_the_grand_council
+		}
+		available = {
+			OR = {
+				check_variable = {
+					var = TUS_full_name
+					value = 0
+				}
+				check_variable = {
+					var = TUS_full_name
+					value = 1
+				}
+			}
+		}
+		
+		relative_position_id = TUS_convene_the_grand_council
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			country_event = tus.11
+		}
 	}
 }
