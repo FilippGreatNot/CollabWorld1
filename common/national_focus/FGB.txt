@@ -238,7 +238,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_train_soldiers
 		x = 24
 		y = 0
-		cost = 1.5
+		cost = 2
 		ai_will_do = {
 			factor = 10
 		}
@@ -548,19 +548,21 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_expand_army
+		id = FGB_expand_conscription
 		icon = GFX_focus_FGB_rhine_factories
 		prerequisite = { focus = FGB_prepared_offensive focus = FGB_definitive_attack }
+		available = {
+			has_full_control_of_state = 50
+		}
 		x = 24
 		y = 7
 		cost = 8
-		search_filters { FOCUS_FILTER_MANPOWER )
+		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_ideas = {
 				extensive_conscription
 			}
 			50 = {
-				limit = { ROOT = { has_full_control_of_state = PREV } }
 				create_unit = {
 					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
 					owner = FGB
@@ -917,6 +919,52 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			army_experience = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_a_brand_new_economy
+		icon = GFX_focus_FGB_a_brand_new_economy
+		available = {
+			has_completed_focus = FGB_complete_recovery
+		}
+		x = 16
+		y = 8
+		cost = 5
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			50 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 3
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				50 = {
+					add_extra_state_shared_building_slots = 6
+				}
+				54 = {
+					add_extra_state_shared_building_slots = 5
+				}
+			}
 		}
 	}
 }
