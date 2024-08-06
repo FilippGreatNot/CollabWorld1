@@ -371,6 +371,14 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			hidden_effect = {
+				50 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				54 = {
+					add_extra_state_shared_building_slots = 2
+				}
+			}
 		}
 	}
 
@@ -401,6 +409,32 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = FGB_kaiser_silos
+		icon = GFX_focus_FGB_kaiser_silos
+		prerequisite = FGB_repair_factories
+		x = 22
+		y = 4
+		cost = 5
+		available = {
+			has_researched = infantry_equipment_1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 2000
+				producer = FGB
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = FGB
+			}
+			army_experience = 25
+			}
+		}
+	}
+		
 	focus = { 
 		id = FGB_expand_army
 		icon = GFX_focus_FGB_expand_army
@@ -927,16 +961,45 @@ focus_tree = {
 		icon = GFX_focus_FGB_a_brand_new_economy
 		available = {
 			has_completed_focus = FGB_complete_recovery
+			has_full_control_of_state = 50
+			has_full_control_of_state = 52
+			has_full_control_of_state = 53
+			has_full_control_of_state = 54
+			has_full_control_of_state = 835
 		}
 		x = 16
 		y = 8
-		cost = 5
+		cost = 15
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			50 = {
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 3
+					instant_build = yes
+				}
+			}
+			52 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+			53 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
@@ -960,6 +1023,12 @@ focus_tree = {
 			hidden_effect = {
 				50 = {
 					add_extra_state_shared_building_slots = 6
+				}
+				52 = {
+					add_extra_state_shared_building_slots = 5
+				}
+				53 = { 
+					add_extra_state_shared_building_slots = 5
 				}
 				54 = {
 					add_extra_state_shared_building_slots = 5
