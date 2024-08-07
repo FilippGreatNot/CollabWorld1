@@ -814,7 +814,23 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			swap_ideas = {
+				remove_idea = FGB_recovering_industry
+				add_idea = FGB_recovering_industry1
+			}
+			IF = {
+				limit = { has_idea = FGB_recovering_industry1 }
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry1
+					add_idea = FGB_recovering_industry2
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry
+					add_idea = FGB_recovering_industry1
+				}
+			}
 		}
 	}
 	
@@ -887,7 +903,23 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			swap_ideas = {
+				remove_idea = FGB_recovering_industry
+				add_idea = FGB_recovering_industry1
+			}
+			IF = {
+				limit = { has_idea = FGB_recovering_industry1 }
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry1
+					add_idea = FGB_recovering_industry2
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry
+					add_idea = FGB_recovering_industry1
+				}
+			}
 		}
 	}
 	
@@ -928,7 +960,9 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			add_ideas = {
+				FGB_tariffs
+			}
 		}
 	}
 	
@@ -941,7 +975,9 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			add_ideas = {
+				FGB_exports
+			}
 		}
 	}
 	
@@ -1011,12 +1047,21 @@ focus_tree = {
 		id = FGB_complete_recovery
 		icon = GFX_focus_FGB_rhine_factories
 		prerequisite = { focus = FGB_autarky focus = FGB_market_decentralisation }
+		available = {
+			NOT = { 
+				has_idea = { 
+					FGB_recovering_industry2 
+				}
+			}
+		}
 		x = 16
 		y = 6
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			remove_ideas = {
+				economically_isolated
+			}
 		}
 	}
 	
