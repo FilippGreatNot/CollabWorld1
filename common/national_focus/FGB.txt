@@ -12,202 +12,9 @@ focus_tree = {
 	default = no
 	
 	focus = {
-		id = FGB_germany_needs_strong_hand
-		icon = GFX_focus_FGB_Germany_Needs_strong_hand
-		cost = 3
-		available = {
-			has_completed_focus = FGB_death_of_kapp
-		}
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_germany_needs_strong_hand log"
-		}
-	}
-	
-	focus = {
-		id = FGB_consolidation_of_freikrops_power
-		icon = GFX_focus_FGB_consolidation_of_freikrops_power
-		x = 0
-		y = 1
-		cost = 6
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_germany_needs_strong_hand
-		
-		prerequisite = {
-			focus = FGB_germany_needs_strong_hand
-		}		
-		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_consolidation_of_freikrops_power log"
-		}
-	}
-	
-	focus = {
-		id = FGB_no_mercy_for_traitors
-		icon = GFX_focus_FGB_no_mercy_for_traitors
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_consolidation_of_freikrops_power
-		
-		prerequisite = {
-			focus = FGB_consolidation_of_freikrops_power
-		}	
-		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_no_mercy_for_traitors log"
-		}
-	}
-	
-	focus = {
-		id = FGB_freikorps_voran
-		icon = GFX_focus_FGB_freikorps_voran
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_consolidation_of_freikrops_power
-		
-		prerequisite = {
-			focus = FGB_consolidation_of_freikrops_power
-		}	
-		
-		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_freikorps_voran log"
-		}
-	}
-	
-	focus = {
-		id = FGB_bring_loyalists_closer
-		icon = GFX_focus_FGB_bring_loyalists_closer
-		x = 1
-		y = 1
-		cost = 4
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_freikorps_voran
-		relative_position_id = FGB_no_mercy_for_traitors
-		
-		prerequisite = {
-			focus = FGB_freikorps_voran
-		}
-		
-		prerequisite = {
-			focus = FGB_no_mercy_for_traitors
-		}
-		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_bring_loyalists_closer log"
-		}
-	}
-	
-	focus = {
-		id = FGB_puppet_or_puppeteer
-		icon = GFX_focus_FGB_puppet_or_puppeteer
-		x = 0
-		y = 1
-		cost = 3
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_bring_loyalists_closer
-		
-		prerequisite = {
-			focus = FGB_bring_loyalists_closer
-		}		
-		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_puppet_or_puppeteer log"
-		}
-	}
-	
-	focus = {
-		id = FGB_my_honour_is_my_loyalty
-		icon = GFX_focus_FGB_my_honour_is_my_loyalty
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_puppet_or_puppeteer
-		available = {
-			always = no
-		}		
-		prerequisite = {
-			focus = FGB_puppet_or_puppeteer
-		}		
-		mutually_exclusive = {
-			focus = FGB_no_more_loyalty
-		}		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_my_honour_is_my_loyalty log"
-		}
-	}
-	
-	focus = {
-		id = FGB_no_more_loyalty
-		icon = GFX_focus_FGB_no_more_loyalty
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		
-		relative_position_id = FGB_puppet_or_puppeteer
-		available = {
-			always = no
-		}		
-		prerequisite = {
-			focus = FGB_puppet_or_puppeteer
-		}	
-		
-		mutually_exclusive = {
-			focus = FGB_my_honour_is_my_loyalty
-		}		
-		ai_will_do = {
-			factor = 10
-		}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_no_more_loyalty log"
-		}
-	}
-	
-	focus = {
 		id = FGB_death_of_kapp
 		icon = GFX_focus_FGB_death_of_kapp
-		x = 8
+		x = 6
 		y = 0
 		cost = 1
 		available = {
@@ -224,7 +31,7 @@ focus_tree = {
 	focus = {
 		id = FGB_electing_new_leader
 		icon = GFX_focus_FGB_electing_new_leader
-		x = 8
+		x = 6
 		y = 1
 		cost = 3
 		prerequisite = { focus = FGB_death_of_kapp }
@@ -237,37 +44,64 @@ focus_tree = {
 	focus = {
 		id = FGB_noske
 		icon = GFX_focus_FGB_noske
-		x = 5
+		x = 0
 		y = 2
 		cost = 0
+		prerequisite = { focus = FGB_electing_new_leader }
 		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
 			NOT = { has_completed_focus = FGB_pabst }
 			NOT = { has_completed_focus = FGB_rohm }
 			NOT = { has_completed_focus = FGB_other }
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 3
+		cost = 3
+		prerequisite = { focus = FGB_noske }
+		completion_reward = {
+			add_political_power = 20
 		}
 	}
 	
 	focus = {
 		id = FGB_pabst
 		icon = GFX_focus_FGB_pabst
-		x = 7
+		x = 4
 		y = 2
 		cost = 0
+		prerequisite = { focus =  FGB_electing_new_leader }
 		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
 			NOT = { has_completed_focus = FGB_noske }
 			NOT = { has_completed_focus = FGB_rohm }
 			NOT = { has_completed_focus = FGB_other }
+		}
+	}
+	
+	focus = {
+		id = FGB_pabst_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 4
+		y = 3
+		cost = 3
+		prerequisite = { focus = FGB_pabst }
+		completion_reward = {
+			add_political_power = 20
 		}
 	}
 	
 	focus = {
 		id = FGB_rohm
 		icon = GFX_focus_FGB_rohm
-		x = 9
+		x = 8
 		y = 2
 		cost = 0
+		prerequisite = { focus = FGB_electing_new_leader }
 		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
 			NOT = { has_completed_focus = FGB_noske }
@@ -277,16 +111,41 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = FGB_rohm_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 8
+		y = 3
+		cost = 3
+		prerequisite = { focus = FGB_rohm }
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	
+	focus = {
 		id = FGB_other
 		icon = GFX_focus_FGB_other
-		x = 11
+		x = 12
 		y = 2
 		cost = 0
+		prerequisite = { focus = FGB_electing_new_leader }
 		allow_branch = {
 			has_completed_focus = FGB_electing_new_leader
 			NOT = { has_completed_focus = FGB_noske }
 			NOT = { has_completed_focus = FGB_pabst }
 			NOT = { has_completed_focus = FGB_rohm }
+		}
+	}
+	
+	focus = {
+		id = FGB_other_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 12
+		y = 3
+		cost = 3
+		prerequisite = { focus = FGB_other }
+		completion_reward = {
+			add_political_power = 20
 		}
 	}
 	
@@ -414,6 +273,7 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			add_stability = 0.05
 			50 = {
 				add_building_construction = {
 					type = arms_factory
@@ -450,6 +310,8 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
+			add_stability = 0.05
+			air_experience = 20
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -643,7 +505,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_expand_conscription
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_expand_conscription
 		prerequisite = { focus = FGB_prepared_offensive focus = FGB_definitive_attack }
 		available = {
 			has_full_control_of_state = 50
@@ -765,20 +627,26 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_resource_smuggling
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
 		x = 14
 		y = 1
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			50 = {
+				add_resource = { 
+					type = steel
+					amount = 4
+				}
+			}
+			add_stability = -0.05
 		}
 	}
 	
 	focus = {
 		id = FGB_repair_the_countryside
-		icon = GFX_FGB_repair_the_countryside
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
 		x = 18
 		y = 1
@@ -791,7 +659,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_welfare_programmes
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
 		x = 16
 		y = 2
@@ -807,17 +675,13 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_combat_inflation
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_welfare_programmes }
 		x = 13
 		y = 2
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = FGB_recovering_industry
-				add_idea = FGB_recovering_industry1
-			}
 			IF = {
 				limit = { has_idea = FGB_recovering_industry1 }
 				swap_ideas = {
@@ -836,20 +700,46 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_coop_corp
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_welfare_programmes }
 		x = 19
 		y = 2
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = no
+		available = {
+			is_subject = no 
+			country_exists = FOC
+		}
 		completion_reward = {
-			army_experience = 5
+			add_ideas = {
+				FGB_ford_collab
+			}
+			add_opinion_modifier = {
+				target = FOC
+				modifier = FOC_collab
+			}
+			FOC = {
+				add_ideas = {
+					FOC_freikorps_collab
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = FGB_collab
+				}
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				name = mech_army_bonus
+				technology = mechanised_infantry
+			}
 		}
 	}
 	
 	focus = {
 		id = FGB_tax_foreign
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_combat_inflation }
 		x = 13
 		y = 3
@@ -862,7 +752,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_etatism
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_welfare_programmes }
 		mutually_exclusive = { focus = FGB_market_liberalism }
 		x = 15
@@ -879,7 +769,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_market_liberalism
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_welfare_programmes }
 		mutually_exclusive = { focus = FGB_etatism }
 		x = 17.5
@@ -896,17 +786,13 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_modernise_taxes
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_coop_corp }
 		x = 19
 		y = 3
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = FGB_recovering_industry
-				add_idea = FGB_recovering_industry1
-			}
 			IF = {
 				limit = { has_idea = FGB_recovering_industry1 }
 				swap_ideas = {
@@ -925,7 +811,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_nationalise_industry
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_tax_foreign }
 		x = 13
 		y = 4
@@ -953,7 +839,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_increase_tariffs
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_etatism }
 		x = 15
 		y = 4
@@ -968,7 +854,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_increase_exports
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_market_liberalism }
 		x = 17
 		y = 4
@@ -983,7 +869,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_buy_businesses
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_modernise_taxes }
 		x = 19
 		y = 4
@@ -1011,7 +897,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_autarky
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_nationalise_industry }
 		prerequisite = { focus = FGB_increase_tariffs }
 		x = 14
@@ -1028,7 +914,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_market_decentralisation
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_increase_exports }
 		prerequisite = { focus = FGB_buy_businesses }
 		x = 18
@@ -1045,10 +931,9 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_complete_recovery
-		icon = GFX_focus_FGB_rhine_factories
+		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_autarky focus = FGB_market_decentralisation }
 		available = {
-			NOT = { has_idea = FGB_recovering_industry }
 			NOT = { has_idea = FGB_recovering_industry1 }
 			NOT = { has_idea = FGB_recovering_industry2 }
 			is_subject = no
@@ -1066,7 +951,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_a_brand_new_economy
-		icon = GFX_focus_FGB_a_brand_new_economy
+		icon = GFX_focus_FGB_reconstruction
 		available = {
 			has_completed_focus = FGB_complete_recovery
 			has_full_control_of_state = 50
