@@ -26,6 +26,10 @@
 				remove_idea = all_adults_serve
 				add_idea = extensive_conscription
 			}
+			set_variable = {
+				var = TUS_Balbo_Pop
+				value = 0
+			}
 			country_event = tus.1
 		}
 
@@ -134,7 +138,7 @@
 	}
 	
 	focus = {
-		id = TUS_unify_the_party
+		id = TUS_expand_industry
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -148,24 +152,6 @@
 		}
 	
 		relative_position_id = TUS_feed_our_people
-		
-        x = 0
-        y = 1
-		
-        cost = 15
-		
-		completion_reward = {}
-	}
-	
-	focus = {
-		id = TUS_expand_industry
-		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_unify_the_party
-		}
-	
-		relative_position_id = TUS_unify_the_party
 		
         x = -3
         y = 1
@@ -186,6 +172,10 @@
 					instant_build = yes
 				}
 			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop
+				value = 2
+			}
 		}
 
 	}
@@ -195,10 +185,16 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_unify_the_party
+			focus = TUS_hold_our_ground
+		}
+		prerequisite = {
+			focus = TUS_feed_our_people
+		}
+		prerequisite = {
+			focus = TUS_arm_our_men
 		}
 	
-		relative_position_id = TUS_unify_the_party
+		relative_position_id = TUS_feed_our_people
 		
         x = -1
         y = 1
@@ -225,6 +221,10 @@
 				start_province = 9750
 				target_province = 6875
 			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop
+				value = 1
+			}
 		}
 	}
 	
@@ -233,10 +233,16 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_unify_the_party
+			focus = TUS_hold_our_ground
+		}
+		prerequisite = {
+			focus = TUS_feed_our_people
+		}
+		prerequisite = {
+			focus = TUS_arm_our_men
 		}
 	
-		relative_position_id = TUS_unify_the_party
+		relative_position_id = TUS_feed_our_people
 		
         x = 1
         y = 1
@@ -252,6 +258,10 @@
 					instant_build = yes
 				}
 			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop
+				value = 1
+			}
 		}
 
 	}
@@ -261,10 +271,16 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_unify_the_party
+			focus = TUS_hold_our_ground
+		}
+		prerequisite = {
+			focus = TUS_feed_our_people
+		}
+		prerequisite = {
+			focus = TUS_arm_our_men
 		}
 		
-		relative_position_id = TUS_unify_the_party
+		relative_position_id = TUS_feed_our_people
 		
         x = 3
         y = 1
@@ -281,7 +297,33 @@
 					count = 4
 				}
 			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop
+				value = 2
+			}
 		}
+	}
+
+	focus = {
+		id = TUS_unify_the_party
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_complete_infrastructure_projects
+			focus = TUS_expand_industry
+			focus = TUS_army_reform
+			focus = TUS_build_dockyards
+		}
+	
+		relative_position_id = TUS_build_dockyards
+		
+        x = 0
+        y = 1
+		
+        cost = 15
+		cancelable = no
+		
+		completion_reward = {}
 	}
 	
 	focus = {
@@ -303,7 +345,7 @@
 		
 		relative_position_id = TUS_complete_infrastructure_projects
 		
-        x = 1
+        x = 0
         y = 1
 		
         cost = 10
@@ -315,6 +357,10 @@
 			#	remove_idea = closed_economy
 			#	add_idea = limited_exports
 			#}
+			add_to_variable = {
+				var = TUS_Balbo_Pop
+				value = 3
+			}
 		}
 
 	}
@@ -326,16 +372,13 @@
 		prerequisite = {
 			focus = TUS_rebuild_our_economy
 		}
-		available = {
-			check_variable = {
-				var = TUS_can_speech
-				value = 1
-			}
+		prerequisite = {
+			focus = TUS_unify_the_party
 		}
 		
 		relative_position_id = TUS_rebuild_our_economy
 		
-        x = 0
+        x = 1
         y = 1
 		
         cost = 5
@@ -535,7 +578,7 @@
 		prerequisite = {
 			focus = TUS_destroy_the_traitor
 		}
-		
+		#testnote
 		available = {
 			ITS = {all_core_state = {is_core_of = ROOT}}
 			VNE = {all_core_state = {is_core_of = ROOT}}
