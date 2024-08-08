@@ -384,7 +384,7 @@
         cost = 5
 		
 		completion_reward = {
-			country_event = tus.7
+			country_event = tus.3
 		}
 	}
 	
@@ -405,7 +405,20 @@
 		cancel_if_invalid = no
 		available = {has_war = no has_completed_focus = TUS_balbos_speech}
 		
-		completion_reward = {}
+		completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = ITS
+						is_core_of = VNE
+						is_core_of = ITA
+						is_core_of = MSS
+						is_core_of = SAR
+					}
+				}
+				add_claim_by = TUS
+			}
+		}
 	}
 
 	focus = {
@@ -428,10 +441,6 @@
 		cancel_if_invalid = yes
 		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITS}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = ITS
 				type = annex_everything
@@ -461,10 +470,6 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = VNE}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = VNE
 				type = annex_everything
@@ -494,10 +499,6 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITA}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = ITA
 				type = annex_everything
@@ -527,10 +528,6 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = MSS}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = MSS
 				type = annex_everything
@@ -560,10 +557,6 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = SAR}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = SAR
 				type = annex_everything
@@ -572,13 +565,12 @@
 	}
 	
 	focus = {
-		id = TUS_convene_the_grand_council
+		id = TUS_balbos_speech_2
 		icon = GFX_goal_generic_construction
-					
+		
 		prerequisite = {
 			focus = TUS_destroy_the_traitor
 		}
-		#testnote
 		available = {
 			ITS = {all_core_state = {is_core_of = ROOT}}
 			VNE = {all_core_state = {is_core_of = ROOT}}
@@ -592,41 +584,244 @@
         x = 0
         y = 1
 		
-        cost = 3
+        cost = 5
+		
 		completion_reward = {
-			country_event = tus.8
+			country_event = tus.4
 		}
 	}
 	
 	focus = {
-		id = TUS_balbos_speech_2
+		id = TUS_rebuild_italy
 		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_convene_the_grand_council
-		}
+
 		available = {
-			OR = {
-				check_variable = {
-					var = TUS_full_name
-					value = 0
+			has_completed_focus = TUS_balbos_speech_2
+		}
+		
+        x = 15
+        y = 0
+		
+        cost = 10
+		
+		completion_reward = {
+			157 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
 				}
-				check_variable = {
-					var = TUS_full_name
-					value = 1
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			2 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
+	}
+
+	focus = {
+		id = TUS_improve_the_north
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
 		
-		relative_position_id = TUS_convene_the_grand_council
-		
-        x = 0
+        x = -1
         y = 1
+		
+		relative_position_id = TUS_rebuild_italy
+		
+        cost = 20
+		
+		completion_reward = {
+			161 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			159 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			158 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			160 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_improve_the_south
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy
+		
+        cost = 15
+		
+		completion_reward = {
+			117 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			156 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			115 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_restabilize_the_government
+		icon = GFX_goal_generic_construction
+
+		available = {
+			has_completed_focus = TUS_balbos_speech_2
+		}
+		
+        x = 20
+        y = 0
 		
         cost = 5
 		
 		completion_reward = {
-			country_event = tus.11
 		}
 	}
 }

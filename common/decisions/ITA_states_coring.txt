@@ -79,6 +79,19 @@ ITA_reunification = {
 			add_state_core = 159
 			add_state_core = 158
 			add_state_core = 161
+			
+			if = {
+				limit = {
+					check_variable = {
+						var = TUS_party_merge
+						value = 1
+					}
+					country_event = tus_cap.1
+				}
+			}
+			else = {
+				country_event = tus_cap.2
+			}
 		}
 	}
 	ITA_coring_vne = {
@@ -241,6 +254,19 @@ ITA_reunification = {
 		remove_effect	= {
 			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_sar remove"
 			add_state_core = 114
+			
+			if = {
+				limit = {
+					check_variable = {
+						var = TUS_party_merge
+						value = 1
+					}
+					country_event = tus_cap.3
+				}
+			}
+			else = {
+				country_event = tus_cap.4
+			}
 		}
 	}
 }

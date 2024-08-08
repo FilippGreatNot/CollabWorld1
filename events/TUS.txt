@@ -1,6 +1,7 @@
 ## SETUP ##
 add_namespace = tus
 add_namespace = tus_coun1
+add_namespace = tus_cap
 
 ## WELCOME ##
 country_event = {
@@ -159,13 +160,13 @@ country_event = {
 
 ## After First Meeting ##
 country_event = {
-	id = tus.7
-	title = tus.7.t
-	desc = tus.7.d
+	id = tus.3
+	title = tus.3.t
+	desc = tus.3.d
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.7.a
+		name = tus.3.a
 		next_legacy_of_the_great_war_idea = yes
 		next_legacy_of_the_great_war_idea = yes
 		hidden_effect = { mark_focus_tree_layout_dirty = yes }
@@ -173,129 +174,9 @@ country_event = {
 }
 
 country_event = {
-	id = tus.8
-	title = tus.3.t
-	desc = tus.8.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.8.a
-		if = {
-			limit = {
-				check_variable = {
-					var = TUS_emergency_powers
-					value = 1
-				}				
-			}
-			country_event = {
-				id = tus.9
-				days = 35
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					var = TUS_emergency_powers
-					value = 0
-				}				
-			}
-			country_event = {
-				id = tus.10
-				days = 35
-			}
-		}
-	}
-}
-
-country_event = {
-	id = tus.9
-	title = tus.9.t
-	desc = tus.9.d
-	is_triggered_only = yes
-	
-	option = {
-		#desolve council
-		name = tus.9.a
-		set_variable = {
-			var = TUS_desolve_council
-			value = 1
-		}
-		add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = 0.3
-		}
-		set_party_name = { 
-			ideology = national_syndicalism 
-			long_name = TUS_national_syndicalism_party_long_2
-			name = TUS_national_syndicalism_party_2
-		}
-		set_party_name = { 
-			ideology = national_syndicalism 
-			long_name = TUS_authoritarian_democrat_party_long_2
-			name = TUS_authoritarian_democrat_party_2
-		}
-		country_event = {
-			id = tus.10
-			days = 35
-		}
-	}
-	option = {
-		#return powers
-		name = tus.9.b
-		set_variable = {
-			var = TUS_emergency_powers
-			value = 0
-		}
-		country_event = {
-			id = tus.10
-			days = 35
-		}
-	}
-}
-
-country_event = {
-	id = tus.10
-	title = tus.10.t
-	desc = tus.10.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.10.a
-		# Italian Empire
-		hidden_effect = {
-			set_variable = {
-				var = TUS_full_name
-				value = 0
-			}
-		}
-	}
-	option = {
-		name = tus.10.b
-		#Roman Empire
-		hidden_effect = {
-			set_variable = {
-				var = TUS_full_name
-				value = 1
-			}
-		}
-	}
-}
-
-country_event = {
-	id = tus.11
-	title = tus.11.t
-	desc = tus.11.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.11.a
-	}
-}
-
-country_event = {
-	id = tus.13
-	title = tus.13.t
-	desc = tus.13.d
+	id = tus.4
+	title = tus.4.t
+	desc = tus.4.d
 	
 	fire_only_once = yes
 	
@@ -314,6 +195,96 @@ country_event = {
 	}
 	
 	option = {
-		name = tus.13.a	
+		name = tus.4.a	
+	}
+}
+
+## capture event ##
+
+country_event = {
+	id = tus_cap.1
+	title = tus_cap.1.t
+	desc = tus_cap.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_cap.1.a
+		set_variable = {
+			var = TUS_commie_state
+			value = 1
+		}
+	}
+	option = {
+		name = tus_cap.2.a
+		set_variable = {
+			var = TUS_commie_state
+			value = 2
+		}
+	}
+}
+
+country_event = {
+	id = tus_cap.2
+	title = tus_cap.1.t
+	desc = tus_cap.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_cap.2.a
+		set_variable = {
+			var = TUS_commie_state
+			value = 2
+		}
+	}
+	option = {
+		name = tus_cap.3.a
+		set_variable = {
+			var = TUS_commie_state
+			value = 3
+		}
+	}
+}
+
+country_event = {
+	id = tus_cap.3
+	title = tus_cap.2.t
+	desc = tus_cap.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_cap.1.a
+		set_variable = {
+			var = TUS_king_state
+			value = 1
+		}
+	}
+	option = {
+		name = tus_cap.2.a
+		set_variable = {
+			var = TUS_king_state
+			value = 2
+		}
+	}
+}
+
+country_event = {
+	id = tus_cap.4
+	title = tus_cap.2.t
+	desc = tus_cap.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_cap.2.a
+		set_variable = {
+			var = TUS_king_state
+			value = 2
+		}
+	}
+	option = {
+		name = tus_cap.3.a
+		set_variable = {
+			var = TUS_king_state
+			value = 3
+		}
 	}
 }
