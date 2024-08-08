@@ -18,7 +18,7 @@
 		
         cost = 5
 		
-		allow_branch = {NOT = {has_completed_focus = TUS_balbos_speech}}
+		#allow_branch = {NOT = {has_completed_focus = TUS_balbos_speech}}
 		
 		completion_reward = {
 		    add_stability = 0.05
@@ -330,7 +330,7 @@
 		}
 		available = {
 			check_variable = {
-				var = TUS_com_part_unif
+				var = TUS_can_speech
 				value = 1
 			}
 		}
@@ -346,17 +346,45 @@
 			country_event = tus.7
 		}
 	}
+	
+	focus = {
+		id = TUS_prepare_for_reunificatoin
+		icon = GFX_goal_generic_construction
+					
+        #x = 5
+        #y = 0
+		x = 11
+        y = 0
+		
+        cost = 25
+		cancelable = no
+		
+		#allow_branch = {has_completed_focus = TUS_balbos_speech}
+		
+		cancel_if_invalid = no
+		available = {has_war = no has_completed_focus = TUS_balbos_speech}
+		
+		completion_reward = {}
+	}
 
 	focus = {
 		id = TUS_the_red_menace
 		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_prepare_for_reunificatoin
+		}
+		
+		bypass = {NOT = {country_exists = ITS}}
+		
+		relative_position_id = TUS_prepare_for_reunificatoin
 					
-        x = 5
-        y = 0
+        x = 0
+        y = 1
 		
         cost = 6
-		
-		allow_branch = {has_completed_focus = TUS_balbos_speech}
+			
+		cancel_if_invalid = yes
 		
 		completion_reward = {
 			every_state = {
@@ -378,12 +406,18 @@
 			focus = TUS_the_red_menace
 		}
 		
+		available = {NOT = {country_exists = ITS}}
+		
+		bypass = {NOT = {country_exists = VNE}}
+		
 		relative_position_id = TUS_the_red_menace
 		
         x = 0
         y = 1
 		
         cost = 3
+		
+		cancel_if_invalid = yes
 			
 		completion_reward = {
 			every_state = {
@@ -405,12 +439,18 @@
 			focus = TUS_secure_northen_italy
 		}
 		
+		available = {NOT = {country_exists = VNE}}
+		
+		bypass = {NOT = {country_exists = ITA}}
+		
 		relative_position_id = TUS_secure_northen_italy
 		
         x = 0
         y = 1
 		
         cost = 6
+		
+		cancel_if_invalid = yes
 			
 		completion_reward = {
 			every_state = {
@@ -432,12 +472,18 @@
 			focus = TUS_destroy_the_frauds
 		}
 		
+		available = {NOT = {country_exists = ITA}}
+		
+		bypass = {NOT = {country_exists = MSS}}
+		
 		relative_position_id = TUS_destroy_the_frauds
 		
         x = 0
         y = 1
 		
         cost = 3
+		
+		cancel_if_invalid = yes
 			
 		completion_reward = {
 			every_state = {
@@ -452,150 +498,34 @@
 	}
 	
 	focus = {
-		id = TUS_rebuild_its
-		icon = GFX_goal_generic_construction
-					
-		prerequisite = {
-			focus = TUS_the_red_menace
-		}
-		
-		available = {159 = {is_core_of = ROOT}}
-		
-		relative_position_id = TUS_the_red_menace
-		
-        x = 2
-        y = 1
-		
-        cost = 3
-			
-		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITS}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = TUS_rebuild_vne
-		icon = GFX_goal_generic_construction
-					
-		prerequisite = {
-			focus = TUS_secure_northen_italy
-		}
-		prerequisite = {
-			focus = TUS_rebuild_its
-		}
-		
-		available = {160 = {is_core_of = ROOT}}
-		
-		relative_position_id = TUS_secure_northen_italy
-		
-        x = 2
-        y = 1
-		
-        cost = 3
-			
-		completion_reward = {
-			every_state = {
-				limit = {is_core_of = VNE}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = TUS_rebuild_ita
-		icon = GFX_goal_generic_construction
-					
-		prerequisite = {
-			focus = TUS_destroy_the_frauds
-		}
-		prerequisite = {
-			focus = TUS_rebuild_vne
-		}
-		
-		available = {2 = {is_core_of = ROOT}}
-		
-		relative_position_id = TUS_destroy_the_frauds
-		
-        x = 2
-        y = 1
-		
-        cost = 3
-			
-		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITA}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = TUS_rebuild_mss
+		id = TUS_destroy_the_traitor
 		icon = GFX_goal_generic_construction
 					
 		prerequisite = {
 			focus = TUS_bring_order_to_chaos
 		}
-		prerequisite = {
-			focus = TUS_rebuild_ita
-		}
 		
-		available = {115 = {is_core_of = ROOT}}
+		available = {NOT = {country_exists = MSS}}
 		
-		relative_position_id = TUS_destroy_the_frauds
+		bypass = {NOT = {country_exists = SAR}}
 		
-        x = 2
+		relative_position_id = TUS_bring_order_to_chaos
+		
+        x = 0
         y = 1
 		
         cost = 3
+		
+		cancel_if_invalid = yes
 			
 		completion_reward = {
 			every_state = {
-				limit = {is_core_of = MSS}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
+				limit = {is_core_of = SAR}
+				add_claim_by = TUS
+			}
+			declare_war_on = {
+				target = SAR
+				type = annex_everything
 			}
 		}
 	}
@@ -605,19 +535,57 @@
 		icon = GFX_goal_generic_construction
 					
 		prerequisite = {
-			focus = TUS_rebuild_mss
-		}
-		prerequisite = {
-			focus = TUS_bring_order_to_chaos
+			focus = TUS_destroy_the_traitor
 		}
 		
-		available = {115 = {is_core_of = ROOT}}
+		available = {
+			every_state = {limit = {is_core_of = ITS} is_core_of = TUS}
+			every_state = {limit = {is_core_of = VNE} is_core_of = TUS}
+			every_state = {limit = {is_core_of = ITA} is_core_of = TUS}
+			every_state = {limit = {is_core_of = MSS} is_core_of = TUS}
+			every_state = {limit = {is_core_of = SAR} is_core_of = TUS}
+		}
 		
-		relative_position_id = TUS_bring_order_to_chaos
+		relative_position_id = TUS_destroy_the_traitor
 		
         x = 0
         y = 1
 		
         cost = 3
+		completion_reward = {
+			country_event = tus.8
+		}
+	}
+	
+	focus = {
+		id = TUS_balbos_speech_2
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_convene_the_grand_council
+		}
+		available = {
+			OR = {
+				check_variable = {
+					var = TUS_full_name
+					value = 0
+				}
+				check_variable = {
+					var = TUS_full_name
+					value = 1
+				}
+			}
+		}
+		
+		relative_position_id = TUS_convene_the_grand_council
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			country_event = tus.11
+		}
 	}
 }
