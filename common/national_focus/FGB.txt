@@ -11,6 +11,10 @@ focus_tree = {
 	}
 	default = no
 	
+	initial_show_position = { focus = FGB_train_soldiers }
+	
+	continuous_focus_position = { x = 50 y = 1500 }
+	
 	focus = {
 		id = FGB_death_of_kapp
 		icon = GFX_focus_FGB_death_of_kapp
@@ -356,6 +360,45 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = FGB_protect_the_skies
+		icon = GFX_focus_FGB_protect_the_skies
+		prerequisite = { focus = FGB_repair_airbases }
+		available = {
+			FGB = {
+				check_variable = { has_tech = anti_air_equipment_1 }
+				custom_trigger_tooltip = {
+					tooltip = FGB_protect_the_skies_tt
+				}
+			}
+		}
+		x = 26.25
+		y = 4
+		cost = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = FGB_protect_the_skies
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+			50 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
 		
 	focus = {
 		id = FGB_expand_army
@@ -653,7 +696,22 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			army_experience = 5
+			50 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes 
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
@@ -729,10 +787,10 @@ focus_tree = {
 				}
 			}
 			add_tech_bonus = {
+				name = FGB_coop_corp
 				bonus = 1.0
 				uses = 1
-				name = mech_army_bonus
-				technology = mechanised_infantry
+				category = motorized_equipment
 			}
 		}
 	}
