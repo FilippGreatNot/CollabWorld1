@@ -278,6 +278,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_stability = 0.05
+			842 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 			50 = {
 				add_building_construction = {
 					type = arms_factory
@@ -293,6 +300,9 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
+				842 = {
+					add_extra_state_shared_building_slots = 2
+				}
 				50 = {
 					add_extra_state_shared_building_slots = 2
 				}
@@ -316,16 +326,24 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			air_experience = 20
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = air_base							
-						size > 1
-					}
-				}
+			842 = {
 				add_building_construction = {
 					type = air_base
 					level = 2
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -382,6 +400,13 @@ focus_tree = {
 				bonus = 1.0
 				uses = 1
 				category = light_fighter
+			}
+			842 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
 			}
 			50 = {
 				add_building_construction = {
@@ -692,6 +717,14 @@ focus_tree = {
 				remove_idea = FGB_consequences_of_the_great_war
 				add_idea = FGB_rebuilding_economy
 			}
+			842 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			50 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -720,10 +753,16 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			842 = {
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+			}
 			50 = {
 				add_resource = { 
 					type = steel
-					amount = 4
+					amount = 2
 				}
 			}
 			add_stability = -0.05
@@ -739,6 +778,14 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			842 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes 
+				}
+			}
 			50 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -919,6 +966,14 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			842 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 			50 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -977,6 +1032,14 @@ focus_tree = {
 		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			842 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			50 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -1055,6 +1118,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_reconstruction
 		available = {
 			has_completed_focus = FGB_complete_recovery
+			has_full_control_of_state = 842
 			has_full_control_of_state = 50
 			has_full_control_of_state = 52
 			has_full_control_of_state = 53
@@ -1063,9 +1127,21 @@ focus_tree = {
 		}
 		x = 16
 		y = 8
-		cost = 15
+		cost = 16
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			842 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			50 = {
 				add_building_construction = {
 					type = industrial_complex
@@ -1115,6 +1191,9 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
+				842 = {
+					add_extra_state_shared_building_slots = 6
+				}
 				50 = {
 					add_extra_state_shared_building_slots = 6
 				}
