@@ -49,14 +49,13 @@ focus_tree = {
 		id = FGB_noske
 		icon = GFX_focus_FGB_noske
 		x = 0
-		y = 2
+		y = 1
+		relative_position_id = FGB_electing_new_leader
 		cost = 0
 		prerequisite = { focus = FGB_electing_new_leader }
-		allow_branch = {
-			has_completed_focus = FGB_electing_new_leader
-			NOT = { has_completed_focus = FGB_pabst }
-			NOT = { has_completed_focus = FGB_rohm }
-			NOT = { has_completed_focus = FGB_other }
+		allow_branch = { has_country_flag = FGB_noske_flag }
+		completion_reward = {
+			add_political_power = 5
 		}
 	}
 	
@@ -64,7 +63,8 @@ focus_tree = {
 		id = FGB_noske_middle
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
-		y = 3
+		y = 1
+		relative_position_id = FGB_noske
 		cost = 3
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
@@ -75,24 +75,24 @@ focus_tree = {
 	focus = {
 		id = FGB_pabst
 		icon = GFX_focus_FGB_pabst
-		x = 4
-		y = 2
+		x = 0
+		y = 1
 		cost = 0
+		relative_position_id = FGB_electing_new_leader
 		prerequisite = { focus =  FGB_electing_new_leader }
-		allow_branch = {
-			has_completed_focus = FGB_electing_new_leader
-			NOT = { has_completed_focus = FGB_noske }
-			NOT = { has_completed_focus = FGB_rohm }
-			NOT = { has_completed_focus = FGB_other }
+		allow_branch = { has_country_flag = FGB_pabst_flag }
+		completion_reward = {
+			add_political_power = 5
 		}
 	}
 	
 	focus = {
 		id = FGB_pabst_middle
 		icon = GFX_focus_FGB_electing_new_leader
-		x = 4
-		y = 3
+		x = 0
+		y = 1
 		cost = 3
+		relative_position_id = FGB_pabst
 		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
 			add_political_power = 20
@@ -102,24 +102,24 @@ focus_tree = {
 	focus = {
 		id = FGB_rohm
 		icon = GFX_focus_FGB_rohm
-		x = 8
-		y = 2
+		x = 0
+		y = 1
 		cost = 0
+		relative_position_id = FGB_electing_new_leader
 		prerequisite = { focus = FGB_electing_new_leader }
-		allow_branch = {
-			has_completed_focus = FGB_electing_new_leader
-			NOT = { has_completed_focus = FGB_noske }
-			NOT = { has_completed_focus = FGB_pabst }
-			NOT = { has_completed_focus = FGB_other }
+		allow_branch = { has_country_flag = FGB_rohm_flag }
+		completion_reward = {
+			add_political_power = 5
 		}
 	}
 	
 	focus = {
 		id = FGB_rohm_middle
 		icon = GFX_focus_FGB_electing_new_leader
-		x = 8
-		y = 3
+		x = 0
+		y = 1
 		cost = 3
+		relative_position_id = FGB_rohm
 		prerequisite = { focus = FGB_rohm }
 		completion_reward = {
 			add_political_power = 20
@@ -129,24 +129,24 @@ focus_tree = {
 	focus = {
 		id = FGB_other
 		icon = GFX_focus_FGB_other
-		x = 12
-		y = 2
+		x = 0
+		y = 1
 		cost = 0
+		relative_position_id = FGB_electing_new_leader
 		prerequisite = { focus = FGB_electing_new_leader }
-		allow_branch = {
-			has_completed_focus = FGB_electing_new_leader
-			NOT = { has_completed_focus = FGB_noske }
-			NOT = { has_completed_focus = FGB_pabst }
-			NOT = { has_completed_focus = FGB_rohm }
+		allow_branch = { has_country_flag = FGB_other_flag }
+		completion_reward = {
+			add_political_power = 5
 		}
 	}
 	
 	focus = {
 		id = FGB_other_middle
 		icon = GFX_focus_FGB_electing_new_leader
-		x = 12
-		y = 3
+		x = 0
+		y = 1
 		cost = 3
+		relative_position_id = FGB_other
 		prerequisite = { focus = FGB_other }
 		completion_reward = {
 			add_political_power = 20
@@ -1087,6 +1087,51 @@ focus_tree = {
 				54 = {
 					add_extra_state_shared_building_slots = 5
 				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_attack_bavaria
+		icon = GFX_focus_FGB_attack_bavaria
+		available = {
+			is_subject = no
+			check_variable = { num_of_owned_factories > 12 }
+			custom_trigger_tooltip = {
+				tooltip = FGB_attack_bavaria_tt
+			}
+		}
+		x = 30
+		y = 6
+		cost = 5
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_bavaria"
+			BAV = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			}
+		}
+	}
+	focus = {
+		id = FGB_attack_wehrkommando
+		icon = GFX_focus_FGB_attack_wehrkommando
+		available = {
+			is_subject = no
+			has_army_manpower = { size > 99999 }
+			custom_trigger_tooltip = { 
+				tooltip = FGB_attack_wehrkommando_tt 
+			}
+		}
+		x = 30
+		y = 7
+		cost = 5
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_wehrkommando"
+			WRD = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
 			}
 		}
 	}
