@@ -515,17 +515,16 @@ focus_tree = {
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
 		available = {
-			always = no
+			IF = { has_idea = FGB_mobile }
+			NOT = { has_idea = FGB_firepower }
 		}
 		x = 23.75
 		y = 6
-		cost = 1
+		cost = 5
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = land_doc_bonus
-				cost_reduction = 0.75
-				uses = 2
-				category = land_doctrine
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias4
+				add_idea = FGB_swift_strike
 			}
 		}
 	}
@@ -536,13 +535,17 @@ focus_tree = {
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
 		available = {
-			always = no
+			IF = { has_idea = FGB_firepower }
+			NOT = { has_idea = FGB_mobile }
 		}
 		x = 25.25
 		y = 6
-		cost = 1
+		cost = 5
 		completion_reward = {
-			army_experience = 5
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias4
+				add_idea = FGB_coordinated_assault
+			}
 		}
 	}
 	
@@ -689,7 +692,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_repair_the_countryside
-		icon = GFX_focus_FGB_reconstruction
+		icon = GFX_focus_FGB_repair_the_countryside
 		prerequisite = { focus = FGB_reconstruction }
 		x = 18
 		y = 1
