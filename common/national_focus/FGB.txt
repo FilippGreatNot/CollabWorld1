@@ -437,6 +437,46 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = FGB_prussianise_culture
+		icon = GFX_focus_FGB_prussianise_culture
+		prerequisite = { focus = FGB_expand_army }
+		available = {
+			or = {
+				has_completed_focus = FGB_definitive_attack 
+				has_completed_focus = FGB_prepared_offensive 
+			}
+		}
+		x = 22
+		y = 5
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = FGB_in_defense_of_the_vaterland
+				add_idea = FGB_prussian_model
+			}
+			IF = {
+				limit = { has_idea = FGB_swift_strike }
+				swap_ideas = {
+					remove_idea = FGB_swift_strike
+					add_idea = FGB_swift_strike2
+				}
+			}
+			ELSE_IF = {
+				limit = { has_idea = FGB_coordinated_assault }
+				swap_ideas = {
+					remove_idea = FGB_coordinated_assault
+					add_idea = FGB_coordinated_assault2
+				}
+			}
+		}
+	}
 
 	focus = {
 		id = FGB_recruit_prisoners
@@ -673,7 +713,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_resource_smuggling
-		icon = GFX_focus_FGB_reconstruction
+		icon = GFX_focus_FGB_resource_smuggling
 		prerequisite = { focus = FGB_reconstruction }
 		x = 14
 		y = 1
@@ -720,7 +760,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_welfare_programmes
-		icon = GFX_focus_FGB_reconstruction
+		icon = GFX_focus_FGB_welfare_programmes
 		prerequisite = { focus = FGB_reconstruction }
 		x = 16
 		y = 2
