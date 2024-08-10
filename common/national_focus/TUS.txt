@@ -134,7 +134,7 @@
 	}
 	
 	focus = {
-		id = TUS_rebuild_our_economy
+		id = TUS_unify_the_party
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -146,23 +146,15 @@
 		prerequisite = {
 			focus = TUS_arm_our_men
 		}
-		
+	
 		relative_position_id = TUS_feed_our_people
 		
         x = 0
         y = 1
 		
-        cost = 10
+        cost = 15
 		
-		completion_reward = {
-			country_event = tus.2
-			remove_ideas = {TUS_collapsing_economy}
-			#swap_ideas = {
-			#	remove_idea = closed_economy
-			#	add_idea = limited_exports
-			#}
-		}
-
+		completion_reward = {}
 	}
 	
 	focus = {
@@ -170,10 +162,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_rebuild_our_economy
+			focus = TUS_unify_the_party
 		}
 	
-		relative_position_id = TUS_rebuild_our_economy
+		relative_position_id = TUS_unify_the_party
 		
         x = -3
         y = 1
@@ -203,10 +195,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_rebuild_our_economy
+			focus = TUS_unify_the_party
 		}
 	
-		relative_position_id = TUS_rebuild_our_economy
+		relative_position_id = TUS_unify_the_party
 		
         x = -1
         y = 1
@@ -241,10 +233,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_rebuild_our_economy
+			focus = TUS_unify_the_party
 		}
 	
-		relative_position_id = TUS_rebuild_our_economy
+		relative_position_id = TUS_unify_the_party
 		
         x = 1
         y = 1
@@ -269,10 +261,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_rebuild_our_economy
+			focus = TUS_unify_the_party
 		}
 		
-		relative_position_id = TUS_rebuild_our_economy
+		relative_position_id = TUS_unify_the_party
 		
         x = 3
         y = 1
@@ -293,7 +285,7 @@
 	}
 	
 	focus = {
-		id = TUS_unify_the_party
+		id = TUS_rebuild_our_economy
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -308,17 +300,23 @@
 		prerequisite = {
 			focus = TUS_build_dockyards
 		}
-	
+		
 		relative_position_id = TUS_complete_infrastructure_projects
 		
         x = 1
         y = 1
 		
-        cost = 5
+        cost = 10
 		
 		completion_reward = {
-			country_event = tus.3
+			country_event = tus.2
+			remove_ideas = {TUS_collapsing_economy}
+			#swap_ideas = {
+			#	remove_idea = closed_economy
+			#	add_idea = limited_exports
+			#}
 		}
+
 	}
 	
 	focus = {
@@ -326,7 +324,7 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_unify_the_party
+			focus = TUS_rebuild_our_economy
 		}
 		available = {
 			check_variable = {
@@ -335,7 +333,7 @@
 			}
 		}
 		
-		relative_position_id = TUS_unify_the_party
+		relative_position_id = TUS_rebuild_our_economy
 		
         x = 0
         y = 1
@@ -539,11 +537,11 @@
 		}
 		
 		available = {
-			all_state = {limit = {is_core_of = ITS} is_core_of = TUS}
-			all_state = {limit = {is_core_of = VNE} is_core_of = TUS}
-			all_state = {limit = {is_core_of = ITA} is_core_of = TUS}
-			all_state = {limit = {is_core_of = MSS} is_core_of = TUS}
-			all_state = {limit = {is_core_of = SAR} is_core_of = TUS}
+			ITS = {all_core_state = {is_core_of = ROOT}}
+			VNE = {all_core_state = {is_core_of = ROOT}}
+			ITA = {all_core_state = {is_core_of = ROOT}}
+			MSS = {all_core_state = {is_core_of = ROOT}}
+			SAR = {all_core_state = {is_core_of = ROOT}}
 		}
 		
 		relative_position_id = TUS_destroy_the_traitor
