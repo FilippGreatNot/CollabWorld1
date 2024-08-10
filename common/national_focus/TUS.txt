@@ -587,7 +587,7 @@
         cost = 5
 		
 		completion_reward = {
-			country_event = tus.4
+			country_event = tus.5
 		}
 	}
 	
@@ -652,7 +652,7 @@
 			focus = TUS_rebuild_italy
 		}
 		
-        x = -1
+        x = -2
         y = 1
 		
 		relative_position_id = TUS_rebuild_italy
@@ -743,7 +743,7 @@
 			focus = TUS_rebuild_italy
 		}
 		
-        x = 1
+        x = 2
         y = 1
 		
 		relative_position_id = TUS_rebuild_italy
@@ -804,6 +804,53 @@
 					level = 1
 					instant_build = yes
 				}
+			}
+		}
+	}
+
+	focus = {
+		id = TUS_resolve_workers_strikes
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy
+		
+        cost = 5
+		
+		completion_reward = {
+			remove_ideas = TUS_worker_strikes
+		}
+	}
+	
+	focus = {
+		id = TUS_start_trade_relations
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_improve_the_north
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south
+		}
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TUS_resolve_workers_strikes
+		
+        cost = 6
+		
+		completion_reward = {
+			remove_ideas = economically_isolated
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = limited_exports
 			}
 		}
 	}

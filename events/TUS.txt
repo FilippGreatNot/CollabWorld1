@@ -206,6 +206,37 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = tus.5
+	title = tus.5.t
+	desc = tus.5.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.5.a	
+		set_cosmetic_tag = ITA_EMP
+		add_ideas = {
+			TUS_worker_strikes
+			TUS_overwhelmed_council
+		}
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			add_ideas = TUS_council_infighting
+		}
+	}
+}
+
+country_event = {
+	id = tus.6
+	title = tus.6.t
+	desc = tus.6.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.6.a	
+	}
+}
+
 ## capture event ##
 
 country_event = {
@@ -313,9 +344,60 @@ country_event = {
 	
 	option = {
 		name = tus_coun2.1.a
-		country_event = {
-			id = tus_coun2.2
-			days = 35
+		#Create Local Counseles
+		remove_ideas = TUS_overwhelmed_council
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government
+				add_idea = TUS_disunified_government_2
+			}
 		}
+		if = {
+			limit = {has_idea = TUS_unified_government}
+			swap_ideas = {
+				remove_idea = TUS_unified_government
+				add_idea = TUS_disunified_government
+			}
+		}
+	}
+	
+	option = {
+		name = tus_coun2.1.b
+		#Dont
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government
+				add_idea = TUS_unified_government
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus_coun2.2
+	title = tus_coun2.2.t
+	desc = tus_coun2.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_coun2.2.a
+		#Purge
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government
+				add_idea = TUS_unified_government
+			}
+		}
+		if = {
+			limit = {has_idea = TUS_disunified_government_2}
+			#will do civil war
+		}
+	}
+	
+	option = {
+		name = tus_coun2.2.b
 	}
 }
