@@ -1,0 +1,71 @@
+FGB_army_category = {
+	FGB_reform = {
+		available = {
+			has_political_power > 19
+		}
+		allowed = {
+			tag = FGB
+		}
+		cost = 30
+		icon = FGB_reform
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			FGB_shrivelled_army_control_level_down = yes
+			add_political_power = -20
+		}
+        modifier = {
+            political_power_cost = 0.2
+        }
+	}
+	FGB_reform2 = {
+		available = {
+			has_army_experience > 9
+		}
+		allowed = {
+			tag = FGB
+		}
+		cost = 30
+		icon = FGB_reform2
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			FGB_shrivelled_army_control_level_down = yes
+			army_experience = -10
+		}
+        modifier = {
+            experience_gain_army = -0.2
+        }
+	}
+	FGB_reform3 = {
+		visible = {
+			has_completed_focus = FGB_expand_conscription
+		}
+		available = {
+			has_manpower > 9999
+		}
+		allowed = {
+			tag = FGB
+		}
+		cost = 30
+		icon = FGB_reform3
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			FGB_shrivelled_army_control_level_down = yes
+			add_manpower = -10000
+		}
+		modifier = {
+            weekly_manpower = -200
+        }
+		remove_effect = {
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+			}
+		}
+	}
+}
