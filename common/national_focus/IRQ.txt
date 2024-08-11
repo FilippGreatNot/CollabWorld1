@@ -530,8 +530,8 @@ focus_tree = {
 		prerequisite = { focus = IRQ_first_unite_with_the_father focus = IRQ_first_end_the_wahabbi_threat_by_force }
 		
 		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			log = "[GetDateText]: [ROOT.GetTag]: Focus IRQ_first_unite_the_arab_nation"
+			set_cosmetic_tag = IRQ_united_arabia
 			
 		}
 	}
@@ -1102,6 +1102,113 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_on_the_world_stage
+		icon = GFX_focus_IRQ_power_blant
+		x = 25
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = { 
+			date > 1926.1.30
+		}
+	
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_political_power = 50
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_preserve_iraqi_neutrality
+		icon = GFX_focus_IRQ_power_blant
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_on_the_world_stage
+		ai_will_do = {
+			factor = 10
+		}
+		
+		mutually_exclusive = { focus = IRQ_first_align_with_the_french }
+		mutually_exclusive = { focus = IRQ_first_align_with_the_new_kaiserreich}
+		
+		prerequisite = { focus = IRQ_first_iraq_on_the_world_stage }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_stability = 0.1
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_align_with_the_french
+		icon = GFX_focus_FRA_implement_autarky_measures
+		x = -3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_on_the_world_stage
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		FRA = {  
+		is_faction_leader = yes
+		}
+		}
+		
+		prerequisite = { focus = IRQ_first_iraq_on_the_world_stage }
+		
+		mutually_exclusive = { focus = IRQ_first_preserve_iraqi_neutrality }
+		mutually_exclusive = { focus = IRQ_first_align_with_the_new_kaiserreich }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			FRA = { country_event = irq.5 }
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_align_with_the_new_kaiserreich
+		icon = GFX_focus_WRD_uber_alles
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_on_the_world_stage
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		WRD = {  
+		is_faction_leader = yes
+		}
+		}
+		
+		prerequisite = { focus = IRQ_first_iraq_on_the_world_stage }
+		
+		mutually_exclusive = { focus = IRQ_first_preserve_iraqi_neutrality }
+		mutually_exclusive = { focus = IRQ_first_align_with_the_french }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			WRD = { country_event = irq.5 }
 			
 		}
 	}
