@@ -866,9 +866,57 @@
         x = 20
         y = 0
 		
+		cancelable = no
+		
         cost = 5
 		
 		completion_reward = {
+			hidden_effect = {
+				country_event = tus_coun2.2
+			}
+		}
+	}
+
+	focus = {
+		id = TUS_plans_for_expansion
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TUS_restabilize_the_government
+		
+        cost = 5
+		
+		completion_reward = {
+			country_event = tus_coun2.3
+		}
+	}
+	
+	focus = {
+		id = TUS_balbos_speech_3
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_plans_for_expansion
+		}
+		prerequisite = {
+			focus = TUS_start_trade_relations
+		}
+		
+		relative_position_id = TUS_plans_for_expansion
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			#country_event = 
 		}
 	}
 }
