@@ -11,12 +11,14 @@ FGB_army_category = {
 		fire_only_once = no
 		days_remove = 60
 		complete_effect = {
-			FGB_shrivelled_army_control_level_down = yes
 			add_political_power = -20
 		}
         modifier = {
             political_power_cost = 0.2
         }
+		remove_effect = {
+			FGB_shrivelled_army_control_level_down = yes
+		}
 	}
 	FGB_reform2 = {
 		available = {
@@ -30,12 +32,14 @@ FGB_army_category = {
 		fire_only_once = no
 		days_remove = 60
 		complete_effect = {
-			FGB_shrivelled_army_control_level_down = yes
 			army_experience = -10
 		}
         modifier = {
             experience_gain_army = -0.2
         }
+		remove_effect = {
+			FGB_shrivelled_army_control_level_down = yes
+		}
 	}
 	FGB_reform3 = {
 		visible = {
@@ -52,13 +56,13 @@ FGB_army_category = {
 		fire_only_once = no
 		days_remove = 60
 		complete_effect = {
-			FGB_shrivelled_army_control_level_down = yes
 			add_manpower = -10000
 		}
 		modifier = {
             weekly_manpower = -200
         }
 		remove_effect = {
+			FGB_shrivelled_army_control_level_down = yes
 			random_owned_controlled_state = {
 				limit = { ROOT = { has_full_control_of_state = PREV } }
 				create_unit = {

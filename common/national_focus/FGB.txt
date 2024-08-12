@@ -60,7 +60,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_noske_middle
+		id = FGB_noske_ease_unrest
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
@@ -73,7 +73,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_noske_left
+		id = FGB_noske_allow_moderates
 		icon = GFX_focus_FGB_electing_new_leader
 		x = -2
 		y = 1
@@ -86,7 +86,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_noske_right
+		id = FGB_noske_cooperate_with_democrats
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 2
 		y = 1
@@ -99,41 +99,28 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_noske_down
+		id = FGB_noske_freikorps_spd
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
-		relative_position_id = FGB_noske_middle
+		relative_position_id = FGB_noske_ease_unrest
 		cost = 3
-		prerequisite = { focus = FGB_noske_left }
-		prerequisite = { focus = FGB_noske_middle }
-		prerequisite = { focus = FGB_noske_right }
+		prerequisite = { focus = FGB_noske_allow_moderates }
+		prerequisite = { focus = FGB_noske_ease_unrest }
+		prerequisite = { focus = FGB_noske_cooperate_with_democrats }
 		completion_reward = {
 			add_political_power = 20
 		}
 	}
 	
 	focus = {
-		id = FGB_noske_downleft
+		id = FGB_noske_september_coalition
 		icon = GFX_focus_FGB_electing_new_leader
-		x = -2
-		y = 0
-		relative_position_id = FGB_noske_down
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske_freikorps_spd
 		cost = 3
-		prerequisite = { focus = FGB_noske_down }
-		completion_reward = {
-			add_political_power = 20
-		}
-	}
-	
-	focus = {
-		id = FGB_noske_downright
-		icon = GFX_focus_FGB_electing_new_leader
-		x = 2
-		y = 0
-		relative_position_id = FGB_noske_down
-		cost = 3
-		prerequisite = { focus = FGB_noske_down }
+		prerequisite = { focus = FGB_noske_freikorps_spd }
 		completion_reward = {
 			add_political_power = 20
 		}
@@ -246,7 +233,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_train_soldiers }
 		x = 24
 		y = 1
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -272,7 +259,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_freikorps_legacy }
 		x = 23.75
 		y = 2
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -306,7 +293,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_freikorps_legacy }
 		x = 25.25
 		y = 2
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -338,7 +325,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_study_tactics }
 		x = 23.75
 		y = 3
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -386,7 +373,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_analyse_mistakes }
 		x = 25.25
 		y = 3
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -430,7 +417,7 @@ focus_tree = {
 		}
 		x = 22
 		y = 4
-		cost = 7.143
+		cost = 6
 		completion_reward = {
 			army_experience = 25
 			add_equipment_to_stockpile = {
@@ -460,7 +447,7 @@ focus_tree = {
 		}
 		x = 26.25
 		y = 4
-		cost = 7.143
+		cost = 6
 		completion_reward = {
 			add_tech_bonus = {
 				name = FGB_protect_the_skies
@@ -499,7 +486,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_repair_factories }
 		x = 24
 		y = 4
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -542,7 +529,7 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -576,7 +563,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_expand_army }
 		x = 26.25
 		y = 5
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -624,7 +611,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		x = 24
 		y = 5
-		cost = 7.143
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -652,7 +639,7 @@ focus_tree = {
 		}
 		x = 23.75
 		y = 6
-		cost = 7.143
+		cost = 6
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = FGB_disorganised_militias4
@@ -672,7 +659,7 @@ focus_tree = {
 		}
 		x = 25.25
 		y = 6
-		cost = 7.143
+		cost = 6
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = FGB_disorganised_militias4
@@ -690,7 +677,7 @@ focus_tree = {
 		}
 		x = 24
 		y = 7
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_ideas = {
@@ -727,9 +714,9 @@ focus_tree = {
 		available = {
 			has_completed_focus = FGB_army_reform
 		}
-		x = 30
-		y = -1
-		cost = 7.143
+		x = 16
+		y = 7
+		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
@@ -742,9 +729,9 @@ focus_tree = {
 		available = {
 			has_completed_focus = FGB_complete_recovery
 		}
-		x = 28
-		y = 1
-		cost = 7.143
+		x = 14
+		y = 8
+		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_ideas = {
@@ -760,9 +747,9 @@ focus_tree = {
 			has_full_control_of_state = 835
 			has_full_control_of_state = 836
 		}
-		x = 32
-		y = 1
-		cost = 7.143
+		x = 18
+		y = 8
+		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
@@ -774,7 +761,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_reconstruction
 		x = 16
 		y = 0
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			has_completed_focus = FGB_death_of_kapp
@@ -817,7 +804,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_reconstruction }
 		x = 14
 		y = 1
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			842 = {
@@ -842,7 +829,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_reconstruction }
 		x = 18
 		y = 1
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			842 = {
@@ -900,7 +887,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_reconstruction }
 		x = 16
 		y = 2
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -916,7 +903,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_welfare_programmes }
 		x = 13
 		y = 2
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			IF = {
@@ -941,7 +928,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_welfare_programmes }
 		x = 19
 		y = 2
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available_if_capitulated = no
 		available = {
@@ -980,7 +967,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_combat_inflation }
 		x = 13
 		y = 3
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			army_experience = 5
@@ -994,7 +981,7 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_market_liberalism }
 		x = 15
 		y = 3
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -1011,7 +998,7 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_etatism }
 		x = 17.5
 		y = 3
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -1027,7 +1014,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_coop_corp }
 		x = 19
 		y = 3
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			IF = {
@@ -1052,7 +1039,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_tax_foreign }
 		x = 13
 		y = 4
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			842 = {
@@ -1088,7 +1075,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_etatism }
 		x = 15
 		y = 4
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = {
@@ -1103,7 +1090,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_market_liberalism }
 		x = 17
 		y = 4
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = {
@@ -1118,7 +1105,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_modernise_taxes }
 		x = 19
 		y = 4
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			842 = {
@@ -1155,7 +1142,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_increase_tariffs }
 		x = 14
 		y = 5
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -1172,7 +1159,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_buy_businesses }
 		x = 18
 		y = 5
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -1192,7 +1179,7 @@ focus_tree = {
 		}
 		x = 16
 		y = 6
-		cost = 7.143
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_stability = 0.15
@@ -1311,7 +1298,7 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
-		cost = 7.143
+		cost = 6
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_bavaria"
 			BAV = { make_every_core_national_for_PREV = yes }
@@ -1333,7 +1320,7 @@ focus_tree = {
 		}
 		x = 30
 		y = 7
-		cost = 7.143
+		cost = 6
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_wehrkommando"
 			WRD = { make_every_core_national_for_PREV = yes }
