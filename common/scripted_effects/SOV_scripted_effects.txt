@@ -9,7 +9,6 @@ SOV_get_30s_stalin = { #I have no idea why did I make this a scripted effect lol
 	}
 }
 SOV_eat_PBD_generals = {
-	save_event_target_as = eating_country
 	PBD = {
 		PBD_mikhail_tukhachevsky = {
 			remove_country_leader_role = {
@@ -17,14 +16,9 @@ SOV_eat_PBD_generals = {
 			}
 		}
 		every_character = {
-			tooltip = every_advisor_and_unit_leader_tt
-			limit = {
-				OR = { #We don't need Polish country leaders, only advisors and generals
-					is_advisor = yes
-					is_unit_leader = yes
-				}
-				NOT = { event_target:eating_country = { has_character = PREV } } #It seems like generated characters can be recruited in multiple countries
-			}
+			tooltip = every_unit_leader_tt
+			limit = { is_unit_leader = yes } #We don't need country leaders, only generals
+			
 			set_nationality = PREV.PREV
 		}
 	}
