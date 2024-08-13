@@ -418,6 +418,7 @@
 				}
 				add_claim_by = TUS
 			}
+			add_ideas = TUS_no_standard_currency
 		}
 	}
 
@@ -599,7 +600,7 @@
 			has_completed_focus = TUS_balbos_speech_2
 		}
 		
-        x = 15
+        x = 16
         y = 0
 		
         cost = 10
@@ -743,7 +744,7 @@
 			focus = TUS_rebuild_italy
 		}
 		
-        x = 2
+        x = 0
         y = 1
 		
 		relative_position_id = TUS_rebuild_italy
@@ -815,8 +816,11 @@
 		prerequisite = {
 			focus = TUS_rebuild_italy
 		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
 		
-        x = 0
+        x = 2
         y = 1
 		
 		relative_position_id = TUS_rebuild_italy
@@ -839,12 +843,12 @@
 			focus = TUS_improve_the_south
 		}
 		
-        x = 0
+        x = -2
         y = 1
 		
 		relative_position_id = TUS_resolve_workers_strikes
 		
-        cost = 6
+        cost = 8
 		
 		completion_reward = {
 			remove_ideas = economically_isolated
@@ -863,8 +867,11 @@
 			has_completed_focus = TUS_balbos_speech_2
 		}
 		
-        x = 20
+        x = 4
         y = 0
+		
+		relative_position_id = TUS_rebuild_italy
+		
 		
 		cancelable = no
 		
@@ -876,9 +883,9 @@
 			}
 		}
 	}
-
+	
 	focus = {
-		id = TUS_plans_for_expansion
+		id = TUS_standardize_currency
 		icon = GFX_goal_generic_construction
 
 		prerequisite = {
@@ -890,33 +897,36 @@
 		
 		relative_position_id = TUS_restabilize_the_government
 		
-        cost = 5
+        cost = 6
 		
 		completion_reward = {
-			country_event = tus_coun2.3
+			remove_ideas = TUS_no_standard_currency
 		}
 	}
-	
+
 	focus = {
 		id = TUS_balbos_speech_3
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_plans_for_expansion
+			focus = TUS_standardize_currency
 		}
 		prerequisite = {
 			focus = TUS_start_trade_relations
 		}
+		prerequisite = {
+			focus = TUS_resolve_workers_strikes
+		}
 		
-		relative_position_id = TUS_plans_for_expansion
+		relative_position_id = TUS_restabilize_the_government
 		
-        x = 0
-        y = 2
+        x = -2
+        y = 3
 		
         cost = 5
 		
 		completion_reward = {
-			#country_event = 
+			country_event = tus.7
 		}
 	}
 }
