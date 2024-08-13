@@ -3,7 +3,7 @@ VNE_risorgimento = {
 priority = 100
 
 	icon = GFX_decision_category_generic_political_actions
-	picture = GFX_decision_category_ger_map
+	picture = GFX_ita_reunification
 	priority = 100
 
 	allowed = {
@@ -26,8 +26,17 @@ priority = 100
 
 VNE_army_reform = {
 	icon = army_reform
-	picture = GFX_decision_category_army_reform
-	allowed = {	always = yes }
+	picture = GFX_vne_army_reform_level
+	allowed = {
+	
+	OR = {
+			original_tag = VNE
+		}
+
+	}
+	
+	visible_when_empty = no
+
 	scripted_gui = vne_army_reform_tooltip
 }
 
