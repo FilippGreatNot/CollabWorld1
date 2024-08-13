@@ -566,7 +566,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_demand_khuzestan
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_demand_khuzestan
 		x = 1
 		y = 1
 		cost = 10
@@ -575,6 +575,38 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		
+		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
+		
+		mutually_exclusive = { focus = IRQ_first_strike_persia }
+		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_strike_persia
+		icon = GFX_focus_IRQ_strike_persia
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_unite_the_arab_nation
+		ai_will_do = {
+			factor = 10
+		}
+		
+		mutually_exclusive = { focus = IRQ_first_demand_khuzestan }
 		
 		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
 		
@@ -1130,7 +1162,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_preserve_iraqi_neutrality
-		icon = GFX_focus_IRQ_power_blant
+		icon = GFX_focus_IRQ_neutrality
 		x = 0
 		y = 1
 		cost = 10
