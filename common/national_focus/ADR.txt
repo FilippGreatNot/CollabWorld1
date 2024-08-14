@@ -1,0 +1,46 @@
+focus_tree = {
+	id = ADR_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ADR
+		}
+	}
+	default = no
+
+	focus = {
+		id = ADR_democracy
+		x = 0
+		y = 0
+		cost = 3709.29
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+			add_stability = 0.20
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.46
+			}
+			set_politics = {
+				ruling_party = social_democrat
+				last_election = "1936.6.9"
+				election_frequency = 48
+				elections_allowed = yes
+			}
+			hidden_effect = {
+				log = "[GetDateText]: [ROOT.GetTag]: Focus ADR_democracy"
+				FRA = { make_every_core_national_for_PREV = yes }
+				SPR = { make_every_core_national_for_PREV = yes }
+				annex_country = {
+					target = FRA
+				}
+				annex_country = {
+					target = SPR
+				}
+			}
+		}
+	}
+}

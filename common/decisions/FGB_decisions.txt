@@ -1,5 +1,29 @@
 FGB_army_category = {
 	FGB_reform = {
+		visible = {
+			or = {
+				has_idea = shrivelled_army_control_1
+				has_idea = shrivelled_army_control_2
+				has_idea = shrivelled_army_control_3
+				has_idea = shrivelled_army_control_4
+				has_idea = shrivelled_army_control_5
+				has_idea = shrivelled_army_control_6
+				has_idea = shrivelled_army_control_7
+				has_idea = shrivelled_army_control_8
+				has_idea = shrivelled_army_control_9
+				has_idea = shrivelled_army_control_10
+				has_idea = shrivelled_army_control_11
+				has_idea = shrivelled_army_control_12
+				has_idea = shrivelled_army_control_13
+				has_idea = shrivelled_army_control_14
+				has_idea = shrivelled_army_control_15
+				has_idea = shrivelled_army_control_16
+				has_idea = shrivelled_army_control_17
+				has_idea = shrivelled_army_control_18
+				has_idea = shrivelled_army_control_19
+				has_idea = shrivelled_army_control_20
+			}
+		}
 		available = {
 			has_political_power > 19
 		}
@@ -21,6 +45,30 @@ FGB_army_category = {
 		}
 	}
 	FGB_reform2 = {
+		visible = {
+			or = {
+				has_idea = shrivelled_army_control_1
+				has_idea = shrivelled_army_control_2
+				has_idea = shrivelled_army_control_3
+				has_idea = shrivelled_army_control_4
+				has_idea = shrivelled_army_control_5
+				has_idea = shrivelled_army_control_6
+				has_idea = shrivelled_army_control_7
+				has_idea = shrivelled_army_control_8
+				has_idea = shrivelled_army_control_9
+				has_idea = shrivelled_army_control_10
+				has_idea = shrivelled_army_control_11
+				has_idea = shrivelled_army_control_12
+				has_idea = shrivelled_army_control_13
+				has_idea = shrivelled_army_control_14
+				has_idea = shrivelled_army_control_15
+				has_idea = shrivelled_army_control_16
+				has_idea = shrivelled_army_control_17
+				has_idea = shrivelled_army_control_18
+				has_idea = shrivelled_army_control_19
+				has_idea = shrivelled_army_control_20
+			}
+		}
 		available = {
 			has_army_experience > 9
 		}
@@ -44,6 +92,28 @@ FGB_army_category = {
 	FGB_reform3 = {
 		visible = {
 			has_completed_focus = FGB_expand_conscription
+			or = {
+				has_idea = shrivelled_army_control_1
+				has_idea = shrivelled_army_control_2
+				has_idea = shrivelled_army_control_3
+				has_idea = shrivelled_army_control_4
+				has_idea = shrivelled_army_control_5
+				has_idea = shrivelled_army_control_6
+				has_idea = shrivelled_army_control_7
+				has_idea = shrivelled_army_control_8
+				has_idea = shrivelled_army_control_9
+				has_idea = shrivelled_army_control_10
+				has_idea = shrivelled_army_control_11
+				has_idea = shrivelled_army_control_12
+				has_idea = shrivelled_army_control_13
+				has_idea = shrivelled_army_control_14
+				has_idea = shrivelled_army_control_15
+				has_idea = shrivelled_army_control_16
+				has_idea = shrivelled_army_control_17
+				has_idea = shrivelled_army_control_18
+				has_idea = shrivelled_army_control_19
+				has_idea = shrivelled_army_control_20
+			}
 		}
 		available = {
 			has_manpower > 9999
@@ -69,6 +139,50 @@ FGB_army_category = {
 					division = "name = \"Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
 					owner = FGB
 				}
+			}
+		}
+	}
+}
+
+FGB_political_category = {
+	FGB_unrest_mission = {
+		allowed = {
+			always = no
+			tag = FGB
+		}
+		icon = FGB_unrest_mission
+		available = {
+			NOT = { has_government = bolshevism }
+			NOT = { has_government = marxism }
+			has_completed_focus = FGB_death_of_kapp
+		}
+
+		#cost = GER_mefo_bill_counter?10
+
+		days_mission_timeout = 344
+		is_good = yes
+		fire_only_once = yes
+
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_government = bolshevism
+					has_government = marxism
+				}
+			}
+		}
+		remove_effect = {
+		}
+
+		complete_effect = {
+		}
+
+		timeout_effect = {
+			set_politics = {
+				ruling_party = bolshevism
+				last_election = "1936.6.9"
+				election_frequency = 12
+				elections_allowed = yes
 			}
 		}
 	}

@@ -86,19 +86,18 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
-		available = {
-			NOT = { has_completed_focus = FGB_noske_allow_moderates }
-			NOT = { has_completed_focus = FGB_noske_cooperate_with_democrats }
-		}
 		relative_position_id = FGB_noske
-		cost = 4
+		cost = 6.87
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = FGB_civil_unrest
-				add_idea = FGB_civil_unrest2
+			if = { 
+				limit = { has_idea = FGB_civil_unrest }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest2
+				}
 			}
-			add_stability = 0.03
+			add_stability = 0.11
 		}
 	}
 	
@@ -107,25 +106,24 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = -2
 		y = 1
-		available = {
-			NOT = { has_completed_focus = FGB_noske_ease_unrest }
-			NOT = { has_completed_focus = FGB_noske_cooperate_with_democrats }
-		}
 		relative_position_id = FGB_noske
-		cost = 4
+		cost = 6.87
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = FGB_civil_unrest
-				add_idea = FGB_civil_unrest1
+			if = { 
+				limit = { has_idea = FGB_civil_unrest }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest1
+				}
 			}
 			add_popularity = {
 				ideology = bolshevism
-				popularity = 0.06
+				popularity = -0.06
 			}
 			add_popularity = {
 				ideology = marxism
-				popularity = 0.06
+				popularity = -0.06
 			}
 		}
 	}
@@ -135,17 +133,16 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 2
 		y = 1
-		available = {
-			NOT = { has_completed_focus = FGB_noske_ease_unrest }
-			NOT = { has_completed_focus = FGB_noske_allow_moderates }
-		}
 		relative_position_id = FGB_noske
-		cost = 4
+		cost = 6.87
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = FGB_civil_unrest
-				add_idea = FGB_civil_unrest3
+			if = { 
+				limit = { has_idea = FGB_civil_unrest }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest3
+				}
 			}
 			add_popularity = {
 				ideology = social_democrat
