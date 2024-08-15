@@ -918,6 +918,13 @@
 			focus = TUS_resolve_workers_strikes
 		}
 		
+		available = {
+			OR = {
+				FRA = {has_completed_focus = FRA_france_on_the_world_stage}
+				NOT = {country_event = FRA}
+			}
+		}
+		
 		relative_position_id = TUS_restabilize_the_government
 		
         x = -2
@@ -926,6 +933,7 @@
         cost = 5
 		
 		completion_reward = {
+			FRA = {add_to_faction = ROOT}
 			country_event = tus.7
 		}
 	}
@@ -981,7 +989,7 @@
 		}
 		
         x = 0
-        y = 1
+       y = 1
 		
 		relative_position_id = TUS_demand_albania
 		
@@ -1101,12 +1109,11 @@
 		x = -1
         y = 1
 		
-		relative_position_id = TUS_realign_hungary
+		relative_position_id = TUS_team_hungary
 		
         cost = 10
 		
 		completion_reward = {
-			BUL = {every_core_state = {add_claim_by = TUS}}
 			declare_war_on = {
 				target = BUL
 				type = puppet
@@ -1129,6 +1136,7 @@
 		}
 		
 		mutually_exclusive = {focus = TUS_realign_bulgaria}
+		mutually_exclusive = {focus = TUS_team_greece}
 		
 		prerequisite = {
 			focus = TUS_take_yugoslavian_lands
@@ -1138,7 +1146,7 @@
 			focus = TUS_team_hungary
 		}
 		
-		x = -3
+		x = -1
         y = 1
 		
 		relative_position_id = TUS_realign_hungary
@@ -1146,7 +1154,6 @@
         cost = 10
 		
 		completion_reward = {
-			BUL = {every_core_state = {add_claim_by = TUS}}
 			declare_war_on = {
 				target = BUL
 				type = annex_everything
@@ -1155,35 +1162,22 @@
 	}
 	
 	focus = {
-		id = TUS_invade_greece
+		id = TUS_realign_greece
 		icon = GFX_goal_generic_construction
 		
-		prerequisite = {
-			focus = TUS_take_yugoslavian_lands
-		}
-		prerequisite = {
-			focus = TUS_realign_hungary
-			focus = TUS_team_hungary
-		}
-		
-		x = 1
-        y = 1
-		
-		relative_position_id = TUS_realign_hungary
-		
-        cost = 10
-		
-		completion_reward = {
-			declare_war_on = {
-				target = GRE
-				type = puppet
+		available = {
+			GRE = {
+				NOT = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+				}
 			}
 		}
-	}
-	
-	focus = {
-		id = TUS_invade_romania
-		icon = GFX_goal_generic_construction
+		
+		mutually_exclusive = {focus = TUS_team_greece}
 		
 		prerequisite = {
 			focus = TUS_take_yugoslavian_lands
@@ -1198,108 +1192,81 @@
 		
 		relative_position_id = TUS_take_yugoslavian_lands
 		
-        cost = 15
+        cost = 10
 		
 		completion_reward = {
-			ROM = {every_core_state = {add_claim_by = TUS}}
 			declare_war_on = {
-				target = ROM
-				type = annex_everything
+				target = GRE
+				type = puppet
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_invade_switzerland
+		id = TUS_team_greece
 		icon = GFX_goal_generic_construction
 		
-		prerequisite = {
-			focus = TUS_realign_bulgaria
-			focus = TUS_team_bulgaria
-		}
-		prerequisite = {
-			focus = TUS_invade_greece
-		}
-		prerequisite = {
-			focus = TUS_invade_romania
-		}
-		
-		x = 0
-        y = 1
-		
-		relative_position_id = TUS_realign_bulgaria
-		
-        cost = 70
-		
-		completion_reward = {
-			SWI = {every_core_state = {add_claim_by = TUS}}
-			declare_war_on = {
-				target = SWI
-				type = annex_everything
+		available = {
+			GRE = {
+				OR = {
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+				}
 			}
 		}
-	}
-	
-	focus = {
-		id = TUS_invade_france
-		icon = GFX_goal_generic_construction
+		
+		mutually_exclusive = {focus = TUS_realign_greece}
+		mutually_exclusive = {focus = TUS_team_bulgaria}
 		
 		prerequisite = {
-			focus = TUS_realign_bulgaria
-			focus = TUS_team_bulgaria
+			focus = TUS_take_yugoslavian_lands
 		}
 		prerequisite = {
-			focus = TUS_invade_greece
-		}
-		prerequisite = {
-			focus = TUS_invade_romania
-		}
-		
-		x = 0
-        y = 1
-		
-		relative_position_id = TUS_invade_greece
-		
-        cost = 15
-		
-		completion_reward = {
-			FRA = {every_core_state = {add_claim_by = TUS}}
-			declare_war_on = {
-				target = FRA
-				type = annex_everything
-			}
-		}
-	}
-	
-	focus = {
-		id = TUS_invade_iberia
-		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_invade_france
-		}
-		prerequisite = {
-			focus = TUS_invade_switzerland
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
 		}
 		
 		x = -1
         y = 1
 		
-		relative_position_id = TUS_invade_france
+		relative_position_id = TUS_take_yugoslavian_lands
 		
-        cost = 15
+        cost = 10
 		
 		completion_reward = {
-			SPR = {every_core_state = {add_claim_by = TUS}}
 			declare_war_on = {
-				target = SPR
-				type = annex_everything
-			}
-			POR = {every_core_state = {add_claim_by = TUS}}
-			declare_war_on = {
-				target = POR
+				target = GRE
 				type = annex_everything
 			}
 		}
 	}
+	
+	#focus = {
+	#	id = TUS_invade_romania
+	#	icon = GFX_goal_generic_construction
+	#	
+	#	prerequisite = {
+	#		focus = TUS_take_yugoslavian_lands
+	#	}
+	#	prerequisite = {
+	#		focus = TUS_realign_hungary
+	#		focus = TUS_team_hungary
+	#	}
+	#	
+	#	x = 1
+    #   y = 1
+	#	
+	#	relative_position_id = TUS_take_yugoslavian_lands
+	#	
+    #   cost = 15
+	#	
+	#	completion_reward = {
+	#		ROM = {every_core_state = {add_claim_by = TUS}}
+	#		declare_war_on = {
+	#			target = ROM
+	#			type = annex_everything
+	#		}
+	#	}
+	#}
 }
