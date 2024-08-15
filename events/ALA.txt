@@ -1,0 +1,42 @@
+add_namespace = natives
+
+
+country_event = {
+	id = natives.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event natives.1" }
+	title = natives.1.t
+	desc = natives.1.d
+	#picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = natives.1.a
+		
+		
+		
+		hidden_effect = {
+#		set_party_name = { 
+#			ideology = national_syndicalism 
+#			long_name = FGB_RHOM 
+#			name = FGB_RHOM_SHORT
+#		}
+			set_cosmetic_tag = ALA_natives
+				
+				
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.20
+			}
+			
+			remove_ideas = { USA_alaskan_concentration_camps }
+
+			set_politics = {
+				ruling_party = libertarian_socialism 
+			}
+			
+			promote_character = ALA_Charles_Curtis 
+		}
+	
+	#custom_effect_tooltip = rise_of_valkism
+	}
+}
