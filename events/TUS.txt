@@ -215,6 +215,7 @@ country_event = {
 	option = {
 		name = tus.5.a	
 		set_cosmetic_tag = ITA_EMP
+		set_capital = 2
 		add_ideas = {
 			TUS_worker_strikes
 			TUS_overwhelmed_council
@@ -412,5 +413,34 @@ country_event = {
 	
 	option = {
 		name = tus.7.a	
+	}
+}
+
+# for albania not us
+country_event = {
+	id = tus.8
+	title = tus.8.t
+	desc = tus.8.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.8.a	
+		TUS = {
+			declare_war_on = {
+				target = ALB
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = tus.8.b
+		ai_chance = {base = 100}
+		TUS = {
+			annex_country = {
+				target = ALB
+				transfer_troops = yes
+			}
+		}
 	}
 }

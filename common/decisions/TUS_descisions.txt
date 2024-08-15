@@ -144,3 +144,284 @@ TUS_jump_itas = {
 		}
 	}
 }
+
+TUS_core_yug_cat = {
+	TUS_core_yug = {
+		state_target = any_owned_state
+		on_map_mode = map_only
+		
+		allowed = {
+			tag = TUS
+		}
+		
+		target_trigger = {
+			FROM = { is_core_of = YUG NOT = {is_core_of = TUS state = 45 state = 803 state = 106}}
+		}
+			
+		days_remove = 30
+		cost = 30
+		
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+}
+TUS_core_rom_cat = {
+	TUS_core_rom = {
+		state_target = any_owned_state
+		on_map_mode = map_only
+		
+		allowed = {
+			tag = TUS
+		}
+		
+		target_trigger = {
+			FROM = { is_core_of = ROM NOT = {is_core_of = TUS state = 83 state = 76 state = 80}}
+		}
+		
+		days_remove = 30
+		cost = 30
+		
+		remove_effect = {
+			FROM = {
+				add_core_of = ROOT
+			}
+		}
+	}
+}
+
+TUS_state_management = {
+	TUS_to_hun = {
+	
+		targets = {HUN}
+		
+		allowed = {
+			tag = TUS
+		}
+		
+		available = {
+			ROOT = {
+				OR = {
+					owns_state = 45
+					owns_state = 83
+					owns_state = 76
+				}
+			}
+			HUN = {
+				OR = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		
+		visible = {
+			ROOT = {
+				OR = {
+					owns_state = 45
+					owns_state = 83
+					owns_state = 76
+				}
+			}
+			HUN = {
+				OR = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		
+		days_remove = 0
+		cost = 0
+		
+		remove_effect = {
+			45 = {
+				if = {
+					limit = {is_owned_by = ROOT}
+					add_core_of = HUN
+					transfer_state_to = HUN
+				}
+			}
+			83 = {
+				if = {
+					limit = {is_owned_by = ROOT}
+					add_core_of = HUN
+					transfer_state_to = HUN
+				}
+			}
+			76 = {
+				if = {
+					limit = {is_owned_by = ROOT}
+					add_core_of = HUN
+					transfer_state_to = HUN
+				}
+			}
+		}
+	}
+	
+	TUS_to_bul = {
+	
+		targets = {BUL}
+		
+		allowed = {
+			tag = TUS
+		}
+		
+		available = {
+			OR = {
+				ROOT = {
+					OR = {
+						owns_state = 77
+						owns_state = 803
+						owns_state = 106
+						owns_state = 184
+						owns_state = 341
+					}
+				}
+				GRE = {
+					AND = {
+						is_puppet_of = ROOT
+						OR = {
+							owns_state = 77
+							owns_state = 803
+							owns_state = 106
+							owns_state = 184
+							owns_state = 341
+						}
+					}
+				}
+			}
+			BUL = {
+				OR = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		
+		visible = {
+			OR = {
+				ROOT = {
+					OR = {
+						owns_state = 77
+						owns_state = 803
+						owns_state = 106
+						owns_state = 184
+						owns_state = 341
+					}
+				}
+				GRE = {
+					AND = {
+						is_puppet_of = ROOT
+						OR = {
+							owns_state = 77
+							owns_state = 803
+							owns_state = 106
+							owns_state = 184
+							owns_state = 341
+						}
+					}
+				}
+			}
+			BUL = {
+				OR = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		
+		days_remove = 0
+		cost = 0
+		
+		remove_effect = {
+			77 = {
+				if = {
+					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}}}
+					add_core_of = BUL
+					transfer_state_to = BUL
+				}
+			}
+			803 = {
+				if = {
+					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}}}
+					add_core_of = BUL
+					transfer_state_to = BUL
+				}
+			}
+			106 = {
+				if = {
+					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}}}
+					add_core_of = BUL
+					transfer_state_to = BUL
+				}
+			}
+			184 = {
+				if = {
+					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}}}
+					add_core_of = BUL
+					transfer_state_to = BUL
+				}
+			}
+			341 = {
+				if = {
+					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}}}
+					add_core_of = BUL
+					transfer_state_to = BUL
+				}
+			}
+		}
+	}
+	
+	TUS_to_GRE = {
+	
+		targets = {GRE}
+		
+		allowed = {
+			tag = TUS
+		}
+		
+		available = {
+			ROOT = {
+				OR = {
+					owns_state = 805
+				}
+			}
+			GRE = {
+				OR = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		
+		visible = {
+			ROOT = {
+				OR = {
+					owns_state = 805
+				}
+			}
+			GRE = {
+				OR = {
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		
+		days_remove = 0
+		cost = 0
+		
+		remove_effect = {
+			805 = {
+				if = {
+					limit = {is_owned_by = ROOT}
+					add_core_of = GRE
+					transfer_state_to = GRE
+				}
+			}
+		}
+	}
+}

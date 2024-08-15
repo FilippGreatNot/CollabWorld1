@@ -929,4 +929,377 @@
 			country_event = tus.7
 		}
 	}
+	
+	focus = {
+		id = TUS_revenge_for_the_great_war
+		icon = GFX_goal_generic_construction
+		
+		available = {has_completed_focus = TUS_balbos_speech_3}
+		
+        x = 23
+        y = 0
+		
+        cost = 10
+		
+		completion_reward = {
+			add_state_core = 39
+			declare_war_on = {
+				target = AUS
+				type = puppet
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_demand_albania
+		icon = GFX_goal_generic_construction
+		
+		available = {has_completed_focus = TUS_balbos_speech_3}
+		
+        x = 4
+        y = 0
+		
+		relative_position_id = TUS_revenge_for_the_great_war
+		
+        cost = 8
+		
+		completion_reward = {
+			add_state_core = 44
+			ALB = {country_event = tus.8}
+		}
+	}
+
+	focus = {
+		id = TUS_take_yugoslavian_lands
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_demand_albania
+		}
+		prerequisite = {
+			focus = TUS_revenge_for_the_great_war
+		}
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TUS_demand_albania
+		
+        cost = 15
+		
+		completion_reward = {
+			YUG = {every_core_state = {add_claim_by = TUS}}
+			#dont forget to change when yugo update out
+			declare_war_on = {
+				target = YUG
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_realign_hungary
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			HUN = {
+				NOT = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = TUS_demand_albania
+		}
+		prerequisite = {
+			focus = TUS_revenge_for_the_great_war
+		}
+		
+		mutually_exclusive = { focus = TUS_team_hungary }
+		
+        x = 2
+        y = 1
+		
+		relative_position_id = TUS_revenge_for_the_great_war
+		
+        cost = 8
+		
+		completion_reward = {
+			declare_war_on = {
+				target = HUN
+				type = puppet
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_team_hungary
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			HUN = {
+				OR = {
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = TUS_demand_albania
+		}
+		prerequisite = {
+			focus = TUS_revenge_for_the_great_war
+		}
+		
+		mutually_exclusive = { focus = TUS_realign_hungary }
+		
+        x = -2
+        y = 0
+		
+		relative_position_id = TUS_realign_hungary
+		
+        cost = 5
+		
+		completion_reward = {
+		
+		}
+	}
+
+	focus = {
+		id = TUS_realign_bulgaria
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			BUL = {
+				NOT = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+				}
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_team_bulgaria}
+		
+		prerequisite = {
+			focus = TUS_take_yugoslavian_lands
+		}
+		prerequisite = {
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
+		}
+		
+		x = -1
+        y = 1
+		
+		relative_position_id = TUS_realign_hungary
+		
+        cost = 10
+		
+		completion_reward = {
+			BUL = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = BUL
+				type = puppet
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_team_bulgaria
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			BUL = {
+				OR = {
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+				}
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_realign_bulgaria}
+		
+		prerequisite = {
+			focus = TUS_take_yugoslavian_lands
+		}
+		prerequisite = {
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
+		}
+		
+		x = -3
+        y = 1
+		
+		relative_position_id = TUS_realign_hungary
+		
+        cost = 10
+		
+		completion_reward = {
+			BUL = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = BUL
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_invade_greece
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_take_yugoslavian_lands
+		}
+		prerequisite = {
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
+		}
+		
+		x = 1
+        y = 1
+		
+		relative_position_id = TUS_realign_hungary
+		
+        cost = 10
+		
+		completion_reward = {
+			declare_war_on = {
+				target = GRE
+				type = puppet
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_invade_romania
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_take_yugoslavian_lands
+		}
+		prerequisite = {
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
+		}
+		
+		x = 1
+        y = 1
+		
+		relative_position_id = TUS_take_yugoslavian_lands
+		
+        cost = 15
+		
+		completion_reward = {
+			ROM = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = ROM
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_invade_switzerland
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_realign_bulgaria
+			focus = TUS_team_bulgaria
+		}
+		prerequisite = {
+			focus = TUS_invade_greece
+		}
+		prerequisite = {
+			focus = TUS_invade_romania
+		}
+		
+		x = 0
+        y = 1
+		
+		relative_position_id = TUS_realign_bulgaria
+		
+        cost = 70
+		
+		completion_reward = {
+			SWI = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = SWI
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_invade_france
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_realign_bulgaria
+			focus = TUS_team_bulgaria
+		}
+		prerequisite = {
+			focus = TUS_invade_greece
+		}
+		prerequisite = {
+			focus = TUS_invade_romania
+		}
+		
+		x = 0
+        y = 1
+		
+		relative_position_id = TUS_invade_greece
+		
+        cost = 15
+		
+		completion_reward = {
+			FRA = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = FRA
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_invade_iberia
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_invade_france
+		}
+		prerequisite = {
+			focus = TUS_invade_switzerland
+		}
+		
+		x = -1
+        y = 1
+		
+		relative_position_id = TUS_invade_france
+		
+        cost = 15
+		
+		completion_reward = {
+			SPR = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = SPR
+				type = annex_everything
+			}
+			POR = {every_core_state = {add_claim_by = TUS}}
+			declare_war_on = {
+				target = POR
+				type = annex_everything
+			}
+		}
+	}
 }
