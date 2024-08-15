@@ -1,20 +1,285 @@
 focus_tree = {
-	id = FGB_first
+	id = FGB
+	
 	country = {
 		factor = 0
+		
 		modifier = {
 			add = 10
 			tag = FGB
 		}
 	}
 	default = no
+	
+	initial_show_position = { focus = FGB_reconstruction }
+	
+	continuous_focus_position = { x = 50 y = 1500 }
+	
+	focus = {
+		id = FGB_death_of_kapp
+		icon = GFX_focus_FGB_death_of_kapp
+		x = 6
+		y = 0
+		cost = 1
+		available = {
+			always = no 
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.1
+			add_war_support = -0.1
+			add_manpower = -1
+		}
+	}
+	
+	focus = {
+		id = FGB_electing_new_leader
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 6
+		y = 1
+		cost = 3
+		prerequisite = { focus = FGB_death_of_kapp }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = 40
+			set_politics = {
+				ruling_party = despotism
+				last_election = "1935.6.9"
+				election_frequency = 12
+				elections_allowed = yes
+			}
+			country_event = fgb.2
+			custom_effect_tooltip = FGB_electing_new_leader_tt		
+			hidden_effect = {
+				add_popularity = {
+					ideology = despotism
+					popularity = -0.21
+				}
+				add_popularity = {
+				ideology = authoritarian_democrat
+					popularity = -0.15
+				}
+			}
+		}
 
+	}
+	
+	focus = {
+		id = FGB_noske
+		icon = GFX_focus_FGB_noske
+		x = 0
+		y = 1
+		relative_position_id = FGB_electing_new_leader
+		cost = 1
+		prerequisite = { focus = FGB_electing_new_leader }
+		allow_branch = { has_country_flag = FGB_noske_flag }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.13
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_ease_unrest
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske
+		cost = 6.87
+		prerequisite = { focus = FGB_noske }
+		completion_reward = {
+			if = { 
+				limit = { has_idea = FGB_civil_unrest }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest2
+				}
+			}
+			add_stability = 0.11
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_allow_moderates
+		icon = GFX_focus_FGB_electing_new_leader
+		x = -2
+		y = 1
+		relative_position_id = FGB_noske
+		cost = 6.87
+		prerequisite = { focus = FGB_noske }
+		completion_reward = {
+			if = { 
+				limit = { has_idea = FGB_civil_unrest }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest1
+				}
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.06
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_cooperate_with_democrats
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 2
+		y = 1
+		relative_position_id = FGB_noske
+		cost = 6.87
+		prerequisite = { focus = FGB_noske }
+		completion_reward = {
+			if = { 
+				limit = { has_idea = FGB_civil_unrest }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest3
+				}
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.06
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_freikorps_spd
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske_ease_unrest
+		cost = 3
+		prerequisite = { focus = FGB_noske_allow_moderates }
+		prerequisite = { focus = FGB_noske_ease_unrest }
+		prerequisite = { focus = FGB_noske_cooperate_with_democrats }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.15
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_september_coalition
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske_freikorps_spd
+		cost = 3
+		prerequisite = { focus = FGB_noske_freikorps_spd }
+		completion_reward = {
+			add_political_power = 200
+			set_politics = {
+				ruling_party = social_democrat
+				last_election = "1936.6.9"
+				election_frequency = 12
+				elections_allowed = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_pabst
+		icon = GFX_focus_FGB_pabst
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_electing_new_leader
+		prerequisite = { focus =  FGB_electing_new_leader }
+		allow_branch = { has_country_flag = FGB_pabst_flag }
+		completion_reward = {
+			add_political_power = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_pabst_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_pabst
+		prerequisite = { focus = FGB_pabst }
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	
+	focus = {
+		id = FGB_rohm
+		icon = GFX_focus_FGB_rohm
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_electing_new_leader
+		prerequisite = { focus = FGB_electing_new_leader }
+		allow_branch = { has_country_flag = FGB_rohm_flag }
+		completion_reward = {
+			add_political_power = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_rohm_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_rohm
+		prerequisite = { focus = FGB_rohm }
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	
+	focus = {
+		id = FGB_other
+		icon = GFX_focus_FGB_other
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_electing_new_leader
+		prerequisite = { focus = FGB_electing_new_leader }
+		allow_branch = { has_country_flag = FGB_other_flag }
+		completion_reward = {
+			add_political_power = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_other_middle
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_other
+		prerequisite = { focus = FGB_other }
+		completion_reward = {
+			add_political_power = 20
+		}
+	}
+	
 	focus = {
 		id = FGB_train_soldiers
 		icon = GFX_focus_FGB_train_soldiers
-		x = 10
-		y = 1
-		cost = 1.5
+		x = 24
+		y = 0
+		cost = 2
 		ai_will_do = {
 			factor = 10
 		}
@@ -25,7 +290,1192 @@ focus_tree = {
 				type = infantry_equipment_0
 				amount = 300
 				producer = FGB
+			}
 		}
 	}
 	
+	focus = {
+		id = FGB_freikorps_legacy
+		icon = GFX_focus_FGB_freikorps_legacy
+		prerequisite = { focus = FGB_train_soldiers }
+		x = 24
+		y = 1
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			army_experience = 30
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+			add_ideas = {
+				FGB_legacy_freikorps
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_study_tactics
+		icon = GFX_focus_FGB_study_tactics
+		prerequisite = { focus = FGB_freikorps_legacy }
+		x = 23.75
+		y = 2
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			army_experience = 20
+            add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 2
+				category = land_doctrine
+			}
+			IF = {
+				limit = { has_idea = FGB_legacy_freikorps2 }
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps2
+					add_idea = FGB_legacy_freikorps3
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps
+					add_idea = FGB_legacy_freikorps2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_analyse_mistakes
+		icon = GFX_focus_FGB_analyse_mistakes
+		prerequisite = { focus = FGB_freikorps_legacy }
+		x = 25.25
+		y = 2
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			army_experience = 10
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias
+				add_idea = FGB_disorganised_militias2
+			}
+			IF = {
+				limit = { has_idea = FGB_legacy_freikorps2 }
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps2
+					add_idea = FGB_legacy_freikorps3
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_legacy_freikorps
+					add_idea = FGB_legacy_freikorps2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_repair_factories
+		icon = GFX_focus_FGB_repair_factories
+		prerequisite = { focus = FGB_study_tactics }
+		x = 23.75
+		y = 3
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.05
+			842 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				842 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				50 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				54 = {
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_repair_airbases
+		icon = GFX_focus_FGB_repair_airbases
+		prerequisite = { focus = FGB_analyse_mistakes }
+		x = 25.25
+		y = 3
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_stability = 0.05
+			air_experience = 20
+			842 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_kaiser_silos
+		icon = GFX_focus_FGB_kaiser_silos
+		prerequisite = { focus = FGB_repair_factories }
+		available = {
+			check_variable = { num_equipment_in_armies_k@infantry_equipment_1 > 1 }
+			custom_trigger_tooltip = {
+			 	tooltip = FGB_kaiser_silos_tt
+			 	check_variable = { num_equipment_in_armies_k@infantry_equipment_1 > 1 }
+			}
+		}
+		x = 22
+		y = 4
+		cost = 6
+		completion_reward = {
+			army_experience = 25
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 2000
+				producer = FGB
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = FGB
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_protect_the_skies
+		icon = GFX_focus_FGB_protect_the_skies
+		prerequisite = { focus = FGB_repair_airbases }
+		available = {
+			FGB = {
+				check_variable = { has_tech = anti_air_equipment_1 }
+				custom_trigger_tooltip = {
+					tooltip = FGB_protect_the_skies_tt
+				}
+			}
+		}
+		x = 26.25
+		y = 4
+		cost = 6
+		completion_reward = {
+			add_tech_bonus = {
+				name = FGB_protect_the_skies
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+			842 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+		
+	focus = {
+		id = FGB_expand_army
+		icon = GFX_focus_FGB_expand_army
+		prerequisite = { focus = FGB_repair_airbases }
+		prerequisite = { focus = FGB_repair_factories }
+		x = 24
+		y = 4
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_war_support = 0.1
+			add_command_power = 10
+			add_manpower = 230000
+			hidden_effect = {
+				load_oob = FGB_OOB
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
+				create_unit = {
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"2nd. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.5" 
+					owner = FGB
+				}
+			}
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias2
+				add_idea = FGB_disorganised_militias3
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_prussianise_culture
+		icon = GFX_focus_FGB_prussianise_culture
+		prerequisite = { focus = FGB_expand_army }
+		available = {
+			or = {
+				has_completed_focus = FGB_definitive_attack 
+				has_completed_focus = FGB_prepared_offensive 
+			}
+		}
+		x = 22
+		y = 5
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = FGB_in_defense_of_the_vaterland
+				add_idea = FGB_prussian_model
+			}
+			IF = {
+				limit = { has_idea = FGB_swift_strike }
+				swap_ideas = {
+					remove_idea = FGB_swift_strike
+					add_idea = FGB_swift_strike2
+				}
+			}
+			ELSE_IF = {
+				limit = { has_idea = FGB_coordinated_assault }
+				swap_ideas = {
+					remove_idea = FGB_coordinated_assault
+					add_idea = FGB_coordinated_assault2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_recruit_prisoners
+		icon = GFX_focus_FGB_recruit_prisoners
+		prerequisite = { focus = FGB_expand_army }
+		x = 26.25
+		y = 5
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_political_power = -10
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_manpower = 10000
+			if = {
+				limit = {
+					NOT = { has_government = bolshevism }
+					NOT = { has_government = marxism }
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = -0.05
+				}
+				add_popularity = {
+					ideology = marxism 
+					popularity = -0.05
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = national_syndicalism 
+					popularity = -0.05
+				}
+				add_popularity = {
+					ideology = esotericism
+					popularity = -0.05
+				}
+			}
+			custom_effect_tooltip = FGB_prison_ideology_tt
+			
+			hidden_effect = {
+				load_oob = FGB_OOB2
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
+				create_unit = {
+					division = "name = \"1st. Penal Battalion\" division_template = \"Penal Battalion\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"2nd. Penal Battalion\" division_template = \"Penal Battalion\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_army_reform
+		icon = GFX_focus_FGB_army_reform
+		prerequisite = { focus = FGB_expand_army }
+		available = {
+			is_subject = no
+			has_army_experience > 49
+			has_political_power > 99
+		}
+		cancel_if_invalid = yes
+		x = 24
+		y = 5
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			add_war_support = 0.1
+			country_event = fgb.1
+			add_political_power = -100
+			army_experience = -50
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias3
+				add_idea = FGB_disorganised_militias4
+			}
+		}
+	}
+	
+	focus = { 
+		id = FGB_definitive_attack
+		icon = GFX_focus_FGB_definitive_attack
+		prerequisite = { focus = FGB_army_reform }
+		mutually_exclusive = { focus = FGB_prepared_offensive }
+		available = {
+			IF = { has_idea = FGB_mobile }
+			NOT = { has_idea = FGB_firepower }
+		}
+		x = 23.75
+		y = 6
+		cost = 6
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias4
+				add_idea = FGB_swift_strike
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_prepared_offensive
+		icon = GFX_focus_FGB_prepared_offensive
+		prerequisite = { focus = FGB_army_reform }
+		mutually_exclusive = { focus = FGB_definitive_attack }
+		available = {
+			IF = { has_idea = FGB_firepower }
+			NOT = { has_idea = FGB_mobile }
+		}
+		x = 25.25
+		y = 6
+		cost = 6
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_disorganised_militias4
+				add_idea = FGB_coordinated_assault
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_expand_conscription
+		icon = GFX_focus_FGB_expand_conscription
+		prerequisite = { focus = FGB_prepared_offensive focus = FGB_definitive_attack }
+		available = {
+			has_full_control_of_state = 50
+		}
+		x = 24
+		y = 7
+		cost = 6
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = {
+				extensive_conscription
+			}
+			50 = {
+				create_unit = {
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"1st. Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+			}
+			set_division_template_lock = {
+				division_template = "Neues Heer"
+				is_locked = no
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_military_academy
+		icon = GFX_focus_FGB_military_academy
+		available = {
+			has_completed_focus = FGB_army_reform
+		}
+		x = 16
+		y = 7
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = FGB_rebuild_schools
+		icon = GFX_focus_FGB_rebuild_schools
+		available = {
+			has_completed_focus = FGB_complete_recovery
+		}
+		x = 14
+		y = 8
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = {
+				FGB_research_fund
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_berlin_academies
+		icon = GFX_focus_FGB_berlin_academies
+		available = {
+			has_full_control_of_state = 835
+			has_full_control_of_state = 836
+		}
+		x = 18
+		y = 8
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = FGB_reconstruction
+		icon = GFX_focus_FGB_reconstruction
+		x = 16
+		y = 0
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available = {
+			has_completed_focus = FGB_death_of_kapp
+		}
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_consequences
+				add_idea = FGB_rebuilding_economy
+			}
+			842 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_resource_smuggling
+		icon = GFX_focus_FGB_resource_smuggling
+		prerequisite = { focus = FGB_reconstruction }
+		x = 14
+		y = 1
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			842 = {
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+			}
+			50 = {
+				add_resource = { 
+					type = steel
+					amount = 2
+				}
+			}
+			add_stability = -0.05
+		}
+	}
+	
+	focus = {
+		id = FGB_repair_the_countryside
+		icon = GFX_focus_FGB_repair_the_countryside
+		prerequisite = { focus = FGB_reconstruction }
+		x = 18
+		y = 1
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			custom_effect_tooltip = FGB_repair_the_countryside_tt
+			842 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes 
+				}
+			}
+			50 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes 
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			IF = {
+				limit = { has_full_control_of_state = 52 }
+				52 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			IF = {
+				limit = { has_full_control_of_state = 53 }
+				53 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_welfare_programmes
+		icon = GFX_focus_FGB_welfare_programmes
+		prerequisite = { focus = FGB_reconstruction }
+		x = 16
+		y = 2
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_rebuilding_economy
+				add_idea = FGB_recovering_industry
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_combat_inflation
+		icon = GFX_focus_FGB_combat_inflation
+		prerequisite = { focus = FGB_welfare_programmes }
+		x = 13
+		y = 2
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			IF = {
+				limit = { has_idea = FGB_recovering_industry1 }
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry1
+					add_idea = FGB_recovering_industry2
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry
+					add_idea = FGB_recovering_industry1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_coop_corp
+		icon = GFX_focus_FGB_coop_corp
+		prerequisite = { focus = FGB_welfare_programmes }
+		x = 19
+		y = 2
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		available_if_capitulated = no
+		available = {
+			is_subject = no 
+			country_exists = FOC
+			NOT = { has_war_with = FOC }
+		}
+		cancel_if_invalid = yes
+		completion_reward = {
+			add_ideas = {
+				FGB_ford_collab
+			}
+			add_opinion_modifier = {
+				target = FOC
+				modifier = FOC_collab
+			}
+			FOC = {
+				add_ideas = {
+					FOC_freikorps_collab
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = FGB_collab
+				}
+			}
+			add_tech_bonus = {
+				name = FGB_coop_corp
+				bonus = 1.0
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_tax_foreign
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_combat_inflation }
+		x = 13
+		y = 3
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			army_experience = 5
+		}
+	}
+	
+	focus = {
+		id = FGB_etatism
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_welfare_programmes }
+		mutually_exclusive = { focus = FGB_market_liberalism }
+		x = 15
+		y = 3
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = limited_exports
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_market_liberalism
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_welfare_programmes }
+		mutually_exclusive = { focus = FGB_etatism }
+		x = 17.5
+		y = 3
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = export_focus
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_modernise_taxes
+		icon = GFX_focus_FGB_modernise_taxes
+		prerequisite = { focus = FGB_coop_corp }
+		x = 19
+		y = 3
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			IF = {
+				limit = { has_idea = FGB_recovering_industry1 }
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry1
+					add_idea = FGB_recovering_industry2
+				}
+			}
+			ELSE = {
+				swap_ideas = {
+					remove_idea = FGB_recovering_industry
+					add_idea = FGB_recovering_industry1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_nationalise_industry
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_tax_foreign }
+		x = 13
+		y = 4
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			842 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_increase_tariffs
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_etatism }
+		x = 15
+		y = 4
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			add_ideas = {
+				FGB_tariffs
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_increase_exports
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_market_liberalism }
+		x = 17
+		y = 4
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			add_ideas = {
+				FGB_exports
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_buy_businesses
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_modernise_taxes }
+		x = 19
+		y = 4
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			842 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_autarky
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_nationalise_industry }
+		prerequisite = { focus = FGB_increase_tariffs }
+		x = 14
+		y = 5
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = regulated_market_economy
+				add_idea = mixed_economy
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_market_decentralisation
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_increase_exports }
+		prerequisite = { focus = FGB_buy_businesses }
+		x = 18
+		y = 5
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = regulated_market_economy
+				add_idea = free_market_economy
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_complete_recovery
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_autarky focus = FGB_market_decentralisation }
+		available = {
+			NOT = { has_idea = FGB_recovering_industry1 }
+			is_subject = no
+		}
+		x = 16
+		y = 6
+		cost = 6
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_reconstruction_efforts
+				days = 42
+			}
+		}
+		completion_reward = {
+			add_stability = 0.15
+			remove_ideas = {
+				economically_isolated
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_a_brand_new_economy
+		icon = GFX_focus_FGB_reconstruction
+		available = {
+			has_completed_focus = FGB_complete_recovery
+			has_full_control_of_state = 842
+			has_full_control_of_state = 50
+			has_full_control_of_state = 52
+			has_full_control_of_state = 53
+			has_full_control_of_state = 54
+			has_full_control_of_state = 835
+		}
+		x = 16
+		y = 8
+		cost = 16
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			842 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 3
+					instant_build = yes
+				}
+			}
+			52 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+			53 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 3
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				842 = {
+					add_extra_state_shared_building_slots = 6
+				}
+				50 = {
+					add_extra_state_shared_building_slots = 6
+				}
+				52 = {
+					add_extra_state_shared_building_slots = 5
+				}
+				53 = { 
+					add_extra_state_shared_building_slots = 5
+				}
+				54 = {
+					add_extra_state_shared_building_slots = 5
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_attack_bavaria
+		icon = GFX_focus_FGB_attack_bavaria
+		available = {
+			is_subject = no
+			check_variable = { num_of_owned_factories > 12 }
+			custom_trigger_tooltip = {
+				tooltip = FGB_attack_bavaria_tt
+			}
+		}
+		x = 30
+		y = 6
+		cost = 6
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_bavaria"
+			BAV = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			}
+		}
+	}
+	focus = {
+		id = FGB_attack_wehrkommando
+		icon = GFX_focus_FGB_attack_wehrkommando
+		available = {
+			is_subject = no
+			has_army_manpower = { size > 99999 }
+			custom_trigger_tooltip = { 
+				tooltip = FGB_attack_wehrkommando_tt 
+			}
+		}
+		x = 30
+		y = 7
+		cost = 6
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_wehrkommando"
+			WRD = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
+			}
+		}
+	}
 }
