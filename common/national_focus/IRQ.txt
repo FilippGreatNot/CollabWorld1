@@ -59,7 +59,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_preserve_iraqi_cultural_heritage
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_culture
 		x = 0
 		y = 2
 		cost = 5
@@ -222,7 +222,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_the_era_of_the_arabs
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_arab_era
 		x = -1
 		y = 1
 		cost = 10
@@ -538,7 +538,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_the_egyptian_situation
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_egypt
 		x = -1
 		y = 1
 		cost = 10
@@ -628,7 +628,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_promote_womens_rights
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_feminism
 		x = 3
 		y = 1
 		cost = 5
@@ -973,7 +973,17 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_archaic_economy
+				add_idea = IRQ_developing_economy
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
 			
 		}
 	}
@@ -1050,7 +1060,42 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_developing_economy
+				add_idea = IRQ_developing_economy2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
 			
 		}
 	}
@@ -1072,7 +1117,13 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_developing_economy
+				add_idea = IRQ_developing_economy2
+			}
+			add_ideas = {
+				IRQ_land_reforms
+			}
 			
 		}
 	}
@@ -1144,7 +1195,14 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			291 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+			add_political_power = 100
+			add_stability = 0.05
 			
 		}
 	}
