@@ -25,10 +25,13 @@ focus_tree = {
 			always = no 
 		}
 		completion_reward = {
-			add_political_power = -50
-			add_stability = -0.1
-			add_war_support = -0.1
 			add_manpower = -1
+			custom_effect_tooltip = FGB_kapp_death_tt
+			hidden_effect = {
+				add_political_power = -50
+				add_stability = -0.1
+				add_war_support = -0.1
+			}
 		}
 	}
 	
@@ -149,7 +152,7 @@ focus_tree = {
 				popularity = 0.06
 			}
 			add_popularity = {
-				ideology = libertarian_socialism
+				ideology = liberalism
 				popularity = 0.06
 			}
 		}
@@ -170,6 +173,22 @@ focus_tree = {
 			add_popularity = {
 				ideology = social_democrat
 				popularity = 0.15
+			}
+			set_party_name = { 
+				ideology = social_democrat
+				long_name = FGB_spd
+				name = FGB_spd_party
+			}
+			add_country_leader_role = {
+					character = FGB_gustav_noske2
+					country_leader = {
+						expire = "1927.2.6"
+						ideology = liberal_socialism
+						traits = {
+							hero_of_the_peasantry
+						}
+					}
+					promote_leader = yes
 			}
 		}
 	}
@@ -194,12 +213,39 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = FGB_noske_rub_off_kapp_memory
+		icon = GFX_focus_FGB_noske_rub_off_kapp_memory
+		x = -2
+		y = 0
+		relative_position_id = FGB_noske_september_coalition
+		cost = 5
+		prerequisite = { focus = FGB_noske_september_coalition }
+		completion_reward = {
+			add_political_power = -30
+			add_stability = 0.05
+			add_war_support = -0.1
+			add_popularity = {
+				ideology = despotism
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+		}
+	}
+	
+	focus = {
 		id = FGB_noske_rejuvenate_old_industries
 		icon = GFX_focus_FGB_noske_rejuvenate_old_industries
 		x = 2
 		y = 0
 		relative_position_id = FGB_noske_september_coalition
-		cost = 3
+		cost = 5
 		prerequisite = { focus = FGB_noske_september_coalition }
 		completion_reward = {
 			add_war_support = 0.05
@@ -209,9 +255,9 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-				add_victory_points = [
+				add_victory_points = {
 					province = 11486
-					amount = 3
+					value = 3
 				}
 			}
 		}
@@ -1467,6 +1513,9 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = FGB_attack_bavaria_tt
 			}
+			NOT = { has_full_control_of_state = 52 }
+			NOT = { has_full_control_of_state = 53 }
+			NOT = { BAV = { exists = no } }
 		}
 		x = 30
 		y = 6
