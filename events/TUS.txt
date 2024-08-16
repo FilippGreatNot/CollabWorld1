@@ -38,6 +38,7 @@ country_event = {
 		name = tus.3.a
 		next_legacy_of_the_great_war_idea = yes
 		next_legacy_of_the_great_war_idea = yes
+		next_legacy_of_the_great_war_idea = yes
 		hidden_effect = { mark_focus_tree_layout_dirty = yes }
 	}
 }
@@ -417,7 +418,14 @@ country_event = {
 			}
 		}
 		if = {
-			limit = {has_idea = TUS_disunified_government_2}
+			limit = {has_idea = TUS_disunified_government_2 NOT = {has_country_flag = TUS_victor_free}}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government_2
+				add_idea = TUS_disunified_government
+			}
+		}
+		if = {
+			limit = {has_idea = TUS_disunified_government_2 has_country_flag = TUS_victor_free}
 			#will do civil war
 		}
 	}

@@ -215,8 +215,6 @@ TUS_state_management = {
 		
 		remove_effect = {
 			106 = { add_core_of = SER }
-			764 = { remove_core_of = SER }
-			45 = { remove_core_of = SER }
 			release_puppet_on_controlled = SER
 		}
 	}
@@ -253,38 +251,6 @@ TUS_state_management = {
 				limit = {is_core_of = SER}
 				transfer_state_to = SER
 			}
-		}
-	}
-	TUS_take_ser = {
-		
-		allowed = {
-			tag = TUS
-		}
-		
-		available = {
-			SER = {
-				OR = {
-					owns_state = 764
-					owns_state = 45
-				}
-			}
-		}
-		
-		visible = {
-			SER = {
-				OR = {
-					owns_state = 764
-					owns_state = 45
-				}
-			}
-		}
-		
-		days_remove = 0
-		cost = 0
-		
-		remove_effect = {
-			764 = { remove_core_of = SER transfer_state_to = ROOT }
-			45 = { remove_core_of = SER transfer_state_to = ROOT }
 		}
 	}
 	TUS_to_bul = {
