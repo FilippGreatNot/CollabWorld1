@@ -1,10 +1,4 @@
-## SETUP ##
 add_namespace = tus
-add_namespace = tus_coun1
-add_namespace = tus_cap
-add_namespace = tus_coun2
-
-## MAIN ##
 
 country_event = {
 	id = tus.1
@@ -36,9 +30,10 @@ country_event = {
 	
 	option = {
 		name = tus.3.a
-		next_legacy_of_the_great_war_idea = yes
-		next_legacy_of_the_great_war_idea = yes
-		hidden_effect = { mark_focus_tree_layout_dirty = yes }
+		country_event = {
+			id = tus.4
+			days = 35
+		}
 	}
 }
 
@@ -46,25 +41,22 @@ country_event = {
 	id = tus.4
 	title = tus.4.t
 	desc = tus.4.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		focus_progress = {
-			focus = TUS_prepare_for_reunificatoin
-			progress > 0
-		}	
-	}
-	
-	immediate = {
-		add_timed_idea = {
-			idea = TUS_prepare_for_reunificatoin_idea
-			days = 150
-		}
-	}
+	is_triggered_only = yes
 	
 	option = {
-		name = tus.4.a	
+		name = tus.4.a
+		country_event = {
+			id = tus.5
+			days = 35
+		}
+	}
+	option = {
+		name = tus.4.b
+		add_ideas = a_gun_for_every_household
+		country_event = {
+			id = tus.5
+			days = 35
+		}
 	}
 }
 
@@ -75,16 +67,27 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.5.a	
-		set_cosmetic_tag = ITA_EMP
-		set_capital = 2
-		add_ideas = {
-			TUS_worker_strikes
-			TUS_overwhelmed_council
+		name = tus.5.a
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.1
 		}
-		if = {
-			limit = {has_idea = TUS_disunified_government}
-			add_ideas = TUS_council_infighting
+		country_event = {
+			id = tus.6
+			days = 35
+		}
+	}
+	option = {
+		name = tus.5.b
+		add_stability = -0.03
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
+		add_ideas = TUS_limited_womens_rights
+		country_event = {
+			id = tus.6
+			days = 35
 		}
 	}
 }
@@ -96,133 +99,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.6.a	
-	}
-}
-
-# for albania not us
-country_event = {
-	id = tus.8
-	title = tus.8.t
-	desc = tus.8.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.8.a	
-		TUS = {
-			declare_war_on = {
-				target = ALB
-				type = annex_everything
-			}
-		}
-	}
-	
-	option = {
-		name = tus.8.b
-		ai_chance = {base = 100}
-		TUS = {
-			annex_country = {
-				target = ALB
-				transfer_troops = yes
-			}
-		}
-	}
-}
-
-## First Meeting ##
-country_event = {
-	id = tus_coun1.1
-	title = tus_coun1.1.t
-	desc = tus_coun1.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		focus_progress = {
-			focus = TUS_unify_the_party
-			progress > 0
-		}	
-	}
-	
-	option = {
-		name = tus_coun1.1.a
-		country_event = {
-			id = tus_coun1.2
-			days = 35
-		}
-		add_to_variable = {
-			var = TUS_Balbo_Pop
-			value = 1
-		}
-	}
-	option = {
-		name = tus_coun1.1.b
-		add_ideas = a_gun_for_every_household
-		country_event = {
-			id = tus_coun1.2
-			days = 35
-		}
-	}
-}
-
-country_event = {
-	id = tus_coun1.2
-	title = tus_coun1.2.t
-	desc = tus_coun1.2.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.5.a
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.1
-		}
-		if = {
-			limit = {check_variable = {TUS_Balbo_Pop > 6}}
-			country_event = {
-				id = tus_coun1.3
-				days = 35
-			}
-		}
-		else = {
-			country_event = {
-				id = tus_coun1.4
-				days = 35
-			}
-		}
-	}
-	option = {
-		name = tus.5.b
-		add_stability = -0.03
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.05
-		}
-		add_ideas = TUS_limited_womens_rights
-		if = {
-			limit = {check_variable = {TUS_Balbo_Pop > 6}}
-			country_event = {
-				id = tus_coun1.3
-				days = 35
-			}
-		}
-		else = {
-			country_event = {
-				id = tus_coun1.4
-				days = 35
-			}
-		}
-	}
-}
-
-country_event = {
-	id = tus_coun1.3
-	title = tus_coun1.3.t
-	desc = tus_coun1.3.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus_coun1.3.a
+		name = tus.6.a
 		add_popularity = {
 			ideology = despotism
 			popularity = -100
@@ -232,202 +109,15 @@ country_event = {
 			popularity = -100
 		}
 		add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = -100
-		}
-		add_popularity = {
 			ideology = national_syndicalism
 			popularity = 0.3
 		}
-		clear_variable = TUS_Balbo_Pop
-		swap_ideas = {
-			remove_idea = TUS_disunified_government
-			add_idea = TUS_unified_government
+		set_variable = {
+			var = TUS_can_speech
+			value = 1
 		}
 	}
 }
-
-country_event = {
-	id = tus_coun1.4
-	title = tus_coun1.4.t
-	desc = tus_coun1.4.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus_coun1.4.a
-		clear_variable = TUS_Balbo_Pop
-	}
-}
-
-## Capture Events ##
-country_event = {
-	id = tus_cap.1
-	title = tus_cap.1.t
-	desc = tus_cap.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = TUS
-		has_idea = TUS_unified_government
-		owns_state = 159
-	}
-	
-	option = {
-		name = tus_cap.1.a
-		set_country_flag = TUS_mussolini_killed
-	}
-	option = {
-		name = tus_cap.2.a
-		set_country_flag = TUS_mussolini_prison
-	}
-}
-
-country_event = {
-	id = tus_cap.2
-	title = tus_cap.1.t
-	desc = tus_cap.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = TUS
-		has_idea = TUS_disunified_government
-		owns_state = 159
-	}
-	
-	option = {
-		name = tus_cap.2.a
-		set_country_flag = TUS_mussolini_prison
-	}
-	option = {
-		name = tus_cap.3.a
-		set_country_flag = TUS_mussolini_free
-	}
-}
-
-country_event = {
-	id = tus_cap.3
-	title = tus_cap.2.t
-	desc = tus_cap.2.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = TUS
-		has_idea = TUS_unified_government
-		owns_state = 114
-	}
-	
-	option = {
-		name = tus_cap.1.a
-		set_country_flag = TUS_victor_killed
-	}
-	option = {
-		name = tus_cap.2.a
-		set_country_flag = TUS_victor_prison
-	}
-}
-
-country_event = {
-	id = tus_cap.4
-	title = tus_cap.2.t
-	desc = tus_cap.2.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = TUS
-		has_idea = TUS_disunified_government
-		owns_state = 114
-	}
-	
-	option = {
-		name = tus_cap.2.a
-		set_country_flag = TUS_victor_prison
-	}
-	option = {
-		name = tus_cap.3.a
-		set_country_flag = TUS_victor_free
-	}
-}
-
-## Second Meeting ##
-country_event = {
-	id = tus_coun2.1
-	title = tus_coun2.1.t
-	desc = tus_coun2.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		focus_progress = {
-			focus = TUS_restabilize_the_government
-			progress > 0.4
-		}	
-	}
-	
-	option = {
-		name = tus_coun2.1.a
-		#Create Local Counseles
-		remove_ideas = TUS_overwhelmed_council
-		if = {
-			limit = {has_idea = TUS_disunified_government}
-			swap_ideas = {
-				remove_idea = TUS_disunified_government
-				add_idea = TUS_disunified_government_2
-			}
-		}
-		if = {
-			limit = {has_idea = TUS_unified_government}
-			swap_ideas = {
-				remove_idea = TUS_unified_government
-				add_idea = TUS_disunified_government
-			}
-		}
-	}
-	
-	option = {
-		name = tus_coun2.1.b
-		#Dont
-		if = {
-			limit = {has_idea = TUS_disunified_government}
-			swap_ideas = {
-				remove_idea = TUS_disunified_government
-				add_idea = TUS_unified_government
-			}
-		}
-	}
-}
-
-country_event = {
-	id = tus_coun2.2
-	title = tus_coun2.2.t
-	desc = tus_coun2.2.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus_coun2.2.a
-		#Purge
-		if = {
-			limit = {has_idea = TUS_disunified_government}
-			swap_ideas = {
-				remove_idea = TUS_disunified_government
-				add_idea = TUS_unified_government
-			}
-		}
-		if = {
-			limit = {has_idea = TUS_disunified_government_2}
-			#will do civil war
-		}
-	}
-	
-	option = {
-		name = tus_coun2.2.b
-	}
-}
-
-# end of meeting 2 #
 
 country_event = {
 	id = tus.7
@@ -436,7 +126,88 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.7.a	
+		name = tus.7.a
+		if = {
+			limit = {has_idea = legacy_of_the_great_war}
+			remove_ideas = legacy_of_the_great_war
+		}
+		hidden_effect = { mark_focus_tree_layout_dirty = yes }
 	}
 }
 
+country_event = {
+	id = tus.8
+	title = tus.8.t
+	desc = tus.8.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.8.a
+		country_event = {
+			id = tus.9
+			days = 35
+		}
+	}
+}
+
+country_event = {
+	id = tus.9
+	title = tus.9.t
+	desc = tus.9.d
+	is_triggered_only = yes
+	
+	option = {
+		#"this will do something"-Jayke Koda
+		name = tus.9.a
+		country_event = {
+			id = tus.10
+			days = 35
+		}
+	}
+	option = {
+		name = tus.9.b
+		country_event = {
+			id = tus.10
+			days = 35
+		}
+	}
+}
+
+country_event = {
+	id = tus.10
+	title = tus.10.t
+	desc = tus.10.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.10.a
+		# Italian Empire
+		hidden_effect = {
+			set_variable = {
+				var = TUS_full_name
+				value = 0
+			}
+		}
+	}
+	option = {
+		name = tus.10.b
+		#Roman Empire
+		hidden_effect = {
+			set_variable = {
+				var = TUS_full_name
+				value = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus.11
+	title = tus.11.t
+	desc = tus.11.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.12.a
+	}
+}
