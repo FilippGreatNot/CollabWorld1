@@ -88,7 +88,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_faisals_constitutional_reforms
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_constitution
 		x = -1
 		y = 1
 		cost = 10
@@ -120,6 +120,12 @@ focus_tree = {
 				ruling_party = authoritarian_democrat
 			}
 			
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = -0.1
+                tooltip_side = reformist_side
+            }
+			
 			IRQ_faisal_i = {
 			remove_country_leader_role = { ideology = absolute_monarchy }
 			add_country_leader_role = {
@@ -136,7 +142,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_a_change_of_plan
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_change_of_plan
 		x = 1
 		y = 1
 		cost = 10
@@ -165,13 +171,17 @@ focus_tree = {
 				popularity = 0.1
 			}
 			add_stability = -0.05
-			
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = 0.1
+                tooltip_side = traditionalist_side
+            }
 		}
 	}
 	
 	focus = {
 		id = IRQ_first_rule_with_the_iron_fist
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_iron_fist
 		x = 0
 		y = 1
 		cost = 10
@@ -205,7 +215,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_establish_an_iraqi_parliament
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_parliament
 		x = 0
 		y = 1
 		cost = 10
@@ -249,19 +259,21 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
+		available = {
+		 	    has_completed_focus = IRQ_first_a_unified_iraq
+		    }
 		
 		prerequisite = { focus = IRQ_first_rule_with_the_iron_fist focus = IRQ_first_establish_an_iraqi_parliament }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			country_event = irq.6
-			
 		}
 	}
 	
 	focus = {
 		id = IRQ_first_integrate_the_nephews_domain
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_nephew
 		x = 0
 		y = 1
 		cost = 10
@@ -326,7 +338,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_exploit_syrias_weakness
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_syria
 		x = 1
 		y = 1
 		cost = 10
@@ -743,6 +755,11 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.04
 			}
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = -0.2
+                tooltip_side = reformist_side
+            }
 		}
 	}
 	
@@ -778,6 +795,11 @@ focus_tree = {
 				ideology = reactionism
 				popularity = 0.04
 			}
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = 0.2
+                tooltip_side = traditionalist_side
+            }
 			
 		}
 	}
@@ -813,6 +835,11 @@ focus_tree = {
 				ideology = liberalism
 				popularity = 0.04
 			}
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = -0.2
+                tooltip_side = reformist_side
+            }
 		}
 	}
 	
@@ -848,6 +875,11 @@ focus_tree = {
 				ideology = reactionism
 				popularity = 0.04
 			}
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = 0.2
+                tooltip_side = traditionalist_side
+            }
 		}
 	}
 	
@@ -873,7 +905,6 @@ focus_tree = {
                 }
 				}
 				
-		available = { has_government = authoritarian_democrat }
 		
 		available = {
 			has_completed_focus = IRQ_first_unite_the_arab_nation
@@ -913,7 +944,14 @@ focus_tree = {
                 }
 				}
 				
-		available = { has_government = despotism }
+		
+		
+		available = {
+		power_balance_value = {
+            id = IRQ_power_balance
+            value > 0.5
+        }
+		}
 		
 		prerequisite = { focus = IRQ_first_introduce_western_court_systems focus = IRQ_first_support_the_islamic_courts }
 		
@@ -928,6 +966,11 @@ focus_tree = {
 				ideology = reactionism
 				popularity = 0.04
 			}
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = 0.05
+                tooltip_side = traditionalist_side
+            }
 			
 		}
 	}
