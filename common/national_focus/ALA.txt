@@ -1,0 +1,238 @@
+focus_tree = {
+	id = ALA
+	default=no
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 50
+			tag = ALA
+		}
+	} 
+	
+	focus = {
+		id = ALA_Last_Fronteir
+		icon = GFX_focus_generic_modernize_industry
+		x = 10
+		y = 0
+		cost = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ALA_Native_Apeasement
+		icon = GFX_focus_generic_farmland
+		x = 5
+		y = 1
+		relative_position_id = ALA_Last_Fronteir
+		prerequisite = {focus = ALA_Last_Fronteir}
+		cost = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ALA_Alaskan_Industry
+		icon = GFX_focus_generic_industry_2
+		x = -5
+		y = 1
+		relative_position_id = ALA_Last_Fronteir
+		prerequisite = {focus = ALA_Last_Fronteir}
+		cost = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ALA_Native_Reservations
+		icon = GFX_focus_DEN_no_regulations
+		x = 1
+		y = 1
+		relative_position_id = ALA_Native_Apeasement
+		prerequisite = {focus = ALA_Native_Apeasement}
+		cost = 3
+		completion_reward = {
+			hidden_effect = {
+				remove_ideas = {
+					USA_alaskan_concentration_camps
+				}
+			}
+			add_ideas = {
+				USA_alaskan_native_reservations
+			}
+		}
+	}
+	focus = {
+		id = ALA_Petroleum_Exports
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = -1
+		y = 1
+		relative_position_id = ALA_Alaskan_Industry
+		prerequisite = {focus = ALA_Alaskan_Industry}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Native_Rights
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = -1
+		y = 1
+		relative_position_id = ALA_Native_Apeasement
+		prerequisite = {focus = ALA_Native_Apeasement}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Alaskan_Agriculture
+		icon = GFX_focus_generic_land_reclamation
+		x = 1
+		y = 1
+		relative_position_id = ALA_Alaskan_Industry
+		prerequisite = {focus = ALA_Alaskan_Industry}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Alaskan_Army
+		icon = GFX_goal_generic_small_arms
+		x = 0
+		y = 1
+		relative_position_id = ALA_Last_Fronteir
+		prerequisite = {focus = ALA_Last_Fronteir}
+		cost = 3
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ALA_Tactical_Military
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 1
+		relative_position_id = ALA_Alaskan_Army
+		prerequisite = {focus = ALA_Alaskan_Army}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Strengthen_Militias
+		icon = GFX_focus_generic_little_entente
+		x = -1
+		y = 1
+		relative_position_id = ALA_Tactical_Military
+		prerequisite = {focus = ALA_Tactical_Military}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Increase_Mobilisation
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 1
+		y = 1
+		relative_position_id = ALA_Tactical_Military
+		prerequisite = {focus = ALA_Tactical_Military}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Alaskan_Indusrialists
+		icon = GFX_focus_generic_industrialists
+		x = -1
+		y = 1
+		relative_position_id = ALA_Alaskan_Agriculture
+		prerequisite = {focus = ALA_Alaskan_Agriculture}
+		prerequisite = {focus = ALA_Petroleum_Exports}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_North_Workers
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		x = 0
+		y = 1
+		relative_position_id = ALA_Alaskan_Indusrialists
+		prerequisite = {focus = ALA_Alaskan_Indusrialists}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Native_Protection
+		icon = GFX_focus_generic_improve_the_administration
+		x = -1
+		y = 1
+		relative_position_id = ALA_Native_Reservations
+		prerequisite = {focus = ALA_Native_Reservations}
+		prerequisite = {focus = ALA_Native_Rights}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Infantry
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 1
+		relative_position_id = ALA_Strengthen_Militias
+		prerequisite = {focus = ALA_Strengthen_Militias}
+		prerequisite = {focus = ALA_Increase_Mobilisation}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Technology
+		icon = GFX_focus_research
+		x = 0
+		y = 1
+		relative_position_id = ALA_North_Workers
+		prerequisite = {focus = ALA_North_Workers}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_Winter_Tanks
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		relative_position_id = ALA_Infantry
+		prerequisite = {focus = ALA_Infantry}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = ALA_War_Economy
+		icon = GFX_goal_reichsautobahn
+		x = 2
+		y = 1
+		relative_position_id = ALA_North_Workers
+		prerequisite = {focus = ALA_North_Workers focus = ALA_Infantry}
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+}
