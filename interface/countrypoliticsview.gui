@@ -91,7 +91,52 @@ guiTypes = {
 				position = { x= -2 y = 1s }
 			}
 		}
-		
+		containerWindowType = {
+			name = "national_spirit"
+			position = { x = 81 y = 153 }
+			size = { width = 360 height = 50 }
+			clipping = no
+				
+			instantTextboxType = {
+				name = "title"
+				position = { x = 110 y = -2 }
+				font = "hoi_18mbs"
+				text = "POLITICS_NATIONAL_SPIRIT"
+				maxWidth = 200
+				maxHeight = 20
+				alwaystransparent = yes
+			}
+			
+			
+			containerWindowType = {
+				name = "national_spirit_container"
+				position = { x = 99 y = 16 }
+				size = { width = 364 height = 130 } #{ width = 364 height = 74 }
+				verticalScrollbar = "right_vertical_slider"
+				
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window_transparent"
+				}
+				
+				gridboxtype = {
+					name = "spirit_grid"
+					position = { x = 1 y = 2 }
+					size = { width = 354 height = 68 }
+					slotsize = { width = 59 height = 68 }
+					max_slots = { x = 6 y = 1 }
+					format = "UPPER_LEFT"
+				}
+				gridboxtype = {
+					name = "spirit_grid_over_defined"
+					position = { x = 10 y = 1 }
+					size = { width = 330 height = 68 } #{ width = 330 height = 68 }
+					slotsize = { width = 70 height = 65 } #{ width = 33 height = 34 }
+					max_slots_horizontal = 5 #10
+					format = "UPPER_LEFT"
+				}
+			}
+		}
 		containerWindowType = {
 			name = "ruling_party_info"
 			position = { x = 88 y = 305 }
@@ -194,9 +239,9 @@ guiTypes = {
 					alwaystransparent = yes				
 					scale = 0.55
 				}
-			}			
+			}
 		}
-						
+		
 		containerWindowType = {
 			name = "autonomy_progress_view"
 			position = { x = 50 y = 430 } #{ x = 170 y = 242 }
@@ -391,52 +436,6 @@ guiTypes = {
 				spriteType = "GFX_pol_goal_progress_frame"
 				alwaystransparent = yes
 			}			
-		}
-		containerWindowType = {
-			name = "national_spirit"
-			position = { x = 81 y = 153 }
-			size = { width = 360 height = 50 }
-			clipping = no
-				
-			instantTextboxType = {
-				name = "title"
-				position = { x = 110 y = -2 }
-				font = "hoi_18mbs"
-				text = "POLITICS_NATIONAL_SPIRIT"
-				maxWidth = 200
-				maxHeight = 20
-				alwaystransparent = yes
-			}
-			
-			
-			containerWindowType = {
-				name = "national_spirit_container"
-				position = { x = 99 y = 16 }
-				size = { width = 364 height = 130 } #{ width = 364 height = 74 }
-				verticalScrollbar = "right_vertical_slider"
-				
-				background = {
-					name = "Background"
-					quadTextureSprite ="GFX_tiled_window_transparent"
-				}
-				
-				gridboxtype = {
-					name = "spirit_grid"
-					position = { x = 1 y = 2 }
-					size = { width = 354 height = 68 }
-					slotsize = { width = 59 height = 68 }
-					max_slots = { x = 6 y = 1 }
-					format = "UPPER_LEFT"
-				}
-				gridboxtype = {
-					name = "spirit_grid_over_defined"
-					position = { x = 10 y = 1 }
-					size = { width = 330 height = 68 } #{ width = 330 height = 68 }
-					slotsize = { width = 70 height = 65 } #{ width = 33 height = 34 }
-					max_slots_horizontal = 5 #10
-					format = "UPPER_LEFT"
-				}
-			}
 		}
 		iconType = {
 			name = "leader"
