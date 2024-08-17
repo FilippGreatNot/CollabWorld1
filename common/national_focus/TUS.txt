@@ -16,7 +16,7 @@
         x = 5
         y = 0
 		
-        cost = 5
+        cost = 3
 		
 		#allow_branch = {NOT = {has_completed_focus = TUS_balbos_speech}}
 		
@@ -103,11 +103,10 @@
 				}
 			}
 		}
-
 	}
 	
 	focus = {
-		id = TUS_expand_industry
+		id = TUS_stabilize_economy
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -119,8 +118,32 @@
 		prerequisite = {
 			focus = TUS_arm_our_men
 		}
-	
+		
 		relative_position_id = TUS_feed_our_people
+		
+        x = 0
+        y = 1
+		
+        cost = 6
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_collapsing_economy
+				add_idea = TUS_collapsing_economy_2
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = TUS_expand_industry
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_stabilize_economy
+		}
+	
+		relative_position_id = TUS_stabilize_economy
 		
         x = -3
         y = 1
@@ -154,16 +177,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_hold_our_ground
-		}
-		prerequisite = {
-			focus = TUS_feed_our_people
-		}
-		prerequisite = {
-			focus = TUS_arm_our_men
+			focus = TUS_stabilize_economy
 		}
 	
-		relative_position_id = TUS_feed_our_people
+		relative_position_id = TUS_stabilize_economy
 		
         x = -1
         y = 1
@@ -189,16 +206,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_hold_our_ground
-		}
-		prerequisite = {
-			focus = TUS_feed_our_people
-		}
-		prerequisite = {
-			focus = TUS_arm_our_men
+			focus = TUS_stabilize_economy
 		}
 	
-		relative_position_id = TUS_feed_our_people
+		relative_position_id = TUS_stabilize_economy
 		
         x = 1
         y = 1
@@ -220,16 +231,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_hold_our_ground
+			focus = TUS_stabilize_economy
 		}
-		prerequisite = {
-			focus = TUS_feed_our_people
-		}
-		prerequisite = {
-			focus = TUS_arm_our_men
-		}
-		
-		relative_position_id = TUS_feed_our_people
+	
+		relative_position_id = TUS_stabilize_economy
 		
         x = 3
         y = 1
@@ -301,7 +306,7 @@
 		
 		completion_reward = {
 			country_event = tus.2
-			remove_ideas = {TUS_collapsing_economy}
+			remove_ideas = {TUS_collapsing_economy_2}
 			#swap_ideas = {
 			#	remove_idea = closed_economy
 			#	add_idea = limited_exports
@@ -310,6 +315,7 @@
 				var = TUS_Balbo_Pop
 				value = 3
 			}
+			add_stability = 0.1
 		}
 
 	}
@@ -378,11 +384,13 @@
 			focus = TUS_prepare_for_reunificatoin
 		}
 		
+ 		available = {has_war = no}
+		
 		bypass = {NOT = {country_exists = ITS}}
 		
 		relative_position_id = TUS_prepare_for_reunificatoin
 					
-        x = 0
+        x = -1
         y = 1
 		
         cost = 6
@@ -406,9 +414,9 @@
 			focus = TUS_the_red_menace
 		}
 		
-		available = {NOT = {country_exists = ITS}}
+		available = {NOT = {country_exists = ITS} has_war = no}
 		
-		bypass = {NOT = {country_exists = VNE}}
+		bypass = {NOT = {country_exists = VNE} }
 		
 		relative_position_id = TUS_the_red_menace
 		
@@ -433,16 +441,16 @@
 		icon = GFX_goal_generic_construction
 					
 		prerequisite = {
-			focus = TUS_secure_northen_italy
+			focus = TUS_prepare_for_reunificatoin
 		}
 		
-		available = {NOT = {country_exists = VNE}}
+		available = {has_war = no}
 		
 		bypass = {NOT = {country_exists = ITA}}
 		
-		relative_position_id = TUS_secure_northen_italy
+		relative_position_id = TUS_prepare_for_reunificatoin
 		
-        x = 0
+        x = 1
         y = 1
 		
         cost = 6
@@ -466,7 +474,7 @@
 			focus = TUS_destroy_the_frauds
 		}
 		
-		available = {NOT = {country_exists = ITA}}
+		available = {NOT = {country_exists = ITA} has_war = no}
 		
 		bypass = {NOT = {country_exists = MSS}}
 		
@@ -495,14 +503,17 @@
 		prerequisite = {
 			focus = TUS_bring_order_to_chaos
 		}
+		prerequisite = {
+			focus = TUS_secure_northen_italy
+		}
 		
-		available = {NOT = {country_exists = MSS}}
+		available = {NOT = {country_exists = MSS} NOT = {country_exists = VNE} has_war = no}
 		
 		bypass = {NOT = {country_exists = SAR}}
 		
 		relative_position_id = TUS_bring_order_to_chaos
 		
-        x = 0
+        x = -1
         y = 1
 		
         cost = 3
@@ -554,7 +565,7 @@
 			has_completed_focus = TUS_balbos_speech_2
 		}
 		
-        x = 16
+        x = 17
         y = 0
 		
         cost = 10
@@ -898,7 +909,7 @@
 		
 		available = {has_completed_focus = TUS_balbos_speech_3}
 		
-        x = 23
+        x = 24
         y = 0
 		
         cost = 10
