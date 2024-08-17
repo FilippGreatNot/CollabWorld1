@@ -124,5 +124,180 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = irq.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.7.t
+	desc = irq.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.7.a
+		FROM = {
+			annex_country = { 
+				target = PREV
+				transfer_troops = yes 
+			}
+		}
+		
+		PREV = {
+			every_unit_leader = {
+				set_nationality = FROM
+			}
+		}
+	}
+	
+	option = {
+		name = irq.7.b
+	    FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+		ai_chance = { base = 0 }
+		
+	}
+}
+
+country_event = {
+	id = irq.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.8.t
+	desc = irq.8.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.8.a
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	option = {
+		name = irq.8.b
+	    if = {
+			limit = {
+				owns_state = 413
+			}
+			FROM = {
+				set_state_owner = 413
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 421
+			}
+			FROM = {
+				set_state_owner = 421
+			}
+		}
+		
+	}
+}
+
+country_event = {
+	id = irq.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.10.t
+	desc = irq.10.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.10.a
+		add_stability = -0.1
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	option = {
+		name = irq.10.b
+		add_stability = 0.1
+		FROM = {
+			set_autonomy = {
+				target = PREV
+				autonomous_state = autonomy_puppet
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+	}
+}
+
+country_event = {
+	id = irq.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.9.t
+	desc = irq.9.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.9.a
+		add_stability = 0.1
+		
+	}
+	
+	option = {
+		name = irq.9.b
+		EGY = {
+			country_event = irq.10
+			}
+	}
+	option = {
+		name = irq.9.c
+		EGY = {
+			country_event = irq.7
+			}
+		EGY = { make_every_core_national_for_PREV = yes }
+	}
+}
+
+country_event = {
+	id = irq.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.11.t
+	desc = irq.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.11.a
+		add_stability = 0.05
+		add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
+	}
+	
+	option = {
+		name = irq.11.b
+        add_popularity = {
+				ideology = social_democrat
+				popularity = 0.2
+			}
+		
+			set_politics = {
+				ruling_party = social_democrat
+			}
+	}
+	option = {
+		name = irq.11.c
+        add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.2
+			}
+		
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
+	}
+}
+
 
 

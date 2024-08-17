@@ -1,0 +1,587 @@
+IRQ_power_struggle_decisions = {
+	call_to_tradition = {
+		days_re_enable = 180
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		complete_effect = {
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = 0.1
+                tooltip_side = traditionalist_side
+            }
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	call_to_reforms = {
+		days_re_enable = 180
+		icon = ger_mefo_bills
+	
+		cost = 100
+		
+		complete_effect = {
+			add_power_balance_value = {
+                id = IRQ_power_balance
+                value = -0.1
+                tooltip_side = reformist_side
+            }
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
+
+IRQ_coring_decisions = {
+
+
+	IRQ_core_syria = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 554
+		}
+
+		visible = {
+			owns_state = 554
+			NOT = {
+				554 = {
+					is_core_of = ROOT
+				}
+				680 = {
+					is_core_of = ROOT
+				}
+				677 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 554
+			state = 680
+			state = 677
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 680
+			add_state_core = 554
+			add_state_core = 677
+		}
+	}
+	
+	IRQ_core_jordan = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 455
+		}
+
+		visible = {
+			owns_state = 455
+			NOT = {
+				554 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 455
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 455
+		}
+	}
+	
+	IRQ_core_kuwait = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 656
+		}
+
+		visible = {
+			owns_state = 656
+			NOT = {
+				656 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 656
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 656
+		}
+	}
+	
+	IRQ_core_hejaz = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 679
+		}
+
+		visible = {
+			owns_state = 679
+			NOT = {
+				679 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 679
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 679
+		}
+	}
+	
+	IRQ_core_oman = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 294
+		}
+
+		visible = {
+			owns_state = 294
+			NOT = {
+				294 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 294
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 294
+		}
+	}
+	
+	IRQ_core_lebanon = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 553
+		}
+
+		visible = {
+			owns_state = 553
+			NOT = {
+				553 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 553
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 553
+		}
+	}
+	
+	IRQ_core_palestine = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 454
+		}
+
+		visible = {
+			owns_state = 454
+			NOT = {
+				454 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 454
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 454
+		}
+	}
+	
+	IRQ_core_najd = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 292
+		}
+
+		visible = {
+			owns_state = 292
+			NOT = {
+				292 = {
+					is_core_of = ROOT
+				}
+				678 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 678
+			state = 292
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 678
+			add_state_core = 292
+		}
+	}
+	
+	IRQ_core_khuzestan = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 413
+		}
+
+		visible = {
+			owns_state = 413
+			NOT = {
+				413 = {
+					is_core_of = ROOT
+				}
+				421 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 413
+			state = 421
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 413
+			add_state_core = 421
+		}
+	}
+	
+	IRQ_core_trucial_states = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 658
+		}
+
+		visible = {
+			owns_state = 658
+			NOT = {
+				658 = {
+					is_core_of = ROOT
+				}
+				765 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 658
+			state = 765
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 658
+			add_state_core = 765
+		}
+	}
+	
+	IRQ_core_yemen = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 293
+		}
+
+		visible = {
+			owns_state = 293
+			NOT = {
+				293 = {
+					is_core_of = ROOT
+				}
+				659 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 293
+			state = 659
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 45
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 293
+			add_state_core = 659
+		}
+	}
+	
+	
+	
+	
+}
+
+IRQ_internal_decisions = {
+	glorify_faisals_rule = {
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				}
+				
+		complete_effect = {
+			add_country_leader_trait = {
+				trait = faisal_the_unifier
+			}
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	appease_the_kurds = {
+		days_re_enable = 720
+		icon = ger_mefo_bills
+	
+		cost = 200
+		
+		complete_effect = {
+			add_stability = 0.05
+
+			}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	finish_economic_modernization = {
+		icon = ger_mefo_bills
+	
+		cost = 150
+        
+		available = {
+		    has_idea = IRQ_developing_economy
+				}
+		
+		complete_effect = {
+			remove_ideas = {
+				IRQ_developing_economy2
+			}
+
+			}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
