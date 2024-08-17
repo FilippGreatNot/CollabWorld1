@@ -49,38 +49,7 @@
         cost = 5
 		
 		completion_reward = {
-			162 = {
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 910
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 9879
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 11889
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 1616
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 6946
-				}
-			}
+			country_event = tus.9
 		}
 
 	}
@@ -181,7 +150,7 @@
 	}
 	
 	focus = {
-		id = TUS_complete_infrastructure_projects
+		id = TUS_restart_steel_production
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -199,27 +168,14 @@
         x = -1
         y = 1
 		
-        cost = 5
+        cost = 8
 		
 		completion_reward = {
 			162 = {
-				add_building_construction = {
-					type = 	infrastructure
-					level = 1
-					instant_build = yes
+				add_resource = {
+					type = steel
+					amount = 10
 				}
-			}
-			build_railway = {
-				level = 1
-				path = { 1616 6973 }
-				start_province = 1616
-				target_province = 6973
-			}
-			build_railway = {
-				level = 1
-				path = { 9750 6875 }
-				start_province = 9750
-				target_province = 6875
 			}
 			add_to_variable = {
 				var = TUS_Balbo_Pop
@@ -229,7 +185,7 @@
 	}
 	
 	focus = {
-		id = TUS_build_dockyards
+		id = TUS_reassure_stability
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -247,17 +203,10 @@
         x = 1
         y = 1
 		
-        cost = 5
+        cost = 8
 		
 		completion_reward = {
-			162 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = 	dockyard
-					level = 3
-					instant_build = yes
-				}
-			}
+			add_ideas = TUS_state_propaganda
 			add_to_variable = {
 				var = TUS_Balbo_Pop
 				value = 1
@@ -309,13 +258,13 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_complete_infrastructure_projects
+			focus = TUS_restart_steel_production
 			focus = TUS_expand_industry
 			focus = TUS_army_reform
-			focus = TUS_build_dockyards
+			focus = TUS_reassure_stability
 		}
 	
-		relative_position_id = TUS_build_dockyards
+		relative_position_id = TUS_reassure_stability
 		
         x = 0
         y = 1
@@ -331,7 +280,7 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_complete_infrastructure_projects
+			focus = TUS_restart_steel_production
 		}
 		prerequisite = {
 			focus = TUS_expand_industry
@@ -340,10 +289,10 @@
 			focus = TUS_army_reform
 		}
 		prerequisite = {
-			focus = TUS_build_dockyards
+			focus = TUS_reassure_stability
 		}
 		
-		relative_position_id = TUS_complete_infrastructure_projects
+		relative_position_id = TUS_restart_steel_production
 		
         x = 0
         y = 1
@@ -418,7 +367,6 @@
 				}
 				add_claim_by = TUS
 			}
-			add_ideas = TUS_no_standard_currency
 		}
 	}
 
@@ -446,6 +394,7 @@
 				target = ITS
 				type = annex_everything
 			}
+			add_civil_war_target = ITS
 		}
 	}
 	
@@ -475,6 +424,7 @@
 				target = VNE
 				type = annex_everything
 			}
+			add_civil_war_target = VNE
 		}
 	}
 	
@@ -504,6 +454,7 @@
 				target = ITA
 				type = annex_everything
 			}
+			add_civil_war_target = ITA
 		}
 	}
 	
@@ -533,6 +484,7 @@
 				target = MSS
 				type = annex_everything
 			}
+			add_civil_war_target = MSS
 		}
 	}
 	
@@ -562,6 +514,7 @@
 				target = SAR
 				type = annex_everything
 			}
+			add_civil_war_target = SAR
 		}
 	}
 	
@@ -588,6 +541,7 @@
         cost = 5
 		
 		completion_reward = {
+			add_ideas = TUS_no_standard_currency
 			country_event = tus.5
 		}
 	}
