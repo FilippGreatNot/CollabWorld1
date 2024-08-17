@@ -59,7 +59,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_preserve_iraqi_cultural_heritage
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_culture
 		x = 0
 		y = 2
 		cost = 5
@@ -80,8 +80,9 @@ focus_tree = {
 				 
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
-			
+			add_war_support = 0.1
+			add_political_power = 100
+
 		}
 	}
 	
@@ -159,7 +160,11 @@ focus_tree = {
 
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.1
+			}
+			add_stability = -0.05
 			
 		}
 	}
@@ -187,7 +192,13 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			add_ideas = {
+				IRQ_absolutist_rule
+			}
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
 			
 		}
 	}
@@ -222,7 +233,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_the_era_of_the_arabs
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_arab_era
 		x = -1
 		y = 1
 		cost = 10
@@ -243,7 +254,7 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			country_event = irq.6
 			
 		}
 	}
@@ -296,6 +307,9 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
+				}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -322,7 +336,11 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
-		
+				
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
+				}
+				
 		prerequisite = { focus = IRQ_first_integrate_the_nephews_domain }
 		
 		completion_reward = {	
@@ -382,7 +400,10 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
-		
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
+				}
+				
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
@@ -411,6 +432,10 @@ focus_tree = {
                     name = "Faisal I"
                     ruling_only = yes
                 }
+				}
+				
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
 				}
 				
 		completion_reward = {	
@@ -443,7 +468,7 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			navy_experience = 75
 			
 		}
 	}
@@ -462,6 +487,10 @@ focus_tree = {
 		
 		prerequisite = { focus = IRQ_first_defend_the_arab_gulf }
 		
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
+				}
+				
 		available = {
 		has_country_leader = {
                     name = "Faisal I"
@@ -494,6 +523,9 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
+				}
 		
 		prerequisite = { focus = IRQ_first_defend_the_arab_gulf }
 		
@@ -522,6 +554,10 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
+				
+		available = {
+		    has_idea = IRQ_pan_arab_spirit
+				}
 		
 		prerequisite = { focus = IRQ_first_offer_the_levant_peaceful_integration }
 		prerequisite = { focus = IRQ_first_exploit_syrias_weakness }
@@ -532,13 +568,16 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus IRQ_first_unite_the_arab_nation"
 			set_cosmetic_tag = IRQ_united_arabia
-			
+			swap_ideas = {
+				remove_idea = IRQ_pan_arab_spirit
+				add_idea = IRQ_the_prussia_of_arabia
+			}
 		}
 	}
 	
 	focus = {
 		id = IRQ_first_the_egyptian_situation
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_egypt
 		x = -1
 		y = 1
 		cost = 10
@@ -555,6 +594,9 @@ focus_tree = {
                     name = "Faisal I"
                     ruling_only = yes
                 }
+				}
+		available = {
+		    has_idea = IRQ_the_prussia_of_arabia
 				}
 		
 		completion_reward = {	
@@ -586,6 +628,10 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
+				
+		available = {
+		    has_idea = IRQ_the_prussia_of_arabia
+				}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -616,6 +662,10 @@ focus_tree = {
                     ruling_only = yes
                 }
 				}
+				
+		available = {
+		    has_idea = IRQ_the_prussia_of_arabia
+				}
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -628,7 +678,7 @@ focus_tree = {
 	
 	focus = {
 		id = IRQ_first_promote_womens_rights
-		icon = GFX_focus_IRQ_hashemite_king
+		icon = GFX_focus_IRQ_feminism
 		x = 3
 		y = 1
 		cost = 5
@@ -820,7 +870,8 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			add_stability = -0.05
+			add_political_power = 100
 			
 		}
 	}
@@ -841,7 +892,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_tribal_unrest
+				add_idea = IRQ_tribal_unrest2
+			}
 			
 		}
 	}
@@ -862,7 +916,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_sectarian_woes
+				add_idea = IRQ_sectarian_woes2
+			}
 			
 		}
 	}
@@ -906,7 +963,12 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			remove_ideas = {
+				IRQ_tribal_unrest2
+			}
+			remove_ideas = {
+				IRQ_sectarian_woes2
+			}
 			
 		}
 	}
@@ -973,7 +1035,17 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_archaic_economy
+				add_idea = IRQ_developing_economy
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
 			
 		}
 	}
@@ -994,7 +1066,18 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			add_timed_idea = { 
+				idea = IRQ_foreign_investments
+				months = 4
+			}
+			291 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			
 		}
 	}
@@ -1039,7 +1122,42 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_developing_economy
+				add_idea = IRQ_developing_economy2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
 			
 		}
 	}
@@ -1061,7 +1179,13 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			swap_ideas = {
+				remove_idea = IRQ_developing_economy
+				add_idea = IRQ_developing_economy2
+			}
+			add_ideas = {
+				IRQ_land_reforms
+			}
 			
 		}
 	}
@@ -1112,7 +1236,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			add_ideas = {
+				IRQ_government_printing_press
+			}
 			
 		}
 	}
@@ -1133,7 +1259,14 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			291 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+			add_political_power = 100
+			add_stability = 0.05
 			
 		}
 	}

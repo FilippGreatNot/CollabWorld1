@@ -1,7 +1,6 @@
 add_namespace = freikorps
 
 
-
 country_event = {
 	id = freikorps.1
 	immediate = { log = "[GetDateText]: [Root.GetName]: event freikorps.1" }
@@ -12,10 +11,30 @@ country_event = {
 
 	option = {
 		name = freikorps.1.a
+		custom_effect_tooltip = FGB_violence_in_the_streets_tt
 		
 		hidden_effect = {
 			kill_country_leader = yes
-			load_focus_tree = FGB_noske_start
+			complete_national_focus = FGB_death_of_kapp
+		}
+	}
+}
+
+country_event = {
+	id = freikorps.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event freikorps.2" }
+	title = freikorps.2.t
+	desc = freikorps.2.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = freikorps.2.a
+		custom_effect_tooltip = FGB_freikorps_choose_wisely_tt
+		add_political_power = -30
+		add_stability = -0.05
+		add_ideas = {
+			FGB_civil_unrest
 		}
 	}
 }
