@@ -282,8 +282,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
-			
+			JOR = {
+			country_event = irq.7
+			}
 		}
 	}
 	
@@ -313,7 +314,12 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			LEB = {
+			country_event = irq.7
+			}
+			PAL = {
+			country_event = irq.7
+			}
 			
 		}
 	}
@@ -345,7 +351,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			create_wargoal = {
+				type = annex_everything
+				target = SYR
+			}
 			
 		}
 	}
@@ -373,8 +382,13 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
-			
+			HEJ = {
+			    add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = IRQ
+			}
+			}
 		}
 	}
 	
@@ -390,9 +404,10 @@ focus_tree = {
 			factor = 10
 		}
 		
-		mutually_exclusive = { focus = IRQ_first_end_the_wahabbi_threat_by_force }
 		
 		prerequisite = { focus = IRQ_first_support_the_army_of_hejaz }
+		
+
 		
 		available = {
 		has_country_leader = {
@@ -406,7 +421,9 @@ focus_tree = {
 				
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			HEJ = {
+			country_event = irq.7
+			}
 			
 		}
 	}
@@ -423,7 +440,6 @@ focus_tree = {
 			factor = 10
 		}
 		
-		mutually_exclusive = { focus = IRQ_first_unite_with_the_father }
 		
 		prerequisite = { focus = IRQ_first_support_the_army_of_hejaz }
 		
@@ -440,7 +456,10 @@ focus_tree = {
 				
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			create_wargoal = {
+				type = annex_everything
+				target = SAU
+			}
 			
 		}
 	}
@@ -500,7 +519,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			create_wargoal = {
+				type = annex_everything
+				target = YEM
+			}
 			
 		}
 	}
@@ -531,7 +553,14 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			create_wargoal = {
+				type = annex_everything
+				target = OMA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = UAE
+			}
 			
 		}
 	}
@@ -563,7 +592,8 @@ focus_tree = {
 		prerequisite = { focus = IRQ_first_exploit_syrias_weakness }
 		prerequisite = { focus = IRQ_first_liberate_the_sunnis_of_yemen }
 		prerequisite = { focus = IRQ_first_strike_oman_and_the_trucial_states }
-		prerequisite = { focus = IRQ_first_unite_with_the_father focus = IRQ_first_end_the_wahabbi_threat_by_force }
+		prerequisite = { focus = IRQ_first_end_the_wahabbi_threat_by_force }
+		prerequisite = { focus = IRQ_first_unite_with_the_father }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus IRQ_first_unite_the_arab_nation"
@@ -601,7 +631,7 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			country_event = irq.9
 			
 		}
 	}
@@ -635,7 +665,9 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			PER = {
+			country_event = irq.8
+			}
 			
 		}
 	}
@@ -669,7 +701,10 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			create_wargoal = {
+				type = annex_everything
+				target = PER
+			}
 			
 		}
 	}
@@ -1272,10 +1307,235 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = IRQ_first_iraq_democracy_in_iraq
+		icon = GFX_focus_IRQ_power_blant
+		x = 20
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		has_country_leader = {
+                    name = "Yasin Al Hashimi"
+                    ruling_only = yes
+                }
+				 }
+		
+	
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_political_power = 50
+			add_stability = 0.05
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_fight_corruption
+		icon = GFX_focus_IRQ_power_blant
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_democracy_in_iraq
+		ai_will_do = {
+			factor = 10
+		}
+
+        available = {
+		has_country_leader = {
+                    name = "Yasin al Hashimi"
+                    ruling_only = yes
+                }
+				 }
+		
+		prerequisite = { focus = IRQ_first_iraq_democracy_in_iraq }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_stability = 0.1
+			add_political_power = 100
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_promise_peace
+		icon = GFX_focus_IRQ_power_blant
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_democracy_in_iraq
+		ai_will_do = {
+			factor = 10
+		}
+
+        available = {
+		has_country_leader = {
+                    name = "Yasin al Hashimi"
+                    ruling_only = yes
+                }
+				 }
+		
+		prerequisite = { focus = IRQ_first_iraq_democracy_in_iraq }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_stability = 0.05
+			add_war_support = -0.05
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_hold_elections
+		icon = GFX_focus_IRQ_power_blant
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_fight_corruption
+		ai_will_do = {
+			factor = 10
+		}
+
+        available = {
+		has_country_leader = {
+                    name = "Yasin al Hashimi"
+                    ruling_only = yes
+                }
+				 }
+		
+		prerequisite = { focus = IRQ_first_iraq_fight_corruption }
+		prerequisite = { focus = IRQ_first_iraq_promise_peace }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			country_event = irq.11
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_bakr_sidqis_coup
+		icon = GFX_focus_IRQ_power_blant
+		x = 24
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		has_country_leader = {
+                    name = "Bakr Sidqi"
+                    ruling_only = yes
+                }
+				 }
+				 
+	
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_political_power = 50
+			add_stability = 0.05
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_promote_the_kurdish_aristocracy
+		icon = GFX_focus_IRQ_power_blant
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_bakr_sidqis_coup
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_iraq_bakr_sidqis_coup }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_strenghten_the_military
+		icon = GFX_focus_IRQ_power_blant
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_bakr_sidqis_coup
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_iraq_bakr_sidqis_coup }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+
+			
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_iraq_liberate_the_iranian_kurds
+		icon = GFX_focus_IRQ_power_blant
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_strenghten_the_military
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_iraq_strenghten_the_military }
+		prerequisite = { focus = IRQ_first_iraq_promote_the_kurdish_aristocracy }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			create_wargoal = {
+				type = annex_everything
+				target = PER
+			}
+			
+			
+		}
+	}
+	
+	
+	
+	focus = {
 		id = IRQ_first_iraq_on_the_world_stage
 		icon = GFX_focus_IRQ_power_blant
-		x = 25
-		y = 0
+		x = 22
+		y = 3
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
