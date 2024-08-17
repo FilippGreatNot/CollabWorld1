@@ -525,3 +525,63 @@ IRQ_coring_decisions = {
 	
 	
 }
+
+IRQ_internal_decisions = {
+	glorify_faisals_rule = {
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				}
+				
+		complete_effect = {
+			add_country_leader_trait = {
+				trait = faisal_the_unifier
+			}
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	appease_the_kurds = {
+		days_re_enable = 720
+		icon = ger_mefo_bills
+	
+		cost = 200
+		
+		complete_effect = {
+			add_stability = 0.05
+
+			}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	finish_economic_modernization = {
+		icon = ger_mefo_bills
+	
+		cost = 150
+        
+		available = {
+		    has_idea = IRQ_developing_economy
+				}
+		
+		complete_effect = {
+			remove_ideas = {
+				IRQ_developing_economy2
+			}
+
+			}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
