@@ -22,11 +22,9 @@ focus_tree = {
 		cost = 10
 		x = 13
 		y = 0
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
-		
 		completion_reward = {
 			country_event = ukr.startbranch.event.1 
 		}
@@ -44,7 +42,6 @@ focus_tree = {
 			ai_will_do = {
 			factor = 8
 		}
-		
 		completion_reward = {
 			add_political_power = 50
 		}
@@ -59,11 +56,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 2
-			
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
-		
 		completion_reward = {
 			country_event = ukr.startbranch.event.2 
 			add_political_power = 20
@@ -79,11 +74,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 3
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 12
 		}
-		
 		completion_reward = {
 			add_stability = 0.1
 		}
@@ -98,7 +91,6 @@ focus_tree = {
 		}
 		x = 13
 		y = 4
-
 	}
 
 	focus = {
@@ -110,7 +102,6 @@ focus_tree = {
 		}
 		x = 11
 		y = 5
-
 	}
 	
 	focus = {
@@ -122,7 +113,6 @@ focus_tree = {
 		}
 		x = 13
 		y = 5
-
 	}
 	
 	focus = {
@@ -134,7 +124,6 @@ focus_tree = {
 		}
 		x = 15
 		y = 5
-
 	}
 	
 	focus = {
@@ -152,11 +141,9 @@ focus_tree = {
 		}
 		x = 13
 		y = 6
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
-		
 		completion_reward = {
 			country_event = ukr.startbranch.event.3 
 			add_stability = 0.02
@@ -182,16 +169,14 @@ focus_tree = {
 		}
 		x = 13
 		y = 9
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 14
 		}
-		
 		completion_reward = {
 			country_event = ukr.startbranch.event.4 
 			add_political_power = 100
 		}
- }
+	}
 
 ###################################################
 #                                                 #
@@ -208,8 +193,7 @@ focus_tree = {
 		}
 		x = 4
 		y = 3
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 8
 		}
 		
@@ -230,8 +214,7 @@ focus_tree = {
 		}
 		x = 4
 		y = 4
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		
@@ -252,8 +235,7 @@ focus_tree = {
 		}
 		x = 3
 		y = 5
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 5
 		}
 		
@@ -275,8 +257,7 @@ focus_tree = {
 		}
 		x = 5
 		y = 5
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 50
 		}
 		
@@ -294,8 +275,7 @@ focus_tree = {
 		}
 		x = 5
 		y = 6
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		
@@ -313,8 +293,7 @@ focus_tree = {
 		}
 		x = 3
 		y = 6
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		
@@ -332,8 +311,7 @@ focus_tree = {
 		}
 		x = 1
 		y = 7
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 8
 		}
 		
@@ -351,8 +329,7 @@ focus_tree = {
 		}
 		x = 7
 		y = 7
-			
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		
@@ -371,8 +348,7 @@ focus_tree = {
 		}
 		x = 4
 		y = 7
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 12
 		}
 		
@@ -395,14 +371,15 @@ focus_tree = {
 		}
 		x = 4
 		y = 8
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		
 		completion_reward = {
-			add_timed_idea = UKR_first_reform_results
-			days = 360
+			add_timed_idea = {
+				idea = UKR_first_reform_results
+				days = 365
+			}
 		}
 	}
 
@@ -421,7 +398,6 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
-		
 		ai_will_do = {
 			factor = 10
 		}
@@ -449,43 +425,39 @@ focus_tree = {
 		}
 		x = 20
 		y = 4
-		
 		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 119 has_full_control_of_state = 201 has_full_control_of_state = 198 }
+				119 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 119
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				201 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 201
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				198 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 198
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 
 	focus = {
@@ -497,43 +469,39 @@ focus_tree = {
 		}
 		x = 20
 		y = 5
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 119 has_full_control_of_state = 201 has_full_control_of_state = 198 }
+				119 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory  
 						level = 1
-						province = 119
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				201 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory  
 						level = 1
-						province = 201
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				198 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory   
 						level = 1
-						province = 198
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 
 	focus = {
@@ -545,43 +513,39 @@ focus_tree = {
 		}
 		x = 22
 		y = 4
-
 		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 202 has_full_control_of_state = 203 has_full_control_of_state = 193 }
+				202 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 202
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				203 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 203
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				193 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 193
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 
 	focus = {
@@ -593,43 +557,39 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 202 has_full_control_of_state = 203 has_full_control_of_state = 193 }
+				202 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory  
 						level = 1
-						province = 202
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				203 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory  
 						level = 1
-						province = 203
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				193 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory   
 						level = 1
-						province = 193
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 
 	focus = {
@@ -641,53 +601,47 @@ focus_tree = {
 		}
 		x = 24
 		y = 4
-
 		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 228 has_full_control_of_state = 221 has_full_control_of_state = 240 has_full_control_of_state = 227 }
+				227 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 227
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				228 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 228
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				221 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 221
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				240 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = industrial_complex    
 						level = 1
-						province = 240
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 
 	focus = {
@@ -699,52 +653,47 @@ focus_tree = {
 		}
 		x = 24
 		y = 5
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 228 has_full_control_of_state = 221 has_full_control_of_state = 240 has_full_control_of_state = 227 }
+				228 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory  
 						level = 1
-						province = 228
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				221 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory  
 						level = 1
-						province = 221
-					instant_build = yes
+						instant_build = yes
 					}
-					
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				240 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory   
 						level = 1
-						province = 240
-					instant_build = yes
+						instant_build = yes
 					}
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+				}
+				227 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = arms_factory   
 						level = 1
-						province = 227
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 
 	focus = {
@@ -752,33 +701,33 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		cost = 7
 		prerequisite = {
-			focus = UKR_west_military_industrialisation
-		}
-		prerequisite = {
-			focus = UKR_east_military_industrialisation
-		}
-		prerequisite = {
 			focus = UKR_central_ukraine_military_industrialisation
+		}
+		prerequisite = {
+			focus = UKR_west_military_industrialisation 
+		}
+		prerequisite = {
+			focus = UKR_east_military_industrialisation 
 		}
 		x = 22
 		y = 6
-
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-						if = {
-						limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
+			if = {
+				limit = { has_full_control_of_state = 192 }
+				192 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
 						type = dockyard
 						level = 1
-						province = 192
-					instant_build = yes
+						instant_build = yes
 					}
+				}
 			}
+		}
 	}
 	
 	focus = {
@@ -790,13 +739,14 @@ focus_tree = {
 		}
 		x = 22
 		y = 7
-		
-		
-			ai_will_do = {
+		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-			remove_idea = UKR_non_industrial_country
-			add_ideas = UKR_individual_industrialisation_system
+			swap_ideas = {
+				remove_idea = UKR_non_industrial_country
+				add_idea = UKR_individual_industrialisation_system
+			}
 		}
+	}
 }
