@@ -1,0 +1,107 @@
+add_namespace = lat
+
+country_event = {
+	id = irq.1
+	title = irq.1.t
+	desc = irq.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.1.a
+	}
+	
+}
+country_event = {
+	id = irq.2
+	title = irq.2.t
+	desc = irq.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.2.a
+	}
+}
+
+country_event = {
+	id = irq.3
+	title = irq.3.t
+	desc = irq.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.3.a
+		add_stability = 0.05
+		add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		
+	}
+	option = {
+		name = irq.3.b
+		add_popularity = {
+				ideology = conservatism
+				popularity = 0.2
+			}
+		
+			set_politics = {
+				ruling_party = conservatism
+			}
+		add_stability = -0.1
+	}
+}
+
+
+country_event = {
+	id = irq.4
+	title = irq.4.t
+	desc = irq.4.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.4.a
+		add_ideas = {
+				IRQ_offensive_focus
+			}
+	}
+	option = {
+		name = irq.4.b
+		add_ideas = {
+				IRQ_defensive_focus
+			}
+	}
+	option = {
+		name = irq.4.c
+		set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+		promote_character = IRQ_bakr_al_sidqi
+		add_stability = -0.05
+		set_party_name = { 
+				ideology = authoritarian_democrat
+				name = IRQ_military
+				long_name = IRQ_military_long
+			}
+		set_cosmetic_tag = IRQ_bakr_iraq
+	}
+}
+
+country_event = {
+	id = irq.5
+	title = irq.5.t
+	desc = irq.5.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.5.a
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = irq.5.b
+		PREV = { add_to_faction = FROM }
+	}
+	
+}
+
+
+
