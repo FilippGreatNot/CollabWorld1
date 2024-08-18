@@ -27,11 +27,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_reform_military
+		id = USA_analyze_the_current_military_situation
 		x = 1
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_rockefeller_jr_presidency}
+		cost = 5
+		prerequisite = { focus = USA_rockefeller_jr_presidency }
 		relative_position_id = USA_rockefeller_jr_presidency
 		
 		completion_reward = {
@@ -39,10 +39,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_rally_people
+		id = USA_soldify_control_over_the_loyalist_states
 		x = -1
 		y = 1
-		cost = 4
+		cost = 5
 		prerequisite = {focus = USA_rockefeller_jr_presidency}
 		relative_position_id = USA_rockefeller_jr_presidency
 		
@@ -51,37 +51,51 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_coporate_oligarchy
+		id = USA_a_meeting_with_the_oligarchs
 		x = 0
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_rally_people}
-		relative_position_id = USA_rally_people
+		cost = 5
+		prerequisite = { focus = USA_soldify_control_over_the_loyalist_states }
+		relative_position_id = USA_soldify_control_over_the_loyalist_states
 		
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = USA_economic_growth
+		id = USA_barricade_the_eastern_border
 		x = 0
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_reform_military}
-		relative_position_id = USA_reform_military
+		cost = 5
+		prerequisite = {focus = USA_analyze_the_current_military_situation}
+		relative_position_id = USA_analyze_the_current_military_situation
 		
 		completion_reward = {
-
+            remove_ideas = {
+				USA_socialist_nightmare
+			}
+		}
+	}
+	focus = {
+		id = USA_everything_is_under_control
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {focus = USA_a_meeting_with_the_oligarchs}
+		prerequisite = {focus = USA_barricade_the_eastern_border}
+		relative_position_id = USA_barricade_the_eastern_border
+		
+		completion_reward = {
+		
 		}
 	}
 	focus = {
 		id = USA_new_america
-		x = -1
+		x = 0
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_coporate_oligarchy}
-		prerequisite = {focus = USA_economic_growth}
-		relative_position_id = USA_economic_growth
+		cost = 5
+		prerequisite = {focus = USA_everything_is_under_control }
+		relative_position_id = USA_everything_is_under_control
 		
 		completion_reward = {
 			remove_ideas = {
