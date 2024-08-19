@@ -13,8 +13,8 @@
 		id = TUS_hold_our_beliefs
 		icon = GFX_goal_generic_construction
 		
-        x = 5
-        y = 0
+        x = 12
+        y = 1
 		
         cost = 3
 		
@@ -303,10 +303,24 @@
 		id = TUS_unify_the_party
 		icon = GFX_goal_generic_construction
 		
+		# till branch is done
+		#prerequisite = {
+		#	focus = TUS_restart_steel_production
+		#	focus = TUS_expand_industry
+		#	focus = TUS_army_reform
+		#	focus = TUS_reassure_stability
+		#}
+		
 		prerequisite = {
 			focus = TUS_restart_steel_production
+		}
+		prerequisite = {
 			focus = TUS_expand_industry
+		}
+		prerequisite = {
 			focus = TUS_army_reform
+		}
+		prerequisite = {
 			focus = TUS_reassure_stability
 		}
 	
@@ -318,7 +332,23 @@
         cost = 15
 		cancelable = no
 		
-		completion_reward = {}
+		completion_reward = {
+			hidden_effect = {
+				if = {
+					limit = {check_variable = {TUS_Balbo_Pop > 6}}
+					country_event = {
+						id = tus_coun1.3
+						days = 35
+					}
+				}
+				else = {
+					country_event = {
+						id = tus_coun1.4
+						days = 35
+					}
+				}
+			}
+		}
 	}
 	
 	focus = {
@@ -388,10 +418,13 @@
 		id = TUS_prepare_for_reunificatoin
 		icon = GFX_goal_generic_construction
 					
-        #x = 5
+        x = 0
+        y = 1
+		#x = 11
         #y = 0
-		x = 11
-        y = 0
+		
+		relative_position_id = TUS_balbos_speech
+		prerequisite = {focus = TUS_balbos_speech}
 		
         cost = 25
 		cancelable = no
@@ -399,7 +432,7 @@
 		#allow_branch = {has_completed_focus = TUS_balbos_speech}
 		
 		cancel_if_invalid = no
-		available = {has_war = no has_completed_focus = TUS_balbos_speech}
+		available = {has_war = no} #has_completed_focus = TUS_balbos_speech
 		
 		completion_reward = {
 			every_state = {
@@ -602,12 +635,17 @@
 		id = TUS_rebuild_italy
 		icon = GFX_goal_generic_construction
 
-		available = {
-			has_completed_focus = TUS_balbos_speech_2
-		}
+		#available = {
+		#	has_completed_focus = TUS_balbos_speech_2
+		#}
 		
-        x = 17
-        y = 0
+		x = -2
+		y = 1
+		relative_position_id = TUS_balbos_speech_2
+		prerequisite = {focus = TUS_balbos_speech_2}
+		
+        #x = 17
+        #y = 0
 		
         cost = 10
 		
@@ -837,9 +875,11 @@
 		id = TUS_restabilize_the_government
 		icon = GFX_goal_generic_construction
 
-		available = {
-			has_completed_focus = TUS_balbos_speech_2
-		}
+		#available = {
+		#	has_completed_focus = TUS_balbos_speech_2
+		#}
+		
+		prerequisite = {focus = TUS_balbos_speech_2}
 		
         x = 4
         y = 0
@@ -916,10 +956,15 @@
 		id = TUS_revenge_for_the_great_war
 		icon = GFX_goal_generic_construction
 		
-		available = {has_completed_focus = TUS_balbos_speech_3}
+		#available = {has_completed_focus = TUS_balbos_speech_3}
 		
-        x = 24
-        y = 0
+        #x = 24
+        #y = 0
+		
+		x = -1
+		y = 1
+		relative_position_id = TUS_balbos_speech_3
+		prerequisite = {focus = TUS_balbos_speech_3}
 		
         cost = 10
 		
@@ -936,10 +981,12 @@
 		id = TUS_demand_albania
 		icon = GFX_goal_generic_construction
 		
-		available = {has_completed_focus = TUS_balbos_speech_3}
+		#available = {has_completed_focus = TUS_balbos_speech_3}
 		
-        x = 4
+        x = 2
         y = 0
+
+		prerequisite = {focus = TUS_balbos_speech_3}
 		
 		relative_position_id = TUS_revenge_for_the_great_war
 		
@@ -962,8 +1009,8 @@
 			focus = TUS_revenge_for_the_great_war
 		}
 		
-        x = 0
-       y = 1
+        x = 1
+		y = 1
 		
 		relative_position_id = TUS_demand_albania
 		
@@ -1004,7 +1051,7 @@
 		
 		mutually_exclusive = { focus = TUS_team_hungary }
 		
-        x = 2
+        x = 1
         y = 1
 		
 		relative_position_id = TUS_revenge_for_the_great_war
