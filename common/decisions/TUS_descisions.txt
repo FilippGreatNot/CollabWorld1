@@ -202,19 +202,34 @@ TUS_state_management = {
 		
 		available = {
 			NOT = {country_exists = SER}
-			ROOT = {any_owned_state = {is_core_of = SER}}
+			OR = {
+				ROOT = {any_owned_state = {is_core_of = SER}}
+				owns_state = 106 
+				owns_state = 872
+			}
 		}
 		
 		visible = {
 			NOT = {country_exists = SER}
-			ROOT = {any_owned_state = {is_core_of = SER}}
+			OR = {
+				ROOT = {any_owned_state = {is_core_of = SER}}
+				owns_state = 106 
+				owns_state = 872
+			}
 		}
 		
 		days_remove = 0
 		cost = 0
 		
 		remove_effect = {
-			106 = { add_core_of = SER }
+			if = {
+				limit = {106 = {is_owned_by = ROOT}}
+				106 = {transfer_state_to = SER}
+			}
+			if = {
+				limit = {872 = {is_owned_by = ROOT}}
+				872 = {transfer_state_to = SER}
+			}
 			release_puppet_on_controlled = SER
 		}
 	}
@@ -229,7 +244,8 @@ TUS_state_management = {
 			SER = {is_puppet_of = ROOT}
 			OR = {
 				ROOT = {any_owned_state = {is_core_of = SER}}
-				ROOT = {owns_state = 106}
+				owns_state = 106 
+				owns_state = 872
 			}
 		}
 		
@@ -238,7 +254,8 @@ TUS_state_management = {
 			SER = {is_puppet_of = ROOT}
 			OR = {
 				ROOT = {any_owned_state = {is_core_of = SER}}
-				ROOT = {owns_state = 106}
+				owns_state = 106 
+				owns_state = 872
 			}
 		}
 		
@@ -246,7 +263,8 @@ TUS_state_management = {
 		cost = 0
 		
 		remove_effect = {
-			106 = { add_core_of = SER }
+			106 = {transfer_state_to = SER}
+			872 = {transfer_state_to = SER}
 			every_state = {
 				limit = {is_core_of = SER}
 				transfer_state_to = SER
@@ -261,39 +279,9 @@ TUS_state_management = {
 		
 		available = {
 			OR = {
-				ROOT = {
-					OR = {
-						owns_state = 77
-						owns_state = 803
-						owns_state = 106
-						owns_state = 184
-						owns_state = 341
-					}
-				}
-				GRE = {
-					AND = {
-						is_puppet_of = ROOT
-						OR = {
-							owns_state = 77
-							owns_state = 803
-							owns_state = 106
-							owns_state = 184
-							owns_state = 341
-						}
-					}
-				}
-				SER = {
-					AND = {
-						is_puppet_of = ROOT
-						OR = {
-							owns_state = 77
-							owns_state = 803
-							owns_state = 106
-							owns_state = 184
-							owns_state = 341
-						}
-					}
-				}
+				ROOT = {any_owned_state = {is_core_of = BUL}}
+				GRE = {any_owned_state = {is_core_of = BUL}}
+				SER = {any_owned_state = {is_core_of = BUL}}
 			}
 			BUL = {
 				OR = {
@@ -305,39 +293,9 @@ TUS_state_management = {
 		
 		visible = {
 			OR = {
-				ROOT = {
-					OR = {
-						owns_state = 77
-						owns_state = 803
-						owns_state = 106
-						owns_state = 184
-						owns_state = 341
-					}
-				}
-				GRE = {
-					AND = {
-						is_puppet_of = ROOT
-						OR = {
-							owns_state = 77
-							owns_state = 803
-							owns_state = 106
-							owns_state = 184
-							owns_state = 341
-						}
-					}
-				}
-				SER = {
-					AND = {
-						is_puppet_of = ROOT
-						OR = {
-							owns_state = 77
-							owns_state = 803
-							owns_state = 106
-							owns_state = 184
-							owns_state = 341
-						}
-					}
-				}
+				ROOT = {any_owned_state = {is_core_of = BUL}}
+				GRE = {any_owned_state = {is_core_of = BUL}}
+				SER = {any_owned_state = {is_core_of = BUL}}
 			}
 			BUL = {
 				OR = {
@@ -351,40 +309,18 @@ TUS_state_management = {
 		cost = 0
 		
 		remove_effect = {
-			77 = {
-				if = {
-					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}AND = {is_owned_by = SER SER = {is_puppet_of = ROOT}}}}
-					add_core_of = BUL
-					transfer_state_to = BUL
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = BUL				
+					}
+					OR = {
+						is_owned_by = ROOT
+						is_owned_by GRE
+						is_owned_by  = SER					
+					}
 				}
-			}
-			803 = {
-				if = {
-					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}AND = {is_owned_by = SER SER = {is_puppet_of = ROOT}}}}
-					add_core_of = BUL
-					transfer_state_to = BUL
-				}
-			}
-			106 = {
-				if = {
-					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}AND = {is_owned_by = SER SER = {is_puppet_of = ROOT}}}}
-					add_core_of = BUL
-					transfer_state_to = BUL
-				}
-			}
-			184 = {
-				if = {
-					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}AND = {is_owned_by = SER SER = {is_puppet_of = ROOT}}}}
-					add_core_of = BUL
-					transfer_state_to = BUL
-				}
-			}
-			341 = {
-				if = {
-					limit = {OR = {is_owned_by = ROOT AND = {is_owned_by = GRE GRE = {is_puppet_of = ROOT}}AND = {is_owned_by = SER SER = {is_puppet_of = ROOT}}}}
-					add_core_of = BUL
-					transfer_state_to = BUL
-				}
+				transfer_state_to = BUL
 			}
 		}
 	}
