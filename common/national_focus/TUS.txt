@@ -152,7 +152,7 @@
 	}
 	
 	focus = {
-		id = TUS_expand_industry
+		id = TUS_expand_civs
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -164,16 +164,11 @@
         x = -3
         y = 1
 		
-        cost = 12
+        cost = 8
 		
 		completion_reward = {
 			162 = {
 				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 2
-					instant_build = yes
-				}
 				add_building_construction = {
 					type = 	industrial_complex
 					level = 2
@@ -182,11 +177,6 @@
 			}
 			884 = {
 				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 2
-					instant_build = yes
-				}
 				add_building_construction = {
 					type = 	industrial_complex
 					level = 2
@@ -202,8 +192,8 @@
 	}
 	
 	focus = {
-		id = TUS_restart_steel_production
-		icon = GFX_goal_generic_construction
+		id = TUS_expand_mils
+		icon = GFX_focus_ENG_gun_production
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -218,14 +208,20 @@
 		
 		completion_reward = {
 			162 = {
-				add_resource = {
-					type = steel
-					amount = 10
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
 				}
 			}
-			add_to_variable = {
-				var = TUS_Balbo_Pop
-				value = 1
+			884 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -246,10 +242,14 @@
         cost = 8
 		
 		completion_reward = {
-			add_ideas = TUS_state_propaganda
+			#add_ideas = TUS_state_propaganda
 			add_to_variable = {
 				var = TUS_Balbo_Pop
 				value = 2
+			}
+			set_variable = {
+				var = TUS_propaganda_amount
+				value = 0
 			}
 		}
 
@@ -305,17 +305,17 @@
 		
 		# till branch is done
 		#prerequisite = {
-		#	focus = TUS_restart_steel_production
-		#	focus = TUS_expand_industry
+		#	focus = TUS_expand_mils
+		#	focus = TUS_expand_civs
 		#	focus = TUS_army_reform
 		#	focus = TUS_reassure_stability
 		#}
 		
 		prerequisite = {
-			focus = TUS_restart_steel_production
+			focus = TUS_expand_mils
 		}
 		prerequisite = {
-			focus = TUS_expand_industry
+			focus = TUS_expand_civs
 		}
 		prerequisite = {
 			focus = TUS_army_reform
@@ -356,10 +356,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_restart_steel_production
+			focus = TUS_expand_mils
 		}
 		prerequisite = {
-			focus = TUS_expand_industry
+			focus = TUS_expand_civs
 		}
 		prerequisite = {
 			focus = TUS_army_reform
@@ -368,7 +368,7 @@
 			focus = TUS_reassure_stability
 		}
 		
-		relative_position_id = TUS_restart_steel_production
+		relative_position_id = TUS_expand_mils
 		
         x = 0
         y = 1
