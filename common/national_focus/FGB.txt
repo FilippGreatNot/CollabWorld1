@@ -90,9 +90,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FGB_noske
-		cost = 6.87
+		cost = 3
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
+			custom_effect_tooltip = FGB_choice_tt
 			if = { 
 				limit = { has_idea = FGB_civil_unrest }
 				swap_ideas = {
@@ -110,9 +111,10 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = FGB_noske
-		cost = 6.87
+		cost = 3
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
+			custom_effect_tooltip = FGB_choice_tt
 			if = { 
 				limit = { has_idea = FGB_civil_unrest }
 				swap_ideas = {
@@ -137,9 +139,10 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = FGB_noske
-		cost = 6.87
+		cost = 3
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
+			custom_effect_tooltip = FGB_choice_tt
 			if = { 
 				limit = { has_idea = FGB_civil_unrest }
 				swap_ideas = {
@@ -259,6 +262,141 @@ focus_tree = {
 					province = 11486
 					value = 3
 				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_allow_local_free_elections
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske_rub_off_kapp_memory
+		cost = 5
+		prerequisite = { focus = FGB_noske_rub_off_kapp_memory }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_placing_ballot_boxes
+				days = 35
+			}
+		}
+		completion_reward = {
+			FGB_noske_allow_local_free_elections_tt
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_rebuild_mine_towns
+		icon = GFX_focus_FGB_electing_new_leader
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske_rejuvenate_old_industries
+		cost = 5
+		prerequisite = { focus = FGB_noske_rejuvenate_old_industries }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.10
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = tungsten
+					amount = 3
+				}
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = aluminium
+					amount = 2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_new_day_new_germany
+		icon = GFX_focus_FGB_noske_new_day_new_germany
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = FGB_noske_september_coalition
+		prerequisite = { focus = FGB_noske_september_coalition }
+		prerequisite = { focus = FGB_noske_rebuild_mine_towns }
+		prerequisite = { focus = FGB_noske_allow_local_free_elections }
+		completion_reward = {
+			custom_effect_tooltip = FGB_noske_new_day_new_germany_tt
+			add_political_power = 90
+			add_stability = 0.1
+			add_war_support = 0.1
+			hidden_effect = {
+				set_country_flag = FGB_noske_reform_complete
+				mark_focus_tree_layout_dirty = yes
+				remove_idea = FGB_civil_unrest1
+				remove_idea = FGB_civil_unrest2
+				remove_idea = FGB_civil_unrest3
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_matter_of_bavaria
+		icon = GFX_focus_FGB_noske_matter_of_bavaria
+		x = 0
+		y = 2
+		cost = 4
+		relative_position_id = FGB_noske_new_day_new_germany
+		prerequisite = { focus = FGB_noske_new_day_new_germany }
+		allow_branch = { has_country_flag = FGB_noske_reform_complete }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.05
+			country_event = fgb.3
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_aggressive_policy
+		icon = GFX_focus_noske_aggressive_policy
+		x = -1 
+		y = 1
+		cost = 0
+		relative_position_id = FGB_noske_matter_of_bavaria
+		prerequisite = { focus = FGB_noske_matter_of_bavaria }
+		mutually_exclusive = { focus = FGB_noske_cooperative_policy }
+		allow_branch = { has_country_flag = FGB_noske_policy_flag }
+		completion_reward = {
+			add_war_support = 0.1
+			declare_war_on = {
+				target = BAV
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_noske_cooperative_policy
+		icon = GFX_focus_noske_cooperative_policy
+		x = 1
+		y = 1
+		cost = 0
+		relative_position_id = FGB_noske_matter_of_bavaria
+		prerequisite = { focus = FGB_noske_matter_of_bavaria }
+		mutually_exclusive = { focus = FGB_noske_aggressive_policy }
+		allow_branch = { has_country_flag = FGB_noske_policy_flag }
+		completion_reward = {
+			add_stability = 0.1
+			BAV = {
+				country_event = bav.3
 			}
 		}
 	}
@@ -1145,14 +1283,12 @@ focus_tree = {
 		y = 3
 		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		select_effect = {
-			add_timed_idea = {
-				idea = FGB_reconstruction_efforts
-				days = 42
-			}
-		}
 		completion_reward = {
-			army_experience = 5
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = FGB_french_influence
+				add_idea = FGB_controlled_french_companies
+			}
 		}
 	}
 	
