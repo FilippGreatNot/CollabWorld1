@@ -13,7 +13,7 @@
 		id = TUS_hold_our_beliefs
 		icon = GFX_goal_generic_construction
 		
-        x = 12
+        x = 10
         y = 1
 		
         cost = 3
@@ -27,8 +27,16 @@
 				add_idea = extensive_conscription
 			}
 			set_variable = {
-				var = TUS_Balbo_Pop
-				value = 0
+				var = TUS_Balbo_Pop_gc
+				value = 60
+			}
+			set_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 50
+			}
+			set_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 30
 			}
 			country_event = tus.1
 		}
@@ -47,9 +55,19 @@
         y = 1
 		
         cost = 5
-		
+			
 		completion_reward = {
 			country_event = tus.9
+			custom_effect_tooltip = TUS_modify_ppl_add_3
+			custom_effect_tooltip = TUS_modify_mil_add_2
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 3
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 2
+			}
 		}
 
 	}
@@ -83,6 +101,11 @@
 					level = 1
 					instant_build = yes
 				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
 			}
 		}
 
@@ -118,6 +141,16 @@
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = TUS_modify_ppl_add_2
+			custom_effect_tooltip = TUS_modify_mil_add_3
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 2
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 3
+			}
 		}
 	}
 	
@@ -146,6 +179,21 @@
 			swap_ideas = {
 				remove_idea = TUS_collapsing_economy
 				add_idea = TUS_collapsing_economy_2
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			custom_effect_tooltip = TUS_modify_mil_add_5
+			custom_effect_tooltip = TUS_modify_gc_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 5
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 5
 			}
 			add_stability = 0.05
 		}
@@ -183,9 +231,10 @@
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = TUS_modify_ppl_add_10
 			add_to_variable = {
-				var = TUS_Balbo_Pop
-				value = 2
+				var = TUS_Balbo_Pop_ppl
+				value = 10
 			}
 		}
 
@@ -223,6 +272,16 @@
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			custom_effect_tooltip = TUS_modify_mil_add_10
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 10
+			}
 		}
 	}
 	
@@ -242,10 +301,11 @@
         cost = 8
 		
 		completion_reward = {
-			#add_ideas = TUS_state_propaganda
+			custom_effect_tooltip = TUS_will_activate_propaganda
+			custom_effect_tooltip = TUS_modify_gc_add_5
 			add_to_variable = {
-				var = TUS_Balbo_Pop
-				value = 2
+				var = TUS_Balbo_Pop_gc
+				value = 5
 			}
 			set_variable = {
 				var = TUS_propaganda_amount
@@ -272,29 +332,16 @@
 		
 		completion_reward = {
 			remove_ideas = TUS_heavly_disorganised_army
-			add_ideas = TUS_army_reforms
-			162 = {
-				create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0"
-					owner = PREV
-					count = 1
-				}
-				create_unit = {
-					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
-					owner = PREV
-					count = 2
-				}
-			}
-			884 = {
-				create_unit = {
-					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
-					owner = PREV
-					count = 2
-				}
+			country_event = tus.10
+			custom_effect_tooltip = TUS_modify_mil_add_10
+			custom_effect_tooltip = TUS_modify_gc_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 10
 			}
 			add_to_variable = {
-				var = TUS_Balbo_Pop
-				value = 2
+				var = TUS_Balbo_Pop_gc
+				value = 5
 			}
 		}
 	}
@@ -347,6 +394,14 @@
 						days = 35
 					}
 				}
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 10
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 10
 			}
 		}
 	}
