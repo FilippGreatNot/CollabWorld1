@@ -1,0 +1,42 @@
+GER_repair_roads = {
+	GER_repair_50 = {
+		visible = {
+			has_country_flag = repair_damaged_roads_flag
+		}
+		available = {
+			controls_state = 50
+			50 = { 
+				has_dynamic_modifier = {
+					modifier = germany_damaged_roads 
+				}
+			}
+		}
+		allowed = {
+			OR = {
+				original_tag = FWG
+				original_tag = WRD
+				original_tag = GER
+				original_tag = FGB
+				original_tag = UVS
+				original_tag = BAV
+			}
+		}
+		cost = 30
+		icon = FGB_reform
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+		}
+        modifier = {
+            political_power_cost = 0.1
+        }
+		remove_effect = {
+			add_stability = 0.05
+			50 = {
+				remove_dynamic_modifier = {
+					modifier = germany_damaged_roads
+				}
+			}
+		}
+	}
+}
