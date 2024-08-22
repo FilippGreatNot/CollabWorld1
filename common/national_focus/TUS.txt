@@ -22,10 +22,7 @@
 		
 		completion_reward = {
 		    add_stability = 0.05
-			swap_ideas = {
-				remove_idea = all_adults_serve
-				add_idea = extensive_conscription
-			}
+			custom_effect_tooltip = TUS_will_activate_balbo_cult
 			set_variable = {
 				var = TUS_Balbo_Pop_gc
 				value = 60
@@ -380,9 +377,16 @@
 		cancelable = no
 		
 		completion_reward = {
+			custom_effect_tooltip = TUS_focus_event_chain
 			hidden_effect = {
 				if = {
-					limit = {check_variable = {TUS_Balbo_Pop > 6}}
+					limit = {
+						check_variable = {
+							var = TUS_Balbo_Pop_gc
+							value = 80
+							compare = greater_than_or_equals
+						}
+					}
 					country_event = {
 						id = tus_coun1.3
 						days = 35
@@ -394,14 +398,6 @@
 						days = 35
 					}
 				}
-			}
-			add_to_variable = {
-				var = TUS_Balbo_Pop_ppl
-				value = 10
-			}
-			add_to_variable = {
-				var = TUS_Balbo_Pop_gc
-				value = 10
 			}
 		}
 	}
@@ -437,9 +433,20 @@
 			#	remove_idea = closed_economy
 			#	add_idea = limited_exports
 			#}
+			custom_effect_tooltip = TUS_modify_ppl_add_10
+			custom_effect_tooltip = TUS_modify_mil_add_10
+			custom_effect_tooltip = TUS_modify_gc_add_10
 			add_to_variable = {
-				var = TUS_Balbo_Pop
-				value = 3
+				var = TUS_Balbo_Pop_ppl
+				value = 10
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 10
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 10
 			}
 			add_stability = 0.1
 		}

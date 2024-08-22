@@ -274,23 +274,25 @@ country_event = {
 		}	
 	}
 	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = tus_coun1.2
+				days = 35
+			}	
+		}
+	}
+	
 	option = {
 		name = tus_coun1.1.a
-		country_event = {
-			id = tus_coun1.2
-			days = 35
-		}
-		add_to_variable = {
-			var = TUS_Balbo_Pop
-			value = 1
-		}
 	}
 	option = {
 		name = tus_coun1.1.b
 		add_ideas = a_gun_for_every_household
-		country_event = {
-			id = tus_coun1.2
-			days = 35
+		custom_effect_tooltip = TUS_modify_mil_subtract_5
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = 5
 		}
 	}
 }
@@ -303,19 +305,30 @@ country_event = {
 	
 	option = {
 		name = tus.5.a
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.1
+		custom_effect_tooltip = TUS_modify_ppl_subtract_10
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = 10
 		}
 	}
 	option = {
 		name = tus.5.b
-		add_stability = -0.03
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.05
-		}
 		add_ideas = TUS_limited_womens_rights
+		custom_effect_tooltip = TUS_modify_ppl_add_5
+		custom_effect_tooltip = TUS_modify_mil_add_5
+		custom_effect_tooltip = TUS_modify_gc_subtract_5
+		add_to_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = 5
+		}
+		add_to_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = 5
+		}
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_gc
+			value = 5
+		}
 	}
 }
 
@@ -343,10 +356,14 @@ country_event = {
 			ideology = national_syndicalism
 			popularity = 0.3
 		}
-		clear_variable = TUS_Balbo_Pop
 		swap_ideas = {
 			remove_idea = TUS_disunified_government
 			add_idea = TUS_unified_government
+		}
+		custom_effect_tooltip = TUS_modify_gc_subtract_10
+		add_to_variable = {
+			var = TUS_Balbo_Pop_gc
+			value = 10
 		}
 	}
 }
@@ -359,7 +376,11 @@ country_event = {
 	
 	option = {
 		name = tus_coun1.4.a
-		clear_variable = TUS_Balbo_Pop
+		custom_effect_tooltip = TUS_modify_gc_subtract_20
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_gc
+			value = 20
+		}
 	}
 }
 
