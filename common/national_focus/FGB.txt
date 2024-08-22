@@ -17,7 +17,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_death_of_kapp
-		icon = GFX_focus_FGB_death_of_kapp
+		icon = GFX_focus_FGB_electing_new_leader
 		x = 6
 		y = 0
 		cost = 1
@@ -69,7 +69,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_noske
-		icon = GFX_focus_FGB_noske
+		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
 		relative_position_id = FGB_electing_new_leader
@@ -217,7 +217,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_noske_rub_off_kapp_memory
-		icon = GFX_focus_FGB_noske_rub_off_kapp_memory
+		icon = GFX_focus_FGB_electing_new_leader
 		x = -2
 		y = 0
 		relative_position_id = FGB_noske_september_coalition
@@ -244,7 +244,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_noske_rejuvenate_old_industries
-		icon = GFX_focus_FGB_noske_rejuvenate_old_industries
+		icon = GFX_focus_FGB_reconstruction
 		x = 2
 		y = 0
 		relative_position_id = FGB_noske_september_coalition
@@ -252,15 +252,18 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_september_coalition }
 		completion_reward = {
 			add_war_support = 0.05
-			50 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_victory_points = {
-					province = 11486
-					value = 3
+			if = {
+				limit = { has_full_control_of_state = 50 }
+				50 = {
+					add_building_construction = { 
+						type = arms_factory 
+						level = 1 
+						instant_build = yes 
+					}
+					add_victory_points = {
+						province = 11486
+						value = 3
+					}
 				}
 			}
 		}
@@ -1134,8 +1137,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = FGB_repair_the_countryside_tt
+			set_country_flag = repair_damaged_roads_flag
 			852 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1143,7 +1147,7 @@ focus_tree = {
 				}
 			}
 			50 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1151,7 +1155,7 @@ focus_tree = {
 				}
 			}
 			54 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1161,7 +1165,7 @@ focus_tree = {
 			IF = {
 				limit = { has_full_control_of_state = 52 }
 				52 = {
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = infrastructure
 						level = 1
@@ -1172,7 +1176,7 @@ focus_tree = {
 			IF = {
 				limit = { has_full_control_of_state = 53 }
 				53 = {
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = infrastructure
 						level = 1

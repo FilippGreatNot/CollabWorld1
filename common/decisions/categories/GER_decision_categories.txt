@@ -38,8 +38,6 @@ GER_states_coring_category = {
 
 GER_reunification = {
 
-priority = 100
-
 	icon = GFX_decision_category_generic_political_actions
 	picture = GFX_decision_category_ger_map
 	priority = 100
@@ -70,5 +68,26 @@ priority = 100
 			
 			NOT = { has_country_flag = ger_reunificated }
 			}
+	}
+}
+
+GER_repair_roads = {
+	icon = GFX_decision_category_generic_political_actions
+	picture = GFX_decision_category_army
+	priority = 70
+	allowed = {
+		OR = {
+			original_tag = FWG
+			original_tag = WRD
+			original_tag = GER
+			original_tag = FGB
+			original_tag = UVS
+			original_tag = BAV
+		}
+	}
+	visible = {
+		if = {
+			limit = { has_country_flag = repair_damaged_roads_flag }
+		}
 	}
 }

@@ -2,9 +2,7 @@ VNE_army_reform = {
 	VNE_army_reform_stage_i = {
 		icon = generic_prepare_civil_war
 		allowed = { 
-			OR = {
-				tag = VNE
-			}
+			original_tag = VNE
 		}
 		available = {
 			OR = {
@@ -27,16 +25,15 @@ VNE_army_reform = {
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision china_army_reform_1"
+			log = "[GetDateText]: [Root.GetName]: Decision VNE_army_reform_1"
 		}
 
 		remove_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision remove china_army_reform_1"
-			increase_army_reform_level = yes
+			log = "[GetDateText]: [Root.GetName]: Decision remove VNE_army_reform_1"
+			VNE_army_reform_level_up = yes
 		}
 	}
-	china_army_reform_2 = {
-		name = china_army_reform_1
+	VNE_army_reform_2 = {
 		icon = generic_prepare_civil_war
 
 		allowed = { always = no }			# Activated by scripted effect setup_army_reform / previous decision
@@ -65,16 +62,15 @@ VNE_army_reform = {
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision china_army_reform_2"
+			log = "[GetDateText]: [Root.GetName]: Decision VNE_army_reform_2"
 		}
 
 		remove_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision remove china_army_reform_2"
-			increase_army_reform_level = yes
+			log = "[GetDateText]: [Root.GetName]: Decision remove VNE_army_reform_2"
+			VNE_army_reform_level_up = yes
 		}
 	}
-	china_army_reform_3 = {
-		name = china_army_reform_1
+	VNE_army_reform_3 = {
 		icon = generic_prepare_civil_war
 		allowed = { always = no }			# Activated by previous decision
 
@@ -103,11 +99,12 @@ VNE_army_reform = {
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision china_army_reform_3"
+			log = "[GetDateText]: [Root.GetName]: Decision VNE_army_reform_3"
 		}
 
 		remove_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision remove china_army_reform_3"
-			increase_army_reform_level = yes
+			log = "[GetDateText]: [Root.GetName]: Decision remove VNE_army_reform_3"
+			VNE_army_reform_level_up = yes
 		}
 	}
+}
