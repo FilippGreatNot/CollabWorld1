@@ -1,3 +1,4 @@
+#!gfx:interface/cw/generic_focus.gfx
 focus_tree = {
 	id = generic_tree
 	country = { factor = 0}
@@ -15,7 +16,8 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			
+			update_focus_tree = yes
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -29,7 +31,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_continue_the_course }
 		
 		completion_reward = {
-			update_focus_tree = yes
+			
 		}
 	}
 	
@@ -54,6 +56,7 @@ focus_tree = {
 		
 		completion_reward = {
 			update_focus_tree = yes
+			add_political_power = 50
 		}
 	}
 	
@@ -72,6 +75,15 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_proletariat
 			}
 		}
+		offset = {
+			x = 3
+			trigger = {
+				OR = {
+					has_country_flag = initial_ideology_liberal
+					has_country_flag = initial_ideology_nationalist
+				}
+			}
+		}
 		
 		prerequisite = { focus = generic_tree_the_age_of_changes }
 		mutually_exclusive = {
@@ -85,6 +97,7 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_nation
 			}
 			NOT = { has_completed_focus = generic_tree_continue_the_course }
+			NOT = { has_country_flag = initial_ideology_socialist }
 		}
 		
 		completion_reward = {
@@ -265,6 +278,18 @@ focus_tree = {
 		
 		relative_position_id = generic_tree_the_age_of_changes
 		y = 1
+		offset = {
+			x = 3
+			trigger = {
+				has_country_flag = initial_ideology_nationalist
+			}
+		}
+		offset = {
+			x = -3
+			trigger = {
+				has_country_flag = initial_ideology_socialist
+			}
+		}
 		
 		prerequisite = { focus = generic_tree_the_age_of_changes }
 		mutually_exclusive = {
@@ -278,6 +303,7 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_nation
 			}
 			NOT = { has_completed_focus = generic_tree_continue_the_course }
+			NOT = { has_country_flag = initial_ideology_liberal }
 		}
 		
 		completion_reward = {
@@ -486,6 +512,18 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_nation
 			}
 		}
+		offset = {
+			x = -3
+			trigger = {
+				has_country_flag = initial_ideology_liberal
+			}
+		}
+		offset = {
+			x = -3
+			trigger = {
+				has_country_flag = initial_ideology_socialist
+			}
+		}
 		
 		prerequisite = { focus = generic_tree_the_age_of_changes }
 		mutually_exclusive = {
@@ -499,6 +537,7 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_freedom
 			}
 			NOT = { has_completed_focus = generic_tree_continue_the_course }
+			NOT = { has_country_flag = initial_ideology_nationalist }
 		}
 		
 		completion_reward = {
@@ -792,7 +831,29 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_secure_our_country }
 		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
 		
-		allow_branch = { NOT = { has_country_flag = do_bad_things } } #For some reason HoI4 Mod Utilities doesn't override it if done in a conventional way
+		allow_branch = { NOT = { has_country_flag = do_bad_things } } #For some reason HoI4 Mod Utilities doesn't override it if done in a non-overengineered way
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = { #Coded before the others since they are relative to it
+		id = generic_tree_our_own_way
+		icon = GFX_focus_generic_tree_pro_soviet_diplomacy
+		cost = 6
+		
+		relative_position_id = generic_tree_main_branch
+		y = 1
+		
+		prerequisite = { focus = generic_tree_secure_our_country }
+		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
+		mutually_exclusive = {
+			focus = generic_tree_pro_soviet_diplomacy
+			focus = generic_tree_pro_french_diplomacy
+		}
+		
+		allow_branch = { NOT = { has_country_flag = do_bad_things } }
 		
 		completion_reward = {
 			
@@ -810,27 +871,6 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
 		mutually_exclusive = {
 			focus = generic_tree_our_own_way
-			focus = generic_tree_pro_french_diplomacy
-		}
-		
-		allow_branch = { NOT = { has_country_flag = do_bad_things } }
-		
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = generic_tree_our_own_way
-		icon = GFX_focus_generic_tree_pro_soviet_diplomacy
-		cost = 6
-		
-		relative_position_id = generic_tree_main_branch
-		y = 1
-		
-		prerequisite = { focus = generic_tree_secure_our_country }
-		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
-		mutually_exclusive = {
-			focus = generic_tree_pro_soviet_diplomacy
 			focus = generic_tree_pro_french_diplomacy
 		}
 		
