@@ -1,21 +1,10 @@
 GER_states_coring_category = {
-
 	icon = GFX_decision_category_generic_political_actions
 	picture = GFX_decision_category_industry
 	priority = 90
 
-	allowed = {
-	OR = {
-			original_tag = FWG
-			original_tag = WRD
-			original_tag = GER
-			original_tag = FGB
-			original_tag = PLA
-			original_tag = UVS
-			original_tag = BAV
-			original_tag = RBR
-			}
-	}
+	allowed = { is_german_tag = yes }
+	
 	visible = {
 		any_owned_state = {
 			NOT	= {
@@ -37,37 +26,14 @@ GER_states_coring_category = {
 
 
 GER_reunification = {
-
 	icon = GFX_decision_category_generic_political_actions
-	picture = GFX_decision_category_ger_map
+	picture = GFX_decision_category_united_germany
 	priority = 100
 
-	allowed = {
+	allowed = { is_german_tag = yes }
 	
-	OR = {
-			original_tag = FWG
-			original_tag = WRD
-			original_tag = GER
-			original_tag = FGB
-			original_tag = PLA
-			original_tag = UVS
-			original_tag = BAV
-		}
-
-	}
-	
-	visible_when_empty = yes
 	visible = {
-			OR = {
-			original_tag = FWG
-			original_tag = WRD
-			original_tag = GER
-			original_tag = FGB
-			original_tag = UVS
-			original_tag = BAV
-			
-			NOT = { has_country_flag = ger_reunificated }
-			}
+		NOT = { has_country_flag = ger_reunificated }
 	}
 }
 
@@ -75,16 +41,7 @@ GER_repair_roads = {
 	icon = GFX_decision_category_generic_political_actions
 	picture = GFX_decision_category_army
 	priority = 70
-	allowed = {
-		OR = {
-			original_tag = FWG
-			original_tag = WRD
-			original_tag = GER
-			original_tag = FGB
-			original_tag = UVS
-			original_tag = BAV
-		}
-	}
+	allowed = { is_german_tag = yes }
 	visible = {
 		if = {
 			limit = { has_country_flag = repair_damaged_roads_flag }
