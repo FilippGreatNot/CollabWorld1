@@ -75,6 +75,7 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_proletariat
 			}
 		}
+		
 		offset = {
 			x = 3
 			trigger = {
@@ -82,6 +83,7 @@ focus_tree = {
 					has_country_flag = initial_ideology_liberal
 					has_country_flag = initial_ideology_nationalist
 				}
+				NOT = { has_completed_focus = generic_tree_for_the_proletariat }
 			}
 		}
 		
@@ -117,7 +119,7 @@ focus_tree = {
 		mutually_exclusive = { focus = generic_tree_the_path_of_luxemburg }
 		
 		completion_reward = {
-			set_country_flag = generic_communist_coup_in_progress
+			generic_start_communist_coup = yes
 			set_country_flag = generic_coup_target_bolshevism
 		}
 	}
@@ -162,7 +164,7 @@ focus_tree = {
 		mutually_exclusive = { focus = generic_tree_the_path_of_lenin }
 		
 		completion_reward = {
-			set_country_flag = generic_communist_coup_in_progress
+			generic_start_communist_coup = yes
 			set_country_flag = generic_coup_target_marxism
 		}
 	}
@@ -284,6 +286,7 @@ focus_tree = {
 			x = 3
 			trigger = {
 				has_country_flag = initial_ideology_nationalist
+				NOT = { has_completed_focus = generic_tree_for_the_freedom }
 			}
 		}
 		offset = {
@@ -517,13 +520,11 @@ focus_tree = {
 		offset = {
 			x = -3
 			trigger = {
-				has_country_flag = initial_ideology_liberal
-			}
-		}
-		offset = {
-			x = -3
-			trigger = {
-				has_country_flag = initial_ideology_socialist
+				OR = {
+					has_country_flag = initial_ideology_liberal
+					has_country_flag = initial_ideology_socialist
+				}
+				NOT = { has_completed_focus = generic_tree_for_the_nation }
 			}
 		}
 		
@@ -787,8 +788,8 @@ focus_tree = {
 		icon = GFX_focus_generic_tree_secure_our_country
 		cost = 6
 		
-		relative_position_id = generic_tree_political_discussions_in_the_universities
-		y = 1
+		relative_position_id = generic_tree_the_age_of_changes
+		y = 8
 		
 		prerequisite = {
 			focus = generic_tree_marxist_theory_in_schools
@@ -810,12 +811,13 @@ focus_tree = {
 		id = generic_tree_main_branch #Always hidden and used only to move the entire tree
 		icon = GFX_focus_generic_tree_main_branch
 		
-		relative_position_id = generic_tree_secure_our_country 
+		relative_position_id = generic_tree_secure_our_country
+		y = 1
 		offset = {
-			y = -7
 			x = -15
+			y = -7
 			trigger = {
-				NOT = { has_completed_focus = generic_tree_the_age_of_changes } #At start it's under generic_tree_ensure_our_sovereignity
+				NOT = { has_completed_focus = generic_tree_the_age_of_changes }
 			}
 		}
 		
@@ -828,7 +830,6 @@ focus_tree = {
 		
 		relative_position_id = generic_tree_main_branch
 		x = -4
-		y = 1
 		
 		prerequisite = { focus = generic_tree_secure_our_country }
 		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
@@ -846,7 +847,6 @@ focus_tree = {
 		cost = 6
 		
 		relative_position_id = generic_tree_main_branch
-		y = 1
 		
 		prerequisite = { focus = generic_tree_secure_our_country }
 		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
@@ -910,7 +910,6 @@ focus_tree = {
 		
 		relative_position_id = generic_tree_main_branch
 		x = 4
-		y = 1
 		
 		prerequisite = { focus = generic_tree_secure_our_country }
 		prerequisite = { focus = generic_tree_ensure_our_sovereignity }

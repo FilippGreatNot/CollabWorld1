@@ -1,4 +1,53 @@
-post_coup_stability_-5 = {
-	custom_effect_tooltip = effects_after_coup_execution_tt
-	add_to_variable = { post_coup_stability = -0.05 }
+generic_start_communist_coup = {
+	activate_mission = generic_communist_coup_mission
+	set_country_flag = generic_communist_coup_in_progress
+}
+generic_coup_post_coup_target_party_popularity_-5 = {
+	if = {
+		limit = { has_country_flag = generic_coup_target_bolshevism }
+		add_to_variable = { generic_coup_bolshevism_populatiry = -0.05 }
+		effect_tooltip = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+		}
+	}
+	else_if = {
+		limit = { has_country_flag = generic_coup_target_marxism }
+		add_to_variable = { generic_coup_marxism_populatiry = -0.05 }
+		effect_tooltip = {
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+		}
+	}
+}
+generic_coup_post_coup_bolshevism_popularity_5 = {
+	add_to_variable = { generic_coup_bolshevism_populatiry = 0.05 }
+	effect_tooltip = {
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.05
+		}
+	}
+}
+generic_coup_post_coup_marxism_popularity_5 = {
+	add_to_variable = { generic_coup_marxism_populatiry = 0.05 }
+	effect_tooltip = {
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.05
+		}
+	}
+}
+generic_coup_post_coup_libertarian_socialism_popularity_5 = {
+	add_to_variable = { generic_coup_libertarian_socialism_populatiry = 0.05 }
+	effect_tooltip = {
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.05
+		}
+	}
 }
