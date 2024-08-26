@@ -51,7 +51,7 @@ generic_communist_coup = {
 		complete_effect = {
 			add_days_mission_timeout = {
 				mission = generic_communist_coup_mission
-				days = -30
+				days = -20
 			}
 			
 			custom_effect_tooltip = effects_after_coup_execution_tt
@@ -72,7 +72,7 @@ generic_communist_coup = {
 		complete_effect = {
 			add_days_mission_timeout = {
 				mission = generic_communist_coup_mission
-				days = -30
+				days = -20
 			}
 			
 			custom_effect_tooltip = effects_after_coup_execution_tt
@@ -81,6 +81,8 @@ generic_communist_coup = {
 		}
 	}
 	generic_communist_coup_coalition_with_syndicalists = {
+		cost = 50
+		
 		visible = {
 			NOT = {
 				has_country_flag = generic_communist_coup_coalition_with_syndicalists_used
@@ -91,7 +93,7 @@ generic_communist_coup = {
 		complete_effect = {
 			add_days_mission_timeout = {
 				mission = generic_communist_coup_mission
-				days = -30
+				days = -20
 			}
 			
 			custom_effect_tooltip = effects_after_coup_execution_tt
@@ -101,13 +103,31 @@ generic_communist_coup = {
 	}
 	
 	generic_communist_coup_agitate_the_workers = {
+		cost = 100
+		
 		visible = {
 			NOT = { has_country_flag = generic_communist_coup_agitate_the_workers_used }
 		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -25
+			}
+		}
 	}
 	generic_communist_coup_agitate_the_young_officers = {
+		cost = 50
+		
 		visible = {
 			NOT = { has_country_flag = generic_communist_coup_agitate_the_young_officers }
+		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -15
+			}
 		}
 	}
 }
