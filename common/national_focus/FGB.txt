@@ -79,7 +79,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.13
+				popularity = 0.09
 			}
 		}
 	}
@@ -101,7 +101,7 @@ focus_tree = {
 					add_idea = FGB_civil_unrest2
 				}
 			}
-			add_stability = 0.11
+			add_stability = 0.10
 		}
 	}
 	
@@ -172,10 +172,10 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_ease_unrest }
 		prerequisite = { focus = FGB_noske_cooperate_with_democrats }
 		completion_reward = {
-			add_stability = 0.05
+			add_stability = 0.08
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.15
+				popularity = 0.1
 			}
 			set_party_name = { 
 				ideology = social_democrat
@@ -205,7 +205,7 @@ focus_tree = {
 		cost = 3
 		prerequisite = { focus = FGB_noske_freikorps_spd }
 		completion_reward = {
-			add_political_power = 200
+			add_political_power = 60
 			set_politics = {
 				ruling_party = social_democrat
 				last_election = "1936.6.9"
@@ -224,20 +224,20 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = FGB_noske_september_coalition }
 		completion_reward = {
-			add_political_power = -30
+			add_political_power = -40
 			add_stability = 0.05
 			add_war_support = -0.1
 			add_popularity = {
 				ideology = despotism
-				popularity = -0.2
+				popularity = -0.1
 			}
 			add_popularity = {
 				ideology = reactionism
-				popularity = -0.1
+				popularity = -0.05
 			}
 			add_popularity = {
 				ideology = authoritarian_democrat
-				popularity = -0.1
+				popularity = -0.05
 			}
 		}
 	}
@@ -251,7 +251,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = FGB_noske_september_coalition }
 		completion_reward = {
-			add_war_support = 0.05
+			add_war_support = 0.12
 			if = {
 				limit = { has_full_control_of_state = 50 }
 				50 = {
@@ -1108,7 +1108,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_reconstruction }
 		x = 14
 		y = 1
-		cost = 6
+		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			852 = {
@@ -1224,14 +1224,16 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			IF = {
+			# set_temp_variable = { ideology_change_var = 0.05 }
+			# change_ruling_party_popularity = yes
+			if = {
 				limit = { has_idea = FGB_recovering_industry1 }
 				swap_ideas = {
 					remove_idea = FGB_recovering_industry1
 					add_idea = FGB_recovering_industry2
 				}
 			}
-			ELSE = {
+			else = {
 				swap_ideas = {
 					remove_idea = FGB_recovering_industry
 					add_idea = FGB_recovering_industry1
