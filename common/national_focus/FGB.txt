@@ -295,6 +295,26 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = FGB_noske_press_freedom
+		icon = GFX_focus_FGB_noske_press_freedom
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_allow_local_free_elections
+		prerequisite = { focus = FGB_noske_allow_local_free_elections }
+		completion_reward = {
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_ideas = {
+				idea = FGB_noske_press_freedom_idea
+			}
+		}
+	}
 	
 	focus = {
 		id = FGB_noske_rebuild_mine_towns
@@ -325,6 +345,36 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = FGB_noske_home_arms_act
+		icon = GFX_focus_FGB_noske_home_arms_act
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_rebuild_mine_towns
+		prerequisite = { focus = FGB_noske_rebuild_mine_towns }
+		completion_reward = {
+			add_war_support = 0.05
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_manpower = 1200
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -500
+				producer = FGB
+			}
+			swap_ideas = {
+				remove_idea = limited_gun_ownership
+				add_idea = a_gun_for_every_household
+			}
+		}
+	}
 	
 	focus = {
 		id = FGB_noske_new_day_new_germany
@@ -352,6 +402,38 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = FGB_government_of_national_salvation
+		icon = GFX_focus_FGB_government_of_national_salvation
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_new_day_new_germany
+		prerequisite = { focus = FGB_noske_new_day_new_germany }
+		completion_reward = {
+			add_stability = 0.05
+			set_cosmetic_tag = FGB_REP
+			BAV = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			WRD = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			UVS = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			GER = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			FWG = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			PLA = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+		}
+	}
 	
 	focus = {
 		id = FGB_noske_matter_of_bavaria
@@ -360,7 +442,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		relative_position_id = FGB_noske_new_day_new_germany
-		prerequisite = { focus = FGB_noske_new_day_new_germany }
+		prerequisite = { focus = FGB_government_of_national_salvation }
 		allow_branch = { has_country_flag = FGB_noske_reform_complete }
 		completion_reward = {
 			add_war_support = 0.05
