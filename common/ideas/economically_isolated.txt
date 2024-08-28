@@ -7,7 +7,10 @@ ideas = {
 			cancel = {
 				OR = {
 					is_in_faction = yes
-					overlord = {NOT = {has_idea = economically_isolated}}
+					if = {
+						limit = { is_puppet = yes }
+						overlord = {NOT = {has_idea = economically_isolated}}
+					}
 				}
 			}
 		}
