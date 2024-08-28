@@ -1,5 +1,5 @@
 add_namespace = usa_collapse
-add_namespace = rockefeller
+add_namespace = USA_rockefeller_jr
 
 news_event = {
 	id = usa_collapse.1
@@ -668,15 +668,78 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
-	id = rockefeller.1
-	title = rockefeller.1.t
-	desc = rockefeller.1.d
+	id = USA_rockefeller_jr.1
+	title = USA_rockefeller_jr.1.t
+	desc = USA_rockefeller_jr.1.d
 	is_triggered_only = yes
-	
-	
+
 	option = {
-		name = rockefeller.1.a
-		add_political_power = 50
+		name = USA_rockefeller_jr.1.a
+		activate_decision = USA_columbia_trust_bank_mission
+		add_political_power = 10
+		add_stability = 0.1
+		hidden_effect = {
+			set_global_flag = USA_columbia_deal
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.1.b
+		add_political_power = -15
+		add_stability = -0.1
+	}
+}
+
+country_event = {
+	id = USA_rockefeller_jr.2
+	title = USA_rockefeller_jr.2.t
+	desc = USA_rockefeller_jr.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = USA_rockefeller_jr.2.a
+		hidden_effect = {
+			complete_national_focus = USA_william_randolf_focus
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.2.b
+		hidden_effect = {
+			complete_national_focus = USA_joseph_kenedy_focus
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.2.c
+		hidden_effect = {
+			complete_national_focus = USA_edward_dohney_focus
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.2.d
+		hidden_effect = {
+			complete_national_focus = USA_rockefeller_jr_focus
+		}
+	}
+}
+
+country_event = {
+	id = USA_rockefeller_jr.3
+	title = USA_rockefeller_jr.3.t
+	desc = USA_rockefeller_jr.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = USA_rockefeller_jr.3.a
+		add_political_power = 15
+		add_stability = 0.15
+		hidden_effect = {
+			set_global_flag = USA_hearst_deal
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.3.b
+		add_political_power = -20
+		add_stability = -0.2
 	}
 }
