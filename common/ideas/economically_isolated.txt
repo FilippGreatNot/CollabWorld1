@@ -4,7 +4,12 @@ ideas = {
 			removal_cost = -1
 			picture = economically_isolated
 			rule = {can_access_market = no}
-			cancel = {is_in_faction = yes}
+			cancel = {
+				OR = {
+					is_in_faction = yes
+					overlord = {NOT = {has_idea = economically_isolated}}
+				}
+			}
 		}
 	}
 }
