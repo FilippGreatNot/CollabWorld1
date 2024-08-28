@@ -105,5 +105,40 @@ news_event = {
 	
 	option = {
 		name = fgb.4.a
+		FGB = {
+			country_event = fgb.5
+		}
+	}
+}
+
+country_event = {
+	id = fgb.5
+	title = fgb.5.t
+	desc = fgb.5.d
+	picture = GFX_news_event_freikorps_bavaria
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = fgb.5.a
+		set_country_flag = FGB_noske_victory_over_bavaria_flag
+		mark_focus_tree_layout_dirty = yes 
+		custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
+		hidden_effect = { 
+			complete_national_focus = FGB_noske_victory_over_bavaria 
+			load_oob = FGB_OOB3
+			52 = {
+				create_unit = {
+					division = "name = \"1st. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+					owner = FGB
+				}
+			}
+			53 = {
+				create_unit = {
+					division = "name = \"2nd. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+					owner = FGB
+				}
+			}
+		}
 	}
 }

@@ -56,11 +56,15 @@ focus_tree = {
 			hidden_effect = {
 				add_popularity = {
 					ideology = despotism
-					popularity = -0.21
+					popularity = -0.20
 				}
 				add_popularity = {
-				ideology = authoritarian_democrat
+					ideology = authoritarian_democrat
 					popularity = -0.15
+				}
+				add_popularity = {
+					ideology = reactionism
+					popularity = 0.05
 				}
 			}
 		}
@@ -79,7 +83,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.09
+				popularity = 0.05
 			}
 		}
 	}
@@ -101,7 +105,7 @@ focus_tree = {
 					add_idea = FGB_civil_unrest2
 				}
 			}
-			add_stability = 0.10
+			add_stability = 0.05
 		}
 	}
 	
@@ -124,11 +128,11 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = bolshevism
-				popularity = -0.06
+				popularity = -0.05
 			}
 			add_popularity = {
 				ideology = marxism
-				popularity = -0.06
+				popularity = -0.05
 			}
 		}
 	}
@@ -152,11 +156,11 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.06
+				popularity = 0.05
 			}
 			add_popularity = {
 				ideology = liberalism
-				popularity = 0.06
+				popularity = 0.05
 			}
 		}
 	}
@@ -172,7 +176,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_ease_unrest }
 		prerequisite = { focus = FGB_noske_cooperate_with_democrats }
 		completion_reward = {
-			add_stability = 0.08
+			add_stability = 0.05
 			add_popularity = {
 				ideology = social_democrat
 				popularity = 0.1
@@ -226,18 +230,18 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -40
 			add_stability = 0.05
-			add_war_support = -0.1
+			add_war_support = -0.05
 			add_popularity = {
 				ideology = despotism
-				popularity = -0.1
+				popularity = -0.08
 			}
 			add_popularity = {
 				ideology = reactionism
-				popularity = -0.05
+				popularity = -0.02
 			}
 			add_popularity = {
 				ideology = authoritarian_democrat
-				popularity = -0.05
+				popularity = -0.02
 			}
 		}
 	}
@@ -291,7 +295,7 @@ focus_tree = {
 			}
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.1
+				popularity = 0.05
 			}
 		}
 	}
@@ -325,7 +329,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = FGB_noske_rejuvenate_old_industries }
 		completion_reward = {
-			add_stability = 0.1
+			add_stability = 0.05
 			add_political_power = 20
 			add_popularity = {
 				ideology = social_democrat
@@ -462,10 +466,75 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_cooperative_policy }
 		allow_branch = { has_country_flag = FGB_noske_policy_flag }
 		completion_reward = {
-			add_war_support = 0.1
+			add_war_support = 0.05
 			declare_war_on = {
 				target = BAV
 				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_victory_over_bavaria
+		icon = GFX_focus_noske_aggressive_policy
+		x = -4
+		y = 1
+		cost = 0
+		relative_position_id = FGB_noske_aggressive_policy
+		prerequisite = { focus = FGB_noske_aggressive_policy }
+		allow_branch = { has_country_flag = FGB_noske_victory_over_bavaria_flag }
+		completion_reward = {
+			add_war_support = 0.1
+			add_manpower = 110000
+		}
+	}
+
+	
+	focus = {
+		id = FGB_noske_deagrarianise_bavaria
+		icon = GFX_focus_noske_aggressive_policy
+		x = -2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		completion_reward = {
+			add_stability = -0.05
+			52 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			53 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_recruit_new_staff
+		icon = GFX_focus_noske_recruit_new_staff
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		completion_reward = {
+			add_war_support = 0.05
+			add_corps_commander_role = {
+				character = FGB_julius_schreck
+				traits = { commando }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
 			}
 		}
 	}
@@ -1091,11 +1160,10 @@ focus_tree = {
 	focus = {
 		id = FGB_military_academy
 		icon = GFX_focus_FGB_military_academy
-		available = {
-			has_completed_focus = FGB_army_reform
-		}
-		x = 16
-		y = 7
+		prerequisite = { focus = FGB_expand_conscription }
+		relative_position_id = FGB_expand_conscription
+		x = 0
+		y = 1
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
@@ -1104,31 +1172,13 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_rebuild_schools
-		icon = GFX_focus_FGB_rebuild_schools
-		available = {
-			has_completed_focus = FGB_complete_recovery
-		}
-		x = 14
-		y = 8
-		cost = 6
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			add_ideas = {
-				FGB_research_fund
-			}
-		}
-	}
-	
-	focus = {
 		id = FGB_berlin_academies
 		icon = GFX_focus_FGB_berlin_academies
 		available = {
 			has_full_control_of_state = 835
-			has_full_control_of_state = 836
 		}
-		x = 18
-		y = 8
+		x = 10
+		y = -1
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
@@ -1284,9 +1334,15 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.05
 			swap_ideas = {
 				remove_idea = FGB_rebuilding_economy
 				add_idea = FGB_recovering_industry
+			}
+			swap_ideas = {
+				remove_idea = FGB_shellshocked_populace
+				add_idea = FGB_shellshocked_populace2
 			}
 		}
 	}
@@ -1632,58 +1688,93 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = FGB_rebuild_schools
+		icon = GFX_focus_FGB_rebuild_schools
+		prerequisite = {
+			focus = FGB_complete_recovery
+		}
+		x = 16
+		y = 7
+		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = {
+				FGB_research_fund
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_open_new_hospitals
+		icon = GFX_focus_FGB_open_new_hospitals
+		prerequisite = {
+			focus = FGB_rebuild_schools
+		}
+		x = 16
+		y = 8
+		cost = 7
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_manpower = 150000
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = FGB_shellshocked_populace2
+				add_idea = FGB_shellshocked_populace3
+			}
+		}
+	}
 	
 	focus = {
-		id = FGB_a_brand_new_economy
+		id = FGB_revitalise_southern_industry
 		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
-			has_completed_focus = FGB_complete_recovery
 			has_full_control_of_state = 852
 			has_full_control_of_state = 50
 			has_full_control_of_state = 52
 			has_full_control_of_state = 53
 			has_full_control_of_state = 54
-			has_full_control_of_state = 836
-			has_full_control_of_state = 835
 		}
 		x = 16
-		y = 8
-		cost = 16
+		y = 9
+		cost = 8
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			852 = {
 				add_building_construction = {
 					type = industrial_complex
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
 			50 = {
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = arms_factory 
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 			}
 			52 = {
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = arms_factory 
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1695,14 +1786,14 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = arms_factory 
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 			}
 			54 = {
 				add_building_construction = {
 					type = industrial_complex
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
@@ -1713,49 +1804,111 @@ focus_tree = {
 			}
 			hidden_effect = {
 				852 = {
-					add_extra_state_shared_building_slots = 6
+					add_extra_state_shared_building_slots = 3
 				}
 				50 = {
-					add_extra_state_shared_building_slots = 6
+					add_extra_state_shared_building_slots = 3
 				}
 				52 = {
-					add_extra_state_shared_building_slots = 5
+					add_extra_state_shared_building_slots = 3
 				}
 				53 = { 
-					add_extra_state_shared_building_slots = 5
+					add_extra_state_shared_building_slots = 3
 				}
 				54 = {
-					add_extra_state_shared_building_slots = 5
+					add_extra_state_shared_building_slots = 3
 				}
 			}
 		}
 	}
-	
+
 	focus = {
-		id = FGB_attack_bavaria
-		icon = GFX_focus_FGB_attack_bavaria
+		id = FGB_develop_the_rhine
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
-			is_subject = no
-			check_variable = { num_of_owned_factories > 12 }
-			custom_trigger_tooltip = {
-				tooltip = FGB_attack_bavaria_tt
-			}
-			NOT = { has_full_control_of_state = 52 }
-			NOT = { has_full_control_of_state = 53 }
-			NOT = { BAV = { exists = no } }
+			has_full_control_of_state = 42
+			has_full_control_of_state = 51
+			has_full_control_of_state = 55
 		}
-		x = 30
-		y = 6
-		cost = 6
+		x = 14
+		y = 9
+		cost = 8
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_bavaria"
-			BAV = { make_every_core_national_for_PREV = yes }
-			create_wargoal = {
-				type = annex_everything
-				target = BAV
+			42 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+			}
+			51 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+			}
+			55 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				42 = {
+					add_extra_state_shared_building_slots = 3
+				}
+				51 = { 
+					add_extra_state_shared_building_slots = 3
+				}
+				55 = {
+					add_extra_state_shared_building_slots = 3
+				}
 			}
 		}
 	}
+
+	focus = {
+		id = FGB_new_currency
+		icon = GFX_focus_FGB_new_currency
+		prerequisite = {
+			focus = FGB_revitalise_southern_industry
+		}
+		x = 16
+		y = 10
+		cost = 7
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_making_new_currency
+				days = 49
+			}
+		}
+		completion_reward = {
+			add_ideas = {
+				FGB_new_reichsmark
+			}
+		}
+	}
+
 	focus = {
 		id = FGB_attack_wehrkommando
 		icon = GFX_focus_FGB_attack_wehrkommando
