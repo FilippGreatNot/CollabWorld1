@@ -38,3 +38,35 @@ UVS_european_revolutionary_front_decisions = {
 		}
 	}
 }
+UVS_ribentrops_insanity = {
+	UVS_ribentrop_is_going_insane = {
+		icon = GFX_decision_revolt
+		allowed = { tag = UVS }
+		visible = {
+			has_completed_focus = UVS_victory_of_daa
+		}
+		activation = {
+			has_completed_focus = UVS_victory_of_daa
+		}
+		available = {
+			has_completed_focus = UVS_make_sure_the_fuhrer_takes_his_pills
+		}
+		
+		is_good = no
+		days_remove = 500
+		days_mission_timeout = 500
+		fire_only_once = yes
+
+		complete_effect = {
+			add_stability = 0.05
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout FGB_masquerade_of_valkism"
+			
+			country_event = {
+				id = uvs.7
+				days = 1
+			}
+		}
+	}
+	}
