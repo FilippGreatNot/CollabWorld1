@@ -14,6 +14,197 @@ focus_tree = {
 	initial_show_position = { focus = FGB_reconstruction }
 	
 	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = FGB_the_will_to_unite_a_nation
+		icon = GFX_focus_FGB_the_will_to_unite_a_nation
+		x = 30
+		y = 0
+		cost = 4
+		completion_reward = {
+			add_ideas = {
+				FGB_the_will_to_unite_a_nation_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_defense_tactics
+		icon = GFX_focus_FGB_defense_tactics
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_the_will_to_unite_a_nation
+		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
+		completion_reward = {
+			add_ideas = {
+				FGB_defense_tactics_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_fortify_the_north
+		icon = GFX_focus_FGB_fortify_the_north
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_the_will_to_unite_a_nation
+		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
+		completion_reward = {
+			852 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3530
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6568
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6581
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6594
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11417
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6421
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 3474
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11404
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rerecruitment_drive
+		icon = GFX_focus_FGB_rerecruitment_drive
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_defense_tactics
+		prerequisite = { focus = FGB_defense_tactics }
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_ideas = { 
+				FGB_rerecruitment_drive_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_tank_innovations
+		icon = GFX_focus_FGB_tank_innovations
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_fortify_the_north
+		prerequisite = { focus = FGB_fortify_the_north }
+		select_effect = {
+			add_manpower = -2000
+		}
+		completion_reward = {
+			add_manpower = 2000
+			add_tech_bonus = {
+				name = FGB_tank_innovations
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+			if = {
+				limit = { NOT = { has_tech = basic_light_tank } }
+				set_technology = { basic_light_tank = 1 }
+				add_equipment_to_stockpile = {
+					type = basic_light_tank
+					amount = 200
+					producer = FGB
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_learning_more_from_ourselves
+		icon = GFX_focus_FGB_learning_more_from_ourselves
+		x = 0
+		y = 3
+		cost = 5
+		relative_position_id = FGB_the_will_to_unite_a_nation
+		prerequisite = { focus = FGB_tank_innovations }
+		prerequisite = { focus = FGB_rerecruitment_drive }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_berlin_academies
+		icon = GFX_focus_FGB_berlin_academies
+		available = {
+			has_full_control_of_state = 835
+			has_full_control_of_state = 836
+		}
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = FGB_learning_more_from_ourselves
+		prerequisite = { focus = FGB_learning_more_from_ourselves }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
 	
 	focus = {
 		id = FGB_death_of_kapp
@@ -45,12 +236,6 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.02
 			add_political_power = 40
-			set_politics = {
-				ruling_party = despotism
-				last_election = "1935.6.9"
-				election_frequency = 12
-				elections_allowed = yes
-			}
 			country_event = fgb.2
 			custom_effect_tooltip = FGB_electing_new_leader_tt		
 			hidden_effect = {
@@ -213,11 +398,8 @@ focus_tree = {
 			add_political_power = 60
 			set_politics = {
 				ruling_party = social_democrat
-				last_election = "1936.6.9"
-				election_frequency = 12
-				elections_allowed = yes
 			}
-			activate_advisor = FGB_kurt_schumacher
+			activate_advisor = FGB_kurt_schumacher_sec
 		}
 	}
 	
@@ -1346,21 +1528,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = FGB_berlin_academies
-		icon = GFX_focus_FGB_berlin_academies
-		available = {
-			has_full_control_of_state = 835
-		}
-		x = 10
-		y = -1
-		cost = 6
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
-	
-	focus = {
 		id = FGB_reconstruction
 		icon = GFX_focus_FGB_reconstruction
 		x = 16
@@ -2151,14 +2318,321 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_new_currency
+		id = FGB_support_east_german_businesses
 		icon = GFX_focus_FGB_new_currency
 		prerequisite = { focus = FGB_revitalise_southern_industry }
 		prerequisite = { focus = FGB_develop_the_rhine }
+		available = {
+			has_full_control_of_state = 63
+			has_full_control_of_state = 836
+			has_full_control_of_state = 835
+			has_full_control_of_state = 64
+			has_full_control_of_state = 65
+			has_full_control_of_state = 60
+		}
+		x = -1
+		y = 1
+		cost = 10
+		relative_position_id = FGB_revitalise_southern_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			63 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			836 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			835 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			64 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			65 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			60 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				63 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				836 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				835 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				64 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				65 = { 
+					add_extra_state_shared_building_slots = 4
+				}
+				60 = {
+					add_extra_state_shared_building_slots = 4
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_enrich_the_northeast
+		icon = GFX_focus_FGB_new_currency
+		prerequisite = { focus = FGB_revitalise_southern_industry }
 		prerequisite = { focus = FGB_industrialising_lower_saxony }
-		x = 16
-		y = 10
+		available = {
+			has_full_control_of_state = 61
+			has_full_control_of_state = 62
+			has_full_control_of_state = 68
+			has_full_control_of_state = 66
+			has_full_control_of_state = 67
+			has_full_control_of_state = 762
+		}
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = FGB_revitalise_southern_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			61 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			62 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			68 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 13
+				}
+			}
+			66 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			67 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			762 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				61 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				62 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				68 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				66 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				67 = { 
+					add_extra_state_shared_building_slots = 4
+				}
+				762 = {
+					add_extra_state_shared_building_slots = 4
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_new_currency
+		icon = GFX_focus_FGB_new_currency
+		prerequisite = { focus = FGB_enrich_the_northeast focus = FGB_support_east_german_businesses }
+		prerequisite = {  }
+		x = 0
+		y = 2
 		cost = 7
+		relative_position_id = FGB_revitalise_southern_industry
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
