@@ -112,6 +112,63 @@ reactionism_decisions = {
 		}
 	}
 }
+esotericism_decisions = {
+	promote_racial_supremacy = {
+		days_re_enable = 180
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		complete_effect = {
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.05
+			}
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	armed_to_the_teeth = {
+		days_re_enable = 250
+		icon = ger_mefo_bills
+	
+		cost = 100
+		
+		complete_effect = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	extreme_reproduction_programs = {
+		days_re_enable = 360
+		days_remove = 360
+		icon = ger_mefo_bills
+	
+		cost = 150
+		
+		modifier = {
+			monthly_population = 1
+			political_power_gain = -0.1
+			stability_factor = -0.1
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
 social_democrat_decisions = {
 	promise_worker_rights = {
 		days_re_enable = 180
@@ -146,6 +203,20 @@ social_democrat_decisions = {
 				}
 			}
 			add_stability = 0.05
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	promote_humanism = {
+		days_re_enable = 360
+		icon = ger_mefo_bills
+
+		cost = 175
+		
+		complete_effect = {
+			add_stability = 0.1
 		}
 
 		ai_will_do = {

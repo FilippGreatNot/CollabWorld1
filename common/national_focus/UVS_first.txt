@@ -248,6 +248,7 @@ focus_tree = {
 		}
 	}
 	
+	
 	focus = {
 		id = UVS_take_into_account_the_mistakes_of_lenin
 		icon = GFX_focus_UVS_take_into_account_the_mistakes_of_lenin
@@ -427,6 +428,33 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = UVS_appoint_a_bismarckist_cabinet
+		icon = GFX_focus_UVS_ribentrop_cabinet
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_militarization
+		
+		prerequisite = {
+			focus = UVS_militarization
+			focus = UVS_propaganda_campaign
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appoint_a_bismarckist_cabinet_log"
+			
+			add_stability = 0.1
+			
+			activate_advisor = UVS_oswald_sprengler_hog
+            activate_advisor = UVS_werner_sombart_ec
+            activate_advisor = UVS_heinrich_laufenberg_sec
+            activate_advisor = UVS_ernst_niekisch_sec
+
+		}
+	}
+	
+	focus = {
 		id = UVS_ban_demsocs
 		icon = GFX_focus_UVS_ban_demsocs
 		x = 4
@@ -447,6 +475,28 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = -0.1
 			}
+		}
+	}
+	
+	focus = {
+		id = UVS_make_sure_the_fuhrer_takes_his_pills
+		icon = GFX_focus_UVS_ribentrop_pills
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_ban_demsocs
+		
+		prerequisite = {
+			focus = UVS_ban_demsocs
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appoint_a_bismarckist_cabinet_log"
+			
+			add_stability = 0.05
+			custom_effect_tooltip = UVS_ribentrop_pills
+
 		}
 	}
 	

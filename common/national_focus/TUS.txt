@@ -196,6 +196,170 @@
 		}
 	}
 	
+	## France ##
+	
+	focus = {
+		id = TUS_get_french_support
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_stabilize_economy
+		}
+	
+		relative_position_id = TUS_stabilize_economy
+		
+        x = 6
+        y = 1
+		
+        cost = 3
+		
+		completion_reward = {
+			FRA = { add_opinion_modifier = { target = TUS modifier = large_increase} }		
+		}
+
+	}
+	
+	focus = {
+		id =  TUS_french_financial_support
+		icon = GFX_focus_FRA_implement_autarky_measures
+		
+		prerequisite = {
+			focus = TUS_get_french_support
+		}
+	
+		relative_position_id = TUS_get_french_support
+		
+        x = 0
+        y = 2
+		
+        cost = 6
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2}
+			TUS = { add_opinion_modifier = { target = FRA modifier = medium_increase} }
+		}
+
+	}
+	
+	focus = {
+		id = TUS_ask_france_for_guns
+		icon = GFX_focus_TUS_french_guns 
+		
+		prerequisite = {
+			focus = TUS_french_financial_support
+		}
+	
+		relative_position_id = TUS_french_financial_support
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = FRA
+			}
+			add_political_power = -50
+		}
+
+	}
+	
+	focus = {
+		id = TUS_french_intervention
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_ask_france_for_guns
+		}
+
+		bypass = {
+			has_completed_focus = TUS_balbos_speech_2
+		}
+	
+		relative_position_id = TUS_ask_france_for_guns
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			FRA = {
+				puppet = TUS
+			}
+			custom_effect_tooltip = TUS_modify_ppl_subtract_30
+			custom_effect_tooltip = TUS_modify_mil_subtract_30
+			custom_effect_tooltip = TUS_modify_gc_subtract_30
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 30
+			}
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 30
+			}
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 30
+			}
+			hidden_effect = {
+				set_politics = {
+					ruling_party = national_syndicalism
+				}
+				if = {
+					limit = {has_idea = TUS_unified_government}
+					set_popularities = {
+						bolshevism =  6
+						national_syndicalism = 89
+						esotericism = 5
+					}	
+				}else = {
+					set_popularities = {
+						bolshevism =  6
+						national_syndicalism = 44
+						despotism = 25
+						reactionism = 20
+						esotericism = 5
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_join_france
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_french_intervention
+		}
+		prerequisite = {
+			focus = TUS_balbos_speech_2
+		}
+		
+		bypass = {
+			is_puppet_of = FRA
+		}
+	
+		relative_position_id = TUS_french_intervention
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			FRA = {
+				add_to_faction = ROOT
+			}
+		}
+	}
+	
+	## End France ##
+	
 	focus = {
 		id = TUS_expand_civs
 		icon = GFX_goal_generic_construction
@@ -708,6 +872,9 @@
 		
 		completion_reward = {
 			add_ideas = TUS_no_standard_currency
+			set_rule = {
+				can_join_factions = yes
+			}			
 			country_event = tus.5
 		}
 	}
@@ -769,6 +936,11 @@
 					level = 2
 					instant_build = yes
 				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
 			}
 		}
 	}
@@ -841,6 +1013,11 @@
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
 		}
 	}
 	
@@ -899,6 +1076,11 @@
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
 		}
 	}
 
@@ -922,6 +1104,16 @@
 		
 		completion_reward = {
 			remove_ideas = TUS_worker_strikes
+			custom_effect_tooltip = TUS_modify_ppl_subtract_10
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 10
+			}
+			custom_effect_tooltip = TUS_modify_mil_subtract_5
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 5
+			}
 		}
 	}
 	
@@ -936,6 +1128,8 @@
 			focus = TUS_improve_the_south
 		}
 		
+		bypass = {NOT = {has_idea = economically_isolated}}
+		
         x = -2
         y = 1
 		
@@ -948,6 +1142,17 @@
 			swap_ideas = {
 				remove_idea = closed_economy
 				add_idea = limited_exports
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+					NOT = {has_idea = economically_isolated}
+				}
+				add_opinion_modifier = { target = TUS modifier = small_increase}				
 			}
 		}
 	}
@@ -973,6 +1178,7 @@
         cost = 5
 		
 		completion_reward = {
+			custom_effect_tooltip = TUS_focus_event_chain
 			hidden_effect = {
 				country_event = tus_coun2.2
 			}
@@ -1014,10 +1220,7 @@
 		}
 		
 		available = {
-			OR = {
-				FRA = {has_completed_focus = FRA_france_on_the_world_stage}
-				NOT = {country_exists = FRA}
-			}
+			is_in_faction = yes
 		}
 		
 		relative_position_id = TUS_restabilize_the_government
@@ -1028,7 +1231,6 @@
         cost = 5
 		
 		completion_reward = {
-			FRA = {add_to_faction = ROOT}
 			country_event = tus.7
 		}
 	}

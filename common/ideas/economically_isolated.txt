@@ -3,6 +3,16 @@ ideas = {
 		economically_isolated = {
 			removal_cost = -1
 			picture = economically_isolated
+			rule = {can_access_market = no}
+			cancel = {
+				OR = {
+					is_in_faction = yes
+					if = {
+						limit = { is_puppet = yes }
+						overlord = {NOT = {has_idea = economically_isolated}}
+					}
+				}
+			}
 		}
 	}
 }
