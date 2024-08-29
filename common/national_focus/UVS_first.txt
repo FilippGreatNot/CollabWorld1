@@ -501,6 +501,30 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = UVS_das_volksfuhrerprinzip
+		icon = GFX_focus_UVS_volksfuhrerprinzip
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_make_sure_the_fuhrer_takes_his_pills
+		
+		prerequisite = {
+			focus = UVS_make_sure_the_fuhrer_takes_his_pills
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appoint_a_bismarckist_cabinet_log"
+			
+			add_country_leader_trait = {
+				ideology = bolshevism
+				trait = volksfuhrer
+			}
+
+		}
+	}
+	
+	focus = {
 		id = UVS_german_socialist_patriotism
 		icon = GFX_focus_UVS_german_socialist_patriotism
 		x = 1
