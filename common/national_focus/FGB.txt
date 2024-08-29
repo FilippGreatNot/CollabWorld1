@@ -186,8 +186,8 @@ focus_tree = {
 				long_name = FGB_spd
 				name = FGB_spd_party
 			}
-			add_country_leader_role = {
-					character = FGB_gustav_noske2
+			FGB_gustav_noske2 = {
+				add_country_leader_role = {
 					country_leader = {
 						expire = "1927.2.6"
 						ideology = liberal_socialism
@@ -195,7 +195,8 @@ focus_tree = {
 							businessman
 						}
 					}
-					promote_leader = yes
+				promote_leader = yes
+				}
 			}
 		}
 	}
@@ -216,6 +217,7 @@ focus_tree = {
 				election_frequency = 12
 				elections_allowed = yes
 			}
+			activate_advisor = FGB_kurt_schumacher
 		}
 	}
 	
@@ -493,7 +495,7 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_deagrarianise_bavaria
 		icon = GFX_focus_noske_aggressive_policy
-		x = -2
+		x = -3
 		y = 1
 		cost = 4
 		relative_position_id = FGB_noske_victory_over_bavaria
@@ -520,7 +522,7 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_recruit_new_staff
 		icon = GFX_focus_noske_recruit_new_staff
-		x = 0
+		x = -1
 		y = 1
 		cost = 4
 		relative_position_id = FGB_noske_victory_over_bavaria
@@ -536,9 +538,181 @@ focus_tree = {
 				planning_skill = 1
 				logistics_skill = 1
 			}
+			hidden_effect = {
+				country_event = fgb.8
+			}
 		}
 	}
-	
+
+	focus = {
+		id = FGB_noske_integrate_the_militias
+		icon = GFX_focus_noske_integrate_the_militias
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		completion_reward = {
+			add_war_support = 0.05
+			delete_unit_template_and_units = { division_template = "Nationalist Troops" }
+			add_manpower = 90000
+			52 = {
+				create_unit = {
+					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
+					owner = FGB
+				}
+			}
+			53 = {
+				create_unit = {
+					division = "name = \"2nd. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
+					owner = FGB
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_fate_of_communist_leadership
+		icon = GFX_focus_noske_fate_of_communist_leadership
+		x = 3
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		completion_reward = {
+			country_event = fgb.6
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_make_munich_capital
+		icon = GFX_focus_FGB_noske_make_munich_capital
+		x = -1
+		y = 2
+		cost = 5
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		mutually_exclusive = { focus = FGB_noske_consolidate_bavaria }
+		completion_reward = {
+			country_event = fgb.7
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			}
+			add_victory_points = {
+				province = 9517
+				value = -5
+			}
+			add_victory_points = {
+				province = 692
+				value = 5
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_consolidate_bavaria
+		icon = GFX_focus_FGB_noske_consolidate_bavaria
+		x = 1
+		y = 2
+		cost = 5
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		mutually_exclusive = { focus = FGB_noske_make_munich_capital }
+		completion_reward = {
+			add_stability = -0.05
+			add_victory_points = {
+				province = 11499
+				value = 2
+			}
+			add_victory_points = {
+				province = 6421
+				value = 2
+			}
+			add_victory_points = {
+				province = 11640
+				value = 2
+			}
+			add_victory_points = {
+				province = 6542
+				value = 3
+			}
+			add_victory_points = {
+				province = 9515
+				value = -2
+			}
+			add_victory_points = {
+				province = 708
+				value = -2
+			}
+			add_victory_points = {
+				province = 692
+				value = -5
+			}
+			50 = { 
+				add_building_construction = {
+					type = arms_factory
+					level = -2
+					instant_build = yes
+				}
+			}
+			52 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			53 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+	id = FGB_noske_integrate_bavaria
+	icon = GFX_focus_noske_cooperative_policy
+		x = 0
+		y = 4
+		cost = 5
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_deagrarianise_bavaria }
+		prerequisite = { focus = FGB_noske_fate_of_communist_leadership }
+		prerequisite = { focus = FGB_noske_make_munich_capital focus = FGB_noske_consolidate_bavaria }
+		completion_reward = {
+			add_state_core = 52
+			add_state_core = 53
+			country_event = fgb.9
+		}
+	}
+
+	focus = {
+		id = FGB_attack_wehrkommando
+		icon = GFX_focus_FGB_attack_wehrkommando
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = FGB_noske_integrate_bavaria
+		prerequisite = { focus = FGB_noske_integrate_bavaria }
+		allow_branch = { has_country_flag = FGB_bavaria_integrated_flag }
+		completion_reward = {
+			add_state_core = 55
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
+			}
+		}
+	}
+
 	focus = {
 		id = FGB_noske_cooperative_policy
 		icon = GFX_focus_noske_cooperative_policy
@@ -1362,8 +1536,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			# set_temp_variable = { ideology_change_var = 0.05 }
-			# change_ruling_party_popularity = yes
+			set_temp_variable = { ideology_change_var = 0.05 }
+			change_ruling_party_popularity = yes
 			if = {
 				limit = { has_idea = FGB_recovering_industry1 }
 				swap_ideas = {
@@ -1887,11 +2061,101 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_industrialising_lower_saxony
+		icon = GFX_focus_FGB_reconstruction
+		prerequisite = { focus = FGB_open_new_hospitals }
+		available = {
+			has_full_control_of_state = 56
+			has_full_control_of_state = 57
+			has_full_control_of_state = 58
+			has_full_control_of_state = 59
+		}
+		x = 18
+		y = 9
+		cost = 8
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			56 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+			57 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+			}
+			58 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+			59 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				56 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				57 = { 
+					add_extra_state_shared_building_slots = 3
+				}
+				58 = {
+					add_extra_state_shared_building_slots = 4
+				}
+				59 = {
+					add_extra_state_shared_building_slots = 3
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = FGB_new_currency
 		icon = GFX_focus_FGB_new_currency
-		prerequisite = {
-			focus = FGB_revitalise_southern_industry
-		}
+		prerequisite = { focus = FGB_revitalise_southern_industry }
+		prerequisite = { focus = FGB_develop_the_rhine }
+		prerequisite = { focus = FGB_industrialising_lower_saxony }
 		x = 16
 		y = 10
 		cost = 7
@@ -1905,29 +2169,6 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = {
 				FGB_new_reichsmark
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_attack_wehrkommando
-		icon = GFX_focus_FGB_attack_wehrkommando
-		available = {
-			is_subject = no
-			has_army_manpower = { size > 99999 }
-			custom_trigger_tooltip = { 
-				tooltip = FGB_attack_wehrkommando_tt 
-			}
-		}
-		x = 30
-		y = 7
-		cost = 6
-		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_attack_wehrkommando"
-			WRD = { make_every_core_national_for_PREV = yes }
-			create_wargoal = {
-				type = annex_everything
-				target = WRD
 			}
 		}
 	}
