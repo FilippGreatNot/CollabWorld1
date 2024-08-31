@@ -54,20 +54,20 @@ country_event = {
 		mark_focus_tree_layout_dirty = yes
 	}
 	#option = {
-		name = fgb.2.b
-		set_country_flag = FGB_pabst_flag
-		mark_focus_tree_layout_dirty = yes
-	}
+	#	name = fgb.2.b
+	#	set_country_flag = FGB_pabst_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#}
 	#option = {
-		name = fgb.2.c
-		set_country_flag = FGB_rohm_flag
-		mark_focus_tree_layout_dirty = yes
-	}
+	#	name = fgb.2.c
+	#	set_country_flag = FGB_rohm_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#}
 	#option = {
-		name = fgb.2.e
-		set_country_flag = FGB_other_flag
-		mark_focus_tree_layout_dirty = yes
-	}
+	#	name = fgb.2.e
+	#	set_country_flag = FGB_other_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#}
 }
 
 country_event = {
@@ -139,10 +139,6 @@ country_event = {
 					owner = FGB
 				}
 			}
-			promote_character = {
-				character = BAV_eugene_levine
-				ideology = bolshevism
-			}
 		}
 	}
 }
@@ -197,10 +193,29 @@ country_event = {
 			ideology = national_syndicalism
 			popularity = 0.05
 		}
+		add_corps_commander_role = {
+			character = FGB_adolf_hiedler
+			traits = { fgb_paramilitarist }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		activate_advisor = FGB_adolf_hiedler_prop
 	}
 	option = {
 		name = fgb.8.b
 		add_war_support = 0.05
+		add_corps_commander_role = {
+			character = FGB_adolf_hiedler
+			traits = { fgb_paramilitarist }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
 	}
 	option = {
 		name = fgb.8.c
@@ -223,5 +238,33 @@ country_event = {
 		custom_effect_tooltip = FGB_ready_to_attack_tt
 		set_country_flag = FGB_bavaria_integrated_flag
 		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+## fgb.10 is used for Friekorps unifying germany news event 
+
+country_event = {
+	id = fgb.11
+	title = fgb.11.t
+	desc = fgb.11.d
+	picture = GFX_country_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.11.a
+		add_stability = -0.05
+		custom_effect_tooltip = FGB_aggression_tt
+		set_country_flag = FGB_noske_policy_flag
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = FGB_noske_aggressive_policy
+	}
+	option = {
+		name = fgb.11.b
+		add_war_support = 0.05
+		create_wargoal = {
+			type = annex_everything
+			target = BAV
+		}
 	}
 }

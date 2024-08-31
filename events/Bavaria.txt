@@ -75,3 +75,43 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = bavaria.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.3" }
+	title = bavaria.3.t
+	desc = bavaria.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = bavaria.3.a
+		add_stability = -0.1
+		FGB = {
+			puppet = {
+				target = BAV
+				end_wars = yes
+			}
+		}
+		set_politics = {
+			ruling_party = conservatism
+			long_name = BAV_conservatist_party_long
+			name = BAV_conservatist_party
+		}
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = bavaria.3.b
+		add_war_support = 0.1
+		FGB = {
+			country_event = fgb.11
+		}
+	}
+}
+

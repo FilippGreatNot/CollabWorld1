@@ -407,11 +407,17 @@ GER_reunification = {
 		}
 		
 		visible = {
-			has_country_leader = {
-				character = FGB_gustav_noske2
-				ruling_only = yes
+			OR = {
+				has_country_leader = {
+					character = FGB_gustav_noske2
+					ruling_only = yes
+				}
+				has_country_leader = {
+					character = FGB_gustav_noske
+					ruling_only = yes
+				}
 			}
-		}
+		}	
 		ai_will_do = { base = 2000 }
  
 		available = {
@@ -422,10 +428,11 @@ GER_reunification = {
 
 		complete_effect = {
 			set_country_flag = ger_reunificated
+			set_country_flag = FGB_noske_ger_unified_flag
 			set_cosmetic_tag = FGB_Noske_GER
 			
 			hidden_effect = {
-				news_event = WORLDNEWS.18
+				news_event = WORLDNEWS.23
 			}
 		}
 	}

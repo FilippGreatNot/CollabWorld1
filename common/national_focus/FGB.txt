@@ -904,6 +904,13 @@ focus_tree = {
 		relative_position_id = FGB_noske_integrate_bavaria
 		prerequisite = { focus = FGB_noske_integrate_bavaria }
 		allow_branch = { has_country_flag = FGB_bavaria_integrated_flag }
+		available = {
+			country_exists = WRD
+			WRD = { 
+				has_capitulated = no
+			}
+		}
+		bypass_if_unavailable = yes
 		completion_reward = {
 			add_state_core = 55
 			create_wargoal = {
@@ -926,7 +933,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.1
 			BAV = {
-				country_event = bav.3
+				country_event = bavaria.3
 			}
 		}
 	}
@@ -2661,6 +2668,55 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = {
 				FGB_new_reichsmark
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_further_oil_exploitation
+		icon = GFX_focus_FGB_further_oil_exploitation
+		prerequisite = { focus = FGB_new_currency }
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_new_currency
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			56 = {
+				add_resource = {
+					type = oil
+					amount = 10
+				}
+			}
+			58 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+			59 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_reform_our_tax_policies
+		icon = GFX_focus_FGB_reform_our_tax_policies
+		prerequisite = { focus = FGB_further_oil_exploitation }
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_further_oil_exploitation
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = FGB_recovering_industry2
+				add_idea = FGB_reformed_taxing_policies
 			}
 		}
 	}
