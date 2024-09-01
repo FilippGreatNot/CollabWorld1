@@ -47,10 +47,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
-			add_stability = 0.05
-			
-			add_political_power = 25
+		    
+			add_manpower = -20000
+			add_stability = -0.05
+			add_political_power = 100
 			
 			
 		}
@@ -72,8 +72,15 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
+			add_popularity = {
+		        ideology = despotism
+		        popularity = 0.05
+			}
 			
+			every_owned_state = {
+				random_select_amount = 6
+				add_manpower = 4000
+			}
 			add_political_power = 25
 			
 			
@@ -98,9 +105,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			country_event = lat.1
 			
 			
 		}
@@ -122,10 +127,10 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
-			
+			swap_ideas = {
+				remove_idea = LAT_the_forest_brothers
+				add_idea = LAT_the_forest_brothers2
+			}
 			
 		}
 	}
@@ -146,9 +151,12 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
 			
-			add_political_power = 25
+			every_owned_state = {
+				random_select_amount = 6
+				add_manpower = -500
+			}
+			add_political_power = 50
 			
 			
 		}
@@ -170,9 +178,10 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			swap_ideas = {
+				remove_idea = LAT_the_forest_brothers2
+				add_idea = LAT_the_forest_brothers3
+			}
 			
 			
 		}
@@ -197,10 +206,8 @@ focus_tree = {
 			
 			add_stability = 0.05
 			
-			add_political_power = 25
-			
 			remove_ideas = {
-				LAT_the_forest_brothers
+				LAT_the_forest_brothers3
 			}
 			
 			
@@ -249,9 +256,28 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.1
+			}
+			SRF = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = faction_traitor
+				}
+			}
+			RUS = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = faction_traitor
+				}
+			}
+			OCG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = faction_traitor
+				}
+			}
 			
 			
 		}
@@ -273,9 +299,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			add_political_power = 200
 			
 			
 		}
@@ -308,8 +332,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = LAT_the_rüdiger_question
-		icon = GFX_LAT_the_rüdiger_question
+		id = LAT_the_rudiger_question
+		icon = GFX_LAT_the_rudiger_question
 		x = 0
 		y = 1
 		cost = 5
@@ -324,9 +348,8 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			country_event = lat.2
+			army_experience = 25
 			
 			
 		}
@@ -342,25 +365,34 @@ focus_tree = {
 			factor = 10
 		}
 		mutually_exclusive = {
-			focus = LAT_rüdigers_doctorine
+			focus = LAT_rudigers_doctorine
 		}
-		relative_position_id = LAT_the_rüdiger_question
+		available = {
+			always = no
+		}
+		relative_position_id = LAT_the_rudiger_question
 		prerequisite = {
-			focus = LAT_the_rüdiger_question
+			focus = LAT_the_rudiger_question
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			remove_ideas = {
+				LAT_disorganized_army
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 2
+				category = land_doctrine
+			}
+			add_ideas = LAT_pavels_doctrine
 			
 			
 		}
 	}
 		focus = {
-		id = LAT_rüdigers_doctorine
-		icon = GFX_LAT_rüdigers_doctorine
+		id = LAT_rudigers_doctorine
+		icon = GFX_LAT_rudigers_doctorine
 		x = 1
 		y = 1
 		cost = 5
@@ -368,26 +400,35 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		mutually_exclusive = {
-			focus = LAT_pavel's_doctorine
+		available = {
+			always = no
 		}
-		relative_position_id = LAT_the_rüdiger_question
+		mutually_exclusive = {
+			focus = LAT_pavels_doctorine
+		}
+		relative_position_id = LAT_the_rudiger_question
 		prerequisite = {
-			focus = LAT_the_rüdiger_question
+			focus = LAT_the_rudiger_question
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			remove_ideas = {
+				LAT_disorganized_army
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 2
+				category = land_doctrine
+			}
+			add_ideas = LAT_firepower_superiority_doctrine
 			
 			
 		}
 	}
 	focus = {
 		id = LAT_harsher_race_laws
-		icon = GFX_LAT_harsher_race_laws
+		icon = GFX_focus_LAT_harsh
 		x = 0
 		y = 1
 		cost = 5
@@ -406,16 +447,14 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			add_ideas = LAT_institutional_segragation
 			
 			
 		}
 	}
 	focus = {
 		id = LAT_rid_the_country_of_inferiors
-		icon = GFX_LAT_rid_the_country_of_inferiors
+		icon = GFX_focus_LAT_inferiors
 		x = 0
 		y = 1
 		cost = 5
@@ -430,10 +469,10 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
-			
+			add_stability = -0.05
+			remove_ideas = {
+				LAT_native_unrest
+			}
 			
 		}
 	}
@@ -464,7 +503,7 @@ focus_tree = {
 	}
 	focus = {
 		id = LAT_baptize_the_country_by_the_one_true_church
-		icon = GFX_LAT_baptize_the_country_by_the_one_true_church
+		icon = GFX_focus_LAT_baptize
 		x = 2
 		y = 1
 		cost = 5
@@ -473,26 +512,25 @@ focus_tree = {
 			factor = 10
 		}
 		relative_position_id = LAT_the_mistake_of_the_other_whites
-		relative_position_id = LAT_tighten_pavel's_grip_over_everything
+		relative_position_id = LAT_tighten_pavels_grip_over_everything
 		prerequisite = {
 			focus = LAT_the_mistake_of_the_other_whites
 		}
 		prerequisite = {
-			focus = LAT_tighten_pavel's_grip_over_everything
+			focus = LAT_tighten_pavels_grip_over_everything
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
+			add_ideas = LAT_orthodox_baltics
 			
-			add_political_power = 25
 			
 			
 		}
 	}
 	focus = {
 		id = LAT_execute_the_atheistic_socialists
-		icon = GFX_focus_WRD_socialist_menace
+		icon = GFX_focus_LAT_kill_socialists
 		x = 4
 		y = 1
 		cost = 5
@@ -501,12 +539,12 @@ focus_tree = {
 			factor = 10
 		}
 		relative_position_id = LAT_the_mistake_of_the_other_whites
-		relative_position_id = LAT_tighten_pavel's_grip_over_everything
+		relative_position_id = LAT_tighten_pavels_grip_over_everything
 		prerequisite = {
 			focus = LAT_the_mistake_of_the_other_whites
 		}
 		prerequisite = {
-			focus = LAT_tighten_pavel's_grip_over_everything
+			focus = LAT_tighten_pavels_grip_over_everything
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -530,7 +568,7 @@ focus_tree = {
 	}
 	focus = {
 		id = LAT_we_shall_be_the_fourth_rome
-		icon = GFX_LAT_we_shall_be_the_fourth_rome
+		icon = GFX_focus_LAT_fourth_rome
 		x = 1.5
 		y = 1
 		cost = 5
@@ -548,16 +586,14 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			add_ideas = LAT_claiming_romes_legacy
 			
 			
 		}
 	}
 	focus = {
 		id = LAT_god_save_pavel
-		icon = GFX_LAT_god_save_pavel
+		icon = GFX_focus_LAT_god_save_pavel
 		x = 0
 		y = 1
 		cost = 5
@@ -572,16 +608,14 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
+			add_stability = 0.1
 			
 			
 		}
 	}
 	focus = {
 		id = LAT_the_sun_shall_rise_and_we_shall_try_again
-		icon = GFX_LAT_the_sun_shall_rise_and_we_shall_try_again
+		icon = GFX_focus_WRD_germanic_supremacy
 		x = 0
 		y = 1
 		cost = 5
@@ -591,10 +625,8 @@ focus_tree = {
 		}
 		relative_position_id = LAT_baltic_germanic_supremacy
 		prerequisite = {
-			focus = LAT_pavel's_doctorine
-		}
-		prerequisite = {
-			focus = LAT_rüdiger's_doctorine
+			focus = LAT_pavels_doctorine
+			focus = LAT_rudigers_doctorine
 		}
 		prerequisite = {
 			focus = LAT_baltic_germanic_supremacy
@@ -605,10 +637,10 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			
-			add_stability = 0.05
-			
-			add_political_power = 25
-			
+			swap_ideas = {
+				remove_idea = LAT_baltic_german_supremacism
+				add_idea = LAT_baltic_german_supremacism2
+			}
 			
 		}
 	}
