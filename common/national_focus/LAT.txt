@@ -82,7 +82,7 @@ focus_tree = {
     focus = {
 		id = LAT_the_forest_brothers_problem
 		icon = GFX_focus_LAT_the_forest_brothers_problem
-		x = 1
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -108,7 +108,7 @@ focus_tree = {
     focus = {
 		id = LAT_killing_of_suspected_forest_brothers_members
 		icon = GFX_focus_LAT_killing_of_suspected_forest_brothers_members
-		x = 1
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -550,6 +550,63 @@ focus_tree = {
 		relative_position_id = LAT_we_shall_be_the_fourth_rome
 		prerequisite = {
 			focus = LAT_we_shall_be_the_fourth_rome
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_stability = 0.05
+			
+			add_political_power = 25
+			
+			
+		}
+	}
+	focus = {
+		id = LAT_the_sun_shall_rise_and_we_shall_try_again
+		icon = GFX_LAT_the_sun_shall_rise_and_we_shall_try_again
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LAT_baltic_germanic_supremacy
+		prerequisite = {
+			focus = LAT_pavel's_doctorine
+		}
+		prerequisite = {
+			focus = LAT_rüdiger's_doctorine
+		}
+		prerequisite = {
+			focus = LAT_baltic_germanic_supremacy
+		}
+		prerequisite = {
+			focus = LAT_god_save_pavel
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_stability = 0.05
+			
+			add_political_power = 25
+			
+			
+		}
+	}
+	focus = {
+		id = LAT_the_cossack_king_shall_lead_us_to_victory
+		icon = GFX_LAT_the_cossack_prince_shall_lead_us_to_victory
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = LAT_the_sun_shall_rise_and_we_shall_try_again
+		prerequisite = {
+			focus = LAT_the_sun_shall_rise_and_we_shall_try_again
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
