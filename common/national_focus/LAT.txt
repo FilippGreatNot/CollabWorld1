@@ -668,3 +668,255 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = LAT_the_baltic_german_bear_rises
+		icon = GFX_LAT_the_baltic_german_bear_rises
+		x = 20
+		y = 0
+		cost = 5
+		available = { 
+			date > 1923.1.30
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = LAT_contact_belarussian_collaborators 
+		icon = GFX_LAT_contact_belarussian_collaborators 
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_the_baltic_german_bear_rises
+		
+		prerequisite = {
+			focus = LAT_the_baltic_german_bear_rises
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = PBD
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"	
+		
+			PBD = {
+				add_timed_idea = { 
+					idea = LAT_belarussian_collaborators	
+					days = 90 
+				}
+			}
+		}
+	}
+	focus = {
+		id = LAT_gain_the_strenght_from_our_ancestors
+		icon = GFX_LAT_gain_the_strenght_from_our_ancestors
+		x = 0
+		y = 2
+		cost = 10
+		
+	    relative_position_id = LAT_the_baltic_german_bear_rises
+		
+		prerequisite = {
+			focus = LAT_the_baltic_german_bear_rises
+		}
+	
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+		    add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = WRD
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 400
+				producer = WRD
+			}
+		    army_experience = 25
+		}
+	}
+	focus = {
+		id = LAT_crush_the_communist_plauge
+		icon = GFX_LAT_crush_the_communist_plauge
+		x = -1
+		y = 1
+		cost = 5
+		will_lead_to_war_with = PBD
+		
+		relative_position_id = LAT_contact_belarussian_collaborators
+		
+		prerequisite = {
+			focus = LAT_contact_belarussian_collaborators
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = PBD
+		}
+		bypass = {
+			NOT = {
+				country_exists = PBD
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+		
+			declare_war_on = {
+				target = PBD
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = LAT_totally_beautiful_day
+		icon = GFX_LAT_totally_beautiful_day
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_crush_the_communist_plauge
+		
+		available = {
+			PBD = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = LAT_crush_the_communist_plauge
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+		
+			add_stability = 0.03
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = LAT_disrupt_makhno_rest
+		icon = LAT_disrupt_makhno_rest
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_the_baltic_german_bear_rises
+		
+		prerequisite = {
+			focus = LAT_the_baltic_german_bear_rises
+		}
+		
+		bypass = {
+			UKR = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			UKR = {
+				add_war_support = -0.05
+				add_political_power = -100
+				
+				add_popularity = {
+					ideology = despotism
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = reactionism
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	focus = {
+		id = LAT_total_anarchist_death
+		icon = GFX_LAT_total_anarchist_death
+		x = 1
+		y = 1
+		cost = 5
+		will_lead_to_war_with = UKR
+		
+		relative_position_id = LAT_disrupt_makhno_rest
+		
+		prerequisite = {
+			focus = LAT_disrupt_makhno_rest
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = UKR
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = UKR
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = LAT_put_the_anarchist_to_their_place
+		icon = GFX_LAT_put_the_anarchist_to_their_place
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_total_anarchist_death
+		
+		available = {
+			UKR = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = LAT_total_anarchist_death
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+		
+			add_war_support = 0.05
+			add_political_power = 25
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = LAT_the_east_is_ours
+		icon = LAT_the_east_is_ours
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_totally_beautiful_day
+		
+		prerequisite = {
+			focus = LAT_put_the_anarchist_to_their_place
+		}
+		
+		prerequisite = {
+			focus = LAT_totally_beautiful_day
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_north_is_red_log"
+		
+			add_war_support = 0.05
+			add_timed_idea = { 
+				idea = LAT_the_east_is_ours 
+				months = 2
+			}
+		}
+	}
