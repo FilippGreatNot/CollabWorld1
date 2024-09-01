@@ -36,6 +36,94 @@ on_actions = {
             }
         }
     }
+    on_province_control_changed = {
+        effect = {
+            if = {
+                limit = {
+                    FROM.FROM = { controls_province = 9570 }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            original_tag = FWG
+				            original_tag = WRD
+				            original_tag = GER
+				            original_tag = FGB
+				            original_tag = UVS
+				            original_tag = BAV
+                        }
+                    }
+                    FROM.FROM = {
+                        set_province_name = {
+                            id = 9570
+                            name = VICTORY_POINTS_9570_GER
+                        }
+                    }
+                }
+                else = {
+                    FROM.FROM = {
+                        reset_province_name = 9570
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    FROM.FROM = { controls_province = 552 }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            original_tag = FWG
+				            original_tag = WRD
+				            original_tag = GER
+				            original_tag = FGB
+				            original_tag = UVS
+				            original_tag = BAV
+                        }
+                    }
+                    FROM.FROM = {
+                        set_province_name = {
+                            id = 552
+                            name = VICTORY_POINTS_552_GER
+                        }
+                    }
+                }
+                else = {
+                    FROM.FROM = {
+                        reset_province_name = 552
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    FROM.FROM = { controls_province = 3545 }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            original_tag = FWG
+				            original_tag = WRD
+				            original_tag = GER
+				            original_tag = FGB
+				            original_tag = UVS
+				            original_tag = BAV
+                        }
+                    }
+                    FROM.FROM = {
+                        set_province_name = {
+                            id = 3545
+                            name = VICTORY_POINTS_3545_GER
+                        }
+                    }
+                }
+                else = {
+                    FROM.FROM = {
+                        reset_province_name = 3545
+                    }
+                }
+            }
+        }
+    }
     on_state_control_changed = {
         effect = {
             if = {
