@@ -1122,17 +1122,7 @@ focus_tree = {
 				popularity = 0.06
 			}
 			add_corps_commander_role = {
-				character = WRD_heinrich_himmler
-				traits = { fgb_paramilitarist }
-				skill = 1
-
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-			}
-			add_corps_commander_role = {
-				character = WRD_ferdinand_schorner
+				character = FGB_ferdinand_schorner
 				traits = { war_hero organizer harsh_leader infantry_leader }
 				skill = 2
 				
@@ -1142,7 +1132,7 @@ focus_tree = {
 				logistics_skill = 2
 			}
 			add_corps_commander_role = {
-				character = WRD_hans_von_seeckt
+				character = FGB_hans_von_seeckt
 				traits = { war_hero combined_arms_expert infantry_expert harsh_leader inflexible_strategist }
 				skill = 4
 				
@@ -1152,17 +1142,7 @@ focus_tree = {
 				logistics_skill = 4
 			}
 			add_field_marshal_role = {
-				character = WRD_erich_ludendorff
-				skill = 4
-				attack_skill = 4
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 2
-				
-				traits = { harsh_leader }
-			}
-			add_field_marshal_role = {
-				character = WRD_paul_von_hindenburg
+				character = FGB_paul_von_hindenburg
 				skill = 4
 				attack_skill = 3
 				defense_skill = 3
@@ -1172,6 +1152,26 @@ focus_tree = {
 				traits = { war_hero }
 			}
 			set_country_flag = FGB_noske_wehrkommando_integration_complete_flag
+			hidden_effect = {
+				country_event = {
+					id = fgb.15
+					random_days = 3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_inwards_and_outwards
+		icon = GFX_focus_noske_cooperative_policy
+		x = 0
+		y = 2
+		cost = 0
+		relative_position_id = FGB_noske_amnesty_to_generals
+		prerequisite = { focus = FGB_noske_amnesty_to_generals }
+		allow_branch = { has_country_flag = FGB_noske_unification_nearly_complete_flag }
+		completion_reward = {
+			add_war_support = 0.05
 		}
 	}
 

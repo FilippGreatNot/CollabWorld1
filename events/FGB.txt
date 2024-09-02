@@ -111,6 +111,8 @@ news_event = {
 					id = fgb.5
 					random_days = 2
 				}
+				add_war_support = -0.1
+				add_stability = -0.1
 			}
 		}
 	}
@@ -321,6 +323,11 @@ news_event = {
 		FGB = {
 			custom_effect_tooltip = FGB_noske_victory_over_wehrkommando_tt
 			set_country_flag = FGB_noske_victory_over_wehrkommando_flag
+			mark_focus_tree_layout_dirty = yes
+			hidden_effect = {
+				add_war_support = -0.1
+				add_stability = -0.1
+			}
 		}
 	}
 }
@@ -337,6 +344,31 @@ country_event = {
 		name = fgb.14.a
 		add_war_support = 0.05
 		custom_effect_tooltip = FGB_noske_unification_nearly_complete_tt
-		complete_national_focus = FGB_noske
+		set_country_flag = FGB_noske_unification_nearly_complete_flag
+		complete_national_focus = FGB_noske_inwards_and_outwards
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = {
+	id = fgb.15
+	title = fgb.15.t
+	desc = fgb.15.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.15.a
+		add_war_support = -0.09
+		add_stability = 0.04
+		add_popularity = {
+			ideology = esotericism
+			popularity = -0.08
+		}
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = -0.06
+		}
 	}
 }
