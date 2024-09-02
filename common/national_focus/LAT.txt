@@ -199,6 +199,8 @@ focus_tree = {
 		relative_position_id = LAT_killing_of_suspected_forest_brothers_members
 		prerequisite = {
 			focus = LAT_continue_opressing_native_baltic_people
+		}
+		prerequisite = {
 			focus = LAT_attacks_against_forest_brothers_hideouts
 		}
 		completion_reward = {	
@@ -677,8 +679,148 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
                 add_ideas = LAT_resistance_economy
-				set_country_flag = can_industrialise_russia
+						}
+	}
+	focus = {
+		id = LAT_an_industry_for_the_army
+		icon = GFX_focus_LAT_army_industry
+		x = 2
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_economy_of_resistance
+		
+		prerequisite = {
+			focus = LAT_economy_of_resistance
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			    random_owned_state = {
+
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+
+		}
+	}
+	focus = {
+		id = LAT_reuse_old_russian_manufactories
+		icon = GFX_focus_LAT_russian_industry
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_an_industry_for_the_army
+		
+		prerequisite = {
+			focus = LAT_an_industry_for_the_army
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+
+		}
+	}
+	focus = {
+		id = LAT_recycle_steel
+		icon = GFX_focus_LAT_old_steel
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_an_industry_for_the_army
+		
+		prerequisite = {
+			focus = LAT_an_industry_for_the_army
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+
+		}
+	}
+	focus = {
+		id = LAT_invest_rhineland
+		icon = GFX_focus_LAT_rhineland
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_recycle_steel
+		
+		prerequisite = {
+			focus = LAT_recycle_steel
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+
+		}
+	}
+	focus = {
+		id = LAT_arms_industry
+		icon = GFX_focus_LAT_arms_industry
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_reuse_old_russian_manufactories
+		
+		prerequisite = {
+			focus = LAT_reuse_old_russian_manufactories
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+
+		}
+	}
+	focus = {
+		id = LAT_forced_industrialization
+		icon = GFX_focus_LAT_project
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_invest_rhineland
+		
+		prerequisite = {
+			focus = LAT_arms_industry
+			focus = LAT_invest_rhineland
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			    set_country_flag = can_industrialise_russia
 			    unlock_decision_category_tooltip = russia_industrialisation
+
+
 		}
 	}
 	focus = {
@@ -714,9 +856,157 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = LAT_strenghten_baltic_german_businesses
+		icon = GFX_focus_LAT_baltic_german_business
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_connect_the_baltic_countryside
+		
+		prerequisite = {
+			focus = LAT_connect_the_baltic_countryside
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+		}
+	}
+	focus = {
+		id = LAT_electrify_countryside
+		icon = GFX_focus_LAT_lightbulb
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_strenghten_baltic_german_businesses
+		
+		prerequisite = {
+			focus = LAT_strenghten_baltic_german_businesses
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+		}
+	}
+	focus = {
+		id = LAT_restore_port_of_riga
+		icon = GFX_focus_LAT_riga
+		x = -2
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_strenghten_baltic_german_businesses
+		
+		prerequisite = {
+			focus = LAT_strenghten_baltic_german_businesses
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+		}
+	}
+	focus = {
+		id = LAT_increase_working_hours
+		icon = GFX_focus_LAT_more_working_hours
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_electrify_countryside
+		
+		prerequisite = {
+			focus = LAT_electrify_countryside
+			focus = LAT_restore_port_of_riga
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+
+		}
+	}
+	focus = {
+		id = LAT_invite_french_businesses
+		icon = GFX_focus_FRA_implement_autarky_measures
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_increase_working_hours
+		
+		prerequisite = {
+			focus = LAT_increase_working_hours
+		}
+		
+		mutually_exclusive = {
+			focus = LAT_invite_british_businesses
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+
+		}
+	}
+	focus = {
+		id = LAT_invite_british_businesses
+		icon = GFX_focus_LAT_british
+		x = -2
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_increase_working_hours
+		
+		prerequisite = {
+			focus = LAT_increase_working_hours
+		}
+		
+		mutually_exclusive = {
+			focus = LAT_invite_french_businesses
+		}
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+
+		}
+	}
+	focus = {
+		id = LAT_railway_of_thorns
+		icon = GFX_focus_LAT_railway
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_invite_french_businesses
+		
+		prerequisite = {
+			focus = LAT_invite_british_businesses
+			focus = LAT_invite_french_businesses
+		}
+		
+		
+
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+
+		}
+	}
+	focus = {
 		id = LAT_the_baltic_german_bear_rises
 		icon = GFX_LAT_the_baltic_german_bear_rises
-		x = 20
+		x = 21
 		y = 0
 		cost = 5
 		available = { 
@@ -754,7 +1044,7 @@ focus_tree = {
 			PBD = {
 				add_timed_idea = { 
 					idea = LAT_belarussian_collaborators	
-					days = 90 
+					days = 180 
 				}
 			}
 		}
@@ -816,6 +1106,7 @@ focus_tree = {
 				target = PBD
 				type = annex_everything
 			}
+			PBD = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -909,11 +1200,12 @@ focus_tree = {
 				target = UKR
 				type = annex_everything
 			}
+			UKR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
 		id = LAT_put_the_anarchist_to_their_place
-		icon = GFX_LAT_put_the_anarchist_to_their_place
+		icon = GFX_focus_UVS_destroy_anarchists
 		x = -1
 		y = 1
 		cost = 5
