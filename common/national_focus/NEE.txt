@@ -1,0 +1,200 @@
+focus_tree = {
+	id = NEE_first
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = NEE
+		}
+	}
+	default = no
+	
+	
+	focus = {
+		id = NEE_hold_first_election
+		icon = GFX_NEE_hold_first_election
+		x = 0
+		y = 1
+		cost = 2
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+			
+			add_political_power = -50
+			add_stability = -0.05
+			
+			
+			
+		}
+	}
+		
+	
+	focus = {
+		id = NEE_the_coolidge_presidency
+		icon = GFX_NEE_the_coolidge_presidency
+		x = -5
+		y = 1
+		cost = 2
+		relative_position_id = NEE_hold_first_election
+					
+		prerequisite = {
+			focus = NEE_hold_first_election
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			always = no
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_rise_germany log"
+			
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.07
+			}
+			add_political_power = 50
+			
+		}
+			
+			
+		}
+		
+	focus = {
+		id = NEE_coolidge_restores_order
+		icon = GFX_NEE_coolidge_restores_order
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_presidency
+		prerequisite = {
+			focus = NEE_the_coolidge_presidency
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 200
+			add_stability = 0.20
+			
+		}
+	}
+	
+	focus = {
+		id = NEE_draft_the_new_england_constitution
+		icon = GFX_NEE_draft_the_new_england_constitution
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_presidency
+		prerequisite = {
+			focus = NEE_the_coolidge_presidency
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+			
+		}
+	}
+	
+	focus = {
+		id = NEE_strengthen_state_goverments
+		icon = GFX_NEE_strengthen_state_goverments
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_presidency
+		prerequisite = {
+			focus = NEE_the_coolidge_presidency
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_our_silent_cal
+		icon = GFX_NEE_our_silent_cal
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_strengthen_state_goverments
+		prerequisite = {
+			focus = NEE_strengthen_state_goverments
+			focus = NEE_draft_the_new_england_constitution
+			focus = NEE_coolidge_restores_order
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_stability = 0.15
+			add_war_support = 0.15
+			add_country_leader_trait = {
+				ideology = liberalism
+				trait = silent_cal
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_the_cabot_presidency
+		icon = GFX_NEE_the_cabot_presidency
+		x = 5
+		y = 1
+		cost = 2
+		relative_position_id = NEE_hold_first_election
+					
+		prerequisite = {
+			focus = NEE_hold_first_election
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+			always = no
+		}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_social_democrat_victory log"
+			
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = conservatism
+			}
+			
+		}
+			
+			
+		}
+	}
