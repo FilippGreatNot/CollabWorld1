@@ -98,3 +98,39 @@ change_ruling_party_popularity = {
 		popularity = ideology_change_var
 	}
 }
+do_german_renames = { #needs on_action to function
+	if = {
+		limit = {
+			OR = {
+				FGB = { controls_province = 6464 }
+				GER = { controls_province = 6464 }
+				WRD = { controls_province = 6464 }
+				UVS = { controls_province = 6464 }
+				FWG = { controls_province = 6464 }
+				BAV = { controls_province = 6464 }
+				EPR = { controls_province = 6464 }
+			}
+		}
+		set_province_name = {
+			id = 6464
+			name = "Kattowitz"
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				FGB = { controls_province = 9511 }
+				GER = { controls_province = 9511 }
+				WRD = { controls_province = 9511 }
+				UVS = { controls_province = 9511 }
+				FWG = { controls_province = 9511 }
+				BAV = { controls_province = 9511 }
+				EPR = { controls_province = 9511 }
+			}
+		}
+		set_province_name = {
+			id = 9511
+			name = "Oppeln"
+		}
+	}
+}
