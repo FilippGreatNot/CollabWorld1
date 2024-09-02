@@ -483,7 +483,7 @@ focus_tree = {
 		icon = GFX_focus_LAT_supremacism
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -651,7 +651,7 @@ focus_tree = {
 		icon = GFX_LAT_the_cossack_prince_shall_lead_us_to_victory
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -686,7 +686,7 @@ focus_tree = {
 		icon = GFX_focus_LAT_army_industry
 		x = 2
 		y = 1
-		cost = 5
+		cost = 10
 		
 		relative_position_id = LAT_economy_of_resistance
 		
@@ -1053,7 +1053,7 @@ focus_tree = {
 		icon = GFX_focus_LAT_railway
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 		
 		relative_position_id = LAT_invite_french_businesses
 		
@@ -1199,7 +1199,7 @@ focus_tree = {
 	}
 	focus = {
 		id = LAT_totally_beautiful_day
-		icon = GFX_LAT_totally_beautiful_day
+		icon = GFX_focus_LAT_kill_socialists
 		x = 1
 		y = 1
 		cost = 5
@@ -1346,3 +1346,343 @@ focus_tree = {
 			set_cosmetic_tag = LAT_western_cossack_government
 		}
 	}
+	focus = {
+		id = LAT_a_deal_with_denikin
+		icon = LAT_disrupt_makhno_rest
+		x = -2
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_the_west_is_ours
+		
+		prerequisite = {
+			focus = LAT_the_west_is_ours
+		}
+		
+		bypass = {
+			SRF = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+            SRF = { country_event = lat.3
+			}
+			SRF = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = LAT_a_deal_with_the_orenburg_cossacks
+		icon = LAT_disrupt_makhno_rest
+		x = 2
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_the_west_is_ours
+		
+		prerequisite = {
+			focus = LAT_the_west_is_ours
+		}
+		
+		bypass = {
+			OCG = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+            OCG = { country_event = lat.3
+			}
+			OCG = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = LAT_cossack_unity
+		icon = GFX_focus_LAT_caucasus
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_a_deal_with_the_orenburg_cossacks
+		
+		available = {
+			OCG = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = LAT_a_deal_with_the_orenburg_cossacks
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+		    
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = LAT_retake_the_caucasus
+		icon = GFX_focus_LAT_caucasus
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_a_deal_with_denikin
+		
+		available = {
+			SRF = {
+				PREV_controls_all_cores = yes
+			}
+		}
+		prerequisite = {
+			focus = LAT_a_deal_with_denikin
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+		
+			declare_war_on = {
+				target = GEO
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ARM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = AZR
+				type = annex_everything
+			}
+			GEO = { make_every_core_national_for_PREV = yes }
+			ARM = { make_every_core_national_for_PREV = yes }
+			AZR = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = LAT_prepare_for_the_bolsheviks
+		icon = LAT_disrupt_makhno_rest
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_the_west_is_ours
+		
+		prerequisite = {
+			focus = LAT_the_west_is_ours
+		}
+		
+		bypass = {
+			SOV = {
+				OR = {
+					exists = no 
+				}
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = LAT
+			}
+			add_war_support = 0.05
+			
+		}
+	}
+	focus = {
+		id = LAT_revenge_for_the_civil_war
+		icon = GFX_focus_LAT_revenge
+		x = 0
+		y = 1
+		cost = 5
+		will_lead_to_war_with = SOV
+		
+		relative_position_id = LAT_prepare_for_the_bolsheviks
+		
+		prerequisite = {
+			focus = LAT_prepare_for_the_bolsheviks
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = SOV
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = SOV
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KAR
+				type = annex_everything
+			}
+			SOV = { make_every_core_national_for_PREV = yes }
+			KAR = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = LAT_declare_a_provisional_government
+		icon = LAT_the_west_is_ours
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_revenge_for_the_civil_war
+		
+		prerequisite = {
+			focus = LAT_retake_the_caucasus
+		}
+		
+		prerequisite = {
+			focus = LAT_cossack_unity
+		}
+		
+		prerequisite = {
+			focus = LAT_revenge_for_the_civil_war
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_north_is_red_log"
+		
+			add_stability = 0.1
+			add_political_power = 50
+			set_cosmetic_tag = LAT_provisional_government
+		}
+	}
+	focus = {
+		id = LAT_retake_central_asia
+		icon = GFX_focus_LAT_central_asia
+		x = -2
+		y = 1
+		cost = 5
+		will_lead_to_war_with = KAZ
+		will_lead_to_war_with = KYR
+		will_lead_to_war_with = TMS
+		
+		relative_position_id = LAT_declare_a_provisional_government
+		
+		prerequisite = {
+			focus = LAT_declare_a_provisional_government
+		}
+	
+		available = {
+			has_war = no
+			is_neighbor_of = KAZ
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KAZ
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KYR
+				type = annex_everything
+			}
+			TMS = { make_every_core_national_for_PREV = yes }
+			KYR = { make_every_core_national_for_PREV = yes }
+			KAZ = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+        id = LAT_destroy_kolchak
+        icon = GFX_focus_LAT_central_asia
+        x = 0
+        y = 1
+        cost = 5
+        will_lead_to_war_with = RUS
+
+        relative_position_id = LAT_declare_a_provisional_government
+
+        prerequisite = {
+            focus = LAT_declare_a_provisional_government
+        }
+
+        available = {
+            has_war = no
+            is_neighbor_of = RUS
+        }
+        completion_reward = {
+            log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+
+            declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+            RUS = { make_every_core_national_for_PREV = yes }
+        }
+    }
+	focus = {
+        id = LAT_final_push
+        icon = GFX_focus_LAT_central_asia
+        x = 2
+        y = 1
+        cost = 5
+        will_lead_to_war_with = FER
+
+        relative_position_id = LAT_declare_a_provisional_government
+
+        prerequisite = {
+            focus = LAT_declare_a_provisional_government
+        }
+
+        available = {
+            has_war = no
+            is_neighbor_of = FER
+        }
+        completion_reward = {
+            log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+
+            declare_war_on = {
+                target = FER
+                type = annex_everything
+            }
+			declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+            FER = { make_every_core_national_for_PREV = yes }
+			KMP = { make_every_core_national_for_PREV = yes }
+        }
+    }
+	focus = {
+		id = LAT_we_are_so_back
+		icon = LAT_the_west_is_ours
+		x = 0
+		y = 1
+		cost = 5
+		
+		relative_position_id = LAT_destroy_kolchak
+		
+		prerequisite = {
+			focus = LAT_destroy_kolchak
+		}
+		
+		prerequisite = {
+			focus = LAT_final_push
+		}
+		
+		prerequisite = {
+			focus = LAT_retake_central_asia
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_north_is_red_log"
+		
+			add_stability = 0.1
+			add_war_support = 0.1
+			set_cosmetic_tag = LAT_russian_cossack_state
+		}
+	}
+}

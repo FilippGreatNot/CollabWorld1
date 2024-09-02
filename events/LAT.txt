@@ -31,6 +31,41 @@ country_event = {
 	
 }
 
+country_event = {
+	id = lat.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = lat.3.t
+	desc = lat.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = lat.3.a
+		FROM = {
+			annex_country = { 
+				target = PREV
+				transfer_troops = yes 
+			}
+		}
+		
+		PREV = {
+			every_unit_leader = {
+				set_nationality = FROM
+			}
+		}
+	}
+	
+	option = {
+		name = lat.3.b
+	    FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+		
+	}
+}
+
 
 
 
