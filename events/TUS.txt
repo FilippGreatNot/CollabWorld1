@@ -692,17 +692,12 @@ country_event = {
 	option = {
 		name = tus_civ_war.2.a
 		hidden_effect = {
-			create_dynamic_country = {
-				original_tag = ROOT
+			ITS = {
 				transfer_state = 859
 				transfer_state = 158
 				transfer_state = 159
 				transfer_state = 160
 				transfer_state = 860
-				set_cosmetic_tag = ITS
-				set_politics = {
-					ruling_party = bolshevism
-				}
 			}
 		}
 	}
@@ -710,9 +705,12 @@ country_event = {
 	option = {
 		name = tus_civ_war.2.b
 		hidden_effect = {
-			set_cosmetic_tag = ITS
-			set_politics = {
-				ruling_party = bolshevism
+			ITS = {
+				annex_country = {
+					target = TUS
+					transfer_troops = yes
+				}
+				change_tag_from = ROOT
 			}
 		}
 	}
