@@ -1176,6 +1176,143 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_noske_strike_at_the_syndicates
+		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		x = 0
+		y = 2
+		cost = 2
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			declare_war_on = {
+				target = FWG
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reurbanise_westfalen
+		icon = GFX_focus_FGB_noske_reurbanise_westfalen
+		x = -1
+		y = 1.5
+		cost = 3
+		available = {
+			has_full_control_of_state = 57
+		}
+		relative_position_id = FGB_noske_strike_at_the_syndicates
+		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
+		completion_reward = {
+			add_stability = -0.05
+			57 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_put_strikers_back_into_dockyards
+		icon = GFX_focus_FGB_noske_reurbanise_westfalen
+		x = 1
+		y = 1.5
+		cost = 3
+		available = {
+			has_full_control_of_state = 56
+		}
+		relative_position_id = FGB_noske_strike_at_the_syndicates
+		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
+		completion_reward = {
+			add_stability = -0.05
+			56 = {
+				add_building_construction = {
+					type = dockayrd
+					level = 2
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_bring_down_the_bremen_soviet
+		icon = GFX_focus_FGB_noske_bring_down_the_bremen_soviet
+		x = 0
+		y = 2
+		relative_position_id = FGB_noske_strike_at_the_syndicates
+		prerequisite = { focus = FGB_noske_reurbanise_westfalen }
+		prerequisite = { focus = FGB_noske_put_strikers_back_into_dockyards }
+		completion_reward = {
+			add_stability = -0.06
+			56 = {
+				add_resistance = -0.1
+				add_compliance = 0.05
+			}
+			57 = {
+				add_resistance = -0.1
+				add_compliance = 0.05
+			}
+			add_victory_points = {
+				province = 11388
+				value = -2
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_purge_members
+		icon = GFX_focus_FGB_noske_purge_members
+		x = 0
+		y = 1
+		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
+		prerequisite = { focus = FGB_noske_bring_down_the_bremen_soviet }
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			56 = {
+				add_manpower = -2300
+				add_resistance = -0.1
+				add_compliance = 0.15
+			}
+			57 = {
+				add_manpower = -350
+				add_resistance = -0.1
+				add_compliance = 0.15
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reintegrate_the_north
+		icon = GFX_focus_FGB_noske_reintegrate_the_north
+		x = 0
+		y = 2
+		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
+		prerequisite = { focus = FGB_noske_purge_members }
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = 120
+			add_state_core = 56
+			add_state_core = 57
+		}
+	}
+
+	focus = {
 		id = FGB_noske_cooperative_policy
 		icon = GFX_focus_noske_cooperative_policy
 		x = 1
@@ -2957,7 +3094,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_further_oil_exploitation
 		prerequisite = { focus = FGB_new_currency }
 		x = 0
-		y = 1
+		y = 2
 		cost = 5
 		relative_position_id = FGB_new_currency
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -2997,6 +3134,108 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = FGB_recovering_industry2
 				add_idea = FGB_reformed_taxing_policies
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_put_the_economy_back_into_the_hands_of_the_people
+		icon = GFX_focus_FGB_reform_our_tax_policies
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_reform_our_tax_policies }
+		relative_position_id = FGB_reform_our_tax_policies
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_political_power = 40
+			add_ideas = {
+				FGB_put_the_economy_back_into_the_hands_of_the_people_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_total_market_freedoms
+		icon = GFX_focus_FGB_total_market_freedoms
+		x = -1
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_put_the_economy_back_into_the_hands_of_the_people }
+		relative_position_id = FGB_put_the_economy_back_into_the_hands_of_the_people
+		mutually_exclusive = { focus = FGB_protectionist_desires }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = -0.05
+			add_ideas = {
+				free_trade
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_lower_average_tax
+		icon = GFX_focus_FGB_lower_average_tax
+		x = -1
+		y = 2
+		cost = 4
+		prerequisite = { focus = FGB_total_market_freedoms }
+		relative_position_id = FGB_put_the_economy_back_into_the_hands_of_the_people
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_political_power = -70
+			every_controlled_state = {
+				add_manpower = 800
+			}
+			swap_ideas = {
+				remove_idea = FGB_reformed_taxing_policies
+				add_idea = FGB_reformed_taxing_policies2
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_protectionist_desires
+		icon = GFX_focus_FGB_total_market_freedoms
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_put_the_economy_back_into_the_hands_of_the_people }
+		relative_position_id = FGB_put_the_economy_back_into_the_hands_of_the_people
+		mutually_exclusive = { focus = FGB_total_market_freedoms }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			if = {
+				limit = { has_idea = FGB_tariffs }
+				swap_ideas = {
+					remove_idea = FGB_tariffs
+					add_idea = FGB_tariffs2
+				}
+			}
+			else_if = {
+				limit = { has_idea = FGB_exports }
+				swap_ideas = {
+					remove_idea = FGB_exports
+					add_idea = FGB_exports2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_bolster_the_reichsmark
+		icon = GFX_focus_FGB_reform_our_tax_policies
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_protectionist_desires }
+		relative_position_id = FGB_protectionist_desires
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_new_reichsmark
+				add_idea = FGB_new_reichsmark2
 			}
 		}
 	}
