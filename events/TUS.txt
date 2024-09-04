@@ -267,6 +267,99 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = tus.12
+	title = tus.12.t
+	desc = tus.12.d
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUS
+		has_government = bolshevism
+		country_exists = ITS
+		has_war = no
+	}
+	
+	option = {
+		name = tus.12.a	
+		ITS = {
+			annex_country = {
+				target = TUS
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus.13
+	title = tus.13.t
+	desc = tus.13.d
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUS
+		country_exists = ITS
+		TUS = {
+			bolshevism > 0.4
+		}
+	}
+	
+	option = {
+		name = tus.13.a	
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = ITS
+				}
+			}
+			add_claim_by = TUS
+		}
+		if = {
+			limit = {is_puppet_of = FRA}
+			FRA = {
+				declare_war_on = {
+					target = ITS
+					type = annex_everything
+				}	
+			}
+		}
+		ITS = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}	
+			add_civil_war_target = ROOT
+		}
+		create_dynamic_country = {
+			original_tag = ROOT
+			transfer_state = 884
+		
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			
+			ITS = {
+				puppet = PREV
+			}
+			
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+			add_civil_war_target = ROOT
+			
+			884 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 5
+				}
+			}
+		}
+	}
+}
+
 ## for albania not us
 country_event = {
 	id = tus.8
@@ -633,6 +726,14 @@ country_event = {
 	option = {
 		name = tus_civ_war.1.a
 		hidden_effect = {
+			add_popularity = {
+				ideology = despotism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
 			create_dynamic_country = {
 				original_tag = ROOT
 				transfer_state = 157
@@ -658,6 +759,14 @@ country_event = {
 	option = {
 		name = tus_civ_war.1.b
 		hidden_effect = {
+			add_popularity = {
+				ideology = despotism 
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
 			create_dynamic_country = {
 				original_tag = ROOT
 				transfer_state = 157
