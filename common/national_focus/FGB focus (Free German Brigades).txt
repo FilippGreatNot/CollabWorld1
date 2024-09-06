@@ -1235,7 +1235,7 @@ focus_tree = {
 			add_stability = -0.05
 			56 = {
 				add_building_construction = {
-					type = dockayrd
+					type = dockyard
 					level = 2
 					instant_build  = yes
 				}
@@ -1254,18 +1254,19 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_bring_down_the_bremen_soviet
 		x = 0
 		y = 2
+		cost = 3
 		relative_position_id = FGB_noske_strike_at_the_syndicates
 		prerequisite = { focus = FGB_noske_reurbanise_westfalen }
 		prerequisite = { focus = FGB_noske_put_strikers_back_into_dockyards }
 		completion_reward = {
 			add_stability = -0.06
 			56 = {
-				add_resistance = -0.1
-				add_compliance = 0.05
+				add_resistance = -10
+				add_compliance = 5
 			}
 			57 = {
-				add_resistance = -0.1
-				add_compliance = 0.05
+				add_resistance = -10
+				add_compliance = 5
 			}
 			add_victory_points = {
 				province = 11388
@@ -1279,6 +1280,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_purge_members
 		x = 0
 		y = 1
+		cost = 3
 		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
 		prerequisite = { focus = FGB_noske_bring_down_the_bremen_soviet }
 		completion_reward = {
@@ -1302,6 +1304,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_reintegrate_the_north
 		x = 0
 		y = 2
+		cost = 3
 		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
 		prerequisite = { focus = FGB_noske_purge_members }
 		completion_reward = {
@@ -1314,7 +1317,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_cooperative_policy
-		icon = GFX_focus_noske_cooperative_policy
+		icon = GFX_focus_FGB_noske_cooperative_policy
 		x = 1
 		y = 1
 		cost = 0
@@ -1327,6 +1330,555 @@ focus_tree = {
 			BAV = {
 				country_event = bavaria.3
 			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 2
+		cost = 4
+		relative_position_id = FGB_noske_reintegrate_the_north
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default1
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default2
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default3
+		icon = GFX_focus_FGB_noske_default
+		x = -4
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default1
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default4
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default3
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default5
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_noske_default6 }
+		mutually_exclusive = { focus = FGB_noske_default7 }
+		relative_position_id = FGB_noske_default4
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default6
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_noske_default5 }
+		mutually_exclusive = { focus = FGB_noske_default7 }
+		relative_position_id = FGB_noske_default4
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default7
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_noske_default5 }
+		mutually_exclusive = { focus = FGB_noske_default6 }
+		relative_position_id = FGB_noske_default4
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default8
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default5
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default9
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default8
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default10
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default9
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default11
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default6
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default12
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default11
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default13
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default12
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default14
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_noske_default10 focus = FGB_noske_default13 focus = FGB_noske_default17 }
+		relative_position_id = FGB_noske_default13
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default15
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default7
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default16
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default15
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default17
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default16
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default18
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 2
+		cost = 4
+		relative_position_id = FGB_noske_default
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default19
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default18
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default20
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default19
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default21
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default20
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default22
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default21
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default23
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default22
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default24
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default23
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default25
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default18
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default26
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default25
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default27
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default26
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default28
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default22
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default29
+		icon = GFX_focus_FGB_noske_default
+		x = 6
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default1
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default30
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default29
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default31
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default29
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default32
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default31
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default33
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default31
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default34
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default31
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default35
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default32
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default36
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default33
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default37
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default36
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default38
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default36
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default39
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default37
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default40
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default39
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default41
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default39
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default42
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_default40
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default43
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_noske_default44 }
+		relative_position_id = FGB_noske_default42
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_default44
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_noske_default43 }
+		relative_position_id = FGB_noske_default42
+		completion_reward = {
+			add_political_power = 10
 		}
 	}
 	
@@ -3237,6 +3789,53 @@ focus_tree = {
 				remove_idea = FGB_new_reichsmark
 				add_idea = FGB_new_reichsmark2
 			}
+		}
+	}
+
+	focus = {
+		id = FGB_form_the_nationaler_gesundheitsdienst
+		icon = GFX_focus_FGB_form_the_nationaler_gesundheitsdienst
+		x = 0
+		y = 3
+		cost = 5
+		prerequisite = { focus = FGB_bolster_the_reichsmark focus = FGB_lower_average_tax }
+		relative_position_id = FGB_put_the_economy_back_into_the_hands_of_the_people
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_shellshocked_populace3
+				add_idea = FGB_shellshocked_populace4
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_freedom_of_education
+		icon = GFX_focus_FGB_freedom_of_education
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_form_the_nationaler_gesundheitsdienst }
+		relative_position_id = FGB_form_the_nationaler_gesundheitsdienst
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FGB_research_fund
+				add_idea = FGB_research_fund2
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rebuild_university_of_cologne
+		icon = GFX_focus_FGB_rebuild_university_of_cologne
+		x = 0 
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_freedom_of_education }
+		relative_position_id = FGB_freedom_of_education
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
 		}
 	}
 }
