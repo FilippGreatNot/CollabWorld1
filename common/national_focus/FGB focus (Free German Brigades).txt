@@ -14,197 +14,6 @@ focus_tree = {
 	initial_show_position = { focus = FGB_reconstruction }
 	
 	continuous_focus_position = { x = 50 y = 1500 }
-
-	focus = {
-		id = FGB_the_will_to_unite_a_nation
-		icon = GFX_focus_FGB_will_to_unify
-		x = 30
-		y = 0
-		cost = 4
-		completion_reward = {
-			add_ideas = {
-				FGB_the_will_to_unite_a_nation_idea
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_defense_tactics
-		icon = GFX_focus_FGB_defensive_tactics
-		x = -1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_the_will_to_unite_a_nation
-		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
-		completion_reward = {
-			add_ideas = {
-				FGB_defense_tactics_idea
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_fortify_the_north
-		icon = GFX_focus_FGB_fortify_the_north
-		x = 1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_the_will_to_unite_a_nation
-		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
-		completion_reward = {
-			852 = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 3530
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 6568
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					province = 6581
-					instant_build = yes
-				}
-			}
-			54 = {
-				add_building_construction = {
-					type = bunker
-					level = 1
-					province = 6594
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 11417
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					province = 6421
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					province = 3474
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					province = 11404
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_rerecruitment_drive
-		icon = GFX_focus_FGB_rerecruitment
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_defense_tactics
-		prerequisite = { focus = FGB_defense_tactics }
-		completion_reward = {
-			add_stability = -0.05
-			add_war_support = -0.05
-			add_ideas = { 
-				FGB_rerecruitment_drive_idea
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_tank_innovations
-		icon = GFX_focus_FGB_armor
-		x = 0
-		y = 1
-		cost = 5
-		relative_position_id = FGB_fortify_the_north
-		prerequisite = { focus = FGB_fortify_the_north }
-		select_effect = {
-			add_manpower = -2000
-		}
-		completion_reward = {
-			add_manpower = 2000
-			add_tech_bonus = {
-				name = FGB_tank_innovations
-				bonus = 1
-				uses = 1
-				category = armor
-			}
-			if = {
-				limit = { NOT = { has_tech = basic_light_tank } }
-				set_technology = { basic_light_tank = 1 }
-				add_equipment_to_stockpile = {
-					type = light_tank_equipment_1
-					amount = 200
-					producer = FGB
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_learning_more_from_ourselves
-		icon = GFX_focus_FGB_learn_from_ourselves
-		x = 0
-		y = 3
-		cost = 5
-		relative_position_id = FGB_the_will_to_unite_a_nation
-		prerequisite = { focus = FGB_tank_innovations }
-		prerequisite = { focus = FGB_rerecruitment_drive }
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = industry
-			}
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = electronics
-			}
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 1
-				category = support_tech
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_berlin_academies
-		icon = GFX_focus_FGB_berlin_academies
-		available = {
-			has_full_control_of_state = 835
-			has_full_control_of_state = 836
-		}
-		x = 0
-		y = 1
-		cost = 6
-		relative_position_id = FGB_learning_more_from_ourselves
-		prerequisite = { focus = FGB_learning_more_from_ourselves }
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
 	
 	focus = {
 		id = FGB_death_of_kapp
@@ -1334,549 +1143,577 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_noske_default
+		id = FGB_noske_the_second_revolution_of_1848
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 2
 		cost = 4
+		available = { has_country_flag = FGB_noske_ger_unified_flag }
 		relative_position_id = FGB_noske_reintegrate_the_north
 		completion_reward = {
 			add_political_power = 10
+			set_country_flag = FGB_noske_revolution_of_1848_flag
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default1
+		id = FGB_noske_for_democracy
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default
+		allow_branch = { has_country_flag = FGB_noske_revolution_of_1848_flag }
+		prerequisite = { focus = FGB_noske_the_second_revolution_of_1848 }
+		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default2
+		id = FGB_noske_and_for_stability
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default
+		allow_branch = { has_country_flag = FGB_noske_revolution_of_1848_flag }
+		prerequisite = { focus = FGB_noske_the_second_revolution_of_1848 }
+		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default3
+		id = FGB_noske_prepare_the_ballots
 		icon = GFX_focus_FGB_noske_default
-		x = -4
+		x = -5
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default1
+		prerequisite = { focus = FGB_noske_for_democracy }
+		relative_position_id = FGB_noske_for_democracy
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default4
+		id = FGB_noske_hold_our_first_elections
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default3
+		prerequisite = { focus = FGB_noske_prepare_the_ballots }
+		relative_position_id = FGB_noske_prepare_the_ballots
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default5
+		id = FGB_noske_spd_victory
 		icon = GFX_focus_FGB_noske_default
 		x = -2
 		y = 1
 		cost = 4
-		mutually_exclusive = { focus = FGB_noske_default6 }
-		mutually_exclusive = { focus = FGB_noske_default7 }
-		relative_position_id = FGB_noske_default4
+		prerequisite = { focus = FGB_noske_hold_our_first_elections }
+		mutually_exclusive = { focus = FGB_noske_fdp_victory }
+		mutually_exclusive = { focus = FGB_noske_cdu_victory }
+		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default6
+		id = FGB_noske_fdp_victory
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		mutually_exclusive = { focus = FGB_noske_default5 }
-		mutually_exclusive = { focus = FGB_noske_default7 }
-		relative_position_id = FGB_noske_default4
+		prerequisite = { focus = FGB_noske_hold_our_first_elections }
+		mutually_exclusive = { focus = FGB_noske_spd_victory }
+		mutually_exclusive = { focus = FGB_noske_cdu_victory }
+		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default7
+		id = FGB_noske_cdu_victory
 		icon = GFX_focus_FGB_noske_default
 		x = 2
 		y = 1
 		cost = 4
-		mutually_exclusive = { focus = FGB_noske_default5 }
-		mutually_exclusive = { focus = FGB_noske_default6 }
-		relative_position_id = FGB_noske_default4
+		prerequisite = { focus = FGB_noske_hold_our_first_elections }
+		mutually_exclusive = { focus = FGB_noske_spd_victory }
+		mutually_exclusive = { focus = FGB_noske_fdp_victory }
+		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default8
+		id = FGB_noske_humanist_principles
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default5
+		relative_position_id = FGB_noske_spd_victory
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default9
+		id = FGB_noske_establish_a_social_safety_net
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default8
+		relative_position_id = FGB_noske_humanist_principles
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default10
+		id = FGB_noske_the_father_of_german_freedom
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default9
+		relative_position_id = FGB_noske_establish_a_social_safety_net
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default11
+		id = FGB_noske_promote_liberal_values
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default6
+		relative_position_id = FGB_noske_fdp_victory
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default12
+		id = FGB_noske_mark_free_trade_zones
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default11
+		relative_position_id = FGB_noske_promote_liberal_values
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default13
+		id = FGB_noske_subsidies_for_companies
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default12
+		relative_position_id = FGB_noske_mark_free_trade_zones
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default14
+		id = FGB_noske_interparty_dialogue
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		prerequisite = { focus = FGB_noske_default10 focus = FGB_noske_default13 focus = FGB_noske_default17 }
-		relative_position_id = FGB_noske_default13
+		prerequisite = { focus = FGB_noske_the_father_of_german_freedom focus = FGB_noske_subsidies_for_companies focus = FGB_noske_a_true_christian_democracy }
+		relative_position_id = FGB_noske_subsidies_for_companies
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default15
+		id = FGB_noske_establish_the_kirchensteuer
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default7
+		relative_position_id = FGB_noske_cdu_victory
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default16
+		id = FGB_noske_build_up_our_domestic_industry
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default15
+		relative_position_id = FGB_noske_establish_the_kirchensteuer
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default17
+		id = FGB_noske_a_true_christian_democracy
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default16
+		relative_position_id = FGB_noske_build_up_our_domestic_industry
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default18
+		id = FGB_noske_the_process_of_demilitarisation
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 2
 		cost = 4
-		relative_position_id = FGB_noske_default
+		prerequisite = { focus = FGB_noske_for_democracy }
+		prerequisite = { focus = FGB_noske_and_for_stability }
+		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default19
+		id = FGB_noske_end_the_penal_battalions
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default18
+		prerequisite = { focus = FGB_noske_the_process_of_demilitarisation }
+		relative_position_id = FGB_noske_the_process_of_demilitarisation
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default20
+		id = FGB_noske_absorb_regional_armies
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default19
+		relative_position_id = FGB_noske_end_the_penal_battalions
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default21
+		id = FGB_noske_reintroduce_voluntary_service
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default20
+		relative_position_id = FGB_noske_absorb_regional_armies
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default22
+		id = FGB_noske_and_the_process_of_deradicalisation
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default21
+		relative_position_id = FGB_noske_reintroduce_voluntary_service
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default23
+		id = FGB_noske_purge_the_nsdap
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default22
+		relative_position_id = FGB_noske_and_the_process_of_deradicalisation
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default24
+		id = FGB_noske_shuns_and_shames
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default23
+		relative_position_id = FGB_noske_purge_the_nsdap
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default25
-		icon = GFX_focus_FGB_noske_default
-		x = 1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_default18
-		completion_reward = {
-			add_political_power = 10
-		}
-	}
-
-	focus = {
-		id = FGB_noske_default26
+		id = FGB_noske_a_new_germany_clean_of_dissidence
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default25
+		relative_position_id = FGB_noske_shuns_and_shames
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default27
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_default26
-		completion_reward = {
-			add_political_power = 10
-		}
-	}
-
-	focus = {
-		id = FGB_noske_default28
+		id = FGB_noske_consumerise_the_facilities
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default22
+		prerequisite = { focus = FGB_noske_the_process_of_demilitarisation }
+		relative_position_id = FGB_noske_the_process_of_demilitarisation
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default29
+		id = FGB_noske_sell_excess_guns
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_consumerise_the_facilities
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_a_german_statue_of_liberty
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_sell_excess_guns
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_imprison_spartakus_scum
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_and_the_process_of_deradicalisation
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
+		id = FGB_noske_into_the_spotlight
 		icon = GFX_focus_FGB_noske_default
 		x = 6
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default1
+		prerequisite = { focus = FGB_noske_and_for_stability }
+		relative_position_id = FGB_noske_for_democracy
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default30
+		id = FGB_noske_question_the_kleindeutsche_idea
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default29
+		relative_position_id = FGB_noske_into_the_spotlight
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default31
+		id = FGB_noske_establish_the_europakt
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default29
+		relative_position_id = FGB_noske_into_the_spotlight
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default32
+		id = FGB_noske_invite_the_scandinavian_democracies
 		icon = GFX_focus_FGB_noske_default
 		x = -2
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default31
+		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default33
+		id = FGB_noske_offer_protection_to_the_balkan_states
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default31
+		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default34
+		id = FGB_noske_invite_the_benelux
 		icon = GFX_focus_FGB_noske_default
 		x = 2
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default31
+		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default35
+		id = FGB_noske_a_trade_deal_with_sweden
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default32
+		relative_position_id = FGB_noske_invite_the_scandinavian_democracies
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default36
+		id = FGB_noske_strike_at_tukhachevskys_oppressive_regime
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default33
+		relative_position_id = FGB_noske_offer_protection_to_the_balkan_states
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default37
+		id = FGB_noske_liberate_the_french_people
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default36
+		relative_position_id = FGB_noske_strike_at_tukhachevskys_oppressive_regime
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default38
+		id = FGB_noske_david_and_goliath
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default36
+		relative_position_id = FGB_noske_strike_at_tukhachevskys_oppressive_regime
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default39
+		id = FGB_noske_suspend_the_growth_of_radicalism
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default37
+		relative_position_id = FGB_noske_liberate_the_french_people
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default40
+		id = FGB_noske_establish_the_euromark
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default39
+		relative_position_id = FGB_noske_suspend_the_growth_of_radicalism
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default41
+		id = FGB_noske_establish_the_eurokorps_initiative
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default39
+		relative_position_id = FGB_noske_suspend_the_growth_of_radicalism
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default42
+		id = FGB_noske_presidency_of_the_europakt
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		relative_position_id = FGB_noske_default40
+		relative_position_id = FGB_noske_establish_the_euromark
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default43
+		id = FGB_noske_die_vereinigte_staaten_von_europa
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
 		cost = 4
-		mutually_exclusive = { focus = FGB_noske_default44 }
-		relative_position_id = FGB_noske_default42
+		mutually_exclusive = { focus = FGB_noske_a_free_europe }
+		relative_position_id = FGB_noske_presidency_of_the_europakt
 		completion_reward = {
 			add_political_power = 10
 		}
 	}
 
 	focus = {
-		id = FGB_noske_default44
+		id = FGB_noske_a_free_europe
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 4
-		mutually_exclusive = { focus = FGB_noske_default43 }
-		relative_position_id = FGB_noske_default42
+		mutually_exclusive = { focus = FGB_noske_die_vereinigte_staaten_von_europa }
+		relative_position_id = FGB_noske_presidency_of_the_europakt
 		completion_reward = {
 			add_political_power = 10
 		}
@@ -2024,10 +1861,11 @@ focus_tree = {
 	focus = {
 		id = FGB_study_tactics
 		icon = GFX_focus_FGB_study_past_tactics
-		prerequisite = { focus = FGB_freikorps_legacy }
-		x = 23.75
-		y = 2
+		x = -1
+		y = 1
 		cost = 5
+		relative_position_id = FGB_freikorps_legacy
+		prerequisite = { focus = FGB_freikorps_legacy }
 		ai_will_do = {
 			factor = 10
 		}
@@ -2058,10 +1896,11 @@ focus_tree = {
 	focus = {
 		id = FGB_analyse_mistakes
 		icon = GFX_focus_FGB_analyze_past_mistakes
-		prerequisite = { focus = FGB_freikorps_legacy }
-		x = 25.25
-		y = 2
+		x = 1
+		y = 1
 		cost = 5
+		relative_position_id = FGB_freikorps_legacy
+		prerequisite = { focus = FGB_freikorps_legacy }
 		ai_will_do = {
 			factor = 10
 		}
@@ -2091,9 +1930,10 @@ focus_tree = {
 		id = FGB_repair_factories
 		icon = GFX_focus_FGB_repair_damaged_factories
 		prerequisite = { focus = FGB_study_tactics }
-		x = 23.75
-		y = 3
+		x = -1
+		y = 2
 		cost = 5
+		relative_position_id = FGB_freikorps_legacy
 		ai_will_do = {
 			factor = 10
 		}
@@ -2138,10 +1978,11 @@ focus_tree = {
 	focus = {
 		id = FGB_repair_airbases
 		icon = GFX_focus_FGB_repurpose_airfields
-		prerequisite = { focus = FGB_analyse_mistakes }
-		x = 25.25
-		y = 3
+		x = 0
+		y = 1
 		cost = 5
+		relative_position_id = FGB_analyse_mistakes
+		prerequisite = { focus = FGB_analyse_mistakes }
 		ai_will_do = {
 			factor = 10
 		}
@@ -2175,6 +2016,10 @@ focus_tree = {
 	focus = {
 		id = FGB_kaiser_silos
 		icon = GFX_focus_FGB_imperial_stockpiles
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_repair_factories
 		prerequisite = { focus = FGB_repair_factories }
 		available = {
 			check_variable = { num_equipment_in_armies_k@infantry_equipment_1 > 1 }
@@ -2183,9 +2028,6 @@ focus_tree = {
 			 	check_variable = { num_equipment_in_armies_k@infantry_equipment_1 > 1 }
 			}
 		}
-		x = 22
-		y = 4
-		cost = 6
 		completion_reward = {
 			army_experience = 25
 			add_equipment_to_stockpile = {
@@ -2204,6 +2046,10 @@ focus_tree = {
 	focus = {
 		id = FGB_protect_the_skies
 		icon = GFX_focus_FGB_protect_the_skies
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_repair_airbases
 		prerequisite = { focus = FGB_repair_airbases }
 		available = {
 			FGB = {
@@ -2215,9 +2061,6 @@ focus_tree = {
 				}
 			}
 		}
-		x = 26.25
-		y = 4
-		cost = 6
 		completion_reward = {
 			add_tech_bonus = {
 				name = FGB_protect_the_skies
@@ -2252,11 +2095,12 @@ focus_tree = {
 	focus = {
 		id = FGB_expand_army
 		icon = GFX_focus_FGB_recruitment
+		x = 0
+		y = 3
+		cost = 6
+		relative_position_id = FGB_freikorps_legacy
 		prerequisite = { focus = FGB_repair_airbases }
 		prerequisite = { focus = FGB_repair_factories }
-		x = 24
-		y = 4
-		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -2299,7 +2143,7 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -2330,10 +2174,11 @@ focus_tree = {
 	focus = {
 		id = FGB_recruit_prisoners
 		icon = GFX_focus_FGB_pow
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_protect_the_skies
 		prerequisite = { focus = FGB_expand_army }
-		x = 26.25
-		y = 5
-		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -2419,15 +2264,16 @@ focus_tree = {
 	focus = { 
 		id = FGB_definitive_attack
 		icon = GFX_focus_FGB_swift
+		x = -1
+		y = 1
+		cost = 6
+		relative_position_id = FGB_army_reform
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
 		available = {
 			IF = { has_idea = FGB_mobile }
 			NOT = { has_idea = FGB_firepower }
 		}
-		x = 23.75
-		y = 6
-		cost = 6
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = FGB_disorganised_militias4
@@ -2439,15 +2285,16 @@ focus_tree = {
 	focus = {
 		id = FGB_prepared_offensive
 		icon = GFX_focus_FGB_coordinated
+		x = 1
+		y = 1
+		cost = 6
+		relative_position_id = FGB_army_reform
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
 		available = {
 			IF = { has_idea = FGB_firepower }
 			NOT = { has_idea = FGB_mobile }
 		}
-		x = 25.25
-		y = 6
-		cost = 6
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = FGB_disorganised_militias4
@@ -2504,6 +2351,197 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 6
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = FGB_the_will_to_unite_a_nation
+		icon = GFX_focus_FGB_will_to_unify
+		x = 30
+		y = 0
+		cost = 4
+		completion_reward = {
+			add_ideas = {
+				FGB_the_will_to_unite_a_nation_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_defense_tactics
+		icon = GFX_focus_FGB_defensive_tactics
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_the_will_to_unite_a_nation
+		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
+		completion_reward = {
+			add_ideas = {
+				FGB_defense_tactics_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_fortify_the_north
+		icon = GFX_focus_FGB_fortify_the_north
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_the_will_to_unite_a_nation
+		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
+		completion_reward = {
+			852 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3530
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6568
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6581
+					instant_build = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6594
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11417
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6421
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 3474
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11404
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rerecruitment_drive
+		icon = GFX_focus_FGB_rerecruitment
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_defense_tactics
+		prerequisite = { focus = FGB_defense_tactics }
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_ideas = { 
+				FGB_rerecruitment_drive_idea
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_tank_innovations
+		icon = GFX_focus_FGB_armor
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_fortify_the_north
+		prerequisite = { focus = FGB_fortify_the_north }
+		select_effect = {
+			add_manpower = -2000
+		}
+		completion_reward = {
+			add_manpower = 2000
+			add_tech_bonus = {
+				name = FGB_tank_innovations
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+			if = {
+				limit = { NOT = { has_tech = basic_light_tank } }
+				set_technology = { basic_light_tank = 1 }
+				add_equipment_to_stockpile = {
+					type = light_tank_equipment_1
+					amount = 200
+					producer = FGB
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_learning_more_from_ourselves
+		icon = GFX_focus_FGB_learn_from_ourselves
+		x = 0
+		y = 3
+		cost = 5
+		relative_position_id = FGB_the_will_to_unite_a_nation
+		prerequisite = { focus = FGB_tank_innovations }
+		prerequisite = { focus = FGB_rerecruitment_drive }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = support_tech
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_berlin_academies
+		icon = GFX_focus_FGB_berlin_academies
+		available = {
+			has_full_control_of_state = 835
+			has_full_control_of_state = 836
+		}
+		x = 0
+		y = 1
+		cost = 6
+		relative_position_id = FGB_learning_more_from_ourselves
+		prerequisite = { focus = FGB_learning_more_from_ourselves }
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
@@ -2795,9 +2833,10 @@ focus_tree = {
 		icon = GFX_focus_FGB_reconstruction
 		prerequisite = { focus = FGB_welfare_programmes }
 		mutually_exclusive = { focus = FGB_etatism }
-		x = 17.5
-		y = 3
+		x = 1
+		y = 1
 		cost = 4
+		relative_position_id = FGB_welfare_programmes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
