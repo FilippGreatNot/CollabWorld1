@@ -7,7 +7,7 @@ VNE_army_reform = {
 		available = {
 			OR = {
 				has_tech = delay
-				has_tech = sup_delay
+				has_tech = superior_firepower
 				has_tech = grand_battle_plan
 				has_tech = pocket_defence
 			}
@@ -30,22 +30,21 @@ VNE_army_reform = {
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove VNE_army_reform_1"
+			VNE_army_reform_level_up = yes
 		}
 	}
 	VNE_army_reform_2 = {
+		name = china_army_reform_1
 		icon = generic_prepare_civil_war
 
 		allowed = { always = no }			# Activated by scripted effect setup_army_reform / previous decision
 
 		available = {
 			OR = {
-				has_tech = mobile_infantry
-				has_tech = armored_spearhead
-				has_tech = dispersed_support
-				has_tech = intergrated_support
-				has_tech = grand_assault
-				has_tech = large_front_operations
-				has_tech = peoples_army
+				has_tech = delay
+				has_tech = sup_delay
+				has_tech = grand_battle_plan 
+				has_tech = pocket_defence
 			}
 		}
 
@@ -66,6 +65,7 @@ VNE_army_reform = {
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove VNE_army_reform_2"
+			VNE_army_reform_level_up = yes
 		}
 	}
 	VNE_army_reform_3 = {
@@ -74,14 +74,10 @@ VNE_army_reform = {
 
 		available = {
 			OR = {
-				has_tech = mass_motorization
-				has_tech = schwerpunk
-				has_tech = overwhelming_firepower
-				has_tech = regimental_combat_teams
-				has_tech = grand_mechanized_offensive
-				has_tech = infantry_offensive
-				has_tech = deep_operations
-				has_tech = human_infantry_offensive
+				has_tech = elastic_defense
+				has_tech = mobile_defense
+				has_tech = prepared_defense
+				has_tech = defense_in_depth
 			}
 		}
 
@@ -102,6 +98,7 @@ VNE_army_reform = {
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision remove VNE_army_reform_3"
+			log = "[GetDateText]: [Root.GetName]: Decision remove china_army_reform_3"
 		}
 	}
 }
