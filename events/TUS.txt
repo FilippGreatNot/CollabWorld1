@@ -289,10 +289,12 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		original_tag = TUS
+		tag = TUS
 		country_exists = ITS
 		TUS = {
-			bolshevism + marxism > 0.4
+			set_temp_variable = { com_pop = party_popularity@bolshevism }
+			add_to_temp_variable = { com_pop = party_popularity@marxism }
+			check_variable = { com_pop > 0.4 }
 		}
 	}
 	
@@ -387,6 +389,7 @@ country_event = {
 	id = tus.11
 	title = tus.11.t
 	desc = tus.11.d
+	fire_only_once = yes
 	
 	trigger = {
 		tag = FRA	
