@@ -435,6 +435,47 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = SOV_bogdanov_rebuild_tyumen
+		icon = GFX_focus_SOV_bogdanov_overindustrialisation
+		cost = 5
+		
+		relative_position_id = SOV_bogdanov_warcry_of_the_dead_man
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = SOV_bogdanov_warcry_of_the_dead_man
+		}
+		prerequisite = {
+			focus = SOV_bogdanov_the_black_heart_of_siberia
+		}
+		
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_bogdanov_rebuild_tyumen"
+			
+			SOV = {
+				transfer_state = 403
+			}
+			403 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	
+	
+	
 	## YOU ARE GOING TO GULAG branch ##
 	focus = {
 		id = SOV_bogdanov_start_the_red_terror
@@ -547,10 +588,7 @@ focus_tree = {
 		y = 5
 		
 		prerequisite = {
-			focus = SOV_bogdanov_the_black_heart_of_siberia
-		}
-		prerequisite = {
-			focus = SOV_bogdanov_warcry_of_the_dead_man
+			focus = SOV_bogdanov_rebuild_tyumen
 		}
 		prerequisite = {
 			focus = SOV_bogdanov_kill_them_the_chairman_knows_those_that_are_his_own

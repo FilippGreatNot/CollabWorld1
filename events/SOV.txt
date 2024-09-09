@@ -5,6 +5,7 @@ add_namespace = sov.stalin
 add_namespace = sov.stalin_united
 add_namespace = sov.stalin_united.comintern
 add_namespace = sov
+add_namespace = sov.bogdanov
 
 country_event = { #Fate of the royal family
 	id = sov.1
@@ -321,5 +322,23 @@ country_event = {
 				NOT = { has_country_flag = UVS_independent_ai_diplomacy }
 			}
 		}
+	}
+}
+
+country_event = {
+	id = sov.bogdanov.1 
+	title = sov.bogdanov.1.t
+	desc = sov.bogdanov.1.d
+	is_triggered_only = yes
+	
+	immediate = { set_country_flag = SOV_show_easter_egg_decision }
+	option = {
+		name = sov.bogdanov.1.a
+		
+		hidden_effect = {
+			clr_country_flag = SOV_show_easter_egg_decision
+		}
+		set_country_flag = SOV_united
+		load_focus_tree = SOV_bogdanov_united_tree
 	}
 }

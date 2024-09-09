@@ -32,6 +32,7 @@ on_actions = {
 					LAT = { PREV_controls_all_cores = yes }
 					OCG = { PREV_controls_all_cores = yes }
 					KAZ = { PREV_controls_all_cores = yes }
+					AZR = { PREV_controls_all_cores = yes }
 					KYR = { PREV_controls_all_cores = yes }
 					SEA = { PREV_controls_all_cores = yes }
 					FER = { PREV_controls_all_cores = yes }
@@ -58,6 +59,52 @@ on_actions = {
 					}
 				}
 				country_event = sov.stalin.3 #Unification
+			}
+		}
+	}
+	
+	on_weekly_SOV = { 
+		effect = {
+			if = {
+				limit = {
+					reunitied_russia = no
+					
+					has_focus_tree = SOV_bogdanov_tree
+					
+					RUS = { PREV_controls_all_cores = yes }
+					KAR = { PREV_controls_all_cores = yes }
+					UKR = { PREV_controls_all_cores = yes }
+					SRF = { PREV_controls_all_cores = yes }
+					LAT = { PREV_controls_all_cores = yes }
+					OCG = { PREV_controls_all_cores = yes }
+					KAZ = { PREV_controls_all_cores = yes }
+					AZR = { PREV_controls_all_cores = yes }
+					KYR = { PREV_controls_all_cores = yes }
+					SEA = { PREV_controls_all_cores = yes }
+					FER = { PREV_controls_all_cores = yes }
+					KMP = { PREV_controls_all_cores = yes }
+					controls_belarus = yes #PBD = { PREV_controls_all_cores = yes }
+					
+					has_completed_focus = SOV_bogdanov_the_state_like_a_clock
+					OR = {
+						has_completed_focus = SOV_bogdanov_tanks_tanks_tanks
+						has_completed_focus = SOV_bogdanov_our_steel_rats
+					}
+					OR = {
+						has_completed_focus = SOV_bogdanov_rubber_for_the_aviation
+						has_completed_focus = SOV_bogdanov_aluminium_for_the_iron_birds
+					}
+					has_completed_focus = SOV_bogdanov_the_all_consuming_machine
+					has_completed_focus = SOV_bogdanov_march_to_the_east
+					has_completed_focus = SOV_bogdanov_march_to_the_south
+					has_completed_focus = SOV_bogdanov_march_to_the_north
+					has_completed_focus = SOV_bogdanov_march_to_the_west
+					OR = {
+						has_completed_focus = SOV_bogdanov_underwater_fleet_superiority
+						has_completed_focus = SOV_bogdanov_large_ass_ships
+					}
+				}
+				country_event = sov.bogdanov.1 #Unification
 			}
 		}
 	}
