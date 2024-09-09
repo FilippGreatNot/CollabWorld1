@@ -744,7 +744,7 @@
 		
 		relative_position_id = TUS_the_red_menace
 		
-        x = 0
+        x = -1
         y = 1
 		
         cost = 3
@@ -832,7 +832,7 @@
 		
 		relative_position_id = TUS_destroy_the_frauds
 		
-        x = 0
+        x = 1
         y = 1
 		
         cost = 3
@@ -858,6 +858,37 @@
 	}
 	
 	focus = {
+		id = TUS_make_san_small_again
+		icon = GFX_goal_generic_construction
+					
+		prerequisite = {
+			focus = TUS_destroy_the_frauds
+			focus = TUS_the_red_menace
+		}
+		
+		available = {has_war = no}
+		
+		bypass = {
+			OR = {
+				NOT = {country_exists = SAN} 
+				has_war_with = SAN
+			}
+		}
+		
+		relative_position_id = TUS_destroy_the_frauds
+		
+        x = -1
+        y = 1
+		
+        cost = 3
+		
+		cancel_if_invalid = yes
+			
+		completion_reward = {
+		}
+	}
+	
+	focus = {
 		id = TUS_destroy_the_traitor
 		icon = GFX_goal_generic_construction
 					
@@ -879,7 +910,7 @@
 		
 		relative_position_id = TUS_bring_order_to_chaos
 		
-        x = -1
+        x = -2
         y = 1
 		
         cost = 3
@@ -924,10 +955,9 @@
         x = 0
         y = 1
 		
-        cost = 5
+        cost = 2
 		
 		completion_reward = {
-			add_ideas = TUS_no_standard_currency
 			set_rule = {
 				can_join_factions = yes
 			}			
@@ -1242,32 +1272,9 @@
 	}
 	
 	focus = {
-		id = TUS_standardize_currency
-		icon = GFX_goal_generic_construction
-
-		prerequisite = {
-			focus = TUS_restabilize_the_government
-		}
-		
-        x = 0
-        y = 1
-		
-		relative_position_id = TUS_restabilize_the_government
-		
-        cost = 6
-		
-		completion_reward = {
-			remove_ideas = TUS_no_standard_currency
-		}
-	}
-
-	focus = {
 		id = TUS_balbos_speech_3
 		icon = GFX_goal_generic_construction
 		
-		prerequisite = {
-			focus = TUS_standardize_currency
-		}
 		prerequisite = {
 			focus = TUS_start_trade_relations
 		}
