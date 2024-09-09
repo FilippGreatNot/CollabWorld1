@@ -446,9 +446,9 @@ focus_tree = {
 				set_country_flag = FGB_noske_reform_complete
 				mark_focus_tree_layout_dirty = yes
 				remove_ideas = {
-					idea = FGB_civil_unrest1
-					idea = FGB_civil_unrest2
-					idea = FGB_civil_unrest3
+					FGB_civil_unrest1
+					FGB_civil_unrest2
+					FGB_civil_unrest3
 				}
 			}
 		}
@@ -982,6 +982,41 @@ focus_tree = {
 		allow_branch = { has_country_flag = FGB_noske_unification_nearly_complete_flag }
 		completion_reward = {
 			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = FGB_noske_demand_eupen_malmedy
+		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
+		x = -5
+		y = 2
+		cost = 3
+		available = {
+			has_war = no
+			any_owned_state = {
+				any_neighbor_state = {
+					state = 851
+				}
+			}
+		}
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			if = {
+				limit = { FRA = { has_full_control_of_state = 851 } }
+				FRA = {
+					country_event = fgb.18
+				}
+			}
+			else_if = {
+				limit = { BEL = { has_full_control_of_state = 851 } }
+				BEL = {
+					country_event = fgb.17
+				}
+			}
+			else = {
+				country_event = fgb.16
+			}
 		}
 	}
 
