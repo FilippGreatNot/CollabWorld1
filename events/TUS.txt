@@ -193,7 +193,7 @@ country_event = {
 	
 	option = {
 		name = tus.10.a	
-		add_ideas = TUS_army_reforms
+		complete_national_focus = TUS_army_type_1
 		custom_effect_tooltip = TUS_army_reform_event_tooltip_1
 		hidden_effect = {
 			division_template = {
@@ -222,7 +222,7 @@ country_event = {
 	}
 	option = {
 		name = tus.10.b
-		add_ideas = TUS_army_reforms
+		complete_national_focus = TUS_army_type_1
 		custom_effect_tooltip = TUS_army_reform_event_tooltip_2
 		hidden_effect = {
 			division_template = {
@@ -364,20 +364,40 @@ country_event = {
 	option = {
 		name = tus.8.a	
 		TUS = {
-			declare_war_on = {
-				target = ALB
-				type = annex_everything
-			}
+			country_event = tus.16
 		}
 	}
 	
 	option = {
 		name = tus.8.b
-		ai_chance = {base = 100}
 		TUS = {
 			annex_country = {
 				target = ALB
 				transfer_troops = yes
+			}
+		}
+	}
+}
+
+##for us about albania##
+
+country_event = {
+	id = tus.16
+	title = tus.16.t
+	desc = tus.16.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.16.a	
+
+	}
+	
+	option = {
+		name = tus.16.b
+		TUS = {
+			declare_war_on = {
+				target = ALB
+				type = annex_everything
 			}
 		}
 	}
@@ -415,6 +435,61 @@ country_event = {
 	
 	option = {
 		name = tus.11.a
+	}
+	
+} 
+
+## for san marino not us
+
+country_event = {
+	id = tus.14
+	title = tus.14.t
+	desc = tus.14.d
+	is_triggered_only = yes
+
+	
+	option = {
+		name = tus.14.a
+		TUS = {
+			country_event = tus.15
+		}
+	}
+
+	option = {
+		name = tus.14.b
+		930 = {
+			transfer_state_to = TUS
+			add_claim_by = TUS
+		}
+	}
+	
+} 
+
+##for us about san##
+
+country_event = {
+	id = tus.15
+	title = tus.15.t
+	desc = tus.15.d
+	is_triggered_only = yes
+
+	
+	option = {
+		name = tus.15.a
+	}
+
+	option = {
+		name = tus.15.b
+		930 = {
+			add_claim_by = TUS
+		}
+		907 = {
+			add_claim_by = TUS
+		}	
+		declare_war_on = {
+			target = SAN
+			type = annex_everything
+		}
 	}
 	
 } 
@@ -742,6 +817,10 @@ country_event = {
 			932 = {remove_core_of = ROOT}
 			933 = {remove_core_of = ROOT}
 			934 = {remove_core_of = ROOT}
+			add_timed_idea = {
+				idea = TUS_unplanned_attack
+				days = 30
+			}
 			create_dynamic_country = {
 				original_tag = TUS
 				transfer_state = 157
@@ -802,6 +881,10 @@ country_event = {
 			932 = {remove_core_of = ROOT}
 			933 = {remove_core_of = ROOT}
 			934 = {remove_core_of = ROOT}
+			add_timed_idea = {
+				idea = TUS_unplanned_attack
+				days = 30
+			}
 			create_dynamic_country = {
 				original_tag = TUS
 				transfer_state = 157

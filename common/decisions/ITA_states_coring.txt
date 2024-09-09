@@ -303,4 +303,36 @@ ITA_reunification = {
 			}
 		}
 	}
+	ITA_core_san = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 930
+		}
+
+		visible = {
+			owns_state = 930
+			NOT = {
+				930 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		days_remove = 40
+		cost = 40
+
+		remove_effect = {
+			930 = {
+				add_core_of = ROOT
+			}
+			if = {
+				limit = { ROOT = {owns_state = 907}}
+				907 = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
 }
