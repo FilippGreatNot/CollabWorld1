@@ -1,0 +1,272 @@
+#!gfx:interface/country/east_asia/KUM/KUM_focus.gfx
+focus_tree = {
+    id = KUM_first
+
+    country = {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = KUM
+        }
+    }
+    default = no
+
+	focus = {
+		id = KUM_our_own_destiny
+		icon = GFX_focus_generic_home_defense
+		x = 0
+		y = 0
+		cost = 3
+		completion_reward = {
+			add_political_power = 10
+			army_experience = 5
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = KUM_factories_to_the_people
+		icon = GFX_focus_generic_agricultural_subsidies
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = KUM_our_own_destiny
+		prerequisite = { focus = KUM_our_own_destiny }
+		completion_reward = {
+			add_stability = 0.05
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_factories_to_the_army
+		icon = GFX_focus_generic_industry_2
+		x = 1
+		y = 1
+		cost = 3
+		relative_position_id = KUM_our_own_destiny
+		prerequisite = { focus = KUM_our_own_destiny }
+		completion_reward = {
+			add_war_support = 0.05
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_strengthen_our_grip
+		icon = GFX_focus_generic_conspiracy
+		x = 0
+		y = 2
+		cost = 3
+		relative_position_id = KUM_our_own_destiny
+		prerequisite = { focus = KUM_factories_to_the_army focus = KUM_factories_to_the_people }
+		completion_reward = {
+			add_political_power = 20
+			add_stability = -0.05
+			add_war_support = 0.05
+			set_temp_variable = { ideology_change_var = 0.15 }
+			change_ruling_party_popularity = yes
+		}
+	}
+
+	focus = {
+		id = KUM_conscript_new_forces
+		icon = GFX_focus_generic_military_academy
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = KUM_strengthen_our_grip
+		prerequisite = { focus = KUM_strengthen_our_grip }
+		completion_reward = {
+			add_war_support = 0.1
+			army_experience = 30
+			add_manpower = 20000
+			760 = {
+				create_unit = {
+					division = "name = \"1st. Kumulik Militia\" division_template = \"Kumulik Militias\" start_experience_factor = 0.5" 
+					owner = KUM
+				}
+				create_unit = {
+					division = "name = \"2nd. Kumulik Militia\" division_template = \"Kumulik Militias\" start_experience_factor = 0.5" 
+					owner = KUM
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 300
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_increase_military_spending
+		icon = GFX_focus_generic_modernize_industry
+		x = 0
+		y = 2
+		cost = 2
+		relative_position_id = KUM_conscript_new_forces
+		prerequisite = { focus = KUM_conscript_new_forces }
+		completion_reward = {
+			army_experience = 20
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 600
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_take_dihua
+		icon = GFX_focus_generic_annex_country
+		x = -1
+		y = 1
+		cost = 6
+		relative_position_id = KUM_increase_military_spending
+		prerequisite = { focus = KUM_increase_military_spending }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = SIK
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_reestablish_control_in_urumqi
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = KUM_take_dihua
+		prerequisite = { focus = KUM_take_dihua }
+		completion_reward = {
+			add_state_core = 617
+			add_manpower = -50
+			add_stability = -0.05
+			add_political_power = 50
+			617 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_take_down_the_soviet
+		icon = GFX_focus_generic_annex_country_2
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+			NOT = { country_exists = SIK }
+			has_war = no
+		}
+		relative_position_id = KUM_increase_military_spending
+		prerequisite = { focus = KUM_increase_military_spending }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = ALT
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_supress_the_commies
+		icon = GFX_focus_generic_soviet_politics
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+			has_full_control_of_state = 936
+			has_full_control_of_state = 618
+		}
+		relative_position_id = KUM_take_down_the_soviet
+		prerequisite = { focus = KUM_take_down_the_soviet }
+		completion_reward = {
+			SIK = { make_every_core_national_for_PREV = yes }
+			add_war_support = 0.05
+			add_stability = -0.05
+			add_manpower = -500
+		}
+	}
+
+	focus = {
+		id = KUM_proclaim_the_restoration_of_the_khanate
+		icon = GFX_focus_generic_monarchy_1
+		x = 0
+		y = 3
+		cost = 6
+		available = {
+			has_war = no
+		}
+		relative_position_id = KUM_increase_military_spending
+		prerequisite = { focus = KUM_supress_the_commies }
+		prerequisite = { focus = KUM_reestablish_control_in_urumqi }
+		completion_reward = {
+			set_cosmetic_tag = KUM_kumul_khanate
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = KUM_sweep_the_south
+		icon = GFX_focus_generic_horse_studs
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = KUM_proclaim_the_restoration_of_the_khanate
+		prerequisite = { focus = KUM_proclaim_the_restoration_of_the_khanate }
+		completion_reward = {
+			add_war_support = 0.05
+			TIA = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = TIA
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = KUM_royal_academy_focus
+		icon = GFX_focus_KUM_royal_academy
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = KUM_sweep_the_south
+		prerequisite = { focus = KUM_sweep_the_south }
+		add_stability = 0.05
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+}
