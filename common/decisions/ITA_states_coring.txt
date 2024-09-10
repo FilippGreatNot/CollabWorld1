@@ -303,7 +303,7 @@ ITA_reunification = {
 			}
 		}
 	}
-	ITA_core_san = {
+	ITA_core_san_1 = {
 
 		icon = GFX_decision_generic_form_nation
 
@@ -320,18 +320,38 @@ ITA_reunification = {
 			}
 		}
 		
-		days_remove = 40
-		cost = 40
+		days_remove = 5
+		cost = 5
 
 		remove_effect = {
 			930 = {
 				add_core_of = ROOT
 			}
-			if = {
-				limit = { ROOT = {owns_state = 907}}
+		}
+	}
+	ITA_core_san_2 = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 907
+		}
+
+		visible = {
+			owns_state = 907
+			NOT = {
 				907 = {
-					add_core_of = ROOT
+					is_core_of = ROOT
 				}
+			}
+		}
+		
+		days_remove = 21
+		cost = 21
+
+		remove_effect = {
+			907 = {
+				add_core_of = ROOT
 			}
 		}
 	}
