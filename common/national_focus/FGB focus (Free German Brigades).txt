@@ -256,8 +256,8 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
-		relative_position_id = FGB_noske_freikorps_spd
 		cost = 3
+		relative_position_id = FGB_noske_freikorps_spd
 		prerequisite = { focus = FGB_noske_freikorps_spd }
 		completion_reward = {
 			add_political_power = 60
@@ -442,6 +442,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = FGB_noske_new_day_new_germany_tt
 			add_political_power = 40
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
 			hidden_effect = {
 				set_country_flag = FGB_noske_reform_complete
 				mark_focus_tree_layout_dirty = yes
@@ -538,7 +542,7 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_victory_over_bavaria
 		icon = GFX_focus_noske_aggressive_policy
-		x = -4
+		x = -3
 		y = 1
 		cost = 0
 		relative_position_id = FGB_noske_aggressive_policy
@@ -988,10 +992,11 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_demand_eupen_malmedy
 		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
-		x = -5
+		x = 3
 		y = 2
 		cost = 3
 		available = {
+			NOT = { has_completed_focus = FGB_noske_cooperative_policy }
 			has_war = no
 			any_owned_state = {
 				any_neighbor_state = {
@@ -1000,6 +1005,46 @@ focus_tree = {
 			}
 		}
 		relative_position_id = FGB_noske_inwards_and_outwards
+		mutually_exclusive = { focus = FGB_noske_purchase_eupen_malmedy }
+		prerequisite = { focus = FGB_noske_aggressive_policy }
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			if = {
+				limit = { FRA = { has_full_control_of_state = 851 } }
+				FRA = {
+					country_event = fgb.18
+				}
+			}
+			else_if = {
+				limit = { BEL = { has_full_control_of_state = 851 } }
+				BEL = {
+					country_event = fgb.17
+				}
+			}
+			else = {
+				country_event = fgb.16
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_purchase_eupen_malmedy
+		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
+		x = 5
+		y = 2
+		cost = 3
+		available = {
+			NOT = { has_completed_focus = FGB_noske_cooperative_policy }
+			has_war = no
+			any_owned_state = {
+				any_neighbor_state = {
+					state = 851
+				}
+			}
+		}
+		relative_position_id = FGB_noske_inwards_and_outwards
+		mutually_exclusive = { focus = FGB_noske_demand_eupen_malmedy }
+		prerequisite = { focus = FGB_noske_cooperative_policy }
 		prerequisite = { focus = FGB_noske_inwards_and_outwards }
 		completion_reward = {
 			if = {
@@ -1174,6 +1219,40 @@ focus_tree = {
 			add_stability = 0.1
 			BAV = {
 				country_event = bavaria.3
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_dehumanise_communists
+		icon = GFX_focus_FGB_noske_cooperative_policy
+		x = 3
+		y = 1
+		cost = 3
+		available = {
+			BAV = {
+				is_subject_of = FGB
+			}
+		}
+		relative_position_id = FGB_noske_cooperative_policy
+		prerequisite = { focus =  FGB_noske_cooperative_policy }
+		mutually_exclusive = { focus = FGB_noske_victory_over_bavaria }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+			BAV = {
+				add_stability = -0.01
+				add_popularity = {
+					ideology = marxism
+					popularity = -0.1
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = -0.05
+				}
 			}
 		}
 	}
@@ -2123,14 +2202,7 @@ focus_tree = {
 		relative_position_id = FGB_repair_airbases
 		prerequisite = { focus = FGB_repair_airbases }
 		available = {
-			FGB = {
-				if = {
-					has_tech = antiair1 
-					custom_trigger_tooltip = {
-						tooltip = FGB_protect_the_skies_tt
-					}
-				}
-			}
+			has_tech = antiair1 
 		}
 		completion_reward = {
 			add_tech_bonus = {
