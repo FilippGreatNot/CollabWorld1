@@ -82,6 +82,7 @@ country_event = {
 	
 	option = {
 		name = fgb.3.a 
+		ai_chance = { base = 20 }
 		custom_effect_tooltip = FGB_aggression_tt
 		set_country_flag = FGB_noske_policy_flag
 		mark_focus_tree_layout_dirty = yes
@@ -89,6 +90,7 @@ country_event = {
 	}
 	option = {
 		name = fgb.3.b
+		ai_chance = { base = 10 }
 		set_country_flag = FGB_noske_policy_flag
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = FGB_noske_cooperative_policy
@@ -464,6 +466,21 @@ country_event = {
 		FGB = {
 			country_event = fgb_policy.2
 		}
+	}
+}
+
+country_event = {
+	id = fgb.19
+	title = fgb.19.t
+	desc = fgb.19.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.19.a
+		add_war_support = 0.05
+		complete_national_focus = FGB_noske_under_new_management
 	}
 }
 

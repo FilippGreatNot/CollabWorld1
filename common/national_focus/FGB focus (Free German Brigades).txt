@@ -42,6 +42,9 @@ focus_tree = {
 		x = 6
 		y = 1
 		cost = 3
+		ai_will_do = {
+			factor = 15
+		}
 		prerequisite = { focus = FGB_death_of_kapp }
 		completion_reward = {
 			add_stability = 0.02
@@ -83,8 +86,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske
 		x = 0
 		y = 1
-		relative_position_id = FGB_electing_new_leader
 		cost = 1
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_electing_new_leader
 		prerequisite = { focus = FGB_electing_new_leader }
 		allow_branch = { has_country_flag = FGB_noske_flag }
 		completion_reward = {
@@ -100,8 +106,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
-		relative_position_id = FGB_noske
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
 			custom_effect_tooltip = FGB_choice_tt
@@ -121,8 +130,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = -2
 		y = 1
-		relative_position_id = FGB_noske
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
 			custom_effect_tooltip = FGB_choice_tt
@@ -149,8 +161,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 2
 		y = 1
-		relative_position_id = FGB_noske
 		cost = 3
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = FGB_noske
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
 			custom_effect_tooltip = FGB_choice_tt
@@ -177,8 +192,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 1
 		y = 1
-		relative_position_id = FGB_noske_ease_unrest
 		cost = 3
+		ai_will_do = {
+			factor = 5
+		}
+		relative_position_id = FGB_noske_ease_unrest
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
 			country_event = fgb.12
@@ -194,8 +212,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_separation_of_church_and_state
 		x = -1
 		y = 1
-		relative_position_id = FGB_noske_ease_unrest
 		cost = 2
+		ai_will_do = {
+			factor = 5
+		}
+		relative_position_id = FGB_noske_ease_unrest
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
 			add_stability = -0.04
@@ -220,8 +241,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 2
-		relative_position_id = FGB_noske_ease_unrest
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske_ease_unrest
 		prerequisite = { focus = FGB_noske_allow_moderates }
 		prerequisite = { focus = FGB_noske_ease_unrest }
 		prerequisite = { focus = FGB_noske_cooperate_with_democrats }
@@ -257,6 +281,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			ideology_social_democrat > 0.3
+			ideology_despotism < 0.2
+		}
 		relative_position_id = FGB_noske_freikorps_spd
 		prerequisite = { focus = FGB_noske_freikorps_spd }
 		completion_reward = {
@@ -273,8 +304,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = -2
 		y = 1
-		relative_position_id = FGB_noske_september_coalition
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske_september_coalition
 		prerequisite = { focus = FGB_noske_september_coalition }
 		completion_reward = {
 			add_political_power = -40
@@ -300,8 +334,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_reconstruction
 		x = 2
 		y = 1
-		relative_position_id = FGB_noske_september_coalition
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske_september_coalition
 		prerequisite = { focus = FGB_noske_september_coalition }
 		completion_reward = {
 			add_war_support = 0.08
@@ -327,8 +364,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
-		relative_position_id = FGB_noske_rub_off_kapp_memory
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske_rub_off_kapp_memory
 		prerequisite = { focus = FGB_noske_rub_off_kapp_memory }
 		select_effect = {
 			add_timed_idea = {
@@ -355,6 +395,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		ai_will_do = {
+			factor = 5
+		}
 		relative_position_id = FGB_noske_allow_local_free_elections
 		prerequisite = { focus = FGB_noske_allow_local_free_elections }
 		completion_reward = {
@@ -374,8 +417,11 @@ focus_tree = {
 		icon = GFX_focus_FGB_electing_new_leader
 		x = 0
 		y = 1
-		relative_position_id = FGB_noske_rejuvenate_old_industries
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_noske_rejuvenate_old_industries
 		prerequisite = { focus = FGB_noske_rejuvenate_old_industries }
 		completion_reward = {
 			add_stability = 0.05
@@ -405,6 +451,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		ai_will_do = {
+			factor = 5
+		}
 		relative_position_id = FGB_noske_rebuild_mine_towns
 		prerequisite = { focus = FGB_noske_rebuild_mine_towns }
 		completion_reward = {
@@ -435,6 +484,9 @@ focus_tree = {
 		x = 0
 		y = 2
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_noske_september_coalition
 		prerequisite = { focus = FGB_noske_september_coalition }
 		prerequisite = { focus = FGB_noske_rebuild_mine_towns }
@@ -464,6 +516,9 @@ focus_tree = {
 		x = 0
 		y = 3
 		cost = 2
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_noske_september_coalition
 		prerequisite = { focus = FGB_noske_broker_a_peace_with_the_protestors }
 		completion_reward = {
@@ -510,6 +565,9 @@ focus_tree = {
 		x = 0
 		y = 3
 		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_noske_new_day_new_germany
 		prerequisite = { focus = FGB_government_of_national_salvation }
 		allow_branch = { has_country_flag = FGB_noske_reform_complete }
@@ -548,7 +606,7 @@ focus_tree = {
 		relative_position_id = FGB_noske_aggressive_policy
 		prerequisite = { focus = FGB_noske_aggressive_policy }
 		allow_branch = { has_country_flag = FGB_noske_victory_over_bavaria_flag }
-		mutually_exclusive = { focus = FGB_noske_dehumanise_communists }
+		mutually_exclusive = { focus = FGB_noske_under_new_management }
 		completion_reward = {
 			add_war_support = 0.1
 			add_manpower = 110000
@@ -584,44 +642,39 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_noske_recruit_new_staff
+		id = FGB_noske_raid_communist_barracks
 		icon = GFX_focus_noske_recruit_new_staff
 		x = -1
 		y = 1
-		cost = 3
+		cost = 5
 		relative_position_id = FGB_noske_victory_over_bavaria
 		prerequisite = { focus = FGB_noske_victory_over_bavaria }
 		completion_reward = {
 			add_war_support = 0.05
-			add_corps_commander_role = {
-				character = FGB_julius_schreck
-				traits = { fgb_paramilitarist }
-				skill = 2
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 1
+			add_stability = -0.1
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
 			}
-			add_corps_commander_role = {
-				character = FGB_christian_berger
-				traits = { fgb_paramilitarist }
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1400
 			}
-			add_corps_commander_role = {
-				character = FGB_theodor_eicke
-				traits = { }
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 700
 			}
-			hidden_effect = {
-				country_event = fgb.8
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 350
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 200
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 150
 			}
 		}
 	}
@@ -666,6 +719,49 @@ focus_tree = {
 			add_popularity = {
 				ideology = bolshevism
 				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_recruit_new_staff
+		icon = GFX_focus_noske_recruit_new_staff
+		x = 4
+		y = 2.5
+		cost = 3
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		completion_reward = {
+			add_war_support = 0.05
+			add_corps_commander_role = {
+				character = FGB_julius_schreck
+				traits = { fgb_paramilitarist }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			add_corps_commander_role = {
+				character = FGB_christian_berger
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			add_corps_commander_role = {
+				character = FGB_theodor_eicke
+				traits = { }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			hidden_effect = {
+				country_event = fgb.8
 			}
 		}
 	}
@@ -980,7 +1076,7 @@ focus_tree = {
 		id = FGB_noske_inwards_and_outwards
 		icon = GFX_focus_noske_cooperative_policy
 		x = 0
-		y = 2
+		y = 1
 		cost = 0
 		relative_position_id = FGB_noske_amnesty_to_generals
 		prerequisite = { focus = FGB_noske_amnesty_to_generals }
@@ -994,7 +1090,7 @@ focus_tree = {
 		id = FGB_noske_demand_eupen_malmedy
 		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
 		x = 3
-		y = 2
+		y = 1
 		cost = 3
 		available = {
 			NOT = { has_completed_focus = FGB_noske_cooperative_policy }
@@ -1032,7 +1128,7 @@ focus_tree = {
 		id = FGB_noske_purchase_eupen_malmedy
 		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
 		x = 5
-		y = 2
+		y = 1
 		cost = 3
 		available = {
 			NOT = { has_completed_focus = FGB_noske_cooperative_policy }
@@ -1067,10 +1163,64 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_noske_support_the_republicans
+		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		x = -4
+		y = 1
+		cost = 2
+		available = {
+			NOT = { has_completed_focus = FGB_noske_the_final_battle }
+			country_exists = GER
+			GER = {
+				has_war_with = UVS
+			}
+		}
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			add_war_support = 0.06
+			give_military_access = GER
+			GER = {
+				give_military_access = FGB
+			}
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_the_final_battle
+		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		x = -9
+		y = 1
+		cost = 3
+		available = {
+			NOT = { has_completed_focus = FGB_noske_support_the_republicans }
+			NOT = { country_exists = GER }
+			UVS = {
+				controls_state = 835
+				controls_state = 836
+			}
+		}
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			add_war_support = 0.1
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+			news_event = fgb.20
+		}
+	}
+
+	focus = {
 		id = FGB_noske_strike_at_the_syndicates
 		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
 		x = 0
-		y = 2
+		y = 1
 		cost = 2
 		relative_position_id = FGB_noske_inwards_and_outwards
 		prerequisite = { focus = FGB_noske_inwards_and_outwards }
@@ -1225,11 +1375,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_noske_dehumanise_communists
+		id = FGB_noske_under_new_management
 		icon = GFX_focus_FGB_noske_cooperative_policy
 		x = 3
 		y = 1
-		cost = 3
+		cost = 0
 		available = {
 			BAV = {
 				is_subject_of = FGB
@@ -1240,11 +1390,32 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_victory_over_bavaria }
 		completion_reward = {
 			add_stability = -0.05
+		}
+	}
+
+	focus = {
+		id = FGB_noske_dehumanise_communists
+		icon = GFX_focus_FGB_noske_cooperative_policy
+		x = 2
+		y = 1
+		cost = 3
+		available = {
+			BAV = {
+				is_subject_of = FGB
+			}
+		}
+		relative_position_id = FGB_noske_under_new_management
+		prerequisite = { focus =  FGB_noske_under_new_management }
+		completion_reward = {
+			add_stability = -0.05
 			add_popularity = {
 				ideology = bolshevism
 				popularity = -0.05
 			}
 			BAV = {
+				add_autonomy_score = {
+					value = -50
+				}
 				add_stability = -0.01
 				add_popularity = {
 					ideology = marxism
@@ -1259,13 +1430,48 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_noske_stir_nationalist_sentiment
+		icon = GFX_focus_FGB_noske_cooperative_policy
+		x = 0
+		y = 1
+		cost = 3
+		available = {
+			BAV = {
+				is_subject_of = FGB
+			}
+		}
+		relative_position_id = FGB_noske_under_new_management
+		prerequisite = { focus = FGB_noske_under_new_management }
+		completion_reward = {
+			BAV = {
+				add_autonomy_score = {
+					value = -100
+				}
+				add_stability = -0.05
+				add_war_support = 0.1
+				add_popularity = {
+					ideology = social_democrat
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = conservatism
+					popularity = 0.1
+				}
+				add_popularity = {
+					ideology = national_syndicalism
+					popularity = 0.15
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = FGB_noske_the_second_revolution_of_1848
 		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 2
+		x = 30
+		y = 8
 		cost = 4
 		allow_branch = { has_country_flag = FGB_noske_ger_unified_flag }
-		relative_position_id = FGB_noske_reintegrate_the_north
 		completion_reward = {
 			add_political_power = 10
 			set_country_flag = FGB_noske_revolution_of_1848_flag
@@ -1990,9 +2196,6 @@ focus_tree = {
 		x = 24
 		y = 1
 		cost = 5
-		ai_will_do = {
-			factor = 10
-		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			army_experience = 30
