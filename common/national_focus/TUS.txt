@@ -298,7 +298,11 @@
 		
 		completion_reward = {
 			FRA = {
-				puppet = TUS
+				puppet = {
+					target = TUS
+					end_wars = no
+				}
+				
 			}
 			custom_effect_tooltip = TUS_modify_ppl_subtract_30
 			custom_effect_tooltip = TUS_modify_mil_subtract_30
@@ -503,6 +507,7 @@
 		
 		completion_reward = {
 			remove_ideas = TUS_heavly_disorganised_army
+			army_experience = 50
 			country_event = tus.10
 			custom_effect_tooltip = TUS_modify_mil_add_10
 			custom_effect_tooltip = TUS_modify_gc_add_5
@@ -1179,6 +1184,34 @@
 			}
 		}
 	}
+	
+	focus = {
+		id = TUS_restabilize_the_government
+		icon = GFX_goal_generic_construction
+
+		#available = {
+		#	has_completed_focus = TUS_balbos_speech_2
+		#}
+		
+		prerequisite = {focus = TUS_balbos_speech_2}
+		
+        x = 4
+        y = 0
+		
+		relative_position_id = TUS_rebuild_italy
+		
+		
+		cancelable = no
+		
+        cost = 5
+		
+		completion_reward = {
+			custom_effect_tooltip = TUS_focus_event_chain
+			hidden_effect = {
+				country_event = tus_coun2.2
+			}
+		}
+	}
 
 	focus = {
 		id = TUS_resolve_workers_strikes
@@ -1249,34 +1282,6 @@
 					NOT = {has_idea = economically_isolated}
 				}
 				add_opinion_modifier = { target = TUS modifier = small_increase}				
-			}
-		}
-	}
-	
-	focus = {
-		id = TUS_restabilize_the_government
-		icon = GFX_goal_generic_construction
-
-		#available = {
-		#	has_completed_focus = TUS_balbos_speech_2
-		#}
-		
-		prerequisite = {focus = TUS_balbos_speech_2}
-		
-        x = 4
-        y = 0
-		
-		relative_position_id = TUS_rebuild_italy
-		
-		
-		cancelable = no
-		
-        cost = 5
-		
-		completion_reward = {
-			custom_effect_tooltip = TUS_focus_event_chain
-			hidden_effect = {
-				country_event = tus_coun2.2
 			}
 		}
 	}
@@ -1686,7 +1691,10 @@
 		icon = GFX_goal_generic_construction
 		
 		available = {
-			always = no
+			has_completed_focus = TUS_army_reform
+			hidden_trigger = {
+				always = no
+			}
 		}
 		
 		mutually_exclusive = {focus = TUS_army_type_2}
@@ -1704,9 +1712,12 @@
 	focus = {
 		id = TUS_army_type_2
 		icon = GFX_goal_generic_construction
-		
+			
 		available = {
-			always = no
+			has_completed_focus = TUS_army_reform
+			hidden_trigger = {
+				always = no
+			}
 		}
 		
 		mutually_exclusive = {focus = TUS_army_type_1}
@@ -1718,7 +1729,7 @@
         cost = 0
 		
 		completion_reward = {
-			add_ideas = TUS_army_reforms_1
+			add_ideas = TUS_army_reforms_2
 		}
 	}
 
@@ -1732,13 +1743,14 @@
 		x = 0
         y = 1
 				
-        cost = 0
+        cost = 5
 		
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = TUS_army_reforms_1
 				add_idea = TUS_army_reforms_cav
 			}
+			army_experience = 25
 		}
 	}
 	
@@ -1752,13 +1764,14 @@
 		x = 0
         y = 1
 				
-        cost = 0
+        cost = 5
 		
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = TUS_army_reforms_1
+				remove_idea = TUS_army_reforms_2
 				add_idea = TUS_army_reforms_art
 			}
+			army_experience = 25
 		}
 	}
 	
@@ -1775,16 +1788,23 @@
 		x = 1
         y = 1
 				
-        cost = 5
+        cost = 10
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TUS_army_reforms_cav
-				add_idea = TUS_army_reforms_cav_2
+			if = {
+				limit = {has_completed_focus = TUS_army_type_1}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_cav
+					add_idea = TUS_army_reforms_cav_2
+				}
 			}
-			swap_ideas = {
-				remove_idea = TUS_army_reforms_art
-				add_idea = TUS_army_reforms_art_2
+			if = {
+				limit = {has_completed_focus = TUS_army_type_2}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_art
+					add_idea = TUS_army_reforms_art_2
+				}
 			}
+			army_experience = 50
 		}
 		
 	}
@@ -1804,14 +1824,21 @@
         cost = 0
 		
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = TUS_army_reforms_cav_2
-				add_idea = TUS_army_reforms_cav_3
+			if = {
+				limit = {has_completed_focus = TUS_army_type_1}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_cav_2
+					add_idea = TUS_army_reforms_cav_3
+				}
 			}
-			swap_ideas = {
-				remove_idea = TUS_army_reforms_art_2
-				add_idea = TUS_army_reforms_art_3
-			}			
+			if = {
+				limit = {has_completed_focus = TUS_army_type_2}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_art_2
+					add_idea = TUS_army_reforms_art_3
+				}	
+			}
+			army_experience = 50			
 		}
 	}
 	
@@ -1830,13 +1857,14 @@
 		x = -1
         y = 3
 				
-        cost = 0
+        cost = 35
 		
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = TUS_army_reforms_cav_3
 				add_idea = TUS_army_reforms_car
-			}		
+			}	
+			army_experience = 25			
 		}
 	}
 	
@@ -1855,13 +1883,14 @@
 		x = 3
         y = 3
 				
-        cost = 0
+        cost = 35
 		
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = TUS_army_reforms_art_3
 				add_idea = TUS_army_reforms_tank
-			}			
+			}	
+			army_experience = 25
 		}
 	}
 }
