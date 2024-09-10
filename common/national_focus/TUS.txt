@@ -298,7 +298,11 @@
 		
 		completion_reward = {
 			FRA = {
-				puppet = TUS
+				puppet = {
+					target = TUS
+					end_wars = no
+				}
+				
 			}
 			custom_effect_tooltip = TUS_modify_ppl_subtract_30
 			custom_effect_tooltip = TUS_modify_mil_subtract_30
@@ -1179,6 +1183,34 @@
 			}
 		}
 	}
+	
+	focus = {
+		id = TUS_restabilize_the_government
+		icon = GFX_goal_generic_construction
+
+		#available = {
+		#	has_completed_focus = TUS_balbos_speech_2
+		#}
+		
+		prerequisite = {focus = TUS_balbos_speech_2}
+		
+        x = 4
+        y = 0
+		
+		relative_position_id = TUS_rebuild_italy
+		
+		
+		cancelable = no
+		
+        cost = 5
+		
+		completion_reward = {
+			custom_effect_tooltip = TUS_focus_event_chain
+			hidden_effect = {
+				country_event = tus_coun2.2
+			}
+		}
+	}
 
 	focus = {
 		id = TUS_resolve_workers_strikes
@@ -1249,34 +1281,6 @@
 					NOT = {has_idea = economically_isolated}
 				}
 				add_opinion_modifier = { target = TUS modifier = small_increase}				
-			}
-		}
-	}
-	
-	focus = {
-		id = TUS_restabilize_the_government
-		icon = GFX_goal_generic_construction
-
-		#available = {
-		#	has_completed_focus = TUS_balbos_speech_2
-		#}
-		
-		prerequisite = {focus = TUS_balbos_speech_2}
-		
-        x = 4
-        y = 0
-		
-		relative_position_id = TUS_rebuild_italy
-		
-		
-		cancelable = no
-		
-        cost = 5
-		
-		completion_reward = {
-			custom_effect_tooltip = TUS_focus_event_chain
-			hidden_effect = {
-				country_event = tus_coun2.2
 			}
 		}
 	}
