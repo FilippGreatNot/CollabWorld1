@@ -13,7 +13,7 @@
 		id = TUS_hold_our_beliefs
 		icon = GFX_goal_generic_construction
 		
-        x = 10
+        x = 5
         y = 1
 		
         cost = 3
@@ -866,7 +866,10 @@
 			focus = TUS_the_red_menace
 		}
 		
-		available = {has_war = no}
+		available = {
+			has_war = no
+			NOT = { owns_state = 930}
+		}
 		
 		bypass = {
 			OR = {
@@ -885,6 +888,7 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
+			SAN = { country_event = tus.14}
 		}
 	}
 	
@@ -1038,6 +1042,9 @@
 		prerequisite = {
 			focus = TUS_rebuild_italy
 		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
 		
         x = -2
         y = 1
@@ -1114,6 +1121,9 @@
 		prerequisite = {
 			focus = TUS_rebuild_italy
 		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
 		
         x = 0
         y = 1
@@ -1181,10 +1191,10 @@
 			focus = TUS_restabilize_the_government
 		}
 		
-        x = 2
+        x = 0
         y = 1
 		
-		relative_position_id = TUS_rebuild_italy
+		relative_position_id = TUS_restabilize_the_government
 		
         cost = 5
 		
@@ -1207,17 +1217,17 @@
 		id = TUS_start_trade_relations
 		icon = GFX_goal_generic_construction
 
-		prerequisite = {
-			focus = TUS_improve_the_north
-		}
-		prerequisite = {
-			focus = TUS_improve_the_south
-		}
-		
 		bypass = {NOT = {has_idea = economically_isolated}}
 		
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
         x = -2
-        y = 1
+        y = 0
 		
 		relative_position_id = TUS_resolve_workers_strikes
 		
@@ -1272,14 +1282,46 @@
 	}
 	
 	focus = {
+		id = TUS_research_division
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = 2
+        y = 1
+		
+		relative_position_id = TUS_restabilize_the_government
+		
+        cost = 6
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
 		id = TUS_balbos_speech_3
 		icon = GFX_goal_generic_construction
 		
+		prerequisite = {
+			focus = TUS_improve_the_north
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south
+		}		
 		prerequisite = {
 			focus = TUS_start_trade_relations
 		}
 		prerequisite = {
 			focus = TUS_resolve_workers_strikes
+		}
+		prerequisite = {
+			focus = TUS_research_division
 		}
 		
 		available = {
@@ -1289,7 +1331,7 @@
 		relative_position_id = TUS_restabilize_the_government
 		
         x = -2
-        y = 3
+        y = 2
 		
         cost = 5
 		
@@ -1636,4 +1678,190 @@
 	#		}
 	#	}
 	#}
+
+	## army focus tree ##
+
+	focus = {
+		id = TUS_army_type_1
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			always = no
+		}
+		
+		mutually_exclusive = {focus = TUS_army_type_2}
+
+		x = 15
+        y = 4
+				
+        cost = 0
+		
+		completion_reward = {
+			add_ideas = TUS_army_reforms_1
+		}
+	}
+	
+	focus = {
+		id = TUS_army_type_2
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			always = no
+		}
+		
+		mutually_exclusive = {focus = TUS_army_type_1}
+		
+		relative_position_id = TUS_army_type_1
+		x = 2
+        y = 0
+				
+        cost = 0
+		
+		completion_reward = {
+			add_ideas = TUS_army_reforms_1
+		}
+	}
+
+	focus = {
+		id = TUS_cav_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_army_type_1}
+		
+		relative_position_id = TUS_army_type_1
+		x = 0
+        y = 1
+				
+        cost = 0
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_1
+				add_idea = TUS_army_reforms_cav
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_art_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_army_type_2}
+		
+		relative_position_id = TUS_army_type_2
+		x = 0
+        y = 1
+				
+        cost = 0
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_1
+				add_idea = TUS_army_reforms_art
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_army_gen_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_cav_buff
+			focus = TUS_art_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = 1
+        y = 1
+				
+        cost = 5
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_cav
+				add_idea = TUS_army_reforms_cav_2
+			}
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_art
+				add_idea = TUS_army_reforms_art_2
+			}
+		}
+		
+	}
+	
+	focus = {
+		id = TUS_mot_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_army_gen_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = 1
+        y = 2
+				
+        cost = 0
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_cav_2
+				add_idea = TUS_army_reforms_cav_3
+			}
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_art_2
+				add_idea = TUS_army_reforms_art_3
+			}			
+		}
+	}
+	
+	focus = {
+		id = TUS_mec_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_mot_buff
+		}
+		prerequisite = {
+			focus = TUS_cav_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = -1
+        y = 3
+				
+        cost = 0
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_cav_3
+				add_idea = TUS_army_reforms_car
+			}		
+		}
+	}
+	
+	focus = {
+		id = TUS_tank_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_mot_buff
+		}
+		prerequisite = {
+			focus = TUS_art_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = 3
+        y = 3
+				
+        cost = 0
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_art_3
+				add_idea = TUS_army_reforms_tank
+			}			
+		}
+	}
 }
