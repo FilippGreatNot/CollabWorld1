@@ -285,8 +285,8 @@ focus_tree = {
 			factor = 10
 		}
 		available = {
-			ideology_social_democrat > 0.3
-			ideology_despotism < 0.2
+			social_democrat > 0.3
+			despotism < 0.2
 		}
 		relative_position_id = FGB_noske_freikorps_spd
 		prerequisite = { focus = FGB_noske_freikorps_spd }
@@ -1470,7 +1470,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 30
 		y = 8
-		cost = 4
+		cost = 0
 		allow_branch = { has_country_flag = FGB_noske_ger_unified_flag }
 		completion_reward = {
 			add_political_power = 10
@@ -1488,7 +1488,22 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_the_second_revolution_of_1848 }
 		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
-			add_political_power = 10
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
 		}
 	}
 
@@ -1502,7 +1517,8 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_the_second_revolution_of_1848 }
 		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
-			add_political_power = 10
+			add_stability = 0.2
+			add_political_power = 130
 		}
 	}
 
@@ -1515,7 +1531,8 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_for_democracy }
 		relative_position_id = FGB_noske_for_democracy
 		completion_reward = {
-			add_political_power = 10
+			add_stability = 0.05
+			country_event = fgb.21
 		}
 	}
 
@@ -1543,7 +1560,13 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_cdu_victory }
 		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
-			add_political_power = 10
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = social_democrat
+			}
 		}
 	}
 
@@ -1558,7 +1581,13 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_cdu_victory }
 		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
-			add_political_power = 10
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = liberalism
+			}
 		}
 	}
 
@@ -1573,7 +1602,13 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_fdp_victory }
 		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
-			add_political_power = 10
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = conservatism
+			}
 		}
 	}
 
@@ -1669,6 +1704,19 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_noske_reinstate_the_reichstag
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_noske_interparty_dialogue }
+		relative_position_id = FGB_noske_interparty_dialogue
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+
+	focus = {
 		id = FGB_noske_establish_the_kirchensteuer
 		icon = GFX_focus_FGB_noske_default
 		x = 0
@@ -1712,12 +1760,61 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 2
-		cost = 4
+		cost = 6
 		prerequisite = { focus = FGB_noske_for_democracy }
 		prerequisite = { focus = FGB_noske_and_for_stability }
 		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
-			add_political_power = 10
+			50 = {
+				add_building_construction = {
+					type = arms_factory
+					level = -3
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			51 = {
+				add_building_construction = {
+					type = arms_factory
+					level = -3
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			52 = {
+				add_building_construction = {
+					type = arms_factory
+					level = -3
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			53 = {
+				add_building_construction = {
+					type = arms_factory
+					level = -3
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			54  = {
+				add_building_construction = {
+					type = arms_factory
+					level = -3
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
 		}
 	}
 
@@ -2984,6 +3081,59 @@ focus_tree = {
 			}
 			add_ideas = {
 				FGB_looking_from_the_clouds
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_recycle_old_planes
+		icon = GFX_focus_generic_air_defense
+		x = 1
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_adapt_our_blueprints }
+		relative_position_id = FGB_adapt_our_blueprints
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_repairing_planes
+				days = 42
+			}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_0
+				amount = -120
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 100
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_aerial_innovations
+		icon = GFX_focus_generic_air_production
+		x = 0
+		y = 2
+		cost = 5
+		prerequisite = { focus = FGB_adapt_our_blueprints }
+		relative_position_id = FGB_adapt_our_blueprints
+		completion_reward = {
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+			air_experience = 150
+			add_war_support = 0.05
+			every_owned_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}

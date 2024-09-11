@@ -84,21 +84,21 @@ generate_units = {
 				}
 			}
 		}
-		else_if = {
-			limit = {
-				state_strategic_value < 200 #Finally good divisions
-			}
-			for_loop_effect = {
-				end = mtth:infantry_amount
-				start = 1
-				compare = less_than_or_equals
-				
-				create_unit = {
-					division = "division_template = \"Infantry Division\""
-					owner = PREV
-				}
-			}
-		}
+		#else_if = {
+		#	limit = {
+		#		state_strategic_value < 200 #Finally good divisions
+		#	}
+		#	for_loop_effect = {
+		#		end = mtth:infantry_amount
+		#		start = 1
+		#		compare = less_than_or_equals
+		#		
+		#		create_unit = {
+		#			division = "division_template = \"Infantry Division\""
+		#			owner = PREV
+		#		}
+		#	}
+		#}
 		else = { #We're rich
 			for_loop_effect = {
 				end = mtth:infantry_amount
