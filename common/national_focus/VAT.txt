@@ -1,0 +1,128 @@
+focus_tree = {
+	id = vat.focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = VAT
+		}
+	}
+	default = no
+	
+	focus = {
+		id = VAT_death_of_pope
+		icon = GFX_goal_generic_construction
+		
+        x = 5
+        y = 1
+		
+        cost = 0
+		
+		allow_branch = {
+			NOT = {
+				has_country_leader = {
+					character = VAT_pope_benedict_xv
+					ruling_only = yes
+				}
+			}
+		}
+		
+		available = { hidden_trigger = { always = no }}
+	}
+	
+	focus = {
+		id = VAT_the_waiting_game
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = VAT_death_of_pope}
+		
+		relative_position_id = VAT_death_of_pope	
+        x = 0
+        y = 1
+		
+        cost = 10
+	}
+	
+	focus = {
+		id = VAT_papal_conclave_1
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = VAT_the_waiting_game}
+		
+		relative_position_id = VAT_the_waiting_game			
+        x = 0
+        y = 1
+		
+        cost = 1
+		
+		completion_reward = {
+			country_event = vat.2
+		}
+	}
+	
+	focus = {
+		id = VAT_gasparri
+		icon = GFX_goal_generic_construction
+		
+		mutually_exclusive = {focus = VAT_ratti}
+		mutually_exclusive = {focus = VAT_val}
+		
+		prerequisite = {focus = VAT_papal_conclave_1}
+		
+		relative_position_id = VAT_papal_conclave_1		
+        x = -2
+        y = 1
+		
+        cost = 0
+				
+		available = { hidden_trigger = { always = no }}
+		
+		completion_reward = {
+			promote_character = VAT_pope_benedict_xvi_gas
+		}
+	}
+	
+	focus = {
+		id = VAT_ratti
+		icon = GFX_goal_generic_construction
+		
+		mutually_exclusive = {focus = VAT_val}
+		mutually_exclusive = {focus = VAT_gasparri}
+		
+		prerequisite = {focus = VAT_papal_conclave_1}
+		
+		relative_position_id = VAT_papal_conclave_1		
+        x = 0
+        y = 1
+		
+        cost = 0
+				
+		available = { hidden_trigger = { always = no }}
+		
+		completion_reward = {
+			promote_character = VAT_pope_pius_xi_rat
+		}
+	}
+
+	focus = {
+		id = VAT_val
+		icon = GFX_goal_generic_construction
+		
+		mutually_exclusive = {focus = VAT_ratti}
+		mutually_exclusive = {focus = VAT_gasparri}
+		
+		prerequisite = {focus = VAT_papal_conclave_1}
+		
+		relative_position_id = VAT_papal_conclave_1		
+        x = 2
+        y = 1
+		
+        cost = 0
+				
+		available = { hidden_trigger = { always = no }}
+		
+		completion_reward = {
+			promote_character = VAT_pope_pius_xi_val
+		}
+	}
+}

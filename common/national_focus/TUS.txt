@@ -354,6 +354,8 @@
 			focus = TUS_balbos_speech_2
 		}
 		
+		available = {is_in_faction = no}
+		
 		bypass = {
 			is_puppet_of = FRA
 		}
@@ -369,10 +371,41 @@
 			FRA = {
 				add_to_faction = ROOT
 			}
+			set_rule = {
+				can_create_factions = yes
+			}
 		}
 	}
 	
 	## End France ##
+	
+	focus = {
+		id = TUS_rome_accords
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_balbos_speech_2
+		}
+		
+		available = {
+			is_in_faction = no
+			is_puppet = no
+		}
+	
+		relative_position_id = TUS_french_intervention
+		
+        x = -2
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			create_faction =  faction_TUS_rome_accords
+			set_rule = {
+				can_create_factions = yes
+			}
+		}
+	}
 	
 	focus = {
 		id = TUS_expand_civs
@@ -603,10 +636,10 @@
 		completion_reward = {
 			country_event = tus.2
 			remove_ideas = {TUS_collapsing_economy_2}
-			#swap_ideas = {
-			#	remove_idea = closed_economy
-			#	add_idea = limited_exports
-			#}
+			add_timed_idea = {
+				idea = TUS_investment_in_small_businesses
+				days = 365
+			}
 			custom_effect_tooltip = TUS_modify_ppl_add_10
 			custom_effect_tooltip = TUS_modify_mil_add_10
 			custom_effect_tooltip = TUS_modify_gc_add_10
