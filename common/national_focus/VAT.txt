@@ -1,0 +1,32 @@
+focus_tree = {
+	id = vat.focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = VAT
+		}
+	}
+	default = no
+	
+	focus = {
+		id = TUS_death_of_pope
+		icon = GFX_goal_generic_construction
+		
+        x = 5
+        y = 1
+		
+        cost = 0
+		
+		allow_branch = {
+			NOT = {
+				has_country_leader = {
+					character = VAT_pope_benedict_xv
+					ruling_only = yes
+				}
+			}
+		}
+		
+		available = { hidden_trigger = { always = no }}
+	}
+}
