@@ -1,0 +1,27 @@
+## SETUP ##
+add_namespace = vat
+
+## MAIN ##
+
+country_event = {
+	id = vat.1
+	title = vat.1.t
+	desc = vat.1.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VAT
+		date > 1922.1.22
+	}
+	
+	immediate = {
+		kill_country_leader = yes
+	}
+	
+	option = {
+		name = vat.1.a
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = TUS_death_of_pope
+	}
+}
