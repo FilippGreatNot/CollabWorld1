@@ -68,57 +68,81 @@ generate_units = {
 		}
 	}
 	
-	every_owned_state = {
-		if = {
+	### Spawning units ###
+	if = {
+		limit = { has_template = "Militia Brigade" } #If you don't have the tech you also won't have this template
+		
+		every_owned_state = {
 			limit = {
-				check_variable = { state_strategic_value < 30 } #Cannon fodder
+				check_variable = { state_strategic_value < 30 }
 			}
-			for_loop_effect = {
-				end = mtth:militia_amount
-				start = 1 #We start at 1 since we don't really need to have that 1 div for completely pissed states
-				compare = less_than_or_equals
-				
-				create_unit = {
-					division = "division_template = \"Militia Brigade\""
-					owner = PREV
-				}
-			}
+			generate_militia_units_in_state = yes
 		}
-		#else_if = {
-		#	limit = {
-		#		state_strategic_value < 200 #Finally good divisions
-		#	}
-		#	for_loop_effect = {
-		#		end = mtth:infantry_amount
-		#		start = 1
-		#		compare = less_than_or_equals
-		#		
-		#		create_unit = {
-		#			division = "division_template = \"Infantry Division\""
-		#			owner = PREV
-		#		}
-		#	}
-		#}
-		else = { #We're rich
-			for_loop_effect = {
-				end = mtth:infantry_amount
-				start = 1
-				compare = less_than_or_equals
-				
-				create_unit = {
-					division = "division_template = \"Infantry Division\""
-					owner = PREV
-				}
+	}
+	if = {
+		limit = {
+			has_template = "Infantry Division"
+		}
+		
+		every_owned_state = {
+			limit = {
+				check_variable = { state_strategic_value > 30 }
 			}
-			for_loop_effect = {
-				end = mtth:tank_amount
-				start = 0 #But now we want to have at least 1 since we're rich
-				compare = less_than_or_equals
-				
-				create_unit = {
-					division = "division_template = \"Armoured Division\""
-					owner = PREV
-				}
+			generate_infantry_units_in_state = yes
+		}
+	}
+	if = {
+		limit = {
+			has_template = "Armoured Division"
+		}
+		
+		every_owned_state = {
+			limit = {
+				check_variable = { state_strategic_value > 30 }
+			}
+			generate_armoured_units_in_state = yes
+		}
+	}
+}
+
+generate_militia_units_in_state = {
+	for_loop_effect = {
+		end = mtth:militia_amount
+		start = 1 #We start at 1 since we don't really need to have that 1 div for completely pissed states
+		compare = less_than_or_equals
+		
+		create_unit = {
+			division = "division_template = \"Militia Brigade\""
+			owner = PREV
+		}
+	}
+}
+generate_infantry_units_in_state = {
+	for_loop_effect = {
+		end = mtth:infantry_amount
+		start = 1
+		compare = less_than_or_equals
+		
+		create_unit = {
+			division = "division_template = \"Infantry Division\""
+			owner = PREV
+		}
+	}
+}
+generate_armoured_units_in_state = {
+	if = {
+		limit = {
+			owner = { has_template = "Armoured Division" }
+		}
+		
+		for_loop_effect = {
+			end = mtth:tank_amount
+			start = 0 #But now we want to have at least 1 since we're rich
+			compare = less_than_or_equals
+			
+			create_unit = {
+				division = "division_template = \"Armoured Division\""
+				owner = PREV
 			}
 		}
 	}
