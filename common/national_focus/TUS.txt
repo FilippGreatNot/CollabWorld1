@@ -295,15 +295,19 @@
         cost = 5
 		
 		completion_reward = {
-			#set_temp_variable = { TUS_pp_bol = party_popularity@bolshevism }	
-			#set_temp_variable = { TUS_pp_mar = party_popularity@marxism }
-			#set_temp_variable = { TUS_pp_lib = party_popularity@liberalism }	
+			set_temp_variable = { com_pop_1 = party_popularity@bolshevism}
+			subtract_from_temp_variable = { com_pop_1 = 5 }
+			set_temp_variable = { com_pop_2 = party_popularity@marxism}
+			subtract_from_temp_variable = { com_pop_2 = 4 }
+			set_temp_variable = { lib_pop_1 = party_popularity@liberalism}
+			subtract_from_temp_variable = { lib_pop = 2 }
 			FRA = {
 				puppet = {
 					target = TUS
 					end_wars = no
+					end_civil_wars = no
 				}				
-			}
+			}			
 			custom_effect_tooltip = TUS_modify_ppl_subtract_30
 			custom_effect_tooltip = TUS_modify_mil_subtract_30
 			custom_effect_tooltip = TUS_modify_gc_subtract_30
@@ -319,26 +323,23 @@
 				var = TUS_Balbo_Pop_gc
 				value = 30
 			}
-			hidden_effect = {
+			hidden_effect = {		
 				set_politics = {
 					ruling_party = national_syndicalism
 				}
-				if = {
-					limit = {has_idea = TUS_unified_government}
-					set_popularities = {
-						bolshevism =  6
-						national_syndicalism = 89
-						esotericism = 5
-					}	
-				}else = {
-					set_popularities = {
-						bolshevism =  6
-						national_syndicalism = 44
-						despotism = 25
-						reactionism = 20
-						esotericism = 5
-					}
+				set_popularities = {
+					bolshevism =  5
+					national_syndicalism = 40
+					despotism = 15
+					reactionism = 20
+					esotericism = 4
+					liberalism = 2
+					conservatism = 10
+					marxism = 4
 				}
+				add_popularity = { ideology = bolshevism  popularity = com_pop_1 }
+				add_popularity = { ideology = marxism popularity = com_pop_2 }
+				add_popularity = { ideology = liberalism  popularity = lib_pop_1 }
 			}
 		}
 	}
