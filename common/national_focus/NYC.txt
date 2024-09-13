@@ -2,7 +2,7 @@
 focus_tree = {
 	id = NYC_focus_tree
 	country = {
-		factor = 0
+		factor = 10
 		modifier = {
 			add = 10
 			tag = NYC
@@ -10,565 +10,361 @@ focus_tree = {
 	}
 	default = no
 	
-	
-	
 	focus = {
-		id = NYC_new_state
-		icon = GFX_focus_USA_new_york_state
-		x = 5
+		id = NYC_elections
+		x = 3
 		y = 0
-		cost = 5
-
+		cost = 3
+		available = {
+			date > 1922.11.03
+		}
 		completion_reward = {
-
+			country_event = nyc.1
 		}
 	}
 	focus = {
-		id = NYC_root_bolsheviks
-		icon = GFX_focus_USA_ban_communist_parties
-		x = 2
-		y = 1
-		prerequisite = {focus = NYC_new_state }
-		relative_position_id = NYC_new_state
+		id = NYC_al_smith
+		x = 10
+		y = 0
 		cost = 3
-
-		completion_reward = {
-			add_ideas = {
-				NYC_root_bolsheviks
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
 			}
 		}
+		completion_reward = {
+		}
 	}
 	focus = {
-		id = NYC_rearm_ny
-		icon = GFX_focus_USA_rearm_new_york
+		id = NYC_worker_saftey_laws
 		x = -2
 		y = 1
-		prerequisite = {focus = NYC_new_state }
-		relative_position_id = NYC_new_state
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_al_smith}
+		relative_position_id = NYC_al_smith
 		cost = 3
-
 		completion_reward = {
-			add_manpower = 100
+
 		}
 	}
 	focus = {
-		id = NYC_economic_growth
-		icon = GFX_focus_USA_maximize_growth
+		id = NYC_greater_workers_rights
 		x = 0
 		y = 1
-		prerequisite = {focus = NYC_new_state }
-		relative_position_id = NYC_new_state
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_al_smith}
+		relative_position_id = NYC_al_smith
 		cost = 3
-
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_american_model
-		icon = GFX_focus_USA_american_model
+		id = NYC_support_labor_unions
+		x = 2
+		y = 1
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_al_smith}
+		relative_position_id = NYC_al_smith
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_safer_workers
+		x = 1
+		y = 1
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_worker_saftey_laws}
+		prerequisite = {focus = NYC_greater_workers_rights}
+		relative_position_id = NYC_worker_saftey_laws
+		cost = 4
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_unite_the_state
 		x = -1
 		y = 1
-		prerequisite = {focus = NYC_rearm_ny }
-		prerequisite = {focus = NYC_economic_growth }
-		prerequisite = {focus = NYC_root_bolsheviks }
-		relative_position_id = NYC_rearm_ny
-		cost = 3
-
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_support_labor_unions}
+		prerequisite = {focus = NYC_greater_workers_rights}
+		relative_position_id = NYC_support_labor_unions
+		cost = 4
 		completion_reward = {
-			add_stability = 0.1
-		}
-	}
-	focus = {
-		id = NYC_york_army
-		icon = GFX_focus_USA_new_york_army
-		x = 5
-		y = 1
-		prerequisite = {focus = NYC_rearm_ny }
-		prerequisite = {focus = NYC_economic_growth }
-		prerequisite = {focus = NYC_root_bolsheviks }
-		relative_position_id = NYC_rearm_ny
-		cost = 3
 
-		completion_reward = {
-			army_experience = 20
 		}
 	}
 	focus = {
-		id = NYC_american_unification
-		x = 12
-		y = -1
-		relative_position_id = NYC_rearm_ny
-		cost = 3
-
-		available = {
-			date > 1923.01.01
-		}
-	}
-	focus = {
-		id = NYC_civilian_economy
-		icon = GFX_focus_USA_civilian_new_york
+		id = NYC_new_progressive_era
 		x = -1
 		y = 1
-		prerequisite = {focus = NYC_american_model }
-		relative_position_id = NYC_american_model
-		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_unite_the_state}
+		prerequisite = {focus = NYC_safer_workers}
+		relative_position_id = NYC_unite_the_state
+		cost = 5
+		completion_reward = {
 
+		}
+	}
+	### Al Smith Re-Elected
+	focus = {
+		id = NYC_al_smith_re_elected
+		x = 0
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_new_progressive_era}
+		relative_position_id = NYC_new_progressive_era
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	### Nathan Miller Elected
+	focus = {
+		id = NYC_nathan_miller
+		x = 10
+		y = 0
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_military_economy
-		icon = GFX_focus_USA_military_economy
+		id = NYC_industrialize_nyc
+		x = -3
+		y = 1
+		prerequisite = {focus = NYC_nathan_miller}
+		relative_position_id = NYC_nathan_miller
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_nation_towards_conservatism
+		x = 0
+		y = 1
+		prerequisite = {focus = NYC_nathan_miller}
+		relative_position_id = NYC_nathan_miller
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+			add_ideas
+		}
+	}
+	focus = {
+		id = NYC_economic_measures
 		x = 3
 		y = 1
-		prerequisite = {focus = NYC_american_model }
-		prerequisite = {focus = NYC_york_army}
-		relative_position_id = NYC_american_model
+		prerequisite = {focus = NYC_nathan_miller}
+		relative_position_id = NYC_nathan_miller
 		cost = 3
-
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_york_infantry
-		icon = GFX_focus_USA_infantry_reform
+		id = NYC_america_liberty_leauge
 		x = 0
 		y = 1
-		prerequisite = {focus = NYC_york_army }
-		relative_position_id = NYC_york_army
+		prerequisite = {focus = NYC_nation_towards_conservatism}
+		relative_position_id = NYC_nation_towards_conservatism
 		cost = 3
-
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+			set_party_name = {
+    			ideology = conservatism
+    			long_name = NYC_conservative_party_liberty_long
+    			name = NYC_conservative_party_liberty
+			}
+		}
+	}
+	focus = {
+		id = NYC_us_steel_coporation
+		x = 0
+		y = 1
+		prerequisite = {focus = NYC_industrialize_nyc}
+		relative_position_id = NYC_industrialize_nyc
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_mobilize_army
-		icon = GFX_focus_USA_mobilize_the_army
+		id = NYC_purchase_supply
+		x = 0
+		y = 1
+		prerequisite = {focus = NYC_economic_measures}
+		relative_position_id = NYC_economic_measures
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_restructure_gov
 		x = 1
 		y = 1
-		prerequisite = {focus = NYC_york_infantry }
-		relative_position_id = NYC_york_infantry
+		prerequisite = {focus = NYC_america_liberty_leauge}
+		relative_position_id = NYC_america_liberty_leauge
 		cost = 3
-
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_american_roads
-		icon = GFX_focus_USA_american_roads
-		x = 1
-		y = 1
-		prerequisite = {focus = NYC_american_model }
-		relative_position_id = NYC_american_model
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_american_five_year_plan
-		icon = GFX_focus_USA_five_year_plan
-		x = 1
-		y = 1
-		prerequisite = {focus = NYC_civilian_economy focus = NYC_american_roads}
-		relative_position_id = NYC_civilian_economy
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_construct_tanks
-		icon = GFX_focus_USA_american_tanks
+		id = NYC_authorize_penal_reforms
 		x = -1
 		y = 1
-		prerequisite = {focus = NYC_york_infantry }
-		relative_position_id = NYC_york_infantry
+		prerequisite = {focus = NYC_america_liberty_leauge}
+		relative_position_id = NYC_america_liberty_leauge
 		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_war_economy
-		icon = GFX_focus_USA_war_economy
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_military_economy }
-		relative_position_id = NYC_military_economy
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_national_gaurd
-		icon = GFX_focus_usa_recruit_the_free_corps
-		x = 0
-		y = 3
-		prerequisite = {focus = NYC_york_infantry }
-		relative_position_id = NYC_york_infantry
-		cost = 3
-
-		completion_reward = {
-			add_ideas = {
-				NYC_national_gaurd
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
 			}
+			has_country_flag = NYC_nathan_miller
 		}
-	}
-	focus = {
-		id = NYC_anti_tank
-		icon = GFX_focus_USA_anti_tank
-		x = 2
-		y = 1
-		prerequisite = {focus = NYC_mobilize_army }
-		relative_position_id = NYC_mobilize_army
-		cost = 3
-
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_anti_air
-		icon = GFX_focus_USA_anti_air
+		id = NYC_steel_exports
 		x = 0
 		y = 1
-		prerequisite = {focus = NYC_mobilize_army }
-		relative_position_id = NYC_mobilize_army
+		prerequisite = {focus = NYC_us_steel_coporation}
+		relative_position_id = NYC_us_steel_coporation
 		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_construct_heavy_tanks
-		icon = GFX_focus_USA_heavy_tanks
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_construct_tanks }
-		relative_position_id = NYC_construct_tanks
-		mutually_exclusive = {focus = NYC_construct_small_tanks}
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_construct_small_tanks
-		icon = GFX_focus_USA_small_tanks
-		x = -2
-		y = 1
-		prerequisite = {focus = NYC_construct_tanks }
-		relative_position_id = NYC_construct_tanks
-		mutually_exclusive = {focus = NYC_construct_heavy_tanks}
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_american_industry
-		icon = GFX_focus_USA_american_industry
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_american_five_year_plan}
-		relative_position_id = NYC_american_five_year_plan
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_oil_production
-		icon = GFX_focus_USA_oil_production
-		x = 1
-		y = 1
-		prerequisite = {focus = NYC_american_industry}
-		relative_position_id = NYC_american_industry
-		cost = 3
-
-		completion_reward = {
-			add_resource = {
-    			type = oil
-    			amount = 10
-    			state = 839
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
 			}
+			has_country_flag = NYC_nathan_miller
 		}
-	}
-	focus = {
-		id = NYC_synthetic_rubber
-		icon = GFX_focus_USA_synthetic_rubber
-		x = -1
-		y = 1
-		prerequisite = {focus = NYC_american_industry}
-		relative_position_id = NYC_american_industry
-		cost = 3
-
 		completion_reward = {
-			add_resource = {
-    			type = rubber
-    			amount = 24
-    			state = 839
-			}
+
 		}
 	}
 	focus = {
-		id = NYC_industry_modern
-		icon = GFX_focus_USA_industrial_modernization
+		id = NYC_improve_economy
 		x = 0
 		y = 1
-		prerequisite = {focus = NYC_synthetic_rubber}
-		relative_position_id = NYC_synthetic_rubber
+		prerequisite = {focus = NYC_purchase_supply}
+		relative_position_id = NYC_purchase_supply
 		cost = 3
-
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
 		completion_reward = {
 
 		}
 	}
+	
+	### Al Capone Path
 	focus = {
-		id = NYC_production_lines
-		icon = GFX_focus_USA_production_lines
+		id = NYC_arrest_al_capone
 		x = 0
 		y = 1
-		prerequisite = {focus = NYC_oil_production}
-		relative_position_id = NYC_oil_production
-		cost = 3
-
+		cost = 5
+		prerequisite = {focus = NYC_elections}
+		relative_position_id = NYC_elections
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_great_economy
-		icon = GFX_focus_USA_great_economy
-		x = -1
-		y = 2
-		prerequisite = {focus = NYC_industry_modern}
-		prerequisite = {focus = NYC_production_lines}
-		relative_position_id = NYC_oil_production
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_american_partisans
-		x = -2
-		y = 1
-		prerequisite = {focus = NYC_american_unification }
-		relative_position_id = NYC_american_unification
-		cost = 3
-
-		completion_reward = {
-			add_political_power = 5
-			set_war_support = 0.2
-		}
-	}
-	focus = {
-		id = NYC_liberty
-		x = 2
-		y = 1
-		prerequisite = {focus = NYC_american_unification }
-		relative_position_id = NYC_american_unification
-		cost = 3
-
-		completion_reward = {
-			add_political_power = 10
-		}
-	}
-	focus = {
-		id = NYC_purchase_ny
-		x = -1
-		y = 1
-		prerequisite = {focus = NYC_american_partisans }
-		relative_position_id = NYC_american_partisans
-		cost = 3
-
-		completion_reward = {
-			PEN = {
-				country_event = pen.1
-			}
-		}
-	}
-	focus = {
-		id = NYC_new_england_union
-		x = 1
-		y = 1
-		prerequisite = {focus = NYC_purchase_ny focus = NYC_american_cotalition}
-		relative_position_id = NYC_purchase_ny
-		mutually_exclusive = {focus = NYC_invade_new_england}
-		cost = 3
-
-		completion_reward = {
-			add_stability = 0.1
-		}
-	}
-	focus = {
-		id = NYC_invade_new_england
-		x = 5
-		y = 1
-		prerequisite = {focus = NYC_purchase_ny focus = NYC_american_cotalition}
-		relative_position_id = NYC_purchase_ny
-		mutually_exclusive = {focus = NYC_new_england_union}
-		cost = 3
+		id = NYC_al_capone
+		x = 18
+		y = 0
+		cost = 4
 		available = {
-			has_war = no
-			is_neighbor_of = NEE
-		}
-		completion_reward = {
-			declare_war_on = {
-    			target = NEE
-    			type = annex_everything
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
 			}
-		}
-	}
-	focus = {
-		id = NYC_american_cotalition
-		x = 1
-		y = 1
-		prerequisite = {focus = NYC_liberty }
-		relative_position_id = NYC_liberty
-		cost = 3
-
-		completion_reward = {
-			create_faction = american_cotalition
-		}
-	}
-	focus = {
-		id = NYC_end_masons
-		x = 2
-		y = 1
-		prerequisite = {focus = NYC_new_england_union focus = NYC_invade_new_england}
-		relative_position_id = NYC_new_england_union
-		cost = 3
-		available = {
-			has_war = no
-			is_neighbor_of = PEN
-		}
-		completion_reward = {
-			declare_war_on = {
-    			target = PEN
-    			type = annex_everything
-			}
-		}
-	}
-	focus = {
-		id = NYC_northern_liberty
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_end_masons}
-		relative_position_id = NYC_end_masons
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_invade_america
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_northern_liberty}
-		relative_position_id = NYC_northern_liberty
-		cost = 3
-		available = {
-			has_war = no
-			is_neighbor_of = USA
-		}
-		completion_reward = {
-			declare_war_on = {
-    			target = USA
-    			type = annex_everything
-			}
-		}
-	}
-	focus = {
-		id = NYC_socialists_nightmare
-		x = 2
-		y = 2
-		prerequisite = {focus = NYC_invade_america}
-		relative_position_id = NYC_invade_america
-		cost = 3
-		available = {
-			has_war = no
-			is_neighbor_of = ASF
-		}
-		completion_reward = {
-			declare_war_on = {
-    			target = ASF
-    			type = annex_everything
-			}
-		}
-	}
-	focus = {
-		id = NYC_end_confederacy
-		x = -2
-		y = 2
-		prerequisite = {focus = NYC_invade_america}
-		relative_position_id = NYC_invade_america
-		cost = 3
-		available = {
-			has_war = no
-			is_neighbor_of = KKK
-		}
-		completion_reward = {
-			declare_war_on = {
-    			target = KKK
-    			type = annex_everything
-			}
-		}
-	}
-	focus = {
-		id = NYC_central_center
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_invade_america}
-		relative_position_id = NYC_invade_america
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_purchase_ford
-		x = 0
-		y = 1
-		prerequisite = {focus = NYC_central_center}
-		relative_position_id = NYC_central_center
-		cost = 3
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_american_dream
-		x = 0
-		y = 3
-		prerequisite = {focus = NYC_central_center}
-		prerequisite = {focus = NYC_end_confederacy}
-		prerequisite = {focus = NYC_socialists_nightmare}
-		relative_position_id = NYC_central_center
-		cost = 3
-
-		completion_reward = {
-
 		}
 	}
 }
