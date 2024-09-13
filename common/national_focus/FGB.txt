@@ -1141,18 +1141,18 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = FGB_noske_demand_northern_schleswig
-		icon = GFX_focus_FGB_noske_demand_northern_schleswig
-		x = 0
-		y = 1
-		cost = 3
-		relative_position_id = FGB_noske_demand_eupen_malmedy
-		prerequisite = { focus = FGB_noske_demand_eupen_malmedy }
-		completion_reward = {
-			add_political_power = 20
-		}
-	}
+	# focus = {
+	#	id = FGB_noske_demand_northern_schleswig
+	#	icon = GFX_focus_FGB_noske_demand_northern_schleswig
+	#	x = 0
+	#	y = 1
+	#	cost = 3
+	#	relative_position_id = FGB_noske_demand_eupen_malmedy
+	#	prerequisite = { focus = FGB_noske_demand_eupen_malmedy }
+	#	completion_reward = {
+	#		add_political_power = 20
+	#	}
+	#}
 
 	focus = {
 		id = FGB_noske_purchase_eupen_malmedy
@@ -1194,7 +1194,7 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_support_the_republicans
 		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
-		x = -4
+		x = -3
 		y = 1
 		cost = 2
 		available = {
@@ -1205,6 +1205,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = FGB_noske_inwards_and_outwards
+		mutually_exclusive = { focus = FGB_noske_the_final_battle }
 		prerequisite = { focus = FGB_noske_inwards_and_outwards }
 		completion_reward = {
 			add_war_support = 0.06
@@ -1222,7 +1223,7 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_the_final_battle
 		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
-		x = -8
+		x = -5
 		y = 1
 		cost = 3
 		available = {
@@ -1234,6 +1235,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = FGB_noske_inwards_and_outwards
+		mutually_exclusive = { focus = FGB_noske_support_the_republicans }
 		prerequisite = { focus = FGB_noske_inwards_and_outwards }
 		completion_reward = {
 			add_war_support = 0.1
@@ -1613,9 +1615,10 @@ focus_tree = {
 		y = 2
 		cost = 4
 		available = {
+			has_autonomy_state = autonomy_integrated_puppet
 			BAV = {
 				is_subject_of = FGB
-				has_autonomy_state = integrated_puppet
+				
 			}
 		}
 		relative_position_id = FGB_noske_stir_nationalist_sentiment
@@ -2964,6 +2967,9 @@ focus_tree = {
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			army_experience = 100
+			air_experience = 100
+			navy_experience = 100
 			add_research_slot = 1
 		}
 	}
@@ -3200,7 +3206,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_inspect_crashed_planes
-		icon = GFX_focus_FGB_consult_aerial_experts
+		icon = GFX_focus_FGB_inspect_crashed_planes
 		x = 1
 		y = 1
 		cost = 3
@@ -3222,7 +3228,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_adapt_our_blueprints
-		icon = GFX_focus_FGB_consult_aerial_experts
+		icon = GFX_focus_FGB_adapt_our_blueprints
 		x = 0
 		y = 2
 		cost = 3
@@ -3239,7 +3245,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_eye_in_the_sky
-		icon = GFX_focus_FGB_consult_aerial_experts
+		icon = GFX_focus_FGB_eye_in_the_sky
 		x = -1
 		y = 1
 		cost = 3
@@ -3258,7 +3264,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_recycle_old_planes
-		icon = GFX_focus_generic_air_defense
+		icon = GFX_focus_FGB_recycle_old_planes
 		x = 1
 		y = 1
 		cost = 4
@@ -3288,7 +3294,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_aerial_innovations
-		icon = GFX_focus_generic_air_production
+		icon = GFX_focus_FGB_aerial_innovations
 		x = 0
 		y = 2
 		cost = 5
@@ -3867,7 +3873,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_revitalise_southern_industry
-		icon = GFX_focus_FGB_reconstruction
+		icon = GFX_goal_reichsautobahn
 		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
 			has_full_control_of_state = 852
@@ -4027,7 +4033,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_industrialising_lower_saxony
-		icon = GFX_focus_FGB_reconstruction
+		icon = GFX_goal_generic_production
 		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
 			has_full_control_of_state = 56
@@ -4117,7 +4123,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_support_east_german_businesses
-		icon = GFX_focus_FGB_new_currency
+		icon = GFX_focus_generic_industry_2
 		prerequisite = { focus = FGB_revitalise_southern_industry }
 		prerequisite = { focus = FGB_develop_the_rhine }
 		available = {
@@ -4261,7 +4267,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_enrich_the_northeast
-		icon = GFX_focus_FGB_new_currency
+		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = FGB_revitalise_southern_industry }
 		prerequisite = { focus = FGB_industrialising_lower_saxony }
 		available = {
@@ -4424,7 +4430,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_new_currency
-		icon = GFX_focus_FGB_new_currency
+		icon = GFX_goal_generic_consumer_goods
 		prerequisite = { focus = FGB_enrich_the_northeast focus = FGB_support_east_german_businesses }
 		prerequisite = {  }
 		x = 0
