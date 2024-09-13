@@ -1,6 +1,7 @@
 add_namespace = nevada
 add_namespace = mittelmeer
 add_namespace = hell
+add_namespace = nuke
 
 country_event = {
 	id = nevada.1 ####OH FUCK	
@@ -168,6 +169,24 @@ country_event = {
 			add_state_core = 213
 			add_state_core = 722
 			add_state_core = 147
+		}
+	}
+}
+	
+country_event = {
+	id = nuke.1
+	title = nuke.1.t
+	desc = nuke.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = nuke.1.a
+		every_state = {
+			ROOT = {
+				launch_nuke = {
+					state = PREV.PREV
+				}
+			}
 		}
 	}
 }

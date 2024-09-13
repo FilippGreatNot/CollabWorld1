@@ -25,24 +25,3 @@ ideology_goofy_ahh = {
 		has_government = esotericism
 	}
 }
-is_enemy_ideology_of_PREV = {
-	OR = {
-		AND = {
-			OR = {
-				ideology_goofy_ahh = yes #They surely do dislike everyone else
-				PREV = { ideology_goofy_ahh = yes }
-			}
-			
-			NOT = { has_government = PREV }
-		}
-		
-		AND = {
-			ideology_socialist = yes #Well, don't they?
-			PREV = { ideology_socialist = no }
-		}
-		AND = {
-			ideology_socialist = no
-			PREV = { ideology_socialist = yes }
-		}
-	}
-}

@@ -8,9 +8,9 @@ d_print_amount_of_states = {
 d_print_strategic_value = {
 	log = "Strategic value of [THIS.GetName] is [?state_strategic_value]"
 }
-d_get_stalin = {
-	SOV_joseph_stalin = {
-		promote_character = yes
+d_get_SOV_bop = {
+	set_power_balance = { #Unused, read bop file for details
+		id = SOV_stalin_support
 	}
 }
 d_ee = {
@@ -77,4 +77,11 @@ d_actually_puppet = {
 	FROM = {
 		puppet = PREV
 	}
+}
+d_add_vp = {
+	add_victory_points = {
+		province = args^0
+		value = args^1
+	}
+	log = "Added [?args^1] VPs to prov [?args^0]"
 }

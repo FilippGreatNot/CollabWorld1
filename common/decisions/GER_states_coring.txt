@@ -1,6 +1,5 @@
 GER_states_coring_category = {
 
-
 	GER_coring_integrate_berlin = {
 
 		icon = GFX_decision_generic_form_nation
@@ -127,12 +126,16 @@ GER_states_coring_category = {
 				66 = {
 					is_core_of = ROOT
 				}
+				762 = {
+					is_core_of = ROOT
+				}
 			}
 		}
 
 		highlight_states = {
 			state = 67
 			state = 66
+			state = 762
 		}
 		
 
@@ -153,6 +156,7 @@ GER_states_coring_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
 			add_state_core = 67
 			add_state_core = 66
+			add_state_core = 762
 		}
 	}
 	
@@ -165,6 +169,7 @@ GER_states_coring_category = {
 		}
 
 		visible = {
+			NOT = { tag = FGB }
 			owns_state = 56
 			NOT = {
 				57 = {
@@ -212,6 +217,7 @@ GER_states_coring_category = {
 		}
 
 		visible = {
+			NOT = { tag = FGB }
 			owns_state = 42
 			NOT = {
 				42 = {
@@ -251,6 +257,7 @@ GER_states_coring_category = {
 			add_state_core = 42
 			add_state_core = 51
 			add_state_core = 55
+			add_state_claim = 851
 		}
 	}
 	
@@ -263,6 +270,7 @@ GER_states_coring_category = {
 		}
 
 		visible = {
+			NOT = { tag = FGB }
 			owns_state = 54
 			NOT = {
 				50 = {
@@ -271,12 +279,16 @@ GER_states_coring_category = {
 				54 = {
 					is_core_of = ROOT
 				}
+				852 = {
+					is_core_of = ROOT
+				}
 			}
 		}
 
 		highlight_states = {
 			state = 54
 			state = 50
+			state = 852
 		}
 		
 
@@ -297,6 +309,7 @@ GER_states_coring_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
 			add_state_core = 50
 			add_state_core = 54
+			add_state_core = 852
 		}
 	}
 	
@@ -309,6 +322,7 @@ GER_states_coring_category = {
 		}
 
 		visible = {
+			NOT = { tag = FGB }
 			owns_state = 52
 			NOT = {
 				52 = {
@@ -366,6 +380,12 @@ GER_states_coring_category = {
 				65 = {
 					is_core_of = ROOT
 				}
+				835 = {
+					is_core_of = ROOT
+				}
+				928 = {
+					is_core_of = ROOT
+				}
 			}
 		}
 
@@ -373,6 +393,8 @@ GER_states_coring_category = {
 			state = 63
 			state = 65
 			state = 68
+			state = 835
+			state = 928
 		}
 		
 
@@ -394,6 +416,115 @@ GER_states_coring_category = {
 			add_state_core = 63
 			add_state_core = 65
 			add_state_core = 68
+			add_state_core = 835
+			add_state_core = 928
+		}
+	}
+
+	GER_coring_integrate_prussia = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 763
+		}
+
+		visible = {
+			owns_state = 763
+			NOT = {
+				763 = {
+					is_core_of = ROOT
+				}
+				5 = {
+					is_core_of = ROOT
+				}
+				85 = {
+					is_core_of = ROOT
+				}
+				848 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 763
+			state = 5
+			state = 85
+			state = 848
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 30
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 763
+			add_state_core = 5
+			add_state_core = 85
+			add_state_core = 848
+		}
+	}
+
+	GER_coring_integrate_wartheland = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 807
+		}
+
+		visible = {
+			owns_state = 807
+			NOT = {
+				807 = {
+					is_core_of = ROOT
+				}
+				847 = {
+					is_core_of = ROOT
+				}
+				86 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			state = 807
+			state = 847
+			state = 86
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 60
+		fire_only_once = yes
+
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 807
+			add_state_core = 847
+			add_state_core = 86
 		}
 	}
 	

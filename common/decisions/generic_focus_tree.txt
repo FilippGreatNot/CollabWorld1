@@ -1,0 +1,133 @@
+generic_communist_coup = {
+	generic_communist_coup_mission = {
+		days_mission_timeout = 150
+		allowed = { always = no }
+		available = { always = no }
+		is_good = yes
+		priority = 10
+		
+		timeout_effect = {
+			if = {
+				limit = { has_country_flag = generic_coup_target_bolshevism }
+				set_politics = { ruling_party = bolshevism }
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.2
+				}
+			}
+			else_if = {
+				limit = { has_country_flag = generic_coup_target_marxism }
+				set_politics = { ruling_party = marxism }
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.2
+				}
+			}
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = generic_coup_bolshevism_populatiry
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = generic_coup_marxism_populatiry
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = generic_coup_libertarian_socialism_populatiry
+			}
+		}
+	}
+	generic_communist_coup_coalition_with_leninists = {
+		cost = 50
+		
+		visible = {
+			NOT = {
+				has_country_flag = generic_communist_coup_coalition_with_leninists_used
+				has_country_flag = generic_coup_target_bolshevism
+			}
+		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -20
+			}
+			
+			custom_effect_tooltip = effects_after_coup_execution_tt
+			generic_coup_post_coup_target_party_popularity_-5 = yes
+			generic_coup_post_coup_bolshevism_popularity_5 = yes
+		}
+	}
+	generic_communist_coup_coalition_with_marxists = {
+		cost = 50
+		
+		visible = {
+			NOT = {
+				has_country_flag = generic_communist_coup_coalition_with_marxists_used
+				has_country_flag = generic_coup_target_marxism
+			}
+		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -20
+			}
+			
+			custom_effect_tooltip = effects_after_coup_execution_tt
+			generic_coup_post_coup_target_party_popularity_-5 = yes
+			generic_coup_post_coup_marxism_popularity_5 = yes
+		}
+	}
+	generic_communist_coup_coalition_with_syndicalists = {
+		cost = 50
+		
+		visible = {
+			NOT = {
+				has_country_flag = generic_communist_coup_coalition_with_syndicalists_used
+				has_country_flag = generic_coup_target_libertarian_socialism
+			}
+		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -20
+			}
+			
+			custom_effect_tooltip = effects_after_coup_execution_tt
+			generic_coup_post_coup_target_party_popularity_-5 = yes
+			generic_coup_post_coup_libertarian_socialism_popularity_5 = yes
+		}
+	}
+	
+	generic_communist_coup_agitate_the_workers = {
+		cost = 100
+		
+		visible = {
+			NOT = { has_country_flag = generic_communist_coup_agitate_the_workers_used }
+		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -25
+			}
+		}
+	}
+	generic_communist_coup_agitate_the_young_officers = {
+		cost = 50
+		
+		visible = {
+			NOT = { has_country_flag = generic_communist_coup_agitate_the_young_officers }
+		}
+		
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = generic_communist_coup_mission
+				days = -15
+			}
+		}
+	}
+}

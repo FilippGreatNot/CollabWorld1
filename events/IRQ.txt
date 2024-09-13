@@ -1,0 +1,358 @@
+add_namespace = irq
+
+country_event = {
+	id = irq.1
+	title = irq.1.t
+	desc = irq.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.1.a
+	}
+	
+}
+country_event = {
+	id = irq.2
+	title = irq.2.t
+	desc = irq.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.2.a
+	}
+}
+
+country_event = {
+	id = irq.3
+	title = irq.3.t
+	desc = irq.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.3.a
+		add_stability = 0.05
+		add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		
+	}
+	option = {
+		name = irq.3.b
+		add_popularity = {
+				ideology = conservatism
+				popularity = 0.2
+			}
+		
+			set_politics = {
+				ruling_party = conservatism
+			}
+		add_stability = -0.1
+		news_event = irq.14
+	}
+}
+
+
+country_event = {
+	id = irq.4
+	title = irq.4.t
+	desc = irq.4.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.4.a
+		add_ideas = {
+				IRQ_offensive_focus
+			}
+	}
+	option = {
+		name = irq.4.b
+		add_ideas = {
+				IRQ_defensive_focus
+			}
+	}
+	option = {
+		name = irq.4.c
+		set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+		promote_character = IRQ_bakr_al_sidqi
+		add_stability = -0.05
+		set_party_name = { 
+				ideology = authoritarian_democrat
+				name = IRQ_military
+				long_name = IRQ_military_long
+			}
+		set_cosmetic_tag = IRQ_bakr_iraq
+		news_event = irq.13
+	}
+}
+
+country_event = {
+	id = irq.5
+	title = irq.5.t
+	desc = irq.5.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.5.a
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = irq.5.b
+		PREV = { add_to_faction = FROM }
+	}
+	
+}
+
+
+country_event = {
+	id = irq.6
+	title = irq.6.t
+	desc = irq.6.d
+	is_triggered_only = yes
+	
+	option = {
+		name = irq.6.a
+		add_ideas = {
+				IRQ_pan_arab_spirit
+			}
+	}
+	option = {
+		name = irq.6.b
+		add_ideas = {
+				IRQ_regional_security
+			}
+	}
+}
+
+country_event = {
+	id = irq.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.7.t
+	desc = irq.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.7.a
+		FROM = {
+			annex_country = { 
+				target = PREV
+				transfer_troops = yes 
+			}
+		}
+		
+		PREV = {
+			every_unit_leader = {
+				set_nationality = FROM
+			}
+		}
+	}
+	
+	option = {
+		name = irq.7.b
+	    FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+		ai_chance = { base = 0 }
+		
+	}
+}
+
+country_event = {
+	id = irq.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.8.t
+	desc = irq.8.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.8.a
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	option = {
+		name = irq.8.b
+	    if = {
+			limit = {
+				owns_state = 413
+			}
+			FROM = {
+				set_state_owner = 413
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 421
+			}
+			FROM = {
+				set_state_owner = 421
+			}
+		}
+		
+	}
+}
+
+country_event = {
+	id = irq.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.10.t
+	desc = irq.10.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.10.a
+		add_stability = -0.1
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	option = {
+		name = irq.10.b
+		add_stability = 0.1
+		FROM = {
+			set_autonomy = {
+				target = PREV
+				autonomous_state = autonomy_puppet
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+	}
+}
+
+country_event = {
+	id = irq.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.9.t
+	desc = irq.9.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.9.a
+		add_stability = 0.1
+		
+	}
+	
+	option = {
+		name = irq.9.b
+		EGY = {
+			country_event = irq.10
+			}
+	}
+	option = {
+		name = irq.9.c
+		EGY = {
+			country_event = irq.7
+			}
+		EGY = { make_every_core_national_for_PREV = yes }
+	}
+}
+
+country_event = {
+	id = irq.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = irq.11.t
+	desc = irq.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.11.a
+		add_stability = 0.05
+		add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
+	}
+	
+	option = {
+		name = irq.11.b
+        add_popularity = {
+				ideology = social_democrat
+				popularity = 0.2
+			}
+		
+			set_politics = {
+				ruling_party = social_democrat
+			}
+	}
+	option = {
+		name = irq.11.c
+        add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.2
+			}
+		
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
+	}
+}
+
+news_event = {
+	id = irq.12
+	title = irq.12.t
+	desc = irq.12.d
+	picture = GFX_news_event_wahabbi_war
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = irq.12.a
+}
+}
+news_event = {
+	id = irq.13
+	title = irq.13.t
+	desc = irq.13.d
+	picture = GFX_news_event_bakr_sidqi
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = irq.13.a
+	}
+}
+news_event = {
+	id = irq.14
+	title = irq.14.t
+	desc = irq.14.d
+	picture = GFX_news_event_faisal_ousted
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = irq.14.a
+	}
+}
+news_event = {
+	id = irq.15
+	title = irq.15.t
+	desc = irq.15.d
+	picture = GFX_news_event_arab_unification
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = irq.15.a
+	}
+}
+
+
+

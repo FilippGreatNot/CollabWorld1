@@ -211,13 +211,22 @@ country_event = {
 
 	option = {
 		name = wrd.9.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				add = 2
+				FGB = {
+					NOT = { has_completed_focus = FGB_government_of_national_salvation }
+				}
+			}
+		}
 		WRD = {
 			annex_country = { 
 				target = FGB
 				transfer_troops = yes 
 			}
 		}
-		
 		FGB = {
 			every_unit_leader = {
 				set_nationality = WRD
@@ -227,13 +236,22 @@ country_event = {
 	
 	option = {
 		name = wrd.9.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 3
+				add = 2
+				FGB = {
+					has_completed_focus = FGB_government_of_national_salvation 
+				}
+			}
+		}
 	    WRD = {
 			declare_war_on = {
 				target = FGB
 				type = annex_everything
 			}
 		}
-		
 	}
 }
 

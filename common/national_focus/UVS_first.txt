@@ -248,6 +248,7 @@ focus_tree = {
 		}
 	}
 	
+	
 	focus = {
 		id = UVS_take_into_account_the_mistakes_of_lenin
 		icon = GFX_focus_UVS_take_into_account_the_mistakes_of_lenin
@@ -327,6 +328,7 @@ focus_tree = {
 			add_ideas = {
 				UVS_economics_thalmann
 			}
+			set_country_flag = repair_damaged_roads_flag
 		}
 	}
 	
@@ -427,6 +429,33 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = UVS_appoint_a_bismarckist_cabinet
+		icon = GFX_focus_UVS_ribentrop_cabinet
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_militarization
+		
+		prerequisite = {
+			focus = UVS_militarization
+			focus = UVS_propaganda_campaign
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appoint_a_bismarckist_cabinet_log"
+			
+			add_stability = 0.1
+			
+			activate_advisor = UVS_oswald_sprengler_hog
+            activate_advisor = UVS_werner_sombart_ec
+            activate_advisor = UVS_heinrich_laufenberg_sec
+            activate_advisor = UVS_ernst_niekisch_sec
+
+		}
+	}
+	
+	focus = {
 		id = UVS_ban_demsocs
 		icon = GFX_focus_UVS_ban_demsocs
 		x = 4
@@ -447,6 +476,59 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = -0.1
 			}
+		}
+	}
+	
+	focus = {
+		id = UVS_make_sure_the_fuhrer_takes_his_pills
+		icon = GFX_focus_UVS_ribentrop_pills
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_ban_demsocs
+		
+		prerequisite = {
+			focus = UVS_ban_demsocs
+		}
+		
+		available = {
+		has_country_leader = {
+                    name = "Joachim von Ribbentrop"
+                    ruling_only = yes
+                }
+				 }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appoint_a_bismarckist_cabinet_log"
+			
+			add_stability = 0.05
+			custom_effect_tooltip = UVS_ribentrop_pills
+
+		}
+	}
+	
+	focus = {
+		id = UVS_das_volksfuhrerprinzip
+		icon = GFX_focus_UVS_volksfuhrer
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_make_sure_the_fuhrer_takes_his_pills
+		
+		prerequisite = {
+			focus = UVS_make_sure_the_fuhrer_takes_his_pills
+		}
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_appoint_a_bismarckist_cabinet_log"
+			
+			add_country_leader_trait = {
+				ideology = bolshevism
+				trait = volksfuhrer
+			}
+
 		}
 	}
 	
@@ -561,6 +643,7 @@ focus_tree = {
 			add_ideas = {
 				UVS_control_eco
 			}
+			set_country_flag = repair_damaged_roads_flag
 		}
 	}
 	
@@ -735,7 +818,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_negotiations_with_the_rsfsr_log"
 			SOV = {
 				add_opinion_modifier = {
-					target = GER
+					target = UVS
 					modifier = FRA_leftist_rhetoric_communism
 				}
 			add_equipment_to_stockpile = {
@@ -1037,6 +1120,7 @@ focus_tree = {
 				}
 			}
 			add_political_power = 25
+			set_country_flag = repair_damaged_roads_flag
 			
 			
 		}
@@ -1165,6 +1249,7 @@ focus_tree = {
 				idea = UVS_economic_boost
 				days = 60
 			}
+			set_country_flag = repair_damaged_roads_flag
 		}
 	}
 	
@@ -1541,6 +1626,44 @@ focus_tree = {
 		    country_event = uvs.4
 		}
 	}
+	
+	focus = {
+		id = UVS_a_gun_for_every_worker
+		icon = GFX_focus_UVS_gun_laws
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_give_rule_to_ebert
+		
+		prerequisite = {
+			focus = UVS_keep_council_rule
+			focus = UVS_give_rule_to_ebert
+			focus = UVS_international_socialist_brigades
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+		    add_war_support = 0.03
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -200
+				producer = FGB
+			}
+			swap_ideas = {
+				remove_idea = limited_gun_ownership
+				add_idea = a_gun_for_every_household
+			}
+		}
+	}
 
 	focus = {
 		id = UVS_cooperate_with_liebknecht
@@ -1589,6 +1712,7 @@ focus_tree = {
 		    add_ideas = {
 				UVS_worker_democracy_2
 			}
+			set_country_flag = repair_damaged_roads_flag
 		}
 	}
 
@@ -1838,7 +1962,7 @@ focus_tree = {
 		icon = GFX_focus_UVS_send_partisans
 		x = -1
 		y = 1
-		cost = 5
+		cost = 7
 		
 		relative_position_id = UVS_path_to_reunification
 		
@@ -1879,12 +2003,12 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_find_the_kaiserliche_armee_depots"
 		    add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 3000
+				amount = 2000
 				producer = WRD
 			}
 			add_equipment_to_stockpile = {
 				type = support_equipment
-				amount = 500
+				amount = 400
 				producer = WRD
 			}
 		    army_experience = 25
@@ -1927,7 +2051,7 @@ focus_tree = {
 		icon = GFX_focus_UVS_destroy_monuments
 		x = 1
 		y = 1
-		cost = 5
+		cost = 6
 		
 		relative_position_id = UVS_crush_the_invaders
 		
@@ -1952,7 +2076,7 @@ focus_tree = {
 		icon = GFX_focus_UVS_rally_northern_left
 		x = 1
 		y = 1
-		cost = 5
+		cost = 7
 		
 		relative_position_id = UVS_path_to_reunification
 		
@@ -2387,7 +2511,7 @@ focus_tree = {
 		cost = 6
 		
 		y = 0
-		x = 25
+		x = 28
 		
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
@@ -2472,7 +2596,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_first_the_final_solution_of_the_peasant_question
 		x = 1
 		y = 1
-		cost = 5
+		cost = 8
 		
 		relative_position_id = UVS_support_the_poor
 		
@@ -2499,9 +2623,9 @@ focus_tree = {
 	focus = {
 		id = UVS_east_railway_expansion
 		icon = GFX_focus_SOV_bogdanov_rocket_trains
-		x = 0
+		x = -2
 		y = 1
-		cost = 5
+		cost = 6
 		
 		relative_position_id = UVS_first_four_year_plan
 		
@@ -2649,6 +2773,124 @@ focus_tree = {
 			SWE = { country_event = { id = uvs.6 days = 5 } }
 		}
 	}
+	
+	focus = {
+		id = UVS_begin_agricultural_collectivization
+		icon = GFX_focus_SOV_first_start_collectivisation
+		x = 2
+		y = 1
+		cost = 7
+		
+		relative_position_id = UVS_first_four_year_plan
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_first_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+			    
+				add_ideas = {
+				UVS_collectivization_in_progress
+			    } 
+				
+		        custom_effect_tooltip = UVS_agriculture_focus
+			    
+		}
+	}
+	
+	focus = {
+		id = UVS_we_will_increase_our_yield
+		icon = GFX_focus_SOV_first_introduce_the_prodnalog
+		x = -1
+		y = 1
+		cost = 6
+		
+		relative_position_id = UVS_begin_agricultural_collectivization
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_begin_agricultural_collectivization
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		    add_ideas = {
+				UVS_disciplined_farmers
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = UVS_establish_farmer_soviets
+		icon = GFX_focus_UVS_farmer_soviets
+		x = 1
+		y = 1
+		cost = 5
+		
+		relative_position_id = UVS_begin_agricultural_collectivization
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_begin_agricultural_collectivization
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		        add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			    }
+			    add_stability = 0.1
+			
+		}
+	}
+	
+	focus = {
+		id = UVS_land_for_the_farmers_food_for_the_people
+		icon = GFX_focus_UVS_food
+		x = 1
+		y = 1
+		cost = 6
+		
+		relative_position_id = UVS_we_will_increase_our_yield
+		
+		available = {
+		    has_idea = UVS_finished_socialist_collectivization
+				}
+		
+		prerequisite = {
+		    focus = UVS_we_will_increase_our_yield
+		}
+		prerequisite = {
+		    focus = UVS_establish_farmer_soviets
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+		        swap_ideas = {
+				remove_idea = UVS_finished_socialist_collectivization
+				add_idea = UVS_finished_socialist_collectivization2
+			    }
+			
+		}
+	}
+	
 
 	### Imperialism ###
 	focus = {
@@ -2662,6 +2904,7 @@ focus_tree = {
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
 		}
+
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_red_germany_on_the_world_stage"

@@ -1,24 +1,21 @@
+## SETUP ##
 add_namespace = tus
+add_namespace = tus_coun1
+add_namespace = tus_cap
+add_namespace = tus_coun2
+add_namespace = tus_civ_war
+
+## MAIN ##
 
 country_event = {
 	id = tus.1
 	title = tus.1.t
 	desc = tus.1.d
+	picture = GFX_report_event_TUS_italo_balbo
 	is_triggered_only = yes
 	
 	option = {
 		name = tus.1.a
-	}
-}
-
-country_event = {
-	id = tus.2
-	title = tus.2.t
-	desc = tus.2.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.2.a
 	}
 }
 
@@ -30,9 +27,18 @@ country_event = {
 	
 	option = {
 		name = tus.3.a
-		country_event = {
-			id = tus.4
-			days = 35
+		add_stability = 0.1
+		next_legacy_of_the_great_war_idea = yes
+		next_legacy_of_the_great_war_idea = yes
+		custom_effect_tooltip = TUS_modify_ppl_add_5
+		custom_effect_tooltip = TUS_modify_mil_add_10
+		add_to_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = 5
+		}
+		add_to_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = 10
 		}
 	}
 }
@@ -41,22 +47,25 @@ country_event = {
 	id = tus.4
 	title = tus.4.t
 	desc = tus.4.d
-	is_triggered_only = yes
 	
-	option = {
-		name = tus.4.a
-		country_event = {
-			id = tus.5
-			days = 35
+	fire_only_once = yes
+	
+	trigger = {
+		focus_progress = {
+			focus = TUS_prepare_for_reunificatoin
+			progress > 0
+		}	
+	}
+	
+	immediate = {
+		add_timed_idea = {
+			idea = TUS_prepare_for_reunificatoin_idea
+			days = 150
 		}
 	}
+	
 	option = {
-		name = tus.4.b
-		add_ideas = a_gun_for_every_household
-		country_event = {
-			id = tus.5
-			days = 35
-		}
+		name = tus.4.a	
 	}
 }
 
@@ -67,27 +76,18 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.5.a
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.1
+		name = tus.5.a	
+		set_cosmetic_tag = ITA_EMP
+		set_capital = {
+			state = 2
 		}
-		country_event = {
-			id = tus.6
-			days = 35
+		add_ideas = {
+			TUS_worker_strikes
+			TUS_overwhelmed_council
 		}
-	}
-	option = {
-		name = tus.5.b
-		add_stability = -0.03
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.05
-		}
-		add_ideas = TUS_limited_womens_rights
-		country_event = {
-			id = tus.6
-			days = 35
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			add_ideas = TUS_council_infighting
 		}
 	}
 }
@@ -99,23 +99,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.6.a
-		add_popularity = {
-			ideology = despotism
-			popularity = -100
-		}
-		add_popularity = {
-			ideology = reactionism
-			popularity = -100
-		}
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.3
-		}
-		set_variable = {
-			var = TUS_com_part_unif
-			value = 1
-		}
+		name = tus.6.a	
 	}
 }
 
@@ -126,11 +110,245 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.7.a
-		hidden_effect = { mark_focus_tree_layout_dirty = yes }
+		name = tus.7.a	
 	}
 }
 
+country_event = {
+	id = tus.9
+	title = tus.9.t
+	desc = tus.9.d
+	picture = GFX_report_event_SOV_tank
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.9.a	
+		ai_chance = {base = 100}
+		162 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 6973
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 1616
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 11889
+			}
+		}
+	}
+	option = {
+		name = tus.9.b
+		910 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 3885
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 9750
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 6875
+			}
+		}
+		162 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 9879
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus.10
+	title = tus.10.t
+	desc = tus.10.d
+	picture = GFX_report_event_german_revolt
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.10.a	
+		complete_national_focus = TUS_army_type_1
+		custom_effect_tooltip = TUS_army_reform_event_tooltip_1
+		hidden_effect = {
+			division_template = {
+				name = "Militia Brigade"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+				}
+			}
+			162 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 3
+				}
+			}
+			884 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = tus.10.b
+		complete_national_focus = TUS_army_type_1
+		custom_effect_tooltip = TUS_army_reform_event_tooltip_2
+		hidden_effect = {
+			division_template = {
+				name = "Infantry Division"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+			}
+			162 = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0"
+					owner = PREV
+					count = 1
+				}
+			}
+			884 = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0"
+					owner = PREV
+					count = 1
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus.12
+	title = tus.12.t
+	desc = tus.12.d
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = TUS
+		is_puppet_of = ITS
+		has_war = no
+	}
+	
+	option = {
+		name = tus.12.a
+		ITS = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus.13
+	title = tus.13.t
+	desc = tus.13.d
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUS
+		country_exists = ITS
+		TUS = {
+			set_temp_variable = { com_pop = party_popularity@bolshevism }
+			add_to_temp_variable = { com_pop = party_popularity@marxism }
+			check_variable = { com_pop > 0.4 }
+		}
+	}
+	
+	option = {
+		name = tus.13.a	
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = ITS
+				}
+			}
+			add_claim_by = TUS
+		}
+		if = {
+			limit = {is_puppet_of = FRA}
+			FRA = {
+				declare_war_on = {
+					target = ITS
+					type = annex_everything
+				}	
+			}
+		}
+		ITS = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}	
+			add_civil_war_target = ROOT
+		}
+		create_dynamic_country = {
+			original_tag = ROOT
+			transfer_state = 884
+			load_focus_tree = empty
+		
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			
+			ITS = {
+				puppet = PREV
+			}
+			
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+			add_civil_war_target = ROOT
+			
+			884 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 5
+				}
+			}
+		}
+	}
+}
+
+## for albania not us
 country_event = {
 	id = tus.8
 	title = tus.8.t
@@ -138,6 +356,629 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.8.a
+		name = tus.8.a	
+		TUS = {
+			country_event = tus.16
+		}
+	}
+	
+	option = {
+		name = tus.8.b
+		TUS = {
+			annex_country = {
+				target = ALB
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+##for us about albania##
+
+country_event = {
+	id = tus.16
+	title = tus.16.t
+	desc = tus.16.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.16.a	
+
+	}
+	
+	option = {
+		name = tus.16.b
+		TUS = {
+			declare_war_on = {
+				target = ALB
+				type = annex_everything
+			}
+		}
+	}
+}
+
+## for france not us
+
+country_event = {
+	id = tus.11
+	title = tus.11.t
+	desc = tus.11.d
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA	
+		any_country = {
+			is_italian_tag = yes
+			has_war_with = FRA 
+		}
+		TUS = {
+			has_completed_focus = TUS_french_intervention
+			has_completed_focus = TUS_prepare_for_reunificatoin
+			NOT = {has_completed_focus = TUS_balbos_speech_2}
+			OR = {
+				has_capitulated = yes
+				exists = no
+			}
+		}
+	}
+	
+	immediate = {
+		end_puppet = TUS
+		every_country = {limit = {is_italian_tag = yes has_war_with = TUS} white_peace = FRA}
+	}
+	
+	option = {
+		name = tus.11.a
+	}
+	
+} 
+
+## for san marino not us
+
+country_event = {
+	id = tus.14
+	title = tus.14.t
+	desc = tus.14.d
+	is_triggered_only = yes
+
+	
+	option = {
+		name = tus.14.a
+		TUS = {
+			country_event = tus.15
+		}
+	}
+
+	option = {
+		name = tus.14.b
+		930 = {
+			transfer_state_to = TUS
+			add_claim_by = TUS
+		}
+	}
+	
+} 
+
+##for us about san##
+
+country_event = {
+	id = tus.15
+	title = tus.15.t
+	desc = tus.15.d
+	is_triggered_only = yes
+
+	
+	option = {
+		name = tus.15.a
+	}
+
+	option = {
+		name = tus.15.b
+		930 = {
+			add_claim_by = TUS
+		}
+		907 = {
+			add_claim_by = TUS
+		}	
+		declare_war_on = {
+			target = SAN
+			type = annex_everything
+		}
+	}
+	
+} 
+
+## First Meeting ##
+country_event = {
+	id = tus_coun1.1
+	title = tus_coun1.1.t
+	desc = tus_coun1.1.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		focus_progress = {
+			focus = TUS_unify_the_party
+			progress > 0
+		}	
+	}
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = tus_coun1.2
+				days = 35
+			}	
+		}
+	}
+	
+	option = {
+		name = tus_coun1.1.a
+	}
+	option = {
+		name = tus_coun1.1.b
+		add_ideas = a_gun_for_every_household
+		custom_effect_tooltip = TUS_modify_mil_subtract_5
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = 5
+		}
+	}
+}
+
+country_event = {
+	id = tus_coun1.2
+	title = tus_coun1.2.t
+	desc = tus_coun1.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.5.a
+		custom_effect_tooltip = TUS_modify_ppl_subtract_10
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = 10
+		}
+	}
+	option = {
+		name = tus.5.b
+		add_ideas = TUS_limited_womens_rights
+		custom_effect_tooltip = TUS_modify_ppl_add_5
+		custom_effect_tooltip = TUS_modify_mil_add_5
+		custom_effect_tooltip = TUS_modify_gc_subtract_5
+		add_to_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = 5
+		}
+		add_to_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = 5
+		}
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_gc
+			value = 5
+		}
+	}
+}
+
+country_event = {
+	id = tus_coun1.3
+	title = tus_coun1.3.t
+	desc = tus_coun1.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_coun1.3.a
+		add_popularity = {
+			ideology = despotism
+			popularity = -100
+		}
+		add_popularity = {
+			ideology = reactionism
+			popularity = -100
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -100
+		}
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.3
+		}
+		swap_ideas = {
+			remove_idea = TUS_disunified_government
+			add_idea = TUS_unified_government
+		}
+		custom_effect_tooltip = TUS_modify_gc_add_10
+		add_to_variable = {
+			var = TUS_Balbo_Pop_gc
+			value = 10
+		}
+	}
+}
+
+country_event = {
+	id = tus_coun1.4
+	title = tus_coun1.4.t
+	desc = tus_coun1.4.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_coun1.4.a
+		custom_effect_tooltip = TUS_modify_gc_subtract_20
+		subtract_from_variable = {
+			var = TUS_Balbo_Pop_gc
+			value = 20
+		}
+	}
+}
+
+## Capture Events ##
+country_event = {
+	id = tus_cap.1
+	title = tus_cap.1.t
+	desc = tus_cap.1.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUS
+		has_idea = TUS_unified_government
+		owns_state = 159
+	}
+	
+	option = {
+		name = tus_cap.1.a
+		set_country_flag = TUS_mussolini_killed
+	}
+	option = {
+		name = tus_cap.2.a
+		set_country_flag = TUS_mussolini_prison
+	}
+}
+
+country_event = {
+	id = tus_cap.2
+	title = tus_cap.1.t
+	desc = tus_cap.1.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUS
+		has_idea = TUS_disunified_government
+		owns_state = 159
+	}
+	
+	option = {
+		name = tus_cap.2.a
+		set_country_flag = TUS_mussolini_prison
+	}
+}
+
+country_event = {
+	id = tus_cap.3
+	title = tus_cap.2.t
+	desc = tus_cap.2.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUS
+		has_idea = TUS_unified_government
+		owns_state = 114
+	}
+	
+	option = {
+		name = tus_cap.1.a
+		set_country_flag = TUS_victor_killed
+	}
+	option = {
+		name = tus_cap.2.a
+		set_country_flag = TUS_victor_prison
+	}
+}
+
+country_event = {
+	id = tus_cap.4
+	title = tus_cap.2.t
+	desc = tus_cap.2.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUS
+		has_idea = TUS_disunified_government
+		owns_state = 114
+	}
+	
+	option = {
+		name = tus_cap.2.a
+		set_country_flag = TUS_victor_prison
+	}
+	option = {
+		name = tus_cap.3.a
+		set_country_flag = TUS_victor_free
+	}
+}
+
+## Second Meeting ##
+country_event = {
+	id = tus_coun2.1
+	title = tus_coun2.1.t
+	desc = tus_coun2.1.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		focus_progress = {
+			focus = TUS_restabilize_the_government
+			progress > 0.4
+		}	
+	}
+	
+	option = {
+		name = tus_coun2.1.a
+		#Create Local Counseles
+		remove_ideas = TUS_overwhelmed_council
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government
+				add_idea = TUS_disunified_government_2
+			}
+		}
+		if = {
+			limit = {has_idea = TUS_unified_government}
+			swap_ideas = {
+				remove_idea = TUS_unified_government
+				add_idea = TUS_disunified_government
+			}
+		}
+	}
+	
+	option = {
+		name = tus_coun2.1.b
+		#Dont
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government
+				add_idea = TUS_unified_government
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus_coun2.2
+	title = tus_coun2.2.t
+	desc = tus_coun2.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_coun2.2.a
+		#Purge
+		if = {
+			limit = {has_idea = TUS_disunified_government}
+			swap_ideas = {
+				remove_idea = TUS_disunified_government
+				add_idea = TUS_unified_government
+			}
+		}
+		if = {
+			limit = {has_idea = TUS_disunified_government_2}
+			#will do civil war
+			country_event = {
+				id = tus_civ_war.1
+				days = 15		
+			}
+		}
+	}
+	
+	option = {
+		name = tus_coun2.2.b
+	}
+}
+
+country_event = {
+	id = tus_civ_war.1
+	title = tus_civ_war.1.t
+	desc = tus_civ_war.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus_civ_war.1.a
+		hidden_effect = {
+			add_popularity = {
+				ideology = despotism 
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			delete_unit = {
+				disband = yes
+			}
+			load_focus_tree = empty			
+			load_oob = TUS_civ_war_1
+			157 = {remove_core_of = ROOT}
+			117 = {remove_core_of = ROOT}
+			156 = {remove_core_of = ROOT}
+			115 = {remove_core_of = ROOT}
+			931 = {remove_core_of = ROOT}
+			932 = {remove_core_of = ROOT}
+			933 = {remove_core_of = ROOT}
+			934 = {remove_core_of = ROOT}
+			add_timed_idea = {
+				idea = TUS_unplanned_attack
+				days = 30
+			}
+			create_dynamic_country = {
+				original_tag = TUS
+				transfer_state = 157
+				transfer_state = 117
+				transfer_state = 156
+				transfer_state = 115
+				transfer_state = 931
+				transfer_state = 932
+				transfer_state = 933
+				transfer_state = 934
+				157 = {add_core_of = PREV}
+				117 = {add_core_of = PREV}
+				156 = {add_core_of = PREV}
+				115 = {add_core_of = PREV}
+				931 = {add_core_of = PREV}
+				932 = {add_core_of = PREV}
+				933 = {add_core_of = PREV}
+				934 = {add_core_of = PREV}
+				
+				set_cosmetic_tag = ITA
+				
+				set_politics = {
+					ruling_party = authoritarian_democrat
+				}
+				set_popularities = {
+					authoritarian_democrat = 35
+					despotism = 25
+					reactionism = 13
+					conservatism = 15
+					liberalism = 7
+					social_democrat = 5
+				}
+				
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				add_civil_war_target = ROOT
+				load_focus_tree = empty
+				load_oob = TUS_civ_war_2
+			}
+		}
+	}
+	
+	option = {
+		name = tus_civ_war.1.b
+		hidden_effect = {
+			add_popularity = {
+				ideology = despotism 
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			delete_unit = {
+				disband = yes
+			}
+			load_focus_tree = empty			
+			load_oob = TUS_civ_war_1
+			157 = {remove_core_of = ROOT}
+			117 = {remove_core_of = ROOT}
+			156 = {remove_core_of = ROOT}
+			115 = {remove_core_of = ROOT}
+			931 = {remove_core_of = ROOT}
+			932 = {remove_core_of = ROOT}
+			933 = {remove_core_of = ROOT}
+			934 = {remove_core_of = ROOT}
+			add_timed_idea = {
+				idea = TUS_unplanned_attack
+				days = 30
+			}
+			create_dynamic_country = {
+				original_tag = TUS
+				transfer_state = 157
+				transfer_state = 117
+				transfer_state = 156
+				transfer_state = 115
+				transfer_state = 931
+				transfer_state = 932
+				transfer_state = 933
+				transfer_state = 934
+				157 = {add_core_of = PREV}
+				117 = {add_core_of = PREV}
+				156 = {add_core_of = PREV}
+				115 = {add_core_of = PREV}
+				931 = {add_core_of = PREV}
+				932 = {add_core_of = PREV}
+				933 = {add_core_of = PREV}
+				934 = {add_core_of = PREV}
+				
+				set_cosmetic_tag = ITA
+				
+				set_politics = {
+					ruling_party = authoritarian_democrat
+				}
+				set_popularities = {
+					authoritarian_democrat = 35
+					despotism = 25
+					reactionism = 13
+					conservatism = 15
+					liberalism = 7
+					social_democrat = 5
+				}
+				
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				add_civil_war_target = ROOT
+				load_focus_tree = empty
+				load_oob = TUS_civ_war_2
+			
+				change_tag_from = ROOT
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tus_civ_war.2
+	title = tus_civ_war.2.t
+	desc = tus_civ_war.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_civ_war.2.a
+		hidden_effect = {
+			ITS = {
+				transfer_state = 859
+				transfer_state = 158
+				transfer_state = 159
+				transfer_state = 160
+				transfer_state = 860
+			}
+		}
+	}
+	
+	option = {
+		name = tus_civ_war.2.b
+		hidden_effect = {
+			ITS = {
+				annex_country = {
+					target = TUS
+					transfer_troops = yes
+				}
+				change_tag_from = ROOT
+			}
+		}
 	}
 }

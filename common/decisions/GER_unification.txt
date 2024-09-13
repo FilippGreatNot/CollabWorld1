@@ -13,7 +13,6 @@ GER_reunification = {
 				character = UVS_rosa_luxemburg
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -43,7 +42,6 @@ GER_reunification = {
 				character = UVS_hans_speidel
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -73,7 +71,6 @@ GER_reunification = {
 				character = UVS_joachim_von_ribbentrop
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -103,7 +100,6 @@ GER_reunification = {
 				character = UVS_ernst_thalmann
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -135,7 +131,6 @@ GER_reunification = {
 				character = UVS_karl_liebknecht
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -173,7 +168,6 @@ GER_reunification = {
 					ruling_only = yes
 				}
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -203,7 +197,6 @@ GER_reunification = {
 				character = WRD_heinrich_himmler
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -216,39 +209,11 @@ GER_reunification = {
 		complete_effect = {
 			set_country_flag = ger_reunificated
 			set_cosmetic_tag = WRD_himmler_GER
-			hidden_effect = {
-				country_event = { id = reichsbanner.1	days = 10 random = 48 }
-				news_event = WORLDNEWS.3
+			set_portraits = {
+				character = WRD_heinrich_himmler
+				civilian = { large = "gfx/leaders/WRD/WRD_heinrich_himmler_post_unification.tga" }
 			}
-		}
-	}
-	WRD_unite_germany_mackensen = {
-		icon = generic_form_nation
-		
-		fire_only_once = yes
-		
-		allowed = {
-			original_tag = WRD
-		}
-		
-		visible = {
-			has_country_leader = {
-				character = WRD_august_mackensen
-				ruling_only = yes
-			}
-			NOT = { has_country_flag = ger_reunificated }
-		}
-		ai_will_do = { base = 2000 }
- 
-		available = {
-			is_subject = no
-			has_war = no
-			fully_controls_germany = yes
-		}
-
-		complete_effect = {
-			set_country_flag = ger_reunificated
-			set_cosmetic_tag = WRD_himmler_GER
+			
 			hidden_effect = {
 				country_event = { id = reichsbanner.1	days = 10 random = 48 }
 				news_event = WORLDNEWS.3
@@ -284,7 +249,6 @@ GER_reunification = {
 				}
 			}
 			
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -313,7 +277,6 @@ GER_reunification = {
 				character = FGB_ernst_rohm
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -361,7 +324,6 @@ GER_reunification = {
 				character = FGB_anton_drexler
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -405,7 +367,6 @@ GER_reunification = {
 				character = FGB_adam_dressler
 				ruling_only = yes
 			}
-			NOT = { has_country_flag = ger_reunificated }
 		}
 		ai_will_do = { base = 2000 }
  
@@ -433,6 +394,46 @@ GER_reunification = {
 				}
 				
 				news_event = WORLDNEWS.18
+			}
+		}
+	}
+	FGB_unite_germany_noske = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = FGB
+		}
+		
+		visible = {
+			OR = {
+				has_country_leader = {
+					character = FGB_gustav_noske2
+					ruling_only = yes
+				}
+				has_country_leader = {
+					character = FGB_gustav_noske
+					ruling_only = yes
+				}
+			}
+		}	
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_country_flag = FGB_noske_ger_unified_flag
+			mark_focus_tree_layout_dirty = yes
+			set_cosmetic_tag = FGB_Noske_GER
+			
+			hidden_effect = {
+				news_event = WORLDNEWS.23
 			}
 		}
 	}

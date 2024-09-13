@@ -38,3 +38,65 @@ UVS_european_revolutionary_front_decisions = {
 		}
 	}
 }
+UVS_ribentrops_insanity = {
+	UVS_ribentrop_is_going_insane = {
+		icon = GFX_decision_revolt
+		allowed = { tag = UVS }
+		visible = {
+			has_completed_focus = UVS_victory_of_daa
+		}
+		activation = {
+			has_completed_focus = UVS_victory_of_daa
+		}
+		available = {
+			has_completed_focus = UVS_make_sure_the_fuhrer_takes_his_pills
+		}
+		
+		is_good = no
+		days_remove = 600
+		days_mission_timeout = 600
+		fire_only_once = yes
+
+		complete_effect = {
+			add_stability = 0.05
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UVS_ribentrop_is_going_insane"
+			
+			country_event = {
+				id = uvs.7
+				days = 1
+			}
+		}
+	}
+	}
+	
+UVS_the_five_year_plans = {
+	UVS_agricultural_collectivization_in_progress = {
+		allowed = { tag = UVS }
+		visible = {
+			has_completed_focus = UVS_begin_agricultural_collectivization
+		}
+		activation = {
+			has_completed_focus = UVS_begin_agricultural_collectivization
+		}
+		available = {
+		    always = no
+		}
+		
+		is_good = no
+		days_remove = 365
+		days_mission_timeout = 365
+		fire_only_once = yes
+
+
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision timeout UVS_ribentrop_is_going_insane"
+			add_stability = 0.05
+			 swap_ideas = {
+				remove_idea = UVS_collectivization_in_progress
+				add_idea = UVS_finished_socialist_collectivization
+			    }
+		}
+	}
+	}

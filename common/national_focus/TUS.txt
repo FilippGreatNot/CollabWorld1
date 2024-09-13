@@ -10,21 +10,28 @@
 	default = no
 	
 	focus = {
-		id = TUS_hold_our_beliefs
+		id = TUS_hold_beliefs
 		icon = GFX_goal_generic_construction
 		
         x = 5
-        y = 0
+        y = 1
 		
-        cost = 5
-		
-		allow_branch = {NOT = {has_completed_focus = TUS_balbos_speech}}
-		
+        cost = 3
+				
 		completion_reward = {
 		    add_stability = 0.05
-			swap_ideas = {
-				remove_idea = all_adults_serve
-				add_idea = extensive_conscription
+			custom_effect_tooltip = TUS_will_activate_balbo_cult
+			set_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 60
+			}
+			set_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 50
+			}
+			set_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 30
 			}
 			country_event = tus.1
 		}
@@ -32,62 +39,41 @@
 	}
 	
 	focus = {
-		id = TUS_hold_our_ground
+		id = TUS_hold_ground
 		icon = GFX_goal_generic_construction
 		
-		prerequisite = {focus = TUS_hold_our_beliefs}
+		prerequisite = {focus = TUS_hold_beliefs}
 		
-		relative_position_id = TUS_hold_our_beliefs
+		relative_position_id = TUS_hold_beliefs
 		
         x = -2
         y = 1
 		
         cost = 5
-		
+			
 		completion_reward = {
-			162 = {
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 910
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 9879
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 11889
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 1616
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 6946
-				}
+			country_event = tus.9
+			custom_effect_tooltip = TUS_modify_ppl_add_3
+			custom_effect_tooltip = TUS_modify_mil_add_2
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 3
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 2
 			}
 		}
 
 	}
 	
 	focus = {
-		id = TUS_feed_our_people
+		id = TUS_feed_people
 		icon = GFX_goal_generic_construction
 		
-		prerequisite = {focus = TUS_hold_our_beliefs}
+		prerequisite = {focus = TUS_hold_beliefs}
 		
-		relative_position_id = TUS_hold_our_beliefs
+		relative_position_id = TUS_hold_beliefs
 		
         x = 0
         y = 1
@@ -96,24 +82,37 @@
 		
 		completion_reward = {
 			162 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
+			}
+			884 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
 			}
 		}
 
 	}
 
 	focus = {
-		id = TUS_arm_our_men
+		id = TUS_arm_men
 		icon = GFX_goal_generic_construction
 		
-		prerequisite = {focus = TUS_hold_our_beliefs}
+		prerequisite = {focus = TUS_hold_beliefs}
 		
-		relative_position_id = TUS_hold_our_beliefs
+		relative_position_id = TUS_hold_beliefs
 		
         x = 2
         y = 1
@@ -122,6 +121,351 @@
 		
 		completion_reward = {
 			162 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = 	arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			884 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = 	arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_2
+			custom_effect_tooltip = TUS_modify_mil_add_3
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 2
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 3
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_stabilize_economy
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_hold_ground
+		}
+		prerequisite = {
+			focus = TUS_feed_people
+		}
+		prerequisite = {
+			focus = TUS_arm_men
+		}
+		
+		relative_position_id = TUS_feed_people
+		
+        x = 0
+        y = 1
+		
+        cost = 6
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_collapsing_economy
+				add_idea = TUS_collapsing_economy_2
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			custom_effect_tooltip = TUS_modify_mil_add_5
+			custom_effect_tooltip = TUS_modify_gc_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 5
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 5
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	## France ##
+	
+	focus = {
+		id = TUS_get_french_support
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_stabilize_economy
+		}
+	
+		relative_position_id = TUS_stabilize_economy
+		
+        x = 6
+        y = 1
+		
+        cost = 3
+		
+		completion_reward = {
+			FRA = { add_opinion_modifier = { target = TUS modifier = large_increase} }		
+		}
+
+	}
+	
+	focus = {
+		id =  TUS_french_financial_support
+		icon = GFX_focus_FRA_implement_autarky_measures
+		
+		prerequisite = {
+			focus = TUS_get_french_support
+		}
+	
+		relative_position_id = TUS_get_french_support
+		
+        x = 0
+        y = 2
+		
+        cost = 6
+		
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2}
+			TUS = { add_opinion_modifier = { target = FRA modifier = medium_increase} }
+		}
+
+	}
+	
+	focus = {
+		id = TUS_ask_france_for_guns
+		icon = GFX_focus_TUS_french_guns 
+		
+		prerequisite = {
+			focus = TUS_french_financial_support
+		}
+	
+		relative_position_id = TUS_french_financial_support
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = FRA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 200
+				producer = FRA
+			}
+			add_political_power = -80
+		}
+
+	}
+	
+	focus = {
+		id = TUS_french_intervention
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_ask_france_for_guns
+		}
+
+		bypass = {
+			has_completed_focus = TUS_balbos_speech_2
+		}
+	
+		relative_position_id = TUS_ask_france_for_guns
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			FRA = {
+				puppet = {
+					target = TUS
+					end_wars = no
+				}
+				
+			}
+			custom_effect_tooltip = TUS_modify_ppl_subtract_30
+			custom_effect_tooltip = TUS_modify_mil_subtract_30
+			custom_effect_tooltip = TUS_modify_gc_subtract_30
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 30
+			}
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 30
+			}
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 30
+			}
+			hidden_effect = {
+				set_politics = {
+					ruling_party = national_syndicalism
+				}
+				if = {
+					limit = {has_idea = TUS_unified_government}
+					set_popularities = {
+						bolshevism =  6
+						national_syndicalism = 89
+						esotericism = 5
+					}	
+				}else = {
+					set_popularities = {
+						bolshevism =  6
+						national_syndicalism = 44
+						despotism = 25
+						reactionism = 20
+						esotericism = 5
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_join_france
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_french_intervention
+		}
+		prerequisite = {
+			focus = TUS_balbos_speech_2
+		}
+		
+		available = {
+			is_in_faction = no
+			country_exists = FRA
+		}
+		
+		bypass = {
+			is_puppet_of = FRA
+		}
+	
+		relative_position_id = TUS_french_intervention
+		
+        x = 0
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			FRA = {
+				add_to_faction = ROOT
+			}
+			set_rule = {
+				can_create_factions = yes
+			}
+		}
+	}
+	
+	## End France ##
+	
+	focus = {
+		id = TUS_rome_accords
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_balbos_speech_2
+		}
+		
+		available = {
+			is_in_faction = no
+			is_puppet = no
+		}
+	
+		relative_position_id = TUS_french_intervention
+		
+        x = -2
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			create_faction =  faction_TUS_rome_accords
+			set_rule = {
+				can_create_factions = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_expand_civs
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_stabilize_economy
+		}
+	
+		relative_position_id = TUS_stabilize_economy
+		
+        x = -3
+        y = 1
+		
+        cost = 8
+		
+		completion_reward = {
+			162 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			884 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_10
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 10
+			}
+		}
+
+	}
+	
+	focus = {
+		id = TUS_expand_mils
+		icon = GFX_focus_ENG_gun_production
+		
+		prerequisite = {
+			focus = TUS_stabilize_economy
+		}
+	
+		relative_position_id = TUS_stabilize_economy
+		
+        x = -1
+        y = 1
+		
+        cost = 8
+		
+		completion_reward = {
+			162 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = 	arms_factory
@@ -129,136 +473,52 @@
 					instant_build = yes
 				}
 			}
-		}
-
-	}
-	
-	focus = {
-		id = TUS_rebuild_our_economy
-		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_hold_our_ground
-		}
-		prerequisite = {
-			focus = TUS_feed_our_people
-		}
-		prerequisite = {
-			focus = TUS_arm_our_men
-		}
-		
-		relative_position_id = TUS_feed_our_people
-		
-        x = 0
-        y = 1
-		
-        cost = 10
-		
-		completion_reward = {
-			country_event = tus.2
-			remove_ideas = {TUS_collapsing_economy}
-			#swap_ideas = {
-			#	remove_idea = closed_economy
-			#	add_idea = limited_exports
-			#}
-		}
-
-	}
-	
-	focus = {
-		id = TUS_expand_industry
-		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_rebuild_our_economy
-		}
-	
-		relative_position_id = TUS_rebuild_our_economy
-		
-        x = -3
-        y = 1
-		
-        cost = 10
-		
-		completion_reward = {
-			162 = {
-				add_extra_state_shared_building_slots = 6
+			884 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = 	arms_factory
-					level = 3
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
-		}
-
-	}
-	
-	focus = {
-		id = TUS_complete_infrastructure_projects
-		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_rebuild_our_economy
-		}
-	
-		relative_position_id = TUS_rebuild_our_economy
-		
-        x = -1
-        y = 1
-		
-        cost = 5
-		
-		completion_reward = {
-			162 = {
-				add_building_construction = {
-					type = 	infrastructure
-					level = 1
-					instant_build = yes
-				}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			custom_effect_tooltip = TUS_modify_mil_add_10
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
 			}
-			build_railway = {
-				level = 1
-				path = { 1616 6973 }
-				start_province = 1616
-				target_province = 6973
-			}
-			build_railway = {
-				level = 1
-				path = { 9750 6875 }
-				start_province = 9750
-				target_province = 6875
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 10
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_build_dockyards
+		id = TUS_reassure_stability
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_rebuild_our_economy
+			focus = TUS_stabilize_economy
 		}
 	
-		relative_position_id = TUS_rebuild_our_economy
+		relative_position_id = TUS_stabilize_economy
 		
         x = 1
         y = 1
 		
-        cost = 5
+        cost = 8
 		
 		completion_reward = {
-			162 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = 	dockyard
-					level = 3
-					instant_build = yes
-				}
+			custom_effect_tooltip = TUS_will_activate_propaganda
+			custom_effect_tooltip = TUS_modify_gc_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 5
+			}
+			set_variable = {
+				var = TUS_propaganda_amount
+				value = 0
 			}
 		}
 
@@ -269,10 +529,10 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_rebuild_our_economy
+			focus = TUS_stabilize_economy
 		}
-		
-		relative_position_id = TUS_rebuild_our_economy
+	
+		relative_position_id = TUS_stabilize_economy
 		
         x = 3
         y = 1
@@ -281,35 +541,137 @@
 		
 		completion_reward = {
 			remove_ideas = TUS_heavly_disorganised_army
-			add_ideas = TUS_army_reforms
-			162 = {
-				create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0"
-					owner = PREV
-					count = 4
+			army_experience = 50
+			country_event = tus.10
+			custom_effect_tooltip = TUS_modify_mil_add_10
+			custom_effect_tooltip = TUS_modify_gc_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 10
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 5
+			}
+		}
+	}
+
+	focus = {
+		id = TUS_unify_the_party
+		icon = GFX_goal_generic_construction
+		
+		# till branch is done
+		#prerequisite = {
+		#	focus = TUS_expand_mils
+		#	focus = TUS_expand_civs
+		#	focus = TUS_army_reform
+		#	focus = TUS_reassure_stability
+		#}
+		
+		prerequisite = {
+			focus = TUS_expand_mils
+		}
+		prerequisite = {
+			focus = TUS_expand_civs
+		}
+		prerequisite = {
+			focus = TUS_army_reform
+		}
+		prerequisite = {
+			focus = TUS_reassure_stability
+		}
+	
+		relative_position_id = TUS_reassure_stability
+		
+        x = 0
+        y = 1
+		
+        cost = 15
+		cancelable = no
+		
+		completion_reward = {
+			custom_effect_tooltip = TUS_focus_event_chain
+			custom_effect_tooltip = TUS_will_fail_unify
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = {
+							var = TUS_Balbo_Pop_gc
+							value = 80 
+							compare = greater_than_or_equals
+						}
+					}
+					country_event = tus_coun1.3
+				}
+				else = {
+					country_event = tus_coun1.4
 				}
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_unify_the_party
+		id = TUS_rebuild_economy
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
-			focus = TUS_complete_infrastructure_projects
+			focus = TUS_expand_mils
 		}
 		prerequisite = {
-			focus = TUS_expand_industry
+			focus = TUS_expand_civs
 		}
 		prerequisite = {
 			focus = TUS_army_reform
 		}
 		prerequisite = {
-			focus = TUS_build_dockyards
+			focus = TUS_reassure_stability
 		}
+		
+		relative_position_id = TUS_expand_mils
+		
+        x = 0
+        y = 1
+		
+        cost = 10
+		
+		completion_reward = {
+			remove_ideas = {TUS_collapsing_economy_2}
+			add_timed_idea = {
+				idea = TUS_investment_in_small_businesses
+				days = 365
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_10
+			custom_effect_tooltip = TUS_modify_mil_add_10
+			custom_effect_tooltip = TUS_modify_gc_add_10
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 10
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 10
+			}
+			add_to_variable = {
+				var = TUS_Balbo_Pop_gc
+				value = 10
+			}
+			add_stability = 0.1
+		}
+
+	}
 	
-		relative_position_id = TUS_complete_infrastructure_projects
+	focus = {
+		id = TUS_balbos_speech
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_rebuild_economy
+		}
+		prerequisite = {
+			focus = TUS_unify_the_party
+		}
+		
+		relative_position_id = TUS_rebuild_economy
 		
         x = 1
         y = 1
@@ -322,50 +684,81 @@
 	}
 	
 	focus = {
-		id = TUS_balbos_speech
+		id = TUS_prepare_for_reunificatoin
 		icon = GFX_goal_generic_construction
-		
-		prerequisite = {
-			focus = TUS_unify_the_party
-		}
-		available = {
-			check_variable = {
-				var = TUS_com_part_unif
-				value = 1
-			}
-		}
-		
-		relative_position_id = TUS_unify_the_party
-		
+					
         x = 0
         y = 1
+		#x = 11
+        #y = 0
 		
-        cost = 5
+		relative_position_id = TUS_balbos_speech
+		prerequisite = {focus = TUS_balbos_speech}
+		
+        cost = 25
+		cancelable = no
+		
+		#allow_branch = {has_completed_focus = TUS_balbos_speech}
+		
+		cancel_if_invalid = no
+		available = {has_war = no} #has_completed_focus = TUS_balbos_speech
 		
 		completion_reward = {
-			country_event = tus.7
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = ITS
+						is_core_of = VNE
+						is_core_of = ITA
+						is_core_of = MSS
+						is_core_of = SAR
+					}
+				}
+				add_claim_by = TUS
+			}
 		}
 	}
 
 	focus = {
 		id = TUS_the_red_menace
 		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_prepare_for_reunificatoin
+		}
+		
+ 		available = {has_war = no}
+		
+		bypass = {
+			OR = {
+				NOT = {country_exists = ITS} 
+				has_war_with = ITS
+			}
+		}
+		
+		relative_position_id = TUS_prepare_for_reunificatoin
 					
-        x = 5
-        y = 0
+        x = -1
+        y = 1
 		
         cost = 6
-		
-		allow_branch = {has_completed_focus = TUS_balbos_speech}
+			
+		cancel_if_invalid = yes
 		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITS}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = ITS
 				type = annex_everything
+			}
+			add_civil_war_target = ITS
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = ITS
+						type = annex_everything
+					}	
+				}
 			}
 		}
 	}
@@ -378,21 +771,38 @@
 			focus = TUS_the_red_menace
 		}
 		
+		available = {NOT = {country_exists = ITS} has_war = no}
+		
+		bypass = {
+			OR = {
+				NOT = {country_exists = VNE} 
+				has_war_with = VNE
+			}
+		}
+		
 		relative_position_id = TUS_the_red_menace
 		
-        x = 0
+        x = -1
         y = 1
 		
         cost = 3
+		
+		cancel_if_invalid = yes
 			
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = VNE}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = VNE
 				type = annex_everything
+			}
+			add_civil_war_target = VNE
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = VNE
+						type = annex_everything
+					}	
+				}
 			}
 		}
 	}
@@ -402,24 +812,41 @@
 		icon = GFX_goal_generic_construction
 					
 		prerequisite = {
-			focus = TUS_secure_northen_italy
+			focus = TUS_prepare_for_reunificatoin
 		}
 		
-		relative_position_id = TUS_secure_northen_italy
+		available = {has_war = no}
 		
-        x = 0
+		bypass = {
+			OR = {
+				NOT = {country_exists = ITA} 
+				has_war_with = ITA
+			}
+		}
+		
+		relative_position_id = TUS_prepare_for_reunificatoin
+		
+        x = 1
         y = 1
 		
         cost = 6
+		
+		cancel_if_invalid = yes
 			
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITA}
-				add_claim_by = TUS
-			}
 			declare_war_on = {
 				target = ITA
 				type = annex_everything
+			}
+			add_civil_war_target = ITA
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = ITA
+						type = annex_everything
+					}
+				}
 			}
 		}
 	}
@@ -432,192 +859,1071 @@
 			focus = TUS_destroy_the_frauds
 		}
 		
+		available = {NOT = {country_exists = ITA} has_war = no}
+		
+		bypass = {
+			OR = {
+				NOT = {country_exists = MSS} 
+				has_war_with = MSS
+			}
+		}
+		
 		relative_position_id = TUS_destroy_the_frauds
+		
+        x = 1
+        y = 1
+		
+        cost = 3
+		
+		cancel_if_invalid = yes
+			
+		completion_reward = {
+			declare_war_on = {
+				target = MSS
+				type = annex_everything
+			}
+			add_civil_war_target = MSS
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = MSS
+						type = annex_everything
+					}	
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_make_san_small_again
+		icon = GFX_goal_generic_construction
+					
+		prerequisite = {
+			focus = TUS_destroy_the_frauds
+			focus = TUS_the_red_menace
+		}
+		
+		available = {
+			has_war = no
+			NOT = { owns_state = 930}
+		}
+		
+		bypass = {
+			OR = {
+				NOT = {country_exists = SAN} 
+				has_war_with = SAN
+			}
+		}
+		
+		relative_position_id = TUS_destroy_the_frauds
+		
+        x = -1
+        y = 1
+		
+        cost = 3
+		
+		cancel_if_invalid = yes
+			
+		completion_reward = {
+			SAN = { country_event = tus.14}
+		}
+	}
+	
+	focus = {
+		id = TUS_destroy_the_traitor
+		icon = GFX_goal_generic_construction
+					
+		prerequisite = {
+			focus = TUS_bring_order_to_chaos
+		}
+		prerequisite = {
+			focus = TUS_secure_northen_italy
+		}
+		
+		available = {NOT = {country_exists = MSS} NOT = {country_exists = VNE} has_war = no}
+		
+		bypass = {
+			OR = {
+				NOT = {country_exists = SAR} 
+				has_war_with = SAR
+			}
+		}
+		
+		relative_position_id = TUS_bring_order_to_chaos
+		
+        x = -2
+        y = 1
+		
+        cost = 3
+		
+		cancel_if_invalid = yes
+			
+		completion_reward = {
+			declare_war_on = {
+				target = SAR
+				type = annex_everything
+			}
+			add_civil_war_target = SAR
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = SAR
+						type = annex_everything
+					}	
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_balbos_speech_2
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_destroy_the_traitor
+		}
+		available = {
+			has_country_flag = ITAS_has_cored_its
+			has_country_flag = ITAS_has_cored_vne
+			has_country_flag = ITAS_has_cored_ita
+			has_country_flag = ITAS_has_cored_mss
+			has_country_flag = ITAS_has_cored_sar
+		}
+		
+		relative_position_id = TUS_destroy_the_traitor
 		
         x = 0
         y = 1
 		
-        cost = 3
-			
+        cost = 2
+		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = MSS}
-				add_claim_by = TUS
+			set_rule = {
+				can_join_factions = yes
+			}			
+			country_event = tus.5
+		}
+	}
+	
+	focus = {
+		id = TUS_rebuild_italy
+		icon = GFX_goal_generic_construction
+
+		#available = {
+		#	has_completed_focus = TUS_balbos_speech_2
+		#}
+		
+		x = -2
+		y = 1
+		relative_position_id = TUS_balbos_speech_2
+		prerequisite = {focus = TUS_balbos_speech_2}
+		
+        #x = 17
+        #y = 0
+		
+        cost = 10
+		
+		completion_reward = {
+			857 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
+			893 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			2 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+		}
+	}
+
+	focus = {
+		id = TUS_improve_the_north
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = -2
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy
+		
+        cost = 20
+		
+		completion_reward = {
+			161 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			159 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			158 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			160 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_improve_the_south
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy
+		
+        cost = 15
+		
+		completion_reward = {
+			117 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			156 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			115 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_restabilize_the_government
+		icon = GFX_goal_generic_construction
+
+		#available = {
+		#	has_completed_focus = TUS_balbos_speech_2
+		#}
+		
+		prerequisite = {focus = TUS_balbos_speech_2}
+		
+        x = 4
+        y = 0
+		
+		relative_position_id = TUS_rebuild_italy
+		
+		
+		cancelable = no
+		
+        cost = 5
+		
+		completion_reward = {
+			custom_effect_tooltip = TUS_focus_event_chain
+			hidden_effect = {
+				country_event = tus_coun2.2
+			}
+		}
+	}
+
+	focus = {
+		id = TUS_resolve_workers_strikes
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TUS_restabilize_the_government
+		
+        cost = 5
+		
+		completion_reward = {
+			remove_ideas = TUS_worker_strikes
+			custom_effect_tooltip = TUS_modify_ppl_subtract_10
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 10
+			}
+			custom_effect_tooltip = TUS_modify_mil_subtract_5
+			subtract_from_variable = {
+				var = TUS_Balbo_Pop_mil
+				value = 5
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_start_trade_relations
+		icon = GFX_goal_generic_construction
+
+		bypass = {NOT = {has_idea = economically_isolated}}
+		
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = -2
+        y = 0
+		
+		relative_position_id = TUS_resolve_workers_strikes
+		
+        cost = 8
+		
+		completion_reward = {
+			remove_ideas = economically_isolated
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = limited_exports
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+					NOT = {has_idea = economically_isolated}
+				}
+				add_opinion_modifier = { target = TUS modifier = small_increase}				
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_research_division
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_rebuild_italy
+		}
+		prerequisite = {
+			focus = TUS_restabilize_the_government
+		}
+		
+        x = 2
+        y = 1
+		
+		relative_position_id = TUS_restabilize_the_government
+		
+        cost = 6
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = TUS_balbos_speech_3
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_improve_the_north
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south
+		}		
+		prerequisite = {
+			focus = TUS_start_trade_relations
+		}
+		prerequisite = {
+			focus = TUS_resolve_workers_strikes
+		}
+		prerequisite = {
+			focus = TUS_research_division
+		}
+		
+		available = {
+			is_in_faction = yes
+		}
+		
+		relative_position_id = TUS_restabilize_the_government
+		
+        x = -2
+        y = 2
+		
+        cost = 5
+		
+		completion_reward = {
+			country_event = tus.7
+		}
+	}
+	
+	focus = {
+		id = TUS_revenge_for_the_great_war
+		icon = GFX_goal_generic_construction
+		
+		#available = {has_completed_focus = TUS_balbos_speech_3}
+		
+        #x = 24
+        #y = 0
+		
+		x = -1
+		y = 1
+		relative_position_id = TUS_balbos_speech_3
+		prerequisite = {focus = TUS_balbos_speech_3}
+		
+        cost = 10
+		
+		completion_reward = {
+			add_state_core = 39
 			declare_war_on = {
-				target = MSS
+				target = AUS
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_demand_albania
+		icon = GFX_goal_generic_construction
+		
+		#available = {has_completed_focus = TUS_balbos_speech_3}
+		
+        x = 2
+        y = 0
+
+		prerequisite = {focus = TUS_balbos_speech_3}
+		
+		relative_position_id = TUS_revenge_for_the_great_war
+		
+        cost = 8
+		
+		completion_reward = {
+			add_state_core = 44
+			ALB = {country_event = tus.8}
+		}
+	}
+
+	focus = {
+		id = TUS_take_yugoslavian_lands
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_demand_albania
+		}
+		prerequisite = {
+			focus = TUS_revenge_for_the_great_war
+		}
+		
+        x = 1
+		y = 1
+		
+		relative_position_id = TUS_demand_albania
+		
+        cost = 15
+		
+		completion_reward = {
+			YUG = {every_core_state = {add_claim_by = TUS}}
+			#dont forget to change when yugo update out
+			declare_war_on = {
+				target = YUG
 				type = annex_everything
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_rebuild_its
+		id = TUS_realign_hungary
 		icon = GFX_goal_generic_construction
-					
-		prerequisite = {
-			focus = TUS_the_red_menace
+		
+		available = {
+			HUN = {
+				NOT = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+				}
+			}
 		}
 		
-		available = {159 = {is_core_of = ROOT}}
+		prerequisite = {
+			focus = TUS_demand_albania
+		}
+		prerequisite = {
+			focus = TUS_revenge_for_the_great_war
+		}
 		
-		relative_position_id = TUS_the_red_menace
+		mutually_exclusive = { focus = TUS_team_hungary }
 		
-        x = 2
+        x = 1
         y = 1
 		
-        cost = 3
-			
+		relative_position_id = TUS_revenge_for_the_great_war
+		
+        cost = 8
+		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITS}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
+			declare_war_on = {
+				target = HUN
+				type = puppet_wargoal_focus
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_rebuild_vne
+		id = TUS_team_hungary
 		icon = GFX_goal_generic_construction
-					
+		
+		available = {
+			HUN = {
+				OR = {
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+				}
+			}
+		}
+		
 		prerequisite = {
-			focus = TUS_secure_northen_italy
+			focus = TUS_demand_albania
 		}
 		prerequisite = {
-			focus = TUS_rebuild_its
+			focus = TUS_revenge_for_the_great_war
 		}
 		
-		available = {160 = {is_core_of = ROOT}}
+		mutually_exclusive = { focus = TUS_realign_hungary }
 		
-		relative_position_id = TUS_secure_northen_italy
+        x = -2
+        y = 0
 		
-        x = 2
+		relative_position_id = TUS_realign_hungary
+		
+        cost = 5
+		
+		completion_reward = {
+		
+		}
+	}
+
+	focus = {
+		id = TUS_realign_bulgaria
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			BUL = {
+				NOT = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+				}
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_team_bulgaria}
+		
+		prerequisite = {
+			focus = TUS_take_yugoslavian_lands
+		}
+		prerequisite = {
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
+		}
+		
+		x = -1
         y = 1
 		
-        cost = 3
-			
+		relative_position_id = TUS_team_hungary
+		
+        cost = 10
+		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = VNE}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
+			declare_war_on = {
+				target = BUL
+				type = puppet_wargoal_focus
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_rebuild_ita
+		id = TUS_team_bulgaria
 		icon = GFX_goal_generic_construction
-					
+		
+		available = {
+			BUL = {
+				OR = {
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+				}
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_realign_bulgaria}
+		mutually_exclusive = {focus = TUS_team_greece}
+		
 		prerequisite = {
-			focus = TUS_destroy_the_frauds
+			focus = TUS_take_yugoslavian_lands
 		}
 		prerequisite = {
-			focus = TUS_rebuild_vne
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
 		}
 		
-		available = {2 = {is_core_of = ROOT}}
-		
-		relative_position_id = TUS_destroy_the_frauds
-		
-        x = 2
+		x = -1
         y = 1
 		
-        cost = 3
-			
+		relative_position_id = TUS_realign_hungary
+		
+        cost = 10
+		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = ITA}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
+			declare_war_on = {
+				target = BUL
+				type = annex_everything
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_rebuild_mss
+		id = TUS_realign_greece
 		icon = GFX_goal_generic_construction
-					
+		
+		available = {
+			GRE = {
+				NOT = {
+					OR = {
+						has_government = despotism
+						has_government = reactionism
+						has_government = national_syndicalism
+					}
+				}
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_team_greece}
+		
 		prerequisite = {
-			focus = TUS_bring_order_to_chaos
+			focus = TUS_take_yugoslavian_lands
 		}
 		prerequisite = {
-			focus = TUS_rebuild_ita
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
 		}
 		
-		available = {115 = {is_core_of = ROOT}}
-		
-		relative_position_id = TUS_destroy_the_frauds
-		
-        x = 2
+		x = 1
         y = 1
 		
-        cost = 3
-			
+		relative_position_id = TUS_take_yugoslavian_lands
+		
+        cost = 10
+		
 		completion_reward = {
-			every_state = {
-				limit = {is_core_of = MSS}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = 	arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = 	industrial_complex
-					level = 1
-					instant_build = yes
-				}
+			declare_war_on = {
+				target = GRE
+				type = puppet_wargoal_focus
 			}
 		}
 	}
 	
 	focus = {
-		id = TUS_convene_the_grand_council
+		id = TUS_team_greece
 		icon = GFX_goal_generic_construction
-					
+		
+		available = {
+			GRE = {
+				OR = {
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+				}
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_realign_greece}
+		mutually_exclusive = {focus = TUS_team_bulgaria}
+		
 		prerequisite = {
-			focus = TUS_rebuild_mss
+			focus = TUS_take_yugoslavian_lands
 		}
 		prerequisite = {
-			focus = TUS_bring_order_to_chaos
+			focus = TUS_realign_hungary
+			focus = TUS_team_hungary
 		}
 		
-		available = {115 = {is_core_of = ROOT}}
-		
-		relative_position_id = TUS_bring_order_to_chaos
-		
-        x = 0
+		x = -1
         y = 1
 		
-        cost = 3
+		relative_position_id = TUS_take_yugoslavian_lands
+		
+        cost = 10
+		
+		completion_reward = {
+			declare_war_on = {
+				target = GRE
+				type = annex_everything
+			}
+		}
+	}
+	
+	#focus = {
+	#	id = TUS_invade_romania
+	#	icon = GFX_goal_generic_construction
+	#	
+	#	prerequisite = {
+	#		focus = TUS_take_yugoslavian_lands
+	#	}
+	#	prerequisite = {
+	#		focus = TUS_realign_hungary
+	#		focus = TUS_team_hungary
+	#	}
+	#	
+	#	x = 1
+    #   y = 1
+	#	
+	#	relative_position_id = TUS_take_yugoslavian_lands
+	#	
+    #   cost = 15
+	#	
+	#	completion_reward = {
+	#		ROM = {every_core_state = {add_claim_by = TUS}}
+	#		declare_war_on = {
+	#			target = ROM
+	#			type = annex_everything
+	#		}
+	#	}
+	#}
+
+	## army focus tree ##
+
+	focus = {
+		id = TUS_army_type_1
+		icon = GFX_goal_generic_construction
+		
+		available = {
+			has_completed_focus = TUS_army_reform
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_army_type_2}
+
+		x = 15
+        y = 4
+				
+        cost = 0
+		
+		completion_reward = {
+			add_ideas = TUS_army_reforms_1
+		}
+	}
+	
+	focus = {
+		id = TUS_army_type_2
+		icon = GFX_goal_generic_construction
+			
+		available = {
+			has_completed_focus = TUS_army_reform
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		mutually_exclusive = {focus = TUS_army_type_1}
+		
+		relative_position_id = TUS_army_type_1
+		x = 2
+        y = 0
+				
+        cost = 0
+		
+		completion_reward = {
+			add_ideas = TUS_army_reforms_2
+		}
+	}
+
+	focus = {
+		id = TUS_cav_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_army_type_1}
+		
+		relative_position_id = TUS_army_type_1
+		x = 0
+        y = 1
+				
+        cost = 5
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_1
+				add_idea = TUS_army_reforms_cav
+			}
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = TUS_art_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_army_type_2}
+		
+		relative_position_id = TUS_army_type_2
+		x = 0
+        y = 1
+				
+        cost = 5
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_2
+				add_idea = TUS_army_reforms_art
+			}
+			army_experience = 25
+		}
+	}
+	
+	focus = {
+		id = TUS_army_gen_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_cav_buff
+			focus = TUS_art_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = 1
+        y = 1
+				
+        cost = 10
+		completion_reward = {
+			if = {
+				limit = {has_completed_focus = TUS_army_type_1}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_cav
+					add_idea = TUS_army_reforms_cav_2
+				}
+			}
+			if = {
+				limit = {has_completed_focus = TUS_army_type_2}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_art
+					add_idea = TUS_army_reforms_art_2
+				}
+			}
+			army_experience = 50
+		}
+		
+	}
+	
+	focus = {
+		id = TUS_mot_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_army_gen_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = 1
+        y = 2
+				
+        cost = 0
+		
+		completion_reward = {
+			if = {
+				limit = {has_completed_focus = TUS_army_type_1}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_cav_2
+					add_idea = TUS_army_reforms_cav_3
+				}
+			}
+			if = {
+				limit = {has_completed_focus = TUS_army_type_2}
+				swap_ideas = {
+					remove_idea = TUS_army_reforms_art_2
+					add_idea = TUS_army_reforms_art_3
+				}	
+			}
+			army_experience = 50			
+		}
+	}
+	
+	focus = {
+		id = TUS_mec_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_mot_buff
+		}
+		prerequisite = {
+			focus = TUS_cav_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = -1
+        y = 3
+				
+        cost = 35
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_cav_3
+				add_idea = TUS_army_reforms_car
+			}	
+			army_experience = 25			
+		}
+	}
+	
+	focus = {
+		id = TUS_tank_buff
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_mot_buff
+		}
+		prerequisite = {
+			focus = TUS_art_buff
+		}
+		
+		relative_position_id = TUS_cav_buff
+		x = 3
+        y = 3
+				
+        cost = 35
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TUS_army_reforms_art_3
+				add_idea = TUS_army_reforms_tank
+			}	
+			army_experience = 25
+		}
 	}
 }

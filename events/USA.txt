@@ -1,4 +1,5 @@
 add_namespace = usa_collapse
+add_namespace = USA_rockefeller_jr
 
 news_event = {
 	id = usa_collapse.1
@@ -180,7 +181,7 @@ country_event = { #буржуи ебаные
 #		}
 #	}
 #}
-country_event = { #CANNCELED BY TWITTER
+country_event = { 
 	id = usa_collapse.8
 	title = usa_collapse.8.t
 	desc = usa_collapse.8.d
@@ -401,29 +402,71 @@ country_event = { #Масоны
 		}
 	}
 }
-country_event = { #Индейцы
+# country_event = { 
+#	id = usa_collapse.14
+#	title = usa_collapse.14.t
+#	desc = usa_collapse.14.d
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		log = "[GetDateText]: [Root.GetName]: event usa_collapse.14"
+#		hidden_effect = {
+#			USA_release_FTS = yes
+#			country_event = {
+#				id = usa_collapse.13
+#				days = 8
+#			}
+#		}
+#	}
+#
+#	option = {
+#		name = usa_collapse.14.a
+#		ai_chance = {
+#			factor = 100
+#		}
+#	}	
+#	
+#	option = {
+#		name = usa_collapse.14.b
+#		ai_chance = {
+#			factor = 0
+#		}
+#		
+#		FTS = {
+#			change_tag_from = USA
+#		}
+#	}
+# }
+
+
+
+
+
+country_event = { 
 	id = usa_collapse.14
 	title = usa_collapse.14.t
 	desc = usa_collapse.14.d
 	is_triggered_only = yes
 	
 	immediate = {
-		log = "[GetDateText]: [Root.GetName]: event usa_collapse.14"
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.6"
+		
 		hidden_effect = {
-			USA_release_FTS = yes
+			USA_release_ORG = yes
 			country_event = {
-				id = usa_collapse.13
-				days = 8
+				id = usa_collapse.17
+				days = 3
 			}
 		}
 	}
 
 	option = {
 		name = usa_collapse.14.a
+		
 		ai_chance = {
 			factor = 100
 		}
-	}	
+	}
 	
 	option = {
 		name = usa_collapse.14.b
@@ -431,11 +474,90 @@ country_event = { #Индейцы
 			factor = 0
 		}
 		
-		FTS = {
+		ORG = {
 			change_tag_from = USA
 		}
 	}
 }
+
+
+country_event = { #Железнодорожники
+	id = usa_collapse.17
+	title = usa_collapse.17.t
+	desc = usa_collapse.17.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.17"
+		
+		hidden_effect = {
+			USA_release_WSH = yes
+			country_event = {
+				id = usa_collapse.16
+				days = 3
+			}
+		}
+	}
+
+	option = {
+		name = usa_collapse.17.a
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = usa_collapse.17.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		WSH = {
+			change_tag_from = USA
+		}
+	}
+}
+
+
+country_event = { #Мормоны
+	id = usa_collapse.16
+	title = usa_collapse.16.t
+	desc = usa_collapse.16.d
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event usa_collapse.16"
+		
+		hidden_effect = {
+			USA_release_IDA = yes
+			country_event = {
+				id = usa_collapse.13
+				days = 3
+			}
+		}
+	}
+
+	option = {
+		name = usa_collapse.16.a
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = {
+		name = usa_collapse.16.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		IDA = {
+			change_tag_from = USA
+		}
+	}
+}
+
 country_event = { #аЛЯСКАЯ
 	id = usa_collapse.13
 	title = usa_collapse.13.t
@@ -445,6 +567,12 @@ country_event = { #аЛЯСКАЯ
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event usa_collapse.13"
 		hidden_effect = {
+			
+			USA = {
+			remove_ideas = USA_alaskan_concentration_camps
+			}
+		
+		
 			country_event = {
 				id = usa_collapse.7
 				days = 8
@@ -509,7 +637,7 @@ country_event = { #Нью_йорк и зачем?
 		}
 	}
 }
-country_event = { #RACIST CATMAN
+country_event = { 
 	id = usa_collapse.4
 	title = usa_collapse.4.t
 	desc = usa_collapse.4.d
@@ -538,5 +666,91 @@ country_event = { #RACIST CATMAN
 		NEE = {
 			change_tag_from = USA
 		}
+	}
+}
+
+country_event = {
+	id = USA_rockefeller_jr.1
+	title = USA_rockefeller_jr.1.t
+	desc = USA_rockefeller_jr.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = USA_rockefeller_jr.1.a
+		add_political_power = 10
+		add_stability = 0.1
+		hidden_effect = {
+			set_global_flag = USA_columbia_deal
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.1.b
+		add_political_power = -15
+		add_stability = -0.1
+	}
+}
+
+country_event = {
+	id = USA_rockefeller_jr.2
+	title = USA_rockefeller_jr.2.t
+	desc = USA_rockefeller_jr.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = USA_rockefeller_jr.2.a
+		hidden_effect = {
+			complete_national_focus = USA_william_randolf_focus
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.2.b
+		hidden_effect = {
+			complete_national_focus = USA_joseph_kenedy_focus
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.2.c
+		hidden_effect = {
+			complete_national_focus = USA_edward_dohney_focus
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.2.d
+		hidden_effect = {
+			complete_national_focus = USA_rockefeller_jr_focus
+		}
+	}
+}
+
+country_event = {
+	id = USA_rockefeller_jr.3
+	title = USA_rockefeller_jr.3.t
+	desc = USA_rockefeller_jr.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = USA_rockefeller_jr.3.a
+		add_political_power = 15
+		add_stability = 0.15
+		hidden_effect = {
+			set_global_flag = USA_hearst_deal
+		}
+	}
+	option = {
+		name = USA_rockefeller_jr.3.b
+		add_political_power = -20
+		add_stability = -0.2
+	}
+}
+
+country_event = {
+	id = USA_rockefeller_jr.4
+	title = USA_rockefeller_jr.4.t
+	desc = USA_rockefeller_jr.4.d
+	is_triggered_only = yes
+
+	option = {
+		name = USA_rockefeller_jr.4.a
+		add_political_power = 50
 	}
 }

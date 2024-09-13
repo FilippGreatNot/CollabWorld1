@@ -1,4 +1,5 @@
 add_namespace = fgb
+add_namespace = fgb_policy
 
 country_event = {
 	id = fgb.1
@@ -12,13 +13,614 @@ country_event = {
 	option = {
 		name = fgb.1.a
 		
-		complete_national_focus = FGB_definitive_attack
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.75
+			uses = 2
+			category = cat_mobile_warfare
+		}
+		add_ideas = {
+			FGB_mobile
+		}
 	}
 
 	option = {
 		name = fgb.1.b
 		
-		complete_national_focus = FGB_prepared_offensive
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.75
+			uses = 2
+			category = cat_superior_firepower
+		}
+		add_ideas = {
+			FGB_firepower
+		}
 	}
 }
+
+country_event = {
+	id = fgb.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event fgb.2" }
+	title = fgb.2.t
+	desc = fgb.2.d 
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
 	
+	option = {
+		name = fgb.2.a
+		custom_effect_tooltip = FGB_noske_content_tt
+		set_country_flag = FGB_noske_flag
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = FGB_noske
+	}
+	#option = {
+	#	name = fgb.2.b
+	#	set_country_flag = FGB_pabst_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#}
+	#option = {
+	#	name = fgb.2.c
+	#	set_country_flag = FGB_rohm_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#}
+	#option = {
+	#	name = fgb.2.e
+	#	set_country_flag = FGB_other_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#}
+}
+
+country_event = {
+	id = fgb.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event fgb.3" }
+	title = fgb.3.t
+	desc = fgb.3.d 
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = fgb.3.a 
+		ai_chance = { base = 20 }
+		custom_effect_tooltip = FGB_aggression_tt
+		set_country_flag = FGB_noske_policy_flag
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = FGB_noske_aggressive_policy
+	}
+	option = {
+		name = fgb.3.b
+		ai_chance = { base = 10 }
+		set_country_flag = FGB_noske_policy_flag
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = FGB_noske_cooperative_policy
+	}
+}
+
+news_event = {
+	id = fgb.4
+	title = fgb.4.t
+	desc = fgb.4.d
+	picture = GFX_news_event_freikorps_bavaria
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = fgb.4.a
+		hidden_effect = {
+			FGB = {
+				country_event = {
+					id = fgb.5
+					random_days = 2
+				}
+				add_war_support = -0.05
+				add_stability = -0.05
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.5
+	title = fgb.5.t
+	desc = fgb.5.d
+	picture = GFX_news_event_freikorps_bavaria
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = fgb.5.a
+		set_country_flag = FGB_noske_victory_over_bavaria_flag
+		mark_focus_tree_layout_dirty = yes 
+		custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
+		hidden_effect = { 
+			complete_national_focus = FGB_noske_victory_over_bavaria 
+			load_oob = FGB_OOB3
+			52 = {
+				create_unit = {
+					division = "name = \"1st. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+					owner = FGB
+				}
+			}
+			53 = {
+				create_unit = {
+					division = "name = \"2nd. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+					owner = FGB
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.6
+	title = fgb.6.t
+	desc = fgb.6.d
+	picture = GFX_country_event_captured_leadership
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.6.a
+		kill_ideology_leader = bolshevism
+		add_manpower = -700
+		add_stability = -0.05
+		add_timed_idea = {
+			idea = FGB_bav_leadership_purged
+			days = 30
+		}
+	}
+}
+
+country_event = {
+	id = fgb.7
+	title = fgb.7.t
+	desc = fgb.7.d
+	picture = GFX_report_event_munich_capital
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.7.a
+		add_war_support = 0.05
+		set_capital = { state = 52 remember_old_capital = yes }
+	}
+}
+
+country_event = {
+	id = fgb.8
+	title = fgb.8.t
+	desc = fgb.8.d
+	picture = GFX_report_event_adolf_hiedler
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.8.a
+		add_war_support = 0.05
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
+		add_corps_commander_role = {
+			character = FGB_adolf_hiedler
+			traits = { fgb_paramilitarist }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		activate_advisor = FGB_adolf_hiedler_prop
+	}
+	option = {
+		name = fgb.8.b
+		add_war_support = 0.05
+		add_corps_commander_role = {
+			character = FGB_adolf_hiedler
+			traits = { fgb_paramilitarist }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	option = {
+		name = fgb.8.c
+		add_stability = -0.03
+		custom_effect_tooltip = FGB_hitler_angered.tt
+	}
+}
+
+country_event = {
+	id = fgb.9
+	title = fgb.9.t
+	desc = fgb.9.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.9.a
+		add_war_support = 0.05
+		custom_effect_tooltip = FGB_ready_to_attack_tt
+		set_country_flag = FGB_bavaria_integrated_flag
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+## fgb.10 is used for Friekorps unifying germany news event 
+
+country_event = {
+	id = fgb.11
+	title = fgb.11.t
+	desc = fgb.11.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.11.a
+		add_stability = -0.05
+		custom_effect_tooltip = FGB_aggression_tt
+		set_country_flag = FGB_noske_policy_flag
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = FGB_noske_aggressive_policy
+	}
+	option = {
+		name = fgb.11.b
+		add_war_support = 0.05
+		create_wargoal = {
+			type = annex_everything
+			target = BAV
+		}
+	}
+}
+
+country_event = {
+	id = fgb.12
+	title = fgb.12.t
+	desc = fgb.12.d
+	picture = GFX_report_event_womens_suffrage
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.12.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.06
+		}
+		add_popularity = {
+			ideology = liberalism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.02
+		}
+	}
+	option = {
+		name = fgb.12.b
+		add_stability = 0.04
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+	}
+}
+
+news_event = {
+	id = fgb.13
+	title = fgb.13.t
+	desc = fgb.13.d
+	picture = GFX_news_event_freikorps_rheinland
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = fgb.13.a
+		FGB = {
+			custom_effect_tooltip = FGB_noske_victory_over_wehrkommando_tt
+			set_country_flag = FGB_noske_victory_over_wehrkommando_flag
+			mark_focus_tree_layout_dirty = yes
+			hidden_effect = {
+				add_war_support = -0.05
+				add_stability = -0.05
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.14
+	title = fgb.14.t
+	desc = fgb.14.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.14.a
+		add_war_support = 0.05
+		custom_effect_tooltip = FGB_noske_unification_nearly_complete_tt
+		set_country_flag = FGB_noske_unification_nearly_complete_flag
+		complete_national_focus = FGB_noske_inwards_and_outwards
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = {
+	id = fgb.15
+	title = fgb.15.t
+	desc = fgb.15.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.15.a
+		add_war_support = -0.09
+		add_stability = 0.04
+		add_popularity = {
+			ideology = esotericism
+			popularity = -0.08
+		}
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = -0.06
+		}
+	}
+}
+
+country_event = {
+	id = fgb.16
+	title = fgb.16.t
+	desc = fgb.16.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.16.a
+		851 = { add_core_of = FGB }
+		FGB = { transfer_state = 851 }
+		add_war_support = 0.2
+		add_manpower = 1300
+	}
+}
+
+country_event = {
+	id = fgb.17
+	title = fgb.17.t
+	desc = fgb.17.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.17.a
+		851 = { add_core_of = FGB }
+		FGB = { transfer_state = 851 }
+		add_war_support = -0.5
+		add_stability = -0.02
+		add_manpower = -1300
+		FGB = {
+			country_event = fgb_policy.1
+		}
+		hidden_effect = {
+			FGB = {
+				add_war_support = 0.05
+				add_stability = 0.02
+				add_manpower = 1300
+			}
+		}
+	}
+	option = {
+		name = fgb.17.b
+		BEL = {
+			add_stability = -0.05
+			add_war_support = 0.05
+		}
+		FGB = {
+			country_event = fgb_policy.2
+		}
+	}
+}
+
+country_event = {
+	id = fgb.18
+	title = fgb.18.t
+	desc = fgb.18.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.18.a
+		851 = { add_core_of = FGB }
+		FGB = { transfer_state = 851 }
+		add_war_support = -0.5
+		add_stability = -0.02
+		add_manpower = -1300
+		FGB = {
+			country_event = fgb_policy.1
+		}
+		hidden_effect = {
+			FGB = {
+				add_war_support = 0.05
+				add_stability = 0.02
+				add_manpower = 1300
+			}
+		}
+	}
+	option = {
+		name = fgb.18.b
+		FRA = {
+			add_stability = -0.05
+			add_war_support = 0.05
+		}
+		FGB = {
+			country_event = fgb_policy.2
+		}
+	}
+}
+
+country_event = {
+	id = fgb.19
+	title = fgb.19.t
+	desc = fgb.19.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.19.a
+		add_war_support = 0.05
+		complete_national_focus = FGB_noske_under_new_management
+		set_country_flag = FGB_noske_victory_over_bavaria_flag
+		mark_focus_tree_layout_dirty = yes 
+	}
+}
+
+news_event = {
+	id = fgb.20
+	title = fgb.20.t
+	desc = fgb.20.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.20.a
+		FGB = {
+			add_threat = 0.05
+		}
+	}
+}
+
+country_event = {
+	id = fgb.21
+	title = fgb.21.t
+	desc = fgb.21.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.21.a
+		set_country_flag = FGB_noske_SPD_wins_again
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = FGB_social_democrat_campaign
+			days = 35
+		}
+	}
+	option = {
+		name = fgb.21.b
+		set_country_flag = FGB_noske_liberals_win 
+		add_popularity = {
+			ideology = liberalism
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = FGB_liberal_campaign
+			days = 35
+		}
+	}
+	option = {
+		name = fgb.21.b
+		set_country_flag = FGB_noske_conservatives_win 
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = FGB_convervative_campaign
+			days = 35
+		}
+	}
+}
+
+country_event = {
+	id = fgb.22
+	title = fgb.22.t
+	desc = fgb.22.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.22.a
+		add_stability = 0.05
+	}
+}
+
+country_event = {
+	id = fgb_policy.1
+	title = fgb_policy.1.t
+	desc = fgb_policy.1.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb_policy.1.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = fgb_policy.2
+	title = fgb_policy.2.t
+	desc = fgb_policy.2.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb_policy.2.a
+		add_war_support = -0.05
+	}
+}
+
+country_event = {
+	id = fgb_policy.3
+	title = fgb_policy.3.t
+	desc = fgb_policy.3.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb_policy.3.a
+		add_stability = 0.05
+		add_timed_idea = {
+			idea = FGB_purchase_of_territory
+			days = 30
+		}
+	}
+}
+
+country_event = {
+	id = fgb_policy.4
+	title = fgb_policy.4.t
+	desc = fgb_policy.4.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb_policy.4.a
+		add_stability = -0.05
+	}
+}
+

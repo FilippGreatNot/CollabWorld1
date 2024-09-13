@@ -1,0 +1,59 @@
+IRQ_power_balance = { 
+	initial_value = 0
+	left_side = reformist_side
+	right_side = traditionalist_side
+	decision_category = IRQ_power_balance_decision_category
+	
+	range = {
+		id = status_quo
+		min = -0.2
+		max = 0.2
+	}
+	side = {
+		id = traditionalist_side
+		icon = GFX_bop_IRQ_traditionalist_side
+		range = {
+			id = medium_traditionalist_range
+			min = 0.2
+			max = 0.4
+			modifier = {
+			}
+		}
+		range = {
+			id = high_traditionalist_range
+			min = 0.4
+			max = 0.8
+			
+			modifier = {
+			}
+		}
+		range = {
+			id = very_traditionalist_range
+			min = 0.8
+			max = 1
+			
+			modifier = {
+			}
+		}
+
+	}
+	side = {
+		id = reformist_side
+		icon = GFX_bop_IRQ_reformist_side
+		range = {
+			id = medium_reformist_range
+			min = -0.4
+			max = -0.2
+		}
+		range = {
+			id = high_reformist_range
+			min = -0.8
+			max = -0.4
+		}
+		range = {
+			id = very_reformist_range
+			min = -1
+			max = -0.8
+		}
+	}
+}

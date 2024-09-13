@@ -1,0 +1,1949 @@
+focus_tree = {
+	id = armenia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ARM
+		}
+	}
+	default = no
+	focus = {
+		id = focus_arm_verqer
+		icon = GFX_focus_arm_verqer
+		cost = 10
+		x = 16
+		y = 0
+
+	}
+	focus = {
+		id = focus_arm_boycott_elections
+		icon = GFX_focus_arm_boycott_elections
+		cost = 10
+		x = 55
+		y = 0
+		
+		available = {
+			always = no
+		}
+
+	}
+	focus = {
+		id = focus_arm_armenian_church
+		icon = GFX_focus_arm_armenian_church
+		cost = 10
+		x = 81
+		y = 0
+		available = {
+			always = no
+		}
+
+	}
+	focus = {
+		id = focus_arm_instability
+		icon = GFX_focus_arm_instability
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_verqer
+		}
+		x = 16
+		y = 1
+
+	}
+	focus = {
+		id = focus_arm_dashnak_split
+		icon = GFX_focus_arm_dashnak_split
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_instability
+		}
+		x = 14
+		y = 2
+
+	}
+	focus = {
+		id = focus_arm_dashnak_chekists
+		icon = GFX_focus_arm_dashnak_chekists
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_instability
+		}
+		x = 18
+		y = 2
+
+	}
+	focus = {
+		id = focus_arm_dashnak_end
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_split
+		}
+		prerequisite = {
+			focus = focus_arm_dashnak_chekists
+		}
+		x = 16
+		y = 3
+
+	}
+	focus = {
+		id = focus_arm_four_years
+		icon = GFX_focus_arm_four_years
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_end
+		}
+		x = 16
+		y = 4
+
+	}
+	focus = {
+		id = focus_arm_grand_elections
+		icon = GFX_focus_arm_grand_elections
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_four_years
+		}
+		x = 16
+		y = 5
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_congress_of_the_spartakusbund_log"
+			country_event =  arm.1
+				
+		}
+
+	}
+	focus = {
+		id = focus_arm_hnchak
+		icon = GFX_focus_arm_hnchak
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_grand_elections
+		}
+		mutually_exclusive = {
+			focus = focus_arm_dashnak_new
+			focus = focus_arm_tseghakron
+		}
+		x = 4
+		y = 6
+		available = {
+			always = no
+		}
+		completion_reward = {
+		    add_popularity = {
+				ideology = social_democrat
+				popularity = 0.2
+			}
+			set_politics = {
+				ruling_party = social_democrat
+			}
+		}
+
+	}
+	focus = {
+		id = focus_arm_immediate_goal
+		icon = GFX_focus_arm_immediate_goal
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_hnchak
+		}
+		x = 2
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_long_term_goal
+		icon = GFX_focus_arm_long_term_goal
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_hnchak
+		}
+		x = 6
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_dashnak_new
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_grand_elections
+		}
+		mutually_exclusive = {
+			focus = focus_arm_hnchak
+			focus = focus_arm_tseghakron
+		}
+		x = 16
+		y = 6
+		available = {
+			always = no
+		}
+		completion_reward = {	
+		add_popularity = {
+		        ideology = libertarian_socialism
+		        popularity = 0.05
+			}
+		add_political_power = 100
+        }
+	}
+	focus = {
+		id = focus_arm_avetis_aharonian
+		icon = GFX_focus_arm_avetis_aharonian
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_new
+		}
+		x = 16
+		y = 7
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			promote_character = ARM_avetis_aharonian
+			add_stability = 0.1
+			
+			
+		}
+
+	}
+	focus = {
+		id = focus_arm_dashnak_reforming
+		icon = GFX_focus_arm_dashnak_reforming
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_avetis_aharonian
+		}
+		x = 14
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_dashnak_cleaning
+		icon = GFX_focus_arm_dashnak_cleaning
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_avetis_aharonian
+		}
+		x = 18
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_dashnak_reputation
+		icon = GFX_focus_arm_dashnak_reputation
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_reforming
+		}
+		prerequisite = {
+			focus = focus_arm_dashnak_cleaning
+		}
+		x = 16
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_diaspora
+		icon = GFX_focus_arm_diaspora
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_reputation
+		}
+		x = 14
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_nor_dashnak
+		icon = GFX_focus_arm_nor_dashnak
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_reputation
+		}
+		x = 18
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_dashnak_bureau
+		icon = GFX_focus_arm_dashnak_bureau
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_diaspora
+		}
+		prerequisite = {
+			focus = focus_arm_nor_dashnak
+		}
+		x = 16
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_mshak_banvor
+		icon = GFX_focus_arm_mshak_banvor
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_dashnak_bureau
+		}
+		x = 16
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_coalit_gov
+		icon = GFX_focus_arm_coalit_gov
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_mshak_banvor
+		}
+		x = 16
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_arach_entanank
+		icon = GFX_focus_arm_arach_entanank
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_coalit_gov
+		}
+		x = 14
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_nor_hasarakutyun
+		icon = GFX_focus_arm_nor_hasarakutyun
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_coalit_gov
+		}
+		x = 18
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_united_society
+		icon = GFX_focus_arm_united_society
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_arach_entanank
+		}
+		prerequisite = {
+			focus = focus_arm_nor_hasarakutyun
+		}
+		x = 16
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_i_zen
+		icon = GFX_focus_arm_i_zen
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_united_society
+		}
+		x = 16
+		y = 16
+
+	}
+	focus = {
+		id = focus_arm_new_generation
+		icon = GFX_focus_arm_new_generation
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_i_zen
+		}
+		x = 14
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_dashnak_brave_soldiers
+		icon = GFX_focus_arm_dashnak_brave_soldiers
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_i_zen
+		}
+		x = 18
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_wilsonian_armenia
+		icon = GFX_focus_arm_wilsonian_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_new_generation
+		}
+		prerequisite = {
+			focus = focus_arm_dashnak_brave_soldiers
+		}
+		x = 16
+		y = 18
+
+	}
+	focus = {
+		id = focus_arm_dashnak_united_armenia
+		icon = GFX_focus_arm_dashnak_united_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_wilsonian_armenia
+		}
+		mutually_exclusive = {
+			focus = focus_arm_dashnak_two_states
+		}
+		x = 18
+		y = 19
+
+	}
+	focus = {
+		id = focus_arm_tseghakron
+		icon = GFX_focus_arm_tseghakron
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_grand_elections
+		}
+		mutually_exclusive = {
+			focus = focus_arm_hnchak
+			focus = focus_arm_dashnak_new
+		}
+		x = 25
+		y = 6
+		available = {
+			always = no
+		}
+		completion_reward = {
+		    add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.2
+			}
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
+		}
+
+	}
+	focus = {
+		id = focus_arm_tseghn_u_takank
+		icon = GFX_focus_arm_tseghn_u_takank
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_tseghakron
+		}
+		x = 25
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_revive
+		icon = GFX_focus_arm_revive
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_tseghn_u_takank
+		}
+		x = 23
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_end_bolshevism
+		icon = GFX_focus_arm_end_bolshevism
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_tseghn_u_takank
+		}
+		x = 27
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_stability
+		icon = GFX_focus_arm_stability
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_revive
+		}
+		prerequisite = {
+			focus = focus_arm_end_bolshevism
+		}
+		x = 25
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_verkerov_li
+		icon = GFX_focus_arm_verkerov_li
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_stability
+		}
+		x = 25
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_takank
+		icon = GFX_focus_arm_takank
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_verkerov_li
+		}
+		x = 22
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_arm_reeducate
+		icon = GFX_focus_arm_arm_reeducate
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_verkerov_li
+		}
+		x = 25
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_joxovurd
+		icon = GFX_focus_arm_joxovurd
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_verkerov_li
+		}
+		x = 28
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_tseghamard
+		icon = GFX_focus_arm_tseghamard
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_takank
+		}
+		prerequisite = {
+			focus = focus_arm_arm_reeducate
+		}
+		prerequisite = {
+			focus = focus_arm_joxovurd
+		}
+		x = 25
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_repatriation
+		icon = GFX_focus_arm_repatriation
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_tseghamard
+		}
+		x = 23
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_azg_banak
+		icon = GFX_focus_arm_azg_banak
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_tseghamard
+		}
+		x = 27
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_zartir_vortiag
+		icon = GFX_focus_arm_zartir_vortiag
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_repatriation
+		}
+		prerequisite = {
+			focus = focus_arm_azg_banak
+		}
+		x = 25
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_cry_rang_out
+		icon = GFX_focus_arm_cry_rang_out
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_zartir_vortiag
+		}
+		x = 23
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_we_are_honest_soldiers
+		icon = GFX_focus_arm_we_are_honest_soldiers
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_zartir_vortiag
+		}
+		x = 27
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_one_nations_land
+		icon = GFX_focus_arm_one_nations_land
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_cry_rang_out
+		}
+		prerequisite = {
+			focus = focus_arm_we_are_honest_soldiers
+		}
+		x = 25
+		y = 16
+
+	}
+	focus = {
+		id = focus_arm_turkish_question
+		icon = GFX_focus_arm_turkish_question
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_one_nations_land
+		}
+		x = 25
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_greek_question
+		icon = GFX_focus_arm_greek_question
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_one_nations_land
+		}
+		x = 22
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_kurdish_question
+		icon = GFX_focus_arm_kurdish_question
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_one_nations_land
+		}
+		x = 28
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_restore_armenia
+		icon = GFX_focus_arm_restore_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_greek_question
+		}
+		prerequisite = {
+			focus = focus_arm_turkish_question
+		}
+		prerequisite = {
+			focus = focus_arm_kurdish_question
+		}
+		x = 25
+		y = 18
+
+	}
+	focus = {
+		id = focus_arm_reunite_cilicia_nzh
+		icon = GFX_focus_arm_reunite_cilicia_nzh
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_restore_armenia
+		}
+		x = 25
+		y = 19
+
+	}
+	focus = {
+		id = focus_arm_committee_salvation
+		icon = GFX_focus_arm_committee_salvation
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_boycott_elections
+		}
+		mutually_exclusive = {
+			focus = focus_arm_armenian_anarchism
+			focus = focus_arm_internationale
+		}
+		x = 41
+		y = 1
+
+	}
+	focus = {
+		id = focus_arm_stabilize
+		icon = GFX_focus_arm_stabilize
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_committee_salvation
+		}
+		x = 41
+		y = 2
+
+	}
+	focus = {
+		id = focus_arm_king
+		icon = GFX_focus_arm_king
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_stabilize
+		}
+		x = 41
+		y = 3
+
+	}
+	focus = {
+		id = focus_arm_hakob_bagratuni
+		icon = GFX_focus_arm_hakob_bagratuni
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_king
+		}
+		x = 41
+		y = 4
+
+	}
+	focus = {
+		id = focus_arm_new_constitution
+		icon = GFX_focus_arm_new_constitution
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_hakob_bagratuni
+		}
+		x = 41
+		y = 5
+
+	}
+	focus = {
+		id = focus_arm_arkuni_council
+		icon = GFX_focus_arm_arkuni_council
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_new_constitution
+		}
+		x = 39
+		y = 6
+
+	}
+	focus = {
+		id = focus_arm_ashxarhazhohov_council
+		icon = GFX_focus_arm_ashxarhazhohov_council
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_new_constitution
+		}
+		x = 43
+		y = 6
+
+	}
+	focus = {
+		id = focus_arm_peoples_king
+		icon = GFX_focus_arm_peoples_king
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_arkuni_council
+		}
+		prerequisite = {
+			focus = focus_arm_ashxarhazhohov_council
+		}
+		x = 41
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_church_support
+		icon = GFX_focus_arm_church_support
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_peoples_king
+		}
+		x = 39
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_army_support
+		icon = GFX_focus_arm_army_support
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_peoples_king
+		}
+		x = 43
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_restore_ani
+		icon = GFX_focus_arm_restore_ani
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_support
+		}
+		prerequisite = {
+			focus = focus_arm_army_support
+		}
+		x = 41
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_ayrudzi
+		icon = GFX_focus_arm_ayrudzi
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_restore_ani
+		}
+		x = 41
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_ashots_successors
+		icon = GFX_focus_arm_ashots_successors
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_ayrudzi
+		}
+		x = 39
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_ashots_cross
+		icon = GFX_focus_arm_ashots_cross
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_ayrudzi
+		}
+		x = 43
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_bagrationis
+		icon = GFX_focus_arm_bagrationis
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_ashots_successors
+		}
+		prerequisite = {
+			focus = focus_arm_ashots_cross
+		}
+		x = 41
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_bam_porotan
+		icon = GFX_focus_arm_bam_porotan
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bagrationis
+		}
+		x = 41
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_bagratuni_lion
+		icon = GFX_focus_arm_bagratuni_lion
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bam_porotan
+		}
+		x = 41
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_cilicia_bagratuni
+		icon = GFX_focus_arm_cilicia_bagratuni
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bagratuni_lion
+		}
+		x = 37
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_parskahayk_bagratuni
+		icon = GFX_focus_arm_parskahayk_bagratuni
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bagratuni_lion
+		}
+		x = 41
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_paytakaran_bagratuni
+		icon = GFX_focus_arm_paytakaran_bagratuni
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bagratuni_lion
+		}
+		x = 45
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_bagratuni_empire
+		icon = GFX_focus_arm_bagratuni_empire
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_cilicia_bagratuni
+		}
+		prerequisite = {
+			focus = focus_arm_parskahayk_bagratuni
+		}
+		prerequisite = {
+			focus = focus_arm_paytakaran_bagratuni
+		}
+		x = 41
+		y = 16
+
+	}
+	focus = {
+		id = focus_arm_internationale
+		icon = GFX_focus_arm_internationale
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_boycott_elections
+		}
+		prerequisite = {
+			focus = focus_arm_boycott_elections
+		}
+		mutually_exclusive = {
+			focus = focus_arm_committee_salvation
+		}
+		x = 55
+		y = 1
+
+	}
+	focus = {
+		id = focus_arm_clandestine_cells
+		icon = GFX_focus_arm_clandestine_cells
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_internationale
+		}
+		x = 55
+		y = 2
+
+	}
+	focus = {
+		id = focus_arm_chekists_araj
+		icon = GFX_focus_arm_chekists_araj
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_clandestine_cells
+		}
+		x = 55
+		y = 3
+
+	}
+	focus = {
+		id = focus_arm_revanche_may
+		icon = GFX_focus_arm_revanche_may
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_chekists_araj
+		}
+		x = 55
+		y = 4
+
+	}
+	focus = {
+		id = focus_arm_stepan_shaumian
+		icon = GFX_focus_arm_stepan_shaumian
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_revanche_may
+		}
+		mutually_exclusive = {
+			focus = focus_arm_kamo
+		}
+		x = 51
+		y = 5
+
+	}
+	focus = {
+		id = focus_arm_red_armenia
+		icon = GFX_focus_arm_red_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_stepan_shaumian
+		}
+		x = 49
+		y = 6
+
+	}
+	focus = {
+		id = focus_arm_proletariat
+		icon = GFX_focus_arm_proletariat
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_stepan_shaumian
+		}
+		x = 53
+		y = 6
+
+	}
+	focus = {
+		id = focus_arm_kamo
+		icon = GFX_focus_arm_kamo
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_revanche_may
+		}
+		mutually_exclusive = {
+			focus = focus_arm_stepan_shaumian
+		}
+		x = 59
+		y = 5
+
+	}
+	focus = {
+		id = focus_arm_marxist_gov
+		icon = GFX_focus_arm_marxist_gov
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_kamo
+		}
+		x = 59
+		y = 6
+
+	}
+	focus = {
+		id = focus_arm_rev_administration
+		icon = GFX_focus_arm_rev_administration
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_marxist_gov
+		}
+		x = 57
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_workers_council
+		icon = GFX_focus_arm_workers_council
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_marxist_gov
+		}
+		x = 61
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_plan_economy
+		icon = GFX_focus_arm_plan_economy
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_rev_administration
+		}
+		prerequisite = {
+			focus = focus_arm_workers_council
+		}
+		x = 59
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_nationalization
+		icon = GFX_focus_arm_nationalization
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_plan_economy
+		}
+		x = 57
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_collectivization
+		icon = GFX_focus_arm_collectivization
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_plan_economy
+		}
+		x = 61
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_prevent_counterrevolution
+		icon = GFX_focus_arm_prevent_counterrevolution
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_nationalization
+		}
+		prerequisite = {
+			focus = focus_arm_collectivization
+		}
+		x = 59
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_bring_revolt_to_west
+		icon = GFX_focus_arm_bring_revolt_to_west
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_prevent_counterrevolution
+		}
+		x = 59
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_middle_east_bros
+		icon = GFX_focus_arm_middle_east_bros
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bring_revolt_to_west
+		}
+		x = 59
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_red_syriq
+		icon = GFX_focus_arm_red_syriq
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_middle_east_bros
+		}
+		x = 56
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_red_turkey
+		icon = GFX_focus_arm_red_turkey
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_middle_east_bros
+		}
+		x = 59
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_red_iran
+		icon = GFX_focus_arm_red_iran
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_middle_east_bros
+		}
+		x = 62
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_form_middle_ssr
+		icon = GFX_focus_arm_form_middle_ssr
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_red_syriq
+		}
+		prerequisite = {
+			focus = focus_arm_red_turkey
+		}
+		prerequisite = {
+			focus = focus_arm_red_iran
+		}
+		x = 59
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_red_palestine
+		icon = GFX_focus_arm_red_palestine
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_form_middle_ssr
+		}
+		x = 57
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_red_gulf
+		icon = GFX_focus_arm_red_gulf
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_form_middle_ssr
+		}
+		x = 61
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_red_egypt
+		icon = GFX_focus_arm_red_egypt
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_red_palestine
+		}
+		prerequisite = {
+			focus = focus_arm_red_gulf
+		}
+		x = 59
+		y = 16
+
+	}
+	focus = {
+		id = focus_arm_new_order
+		icon = GFX_focus_arm_new_order
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_red_egypt
+		}
+		x = 59
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_armenian_anarchism
+		icon = GFX_focus_arm_armenian_anarchism
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_boycott_elections
+		}
+		mutually_exclusive = {
+			focus = focus_arm_committee_salvation
+		}
+		x = 69
+		y = 1
+
+	}
+	focus = {
+		id = focus_arm_anarchic_patriotism
+		icon = GFX_focus_arm_anarchic_patriotism
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_armenian_anarchism
+		}
+		x = 69
+		y = 2
+
+	}
+	focus = {
+		id = focus_arm_organize_cells
+		icon = GFX_focus_arm_organize_cells
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_anarchic_patriotism
+		}
+		x = 69
+		y = 3
+
+	}
+	focus = {
+		id = focus_arm_anarchic_militias
+		icon = GFX_focus_arm_anarchic_militias
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_organize_cells
+		}
+		x = 67
+		y = 4
+
+	}
+	focus = {
+		id = focus_arm_anarchic_guerrilla
+		icon = GFX_focus_arm_anarchic_guerrilla
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_organize_cells
+		}
+		x = 71
+		y = 4
+
+	}
+	focus = {
+		id = focus_arm_arming_people
+		icon = GFX_focus_arm_arming_people
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_anarchic_militias
+		}
+		prerequisite = {
+			focus = focus_arm_anarchic_guerrilla
+		}
+		x = 69
+		y = 5
+
+	}
+	focus = {
+		id = focus_arm_anarchist_uprise
+		icon = GFX_focus_arm_anarchist_uprise
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_arming_people
+		}
+		x = 69
+		y = 6
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			promote_character = ARM_alexander_atabekian
+			
+			
+		}
+
+	}
+	focus = {
+		id = focus_arm_free_territory
+		icon = GFX_focus_arm_free_territory
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_anarchist_uprise
+		}
+		x = 67
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_anarchist_commune
+		icon = GFX_focus_arm_anarchist_commune
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_anarchist_uprise
+		}
+		x = 71
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_liquidation_order
+		icon = GFX_focus_arm_liquidation_order
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_free_territory
+		}
+		prerequisite = {
+			focus = focus_arm_anarchist_commune
+		}
+		x = 69
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_freedom_and_equality
+		icon = GFX_focus_arm_freedom_and_equality
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_liquidation_order
+		}
+		x = 67
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_directory_of_labor
+		icon = GFX_focus_arm_directory_of_labor
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_liquidation_order
+		}
+		x = 71
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_armenian_specific
+		icon = GFX_focus_arm_armenian_specific
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_freedom_and_equality
+		}
+		prerequisite = {
+			focus = focus_arm_directory_of_labor
+		}
+		x = 69
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_anarchist_west_armenia
+		icon = GFX_focus_arm_anarchist_west_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_armenian_specific
+		}
+		x = 67
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_anarchist_cilicia
+		icon = GFX_focus_arm_anarchist_cilicia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_armenian_specific
+		}
+		x = 71
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_anarchia_mother
+		icon = GFX_focus_arm_anarchia_mother
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_anarchist_west_armenia
+		}
+		prerequisite = {
+			focus = focus_arm_anarchist_cilicia
+		}
+		x = 69
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_church_statehood
+		icon = GFX_focus_arm_church_statehood
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_armenian_church
+		}
+		x = 79
+		y = 1
+
+	}
+	focus = {
+		id = focus_arm_church_safety
+		icon = GFX_focus_arm_church_safety
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_armenian_church
+		}
+		x = 83
+		y = 1
+
+	}
+	focus = {
+		id = focus_arm_church_society
+		icon = GFX_focus_arm_church_society
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_statehood
+		}
+		prerequisite = {
+			focus = focus_arm_church_safety
+		}
+		x = 81
+		y = 2
+
+	}
+	focus = {
+		id = focus_arm_church_erexeq
+		icon = GFX_focus_arm_church_erexeq
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_society
+		}
+		x = 81
+		y = 3
+
+	}
+	focus = {
+		id = focus_arm_church_education
+		icon = GFX_focus_arm_church_education
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_erexeq
+		}
+		x = 81
+		y = 4
+
+	}
+	focus = {
+		id = focus_arm_church_nation
+		icon = GFX_focus_arm_church_nation
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_education
+		}
+		x = 81
+		y = 5
+
+	}
+	focus = {
+		id = focus_arm_church_illustration
+		icon = GFX_focus_arm_church_illustration
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_nation
+		}
+		x = 81
+		y = 6
+
+	}
+	focus = {
+		id = focus_arm_lucas_eleven
+		icon = GFX_focus_arm_lucas_eleven
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_illustration
+		}
+		x = 77
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_nehemiah
+		icon = GFX_focus_arm_nehemiah
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_illustration
+		}
+		x = 81
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_lucas_twentytwo
+		icon = GFX_focus_arm_lucas_twentytwo
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_church_illustration
+		}
+		x = 85
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_sword_and_cross
+		icon = GFX_focus_arm_sword_and_cross
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_nehemiah
+		}
+		prerequisite = {
+			focus = focus_arm_lucas_eleven
+		}
+		prerequisite = {
+			focus = focus_arm_lucas_twentytwo
+		}
+		x = 81
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_catolicos_speech
+		icon = GFX_focus_arm_catolicos_speech
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_sword_and_cross
+		}
+		x = 81
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_st_vardan
+		icon = GFX_focus_arm_st_vardan
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_catolicos_speech
+		}
+		x = 81
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_bible_armenia
+		icon = GFX_focus_arm_bible_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_st_vardan
+		}
+		x = 81
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_restore_churches
+		icon = GFX_focus_arm_restore_churches
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_bible_armenia
+		}
+		x = 81
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_georgian_church
+		icon = GFX_focus_arm_georgian_church
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_restore_churches
+		}
+		x = 79
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_middle_east
+		icon = GFX_focus_arm_middle_east
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_restore_churches
+		}
+		x = 83
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_holy_land
+		icon = GFX_focus_arm_holy_land
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_georgian_church
+		}
+		prerequisite = {
+			focus = focus_arm_middle_east
+		}
+		x = 81
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_tsegh_hayreniq
+		icon = GFX_focus_arm_tsegh_hayreniq
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_reunite_cilicia_nzh
+		}
+		x = 25
+		y = 20
+
+	}
+	focus = {
+		id = focus_arm_dashnak_two_states
+		icon = GFX_focus_arm_dashnak_two_states
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_wilsonian_armenia
+		}
+		mutually_exclusive = {
+			focus = focus_arm_dashnak_united_armenia
+		}
+		x = 14
+		y = 19
+
+	}
+	focus = {
+		id = focus_arm_end_slave_ideas
+		icon = GFX_focus_arm_end_slave_ideas
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_long_term_goal
+		}
+		prerequisite = {
+			focus = focus_arm_immediate_goal
+		}
+		x = 4
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_fair_distribution
+		icon = GFX_focus_arm_fair_distribution
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_end_slave_ideas
+		}
+		x = 2
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_end_explotation_men
+		icon = GFX_focus_arm_end_explotation_men
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_end_slave_ideas
+		}
+		x = 6
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_express_demands
+		icon = GFX_focus_arm_express_demands
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_fair_distribution
+		}
+		prerequisite = {
+			focus = focus_arm_end_explotation_men
+		}
+		x = 4
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_form_soviets
+		icon = GFX_focus_arm_form_soviets
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_red_armenia
+		}
+		prerequisite = {
+			focus = focus_arm_proletariat
+		}
+		x = 51
+		y = 7
+
+	}
+	focus = {
+		id = focus_arm_nep
+		icon = GFX_focus_arm_nep
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_form_soviets
+		}
+		x = 51
+		y = 8
+
+	}
+	focus = {
+		id = focus_arm_ban_nationalism
+		icon = GFX_focus_arm_ban_nationalism
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_nep
+		}
+		x = 51
+		y = 9
+
+	}
+	focus = {
+		id = focus_arm_repressions
+		icon = GFX_focus_arm_repressions
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_ban_nationalism
+		}
+		x = 51
+		y = 10
+
+	}
+	focus = {
+		id = focus_arm_form_georgian_red_army
+		icon = GFX_focus_arm_form_georgian_red_army
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_repressions
+		}
+		x = 51
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_red_georgia
+		icon = GFX_focus_arm_red_georgia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_form_georgian_red_army
+		}
+		x = 49
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_expel_whites
+		icon = GFX_focus_arm_expel_whites
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_form_georgian_red_army
+		}
+		x = 53
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_punish_wrong_bolsheviks
+		icon = GFX_focus_arm_punish_wrong_bolsheviks
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_red_georgia
+		}
+		prerequisite = {
+			focus = focus_arm_expel_whites
+		}
+		x = 51
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_form_ussr
+		icon = GFX_focus_arm_form_ussr
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_punish_wrong_bolsheviks
+		}
+		x = 51
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_improve_harsh_conditions
+		icon = GFX_focus_arm_improve_harsh_conditions
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_express_demands
+		}
+		x = 2
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_legislation_against
+		icon = GFX_focus_arm_legislation_against
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_express_demands
+		}
+		x = 6
+		y = 11
+
+	}
+	focus = {
+		id = focus_arm_village
+		icon = GFX_focus_arm_village
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_improve_harsh_conditions
+		}
+		prerequisite = {
+			focus = focus_arm_legislation_against
+		}
+		x = 4
+		y = 12
+
+	}
+	focus = {
+		id = focus_arm_free_debts
+		icon = GFX_focus_arm_free_debts
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_village
+		}
+		x = 2
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_abolish_indirect_taxes
+		icon = GFX_focus_arm_abolish_indirect_taxes
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_village
+		}
+		x = 6
+		y = 13
+
+	}
+	focus = {
+		id = focus_arm_state_aid
+		icon = GFX_focus_arm_state_aid
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_free_debts
+		}
+		prerequisite = {
+			focus = focus_arm_abolish_indirect_taxes
+		}
+		x = 4
+		y = 14
+
+	}
+	focus = {
+		id = focus_arm_strong_soc_homeland
+		icon = GFX_focus_arm_strong_soc_homeland
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_state_aid
+		}
+		x = 4
+		y = 15
+
+	}
+	focus = {
+		id = focus_arm_hnchakyan_zinvor
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_strong_soc_homeland
+		}
+		x = 4
+		y = 16
+
+	}
+	focus = {
+		id = focus_arm_free_homeland
+		icon = GFX_focus_arm_free_homeland
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_hnchakyan_zinvor
+		}
+		x = 4
+		y = 17
+
+	}
+	focus = {
+		id = focus_arm_hunchak_parskahayk
+		icon = GFX_focus_arm_hunchak_parskahayk
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_free_homeland
+		}
+		x = 6
+		y = 18
+
+	}
+	focus = {
+		id = focus_arm_hunchak_arevmutq
+		icon = GFX_focus_arm_hunchak_arevmutq
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_free_homeland
+		}
+		x = 2
+		y = 18
+
+	}
+	focus = {
+		id = focus_arm_hunchak_united_armenia
+		icon = GFX_focus_arm_hunchak_united_armenia
+		cost = 10
+		prerequisite = {
+			focus = focus_arm_hunchak_arevmutq
+		}
+		prerequisite = {
+			focus = focus_arm_hunchak_parskahayk
+		}
+		x = 4
+		y = 19
+
+	}
+}

@@ -1,0 +1,104 @@
+generic_focus_tree_continue_the_course = {
+	name = "Continue the Course"
+	desc = "The bot with generic tree will always do the respective focus and never make coups"
+	
+	enable = {
+		OR = {
+			has_game_rule = {
+				rule = generic_focus_tree_ai_behaviour
+				option = continue_the_course
+			}
+			AND = {
+				has_game_rule = {
+					rule = generic_focus_tree_ai_behaviour
+					option = for_the_proletariat
+				}
+				has_country_flag = initial_ideology_socialist
+			}
+			AND = {
+				has_game_rule = {
+					rule = generic_focus_tree_ai_behaviour
+					option = for_the_freedom
+				}
+				has_country_flag = initial_ideology_liberal
+			}
+			AND = {
+				has_game_rule = {
+					rule = generic_focus_tree_ai_behaviour
+					option = for_the_nation
+				}
+				has_country_flag = initial_ideology_nationalist
+			}
+		}
+	}
+	
+	ai_national_focuses = {
+		generic_tree_continue_the_course
+	}
+}
+generic_focus_tree_random_coup = {
+	name = "Random coup"
+	desc = "A bot with the generic tree will always make a coup for a random ideology"
+	
+	enable = {
+		has_game_rule = {
+			rule = generic_focus_tree_ai_behaviour
+			option = random_coup
+		}
+	}
+	
+	ai_national_focuses = {
+		generic_tree_the_age_of_changes
+	}
+}
+generic_focus_tree_for_the_proletariat = {
+	name = "For the Proletariat"
+	desc = "A bot with the generic tree will always make a communist coup if it can"
+	
+	enable = {
+		has_game_rule = {
+			rule = generic_focus_tree_ai_behaviour
+			option = for_the_proletariat
+		}
+		NOT = { has_country_flag = initial_ideology_socialist }
+	}
+	
+	ai_national_focuses = {
+		generic_tree_the_age_of_changes
+		generic_tree_for_the_proletariat
+	}
+}
+generic_focus_tree_for_the_freedom = {
+	name = "For the Freedom"
+	desc = "A bot with the generic tree will always make a liberal coup if it can"
+	
+	enable = {
+		has_game_rule = {
+			rule = generic_focus_tree_ai_behaviour
+			option = for_the_freedom
+		}
+		NOT = { has_country_flag = initial_ideology_liberal }
+	}
+	
+	ai_national_focuses = {
+		generic_tree_the_age_of_changes
+		generic_tree_for_the_freedom
+	}
+}
+generic_focus_tree_for_the_nation = {
+	name = "For the Nation"
+	desc = "A bot with the generic tree will always make a nationalist coup if it can"
+	
+	enable = {
+		has_game_rule = {
+			rule = generic_focus_tree_ai_behaviour
+			option = for_the_nation
+		}
+		NOT = { has_country_flag = initial_ideology_nationalist }
+	}
+	
+	ai_national_focuses = {
+		generic_tree_the_age_of_changes
+		generic_tree_for_the_nation
+	}
+}

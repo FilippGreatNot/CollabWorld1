@@ -1,0 +1,937 @@
+#!gfx:interface/cw/generic_focus.gfx
+focus_tree = {
+	id = generic_tree
+	country = { factor = 0}
+	default = yes
+	
+	focus = {
+		id = generic_tree_continue_the_course
+		icon = GFX_focus_generic_tree_continue_the_course
+		cost = 6
+		
+		mutually_exclusive = { focus = generic_tree_the_age_of_changes }
+		
+		allow_branch = {
+			NOT = { has_completed_focus = generic_tree_the_age_of_changes }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = generic_tree_ensure_our_sovereignity
+		icon = GFX_focus_generic_tree_ensure_our_sovereignity
+		cost = 6
+		
+		relative_position_id = generic_tree_continue_the_course
+		y = 1
+		
+		prerequisite = { focus = generic_tree_continue_the_course }
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = {
+		id = generic_tree_the_age_of_changes
+		icon = GFX_focus_generic_tree_the_age_of_changes
+		cost = 6
+		
+		x = 15
+		offset = { #The tree view behaves in a bit goofy way otherwise
+			x = -15
+			trigger = {
+				has_completed_focus = generic_tree_the_age_of_changes
+			}
+		}
+		
+		mutually_exclusive = { focus = generic_tree_continue_the_course }
+		
+		allow_branch = {
+			NOT = { has_completed_focus = generic_tree_continue_the_course }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+			add_political_power = 50
+		}
+	}
+	
+	### Communist ###
+	focus = {
+		id = generic_tree_for_the_proletariat
+		icon = GFX_focus_generic_tree_for_the_proletariat
+		cost = 6
+		
+		relative_position_id = generic_tree_the_age_of_changes
+		x = -6
+		y = 1
+		offset = {
+			x = 6
+			trigger = {
+				has_completed_focus = generic_tree_for_the_proletariat
+			}
+		}
+		
+		offset = {
+			x = 3
+			trigger = {
+				OR = {
+					has_country_flag = initial_ideology_liberal
+					has_country_flag = initial_ideology_nationalist
+				}
+				NOT = { has_completed_focus = generic_tree_for_the_proletariat }
+			}
+		}
+		
+		prerequisite = { focus = generic_tree_the_age_of_changes }
+		mutually_exclusive = {
+			focus = generic_tree_for_the_freedom
+			focus = generic_tree_for_the_nation
+		}
+		
+		allow_branch = {
+			NOT = {
+				has_completed_focus = generic_tree_for_the_freedom
+				has_completed_focus = generic_tree_for_the_nation
+			}
+			NOT = { has_completed_focus = generic_tree_continue_the_course }
+			NOT = { has_country_flag = initial_ideology_socialist }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = generic_tree_the_path_of_lenin
+		icon = GFX_focus_generic_tree_the_path_of_lenin
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_proletariat
+		x = -2
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_proletariat }
+		mutually_exclusive = { focus = generic_tree_the_path_of_luxemburg }
+		
+		completion_reward = {
+			generic_start_communist_coup = yes
+			set_country_flag = generic_coup_target_bolshevism
+		}
+	}
+	focus = {
+		id = generic_tree_dekulakisation
+		icon = GFX_focus_generic_tree_dekulakisation
+		cost = 6
+		
+		relative_position_id = generic_tree_the_path_of_lenin
+		y = 1
+		
+		prerequisite = { focus = generic_tree_the_path_of_lenin }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_tractors_for_the_village
+		icon = GFX_focus_generic_tree_tractors_for_the_village
+		cost = 6
+		
+		relative_position_id = generic_tree_dekulakisation
+		y = 1
+		
+		prerequisite = { focus = generic_tree_dekulakisation }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_the_path_of_luxemburg
+		icon = GFX_focus_generic_tree_the_path_of_luxemburg
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_proletariat
+		x = 2
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_proletariat }
+		mutually_exclusive = { focus = generic_tree_the_path_of_lenin }
+		
+		completion_reward = {
+			generic_start_communist_coup = yes
+			set_country_flag = generic_coup_target_marxism
+		}
+	}
+	focus = {
+		id = generic_tree_regional_self_governance
+		icon = GFX_focus_generic_tree_regional_self_governance
+		cost = 6
+		
+		relative_position_id = generic_tree_the_path_of_luxemburg
+		y = 1
+		
+		prerequisite = { focus = generic_tree_the_path_of_luxemburg }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_women_in_the_industry
+		icon = GFX_focus_generic_tree_women_in_the_industry
+		cost = 6
+		
+		relative_position_id = generic_tree_regional_self_governance
+		y = 1
+		
+		prerequisite = { focus = generic_tree_regional_self_governance }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_mass_nationalisation
+		icon = GFX_focus_generic_tree_mass_nationalisation
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_proletariat
+		y = 2
+		
+		prerequisite = {
+			focus = generic_tree_the_path_of_lenin
+			focus = generic_tree_the_path_of_luxemburg
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_educate_the_people
+		icon = GFX_focus_generic_tree_educate_the_people
+		cost = 6
+		
+		relative_position_id = generic_tree_mass_nationalisation
+		y = 1
+		
+		prerequisite = { focus = generic_tree_mass_nationalisation }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_a_state_owned_by_workers
+		icon = GFX_focus_generic_tree_a_state_owned_by_workers
+		cost = 6
+		
+		relative_position_id = generic_tree_educate_the_people
+		y = 1
+		
+		prerequisite = { focus = generic_tree_educate_the_people }
+		prerequisite = {
+			focus = generic_tree_tractors_for_the_village
+			focus = generic_tree_women_in_the_industry
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_optimise_the_bureaucracy
+		icon = GFX_focus_generic_tree_optimise_the_bureaucracy
+		cost = 6
+		
+		relative_position_id = generic_tree_a_state_owned_by_workers
+		y = 1
+		
+		prerequisite = { focus = generic_tree_a_state_owned_by_workers }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_marxist_theory_in_schools
+		icon = GFX_focus_generic_tree_marxist_theory_in_schools
+		cost = 6
+		
+		relative_position_id = generic_tree_optimise_the_bureaucracy
+		y = 1
+		
+		prerequisite = { focus = generic_tree_optimise_the_bureaucracy }
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	### Liberal ###
+	focus = {
+		id = generic_tree_for_the_freedom
+		icon = GFX_focus_generic_tree_for_the_freedom
+		cost = 6
+		
+		relative_position_id = generic_tree_the_age_of_changes
+		y = 1
+		offset = {
+			x = 3
+			trigger = {
+				has_country_flag = initial_ideology_nationalist
+				NOT = { has_completed_focus = generic_tree_for_the_freedom }
+			}
+		}
+		offset = {
+			x = -3
+			trigger = {
+				has_country_flag = initial_ideology_socialist
+			}
+		}
+		
+		prerequisite = { focus = generic_tree_the_age_of_changes }
+		mutually_exclusive = {
+			focus = generic_tree_for_the_proletariat
+			focus = generic_tree_for_the_nation
+		}
+		
+		allow_branch = {
+			NOT = {
+				has_completed_focus = generic_tree_for_the_proletariat
+				has_completed_focus = generic_tree_for_the_nation
+			}
+			NOT = { has_completed_focus = generic_tree_continue_the_course }
+			NOT = { has_country_flag = initial_ideology_liberal }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = generic_tree_primacy_of_the_society
+		icon = GFX_focus_generic_tree_primacy_of_the_society
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_freedom
+		x = -2
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_freedom }
+		mutually_exclusive = {
+			focus = generic_tree_primacy_of_the_market
+			focus = generic_tree_primacy_of_the_traditions
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_exemptions_for_the_small_business
+		icon = GFX_focus_generic_tree_exemptions_for_the_small_business
+		cost = 6
+		
+		relative_position_id = generic_tree_primacy_of_the_society
+		y = 1
+		
+		prerequisite = { focus = generic_tree_primacy_of_the_society }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_government_labour_union_support
+		icon = GFX_focus_generic_tree_government_labour_union_support
+		cost = 6
+		
+		relative_position_id = generic_tree_exemptions_for_the_small_business
+		y = 1
+		
+		prerequisite = { focus = generic_tree_exemptions_for_the_small_business }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_primacy_of_the_market
+		icon = GFX_focus_generic_tree_primacy_of_the_society
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_freedom
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_freedom }
+		mutually_exclusive = {
+			focus = generic_tree_primacy_of_the_society
+			focus = generic_tree_primacy_of_the_traditions
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_state_industry_privatisation
+		icon = GFX_focus_generic_tree_state_industry_privatisation
+		cost = 6
+		
+		relative_position_id = generic_tree_primacy_of_the_market
+		y = 1
+		
+		prerequisite = { focus = generic_tree_primacy_of_the_market }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_state_attract_immigration
+		icon = GFX_focus_generic_tree_state_attract_immigration
+		cost = 6
+		
+		relative_position_id = generic_tree_state_industry_privatisation
+		y = 1
+		
+		prerequisite = { focus = generic_tree_state_industry_privatisation }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_primacy_of_the_traditions
+		icon = GFX_focus_eneric_tree_primacy_of_the_traditions
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_freedom
+		x = 2
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_freedom }
+		mutually_exclusive = {
+			focus = generic_tree_primacy_of_the_society
+			focus = generic_tree_primacy_of_the_market
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_support_the_national_production
+		icon = GFX_focus_generic_tree_support_the_national_production
+		cost = 6
+		
+		relative_position_id = generic_tree_primacy_of_the_traditions
+		y = 1
+		
+		prerequisite = { focus = generic_tree_primacy_of_the_traditions }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_state_as_a_capitalist
+		icon = GFX_focus_generic_tree_state_as_a_capitalist
+		cost = 6
+		
+		relative_position_id = generic_tree_support_the_national_production
+		y = 1
+		
+		prerequisite = { focus = generic_tree_support_the_national_production }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_a_worthy_place_in_the_free_world
+		icon = GFX_focus_generic_tree_a_worthy_place_in_the_free_world
+		cost = 6
+		
+		relative_position_id = generic_tree_state_attract_immigration
+		y = 1
+		
+		prerequisite = {
+			focus = generic_tree_government_labour_union_support
+			focus = generic_tree_state_attract_immigration
+			focus = generic_tree_state_as_a_capitalist
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_federative_state
+		icon = GFX_focus_generic_tree_federative_state
+		cost = 6
+		
+		relative_position_id = generic_tree_a_worthy_place_in_the_free_world
+		y = 1
+		
+		prerequisite = { focus = generic_tree_a_worthy_place_in_the_free_world }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_political_discussions_in_the_universities
+		icon = GFX_focus_generic_tree_political_discussions_in_the_universities
+		cost = 6
+		
+		relative_position_id = generic_tree_federative_state
+		y = 1
+		
+		prerequisite = { focus = generic_tree_federative_state }
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	### Nationalist ###
+	focus = {
+		id = generic_tree_for_the_nation
+		icon = GFX_focus_generic_tree_for_the_nation
+		cost = 6
+		
+		relative_position_id = generic_tree_the_age_of_changes
+		x = 6
+		y = 1
+		offset = {
+			x = -6
+			trigger = {
+				has_completed_focus = generic_tree_for_the_nation
+			}
+		}
+		offset = {
+			x = -3
+			trigger = {
+				OR = {
+					has_country_flag = initial_ideology_liberal
+					has_country_flag = initial_ideology_socialist
+				}
+				NOT = { has_completed_focus = generic_tree_for_the_nation }
+			}
+		}
+		
+		prerequisite = { focus = generic_tree_the_age_of_changes }
+		mutually_exclusive = {
+			focus = generic_tree_for_the_proletariat
+			focus = generic_tree_for_the_freedom
+		}
+		
+		allow_branch = {
+			NOT = {
+				has_completed_focus = generic_tree_for_the_proletariat
+				has_completed_focus = generic_tree_for_the_freedom
+			}
+			NOT = { has_completed_focus = generic_tree_continue_the_course }
+			NOT = { has_country_flag = initial_ideology_nationalist }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = generic_tree_glory_to_the_president
+		icon = GFX_focus_generic_tree_glory_to_the_president
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_nation
+		x = -2
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_nation }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_edit_the_constitution
+		icon = GFX_focus_generic_tree_edit_the_constitution
+		cost = 6
+		
+		relative_position_id = generic_tree_glory_to_the_president
+		y = 1
+		
+		prerequisite = { focus = generic_tree_glory_to_the_president }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_personality_cult
+		icon = GFX_focus_generic_tree_personality_cult
+		cost = 6
+		
+		relative_position_id = generic_tree_edit_the_constitution
+		y = 1
+		
+		prerequisite = { focus = generic_tree_edit_the_constitution }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_an_argument_against_the_democracy
+		icon = GFX_focus_generic_tree_an_argument_against_the_democracy
+		cost = 6
+		
+		relative_position_id = generic_tree_personality_cult
+		y = 1
+		
+		prerequisite = { focus = generic_tree_personality_cult }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_blackmail_unloyal_media
+		icon = GFX_focus_generic_tree_blackmail_unloyal_media
+		cost = 6
+		
+		relative_position_id = generic_tree_an_argument_against_the_democracy
+		y = 1
+		
+		prerequisite = { focus = generic_tree_an_argument_against_the_democracy }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_buy_out_large_business
+		icon = GFX_focus_generic_tree_blackmail_unloyal_media
+		cost = 6
+		
+		relative_position_id = generic_tree_blackmail_unloyal_media
+		y = 1
+		
+		prerequisite = { focus = generic_tree_blackmail_unloyal_media }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_restore_the_monarchy
+		icon = GFX_focus_generic_tree_restore_the_monarchy
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_nation
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_nation }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_mass_censorship
+		icon = GFX_focus_generic_tree_mass_censorship
+		cost = 6
+		
+		relative_position_id = generic_tree_restore_the_monarchy
+		y = 1
+		
+		prerequisite = { focus = generic_tree_restore_the_monarchy }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_introduce_the_state_religion
+		icon = GFX_focus_generic_tree_introduce_the_state_religion
+		cost = 6
+		
+		relative_position_id = generic_tree_mass_censorship
+		y = 1
+		
+		prerequisite = { focus = generic_tree_mass_censorship }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_state_as_the_highest_value
+		icon = GFX_focus_generic_tree_state_as_the_highest_value
+		cost = 6
+		
+		relative_position_id = generic_tree_for_the_nation
+		x = 2
+		y = 1
+		
+		prerequisite = { focus = generic_tree_for_the_nation }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_gun_down_the_opposition
+		icon = GFX_focus_generic_tree_gun_down_the_opposition
+		cost = 6
+		
+		relative_position_id = generic_tree_state_as_the_highest_value
+		y = 1
+		
+		prerequisite = { focus = generic_tree_state_as_the_highest_value }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_youth_militarisation
+		icon = GFX_focus_generic_tree_youth_militarisation
+		cost = 6
+		
+		relative_position_id = generic_tree_gun_down_the_opposition
+		y = 1
+		
+		prerequisite = { focus = generic_tree_gun_down_the_opposition }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_the_eternal_regime
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		cost = 6
+		
+		relative_position_id = generic_tree_introduce_the_state_religion
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = generic_tree_introduce_the_state_religion
+			focus = generic_tree_youth_militarisation
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_deport_ethnic_minorities
+		icon = GFX_focus_generic_tree_deport_ethnic_minorities
+		cost = 6
+		
+		relative_position_id = generic_tree_the_eternal_regime
+		y = 1
+		
+		prerequisite = { focus = generic_tree_the_eternal_regime }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_give_titles_to_large_capitalists
+		icon = GFX_focus_generic_tree_give_titles_to_large_capitalists
+		cost = 6
+		
+		relative_position_id = generic_tree_deport_ethnic_minorities
+		x = -1
+		y = 1
+		
+		prerequisite = { focus = generic_tree_deport_ethnic_minorities }
+		prerequisite = { focus = generic_tree_introduce_the_state_religion }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_no_taxes_for_state_business
+		icon = GFX_focus_generic_tree_no_taxes_for_state_business
+		cost = 6
+		
+		relative_position_id = generic_tree_deport_ethnic_minorities
+		x = 1
+		y = 1
+		
+		prerequisite = { focus = generic_tree_deport_ethnic_minorities }
+		prerequisite = { focus = generic_tree_youth_militarisation }
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	### Estabilished regime ###
+	focus = {
+		id = generic_tree_secure_our_country
+		icon = GFX_focus_generic_tree_secure_our_country
+		cost = 6
+		
+		relative_position_id = generic_tree_the_age_of_changes
+		y = 8
+		
+		prerequisite = {
+			focus = generic_tree_marxist_theory_in_schools
+			focus = generic_tree_political_discussions_in_the_universities
+			focus = generic_tree_buy_out_large_business
+			focus = generic_tree_give_titles_to_large_capitalists
+			focus = generic_tree_no_taxes_for_state_business
+		}
+		
+		allow_branch = {
+			has_completed_focus = generic_tree_the_age_of_changes
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_main_branch #Always hidden and used only to move the entire tree
+		icon = GFX_focus_generic_tree_main_branch
+		
+		relative_position_id = generic_tree_secure_our_country
+		y = 1
+		offset = {
+			x = -15
+			y = -7
+			trigger = {
+				NOT = { has_completed_focus = generic_tree_the_age_of_changes }
+			}
+		}
+		
+		allow_branch = { always = no }
+	}
+	focus = {
+		id = generic_tree_military_modernisation
+		icon = GFX_focus_generic_tree_military_modernisation
+		cost = 6
+		
+		relative_position_id = generic_tree_main_branch
+		x = -4
+		
+		prerequisite = { focus = generic_tree_secure_our_country }
+		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
+		
+		allow_branch = { NOT = { has_country_flag = do_bad_things } } #For some reason HoI4 Mod Utilities doesn't override it if done in a non-overengineered way
+		
+		completion_reward = {
+			
+		}
+	}
+	
+	focus = { #Coded before the others since they are relative to it
+		id = generic_tree_our_own_way
+		icon = GFX_focus_generic_tree_pro_soviet_diplomacy
+		cost = 6
+		
+		relative_position_id = generic_tree_main_branch
+		
+		prerequisite = { focus = generic_tree_secure_our_country }
+		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
+		mutually_exclusive = {
+			focus = generic_tree_pro_soviet_diplomacy
+			focus = generic_tree_pro_french_diplomacy
+		}
+		
+		allow_branch = { NOT = { has_country_flag = do_bad_things } }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_pro_soviet_diplomacy
+		icon = GFX_focus_generic_tree_pro_soviet_diplomacy
+		cost = 6
+		
+		relative_position_id = generic_tree_our_own_way
+		x = -2
+		
+		prerequisite = { focus = generic_tree_secure_our_country }
+		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
+		mutually_exclusive = {
+			focus = generic_tree_our_own_way
+			focus = generic_tree_pro_french_diplomacy
+		}
+		
+		allow_branch = { NOT = { has_country_flag = do_bad_things } }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_pro_french_diplomacy
+		icon = GFX_focus_generic_tree_pro_soviet_diplomacy
+		cost = 6
+		
+		relative_position_id = generic_tree_our_own_way
+		x = 2
+		
+		prerequisite = { focus = generic_tree_secure_our_country }
+		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
+		mutually_exclusive = {
+			focus = generic_tree_pro_soviet_diplomacy
+			focus = generic_tree_our_own_way
+		}
+		
+		allow_branch = { NOT = { has_country_flag = do_bad_things } }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_industry_electrification
+		icon = GFX_focus_generic_tree_industry_electrification
+		cost = 6
+		
+		relative_position_id = generic_tree_main_branch
+		x = 4
+		
+		prerequisite = { focus = generic_tree_secure_our_country }
+		prerequisite = { focus = generic_tree_ensure_our_sovereignity }
+		
+		allow_branch = { NOT = { has_country_flag = do_bad_things } }
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = generic_tree_expand_the_railway_network
+		icon = GFX_focus_generic_tree_expand_the_railway_network
+		cost = 6
+		
+		relative_position_id = generic_tree_industry_electrification
+		y = 1
+		
+		prerequisite = { focus = generic_tree_industry_electrification }
+		
+		completion_reward = {
+			
+		}
+	}
+}

@@ -16,13 +16,9 @@ SOV_eat_PBD_generals = {
 			}
 		}
 		every_character = {
-			tooltip = every_advisor_and_unit_leader_tt
-			limit = {
-				OR = { #We don't need Polish country leaders, only advisors and generals
-					is_advisor = yes
-					is_unit_leader = yes
-				}
-			}
+			tooltip = every_unit_leader_tt
+			limit = { is_unit_leader = yes } #We don't need country leaders, only generals
+			
 			set_nationality = PREV.PREV
 		}
 	}

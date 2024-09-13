@@ -22,6 +22,24 @@ characters = {
 		country_leader = {
 			ideology = military_junta
 			desc = "POLITICS_NOSKE_DESC"
+			traits = {
+				businessman
+			}
+		}
+	}
+	FGB_gustav_noske2 = {
+		name = "Gustav Noske"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_gustav_noske.tga"
+			}
+		}
+		country_leader = {
+			ideology = liberal_socialism
+			desc = "POLITICS_NOSKE_DESC"
+			traits = {
+				businessman
+			}
 		}
 	}
 	FGB_ernst_rohm = {
@@ -80,9 +98,60 @@ characters = {
 	
 	
 	## Security Minister ##
+	FGB_kurt_schumacher = {
+		name = FGB_kurt_schumacher
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_kurt_schumacher.tga"
+				small = "GFX_idea_FGB_kurt_schumacher"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = FGB_kurt_schumacher_sec
+			visible = {
+				has_completed_focus = FGB_noske_september_coalition
+			}
+			allowed = {
+				tag = FGB
+			}
+			traits = { spd_journalist }
+			cost = 100
+			can_be_fired = no
+		}
+	}
 	## Economy Minister ##
 	## Propaganda Minister ##
-
+	FGB_adolf_hiedler = {
+		name = FGB_adolf_hiedler
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_adolf_hiedler.tga"
+				small = "GFX_idea_FGB_adolf_hiedler"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_adolf_hiedler.tga"
+				small = "GFX_idea_FGB_adolf_hiedler"
+			}
+		}
+		country_leader = {
+			ideology = revolutionary_nationalism
+			desc = "POLITICS_ADOLF_HIEDLER_DESC"
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = FGB_adolf_hiedler_prop
+			visible = {
+				has_completed_focus = FGB_noske_recruit_new_staff
+			}
+			allowed = {
+				tag = FGB
+			}
+			traits = { revisionist warmonger_propagandist }
+			cost = 100
+			can_be_fired = no
+		}
+	}
 	### Unit Leaders ###
 	## Generals ##
 	FGB_kurt_daluege = {
@@ -90,11 +159,9 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/FGB/FGB_kurt_daluege.tga"
-				small = "GFX_idea_FGB_Kurt_Daluege"
 			}
 			army = {
 				large = "gfx/leaders/FGB/FGB_kurt_daluege.tga"
-				small = "GFX_idea_FGB_Kurt_Daluege"
 			}
 		}
 		corps_commander = {
@@ -112,11 +179,9 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/FGB/FGB_rudolf_veiel.tga"
-				small = "GFX_idea_FGB_Rudolf_Veiel"
 			}
 			army = {
 				large = "gfx/leaders/FGB/FGB_rudolf_veiel.tga"
-				small = "GFX_idea_FGB_Rudolf_Veiel"
 			}
 		}
 		corps_commander = {
@@ -134,11 +199,9 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/FGB/FGB_waldemar_pabst.tga"
-				small = "GFX_idea_FGB_Waldemar_Pabst"
 			}
 			army = {
 				large = "gfx/leaders/FGB/FGB_waldemar_pabst.tga"
-				small = "GFX_idea_FGB_Waldemar_Pabst"
 			}
 		}
 		corps_commander = {
@@ -156,11 +219,9 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/FGB/FGB_karl_wolff.tga"
-				small = "GFX_idea_FGB_Karl_Wolff"
 			}
 			army = {
 				large = "gfx/leaders/FGB/FGB_karl_wolff.tga"
-				small = "GFX_idea_FGB_Karl_Wolff"
 			}
 		}
 		corps_commander = {
@@ -173,17 +234,73 @@ characters = {
 			logistics_skill = 1
 		}
 	}
+	## GAINED ##
+	# Bavarian Generals #
+	FGB_julius_schreck = {
+		name = FGB_julius_schreck
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_julius_schreck.tga"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_julius_schreck.tga"
+			}
+		}
+	}
+	FGB_christian_berger = {
+		name = FGB_christian_berger
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_christian_berger.tga"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_christian_berger.tga"
+			}
+		}
+	}
+	FGB_theodor_eicke = {
+		name = FGB_theodor_eicke
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_theodor_eicke.tga"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_theodor_eicke.tga"
+			}
+		}
+	}
+	# Rheinish Generals #
+	FGB_hans_von_seeckt = {
+		name = FGB_hans_von_seeckt
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_hans_von_seeckt.tga"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_hans_von_seeckt.tga"
+			}
+		}
+	}
+	FGB_ferdinand_schorner = {
+		name = FGB_ferdinand_schorner
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_ferdinand_schorner.tga"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_ferdinand_schorner.tga"
+			}
+		}
+	}
 	## Field Marshals ##
 	FGB_wilhelm_list = {
 		name = FGB_wilhelm_list
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/FGB/FGB_wilhelm_list.tga"
-				small = "GFX_idea_FGB_Wilhelm_List"
 			}
 			army = {
 				large = "gfx/leaders/FGB/FGB_wilhelm_list.tga"
-				small = "GFX_idea_FGB_Wilhelm_List"
 			}
 		}
 		field_marshal = {
@@ -196,5 +313,16 @@ characters = {
 			logistics_skill = 1
 		}
 	}
-	
+	## GAINED ##
+	FGB_paul_von_hindenburg = {
+		name = FGB_paul_von_hindenburg
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/WRD/WRD_paul_von_hindenburg.tga"
+			}
+			army = {
+				large = "gfx/leaders/WRD/WRD_paul_von_hindenburg.tga"
+			}
+		}
+	}
 }

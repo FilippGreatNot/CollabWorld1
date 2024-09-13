@@ -14,14 +14,11 @@ focus_tree = {
         id = YUG_a_broken_kingdom
         icon = GFX_focus_YUG_a_broken_nation
         cost = 6
-
         x = 11
-    
-    completion_reward = {
+        completion_reward = {
             log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_a_broken_kingdom"
 			add_political_power	= -25
             add_stability = -0.05
-            
 			country_event = yugo.1
     	}
     }
@@ -29,46 +26,40 @@ focus_tree = {
         id = YUG_the_legacy_of_the_uprising
         icon = GFX_focus_YUG_legacy_of_the_uprising
         cost = 4
-
         prerequisite = {focus = YUG_a_broken_kingdom}
-
         relative_position_id = YUG_a_broken_kingdom
 		y = 1
-
-    completion_reward = {
-        log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_the_legacy_of_the_uprising"
-        add_command_power = 25
-        add_political_power = -25
-
-        country_event = yugo.2
-    }
+        completion_reward = {
+            log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_the_legacy_of_the_uprising"
+            add_command_power = 25
+            add_political_power = -25
+            country_event = yugo.2
+        }
     }
     #Middle branch
      focus = {
         id = YUG_electoral_gridlock
         icon = GFX_focus_YUG_electoral_gridlock
         cost = 5
-
         prerequisite = {focus = YUG_the_legacy_of_the_uprising}
-
         relative_position_id = YUG_the_legacy_of_the_uprising
         y = 1
-    completion_reward = {
-        add_political_power = -40
-        add_popularity = {
-            ideology = marxism
-            popularity = 0.05
-        add_popularity = {
-            ideology = liberalism
-            popularity = 0.10
-        add_popularity = {
-            ideology = conservatism
-            popularity = 0.15
-        }
-        }
+        completion_reward = {
+            add_political_power = -40
+            add_popularity = {
+                ideology = marxism
+                popularity = 0.05
+            }
+            add_popularity = {
+                ideology = liberalism
+                popularity = 0.10
+            }
+            add_popularity = {
+                ideology = conservatism
+                popularity = 0.15
+            }
         }
     }
-     }
     focus = {
         id = YUG_introduce_veteran_pensions
         icon = GFX_focus_introduce_veteran_pensions
@@ -79,12 +70,12 @@ focus_tree = {
         relative_position_id = YUG_electoral_gridlock
         x = -1
         y = 1
-    completion_reward = {
-        add_political_power = 50
-        add_stability = 0.05
-        add_war_support = -0.10
-        add_manpower = -100
-    }
+        completion_reward = {
+            add_political_power = 50
+            add_stability = 0.05
+            add_war_support = -0.10
+            add_manpower = -100
+        }
     }
     focus = {
         id = YUG_celebrating_national_unity_day
@@ -112,29 +103,403 @@ focus_tree = {
         relative_position_id = YUG_a_broken_kingdom
         y = 4
         completion_reward = {
-            add_command_power = 0.10
+            log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_the_ethnic_situation"
+            country_event = yugo.3
         }
     }
     focus = {
-        id = YUG_paying_our_debts
-        icon = GFX_focus_paying_our_debts
-        x = 18
-        cost = 6
+        id = YUG_infrastructure_program
+        icon = GFX_focus_YUG_infrastructure_program
+        x = 28
+        cost = 10
 
         available = { has_completed_focus = YUG_the_ethnic_situation }
         completion_reward = {
+            random_owned_controlled_state = {
+                add_building_construction = {
+					type = infrastructure 
+					level = 2
+					instant_build  = yes
+				}
+			}
+            random_owned_controlled_state = {
+                add_building_construction = {
+					type = infrastructure 
+					level = 2
+					instant_build  = yes
+				}
+            }
+        }
+    }
+    focus = {
+        id = YUG_breaking_up_foreign_landlords
+        icon = GFX_focus_YUG_breaking_up_the_landlords
+        x = 28
+        y = 1
+        cost = 10
+
+        prerequisite = { focus = YUG_infrastructure_program }
+        completion_reward = {
+            45 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+                }
+            }
+			764 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+                }
+            } 
+            add_stability = -0.03
+        }
+    }
+    ##Left education branch
+    focus = {
+        id = YUG_putting_funds_into_education
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 22
+        y = 2
+        cost = 5
+        prerequisite = { focus = YUG_breaking_up_foreign_landlords }
+        completion_reward = {
+            add_ideas = YUG_funding_education
+        }
+    }
+    focus = {
+        id = YUG_opening_new_schools
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 22
+        y = 3
+        cost = 10
+        prerequisite = { focus = YUG_putting_funds_into_education }
+        completion_reward = {
+            add_ideas = YUG_funding_education1
+            add_political_power = 50
+        }
+    }
+    focus = {
+        id = YUG_yugoslav_universities
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 22
+        y = 4
+        cost = 10
+        prerequisite = { focus = YUG_opening_new_schools }
+        completion_reward = {
+            add_ideas = YUG_funding_education2
+            add_political_power = 50
+        }
+    }
+    ##Start of eco 
+    focus = {
+        id = YUG_stimulating_the_economy
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 28
+        y = 2
+        cost = 8
+        prerequisite = { focus = YUG_breaking_up_foreign_landlords }
+        completion_reward = {
+            add_timed_idea = {
+                idea = YUG_stimulated_economy
+                days = 70
+                months = 0
+                years = 0
+            }
+            add_political_power = 25
+        }
+    }
+    ##Left eco branch
+    focus = {
+        id = YUG_farmer_subsidies
+        icon = GFX_focus_YUG_farmer_subsidies
+        x = 26
+        y = 3
+        cost = 10
+        mutually_exclusive = { focus = YUG_begin_industrialisation }
+        prerequisite = { focus = YUG_stimulating_the_economy }
+        completion_reward = {
+            remove_ideas = YUG_agrarian_economy
+            add_ideas = YUG_agricultural_focused_economy
+            862 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+        }
+    }
+    focus = {
+        id = YUG_intense_mechanisation
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 25
+        y = 4
+        cost = 5
+        prerequisite = { focus = YUG_farmer_subsidies }
+        completion_reward = {
+            add_tech_bonus = {
+                bonus = 0.5
+                uses = 2
+                category = industry
+            }
+        }
+    }
+    focus = {
+        id = YUG_investing_into_motorways
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 27
+        y = 4
+        cost = 5
+        prerequisite = { focus = YUG_farmer_subsidies }
+        completion_reward = {
+            108 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+            105 = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+        }
+	}
+    focus = {
+        id = YUG_building_up_adriatic_ports
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 27
+        y = 5
+        cost = 5
+        prerequisite = { focus = YUG_investing_into_motorways }
+        completion_reward = {
+            105 = {
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+            103 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+        }
+    }
+    focus = { 
+        id = YUG_developing_fertilizer_factories
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 25 
+        y = 5
+        cost = 5
+        prerequisite = { focus = YUG_intense_mechanisation }
+        completion_reward = {
+            109 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+            swap_ideas = {
+                remove_idea = YUG_agricultural_focused_economy
+                add_idea = YUG_agricultural_focused_economy1
+            }
+        }
+    }
+    focus = {
+        id = YUG_agricultural_exports
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 25
+        y = 6
+        cost = 5
+        prerequisite = { focus = YUG_developing_fertilizer_factories }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_agricultural_focus_economy2
+                add_idea = YUG_agricultural_focus_economy3
+            }
+        }
+    }
+    focus = {
+        id = YUG_truck_production
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 27
+        y = 6
+        cost = 5
+        prerequisite = { focus = YUG_building_up_adriatic_ports }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_agricultural_focus_economy3
+                add_idea = YUG_agricultural_focus_economy4
+            }
+        }
+    }
+    ##Right eco branch 
+    focus = {
+        id = YUG_begin_industrialisation
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 30
+        y = 3
+        cost = 5
+        mutually_exclusive = { focus = YUG_farmer_subsidies }
+        prerequisite = { focus = YUG_stimulating_the_economy }
+        completion_reward = {
+            107 = {
+			    add_extra_state_shared_building_slots = 2
+			    add_building_construction = {
+				    type = industrial_complex
+				    level = 2
+				    instant_build = yes
+                }
+            }
+			104 = {
+			    add_extra_state_shared_building_slots = 2
+			    add_building_construction = {
+				    type = industrial_complex
+				    level = 2
+				    instant_build = yes
+                }
+            }
+        }
+    }
+    focus = {
+        id = YUG_expanding_zastava_facilities
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 30
+        y = 4 
+        cost = 5
+
+        prerequisite = { focus = YUG_begin_industrialisation }
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+    focus = {
+        id = YUG_investing_into_new_tools
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 32
+        y = 4
+        cost = 5
+
+        prerequisite = { focus = YUG_begin_industrialisation }
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+    focus = {
+        id = YUG_increasing_steel_production
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 30
+        y = 5
+        cost = 5
+
+        prerequisite = { focus = YUG_expanding_zastava_facilities }
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+    focus = {
+        id = YUG_the_serbian_rhineland
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 30 
+        y = 6
+        cost = 5
+
+        prerequisite = { focus = YUG_increasing_steel_production }
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+    focus = { 
+        id = YUG_buying_foreign_industry_machines
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 32 
+        y = 5
+        cost = 5
+
+        prerequisite = { focus = YUG_investing_into_new_tools }
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+    focus = { 
+        id = YUG_putting_farmers_into_factories
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 32
+        y = 6
+        cost = 5
+        prerequisite = { focus = YUG_buying_foreign_industry_machines }
+        completion_reward = {
+            add_stability = -0.1
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+    ##Radio focus
+    focus = {
+        id = YUG_forming_rbr
+        icon = GFX_focus_introduce_veteran_pensions
+        x = 32
+        y = 2
+        cost = 8
+        prerequisite = { focus = YUG_breaking_up_foreign_landlords }
+        completion_reward = {
+            add_ideas = YUG_radio_belgrade
+            add_political_power = 50
+        }
+    }
+    ##Debt tree 
+       focus = {
+        id = YUG_paying_our_debts
+        icon = GFX_focus_YUG_paying_our_debts
+        x = 36
+        y = 2
+        cost = 6
+        prerequisite = { focus = YUG_breaking_up_foreign_landlords }
+        completion_reward = {
             add_political_power = 25            
-            
         }
     }
     #Middle branch
     focus = {
         id = YUG_paying_the_british
-        icon = GFX_focus_introduce_veteran_pensions
-        x = 18
-        y = 1
+        icon = GFX_focus_YUG_paying_the_british
+        x = 36
+        y = 3
         cost = 10
-
         prerequisite = { focus = YUG_paying_our_debts }
         completion_reward = {
             swap_ideas = {
@@ -146,11 +511,10 @@ focus_tree = {
     #Left branch
     focus = {
         id = YUG_paying_the_french
-        icon = GFX_focus_introduce_veteran_pensions
-        x = 16
-        y = 1
+        icon = GFX_focus_YUG_paying_the_french
+        x = 38
+        y = 3
         cost = 10
-
         prerequisite = { focus = YUG_paying_our_debts }
         available = { has_completed_focus = YUG_paying_the_british }
         completion_reward = {
@@ -163,11 +527,10 @@ focus_tree = {
     #Right branch
     focus = {
         id = YUG_paying_the_americans
-        icon = GFX_focus_introduce_veteran_pensions
-        x = 20
-        y = 1
+        icon = GFX_focus_YUG_paying_the_americans
+        x = 34
+        y = 3
         cost = 10
-
         prerequisite = { focus = YUG_paying_our_debts }
         available = { has_completed_focus = YUG_paying_the_french }
         completion_reward = {
@@ -177,4 +540,27 @@ focus_tree = {
             }
         }
     }
+	focus = {
+		id = YUG_writing_the_last_checks
+		icon = GFX_focus_YUG_writing_the_last_checks
+		x = 36
+		y = 4
+		cost = 5
+		prerequisite = { focus = YUG_paying_the_british }
+		prerequisite = { focus = YUG_paying_the_americans }
+		prerequisite = { focus = YUG_paying_the_french }
+		completion_reward = {
+            remove_ideas = YUG_debt_crisis4
+            add_political_power = 65
+        }
+    }
 }
+
+
+
+
+
+
+
+
+

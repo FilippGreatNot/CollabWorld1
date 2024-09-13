@@ -335,15 +335,23 @@ focus_tree = {
 			}
 			create_wargoal = {
 				type = puppet_wargoal_focus
-				target = BGI
+				target = IRQ
 			}
 			create_wargoal = {
 				type = puppet_wargoal_focus
-				target = MSL
+				target = SYR
 			}
 			create_wargoal = {
 				type = puppet_wargoal_focus
 				target = SAU
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HEJ
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PAL
 			}
 			create_wargoal = {
 				type = puppet_wargoal_focus
@@ -374,8 +382,8 @@ focus_tree = {
 				
 				PER = { PREV_controls_all_cores = yes }
 				AFG = { PREV_controls_all_cores = yes }
-				BGI = { PREV_controls_all_cores = yes }
-				MSL = { PREV_controls_all_cores = yes }
+				IRQ = { PREV_controls_all_cores = yes }
+				SYR = { PREV_controls_all_cores = yes }
 				SAU = { PREV_controls_all_cores = yes }
 				OMA = { PREV_controls_all_cores = yes }
 				YEM = { PREV_controls_all_cores = yes }
@@ -444,8 +452,8 @@ focus_tree = {
 				
 				PER = { PREV_controls_all_cores = yes }
 				AFG = { PREV_controls_all_cores = yes }
-				BGI = { PREV_controls_all_cores = yes }
-				MSL = { PREV_controls_all_cores = yes }
+				IRQ = { PREV_controls_all_cores = yes }
+				SYR = { PREV_controls_all_cores = yes }
 				SAU = { PREV_controls_all_cores = yes }
 				OMA = { PREV_controls_all_cores = yes }
 				YEM = { PREV_controls_all_cores = yes }
@@ -478,8 +486,8 @@ focus_tree = {
 				
 				PER = { PREV_controls_all_cores = yes }
 				AFG = { PREV_controls_all_cores = yes }
-				BGI = { PREV_controls_all_cores = yes }
-				MSL = { PREV_controls_all_cores = yes }
+				IRQ = { PREV_controls_all_cores = yes }
+				SYR = { PREV_controls_all_cores = yes }
 				SAU = { PREV_controls_all_cores = yes }
 				OMA = { PREV_controls_all_cores = yes }
 				YEM = { PREV_controls_all_cores = yes }
@@ -517,10 +525,9 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_united_death_to_the_dragon"
 			
-			every_other_country = {
-				limit = {
-					is_chinese_tag = yes
-				}
+			for_each_scope_loop = {
+				array = global.chinese_tags
+				
 				ROOT = {
 					create_wargoal = {
 						type = puppet_wargoal_focus
@@ -528,6 +535,7 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = create_wargoal_for_every_chinese_tag_tt
 		}
 	}
 	
@@ -546,17 +554,13 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_united_march_to_the_west"
 			
-			hidden_effect = {
-				every_other_country = {
-					limit = {
-						is_german_tag = yes
-						NOT = { is_in_faction_with = PREV }
-					}
-					ROOT = {
-						create_wargoal = {
-							type = puppet_wargoal_focus
-							target = PREV
-						}
+			for_each_scope_loop = {
+				array = global.german_tags
+				
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
 					}
 				}
 			}
@@ -606,11 +610,10 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = every_previous_focus_country_defeated_tt
 				
-				all_other_country = {
-					OR = {
-						PREV_controls_all_cores_or_is_ally = yes
-						is_german_tag = no
-					}
+				all_of_scopes = {
+					array = global.german_tags
+					
+					PREV_controls_all_cores_or_is_ally = yes
 				}
 				FIN = { PREV_controls_all_cores_or_is_ally = yes }
 				NOR = { PREV_controls_all_cores_or_is_ally = yes }
@@ -646,19 +649,17 @@ focus_tree = {
 				type = puppet_wargoal_focus
 				target = GRE
 			}
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = ITA
-			}
-			if = {
-				limit = {
-					country_exists = ITS
-				}
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = ITS
+			for_each_scope_loop = {
+				array = global.italian_tags
+				
+				ROOT = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = PREV
+					}
 				}
 			}
+			custom_effect_tooltip = create_wargoal_for_every_italian_tag_tt
 		}
 	}
 	focus = {
@@ -675,18 +676,16 @@ focus_tree = {
 			custom_trigger_tooltip = {
 				tooltip = every_previous_focus_country_defeated_tt
 				
-				all_other_country = {
-					OR = {
-						PREV_controls_all_cores_or_is_ally = yes
-						is_german_tag = no
-					}
+				all_of_scopes = {
+					array = global.italian_tags
+					
+					PREV_controls_all_cores_or_is_ally = yes
 				}
 				ROM = { PREV_controls_all_cores_or_is_ally = yes }
 				BUL = { PREV_controls_all_cores_or_is_ally = yes }
 				YUG = { PREV_controls_all_cores_or_is_ally = yes }
 				ALB = { PREV_controls_all_cores_or_is_ally = yes }
 				GRE = { PREV_controls_all_cores_or_is_ally = yes }
-				ITA = { PREV_controls_all_cores_or_is_ally = yes }
 			}
 			is_subject = no
 		}

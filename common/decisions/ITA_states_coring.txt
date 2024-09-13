@@ -18,6 +18,7 @@ ITA_reunification = {
 
 		highlight_states = {
 			state = 162
+			state = 884
 		}
 		
 		modifier = {
@@ -36,6 +37,8 @@ ITA_reunification = {
 		remove_effect	= {
 			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_tus remove"
 			add_state_core = 162
+			add_state_core = 884
+			set_country_flag = ITAS_has_cored_tus
 		}
 	}
 	ITA_coring_its = {
@@ -59,6 +62,9 @@ ITA_reunification = {
 			state = 159
 			state = 158
 			state = 161
+			state = 869
+			state = 875
+			state = 859
 		}
 		
 		modifier = {
@@ -79,6 +85,18 @@ ITA_reunification = {
 			add_state_core = 159
 			add_state_core = 158
 			add_state_core = 161
+			add_state_core = 869
+			add_state_core = 875
+			add_state_core = 859
+			set_country_flag = ITAS_has_cored_its
+			if = {
+				limit = {tag = TUS}
+				custom_effect_tooltip = TUS_modify_ppl_subtract_10
+				subtract_from_variable = {
+					var = TUS_Balbo_Pop_ppl
+					value = 10
+				}				
+			}
 		}
 	}
 	ITA_coring_vne = {
@@ -100,6 +118,7 @@ ITA_reunification = {
 
 		highlight_states = {
 			state = 160
+			state = 860
 		}
 		
 		modifier = {
@@ -118,6 +137,16 @@ ITA_reunification = {
 		remove_effect	= {
 			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_vne remove"
 			add_state_core = 160
+			add_state_core = 860
+			set_country_flag = ITAS_has_cored_vne
+			if = {
+				limit = {tag = TUS}
+				custom_effect_tooltip = TUS_modify_ppl_subtract_5
+				subtract_from_variable = {
+					var = TUS_Balbo_Pop_ppl
+					value = 5
+				}				
+			}
 		}
 	}
 	ITA_coring_ita = {
@@ -141,6 +170,8 @@ ITA_reunification = {
 			state = 2
 			state = 157
 			state = 117
+			state = 893
+			state = 857
 		}
 		
 		modifier = {
@@ -161,6 +192,17 @@ ITA_reunification = {
 			add_state_core = 2
 			add_state_core = 157
 			add_state_core = 117
+			add_state_core = 893
+			add_state_core = 857
+			set_country_flag = ITAS_has_cored_ita
+			if = {
+				limit = {tag = TUS}
+				custom_effect_tooltip = TUS_modify_ppl_subtract_10
+				subtract_from_variable = {
+					var = TUS_Balbo_Pop_ppl
+					value = 10
+				}				
+			}
 		}
 	}
 	ITA_coring_mss = {
@@ -202,6 +244,15 @@ ITA_reunification = {
 			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_mss remove"
 			add_state_core = 115
 			add_state_core = 156
+			set_country_flag = ITAS_has_cored_mss
+			if = {
+				limit = {tag = TUS}
+				custom_effect_tooltip = TUS_modify_ppl_subtract_5
+				subtract_from_variable = {
+					var = TUS_Balbo_Pop_ppl
+					value = 5
+				}				
+			}
 		}
 	}
 	ITA_coring_sar = {
@@ -241,6 +292,67 @@ ITA_reunification = {
 		remove_effect	= {
 			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_sar remove"
 			add_state_core = 114
+			set_country_flag = ITAS_has_cored_sar
+			if = {
+				limit = {tag = TUS}
+				custom_effect_tooltip = TUS_modify_ppl_subtract_5
+				subtract_from_variable = {
+					var = TUS_Balbo_Pop_ppl
+					value = 5
+				}				
+			}
+		}
+	}
+	ITA_core_san_1 = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 930
+		}
+
+		visible = {
+			owns_state = 930
+			NOT = {
+				930 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		days_remove = 5
+		cost = 5
+
+		remove_effect = {
+			930 = {
+				add_core_of = ROOT
+			}
+		}
+	}
+	ITA_core_san_2 = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 907
+		}
+
+		visible = {
+			owns_state = 907
+			NOT = {
+				907 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		days_remove = 21
+		cost = 21
+
+		remove_effect = {
+			907 = {
+				add_core_of = ROOT
+			}
 		}
 	}
 }

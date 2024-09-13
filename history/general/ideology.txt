@@ -1,0 +1,15 @@
+#Initial ideologies, used for the generic tree at the moment of writing this, but may be used for something else too in the future
+#Not in on_actions because on_startup is executed when initial focus allow_branches are already calculated
+every_possible_country = {
+	if = {
+		limit = { ideology_socialist = yes }
+		set_country_flag = initial_ideology_socialist
+	}
+	else_if = {
+		limit = { ideology_liberal = yes }
+		set_country_flag = initial_ideology_liberal
+	}
+	else = { #Either authoritarian or goofy ahh
+		set_country_flag = initial_ideology_nationalist
+	}
+}

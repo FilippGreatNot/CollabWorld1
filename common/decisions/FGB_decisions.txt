@@ -1,0 +1,171 @@
+FGB_army_category = {
+	FGB_reform = {
+		visible = {
+			has_country_flag = FGB_shrivelled_army_flag
+		}
+		available = {
+			has_political_power > 19
+		}
+		allowed = {
+			tag = FGB
+		}
+		cost = 30
+		icon = FGB_reform
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			add_political_power = -20
+		}
+        modifier = {
+            political_power_cost = 0.2
+        }
+		remove_effect = {
+			if = { 
+				limit = {  
+					NOT = { has_idea = FGB_shrivelled_army_control_1 }
+				}
+				FGB_shrivelled_army_control_level_down = yes
+			}
+			else_if = {
+				limit = {
+					has_idea = FGB_shrivelled_army_control_1
+				}
+				remove_ideas = FGB_shrivelled_army_control_1 
+				clr_country_flag = FGB_shrivelled_army_flag 
+			}
+		}
+	}
+	FGB_reform2 = {
+		visible = {
+			or = {
+				has_country_flag = FGB_shrivelled_army_flag
+			}
+		}
+		available = {
+			has_army_experience > 9
+		}
+		allowed = {
+			tag = FGB
+		}
+		cost = 30
+		icon = FGB_reform2
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			army_experience = -10
+		}
+        modifier = {
+            experience_gain_army = -0.2
+        }
+		remove_effect = {
+			if = { 
+				limit = {  
+					NOT = { has_idea = FGB_shrivelled_army_control_1 }
+				}
+				FGB_shrivelled_army_control_level_down = yes
+			}
+			else_if = {
+				limit = {
+					has_idea = FGB_shrivelled_army_control_1
+				}
+				remove_ideas = FGB_shrivelled_army_control_1 
+				clr_country_flag = FGB_shrivelled_army_flag 
+			}
+		}
+	}
+	FGB_reform3 = {
+		visible = {
+			has_completed_focus = FGB_expand_conscription
+			or = {
+				has_country_flag = FGB_shrivelled_army_flag
+			}
+		}
+		available = {
+			has_manpower > 9999
+		}
+		allowed = {
+			tag = FGB
+		}
+		cost = 30
+		icon = FGB_reform3
+		fire_only_once = no
+		days_remove = 60
+		complete_effect = {
+			add_manpower = -10000
+		}
+		modifier = {
+            weekly_manpower = -200
+        }
+		remove_effect = {
+			if = { 
+				limit = {  
+					NOT = { has_idea = FGB_shrivelled_army_control_1 }
+				}
+				FGB_shrivelled_army_control_level_down = yes
+			}
+			else_if = {
+				limit = {
+					has_idea = FGB_shrivelled_army_control_1
+				}
+				remove_ideas = FGB_shrivelled_army_control_1 
+				clr_country_flag = FGB_shrivelled_army_flag 
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Neues Heer\" division_template = \"Neues Heer\" start_experience_factor = 0.1" 
+					owner = FGB
+				}
+			}
+		}
+	}
+}
+
+FGB_political_category = {
+	FGB_unrest_mission = {
+		visible = {
+			has_country_flag = FGB_unrest_flag		
+		}
+		allowed = {
+			always = no
+			tag = FGB
+		}
+		icon = FGB_unrest_mission
+		available = {
+			NOT = { has_government = bolshevism }
+			NOT = { has_government = marxism }
+		}
+
+		days_mission_timeout = 344
+		is_good = yes
+		fire_only_once = yes
+
+		cancel_trigger = {
+			hidden_trigger = {
+				OR = {
+					has_government = bolshevism
+					has_government = marxism
+					NOT = { has_country_flag = FGB_unrest_flag }
+				}
+			}
+		}
+		remove_effect = {
+		}
+
+		complete_effect = {
+		}
+
+		timeout_effect = {
+			set_politics = {
+				ruling_party = bolshevism
+				last_election = "1936.6.9"
+				election_frequency = 12
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+		}
+	}
+}

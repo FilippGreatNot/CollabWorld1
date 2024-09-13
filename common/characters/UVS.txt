@@ -117,6 +117,46 @@ characters = {
 		}
 	}
 	
+	
+	UVS_communist_wilhelm_ii = {
+		name = UVS_communist_wilhelm_ii
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_communist_wilhelm_ii.tga"
+			}
+		}
+		country_leader = {
+			ideology = communist_bismarckism
+			desc = "POLITICS_COMMUNIST_WILHELM_II_DESC"
+		}
+	}
+	
+	UVS_messianic_ribentrop = {
+		name = UVS_messianic_ribentrop
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_messianic_ribentrop.tga"
+			}
+		}
+		country_leader = {
+			ideology = communist_bismarckism
+			desc = "POLITICS_MESSIANIC_RIBENTROP_DESC"
+		}
+	}
+	
+	UVS_kaiser_ribentrop = {
+		name = UVS_kaiser_ribentrop
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_kaiser_ribentrop.tga"
+			}
+		}
+		country_leader = {
+			ideology = communist_bismarckism
+			desc = "POLITICS_KAISER_RIBENTROP_DESC"
+		}
+	}
+	
 	### Country leaders ###
 	UVS_dspd_council = {
 		name = UVS_dspd_council
@@ -150,7 +190,45 @@ characters = {
 	
 	### Ministers ###
 	## Head of Government ##
+	
+	UVS_oswald_sprengler = {
+		name = UVS_oswald_sprengler
+		portraits = {
+			civilian = {
+				small = "GFX_idea_UVS_oswald_sprengler"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = UVS_oswald_sprengler_hog
+			traits = { philosopher }
+			can_be_fired = no
+		}
+	}
+	
 	## Security Minister ##
+	
+	UVS_heinrich_laufenberg = {
+		name = UVS_heinrich_laufenberg
+		portraits = {
+			civilian = {
+				small = "GFX_idea_UVS_heinrich_laufenberg"
+			}
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_heinrich_laufenberg.tga"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = UVS_heinrich_laufenberg_sec
+			traits = { founder_of_national_bolshevism }
+			can_be_fired = no
+		}
+		country_leader = {
+			ideology = national_marxism
+		}
+	}
+	
 	## Economy Minister ##
 	UVS_vacant = {
 		name = UVS_vacant
@@ -162,6 +240,21 @@ characters = {
 		advisor = {
 			slot = economy_minister
 			idea_token = UVS_vacant_ec
+			can_be_fired = no
+		}
+	}
+	
+	UVS_werner_sombart = {
+		name = UVS_werner_sombart
+		portraits = {
+			civilian = {
+				small = "GFX_idea_UVS_werner_sombart"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = UVS_werner_sombart_ec
+			traits = { national_socialist_economist }
 			can_be_fired = no
 		}
 	}
@@ -178,6 +271,21 @@ characters = {
 			slot = propaganda_minister
 			idea_token = UVS_ernst_busch_sec
 			traits = { propaganda_expert }
+			can_be_fired = no
+		}
+	}
+	
+	UVS_ernst_niekisch = {
+		name = UVS_ernst_niekisch
+		portraits = {
+			civilian = {
+				small = "GFX_idea_UVS_ernst_niekisch"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = UVS_ernst_niekisch_sec
+			traits = { warmonger_propagandist }
 			can_be_fired = no
 		}
 	}
@@ -240,7 +348,34 @@ characters = {
 		advisor = {
 			slot = air_chief
 			idea_token = UVS_hermann_goring_hog
-			traits = { air_reformer_1 }
+			traits = { air_chief_reform_2 }
+			can_be_fired = yes
+		}
+	}
+	UVS_otto_tost = {
+		name = UVS_otto_tost
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UVS/UVS_otto_tost.tga"
+				small = "GFX_idea_UVS_Otto_Tost"
+			}
+			army = {
+				large = "gfx/leaders/UVS/UVS_otto_tost.tga"
+				small = "GFX_idea_UVS_Otto_Tost"
+			}
+		}
+		navy_leader={
+				traits={ media_personality }
+				skill=3
+				attack_skill=2
+				defense_skill=2
+				maneuvering_skill=1
+				coordination_skill=2
+			}
+		advisor = {
+			slot = navy_chief
+			idea_token = UVS_otto_tost_hog
+			traits = { navy_chief_decisive_battle_1 }
 			can_be_fired = yes
 		}
 	}
