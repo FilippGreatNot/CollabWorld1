@@ -482,6 +482,8 @@ country_event = {
 		name = fgb.19.a
 		add_war_support = 0.05
 		complete_national_focus = FGB_noske_under_new_management
+		set_country_flag = FGB_noske_victory_over_bavaria_flag
+		mark_focus_tree_layout_dirty = yes 
 	}
 }
 
@@ -498,6 +500,67 @@ news_event = {
 		FGB = {
 			add_threat = 0.05
 		}
+	}
+}
+
+country_event = {
+	id = fgb.21
+	title = fgb.21.t
+	desc = fgb.21.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.21.a
+		set_country_flag = FGB_noske_SPD_wins_again
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = FGB_social_democrat_campaign
+			days = 35
+		}
+	}
+	option = {
+		name = fgb.21.b
+		set_country_flag = FGB_noske_liberals_win 
+		add_popularity = {
+			ideology = liberalism
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = FGB_liberal_campaign
+			days = 35
+		}
+	}
+	option = {
+		name = fgb.21.b
+		set_country_flag = FGB_noske_conservatives_win 
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.05
+		}
+		add_timed_idea = {
+			idea = FGB_convervative_campaign
+			days = 35
+		}
+	}
+}
+
+country_event = {
+	id = fgb.22
+	title = fgb.22.t
+	desc = fgb.22.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.22.a
+		add_stability = 0.05
 	}
 }
 
