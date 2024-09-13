@@ -695,7 +695,7 @@
 		relative_position_id = TUS_balbos_speech
 		prerequisite = {focus = TUS_balbos_speech}
 		
-        cost = 25
+        cost = 2
 		cancelable = no
 		
 		#allow_branch = {has_completed_focus = TUS_balbos_speech}
@@ -716,6 +716,10 @@
 				}
 				add_claim_by = TUS
 			}
+			add_timed_idea = {
+				idea = TUS_prepare_for_reunificatoin_idea
+				days = 100
+			}
 		}
 	}
 
@@ -727,7 +731,10 @@
 			focus = TUS_prepare_for_reunificatoin
 		}
 		
- 		available = {has_war = no}
+ 		available = {
+			has_war = no
+			NOT = {has_idea = TUS_prepare_for_reunificatoin_idea }
+		}
 		
 		bypass = {
 			OR = {
@@ -815,7 +822,10 @@
 			focus = TUS_prepare_for_reunificatoin
 		}
 		
-		available = {has_war = no}
+ 		available = {
+			has_war = no
+			NOT = {has_idea = TUS_prepare_for_reunificatoin_idea }
+		}
 		
 		bypass = {
 			OR = {
@@ -1822,6 +1832,7 @@
         y = 1
 				
         cost = 10
+		
 		completion_reward = {
 			if = {
 				limit = {has_completed_focus = TUS_army_type_1}
@@ -1854,7 +1865,7 @@
 		x = 1
         y = 2
 				
-        cost = 0
+        cost = 5
 		
 		completion_reward = {
 			if = {
@@ -1890,7 +1901,7 @@
 		x = -1
         y = 3
 				
-        cost = 35
+        cost = 10
 		
 		completion_reward = {
 			swap_ideas = {
@@ -1916,7 +1927,7 @@
 		x = 3
         y = 3
 				
-        cost = 35
+        cost = 10
 		
 		completion_reward = {
 			swap_ideas = {
