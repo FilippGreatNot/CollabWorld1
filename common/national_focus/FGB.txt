@@ -1161,7 +1161,7 @@ focus_tree = {
 		y = 1
 		cost = 3
 		available = {
-			NOT = { has_completed_focus = FGB_noske_cooperative_policy }
+			NOT = { has_completed_focus = FGB_noske_aggressive_policy }
 			has_war = no
 			any_owned_state = {
 				any_neighbor_state = {
@@ -1192,9 +1192,40 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_noske_a_republican_civil_war
+		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		x = -2
+		y = 1
+		cost = 4
+		available = {
+			NOT = { has_completed_focus = FGB_noske_support_the_republicans }
+			country_exists = GER
+			GER = {
+				has_war = no
+			}
+		}
+		relative_position_id = FGB_noske_inwards_and_outwards
+		mutually_exclusive = { focus = FGB_noske_support_the_republicans }
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.1
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.15
+			}
+			GER = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
 		id = FGB_noske_support_the_republicans
 		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
-		x = -3
+		x = -4
 		y = 1
 		cost = 2
 		available = {
@@ -1206,6 +1237,7 @@ focus_tree = {
 		}
 		relative_position_id = FGB_noske_inwards_and_outwards
 		mutually_exclusive = { focus = FGB_noske_the_final_battle }
+		mutually_exclusive = { focus = FGB_noske_a_republican_civil_war }
 		prerequisite = { focus = FGB_noske_inwards_and_outwards }
 		completion_reward = {
 			add_war_support = 0.06
@@ -1223,7 +1255,7 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_the_final_battle
 		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
-		x = -5
+		x = -6
 		y = 1
 		cost = 3
 		available = {
@@ -1360,13 +1392,13 @@ focus_tree = {
 			add_war_support = -0.05
 			56 = {
 				add_manpower = -2300
-				add_resistance = -0.1
-				add_compliance = 0.15
+				add_resistance = -10
+				add_compliance = 15
 			}
 			57 = {
 				add_manpower = -350
-				add_resistance = -0.1
-				add_compliance = 0.15
+				add_resistance = 10
+				add_compliance = 15
 			}
 		}
 	}
@@ -1712,10 +1744,17 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		available = {
+			OR = {
+				NOT = { has_idea = FGB_social_democrat_campaign }
+				NOT = { has_idea = FGB_liberal_campaign }
+				NOT = { has_idea = FGB_conservative_campaign }
+			}
+		}
 		prerequisite = { focus = FGB_noske_prepare_the_ballots }
 		relative_position_id = FGB_noske_prepare_the_ballots
 		completion_reward = {
-			
+			country_event = fgb.22
 		}
 	}
 
@@ -2062,7 +2101,14 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_purge_the_nsdap }
 		relative_position_id = FGB_noske_purge_the_nsdap
 		completion_reward = {
-			add_political_power = 10
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = esotericism
+				popularity = -0.05
+			}
 		}
 	}
 
@@ -2072,10 +2118,39 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		available = {
+			has_completed_focus = FGB_noske_hold_our_first_elections
+		}
 		prerequisite = { focus = FGB_noske_shuns_and_shames }
 		relative_position_id = FGB_noske_shuns_and_shames
 		completion_reward = {
-			add_political_power = 10
+			if = {
+				limit = {
+					has_completed_focus = FGB_noske_cdu_victory
+				}
+				set_popularities = {
+					conservatism = 0.53
+					liberalism = 0.24
+					social_democrat = 0.23
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = FGB_noske_fdp_victory
+				}
+				set_popularities = {
+					liberalism = 0.49
+					social_democrat = 0.31
+					conservatism = 0.20
+				}
+			}
+			else = {
+				set_popularities = {
+					conservatism = 0.11
+					social_democrat = 0.67
+					liberalism = 0.22
+				}
+			}
 		}
 	}
 
@@ -2101,7 +2176,30 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_consumerise_the_facilities }
 		relative_position_id = FGB_noske_consumerise_the_facilities
 		completion_reward = {
-			add_political_power = 10
+			if = { 
+				limit = { has_tech = infantry_weapons1 }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = -2000
+				}
+			}
+			else_if = { 
+				limit = { has_tech = infantry_weapons2 } 
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_2
+					amount = -1000
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = -3000
+				}
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 3
+			}
 		}
 	}
 
@@ -2114,7 +2212,17 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_sell_excess_guns }
 		relative_position_id = FGB_noske_sell_excess_guns
 		completion_reward = {
-			add_political_power = 10
+			835 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -2127,7 +2235,25 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_and_the_process_of_deradicalisation }
 		relative_position_id = FGB_noske_and_the_process_of_deradicalisation
 		completion_reward = {
-			add_political_power = 10
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.2
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.2
+			}
+			set_party_name = { 
+				ideology = marxism
+				long_name = FGB_marxism_remnants_long
+				name = FGB_marxism_remnants
+			}
+			set_party_name = { 
+				ideology = bolshevism
+				long_name = FGB_bolshevism_remnants_long
+				name = FGB_bolshevism_remnants
+			}
 		}
 	}
 
@@ -2140,7 +2266,9 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_and_for_stability }
 		relative_position_id = FGB_noske_for_democracy
 		completion_reward = {
-			add_political_power = 10
+			add_war_support = 0.05
+			add_stability = 0.05
+			add_threat = 5
 		}
 	}
 
@@ -2166,7 +2294,9 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_into_the_spotlight }
 		relative_position_id = FGB_noske_into_the_spotlight
 		completion_reward = {
-			add_political_power = 10
+			add_threat = -10
+			add_political_power = 50
+			create_faction = "Europakt"
 		}
 	}
 
