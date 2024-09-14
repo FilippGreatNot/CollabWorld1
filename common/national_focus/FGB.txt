@@ -1947,7 +1947,21 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_establish_the_kirchensteuer }
 		relative_position_id = FGB_noske_establish_the_kirchensteuer
 		completion_reward = {
-			add_political_power = 10
+			custom_effect_tooltip = FGB_noske_build_up_our_domestic_industry_tt
+			every_core_state = {
+				limit = { 
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -1974,55 +1988,17 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_and_for_stability }
 		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
-			50 = {
+			every_owned_state = {
 				add_building_construction = {
 					type = arms_factory
-					level = -3
+					level = -2
+					instant_build = yes
 				}
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 				}
-			}
-			51 = {
-				add_building_construction = {
-					type = arms_factory
-					level = -3
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-				}
-			}
-			52 = {
-				add_building_construction = {
-					type = arms_factory
-					level = -3
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-				}
-			}
-			53 = {
-				add_building_construction = {
-					type = arms_factory
-					level = -3
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-				}
-			}
-			54  = {
-				add_building_construction = {
-					type = arms_factory
-					level = -3
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-				}
+				add_extra_state_shared_building_slots = 2
 			}
 		}
 	}
@@ -2036,7 +2012,9 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_the_process_of_demilitarisation }
 		relative_position_id = FGB_noske_the_process_of_demilitarisation
 		completion_reward = {
-			add_political_power = 10
+			add_manpower = 1200
+			add_stability = 0.05
+			delete_unit_template_and_units = { division_template = "Penal Battalion" }
 		}
 	}
 
@@ -2049,7 +2027,27 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_end_the_penal_battalions }
 		relative_position_id = FGB_noske_end_the_penal_battalions
 		completion_reward = {
-			add_political_power = 10
+			set_temp_variable = { ideology_change_var = 0.05 }
+			change_ruling_party_popularity = yes
+			add_manpower = -30000
+			53 = {
+				create_unit = {
+					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
+					owner = FGB
+				}
+			}
+			65 = {
+				create_unit = {
+					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
+					owner = FGB
+				}
+			}
+			59 = {
+				create_unit = {
+					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
+					owner = FGB
+				}
+			}
 		}
 	}
 
@@ -2062,7 +2060,10 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_absorb_regional_armies }
 		relative_position_id = FGB_noske_absorb_regional_armies
 		completion_reward = {
-			add_political_power = 10
+			add_stability = 0.05
+			add_ideas = {
+				limited_conscription
+			}
 		}
 	}
 
@@ -2073,6 +2074,7 @@ focus_tree = {
 		y = 1
 		cost = 4
 		prerequisite = { focus = FGB_noske_reintroduce_voluntary_service }
+		prerequisite = { focus = FGB_noske_a_german_statue_of_liberty }
 		relative_position_id = FGB_noske_reintroduce_voluntary_service
 		completion_reward = {
 			add_political_power = 10
@@ -2085,10 +2087,19 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 4
+		available = {
+			has_political_power > 99
+		}
 		prerequisite = { focus = FGB_noske_and_the_process_of_deradicalisation }
 		relative_position_id = FGB_noske_and_the_process_of_deradicalisation
 		completion_reward = {
-			add_political_power = 10
+			add_stability = 0.05
+			add_war_support = -0.1
+			add_political_power = -100
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.3
+			}
 		}
 	}
 
@@ -2099,15 +2110,12 @@ focus_tree = {
 		y = 1
 		cost = 4
 		prerequisite = { focus = FGB_noske_purge_the_nsdap }
+		prerequisite = { focus = FGB_noske_imprison_spartakus_scum }
 		relative_position_id = FGB_noske_purge_the_nsdap
 		completion_reward = {
 			add_popularity = {
-				ideology = national_syndicalism
-				popularity = -0.1
-			}
-			add_popularity = {
 				ideology = esotericism
-				popularity = -0.05
+				popularity = -0.15
 			}
 		}
 	}
@@ -2277,11 +2285,22 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = -1
 		y = 1
-		cost = 4
+		cost = 5
+		select_effect = {
+			country_event = fgb.24
+		}
 		prerequisite = { focus = FGB_noske_into_the_spotlight }
 		relative_position_id = FGB_noske_into_the_spotlight
 		completion_reward = {
-			add_political_power = 10
+			AUS = {
+				every_owned_state = {
+					add_core_of = FGB
+				}
+			}
+			annex_country = {
+				target = AUS
+				transfer_troops = yes
+			}
 		}
 	}
 
@@ -2296,7 +2315,7 @@ focus_tree = {
 		completion_reward = {
 			add_threat = -10
 			add_political_power = 50
-			create_faction = "Europakt"
+			create_faction = faction_FGB_europakt
 		}
 	}
 
@@ -2361,7 +2380,10 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_invite_the_scandinavian_democracies focus = FGB_noske_offer_protection_to_the_balkan_states focus = FGB_noske_invite_the_benelux }
 		relative_position_id = FGB_noske_offer_protection_to_the_balkan_states
 		completion_reward = {
-			add_political_power = 10
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PBD
+			}
 		}
 	}
 
@@ -2374,7 +2396,13 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_strike_at_tukhachevskys_oppressive_regime }
 		relative_position_id = FGB_noske_strike_at_tukhachevskys_oppressive_regime
 		completion_reward = {
-			add_political_power = 10
+			28 = {
+				add_claim_by = FGB
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			}
 		}
 	}
 
@@ -2387,7 +2415,10 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_strike_at_tukhachevskys_oppressive_regime }
 		relative_position_id = FGB_noske_strike_at_tukhachevskys_oppressive_regime
 		completion_reward = {
-			add_political_power = 10
+			create_wargoal = {
+				type = topple_government
+				target = SOV
+			}
 		}
 	}
 
@@ -2401,7 +2432,20 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_david_and_goliath }
 		relative_position_id = FGB_noske_liberate_the_french_people
 		completion_reward = {
-			add_political_power = 10
+			every_country = {
+				limit = { 
+					OR = { 
+						has_government = marxism 
+						has_government = bolshevism
+					} 
+				}
+				FGB = {
+					create_wargoal = {
+						type = puppet_wargoal_focus
+						target = ROOT
+					}
+				}
+			}
 		}
 	}
 
