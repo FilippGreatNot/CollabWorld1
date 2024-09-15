@@ -70,7 +70,7 @@ focus_tree = {
 	focus = {
 		id = NEE_coolidge_restores_order
 		icon = GFX_NEE_coolidge_restores_order
-		x = -1
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -93,16 +93,16 @@ focus_tree = {
 	focus = {
 		id = NEE_draft_the_new_england_constitution
 		icon = GFX_NEE_draft_the_new_england_constitution
-		x = 1
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_the_coolidge_presidency
+		relative_position_id = NEE_coolidge_restores_order
 		prerequisite = {
-			focus = NEE_the_coolidge_presidency
+			focus = NEE_coolidge_restores_order
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -116,16 +116,16 @@ focus_tree = {
 	focus = {
 		id = NEE_strengthen_state_goverments
 		icon = GFX_NEE_strengthen_state_goverments
-		x = 2
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_the_coolidge_presidency
+		relative_position_id = NEE_coolidge_restores_order
 		prerequisite = {
-			focus = NEE_the_coolidge_presidency
+			focus = NEE_coolidge_restores_order
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -138,18 +138,16 @@ focus_tree = {
 	focus = {
 		id = NEE_our_silent_cal
 		icon = GFX_NEE_our_silent_cal
-		x = 1
+		x = 0.5
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_strengthen_state_goverments
 		prerequisite = {
 			focus = NEE_strengthen_state_goverments
 			focus = NEE_draft_the_new_england_constitution
-			focus = NEE_coolidge_restores_order
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -165,14 +163,13 @@ focus_tree = {
 	focus = {
 		id = NEE_a_government_of_principles
 		icon = GFX_NEE_a_government_of_principles
-		x = -4
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_our_silent_cal
 		prerequisite = {
 			focus = NEE_our_silent_cal
 		}
@@ -187,14 +184,13 @@ focus_tree = {
 	focus = {
 		id = NEE_preserve_the_bill_of_rights
 		icon = GFX_NEE_preserve_the_bill_of_rights
-		x = -2
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_our_silent_cal
 		prerequisite = {
 			focus = NEE_our_silent_cal
 		}
@@ -209,15 +205,13 @@ focus_tree = {
 	focus = {
 		id = NEE_emphasize_free_markets
 		icon = NEE_emphasize_free_markets
-		x = -2.5
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_a_government_of_principles
-		relative_position_id = NEE_preserve_the_bill_of_rights
 		prerequisite = {
 			focus = NEE_a_government_of_principles
 			focus = NEE_preserve_the_bill_of_rights
@@ -233,7 +227,7 @@ focus_tree = {
 	focus = {
 		id = NEE_cut_goverment_spending
 		icon = GFX_NEE_cut_goverment_spending
-		x = -4
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -255,16 +249,38 @@ focus_tree = {
 	focus = {
 		id = NEE_privatize_key_industries
 		icon = GFX_NEE_privatize_key_industries
-		x = -2
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_cut_goverment_spending
+		relative_position_id = NEE_emphasize_free_markets
 		prerequisite = {
-			focus = NEE_cut_goverment_spending
+			focus = NEE_emphasize_free_markets
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_boost_small_bussines
+		icon = GFX_NEE_boost_small_bussines
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_emphasize_free_markets
+		prerequisite = {
+			focus = NEE_emphasize_free_markets
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -277,17 +293,17 @@ focus_tree = {
 	focus = {
 		id = NEE_return_to_state_sovereignty
 		icon = GFX_NEE_return_to_state_sovereignty
-		x = -4
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_cut_goverment_spending
 		relative_position_id = NEE_privatize_key_industries
 		prerequisite = {
 			focus = NEE_cut_goverment_spending
+			focus = NEE_boost_small_bussines
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -300,18 +316,18 @@ focus_tree = {
 	focus = {
 		id = NEE_coolidges_fiscal_responsibility
 		icon = GFX_NEE_coolidges_fiscal_responsibility
-		x = -2.5
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_cut_goverment_spending
-		relative_position_id = NEE_privatize_key_industries
+		relative_position_id = NEE_boost_small_bussines
 		prerequisite = {
 			focus = NEE_cut_goverment_spending
-			focus = NEE_cut_goverment_spending
+			focus = NEE_privatize_key_industries
+			focus = NEE_boost_small_bussines
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -332,10 +348,10 @@ focus_tree = {
 			factor = 10
 		}
 		relative_position_id = NEE_cut_goverment_spending
-		relative_position_id = NEE_privatize_key_industries
 		prerequisite = {
 			focus = NEE_cut_goverment_spending
 			focus = NEE_privatize_key_industries
+			focus = NEE_boost_small_bussines
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -355,13 +371,33 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = NEE_return_to_state_sovereignty
-		relative_position_id = NEE_privatize_key_industries
 		relative_position_id = NEE_support_traditional_family_values
 		prerequisite = {
 			focus = NEE_return_to_state_sovereignty
 			focus = NEE_coolidges_fiscal_responsibility
 			focus = NEE_support_traditional_family_values
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_promote_laissez_faire_capitalism
+		icon = GFX_NEE_promote_laissez_faire_capitalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_importance_of_local_governance
+		prerequisite = {
+			focus = NEE_the_importance_of_local_governance
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"

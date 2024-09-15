@@ -10,10 +10,15 @@ news_event = {
 	picture = GFX_news_event_pope_death_1
 	major = yes
 	
-	fire_only_once = yes
-	
 	trigger = {
+		tag = VAT
 		date > 1922.1.22
+		VAT = {
+			has_country_leader = {
+				character = VAT_pope_benedict_xv
+				ruling_only = yes
+			}		
+		}
 	}
 	
 	immediate = {

@@ -104,6 +104,15 @@ focus_tree = {
 		
 		completion_reward = {
 			update_focus_tree = yes
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
 		}
 	}
 	focus = {
@@ -119,8 +128,9 @@ focus_tree = {
 		mutually_exclusive = { focus = generic_tree_the_path_of_luxemburg }
 		
 		completion_reward = {
-			generic_start_communist_coup = yes
-			set_country_flag = generic_coup_target_bolshevism
+			set_politics = { ruling_party = bolshevism }
+			add_stability = -0.1
+			add_political_power = -50
 		}
 	}
 	focus = {
@@ -134,12 +144,13 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_the_path_of_lenin }
 		
 		completion_reward = {
-			
+			add_political_power = 150
+			add_stability = -0.1
 		}
 	}
 	focus = {
-		id = generic_tree_tractors_for_the_village
-		icon = GFX_focus_generic_tree_tractors_for_the_village
+		id = generic_tree_forced_industrialisation
+		icon = GFX_focus_generic_tree_collectivisation
 		cost = 6
 		
 		relative_position_id = generic_tree_dekulakisation
@@ -148,7 +159,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_dekulakisation }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_forced_industrialisation_idea
 		}
 	}
 	focus = {
@@ -163,9 +174,14 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_for_the_proletariat }
 		mutually_exclusive = { focus = generic_tree_the_path_of_lenin }
 		
+		available = {
+			has_political_power > 50
+		}
+		
 		completion_reward = {
-			generic_start_communist_coup = yes
-			set_country_flag = generic_coup_target_marxism
+			set_politics = { ruling_party = marxism }
+			add_stability = -0.1
+			add_political_power = -50
 		}
 	}
 	focus = {
@@ -179,7 +195,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_the_path_of_luxemburg }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_decentralised_power
 		}
 	}
 	focus = {
@@ -193,7 +209,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_regional_self_governance }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_women_in_the_industry_idea
 		}
 	}
 	focus = {
@@ -209,8 +225,14 @@ focus_tree = {
 			focus = generic_tree_the_path_of_luxemburg
 		}
 		
+		available = {
+			has_political_power = 75
+		}
+		
 		completion_reward = {
-			
+			add_political_power = -75
+			add_stability = -0.1
+			add_ideas = state_economy
 		}
 	}
 	focus = {
@@ -224,7 +246,8 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_mass_nationalisation }
 		
 		completion_reward = {
-			
+			add_research_slot = 1
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -237,12 +260,25 @@ focus_tree = {
 		
 		prerequisite = { focus = generic_tree_educate_the_people }
 		prerequisite = {
-			focus = generic_tree_tractors_for_the_village
+			focus = generic_tree_forced_industrialisation
 			focus = generic_tree_women_in_the_industry
 		}
 		
 		completion_reward = {
-			
+			add_stability = 0.2
+			if = {
+				limit = { has_government = marxism }
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.1
+				}
+			}
+			else = {
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.1
+				}
+			}
 		}
 	}
 	focus = {
@@ -256,7 +292,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_a_state_owned_by_workers }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_improved_bureaucracy
 		}
 	}
 	focus = {
@@ -270,7 +306,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_optimise_the_bureaucracy }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_marxist_theory_in_schools_idea
 		}
 	}
 	
