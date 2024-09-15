@@ -165,7 +165,7 @@ focus_tree = {
 	focus = {
 		id = NEE_a_government_of_principles
 		icon = GFX_NEE_a_government_of_principles
-		x = -4
+		x = -8
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -187,7 +187,7 @@ focus_tree = {
 	focus = {
 		id = NEE_preserve_the_bill_of_rights
 		icon = GFX_NEE_preserve_the_bill_of_rights
-		x = -2
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -209,7 +209,7 @@ focus_tree = {
 	focus = {
 		id = NEE_emphasize_free_markets
 		icon = NEE_emphasize_free_markets
-		x = 0
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -255,6 +255,28 @@ focus_tree = {
 	focus = {
 		id = NEE_privatize_key_industries
 		icon = GFX_NEE_privatize_key_industries
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_emphasize_free_markets
+		prerequisite = {
+			focus = NEE_emphasize_free_markets
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_boost_small_bussines
+		icon = GFX_NEE_boost_small_bussines
 		x = 0
 		y = 1
 		cost = 5
