@@ -64,6 +64,12 @@ focus_tree = {
 		cost = 4
 		
 		prerequisite =	{ focus = USA_mc_to_save_a_nation }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			country_event = ccc.4
+			
+		}
 	}
 	focus = {
 		id = USA_mc_promise_democracy
@@ -75,6 +81,20 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_rally_the_people }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			    add_popularity = {
+				     ideology = liberalism
+				     popularity = 0.05
+			    }
+				add_popularity = {
+				     ideology = conservatism
+				     popularity = 0.05
+			    }
+				add_stability = 0.05
+		}
+		
 	}
 	focus = {
 		id = USA_mc_declare_macarthur_president
