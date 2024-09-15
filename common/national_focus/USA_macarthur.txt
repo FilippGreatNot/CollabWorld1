@@ -30,7 +30,7 @@ focus_tree = {
 		relative_position_id = USA_mc_to_save_a_nation
 		y = 1
 		x = -1
-		cost = 5
+		cost = 6
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
 			add_war_support = 0.05
@@ -45,9 +45,13 @@ focus_tree = {
 		relative_position_id = USA_mc_convice_the_military
 		y = 1
 
-		cost = 5
+		cost = 4
 		
 		prerequisite =	{ focus = USA_mc_convice_the_military }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_command_power = 20
+		}
 	}
 	focus = {
 		id = USA_mc_rally_the_people
@@ -57,7 +61,7 @@ focus_tree = {
 		y = 1
 		x = 1
 
-		cost = 5
+		cost = 4
 		
 		prerequisite =	{ focus = USA_mc_to_save_a_nation }
 	}
@@ -83,6 +87,13 @@ focus_tree = {
 
 		prerequisite =	{ focus = USA_mc_promise_democracy }
 		prerequisite =	{ focus = USA_mc_secure_the_towns }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus	USA_mc_to_save_a_nation"
+			
+			news_event = ccc.2
+		}
+		
 	}
 
 	#Economy branch
@@ -884,6 +895,19 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_declare_macarthur_president }
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_destroy_the_californian_traitors_log"
+		
+			add_war_support = 0.05
+			add_political_power = 50
+			 add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = USA
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_destroy_the_californian_traitors
@@ -938,6 +962,13 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_declare_a_great_crusade }
 		mutually_exclusive = { focus = USA_mc_destroy_the_californian_traitors }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_destroy_the_californian_traitors_log"
+		
+			CAL = {	
+				country_event = ccc.3
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_utilize_californian_oil

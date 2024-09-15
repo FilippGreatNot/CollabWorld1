@@ -13,3 +13,56 @@ country_event = {
 		add_war_support = 0.05
 	}
  }
+ 
+ news_event = {
+	id = ccc.2
+	title = ccc.2.t
+	desc = ccc.2.d
+	picture = GFX_news_event_macarthur
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				tag = USA
+			}
+			add_political_power = 75
+		}
+	}
+	
+	option = {
+		name = ccc.2.a
+	}
+}
+
+country_event = {
+	id = ccc.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = ccc.3.t
+	desc = ccc.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = ccc.3.a
+		ai_chance = { base = 4 }
+		CCC = {
+			declare_war_on = {
+				target = CAL
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = ccc.3.b
+		ai_chance = { base = 6 }
+	    CCC = {
+			annex_country = { 
+				target = CAL
+				transfer_troops = yes 
+			}
+		}
+		
+	}
+}
