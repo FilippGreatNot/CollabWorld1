@@ -11,6 +11,11 @@ focus_tree = {
     }
     default = no
 
+	continuous_focus_position = {
+		x = 400
+		y = 1500
+	}
+
 	## Industry branch ##
 
 	focus = {
@@ -34,13 +39,14 @@ focus_tree = {
 
 	focus = {
 		id = TIA_develop_the_tarim_basin
-		icon = GFX_goal_generic_construct_infrastructure
-		x = 5
-		y = 1
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 2
 		cost = 4
 		ai_will_do = {
 			factor = 10
 		}
+		relative_position_id = TIA_the_tungan_republic
 		prerequisite = { focus = TIA_the_tungan_republic }
 		completion_reward = {
 			add_stability = 0.05
@@ -142,7 +148,7 @@ focus_tree = {
 		id = TIA_feed_the_uighur_farmers
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 0
-		y = 2.5
+		y = 2
 		cost = 6
 		ai_will_do = {
 			factor = 10
@@ -185,7 +191,7 @@ focus_tree = {
 		id = TIA_occidental_chinese_center_of_learning
 		icon = GFX_focus_research
 		x = 0
-		y = 1.25
+		y = 1
 		cost = 5
 		ai_will_do = {
 			factor = 10
@@ -198,17 +204,36 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = TIA_found_a_local_examination_board
+		icon = GFX_focus_research2
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			if = {
+				limit = { amount_research_slots > 3 }
+				num_of_owned_factories > 29
+			}
+		}
+		relative_position_id = TIA_occidental_chinese_center_of_learning
+		prerequisite = { focus = TIA_occidental_chinese_center_of_learning }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
 	## Political - Turkic branch ##
 
 	focus = {
 		id = TIA_a_turkic_state
-		icon = GFX_focus_FGB_autarky
-		x = 1
-		y = 1.5
+		icon = GFX_focus_TUR_turanist_ambition
+		x = 0
+		y = 1
 		cost = 2
-		ai_will_do = {
-			factor = 15
-		}
 		prerequisite = { focus = TIA_the_tungan_republic }
 		mutually_exclusive = { focus = TIA_a_chinese_nation }
 		completion_reward = {
@@ -221,18 +246,329 @@ focus_tree = {
 
 	focus = {
 		id = TIA_a_chinese_nation
-		icon = GFX_focus_china
-		x = 9
-		y = 1.5
+		icon = GFX_focus_chi_legislative_yuan
+		x = 10
+		y = 1
 		cost = 2
 		ai_will_do = {
-			factor = 5
+			factor = 15
 		}
 		prerequisite = { focus = TIA_the_tungan_republic }
 		mutually_exclusive = { focus = TIA_a_turkic_state }
 		completion_reward = {
 			army_experience = 20
 			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIA_form_a_new_army
+		icon = GFX_focus_focus_fra_maquis
+		x = 2
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_a_chinese_nation
+		prerequisite = { focus = TIA_a_chinese_nation }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 20
+			add_ideas = {
+				extensive_conscription
+			}
+			hidden_effect = {
+				load_oob = TIA
+			}
+			619 = {
+				create_unit = {
+					division = "name = \"1st. Revolutionary Brigade\" division_template = \"Revolutionary Forces\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			759 = {
+				create_unit = {
+					division = "name = \"2nd. Revolutionary Brigade\" division_template = \"Revolutionary Forces\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			940 = {
+				create_unit = {
+					division = "name = \"3rd. Revolutionary Brigade\" division_template = \"Revolutionary Forces\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			945 = {
+				create_unit = {
+					division = "name = \"4th. Revolutionary Brigade\" division_template = \"Revolutionary Forces\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_encourage_han_migration
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_a_chinese_nation
+		prerequisite = { focus = TIA_a_chinese_nation }
+		completion_reward = {
+			add_stability = -0.05
+			every_core_state = {
+				add_manpower = 6000
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_reinvigorate_shaowus_governorship
+		icon = GFX_goal_generic_demand_territory
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_a_chinese_nation
+		prerequisite = { focus = TIA_a_chinese_nation }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.05
+			SIK = { 
+				every_core_state = { add_claim_by = TIA }
+			}
+			ALT = { 
+				every_core_state = { add_claim_by = TIA }
+			}
+			KUM = { 
+				every_core_state = { add_claim_by = TIA }
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_seize_hami
+		icon = GFX_focus_generic_annex_country
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			is_neighbor_of = KUM
+			has_war = no
+		}
+		relative_position_id = TIA_reinvigorate_shaowus_governorship
+		prerequisite = { focus = TIA_a_chinese_nation }
+		completion_reward = {
+			declare_war_on = {
+				target = KUM
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_march_to_urumqi
+		icon = GFX_goal_generic_attack_allies
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			is_neighbor_of = SIK
+			has_war = no
+		}
+		relative_position_id = TIA_encourage_han_migration
+		prerequisite = { focus = TIA_encourage_han_migration }
+		completion_reward = {
+			declare_war_on = {
+				target = SIK
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_defeat_the_soviet_incursion
+		icon = GFX_goal_anti_comintern_pact
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			is_neighbor_of = ALT
+			has_war = no
+		}
+		relative_position_id = TIA_form_a_new_army
+		prerequisite = { focus = TIA_form_a_new_army }
+		completion_reward = {
+			declare_war_on = {
+				target = ALT
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_codify_provincial_law
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 1
+		cost = 8
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			NOT = { country_exists = ALT }
+			NOT = { country_exists = KUM }
+			NOT = { country_exists = SIK }
+			has_war = no
+		}
+		relative_position_id = TIA_march_to_urumqi
+		prerequisite = { focus = TIA_seize_hami }
+		prerequisite = { focus = TIA_march_to_urumqi }
+		prerequisite = { focus = TIA_defeat_the_soviet_incursion }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.1
+			ALT = { make_every_core_national_for_PREV = yes }
+			KUM = { make_every_core_national_for_PREV = yes }
+			SIK = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = TIA_draft_a_new_constitution
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			has_war = no
+		}
+		relative_position_id = TIA_codify_provincial_law
+		prerequisite = { focus = TIA_codify_provincial_law }
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+			every_core_state = {
+				remove_core_of = ALT
+				remove_core_of = KUM
+				remove_core_of = SIK
+			}
+			944 = {
+				remove_claim_by = SIK
+			}
+			945 = {
+				remove_claim_by = SIK
+			}
+			set_politics = {
+				ruling_party = conservatism
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_connect_to_urumqi
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			has_war = no
+		}
+		relative_position_id = TIA_draft_a_new_constitution
+		prerequisite = { focus = TIA_draft_a_new_constitution }
+		completion_reward = {
+			617 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				#level = 1
+				start_province = 2015 
+				target_province = 4709
+			}
+			build_railway = {
+				#level = 1
+				start_province = 4973 
+				target_province = 4709
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_move_the_capital
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			has_war = no
+		}
+		relative_position_id = TIA_draft_a_new_constitution
+		prerequisite = { focus = TIA_draft_a_new_constitution }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 110
+			TIA = {
+				set_capital = {
+					state = 617
+					remember_old_capital = no
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_reclaim_our_name
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			has_war = no
+		}
+		relative_position_id = TIA_connect_to_urumqi
+		prerequisite = { focus = TIA_draft_a_new_constitution }
+		prerequisite = { focus = TIA_connect_to_urumqi }
+		prerequisite = { focus = TIA_move_the_capital }
+		completion_reward = {
+			add_stability = 0.05
+			set_cosmetic_tag = TIA_xinjiang
 		}
 	}
 }

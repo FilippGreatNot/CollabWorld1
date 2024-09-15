@@ -264,7 +264,7 @@ focus_tree = {
 				add_country_leader_role = {
 					country_leader = {
 						expire = "1927.2.6"
-						ideology = liberalism_subtype
+						ideology = social_democrat_subtype
 						traits = {
 							businessman
 						}
@@ -1106,7 +1106,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_demand_eupen_malmedy
-		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
+		icon = GFX_goal_generic_demand_territory
 		x = 3
 		y = 1
 		cost = 3
@@ -1156,7 +1156,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_purchase_eupen_malmedy
-		icon = GFX_focus_FGB_noske_demand_eupen_malmedy
+		icon = GFX_focus_generic_diplomatic_treaty
 		x = 5
 		y = 1
 		cost = 3
@@ -1193,7 +1193,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_a_republican_civil_war
-		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		icon = GFX_focus_FGB_noske_a_republican_civil_war
 		x = -2
 		y = 1
 		cost = 4
@@ -1224,7 +1224,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_support_the_republicans
-		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		icon = GFX_focus_FGB_noske_support_the_republicans
 		x = -4
 		y = 1
 		cost = 2
@@ -1254,7 +1254,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_the_final_battle
-		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		icon = GFX_focus_FGB_noske_the_final_battle
 		x = -6
 		y = 1
 		cost = 3
@@ -1326,7 +1326,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_put_strikers_back_into_dockyards
-		icon = GFX_focus_FGB_noske_reurbanise_westfalen
+		icon = GFX_focus_FGB_noske_put_strikers_back_into_dockyards
 		x = 1
 		y = 1.5
 		cost = 3
@@ -2220,7 +2220,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_sell_excess_guns }
 		relative_position_id = FGB_noske_sell_excess_guns
 		completion_reward = {
-			835 = {
+			836 = {
 				add_extra_state_shared_building_slots = 1
 			}
 			add_popularity = {
@@ -2433,19 +2433,24 @@ focus_tree = {
 		relative_position_id = FGB_noske_liberate_the_french_people
 		completion_reward = {
 			every_country = {
-				limit = { 
-					OR = { 
-						has_government = marxism 
-						has_government = bolshevism
+				limit = {
+					capital_scope = {
+						is_on_continent = europe
+					}
+					NOT = { is_in_faction_with = ROOT }
+					OR = {
+						has_government = esotericism
 						has_government = national_syndicalism
 						has_government = reactionism
-						has_government = esotericism
-					} 
+						has_government = marxism
+						has_government = bolshevism
+					}
 				}
-				FGB = {
+				ROOT = {
 					create_wargoal = {
+						target = PREV
 						type = puppet_wargoal_focus
-						target = ROOT
+						expire = 0
 					}
 				}
 			}
@@ -3378,7 +3383,7 @@ focus_tree = {
 				uses = 2
 				category = air_doctrine
 			}
-			activate_advisor = greim_air
+			activate_advisor = FGB_robert_greim_air
 		}
 	}
 
@@ -3595,6 +3600,7 @@ focus_tree = {
 		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			custom_effect_tooltip = FGB_repairing_damaged_roads_decisions_unlocked_tt
 			custom_effect_tooltip = FGB_repair_the_countryside_tt
 			set_country_flag = repair_damaged_roads_flag
 			852 = {
