@@ -180,5 +180,50 @@ VNE_risorgimento = {
 				type = annex_everything
 			}
 		}
+		VNE_unite_italy = {
+		icon = italy_flag
+		allowed = { tag = VNE}
+		visible = {
+			tag = VNE
+		}
+		available = {
+			controls_state = 158 #Piedmont
+			controls_state = 159 #Lombardy
+			controls_state = 160 #Venice
+			controls_state = 161 #Romagna
+			controls_state = 162 #Tuscany
+			OR = {
+				controls_state = 2 #Lazio
+				2 = { is_owned_by_ROOT_or_ally = yes }
+			}
+			OR = {
+				controls_state = 117 #Campania
+				117 = { is_owned_by_ROOT_or_ally = yes }
+			}
+			OR = {
+				NOT = { country_exists = ITS }
+				ITS = { has_capitulated = yes }
+			}
+		}
+		fire_only_once = yes
+		cost = 0
+		ai_will_do = { factor = 100 }
+		priority = 100
+		complete_effect = {
+			set_country_flag = ITA_united_italia
+			add_political_power = 250
+			if = {
+				limit = { owns_state = 2 }
+				set_capital = { state = 2 remember_old_capital = no }
+			}
+			hidden_effect = {
+				FROM = { italy_break_balance = yes }
+				news_event = worldnews.218
+				country_event = { id = ita.60 days = 5 random_days = 5 }
+					}
+				}
+			}
+		}
+	}
 	}
 }
