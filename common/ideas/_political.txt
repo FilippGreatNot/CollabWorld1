@@ -7,7 +7,7 @@ ideas = {
 				army_core_defence_factor = -0.05
 				resistance_growth_on_our_occupied_states = -0.1
 			}
-			
+			removal_cost = -1			
 			cancel_if_invalid = no
 		}
 		limited_gun_ownership = {
@@ -17,6 +17,7 @@ ideas = {
 			
 			cost = 100
 			default = yes
+			removal_cost = -1
 			cancel_if_invalid = no
 		}
 		a_gun_for_every_household = {
@@ -29,8 +30,236 @@ ideas = {
 				resistance_growth_on_our_occupied_states = 0.1
 				political_power_gain = -0.1
 			}
-			
+			removal_cost = -1			
 			cancel_if_invalid = no
 		}
 	}
+	
+	racial_rights_laws = {
+		law = yes
+		use_list_view = yes
+		racial_slavery = {
+            available = {
+				OR = {
+					has_government = national_syndicalism
+					has_government = esotericism
+			   }
+            }
+			modifier = {
+				recruitable_population_factor = -0.1
+				research_speed_factor = -0.05
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				production_speed_buildings_factor = 0.1 
+				resistance_growth = 0.5
+				local_resources_factor = 0.05 
+                political_power_factor = -0.05
+				stability_factor = -0.1
+			}
+			
+			cost = 150
+			level = 2
+			removal_cost = -1
+			cancel_if_invalid = yes
+		}
+		racial_segregation = {
+			modifier = {
+                war_support_factor = 0.05
+                political_power_factor = 0.05
+			}
+			
+			cost = 150
+			level = 3
+			default = yes
+			removal_cost = -1			
+			default = yes			
+			cancel_if_invalid = yes
+		}
+		full_equality = {
+            available = {
+				NOT = {
+					OR = {
+						has_government = national_syndicalism
+						has_government = esotericism
+					}
+			    }
+            }
+			
+			modifier = {
+				recruitable_population = 0.03
+				research_speed_factor = 0.03
+				resistance_growth = -0.05
+			}
+			
+			cost = 150
+			level = 4
+			removal_cost = -1			
+			cancel_if_invalid = yes
+		}
+	}
+	
+	woman_rights_laws = {
+		law = yes
+		use_list_view = yes
+		trad_women_roles = {
+
+			available = {
+				OR = {
+					has_government = conservatism
+					has_government = authoritarian_democrat
+					has_government = despotism
+					has_government = reactionism
+					has_government = national_syndicalism
+					has_government = esotericism
+				}
+			}
+			
+			modifier = {
+                political_power_factor = 0.05
+				consumer_goods_factor = -0.05
+			}
+
+			rule = {
+				can_generate_female_aces = no
+				can_generate_female_country_leaders = no
+				can_generate_female_unit_leaders = no
+			}
+			
+			cost = 150
+			level = 5
+			default = yes
+			removal_cost = -1		
+			cancel_if_invalid = yes
+		}
+		limited_womens_rights = {
+			modifier = {
+				recruitable_population = 0.01
+				research_speed_factor = 0.01
+				industrial_capacity_factory = 0.02
+				industrial_capacity_dockyard = 0.02
+			}
+			
+			rule = {
+				can_generate_female_aces = yes
+				can_generate_female_country_leaders = no
+				can_generate_female_unit_leaders = yes
+			}
+			
+			cost = 150
+			level = 5
+			removal_cost = -1		
+			cancel_if_invalid = yes
+		}
+		full_equality_woman = {		
+			modifier = {
+				recruitable_population = 0.05
+				research_speed_factor = 0.05
+				resistance_growth = -0.05
+				industrial_capacity_factory = 0.04
+				industrial_capacity_dockyard = 0.04
+			}
+			
+			rule = {
+				can_generate_female_aces = yes
+				can_generate_female_country_leaders = yes
+				can_generate_female_unit_leaders = yes
+			}
+			
+			available = {
+				NOT = {
+					OR = {
+						has_government = reactionism
+						has_government = national_syndicalism
+						has_government = esotericism
+					}
+			    }
+			}
+			
+			cost = 150
+			level = 6
+			removal_cost = -1			
+			cancel_if_invalid = yes
+		}
+	}
+
+	press_laws = {
+        law = yes
+        use_list_view = yes
+
+        state_press = {
+            
+            available = {
+                NOT = {
+					OR = {
+						has_government = social_democrat
+						has_government = liberalism
+						has_government = conservatism
+						has_government = libertarian_socialism
+				   }
+                }
+            }
+
+            level = 3
+
+            modifier = {
+                political_power_factor = -0.15
+                stability_factor = 0.05
+                war_support_factor = 0.10
+                justify_war_goal_time = -0.1
+                drift_defence_factor = 0.1
+            }
+
+            ai_will_do = {              
+                base = 10          
+            }
+			
+			removal_cost = -1          
+            cancel_if_invalid = yes
+        }
+            
+        state_edited_press = {
+            
+            available ={
+
+            }
+
+            level = 2
+			default = yes
+
+            ai_will_do = {
+                base = 10			
+            }
+			removal_cost = -1
+            cancel_if_invalid = yes
+        }
+
+        free_press = {
+            
+            available = {
+				OR = {
+					has_government = social_democrat
+					has_government = liberalism
+					has_government = conservatism
+					has_government = libertarian_socialism
+			   }
+            }
+
+            level = 1
+
+            modifier = {
+                political_power_factor = 0.15
+				research_speed_factor = 0.05
+                stability_factor = -0.05
+                war_support_factor = -0.10
+                justify_war_goal_time = 0.05
+                drift_defence_factor = -0.1 
+            }
+
+            ai_will_do = {
+                base = 20
+            }
+			removal_cost = -1
+            cancel_if_invalid = yes
+        }
+    }
 }

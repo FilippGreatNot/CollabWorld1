@@ -30,7 +30,7 @@ on_actions = {
 				}
 				news_event = fgb.4 
 			}
-        }
+        	}
 	}
 	on_capitulation = {
         effect = { 
@@ -45,6 +45,24 @@ on_actions = {
 				}
 				news_event = fgb.13
 			}
-        }
+        	}
+	}
+	on_state_control_changed = {
+		effect = {
+			if = { 
+				limit = {
+					FROM.FROM = {
+						state = 836
+					}
+					ROOT = {
+						has_war = yes
+					}
+					FROM = {
+						original_tag = FGB
+					}
+				}
+				news_event = fgb.25
+			}
+		}
 	}
 }

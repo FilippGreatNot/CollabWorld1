@@ -1,0 +1,238 @@
+#!gfx:interface/country/east_asia/TIA/TIA_focus.gfx
+focus_tree = {
+    id = TIA_first
+
+    country = {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = TIA
+        }
+    }
+    default = no
+
+	## Industry branch ##
+
+	focus = {
+		id = TIA_the_tungan_republic
+		icon = GFX_focus_generic_camel_corps
+		x = 5
+		y = 0
+		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 40
+			add_stability = 0.05
+			add_popularity = {
+				popularity = 0.05
+				ideology = despotism
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_develop_the_tarim_basin
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 5
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = TIA_the_tungan_republic }
+		completion_reward = {
+			add_stability = 0.05
+			every_core_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure 
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_a_train_to_khotan
+		icon = GFX_focus_generic_railroad
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_develop_the_tarim_basin
+		prerequisite = { focus = TIA_develop_the_tarim_basin }
+		completion_reward = {
+			build_railway = {
+				#level = 1
+				start_province = 2015 
+				target_province = 4973
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment_1
+				amount = 5
+				producer = TIA
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_develop_kunlun_shan_resource_deposits
+		icon = GFX_focus_generic_energy
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_a_train_to_khotan
+		prerequisite = { focus = TIA_develop_the_tarim_basin }
+		completion_reward = {
+			759 = {
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+				add_resource = {
+					type = aluminium
+					amount = 5
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_fund_a_new_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_a_train_to_khotan
+		prerequisite = { focus = TIA_develop_the_tarim_basin }
+		completion_reward = {
+			add_war_support = 0.05
+			940 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			619 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_feed_the_uighur_farmers
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 0
+		y = 2.5
+		cost = 6
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_a_train_to_khotan
+		prerequisite = { focus = TIA_a_train_to_khotan }
+		prerequisite = { focus = TIA_fund_a_new_military_industry }
+		prerequisite = { focus = TIA_develop_kunlun_shan_resource_deposits }
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+			940 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			759 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			619 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_occidental_chinese_center_of_learning
+		icon = GFX_focus_research
+		x = 0
+		y = 1.25
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_feed_the_uighur_farmers
+		prerequisite = { focus = TIA_feed_the_uighur_farmers }
+		completion_reward = {
+			add_stability = 0.05
+			add_research_slot = 1
+		}
+	}
+
+	## Political - Turkic branch ##
+
+	focus = {
+		id = TIA_a_turkic_state
+		icon = GFX_focus_FGB_autarky
+		x = 1
+		y = 1.5
+		cost = 2
+		ai_will_do = {
+			factor = 15
+		}
+		prerequisite = { focus = TIA_the_tungan_republic }
+		mutually_exclusive = { focus = TIA_a_chinese_nation }
+		completion_reward = {
+			add_political_power = 20
+			add_stability = 0.05
+		}
+	}
+
+	## Political - Chinese branch ##
+
+	focus = {
+		id = TIA_a_chinese_nation
+		icon = GFX_focus_china
+		x = 9
+		y = 1.5
+		cost = 2
+		ai_will_do = {
+			factor = 5
+		}
+		prerequisite = { focus = TIA_the_tungan_republic }
+		mutually_exclusive = { focus = TIA_a_turkic_state }
+		completion_reward = {
+			army_experience = 20
+			add_war_support = 0.05
+		}
+	}
+}
