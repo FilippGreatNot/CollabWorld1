@@ -1,0 +1,45 @@
+## SETUP ##
+add_namespace = hun
+
+## MAIN ##
+
+#place holder (event is kinda a joke by me and another dev but it is cool if fleshed out)
+news_event = {
+	id = hun.1
+	title = hun.1.t
+	desc = hun.1.d
+	only_trigger_once = yes
+	
+	trigger = {
+		tag = HUN
+		date > 1924.3.30
+		OR = {
+			has_government = bolshevism
+			has_government = marxism
+		}
+	}
+	
+	immediate = {
+		AUS = {
+			declare_war_on = {
+				target = HUN
+				type = topple_government
+			}		
+		}
+		ROM = {
+			declare_war_on = {
+				target = HUN
+				type = take_claimed_state
+			}	
+		}
+		CZE = {
+			declare_war_on = {
+				target = HUN
+				type = topple_government
+			}
+		}
+	}
+	
+	option = {
+		name = hun.1.a
+	}
