@@ -2437,6 +2437,9 @@ focus_tree = {
 					OR = { 
 						has_government = marxism 
 						has_government = bolshevism
+						has_government = national_syndicalism
+						has_government = reactionism
+						has_government = esotericism
 					} 
 				}
 				FGB = {
@@ -3375,6 +3378,7 @@ focus_tree = {
 				uses = 2
 				category = air_doctrine
 			}
+			activate_advisor = greim_air
 		}
 	}
 
@@ -3426,6 +3430,10 @@ focus_tree = {
 		prerequisite = { focus = FGB_adapt_our_blueprints }
 		relative_position_id = FGB_adapt_our_blueprints
 		completion_reward = {
+			if = {
+				limit = { NOT = { has_tech = scout_plane1 } }
+				set_technology = { scout_plane1 = 1 }
+			}
 			add_equipment_to_stockpile = {
 				type = scout_plane_equipment_1
 				amount = 20
@@ -4762,7 +4770,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_bolster_the_reichsmark
-		icon = GFX_goal_fra_devalue_the_franc
+		icon = GFX_focus_fra_devalue_the_franc
 		x = 0
 		y = 1
 		cost = 4
@@ -4812,7 +4820,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_rebuild_university_of_cologne
-		icon = GFX_focus_FGB_rebuild_university_of_cologne
+		icon = GFX_focus_research2
 		x = 0 
 		y = 1
 		cost = 4
