@@ -147,6 +147,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 6
+		bypass = {
+			if = { 
+				NOT = { country_exists = SIK }
+			}
+		}
 		relative_position_id = KUM_increase_military_spending
 		prerequisite = { focus = KUM_increase_military_spending }
 		completion_reward = {
@@ -194,6 +199,11 @@ focus_tree = {
 		available = {
 			NOT = { country_exists = SIK }
 			has_war = no
+		}
+		bypass = {
+			if = { 
+				NOT = { country_exists = ALT }
+			}
 		}
 		relative_position_id = KUM_increase_military_spending
 		prerequisite = { focus = KUM_increase_military_spending }
@@ -252,15 +262,33 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		bypass = {
+			if = { 
+				NOT = { country_exists = SIK }
+			}
+		}
 		relative_position_id = KUM_proclaim_the_restoration_of_the_khanate
 		prerequisite = { focus = KUM_proclaim_the_restoration_of_the_khanate }
 		completion_reward = {
 			add_war_support = 0.05
-			TIA = { make_every_core_national_for_PREV = yes }
 			declare_war_on = {
 				target = TIA
 				type = annex_everything
 			}
+		}
+	}
+
+	focus = {
+		id = KUM_integrating_tunganistan
+		icon = GFX_focus_TUR_turanist_ambition
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = KUM_sweep_the_south
+		prerequisite = { focus = KUM_sweep_the_south }
+		completion_reward = {
+			add_stability = 0.05
+			TIA = { make_every_core_national_for_PREV = yes }
 		}
 	}
 
@@ -270,8 +298,8 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
-		relative_position_id = KUM_sweep_the_south
-		prerequisite = { focus = KUM_sweep_the_south }
+		relative_position_id = KUM_integrating_tunganistan
+		prerequisite = { focus = KUM_integrating_tunganistan }
 		completion_reward = {
 			add_stability = 0.05
 			add_research_slot = 1
