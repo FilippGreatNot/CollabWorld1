@@ -557,9 +557,12 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
 			add_political_power = 50
 			add_stability = 0.05
+			
+			remove_ideas = {
+				NEE_economic_disarray
+			}
 		}
 	}
 	
@@ -579,7 +582,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			
+			add_ideas = NEE_the_coolidge_doctorine
 			add_political_power = 50
 			add_stability = 0.05
 		}
@@ -854,7 +857,7 @@ focus_tree = {
 	focus = {
 		id = NEE_free_and_fair_goverment
 		icon = GFX_NEE_free_and_fair_goverment
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -944,7 +947,7 @@ focus_tree = {
 	focus = {
 		id = NEE_coolidges_civic_nationalism
 		icon = GFX_NEE_coolidges_civic_nationalism
-		x = 2
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -990,7 +993,7 @@ focus_tree = {
 	focus = {
 		id = NEE_non_interventionism
 		icon = GFX_NEE_non_interventionism
-		x = 5
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1012,7 +1015,7 @@ focus_tree = {
 	focus = {
 		id = NEE_biuld_diplomatic_ties
 		icon = GFX_NEE_neutrality_in_global_conflicts
-		x = 5
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1034,7 +1037,7 @@ focus_tree = {
 	focus = {
 		id = NEE_coolidges_doctorine_of_peace
 		icon = GFX_NEE_neutrality_in_global_conflicts
-		x = 5
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1044,6 +1047,62 @@ focus_tree = {
 		relative_position_id = NEE_biuld_diplomatic_ties
 		prerequisite = {
 			focus = NEE_biuld_diplomatic_ties
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_a_goverment_for_the_people
+		icon = GFX_NEE_a_goverment_for_the_people
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_cultural_purity_campaign
+		relative_position_id = NEE_freedom_of_press
+		relative_position_id = NEE_free_and_fair_goverment
+		relative_position_id = NEE_coolidges_civic_nationalism
+		relative_position_id = NEE_coolidges_doctorine_of_peace
+		prerequisite = {
+			focus = NEE_cultural_purity_campaign
+			focus = NEE_freedom_of_press
+			focus = NEE_free_and_fair_goverment
+			focus = NEE_coolidges_civic_nationalism
+			focus = NEE_coolidges_doctorine_of_peace
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_political_power = 50
+			add_stability = 0.05
+			remove_ideas = {
+				NEE_secessionist_tensions
+			}
+		}
+	}
+	
+	focus = {
+		id = NEE_trust_in_coolidge
+		icon = GFX_NEE_trust_in_coolidge
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_prosperity
+		relative_position_id = NEE_a_goverment_for_the_people
+		prerequisite = {
+			focus = NEE_the_coolidge_prosperity
+			focus = NEE_a_goverment_for_the_people
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
