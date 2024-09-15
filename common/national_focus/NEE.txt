@@ -138,7 +138,7 @@ focus_tree = {
 	focus = {
 		id = NEE_our_silent_cal
 		icon = GFX_NEE_our_silent_cal
-		x = 0.5
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -165,7 +165,7 @@ focus_tree = {
 	focus = {
 		id = NEE_coolidge_economic_vision
 		icon = GFX_NEE_coolidge_economic_vision
-		x = -4
+		x = -8
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -209,7 +209,7 @@ focus_tree = {
 	focus = {
 		id = NEE_industrial_infrastructure_development
 		icon = NEE_NEE_industrial_infrastructure_development
-		x = -8
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -231,7 +231,7 @@ focus_tree = {
 	focus = {
 		id = NEE_modernize_the_textile_industry
 		icon = NEE_modernize_the_textile_industry
-		x = -8
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -253,7 +253,7 @@ focus_tree = {
 	focus = {
 		id = NEE_invite_foreign_investemnts
 		icon = NEE_invite_foreign_investemnts
-		x = -8
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -276,7 +276,7 @@ focus_tree = {
 	focus = {
 		id = NEE_devirsify_industrial_output
 		icon = NEE_devirsify_industrial_output
-		x = -8
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -298,7 +298,7 @@ focus_tree = {
 	focus = {
 		id = NEE_balance_the_budget
 		icon = GFX_NEE_balance_the_budget
-		x = -6
+		x = -5
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -318,9 +318,98 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = NEE_cut_goverment_spending
+		icon = NEE_NEE_cut_goverment_spending
+		x = -4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_balance_the_budget
+		prerequisite = {
+			focus = NEE_balance_the_budget
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_lower_taxes_on_business
+		icon = NEE_lower_taxes_on_business
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_balance_the_budget
+		prerequisite = {
+			focus = NEE_balance_the_budget
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_sound_monetary_policy
+		icon = NEE_sound_monetary_policy
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_cut_goverment_spending
+		prerequisite = {
+			focus = NEE_cut_goverment_spending
+			focus = NEE_lower_taxes_on_business
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_encourage_savings_and_invesments
+		icon = NEE_encourage_savings_and_invesments
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_sound_monetary_policy
+		prerequisite = {
+			focus = NEE_sound_monetary_policy
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
 		id = NEE_laissez_faire_trade_policy
 		icon = GFX_NEE_laissez_faire_trade_policy
-		x = -4
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -330,6 +419,50 @@ focus_tree = {
 		relative_position_id = NEE_coolidge_economic_vision
 		prerequisite = {
 			focus = NEE_coolidge_economic_vision
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_negotiate_trade_deals
+		icon = GFX_NEE_negotiate_trade_deals
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_laissez_faire_trade_policy
+		prerequisite = {
+			focus = NEE_laissez_faire_trade_policy
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_tariff_reductions
+		icon = GFX_NEE_tariff_reductions
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_negotiate_trade_deals
+		prerequisite = {
+			focus = NEE_negotiate_trade_deals
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -352,6 +485,207 @@ focus_tree = {
 		relative_position_id = NEE_coolidge_economic_vision
 		prerequisite = {
 			focus = NEE_coolidge_economic_vision
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_business_over_unions
+		icon = GFX_NEE_business_over_unions
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_labor_friendly_business_practices
+		prerequisite = {
+			focus = NEE_labor_friendly_business_practices
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_encourage_self_reliance
+		icon = GFX_NEE_encourage_self_reliance
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_business_over_unions
+		prerequisite = {
+			focus = NEE_business_over_unions
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_the_coolidge_prosperity
+		icon = GFX_NEE_the_coolidge_prosperity
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_coolidge_economic_vision
+		prerequisite = {
+			focus = NEE_devirsify_industrial_output
+			focus = NEE_encourage_savings_and_invesments
+			focus = NEE_tariff_reductions
+			focus = NEE_encourage_self_reliance
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_the_coolidge_doctorine
+		icon = NEE_the_coolidge_doctorine
+		x = 8
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_our_silent_cal
+		prerequisite = {
+			focus = NEE_our_silent_cal
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_preserve_traditional_american_values
+		icon = GFX_NEE_preserve_traditional_american_values
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_doctorine
+		prerequisite = {
+			focus = NEE_the_coolidge_doctorine
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_restore_law_and_order
+		icon = GFX_NEE_encourage_self_reliance
+		x = 5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_doctorine
+		prerequisite = {
+			focus = NEE_the_coolidge_doctorine
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_establish_a_limited_executive
+		icon = GFX_NEE_establish_a_limited_executive
+		x = 7
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_doctorine
+		prerequisite = {
+			focus = NEE_the_coolidge_doctorine
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_promote_a_national_unity
+		icon = GFX_NEE_promote_a_national_unity
+		x = 9
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_doctorine
+		prerequisite = {
+			focus = NEE_the_coolidge_doctorine
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = NEE_neutrality_in_global_conflicts
+		icon = GFX_NEE_neutrality_in_global_conflicts
+		x = 10
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_coolidge_doctorine
+		prerequisite = {
+			focus = NEE_the_coolidge_doctorine
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
