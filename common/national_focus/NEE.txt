@@ -394,6 +394,28 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = NEE_promote_laissez_faire_capitalism
+		icon = GFX_NEE_promote_laissez_faire_capitalism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = NEE_the_importance_of_local_governance
+		prerequisite = {
+			focus = NEE_the_importance_of_local_governance
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
 		id = NEE_the_cabot_presidency
 		icon = GFX_NEE_the_cabot_presidency
 		x = 5
