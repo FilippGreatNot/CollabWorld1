@@ -607,6 +607,10 @@ country_event = {
 
 	option = {
 		name = fgb.24.a
+		AUS = {
+			country_event = fgb.26
+			days = 7
+		}
 	}
 }
 
@@ -623,6 +627,92 @@ news_event = {
 		FGB = {
 			add_war_support = 0.05
 		}
+	}
+}
+
+country_event = {
+	id = fgb.26
+	title = fgb.26.t
+	desc = fgb.26.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.26.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 4
+				has_government = social_democrat
+			}
+			modifier = {
+				factor = 4
+				has_opinion = {
+					target = FGB
+					value < 20
+				}
+			}
+		}
+		hidden_effect = {
+			FGB = {
+				complete_national_focus = FGB_question_the_kleindeutsche_idea
+			}
+		}
+	}
+
+	option = {
+		name = fgb.26.b
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 4
+				NOT = { has_government = social_democrat }
+			}
+			modifier = {
+				factor = 4
+				has_opinion = {
+					target = FGB
+					value > 20
+				}
+			}
+		}
+		hidden_effect = {
+			add_to_faction = faction_FGB_europakt
+			FGB = {
+				unlock_national_focus = FGB_question_the_kleindeutsche_idea
+				country_event = fgb.27
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.27
+	title = fgb.27.t
+	desc = fgb.27.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.27.a
+		add_political_power = -60
+	}
+}
+
+country_event = {
+	id = fgb.28
+	title = fgb.28.t
+	desc = fgb.28.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.28.a
+		set_temp_variable = { ideology_change_var = 0.05 }
+		change_ruling_party_popularity = yes
 	}
 }
 

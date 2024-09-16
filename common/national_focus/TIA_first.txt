@@ -1,4 +1,4 @@
-#!gfx:interface/country/east_asia/TIA/TIA_focus.gfx
+#!gfx:interface/country/east_asia/TIA/TIA.gfx
 focus_tree = {
     id = TIA_first
 
@@ -89,7 +89,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_develop_kunlun_shan_resource_deposits
-		icon = GFX_focus_generic_energy
+		icon = GFX_focus_generic_mining_industry
 		x = 1
 		y = 1
 		cost = 3
@@ -114,7 +114,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_fund_a_new_military_industry
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_CHL_silverworking
 		x = -1
 		y = 1
 		cost = 3
@@ -146,7 +146,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_feed_the_uighur_farmers
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_focus_generic_coffee
 		x = 0
 		y = 2
 		cost = 6
@@ -189,7 +189,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_occidental_chinese_center_of_learning
-		icon = GFX_focus_research
+		icon = GFX_focus_NORDIC_com_capstone_research
 		x = 0
 		y = 1
 		cost = 5
@@ -206,18 +206,15 @@ focus_tree = {
 
 	focus = {
 		id = TIA_found_a_local_examination_board
-		icon = GFX_focus_research2
+		icon = GFX_focus_NORDIC_com_research
 		x = 0
 		y = 1
-		cost = 4
+		cost = 10
 		ai_will_do = {
 			factor = 10
 		}
 		available = {
-			if = {
-				limit = { amount_research_slots > 3 }
-				num_of_owned_factories > 29
-			}
+			num_of_owned_factories > 29
 		}
 		relative_position_id = TIA_occidental_chinese_center_of_learning
 		prerequisite = { focus = TIA_occidental_chinese_center_of_learning }
@@ -237,8 +234,303 @@ focus_tree = {
 		prerequisite = { focus = TIA_the_tungan_republic }
 		mutually_exclusive = { focus = TIA_a_chinese_nation }
 		completion_reward = {
-			add_political_power = 20
+			add_political_power = 50
 			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = TIA_deploy_the_mares
+		icon = GFX_focus_generic_horse_studs
+		x = -2
+		y = 1
+		cost = 4
+		relative_position_id = TIA_a_turkic_state
+		prerequisite = { focus = TIA_a_turkic_state }
+		completion_reward = {
+			add_manpower = 120000
+			add_war_support = 0.05
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"1st. Cavalry Battalion\" division_template = \"Uighur Cavalry\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			619 = {
+				create_unit = {
+					division = "name = \"2nd. Cavalry Battalion\" division_template = \"Uighur Cavalry\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			759 = {
+				create_unit = {
+					division = "name = \"3rd. Cavalry Battalion\" division_template = \"Uighur Cavalry\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			940 = {
+				create_unit = {
+					division = "name = \"4th. Cavalry Battalion\" division_template = \"Uighur Cavalry\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			945 = {
+				create_unit = {
+					division = "name = \"5th. Cavalry Battalion\" division_template = \"Uighur Cavalry\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_free_the_kazakh_farmers
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = TIA_deploy_the_mares
+		prerequisite = { focus = TIA_deploy_the_mares }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			declare_war_on = {
+				target = ALT
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_agricultural_subsidies
+		icon = GFX_focus_generic_farmland
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = TIA_a_turkic_state
+		prerequisite = { focus = TIA_a_turkic_state }
+		completion_reward = {
+			add_stability = 0.05
+			940 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = {
+				TIA_agricultural_subsidies_idea
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_depose_the_illegitimate_governor
+		icon = GFX_focus_generic_annex_country_2
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = TIA_agricultural_subsidies
+		prerequisite = { focus = TIA_agricultural_subsidies }
+		completion_reward = {
+			add_war_support = 0.1
+			army_experience = 20
+			declare_war_on = {
+				target = SIK
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_east_turkic_zeal
+		icon = GFX_goal_continuous_increase_nu
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_a_turkic_state
+		prerequisite = { focus = TIA_a_turkic_state }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.1
+			ALT = { make_every_core_national_for_PREV = yes }
+			KUM = { make_every_core_national_for_PREV = yes }
+			SIK = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = TIA_end_the_khans_rule
+		icon = GFX_focus_rom_handle_king
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = TIA_east_turkic_zeal
+		prerequisite = { focus = TIA_east_turkic_zeal }
+		completion_reward = {
+			add_stability = 0.05
+			army_experience = 20
+			declare_war_on = {
+				target = KUM
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_declare_an_islamic_republic
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		x = -1
+		y = 1
+		cost = 4
+		available = {
+			NOT = { country_exists = ALT }
+			NOT = { country_exists = SIK }
+		}
+		mutually_exclusive = { focus = TIA_establish_a_multiethnic_democracy }
+		relative_position_id = TIA_depose_the_illegitimate_governor
+		prerequisite = { focus = TIA_free_the_kazakh_farmers }
+		prerequisite = { focus = TIA_depose_the_illegitimate_governor }
+		completion_reward = {
+			set_cosmetic_tag = TIA_islamic
+			army_experience = 40
+			add_war_support = 0.1
+			set_politics = {
+				ruling_party = reactionism
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_establish_a_multiethnic_democracy
+		icon = GFX_focus_TUR_treaty_of_saadabad
+		x = 1 
+		y = 1
+		cost = 4
+		available = {
+			NOT = { country_exists = SIK }
+			NOT = { country_exists = KUM }
+		}
+		mutually_exclusive = { focus = TIA_declare_an_islamic_republic }
+		relative_position_id = TIA_depose_the_illegitimate_governor
+		prerequisite = { focus = TIA_depose_the_illegitimate_governor }
+		prerequisite = { focus = TIA_end_the_khans_rule }
+		completion_reward = {
+			set_cosmetic_tag = TIA_secular
+			add_political_power = 100
+			add_stability = 0.1
+			set_politics = {
+				ruling_party = conservatism
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_convene_the_provincial_assembly
+		icon = GFX_focus_SOV_rebuild_the_savior_cathedral
+		x = 0
+		y = 2
+		cost = 4
+		available = {
+			NOT = { country_exists = SIK }
+			has_full_control_of_state = 617
+		}
+		relative_position_id = TIA_depose_the_illegitimate_governor
+		prerequisite = { focus = TIA_depose_the_illegitimate_governor }
+		prerequisite = { focus = TIA_declare_an_islamic_republic focus = TIA_establish_a_multiethnic_democracy }
+		completion_reward = {
+			add_stability = 0.05
+			TIA = {
+				set_capital = {
+					state = 617
+					remember_old_capital = no
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_expand_civilian_industry
+		icon = GFX_focus_NORDIC_com_civilian
+		x = -1
+		y = 1
+		cost = 6
+		relative_position_id = TIA_convene_the_provincial_assembly
+		prerequisite = { focus = TIA_convene_the_provincial_assembly }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_connect_rural_villages
+		icon = GFX_focus_generic_truck
+		x = 1
+		y = 1
+		cost = 6
+		relative_position_id = TIA_convene_the_provincial_assembly
+		prerequisite = { focus = TIA_convene_the_provincial_assembly }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				#level = 1
+				start_province = 2015 
+				target_province = 4709
+			}
+			build_railway = {
+				#level = 1
+				start_province = 4973 
+				target_province = 4709
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_an_alliance_with_afghanistan
+		icon = GFX_focus_generic_befriend_afghanistan
+		x = 1
+		y = 1
+		cost = 6
+		relative_position_id = TIA_expand_civilian_industry
+		prerequisite = { focus = TIA_expand_civilian_industry focus = TIA_connect_rural_villages }
+		completion_reward = {
+			add_stability = 0.05
+			create_faction = TIA_brotherhood_of_east_asia
+			add_to_faction = AFG
 		}
 	}
 
@@ -263,7 +555,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_form_a_new_army
-		icon = GFX_focus_focus_fra_maquis
+		icon = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
 		x = 2
 		y = 1
 		cost = 4
@@ -310,7 +602,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_encourage_han_migration
-		icon = GFX_focus_generic_manpower
+		icon = GFX_focus_chi_one_china_policy
 		x = 0
 		y = 1
 		cost = 4
@@ -332,7 +624,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		x = -2
 		y = 1
-		cost = 2
+		cost = 3
 		ai_will_do = {
 			factor = 15
 		}
@@ -467,7 +759,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_draft_a_new_constitution
-		icon = GFX_goal_generic_forceful_treaty
+		icon = GFX_focus_SWI_dissolve_the_federal_council
 		x = 0
 		y = 1
 		cost = 5
@@ -505,7 +797,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_connect_to_urumqi
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_focus_generic_road_investment
 		x = -1
 		y = 1
 		cost = 3
@@ -541,7 +833,7 @@ focus_tree = {
 
 	focus = {
 		id = TIA_move_the_capital
-		icon = GFX_goal_generic_intelligence_exchange
+		icon = GFX_focus_por_the_pink_map
 		x = 1
 		y = 1
 		cost = 3
