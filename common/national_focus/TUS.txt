@@ -364,8 +364,10 @@
 		}
 		
 		available = {
+			FRA = {  
+				is_faction_leader = yes
+			}
 			is_in_faction = no
-			country_exists = FRA
 		}
 		
 		bypass = {
@@ -380,9 +382,7 @@
         cost = 5
 		
 		completion_reward = {
-			FRA = {
-				add_to_faction = ROOT
-			}
+			FRA = { country_event = tus.2 }
 			set_rule = {
 				can_create_factions = yes
 			}
@@ -1027,6 +1027,10 @@
 		completion_reward = {
 			set_rule = {
 				can_join_factions = yes
+			}	
+			swap_ideas = {
+				remove_idea = rationing
+				add_idea = mild_rationing
 			}			
 			country_event = tus.5
 		}
