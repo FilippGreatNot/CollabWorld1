@@ -51,6 +51,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
 			add_command_power = 20
+			swap_ideas = {
+				remove_idea = CCC_extreme_instability
+				add_idea = CCC_high_instability
+			}
 		}
 	}
 	focus = {
@@ -404,12 +408,17 @@ focus_tree = {
 			focus = USA_mc_fight_our_debt
 			focus = USA_mc_deficit_spending
 		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_expand_our_research_capabilities"
+			add_research_slot = 1
+			add_political_power = 25
+		}
 	}
 
 	#Military branch
 	focus = {
 		id = USA_mc_fighting_for_democracy
-		icon = GFX_focus_USA_mc_fighting_for_democracy
+		icon = GFX_focus_USA_mc_freedom_fight
 
 		relative_position_id = USA_mc_declare_macarthur_president
 		y = 1
@@ -417,6 +426,14 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_declare_macarthur_president }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_political_power = 20
+			swap_ideas = {
+				remove_idea = CCC_the_liberation_army
+				add_idea = CCC_the_liberation_army2
+			}
+		}
 	}
 
 	##Air subbranch
@@ -684,7 +701,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1
-		x = -2.5
+		x = -3
 
 		cost = 5
 		
@@ -902,7 +919,7 @@ focus_tree = {
 	#America reunification branch
 	focus = {
 		id = USA_mc_declare_a_great_crusade
-		icon = GFX_focus_USA_mc_declare_a_great_crusade
+		icon = GFX_focus_USA_mc_great_crusade
 		
 		available = { 
 			date > 1925.1.1
