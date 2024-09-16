@@ -608,8 +608,10 @@ country_event = {
 	option = {
 		name = fgb.24.a
 		AUS = {
-			country_event = fgb.26
-			days = 7
+			country_event = {
+				id = fgb.26
+				random_days = 14
+			}
 		}
 	}
 }
@@ -713,6 +715,72 @@ country_event = {
 		name = fgb.28.a
 		set_temp_variable = { ideology_change_var = 0.05 }
 		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = {
+	id = fgb.29
+	title = fgb.29.t
+	desc = fgb.29.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.29.a
+		country_event = {
+			id = fgb.30
+			random_days = 7
+		}
+		hidden_effect = {
+			set_country_flag = FGB_noske_ger_unified_flag
+			complete_national_focus = FGB_noske_the_second_revolution_of_1848
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+
+country_event = {
+	id = fgb.30
+	title = fgb.30.t
+	desc = fgb.30.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.30.a
+		add_stability = -0.1
+		remove_ideas = {
+			FGB_prussian_model
+			FGB_defense_tactics_idea
+			FGB_mobile
+			FGB_firepower
+			FGB_controlled_french_companies
+		}
+		if = {
+			limit = { has_idea = FGB_swift_strike2 }
+			swap_ideas = {
+				remove_idea = FGB_swift_strike2
+				add_idea = FGB_swift_strike3
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = FGB_coordinated_assault2
+				add_Idea = FGB_coordinated_assault3
+			}
+		}
+		add_ideas = FGB_noske_overstretched_industry
+		add_ideas = FGB_noske_tight_administrative_resources
+		every_core_state = {
+			add_extra_state_shared_building_slots = -1
+			add_building_construction = {
+				type = industrial_complex
+				level = -2
+				instant_build = yes
+			}
+		}
 	}
 }
 
