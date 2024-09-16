@@ -78,7 +78,7 @@
         x = 0
         y = 1
 		
-        cost = 5
+        cost = 6
 		
 		completion_reward = {
 			162 = {
@@ -96,6 +96,10 @@
 					level = 1
 					instant_build = yes
 				}
+			}
+			swap_ideas = {
+				remove_idea = extensive_rationing
+				add_idea = rationing
 			}
 			custom_effect_tooltip = TUS_modify_ppl_add_5
 			add_to_variable = {
@@ -277,7 +281,7 @@
 	
 	focus = {
 		id = TUS_french_intervention
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_FRA_viva_la_coty
 		
 		prerequisite = {
 			focus = TUS_ask_france_for_guns
@@ -360,8 +364,10 @@
 		}
 		
 		available = {
+			FRA = {  
+				is_faction_leader = yes
+			}
 			is_in_faction = no
-			country_exists = FRA
 		}
 		
 		bypass = {
@@ -376,9 +382,7 @@
         cost = 5
 		
 		completion_reward = {
-			FRA = {
-				add_to_faction = ROOT
-			}
+			FRA = { country_event = tus.2 }
 			set_rule = {
 				can_create_factions = yes
 			}
@@ -533,7 +537,7 @@
 	
 	focus = {
 		id = TUS_army_reform
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_WRD_permanent_martial_law
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -544,10 +548,14 @@
         x = 3
         y = 1
 		
-        cost = 10
+        cost = 11
 		
 		completion_reward = {
 			remove_ideas = TUS_heavly_disorganised_army
+			swap_ideas = {
+				remove_idea = extensive_conscription
+				add_idea = limited_conscription
+			}
 			army_experience = 50
 			country_event = tus.10
 			custom_effect_tooltip = TUS_modify_mil_add_10
@@ -1019,6 +1027,10 @@
 		completion_reward = {
 			set_rule = {
 				can_join_factions = yes
+			}	
+			swap_ideas = {
+				remove_idea = rationing
+				add_idea = mild_rationing
 			}			
 			country_event = tus.5
 		}

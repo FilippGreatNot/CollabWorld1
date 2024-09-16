@@ -262,4 +262,109 @@ ideas = {
             cancel_if_invalid = yes
         }
     }
+	
+	rationing_laws = { 
+		law = yes
+		use_list_view = yes
+		
+		no_rationing = {
+			cost = 100
+			removal_cost = -1
+			level = 1
+
+			available = {
+				has_war_support > 0.3
+				NOT = {
+					AND = {
+						tag = TUS
+						NOT = {has_completed_focus = TUS_balbos_speech_2}
+					}
+				}
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.1
+				stability_factor = 0.1
+				political_power_factor = 0.1
+				supply_consumption_factor = 0.05
+			}
+			
+			default = yes			
+			cancel_if_invalid = no
+		}
+		
+		mild_rationing = {
+		
+			cost = 100
+			removal_cost = -1
+			level = 2
+			
+			available = {
+				has_war_support > 0.3
+				NOT = {
+					AND
+						tag = TUS
+						NOT = {has_completed_focus = TUS_balbos_speech_2}
+					}
+				}
+			}
+
+			modifier = {
+			
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		rationing = {
+			cost = 100
+			removal_cost = -1
+			level = 3
+
+			available = {
+				has_war = yes
+				has_war_support > 0.5
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				supply_consumption_factor = -0.05
+				stability_factor = -0.05
+				war_support_factor = -0.03
+				political_power_factor = -0.1
+				attrition = -0.02
+				naval_attrition = -0.02
+				org_loss_at_low_org_factor = -0.05
+				org_loss_when_moving = -0.2
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		extensive_rationing = {
+			
+			available = {
+				has_war = yes
+				has_war_support > 0.7
+			}
+		
+			cost = 100
+			removal_cost = -1
+			level = 4
+			
+			modifier = {
+				consumer_goods_factor = -0.1
+				supply_consumption_factor = -0.1
+				stability_factor = -0.1
+				war_support_factor = -0.06
+				political_power_factor = -0.15
+				attrition = -0.04
+				naval_attrition = -0.04
+				org_loss_at_low_org_factor = -0.1
+				org_loss_when_moving = -0.4
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
 }
