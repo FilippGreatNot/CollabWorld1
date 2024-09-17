@@ -822,20 +822,6 @@
 			VNE = {
 				country_event = tus.17
 			}
-			#declare_war_on = {
-			#	target = VNE
-			#	type = annex_everything
-			#}
-			#add_civil_war_target = VNE
-			#if = {
-			#	limit = {is_puppet_of = FRA}
-			#	FRA = {
-			#		declare_war_on = {
-			#			target = VNE
-			#			type = annex_everything
-			#		}	
-			#	}
-			#}
 		}
 	}
 	
@@ -1021,7 +1007,10 @@
 		}
 		available = {
 			has_country_flag = ITAS_has_cored_its
-			has_country_flag = ITAS_has_cored_vne
+			OR = {
+				has_country_flag = ITAS_has_cored_vne
+				has_subject = VNE
+			}
 			has_country_flag = ITAS_has_cored_ita
 			has_country_flag = ITAS_has_cored_mss
 			has_country_flag = ITAS_has_cored_sar
