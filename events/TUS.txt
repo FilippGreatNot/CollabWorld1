@@ -477,6 +477,44 @@ country_event = {
 	
 } 
 
+## for venice marino not us
+
+country_event = {
+	id = tus.17
+	title = tus.17.t
+	desc = tus.17.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus.17.a
+	}
+
+	option = {
+		name = tus.17.b
+		#TUS = {
+		#	puppet = VNE
+		#	end_wars = no
+		#	end_civil_wars = no
+		#}
+		set_autonomy = {
+			target = VNE
+			autonomous_state = autonomy_integrated_puppet
+			end_wars = no
+			end_civil_wars = no
+		}
+	}
+	
+	option = {
+		name = tus.17.c
+		TUS = {
+			annex_country = {
+				target = VNE
+				ransfer_troops = yes
+			}
+		}
+	}	
+} 
+
 ## First Meeting ##
 country_event = {
 	id = tus_coun1.1
