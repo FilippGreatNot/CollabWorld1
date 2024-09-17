@@ -487,10 +487,68 @@ country_event = {
 
 	option = {
 		name = tus.17.a
+		TUS = {
+			declare_war_on = {
+				target = VNE
+				type = annex_everything
+			}
+			add_civil_war_target = VNE
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = VNE
+						type = annex_everything
+					}	
+				}
+			}
+		}
 	}
 
 	option = {
 		name = tus.17.b
+		country_event = tus.18
+	}
+	
+	option = {
+		name = tus.17.c
+		TUS = {
+			annex_country = {
+				target = VNE
+				ransfer_troops = yes
+			}
+		}
+	}	
+} 
+
+## for us about venice
+
+country_event = {
+	id = tus.18
+	title = tus.18.t
+	desc = tus.18.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus.18.a
+		declare_war_on = {
+			target = VNE
+			type = annex_everything
+		}
+		add_civil_war_target = VNE
+		if = {
+			limit = {is_puppet_of = FRA}
+			FRA = {
+				declare_war_on = {
+					target = VNE
+					type = annex_everything
+				}	
+			}
+		}
+	}
+
+	option = {
+		name = tus.18.b
 		#TUS = {
 		#	puppet = VNE
 		#	end_wars = no
@@ -501,16 +559,6 @@ country_event = {
 			autonomous_state = autonomy_integrated_puppet
 			end_wars = no
 			end_civil_wars = no
-		}
-	}
-	
-	option = {
-		name = tus.17.c
-		TUS = {
-			annex_country = {
-				target = VNE
-				ransfer_troops = yes
-			}
 		}
 	}	
 } 
