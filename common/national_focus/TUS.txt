@@ -290,6 +290,13 @@
 		bypass = {
 			has_completed_focus = TUS_balbos_speech_2
 		}
+		
+		available = {
+			NOT = {
+				has_completed_focus = TUS_the_red_menace
+				has_completed_focus = TUS_destroy_the_frauds
+			}
+		}
 	
 		relative_position_id = TUS_ask_france_for_guns
 		
@@ -303,8 +310,8 @@
 			subtract_from_temp_variable = { com_pop_1 = 5 }
 			set_temp_variable = { com_pop_2 = party_popularity@marxism}
 			subtract_from_temp_variable = { com_pop_2 = 4 }
-			set_temp_variable = { lib_pop_1 = party_popularity@liberalism}
-			subtract_from_temp_variable = { lib_pop = 2 }
+			#set_temp_variable = { lib_pop_1 = party_popularity@liberalism}
+			#subtract_from_temp_variable = { lib_pop_1 = 2 }
 			set_temp_variable = { lib_pop_1 = party_popularity@national_syndicalism}
 			subtract_from_temp_variable = { lib_syn = 40 }
 			FRA = {
@@ -346,7 +353,7 @@
 				}
 				add_popularity = { ideology = bolshevism  popularity = com_pop_1 }
 				add_popularity = { ideology = marxism popularity = com_pop_2 }
-				add_popularity = { ideology = liberalism  popularity = lib_pop_1 }
+				#add_popularity = { ideology = liberalism  popularity = lib_pop_1 }
 				add_popularity = { ideology = national_syndicalism  popularity = lib_pop_syn }
 			}
 		}
@@ -421,7 +428,7 @@
 	
 	focus = {
 		id = TUS_expand_civs
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_WRD_economic_austerity
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -507,7 +514,7 @@
 	
 	focus = {
 		id = TUS_reassure_stability
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_FRA_spread_nationalist_propaganda
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -812,20 +819,23 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
-			declare_war_on = {
-				target = VNE
-				type = annex_everything
+			VNE = {
+				country_event = tus.17
 			}
-			add_civil_war_target = VNE
-			if = {
-				limit = {is_puppet_of = FRA}
-				FRA = {
-					declare_war_on = {
-						target = VNE
-						type = annex_everything
-					}	
-				}
-			}
+			#declare_war_on = {
+			#	target = VNE
+			#	type = annex_everything
+			#}
+			#add_civil_war_target = VNE
+			#if = {
+			#	limit = {is_puppet_of = FRA}
+			#	FRA = {
+			#		declare_war_on = {
+			#			target = VNE
+			#			type = annex_everything
+			#		}	
+			#	}
+			#}
 		}
 	}
 	
