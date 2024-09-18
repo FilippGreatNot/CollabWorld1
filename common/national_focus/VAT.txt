@@ -162,9 +162,17 @@ focus_tree = {
         x = 2
         y = 1
 		
-        cost = 4
+        cost = 5
 
 		completion_reward = {
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -184,9 +192,87 @@ focus_tree = {
         x = -2
         y = 1
 		
-        cost = 4
+        cost = 5
 
 		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = VAT_inact_policies
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_propose_con
+			focus = VAT_propose_lib
+		}
+		
+		relative_position_id = VAT_propose_lib
+        x = 2
+        y = 1
+		
+        cost = 8
+
+		completion_reward = {
+			if = {
+				limit = {has_completed_focus = VAT_propose_lib}
+				swap_ideas = {
+					remove_idea = trad_women_roles
+					add_idea = limited_womens_rights
+				}				
+			}
+			if = {
+				limit = {has_completed_focus = VAT_propose_con}
+				swap_ideas = {
+					remove_idea = full_equality
+					add_idea = racial_segregation
+				}				
+			}
+		}
+	}
+	focus = {
+		id = VAT_reach_out_italy
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_propose_con
+			focus = VAT_propose_lib
+		}
+		
+		relative_position_id = VAT_propose_lib
+        x = 0
+        y = 1
+		
+        cost = 70
+
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = VAT_influence_italy
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_propose_con
+		}
+		available = {has_completed_focus = VAT_val}
+		
+		relative_position_id = VAT_propose_con
+        x = 0
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+
 		}
 	}
 }
