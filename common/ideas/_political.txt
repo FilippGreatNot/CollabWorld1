@@ -1,6 +1,9 @@
 ideas = {
 	gun_ownership_laws = {
 		banned_gun_ownership = {
+			available = {
+				NOT = {has_country_flag = gun_ownership_locked}
+			}
 			modifier = {
 				political_power_gain = 0.1
 				stability_factor = 0.1
@@ -11,6 +14,9 @@ ideas = {
 			cancel_if_invalid = no
 		}
 		limited_gun_ownership = {
+			available = {
+				NOT = {has_country_flag = gun_ownership_locked}
+			}
 			modifier = {
 				army_core_defence_factor = 0.025
 			}
@@ -21,6 +27,9 @@ ideas = {
 			cancel_if_invalid = no
 		}
 		a_gun_for_every_household = {
+			available = {
+				NOT = {has_country_flag = gun_ownership_locked}
+			}
 			modifier = {
 				army_core_defence_factor = 0.05
 				minimum_training_level = -0.05
@@ -40,6 +49,7 @@ ideas = {
 		use_list_view = yes
 		racial_slavery = {
             available = {
+				NOT = {has_country_flag = racial_rights_locked}
 				OR = {
 					has_government = national_syndicalism
 					has_government = esotericism
@@ -63,6 +73,9 @@ ideas = {
 			cancel_if_invalid = yes
 		}
 		racial_segregation = {
+            available = {
+				NOT = {has_country_flag = racial_rights_locked}
+			}
 			modifier = {
                 war_support_factor = 0.05
                 political_power_factor = 0.05
@@ -77,6 +90,7 @@ ideas = {
 		}
 		full_equality = {
             available = {
+				NOT = {has_country_flag = racial_rights_locked}
 				NOT = {
 					OR = {
 						has_government = national_syndicalism
@@ -104,6 +118,7 @@ ideas = {
 		trad_women_roles = {
 
 			available = {
+				NOT = {has_country_flag = woman_rights_locked}
 				OR = {
 					has_government = conservatism
 					has_government = authoritarian_democrat
@@ -132,6 +147,9 @@ ideas = {
 			cancel_if_invalid = yes
 		}
 		limited_womens_rights = {
+			available = {
+				NOT = {has_country_flag = woman_rights_locked}
+			}
 			modifier = {
 				recruitable_population = 0.01
 				research_speed_factor = 0.01
@@ -166,6 +184,7 @@ ideas = {
 			}
 			
 			available = {
+				NOT = {has_country_flag = woman_rights_locked}
 				NOT = {
 					OR = {
 						has_government = reactionism
@@ -189,6 +208,7 @@ ideas = {
         state_press = {
             
             available = {
+				NOT = {has_country_flag = press_locked}
                 NOT = {
 					OR = {
 						has_government = social_democrat
@@ -220,7 +240,7 @@ ideas = {
         state_edited_press = {
             
             available ={
-
+				NOT = {has_country_flag = press_locked}
             }
 
             level = 2
@@ -236,6 +256,7 @@ ideas = {
         free_press = {
             
             available = {
+				NOT = {has_country_flag = press_locked}
 				OR = {
 					has_government = social_democrat
 					has_government = liberalism
@@ -274,11 +295,9 @@ ideas = {
 
 			available = {
 				has_war_support > 0.3
-				NOT = {
-					AND = {
-						tag = TUS
-						NOT = {has_completed_focus = TUS_balbos_speech_2}
-					}
+				if = {
+					limit = {tag = TUS}
+					has_completed_focus = TUS_balbos_speech_2
 				}
 			}
 			
@@ -301,11 +320,9 @@ ideas = {
 			
 			available = {
 				has_war_support > 0.3
-				NOT = {
-					AND
-						tag = TUS
-						NOT = {has_completed_focus = TUS_balbos_speech_2}
-					}
+				if = {
+					limit = {tag = TUS}
+					has_completed_focus = TUS_balbos_speech_2
 				}
 			}
 

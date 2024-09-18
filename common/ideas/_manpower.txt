@@ -8,6 +8,8 @@ ideas = {
 			cost = 150
 			removal_cost = -1
 			level = 7
+			
+			available = {NOT = {has_country_flag = conscription_locked}}
 
 			modifier = {
 				conscription = 0.01
@@ -30,6 +32,8 @@ ideas = {
 					has_idea = disarmed_nation 
 				}
 			}
+			
+			available = {NOT = {has_country_flag = conscription_locked}}
 
 			modifier = {
 				conscription = 0.015
@@ -47,6 +51,7 @@ ideas = {
 
 			available = {
 				has_war_support > 0.1
+				NOT = {has_country_flag = conscription_locked}
 			}
 
 			modifier = {
@@ -69,6 +74,7 @@ ideas = {
 			
 			available = {
 				has_war_support > 0.2
+				NOT = {has_country_flag = conscription_locked}
 			}
 			ai_will_do = {
 				factor = 1
@@ -94,6 +100,7 @@ ideas = {
 		
 		service_by_requirement = {
 			available = {
+				NOT = {has_country_flag = conscription_locked}
 				OR = {
 					has_war_support > 0.6
 					surrender_progress > 0
@@ -137,6 +144,7 @@ ideas = {
 		
 		all_adults_serve = {
 			available = {
+				NOT = {has_country_flag = conscription_locked}
 				has_war = yes
 				OR = {
 					has_war_support > 0.7
@@ -177,6 +185,7 @@ ideas = {
 		
 		scraping_the_barrel = {
 			available = {
+				NOT = {has_country_flag = conscription_locked}
 				has_war = yes
 				OR = {
 					has_war_support > 0.85
