@@ -152,6 +152,232 @@ focus_tree = {
 
 		}
 	}
+	focus = {
+		id = NYC_economic_reforms
+		x = 4
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_al_smith_re_elected}
+		relative_position_id = NYC_al_smith_re_elected
+		cost = 4
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_infastructure_effort
+		x = -1
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_economic_reforms}
+		relative_position_id = NYC_economic_reforms
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_heavy_industry
+		x = 1
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_economic_reforms}
+		relative_position_id = NYC_economic_reforms
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_oil_production
+		x = 3
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_economic_reforms}
+		relative_position_id = NYC_economic_reforms
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_synthetic_ruber_production
+		x = -3
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_economic_reforms}
+		relative_position_id = NYC_economic_reforms
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_five_year_plan
+		x = -1
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_heavy_industry}
+		prerequisite = {focus = NYC_oil_production}
+		prerequisite = {focus = NYC_infastructure_effort}
+		prerequisite = {focus = NYC_synthetic_ruber_production}
+		relative_position_id = NYC_heavy_industry
+		cost = 5
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_new_york_rail
+		x = 0
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_five_year_plan}
+		relative_position_id = NYC_five_year_plan
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_focus_civillian
+		x = -2
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		mutually_exclusive = {focus = NYC_focus_military}
+		prerequisite = {focus = NYC_new_york_rail}
+		relative_position_id = NYC_new_york_rail
+		cost = 4
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_focus_military
+		x = 2
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		mutually_exclusive = {focus = NYC_focus_civillian}
+		prerequisite = {focus = NYC_new_york_rail}
+		relative_position_id = NYC_new_york_rail
+		cost = 4
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_optomize_production_lines
+		x = 0
+		y = 3
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_focus_military}
+		relative_position_id = NYC_focus_military
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_optomize_civillian_industry
+		x = 0
+		y = 3
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_focus_civillian}
+		relative_position_id = NYC_focus_civillian
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_steel_development
+		x = 2
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_focus_civillian focus = NYC_focus_military}
+		relative_position_id = NYC_focus_civillian
+		cost = 3
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_rearment_program
+		x = -4
+		y = 1
+		allow_branch = {
+			has_country_flag = NYC_al_smith
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_al_smith_re_elected}
+		relative_position_id = NYC_al_smith_re_elected
+		cost = 4
+		completion_reward = {
+
+		}
+	}
 	### Nathan Miller Elected
 	focus = {
 		id = NYC_nathan_miller
@@ -341,7 +567,29 @@ focus_tree = {
 
 		}
 	}
-	
+	focus = {
+		id = NYC_new_american_era
+		x = 3
+		y = 1
+		prerequisite = {focus = NYC_steel_exports}
+		prerequisite = {focus = NYC_authorize_penal_reforms}
+		prerequisite = {focus = NYC_improve_economy}
+		prerequisite = {focus = NYC_restructure_gov}
+		relative_position_id = NYC_steel_exports
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+
+	### Al Smith Coup
+
 	focus = {
 		id = NYC_arrest_al_capone
 		x = 0
