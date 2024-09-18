@@ -216,25 +216,25 @@ focus_tree = {
 		
 		relative_position_id = VAT_propose_lib
         x = 2
-        y = 1
+        y = 2
 		
         cost = 8
 
 		completion_reward = {
-			if = {
-				limit = {has_completed_focus = VAT_propose_lib}
-				swap_ideas = {
-					remove_idea = trad_women_roles
-					add_idea = limited_womens_rights
-				}				
-			}
-			if = {
-				limit = {has_completed_focus = VAT_propose_con}
-				swap_ideas = {
-					remove_idea = full_equality
-					add_idea = racial_segregation
-				}				
-			}
+			#if = {
+			#	limit = {has_completed_focus = VAT_propose_lib}
+			#	swap_ideas = {
+			#		remove_idea = trad_women_roles
+			#		add_idea = limited_womens_rights
+			#	}				
+			#}
+			#if = {
+			#	limit = {has_completed_focus = VAT_propose_con}
+			#	swap_ideas = {
+			#		remove_idea = full_equality
+			#		add_idea = racial_segregation
+			#	}				
+			#}
 		}
 	}
 	focus = {
@@ -246,11 +246,13 @@ focus_tree = {
 			focus = VAT_propose_lib
 		}
 		
+		mutually_exclusive = {focus = VAT_influence_italy}
+		
 		relative_position_id = VAT_propose_lib
         x = 0
         y = 1
 		
-        cost = 70
+        cost = 10
 
 		completion_reward = {
 
@@ -264,6 +266,8 @@ focus_tree = {
 			focus = VAT_propose_con
 		}
 		available = {has_completed_focus = VAT_val}
+		
+		mutually_exclusive = {focus = VAT_reach_out_italy}
 		
 		relative_position_id = VAT_propose_con
         x = 0
