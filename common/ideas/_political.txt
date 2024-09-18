@@ -1,6 +1,9 @@
 ideas = {
 	gun_ownership_laws = {
 		banned_gun_ownership = {
+			available = {
+				NOT = {has_country_flag = gun_ownership_locked}
+			}
 			modifier = {
 				political_power_gain = 0.1
 				stability_factor = 0.1
@@ -11,6 +14,9 @@ ideas = {
 			cancel_if_invalid = no
 		}
 		limited_gun_ownership = {
+			available = {
+				NOT = {has_country_flag = gun_ownership_locked}
+			}
 			modifier = {
 				army_core_defence_factor = 0.025
 			}
@@ -21,6 +27,9 @@ ideas = {
 			cancel_if_invalid = no
 		}
 		a_gun_for_every_household = {
+			available = {
+				NOT = {has_country_flag = gun_ownership_locked}
+			}
 			modifier = {
 				army_core_defence_factor = 0.05
 				minimum_training_level = -0.05
@@ -40,6 +49,7 @@ ideas = {
 		use_list_view = yes
 		racial_slavery = {
             available = {
+				NOT = {has_country_flag = racial_rights_locked}
 				OR = {
 					has_government = national_syndicalism
 					has_government = esotericism
@@ -60,9 +70,12 @@ ideas = {
 			cost = 150
 			level = 2
 			removal_cost = -1
-			cancel_if_invalid = yes
+			cancel_if_invalid = no
 		}
 		racial_segregation = {
+            available = {
+				NOT = {has_country_flag = racial_rights_locked}
+			}
 			modifier = {
                 war_support_factor = 0.05
                 political_power_factor = 0.05
@@ -73,10 +86,11 @@ ideas = {
 			default = yes
 			removal_cost = -1			
 			default = yes			
-			cancel_if_invalid = yes
+			cancel_if_invalid = no
 		}
 		full_equality = {
             available = {
+				NOT = {has_country_flag = racial_rights_locked}
 				NOT = {
 					OR = {
 						has_government = national_syndicalism
@@ -94,7 +108,7 @@ ideas = {
 			cost = 150
 			level = 4
 			removal_cost = -1			
-			cancel_if_invalid = yes
+			cancel_if_invalid = no
 		}
 	}
 	
@@ -104,6 +118,7 @@ ideas = {
 		trad_women_roles = {
 
 			available = {
+				NOT = {has_country_flag = woman_rights_locked}
 				OR = {
 					has_government = conservatism
 					has_government = authoritarian_democrat
@@ -129,9 +144,12 @@ ideas = {
 			level = 5
 			default = yes
 			removal_cost = -1		
-			cancel_if_invalid = yes
+			cancel_if_invalid = no
 		}
 		limited_womens_rights = {
+			available = {
+				NOT = {has_country_flag = woman_rights_locked}
+			}
 			modifier = {
 				recruitable_population = 0.01
 				research_speed_factor = 0.01
@@ -148,7 +166,7 @@ ideas = {
 			cost = 150
 			level = 5
 			removal_cost = -1		
-			cancel_if_invalid = yes
+			cancel_if_invalid = no
 		}
 		full_equality_woman = {		
 			modifier = {
@@ -166,6 +184,7 @@ ideas = {
 			}
 			
 			available = {
+				NOT = {has_country_flag = woman_rights_locked}
 				NOT = {
 					OR = {
 						has_government = reactionism
@@ -178,7 +197,7 @@ ideas = {
 			cost = 150
 			level = 6
 			removal_cost = -1			
-			cancel_if_invalid = yes
+			cancel_if_invalid = no
 		}
 	}
 
@@ -189,6 +208,7 @@ ideas = {
         state_press = {
             
             available = {
+				NOT = {has_country_flag = press_locked}
                 NOT = {
 					OR = {
 						has_government = social_democrat
@@ -214,13 +234,13 @@ ideas = {
             }
 			
 			removal_cost = -1          
-            cancel_if_invalid = yes
+            cancel_if_invalid = no
         }
             
         state_edited_press = {
             
             available ={
-
+				NOT = {has_country_flag = press_locked}
             }
 
             level = 2
@@ -230,12 +250,13 @@ ideas = {
                 base = 10			
             }
 			removal_cost = -1
-            cancel_if_invalid = yes
+            cancel_if_invalid = no
         }
 
         free_press = {
             
             available = {
+				NOT = {has_country_flag = press_locked}
 				OR = {
 					has_government = social_democrat
 					has_government = liberalism
@@ -259,7 +280,7 @@ ideas = {
                 base = 20
             }
 			removal_cost = -1
-            cancel_if_invalid = yes
+            cancel_if_invalid = no
         }
     }
 	
