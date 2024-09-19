@@ -4,11 +4,12 @@ add_namespace = hun
 ## MAIN ##
 
 #place holder (event is kinda a joke by me and another dev but it is cool if fleshed out)
-country_event = {
+news_event = {
 	id = hun.1
 	title = hun.1.t
 	desc = hun.1.d
 	fire_only_once = yes
+	picture = GFX_report_event_kill_HUN
 	#is_triggered_only = yes
 	
 	
@@ -22,22 +23,27 @@ country_event = {
 	}
 	
 	immediate = {
-		AUS = {
-			declare_war_on = {
-				target = HUN
-				type = topple_government
-			}		
-		}
-		ROM = {
-			declare_war_on = {
-				target = HUN
-				type = take_claimed_state
-			}	
-		}
-		CZE = {
-			declare_war_on = {
-				target = HUN
-				type = topple_government
+		hidden_effect = {
+			AUS = {
+				declare_war_on = {
+					target = HUN
+					type = topple_government
+				}		
+			}
+			CZE = {
+				declare_war_on = {
+					target = HUN
+					type = topple_government
+				}
+			}
+			ROM = {
+				declare_war_on = {
+					target = HUN
+					type = topple_government
+				}
+			}
+			HUN = {
+				set_country_flag = blood_on_the_danube
 			}
 		}
 	}
