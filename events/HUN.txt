@@ -51,3 +51,38 @@ news_event = {
 	option = {
 		name = hun.1.a
 	}
+}
+
+country_event = {
+	id = hun.2
+	title = hun.2.t
+	desc = hun.2.d
+	fire_only_once = yes
+	
+	trigger = {
+		tag = HUN
+		has_country_flag = blood_on_the_danube
+		#num_controlled_states < 2
+		surrender_progress > 0.3
+	}
+	
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = blood_on_the_danube
+			every_country = {
+				limit = {has_war_with = HUN}
+				white_peace = HUN
+			}
+			set_politics = {
+				ruling_party = despotism
+				elections_allowed = no
+			}
+			664 = {transfer_state_to = CZE}
+			154 = {transfer_state_to = ROM}
+		}
+	}
+	
+	option = {
+		name = hun.2.a
+	}
+}
