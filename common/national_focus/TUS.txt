@@ -873,6 +873,49 @@
 	}
 	
 	focus = {
+		id = TUS_send_them_home
+		icon = GFX_goal_generic_construction
+					
+		prerequisite = {
+			focus = TUS_destroy_the_frauds
+		}
+		
+		allow_branch = {
+			VAT = { has_completed_focus = VAT_birth_paple_state }
+		}
+		
+ 		available = {
+			has_war = no
+		}
+		
+		relative_position_id = TUS_destroy_the_frauds
+		
+        x = 3
+        y = 1
+		
+        cost = 6
+		
+		cancel_if_invalid = yes
+			
+		completion_reward = {
+			declare_war_on = {
+				target = VAT
+				type = annex_everything
+			}
+			add_civil_war_target = VAT
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = VAT
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
 		id = TUS_bring_order_to_chaos
 		icon = GFX_goal_generic_construction
 					

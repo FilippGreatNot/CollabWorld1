@@ -308,7 +308,54 @@ focus_tree = {
 					type = annex_everything
 				}
 				add_civil_war_target = ITA
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = ITA
+				}
+				swap_ideas = {
+					remove_idea = disarmed_nation
+					add_idea = volunteer_only
+				}					
 			}
+		}
+	}
+	focus = {
+		id = VAT_birth_paple_state
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_vatican_expand
+		}
+		prerequisite = {
+			focus = VAT_inact_policies
+		}
+
+		available = {
+			NOT = { 
+				has_war_with = ITA
+				country_exists = ITA
+			}
+			owns_state = 2
+		}
+		
+		relative_position_id = VAT_vatican_expand
+        x = 0
+        y = 1
+		
+        cost = 1
+
+		completion_reward = {
+			set_cosmetic_tag = VAT_STATE
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Volunteer Militia Brigade"
+					disband = yes 
+				}
+				load_oob = "VAT_state_setup"
+				TUS = { mark_focus_tree_layout_dirty = yes } 
+			}
+			load_focus_tree = VAT_papal_state
 		}
 	}
 }
