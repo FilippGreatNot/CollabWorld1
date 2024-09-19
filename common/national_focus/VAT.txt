@@ -292,9 +292,23 @@ focus_tree = {
 		
         cost = 0
 
-		completion_reward = {
-			clear_variable = VAT_vatican_support	
+		completion_reward = {	
 			country_event = vat.4
+			hidden_effect = {
+				clear_variable = VAT_vatican_support		
+				transfer_state = 857
+				transfer_state = 2
+				load_oob = "VAT_take_over"
+				every_state = {
+					limit = {is_core_of = ITA}
+					add_claim_by = VAT
+				}
+				declare_war_on = {
+					target = ITA
+					type = annex_everything
+				}
+				add_civil_war_target = ITA
+			}
 		}
 	}
 }
