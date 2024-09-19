@@ -79,10 +79,45 @@ country_event = {
 			}
 			664 = {transfer_state_to = CZE}
 			154 = {transfer_state_to = ROM}
+			864 = {transfer_state_to = AUS}
 		}
 	}
 	
 	option = {
 		name = hun.2.a
+	}
+}
+
+country_event = {
+	id = hun.3
+	title = hun.3.t
+	desc = hun.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = collision_surrender
+		}
+	}
+	
+	option = {
+		name = hun.3.a
+		clr_country_flag = blood_on_the_danube
+		every_country = {
+			limit = {has_war_with = HUN}
+			white_peace = HUN
+		}
+		664 = {transfer_state_to = CZE}
+		864 = {transfer_state_to = AUS}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	option = {
+		name = hun.3.b
+		ai_will_do = {
+			factor = 0
+		}
 	}
 }
