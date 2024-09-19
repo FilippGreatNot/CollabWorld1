@@ -1,0 +1,17 @@
+VAT_influence_cat = {
+	priority = 90
+
+	allowed = {
+		OR = {
+			original_tag = VAT	
+			original_tag = ITA
+		}
+	}
+	visible = {
+		VAT = {
+			has_completed_focus = VAT_influence_italy
+			NOT = {has_completed_focus = VAT_vatican_expand}
+		}
+	}
+	visible_when_empty = yes
+}

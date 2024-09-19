@@ -1,0 +1,96 @@
+VAT_influence_cat = {
+	VAT_add_vatican_support = {
+
+		available = {
+		}
+		
+		targets = {
+			ITA
+		}
+
+		target_trigger = {
+		
+		}
+		
+		visible = {
+			tag = VAT
+		}
+		
+		fire_only_once = no
+		days_remove = 20
+
+		cost = 50
+
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						VAT_vatican_support < 100
+					}
+				}
+				VAT = {
+					add_to_variable = {
+						var = VAT_vatican_support
+						value = 10
+					}
+					clamp_variable = {
+						var = VAT_vatican_support
+						min = 0
+						max = 100
+					}
+				}
+			}
+			else = {
+				complete_national_focus = VAT_vatican_expand
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+	}
+	VAT_subtract_vatican_support = {
+
+		icon = eng_propaganda_campaigns
+
+		available = {
+		}
+		 
+		targets = {
+			VAT
+		}
+
+		target_trigger = {
+		
+		}
+		
+		visible = {
+			tag = ITA
+		}
+		
+		fire_only_once = no
+		days_remove = 20
+
+		cost = 50
+
+		remove_effect = {
+			VAT = {
+				subtract_from_variable = {
+					var = VAT_vatican_support
+					value = 10
+				}
+				clamp_variable = {
+					var = VAT_vatican_support
+					min = 0
+					max = 100
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+	}
+}

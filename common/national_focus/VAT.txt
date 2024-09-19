@@ -28,8 +28,7 @@ focus_tree = {
 		}
 		
 		available = { hidden_trigger = { always = no }}
-	}
-	
+	}	
 	focus = {
 		id = VAT_the_waiting_game
 		icon = GFX_goal_generic_construction
@@ -42,7 +41,6 @@ focus_tree = {
 		
         cost = 10
 	}
-	
 	focus = {
 		id = VAT_papal_conclave_1
 		icon = GFX_goal_generic_construction
@@ -58,8 +56,7 @@ focus_tree = {
 		completion_reward = {
 			country_event = vat.2
 		}
-	}
-	
+	}	
 	focus = {
 		id = VAT_gasparri
 		icon = GFX_goal_generic_construction
@@ -81,7 +78,6 @@ focus_tree = {
 			promote_character = VAT_pope_benedict_xvi_gas
 		}
 	}
-	
 	focus = {
 		id = VAT_ratti
 		icon = GFX_goal_generic_construction
@@ -103,7 +99,6 @@ focus_tree = {
 			promote_character = VAT_pope_pius_xi_rat
 		}
 	}
-
 	focus = {
 		id = VAT_val
 		icon = GFX_goal_generic_construction
@@ -125,7 +120,6 @@ focus_tree = {
 			promote_character = VAT_pope_pius_xi_val
 		}
 	}
-	
 	focus = {
 		id = VAT_first_30
 		icon = GFX_goal_generic_construction
@@ -221,20 +215,20 @@ focus_tree = {
         cost = 8
 
 		completion_reward = {
-			#if = {
-			#	limit = {has_completed_focus = VAT_propose_lib}
-			#	swap_ideas = {
-			#		remove_idea = trad_women_roles
-			#		add_idea = limited_womens_rights
-			#	}				
-			#}
-			#if = {
-			#	limit = {has_completed_focus = VAT_propose_con}
-			#	swap_ideas = {
-			#		remove_idea = full_equality
-			#		add_idea = racial_segregation
-			#	}				
-			#}
+			if = {
+				limit = {has_completed_focus = VAT_propose_lib}
+				swap_ideas = {
+					remove_idea = trad_women_roles
+					add_idea = limited_womens_rights
+				}				
+			}
+			if = {
+				limit = {has_completed_focus = VAT_propose_con}
+				swap_ideas = {
+					remove_idea = full_equality
+					add_idea = racial_segregation
+				}				
+			}
 		}
 	}
 	focus = {
@@ -255,7 +249,7 @@ focus_tree = {
         cost = 10
 
 		completion_reward = {
-
+			country_event = vat.3
 		}
 	}
 	focus = {
@@ -276,7 +270,97 @@ focus_tree = {
         cost = 5
 
 		completion_reward = {
+			set_variable = {
+				var = VAT_vatican_support
+				value = 0
+			}	
+		}
+	}
+	focus = {
+		id = VAT_vatican_expand
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_influence_italy
+		}
+		
+		available = { hidden_trigger = { always = no }}
+		
+		relative_position_id = VAT_influence_italy
+        x = 0
+        y = 1
+		
+        cost = 0
 
+		completion_reward = {	
+			country_event = vat.4
+			hidden_effect = {
+				clear_variable = VAT_vatican_support		
+				transfer_state = 857
+				transfer_state = 2
+				add_state_core = 2
+				add_state_core = 157
+				add_state_core = 117
+				add_state_core = 893
+				add_state_core = 857
+				load_oob = "VAT_take_over"
+				every_state = {
+					limit = {is_core_of = ITA}
+					add_claim_by = VAT
+				}
+				declare_war_on = {
+					target = ITA
+					type = annex_everything
+				}
+				add_civil_war_target = ITA
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = ITA
+				}
+				swap_ideas = {
+					remove_idea = disarmed_nation
+					add_idea = volunteer_only
+				}					
+			}
+		}
+	}
+	focus = {
+		id = VAT_birth_paple_state
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_vatican_expand
+		}
+		prerequisite = {
+			focus = VAT_inact_policies
+		}
+
+		available = {
+			NOT = { 
+				has_war_with = ITA
+				country_exists = ITA
+			}
+			owns_state = 2
+		}
+		
+		relative_position_id = VAT_vatican_expand
+        x = 0
+        y = 1
+		
+        cost = 1
+
+		completion_reward = {
+			set_cosmetic_tag = VAT_STATE
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Volunteer Militia Brigade"
+					disband = yes 
+				}
+				load_oob = "VAT_state_setup"
+				TUS = { mark_focus_tree_layout_dirty = yes } 
+			}
+			load_focus_tree = VAT_papal_state
 		}
 	}
 }
