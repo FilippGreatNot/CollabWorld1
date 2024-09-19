@@ -10,12 +10,6 @@ VAT_influence_cat = {
 			ITA
 		}
 
-		cancel_trigger = {
-			hidden_trigger = {
-				VAT = {NOT = {has_country_flag = VAT_is_valid_to_boost_support}}
-			}
-		}
-
 		target_trigger = {
 		
 		}
@@ -30,16 +24,26 @@ VAT_influence_cat = {
 		cost = 50
 
 		remove_effect = {
-			VAT = {
-				add_to_variable = {
-					var = VAT_vatican_support
-					value = 10
+			if = {
+				limit = {
+					check_variable = {
+						VAT_vatican_support < 100
+					}
 				}
-				clamp_variable = {
-					var = VAT_vatican_support
-					min = 0
-					max = 100
+				VAT = {
+					add_to_variable = {
+						var = VAT_vatican_support
+						value = 10
+					}
+					clamp_variable = {
+						var = VAT_vatican_support
+						min = 0
+						max = 100
+					}
 				}
+			}
+			else = {
+				complete_national_focus = VAT_vatican_expand
 			}
 		}
 
@@ -57,12 +61,6 @@ VAT_influence_cat = {
 		 
 		targets = {
 			VAT
-		}
-
-		cancel_trigger = {
-			hidden_trigger = {
-				VAT = {NOT = {has_country_flag = VAT_is_valid_to_boost_support}}
-			}
 		}
 
 		target_trigger = {
@@ -93,7 +91,7 @@ VAT_influence_cat = {
 		}
 
 		ai_will_do = {
-			factor = 10
+			factor = 0
 		}
 
 	}
