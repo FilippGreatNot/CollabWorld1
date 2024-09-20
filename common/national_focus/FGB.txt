@@ -1483,7 +1483,7 @@ focus_tree = {
 				add_autonomy_score = {
 					value = -100
 				}
-				add_stability = -0.01
+				add_stability = -0.05
 				add_popularity = {
 					ideology = marxism
 					popularity = -0.1
@@ -1517,7 +1517,7 @@ focus_tree = {
 				add_stability = -0.05
 				add_war_support = 0.1
 				add_popularity = {
-					ideology = social_democrat
+					ideology = reactionism
 					popularity = 0.05
 				}
 				add_popularity = {
@@ -1552,7 +1552,7 @@ focus_tree = {
 				}
 				add_stability = 0.05
 				add_popularity = {
-					ideology = liberalism
+					ideology = reactionism
 					popularity = 0.05
 				}
 				add_popularity = {
@@ -1629,7 +1629,7 @@ focus_tree = {
 					value = -100
 				}
 				add_manpower = -731
-				add_stability = 0.12
+				add_stability = 0.15
 				add_war_support = 0.1
 				add_popularity = {
 					ideology = marxism
@@ -1656,6 +1656,13 @@ focus_tree = {
 				
 			}
 		}
+		select_effect = {
+			BAV = {
+				add_autonomy_score = {
+					value = -50
+				}
+			}
+		}
 		relative_position_id = FGB_noske_stir_nationalist_sentiment
 		prerequisite = { focus = FGB_noske_extinguish_the_last_flames }
 		prerequisite = { focus = FGB_noske_exile_the_communists }
@@ -1666,6 +1673,10 @@ focus_tree = {
 				target = BAV
 				transfer_troops = yes
 			}
+			BAV = { 
+				every_core_state = { add_core_of = FGB }
+			}
+			country_event = fgb.9
 		}
 	}
 
@@ -2641,7 +2652,13 @@ focus_tree = {
 		prerequisite = { focus =  FGB_electing_new_leader }
 		allow_branch = { has_country_flag = FGB_pabst_flag }
 		completion_reward = {
-			add_political_power = 5
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
+			hidden_effect = {
+				promote_character = FGB_waldemar_pabst
+			}
 		}
 	}
 	
@@ -2762,6 +2779,75 @@ focus_tree = {
 			add_popularity = {
 				ideology = social_democrat
 				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_raise_conservative_support
+		icon = GFX_focus_FGB_pabst
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_legacy_of_the_erhardt_brigade
+		prerequisite = { focus = FGB_legacy_of_the_erhardt_brigade }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_execute_the_revolutionaries
+		icon = GFX_focus_FGB_pabst
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_implement_curfews
+		prerequisite = { focus = FGB_implement_curfews }
+		completion_reward = {
+			add_manpower = -1300
+			add_stability = 0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_under_a_populist_veil
+		icon = GFX_focus_FGB_pabst
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_raise_conservative_support
+		prerequisite = { focus = FGB_raise_conservative_support }
+		prerequisite = { focus = FGB_execute_the_revolutionaries }
+		completion_reward = {
+			add_political_power = 70
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = reactionism
 			}
 		}
 	}
