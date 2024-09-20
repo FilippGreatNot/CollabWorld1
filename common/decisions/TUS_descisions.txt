@@ -146,52 +146,52 @@ TUS_jump_itas = {
 }
 
 TUS_core_yug_cat = {
-	TUS_core_yug = {
-		state_target = any_owned_state
-		on_map_mode = map_only
-		
+	#TUS_core_yug = {
+	#	state_target = any_owned_state
+	#	on_map_mode = map_only
+	#	
+	#	allowed = {
+	#		tag = TUS
+	#	}
+	#	
+	#	target_trigger = {
+	#		FROM = { is_core_of = YUG NOT = {is_core_of = SER state = 106}}
+	#	}
+	#		
+	#	days_remove = 30
+	#	cost = 30
+	#	
+	#	remove_effect = {
+	#		FROM = {
+	#			add_core_of = ROOT
+	#		}
+	#	}
+	#}
+	TUS_core_trieste = {		
 		allowed = {
 			tag = TUS
 		}
 		
-		target_trigger = {
-			FROM = { is_core_of = YUG NOT = {is_core_of = SER state = 106}}
+		available = {
+			owns_state = 736
+			owns_state = 873
+			owns_state = 892
 		}
+		
+		#target_trigger = {
+			#FROM = { is_core_of = YUG NOT = {is_core_of = SER state = 106}}
+		#}
 			
 		days_remove = 30
 		cost = 30
 		
 		remove_effect = {
-			FROM = {
-				add_core_of = ROOT
-			}
+			736 = {add_core_of = TUS}
+			873 = {add_core_of = TUS}
+			892 = {add_core_of = TUS}
 		}
 	}
 }
-
-#TUS_core_rom_cat = {
-#	TUS_core_rom = {
-#		state_target = any_owned_state
-#		on_map_mode = map_only
-#		
-#		allowed = {
-#			tag = TUS
-#		}
-#		
-#		target_trigger = {
-#			FROM = { is_core_of = ROM NOT = {is_core_of = TUS state = 83 state = 76 state = 80}}
-#		}
-#		
-#		days_remove = 30
-#		cost = 30
-#		
-#		remove_effect = {
-#			FROM = {
-#				add_core_of = ROOT
-#			}
-#		}
-#	}
-#}
 
 TUS_state_management = {
 	TUS_make_ser = {
