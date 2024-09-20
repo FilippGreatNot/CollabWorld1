@@ -585,6 +585,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		available = {
+			has_war = no
+		}
 		relative_position_id = FGB_noske_new_day_new_germany
 		prerequisite = { focus = FGB_government_of_national_salvation }
 		allow_branch = { has_country_flag = FGB_noske_reform_complete }
@@ -2641,26 +2644,11 @@ focus_tree = {
 			add_political_power = 5
 		}
 	}
-
-	focus = {
-		id = FGB_give_pabst_field_command
-		icon = GFX_focus_FGB_pabst
-		x = -1
-		y = 1
-		cost = 3
-		relative_position_id = FGB_pabst
-		prerequisite = { focus = FGB_pabst }
-		completion_reward = {
-			add_war_support = 0.05
-			add_stability = -0.05
-			promote_character = FGB_waldemar_pabst
-		}
-	}
 	
 	focus = {
 		id = FGB_deploy_counterrevolutionary_militias
 		icon = GFX_focus_FGB_electing_new_leader
-		x = 1
+		x = -2
 		y = 1
 		cost = 4
 		relative_position_id = FGB_pabst
@@ -2678,6 +2666,102 @@ focus_tree = {
 					division = "name = \"2nd. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
 					owner = FGB
 				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_quell_urban_revolts
+		icon = GFX_focus_FGB_rohm
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_pabst
+		prerequisite = { focus = FGB_pabst }
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_give_pabst_field_command
+		icon = GFX_focus_FGB_pabst
+		x = 2
+		y = 1
+		cost = 3
+		relative_position_id = FGB_pabst
+		prerequisite = { focus = FGB_pabst }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.05
+			promote_character = FGB_waldemar_pabst
+		}
+	}
+
+	focus = {
+		id = FGB_legacy_of_the_erhardt_brigade
+		icon = GFX_focus_FGB_pabst
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = FGB_quell_urban_revolts
+		prerequisite = { focus = FGB_quell_urban_revolts }
+		prerequisite = { focus = FGB_deploy_counterrevolutionary_militias }
+		completion_reward = {
+			army_experience = 15
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			division_template = {
+				name = "Marine Corps"
+				priority = 1
+				regiments = {
+					marine = { x = 0 y = 0 }
+					marine = { x = 0 y = 1 }
+					marine = { x = 1 y = 0 }
+					marine = { x = 1 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 50 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Erhardt's Veterans\" division_template = \"Marine Corps\" start_experience_factor = 0.6" 
+					owner = PREV
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_implement_curfews
+		icon = GFX_focus_FGB_pabst
+		x = 1
+		y = 1
+		cost = 2
+		relative_position_id = FGB_quell_urban_revolts
+		prerequisite = { focus = FGB_quell_urban_revolts }
+		prerequisite = { focus = FGB_give_pabst_field_command }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 30
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
 			}
 		}
 	}
