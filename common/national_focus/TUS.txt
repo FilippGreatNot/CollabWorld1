@@ -698,7 +698,7 @@
         x = 1
         y = 1
 		
-        cost = 5
+        cost = 2
 		
 		completion_reward = {
 			country_event = tus.3
@@ -1442,7 +1442,7 @@
         x = -2
         y = 2
 		
-        cost = 5
+        cost = 2
 		
 		completion_reward = {
 			country_event = tus.7
@@ -1490,7 +1490,7 @@
         cost = 8
 		
 		completion_reward = {
-			add_state_core = 44
+			add_state_claim = 44
 			ALB = {country_event = tus.8}
 		}
 	}
@@ -1514,7 +1514,12 @@
         cost = 15
 		
 		completion_reward = {
-			YUG = {every_core_state = {add_claim_by = TUS}}
+			YUG = {
+				every_core_state = {
+					limit = {NOT = {is_core_of = SER}}
+					add_claim_by = TUS
+				}
+			}
 			#dont forget to change when yugo update out
 			declare_war_on = {
 				target = YUG

@@ -3,7 +3,18 @@ ITS_temp_gameplay_debug = {
 		icon = GFX_decision_generic_form_nation
 
 		available = {
-			NOT = {country_exists = TUS}
+			NOT = {
+				OR = {
+					TUS = {
+						owns_state = 162
+						owns_state = 884
+					}
+					SAR = {
+						owns_state = 162
+						owns_state = 884
+					}
+				}
+			}
 		}
 		visible = {
 			always = yes
