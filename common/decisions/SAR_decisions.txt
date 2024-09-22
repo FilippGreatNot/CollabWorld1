@@ -40,16 +40,7 @@ SAR_skelton = {
 		available = {
 			date > 1925.1.20
 			has_war = no
-			OR = {
-				AND = {
-					owns_state = 162
-					owns_state = 884
-				}
-				ITS = {
-					owns_state = 162
-					owns_state = 884				
-				}
-			}
+			NOT = { country_exists = TUS }
 		}
 		visible = {country_exists = ITS}
 		
@@ -70,7 +61,10 @@ SAR_skelton = {
 		available = {
 			date > 1925.1.20
 			has_war = no
-			owns_state = 159
+			NOT = {
+				country_exists = TUS
+				country_exists = ITS 
+			}
 		}
 		visible = {country_exists = VNE}
 		
@@ -92,6 +86,7 @@ SAR_skelton = {
 			date > 1925.1.20
 			has_war = no
 			NOT = {
+				country_exists = TUS
 				country_exists = ITS
 				country_exists = VNE
 			}
@@ -116,6 +111,7 @@ SAR_skelton = {
 			date > 1925.1.20
 			has_war = no
 			NOT = {
+				country_exists = TUS
 				country_exists = ITS
 				country_exists = VNE
 				country_exists = ITA
