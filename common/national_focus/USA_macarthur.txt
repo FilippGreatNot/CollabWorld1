@@ -170,6 +170,16 @@ focus_tree = {
 		cost = 5
 
 		prerequisite =	{ focus = USA_mc_cooperate_with_loyal_corporations }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus	USA_mc_to_save_a_nation"
+			
+			add_ideas = {
+				export_focus
+			}
+			add_political_power = 50
+		}
+		
 	}
 	focus = {
 		id = USA_mc_hike_the_population_tax
@@ -209,7 +219,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_token_worker_rights
-		icon = GFX_focus_USA_mc_token_worker_rights
+		icon = GFX_focus_USA_mc_fake_worker
 
 		relative_position_id = USA_mc_import_mexican_labor
 		y = 1
@@ -262,10 +272,26 @@ focus_tree = {
 		cost = 5
 
 		prerequisite =	{ focus = USA_mc_destroy_the_corporatocracy }
+		
+		completion_reward = {
+		    377 = {
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			376 = {
+				add_resource = {
+					type = aluminium
+					amount = 6
+				}
+			}
+		    add_political_power = -25
+		}
 	}
 	focus = {
 		id = USA_mc_intervene_in_the_economy
-		icon = GFX_focus_USA_mc_intervene_in_the_economy
+		icon = GFX_focus_USA_mc_intervene
 
 		relative_position_id = USA_mc_destroy_the_corporatocracy
 		y = 1
@@ -277,7 +303,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_develop_our_infrastructure
-		icon = GFX_focus_USA_mc_develop_our_infrastructure
+		icon = GFX_focus_USA_mc_roads
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 1
@@ -289,7 +315,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_raise_corporate_taxes
-		icon = GFX_focus_USA_mc_raise_corporate_taxes
+		icon = GFX_focus_USA_mc_tax_rich
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 1
@@ -301,7 +327,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_expand_worker_rights
-		icon = GFX_focus_USA_mc_expand_worker_rights
+		icon = GFX_focus_USA_mc_real_worker
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 2
