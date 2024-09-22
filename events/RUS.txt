@@ -24,25 +24,30 @@ country_event = {
 			}
 			add_stability = -0.05
 			
-			FROM = {
-				RUS_alexander_kolchak = {
-					set_nationality = PREV.PREV
-					
-					hidden_effect = { #The tooltip is frogged up
-						remove_country_leader_role = { ideology = police_statism }
-						add_country_leader_role = {
-							promote_leader = yes
-							country_leader = { ideology = despotism_subtype }
-						}
-						remove_unit_leader_role = yes
-					}
-					add_naval_commander_role = {
-						skill = 4
+			if = {
+				limit = {
+					FROM = { original_tag = SOV }
+				}
+				FROM = {
+					RUS_alexander_kolchak = {
+						set_nationality = PREV.PREV
 						
-						attack_skill = 4
-						defense_skill = 4
-						maneuvering_skill = 4
-						coordination_skill = 4
+						hidden_effect = { #The tooltip is frogged up
+							remove_country_leader_role = { ideology = police_statism }
+							add_country_leader_role = {
+								promote_leader = yes
+								country_leader = { ideology = despotism_subtype }
+							}
+							remove_unit_leader_role = yes
+						}
+						add_naval_commander_role = {
+							skill = 4
+							
+							attack_skill = 4
+							defense_skill = 4
+							maneuvering_skill = 4
+							coordination_skill = 4
+						}
 					}
 				}
 			}

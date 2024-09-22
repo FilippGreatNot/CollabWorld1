@@ -1,0 +1,37 @@
+HUN_blood_on_the_danube_decision_cat = {
+	HUN_collision_surrenders = {	
+		allowed = { tag = HUN }
+		activation = { has_country_flag = blood_on_the_danube }
+		available = { always = no }		
+		days_mission_timeout = 180
+		is_good = yes
+		fire_only_once = yes
+		selectable_mission = no
+		timeout_effect = {
+		
+		}
+	}
+	HUN_retrigger_surrender = {
+		allowed = { tag = HUN }
+		available = {
+			has_country_flag = collision_surrender
+		}
+		visible = {
+			has_country_flag = collision_surrender
+		}
+		fire_only_once = yes
+
+		complete_effect	= {
+			clr_country_flag = blood_on_the_danube
+			every_country = {
+				limit = {has_war_with = HUN}
+				white_peace = HUN
+			}
+			664 = {transfer_state_to = CZE}
+			864 = {transfer_state_to = AUS}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}

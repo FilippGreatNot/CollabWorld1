@@ -20,6 +20,23 @@ country_event = {
 }
 
 country_event = {
+	id = tus.2
+	title = tus.2.t
+	desc = tus.2.d
+	#picture = 
+	is_triggered_only = yes
+	
+	option = {
+		name = tus.2.a
+		ai_chance = { base = 0 }
+	}
+	option = {
+		name = tus.2.b
+		PREV = { add_to_faction = FROM }
+	}
+}
+
+country_event = {
 	id = tus.3
 	title = tus.3.t
 	desc = tus.3.d
@@ -398,7 +415,7 @@ country_event = {
 	
 	immediate = {
 		end_puppet = TUS
-		every_country = {limit = {is_italian_tag = yes has_war_with = TUS} white_peace = FRA}
+		every_country = {limit = { is_italian_tag = yes } white_peace = FRA}
 	}
 	
 	option = {
@@ -415,22 +432,20 @@ country_event = {
 	desc = tus.14.d
 	is_triggered_only = yes
 
-	
 	option = {
 		name = tus.14.a
-		TUS = {
-			country_event = tus.15
-		}
-	}
-
-	option = {
-		name = tus.14.b
 		930 = {
 			transfer_state_to = TUS
 			add_claim_by = TUS
 		}
 	}
 	
+	option = {
+		name = tus.14.b
+		TUS = {
+			country_event = tus.15
+		}
+	}	
 } 
 
 ##for us about san##
@@ -462,6 +477,121 @@ country_event = {
 	
 } 
 
+## for venice marino not us
+
+country_event = {
+	id = tus.17
+	title = tus.17.t
+	desc = tus.17.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus.17.a
+		TUS = {
+			declare_war_on = {
+				target = VNE
+				type = annex_everything
+			}
+			add_civil_war_target = VNE
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = VNE
+						type = annex_everything
+					}	
+				}
+			}
+		}
+	}
+
+	option = {
+		name = tus.17.b
+		country_event = tus.18
+	}
+	
+	option = {
+		name = tus.17.c
+		TUS = {
+			annex_country = {
+				target = VNE
+				transfer_troops = yes
+			}
+		}
+	}	
+} 
+
+## for us about venice
+
+country_event = {
+	id = tus.18
+	title = tus.18.t
+	desc = tus.18.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus.18.a
+		declare_war_on = {
+			target = VNE
+			type = annex_everything
+		}
+		add_civil_war_target = VNE
+		if = {
+			limit = {is_puppet_of = FRA}
+			FRA = {
+				declare_war_on = {
+					target = VNE
+					type = annex_everything
+				}	
+			}
+		}
+	}
+
+	option = {
+		name = tus.18.b
+		#TUS = {
+		#	puppet = VNE
+		#	end_wars = no
+		#	end_civil_wars = no
+		#}
+		set_autonomy = {
+			target = VNE
+			autonomous_state = autonomy_integrated_puppet
+			end_wars = no
+			end_civil_wars = no
+		}
+	}	
+}
+
+## SAR ask us to submit ##
+
+country_event = {
+	id = tus.19
+	title = tus.19.t
+	desc = tus.19.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus.19.a
+		ai_will_do = {
+			factor = 15
+		}
+	}
+
+	option = {
+		name = tus.19.b
+		SAR = {
+			annex_country = {
+				target = TUS
+				transfer_troops = yes
+			}	
+		}
+		ai_will_do = {
+			factor = 10
+		}
+	}	
+}  
+
 ## First Meeting ##
 country_event = {
 	id = tus_coun1.1
@@ -481,7 +611,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = tus_coun1.2
-				days = 35
+				days = 20
 			}	
 		}
 	}
@@ -516,7 +646,7 @@ country_event = {
 	}
 	option = {
 		name = tus.5.b
-		add_ideas = TUS_limited_womens_rights
+		add_ideas = limited_womens_rights
 		custom_effect_tooltip = TUS_modify_ppl_add_5
 		custom_effect_tooltip = TUS_modify_mil_add_5
 		custom_effect_tooltip = TUS_modify_gc_subtract_5
@@ -729,7 +859,7 @@ country_event = {
 			#will do civil war
 			country_event = {
 				id = tus_civ_war.1
-				days = 15		
+				days = 30		
 			}
 		}
 	}

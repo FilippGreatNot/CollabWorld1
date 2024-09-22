@@ -78,7 +78,7 @@
         x = 0
         y = 1
 		
-        cost = 5
+        cost = 6
 		
 		completion_reward = {
 			162 = {
@@ -96,6 +96,10 @@
 					level = 1
 					instant_build = yes
 				}
+			}
+			swap_ideas = {
+				remove_idea = extensive_rationing
+				add_idea = rationing
 			}
 			custom_effect_tooltip = TUS_modify_ppl_add_5
 			add_to_variable = {
@@ -151,7 +155,7 @@
 	
 	focus = {
 		id = TUS_stabilize_economy
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_FRA_cut_education_spending
 		
 		prerequisite = {
 			focus = TUS_hold_ground
@@ -173,7 +177,7 @@
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = TUS_collapsing_economy
-				add_idea = TUS_collapsing_economy_2
+				add_idea = TUS_stagnant_economy
 			}
 			custom_effect_tooltip = TUS_modify_ppl_subtract_5
 			custom_effect_tooltip = TUS_modify_mil_subtract_5
@@ -277,7 +281,7 @@
 	
 	focus = {
 		id = TUS_french_intervention
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_FRA_viva_la_coty
 		
 		prerequisite = {
 			focus = TUS_ask_france_for_guns
@@ -285,6 +289,13 @@
 
 		bypass = {
 			has_completed_focus = TUS_balbos_speech_2
+		}
+		
+		available = {
+			NOT = {
+				has_completed_focus = TUS_the_red_menace
+				has_completed_focus = TUS_destroy_the_frauds
+			}
 		}
 	
 		relative_position_id = TUS_ask_france_for_guns
@@ -299,8 +310,8 @@
 			subtract_from_temp_variable = { com_pop_1 = 5 }
 			set_temp_variable = { com_pop_2 = party_popularity@marxism}
 			subtract_from_temp_variable = { com_pop_2 = 4 }
-			set_temp_variable = { lib_pop_1 = party_popularity@liberalism}
-			subtract_from_temp_variable = { lib_pop = 2 }
+			#set_temp_variable = { lib_pop_1 = party_popularity@liberalism}
+			#subtract_from_temp_variable = { lib_pop_1 = 2 }
 			set_temp_variable = { lib_pop_1 = party_popularity@national_syndicalism}
 			subtract_from_temp_variable = { lib_syn = 40 }
 			FRA = {
@@ -342,7 +353,7 @@
 				}
 				add_popularity = { ideology = bolshevism  popularity = com_pop_1 }
 				add_popularity = { ideology = marxism popularity = com_pop_2 }
-				add_popularity = { ideology = liberalism  popularity = lib_pop_1 }
+				#add_popularity = { ideology = liberalism  popularity = lib_pop_1 }
 				add_popularity = { ideology = national_syndicalism  popularity = lib_pop_syn }
 			}
 		}
@@ -360,8 +371,10 @@
 		}
 		
 		available = {
+			FRA = {  
+				is_faction_leader = yes
+			}
 			is_in_faction = no
-			country_exists = FRA
 		}
 		
 		bypass = {
@@ -376,9 +389,7 @@
         cost = 5
 		
 		completion_reward = {
-			FRA = {
-				add_to_faction = ROOT
-			}
+			FRA = { country_event = tus.2 }
 			set_rule = {
 				can_create_factions = yes
 			}
@@ -417,7 +428,7 @@
 	
 	focus = {
 		id = TUS_expand_civs
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_WRD_economic_austerity
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -503,7 +514,7 @@
 	
 	focus = {
 		id = TUS_reassure_stability
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_FRA_spread_nationalist_propaganda
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -533,7 +544,7 @@
 	
 	focus = {
 		id = TUS_army_reform
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_WRD_permanent_martial_law
 		
 		prerequisite = {
 			focus = TUS_stabilize_economy
@@ -544,10 +555,14 @@
         x = 3
         y = 1
 		
-        cost = 10
+        cost = 11
 		
 		completion_reward = {
 			remove_ideas = TUS_heavly_disorganised_army
+			swap_ideas = {
+				remove_idea = extensive_conscription
+				add_idea = limited_conscription
+			}
 			army_experience = 50
 			country_event = tus.10
 			custom_effect_tooltip = TUS_modify_mil_add_10
@@ -593,7 +608,7 @@
         x = 0
         y = 1
 		
-        cost = 15
+        cost = 10
 		cancelable = no
 		
 		completion_reward = {
@@ -642,7 +657,7 @@
         cost = 10
 		
 		completion_reward = {
-			remove_ideas = {TUS_collapsing_economy_2}
+			remove_ideas = {TUS_stagnant_economy}
 			add_timed_idea = {
 				idea = TUS_investment_in_small_businesses
 				days = 365
@@ -683,7 +698,7 @@
         x = 1
         y = 1
 		
-        cost = 5
+        cost = 2
 		
 		completion_reward = {
 			country_event = tus.3
@@ -804,19 +819,8 @@
 		cancel_if_invalid = yes
 			
 		completion_reward = {
-			declare_war_on = {
-				target = VNE
-				type = annex_everything
-			}
-			add_civil_war_target = VNE
-			if = {
-				limit = {is_puppet_of = FRA}
-				FRA = {
-					declare_war_on = {
-						target = VNE
-						type = annex_everything
-					}	
-				}
+			VNE = {
+				country_event = tus.17
 			}
 		}
 	}
@@ -861,6 +865,49 @@
 				FRA = {
 					declare_war_on = {
 						target = ITA
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_send_them_home
+		icon = GFX_goal_generic_construction
+					
+		prerequisite = {
+			focus = TUS_destroy_the_frauds
+		}
+		
+		allow_branch = {
+			VAT = { has_completed_focus = VAT_birth_paple_state }
+		}
+		
+ 		available = {
+			has_war = no
+		}
+		
+		relative_position_id = TUS_destroy_the_frauds
+		
+        x = 3
+        y = 1
+		
+        cost = 6
+		
+		cancel_if_invalid = yes
+			
+		completion_reward = {
+			declare_war_on = {
+				target = VAT
+				type = annex_everything
+			}
+			add_civil_war_target = VAT
+			if = {
+				limit = {is_puppet_of = FRA}
+				FRA = {
+					declare_war_on = {
+						target = VAT
 						type = annex_everything
 					}
 				}
@@ -1003,7 +1050,10 @@
 		}
 		available = {
 			has_country_flag = ITAS_has_cored_its
-			has_country_flag = ITAS_has_cored_vne
+			OR = {
+				has_country_flag = ITAS_has_cored_vne
+				has_subject = VNE
+			}
 			has_country_flag = ITAS_has_cored_ita
 			has_country_flag = ITAS_has_cored_mss
 			has_country_flag = ITAS_has_cored_sar
@@ -1019,6 +1069,10 @@
 		completion_reward = {
 			set_rule = {
 				can_join_factions = yes
+			}	
+			swap_ideas = {
+				remove_idea = rationing
+				add_idea = mild_rationing
 			}			
 			country_event = tus.5
 		}
@@ -1388,7 +1442,7 @@
         x = -2
         y = 2
 		
-        cost = 5
+        cost = 2
 		
 		completion_reward = {
 			country_event = tus.7
@@ -1436,7 +1490,7 @@
         cost = 8
 		
 		completion_reward = {
-			add_state_core = 44
+			add_state_claim = 44
 			ALB = {country_event = tus.8}
 		}
 	}
@@ -1460,7 +1514,12 @@
         cost = 15
 		
 		completion_reward = {
-			YUG = {every_core_state = {add_claim_by = TUS}}
+			YUG = {
+				every_core_state = {
+					limit = {NOT = {is_core_of = SER}}
+					add_claim_by = TUS
+				}
+			}
 			#dont forget to change when yugo update out
 			declare_war_on = {
 				target = YUG

@@ -1,0 +1,79 @@
+focus_tree = {
+	id = vat.focus_papal_state
+	country = {
+		factor = 0
+	}
+	default = no
+	
+	focus = {
+		id = VAT_purge_government
+		icon = GFX_goal_generic_construction
+		
+        x = 5
+        y = 1
+		
+        cost = 4
+		
+		available = { hidden_trigger = { always = no }}
+	}		
+	focus = {
+		id = VAT_reorganise_government
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_purge_government
+		}
+
+		available = {
+		}
+		
+		relative_position_id = VAT_purge_government
+        x = 0
+        y = 1
+		
+        cost = 6
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = VAT_integrate_economy 
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_reorganise_government
+		}
+
+		available = {
+		}
+		
+		relative_position_id = VAT_reorganise_government
+        x = -1
+        y = 1
+		
+        cost = 10
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = VAT_integrate_army 
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_reorganise_government
+		}
+
+		available = {
+		}
+		
+		relative_position_id = VAT_reorganise_government
+        x = 1
+        y = 1
+		
+        cost = 10
+
+		completion_reward = {
+		}
+	}
+}

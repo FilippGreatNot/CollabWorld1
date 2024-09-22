@@ -9,10 +9,13 @@ news_event = {
 	title = hun.1.t
 	desc = hun.1.d
 	fire_only_once = yes
+	picture = GFX_report_event_kill_HUN
+	#is_triggered_only = yes
+	
 	
 	trigger = {
 		tag = HUN
-		date > 1924.3.30
+		date > 1923.3.30
 		OR = {
 			has_government = bolshevism
 			has_government = marxism
@@ -20,22 +23,27 @@ news_event = {
 	}
 	
 	immediate = {
-		AUS = {
-			declare_war_on = {
-				target = HUN
-				type = topple_government
-			}		
-		}
-		ROM = {
-			declare_war_on = {
-				target = HUN
-				type = take_claimed_state
-			}	
-		}
-		CZE = {
-			declare_war_on = {
-				target = HUN
-				type = topple_government
+		hidden_effect = {
+			AUS = {
+				declare_war_on = {
+					target = HUN
+					type = topple_government
+				}		
+			}
+			CZE = {
+				declare_war_on = {
+					target = HUN
+					type = topple_government
+				}
+			}
+			ROM = {
+				declare_war_on = {
+					target = HUN
+					type = topple_government
+				}
+			}
+			HUN = {
+				set_country_flag = blood_on_the_danube
 			}
 		}
 	}
@@ -43,3 +51,98 @@ news_event = {
 	option = {
 		name = hun.1.a
 	}
+}
+
+country_event = {
+	id = hun.2
+	title = hun.2.t
+	desc = hun.2.d
+	fire_only_once = yes
+	
+	trigger = {
+		tag = HUN
+		has_country_flag = blood_on_the_danube
+		#num_controlled_states < 2
+		surrender_progress > 0.3
+	}
+	
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = blood_on_the_danube
+			every_country = {
+				limit = {has_war_with = HUN}
+				white_peace = HUN
+			}
+			set_politics = {
+				ruling_party = despotism
+				elections_allowed = no
+			}
+			664 = {transfer_state_to = CZE}
+			154 = {transfer_state_to = ROM}
+			864 = {transfer_state_to = AUS}
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+		}
+	}
+	
+	option = {
+		name = hun.2.a
+	}
+}
+
+country_event = {
+	id = hun.3
+	title = hun.3.t
+	desc = hun.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = collision_surrender
+		}
+	}
+	
+	option = {
+		name = hun.3.a
+		clr_country_flag = blood_on_the_danube
+		every_country = {
+			limit = {has_war_with = HUN}
+			white_peace = HUN
+		}
+		664 = {transfer_state_to = CZE}
+		864 = {transfer_state_to = AUS}
+		ai_chance = { base = 100 }
+	}
+	option = {
+		name = hun.3.b
+		ai_chance = { base = 0 }
+	}
+}
+
+country_event = {
+	id = hun.4
+	title = hun.4.t
+	desc = hun.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = hun.4.a
+		add_stability = 0.05
+		add_ideas = HUN_pengo
+	}
+
+	option = {
+		name = hun.4.b
+		add_political_power = 50
+		add_ideas = HUN_forint
+	}
+
+	option = {
+		name = hun.4.c
+		add_war_support = 0.05
+		add_ideas = HUN_dunara
+	}
+}
