@@ -1,0 +1,240 @@
+focus_tree = {
+	id = SIK_focus.txt
+	default = no
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 50
+			tag = SIK
+		}
+	} 
+	
+	focus = {
+		id = SIK_the_frontier_province
+		icon = GFX_focus_generic_china1
+		x = 5
+		y = 0
+		cost = 3
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = SIK_build_up_industrial_centres
+		icon = GFX_focus_generic_modernize_industry
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = SIK_the_frontier_province
+		prerequisite = { focus = SIK_the_frontier_province }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_call_to_action
+		icon = GFX_goal_demand_sudetenland
+		x = 0
+		y = 1
+		cost = 2
+		relative_position_id = SIK_build_up_industrial_centres
+		prerequisite = { focus = SIK_build_up_industrial_centres }
+		completion_reward = {
+			army_experience = 40
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = SIK
+			}
+			add_command_power = 20
+		}
+	}
+
+	focus = {
+		id = SIK_revamp_our_internal_structure
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		x = -4
+		y = 1
+		cost = 3
+		relative_position_id = SIK_call_to_action
+		prerequisite = { focus = SIK_call_to_action }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 70
+		}
+	}
+
+	focus = {
+		id = SIK_rebuilding_the_local_stockpile
+		icon = GFX_focus_generic_combined_arms
+		x = -2
+		y = 1
+		cost = 3
+		relative_position_id = SIK_revamp_our_internal_structure
+		prerequisite = { focus = SIK_revamp_our_internal_structure }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 500
+				producer = SIK
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_investments_into_urumqi
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = SIK_rebuilding_the_local_stockpile
+		prerequisite = { focus = SIK_rebuilding_the_local_stockpile }
+		completion_reward = {
+			617 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_urbanising_barkol
+		icon = GFX_focus_DEN_civilian_preparations
+		x = 1
+		y = 1
+		cost = 3
+		relative_position_id = SIK_rebuilding_the_local_stockpile
+		prerequisite = { focus = SIK_rebuilding_the_local_stockpile }
+		completion_reward = {
+			944 = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_summon_the_new_forces
+		icon = GFX_focus_usa_honor_the_confederacy
+		x = 2
+		y = 1
+		cost = 3
+		relative_position_id = SIK_revamp_our_internal_structure
+		prerequisite = { focus = SIK_revamp_our_internal_structure }
+		completion_reward = {
+			division_template = {
+				name = "NRA Cavalry"
+				priority = 1
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 1 y = 0 }
+					cavalry = { x = 1 y = 1 }
+					irregular_infantry = { x = 2 y = 0 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 817 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"1st Cavalry Brigade\" division_template = \"NRA Cavalry\" start_experience_factor = 0.4" 
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"1st Cavalry Brigade\" division_template = \"NRA Cavalry\" start_experience_factor = 0.4" 
+					owner = PREV
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_recruitment_campaigns
+		icon = GFX_focus_generic_full_employment
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = SIK_summon_the_new_forces
+		prerequisite = { focus = SIK_summon_the_new_forces }
+		completion_reward = {
+			add_manpower = 15000
+			add_ideas = {
+				extensive_conscription
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_study_foreign_doctrines
+		icon = GFX_focus_chi_army_reform
+		x = 1
+		y = 1
+		cost = 3
+		relative_position_id = SIK_summon_the_new_forces
+		prerequisite = { focus = SIK_summon_the_new_forces }
+		completion_reward = {
+			army_experience = 20
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_the_art_of_artillery
+		icon = GFX_goal_generic_army_artillery
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = SIK_study_foreign_doctrines
+		prerequisite = { focus = SIK_study_foreign_doctrines }
+		completion_reward = {
+			army_experience = 20
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 200
+				producer = SIK
+			}
+			add_tech_bonus = {
+				name = SIK_artillery_buff
+				bonus = 1.0
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+}
