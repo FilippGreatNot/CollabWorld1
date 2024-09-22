@@ -32,6 +32,14 @@ focus_tree = {
 				has_country_flag = NYC_nathan_miller
 			}
 		}
+		available = {
+			NOT = {
+				has_country_leader = {
+    				name = "Al Capone"
+    				ruling_only = yes
+				}
+			}
+		}
 		completion_reward = {
 		}
 	}
@@ -254,7 +262,9 @@ focus_tree = {
 		relative_position_id = NYC_heavy_industry
 		cost = 5
 		completion_reward = {
-
+			add_ideas = {
+				NYC_five_yr_plan
+			}
 		}
 	}
 	focus = {
@@ -567,6 +577,14 @@ focus_tree = {
 			}
 			has_country_flag = NYC_nathan_miller
 		}
+		available = {
+			NOT = {
+				has_country_leader = {
+    				name = "Al Capone"
+    				ruling_only = yes
+				}
+			}
+		}
 		completion_reward = {
 
 		}
@@ -764,18 +782,92 @@ focus_tree = {
 
 		}
 	}
+	focus = {
+		id = NYC_industrial_planning
+		x = -4
+		y = 1
+		prerequisite = {focus = NYC_new_american_era}
+		relative_position_id = NYC_new_american_era
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
 
-	### Al Smith Coup
+		}
+	}
+	focus = {
+		id = NYC_political_state
+		x = 4
+		y = 1
+		prerequisite = {focus = NYC_new_american_era}
+		relative_position_id = NYC_new_american_era
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+
+	### Al Capone Coup
 
 	focus = {
-		id = NYC_arrest_al_capone
-		x = 0
+		id = NYC_deploy_nypd
+		x = 2
 		y = 1
-		cost = 5
+		cost = 4.5
 		prerequisite = {focus = NYC_elections}
 		relative_position_id = NYC_elections
 		completion_reward = {
+			add_political_power = -15
+			add_stability = 0.1
+		}
+	}
 
+	focus = {
+		id = NYC_infiltrate_illegal_buisnesses
+		x = 0
+		y = 1
+		cost = 4.5
+		prerequisite = {focus = NYC_elections}
+		relative_position_id = NYC_elections
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+
+	focus = {
+		id = NYC_increase_fight_crime
+		x = -2
+		y = 1
+		cost = 4.5
+		prerequisite = {focus = NYC_elections}
+		relative_position_id = NYC_elections
+		completion_reward = {
+			add_command_power = 100
+		}
+	}
+
+	focus = {
+		id = NYC_arrest_al_capone
+		x = 2
+		y = 1
+		cost = 5
+		prerequisite = {focus = NYC_increase_fight_crime}
+		prerequisite = {focus = NYC_infiltrate_illegal_buisnesses}
+		prerequisite = {focus = NYC_deploy_nypd}
+		relative_position_id = NYC_increase_fight_crime
+		completion_reward = {
+			set_country_flag = NYC_arrest_al_capone_flag
+			activate_mission = NYC_arrest_al_capone_mission
 		}
 	}
 	
@@ -789,6 +881,77 @@ focus_tree = {
     			name = "Al Capone"
     			ruling_only = yes
 			}
+		}
+	}
+	focus = {
+		id = NYC_liberal_nyc
+		x = 0
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_al_capone}
+		relative_position_id = NYC_al_capone
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_non_agression_principle
+		x = 0
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_liberal_nyc}
+		relative_position_id = NYC_liberal_nyc
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_free_markets
+		x = -2
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_liberal_nyc}
+		relative_position_id = NYC_liberal_nyc
+		completion_reward = {
+			swap_ideas = {
+    			remove_idea = mixed_economy
+    			add_idea = free_market_economy
+			}
+		}
+	}
+	focus = {
+		id = NYC_self_ownership
+		x = 2
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_liberal_nyc}
+		relative_position_id = NYC_liberal_nyc
+		completion_reward = {
+
 		}
 	}
 }

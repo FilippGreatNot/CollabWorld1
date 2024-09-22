@@ -415,7 +415,7 @@ country_event = {
 	
 	immediate = {
 		end_puppet = TUS
-		every_country = {limit = {is_italian_tag = yes has_war_with = TUS} white_peace = FRA}
+		every_country = {limit = { is_italian_tag = yes } white_peace = FRA}
 	}
 	
 	option = {
@@ -573,9 +573,7 @@ country_event = {
 
 	option = {
 		name = tus.19.a
-		ai_will_do = {
-			factor = 15
-		}
+		ai_chance = { base = 15 }
 	}
 
 	option = {
@@ -586,9 +584,7 @@ country_event = {
 				transfer_troops = yes
 			}	
 		}
-		ai_will_do = {
-			factor = 10
-		}
+		ai_chance = { base = 10 }
 	}	
 }  
 
@@ -637,7 +633,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = tus.5.a
+		name = tus_coun1.2.a
 		custom_effect_tooltip = TUS_modify_ppl_subtract_10
 		subtract_from_variable = {
 			var = TUS_Balbo_Pop_ppl
@@ -645,7 +641,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = tus.5.b
+		name = tus_coun1.2.b
 		add_ideas = limited_womens_rights
 		custom_effect_tooltip = TUS_modify_ppl_add_5
 		custom_effect_tooltip = TUS_modify_mil_add_5
@@ -958,6 +954,7 @@ country_event = {
 	option = {
 		name = tus_civ_war.1.b
 		hidden_effect = {
+			set_country_flag = TUS_italy_civil_war
 			add_popularity = {
 				ideology = despotism 
 				popularity = -0.5

@@ -170,6 +170,16 @@ focus_tree = {
 		cost = 5
 
 		prerequisite =	{ focus = USA_mc_cooperate_with_loyal_corporations }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus	USA_mc_to_save_a_nation"
+			
+			add_ideas = {
+				export_focus
+			}
+			add_political_power = 50
+		}
+		
 	}
 	focus = {
 		id = USA_mc_hike_the_population_tax
@@ -209,7 +219,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_token_worker_rights
-		icon = GFX_focus_USA_mc_token_worker_rights
+		icon = GFX_focus_USA_mc_fake_worker
 
 		relative_position_id = USA_mc_import_mexican_labor
 		y = 1
@@ -240,7 +250,7 @@ focus_tree = {
 	##Not corporatocracy
 	focus = {
 		id = USA_mc_destroy_the_corporatocracy
-		icon = GFX_focus_USA_mc_destroy_the_corporatocracy
+		icon = GFX_focus_USA_mc_stop_corp
 
 		relative_position_id = USA_mc_fixing_the_economy
 		y = 1
@@ -262,10 +272,26 @@ focus_tree = {
 		cost = 5
 
 		prerequisite =	{ focus = USA_mc_destroy_the_corporatocracy }
+		
+		completion_reward = {
+		    377 = {
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			376 = {
+				add_resource = {
+					type = aluminium
+					amount = 6
+				}
+			}
+		    add_political_power = -25
+		}
 	}
 	focus = {
 		id = USA_mc_intervene_in_the_economy
-		icon = GFX_focus_USA_mc_intervene_in_the_economy
+		icon = GFX_focus_USA_mc_intervene
 
 		relative_position_id = USA_mc_destroy_the_corporatocracy
 		y = 1
@@ -277,7 +303,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_develop_our_infrastructure
-		icon = GFX_focus_USA_mc_develop_our_infrastructure
+		icon = GFX_focus_USA_mc_roads
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 1
@@ -289,7 +315,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_raise_corporate_taxes
-		icon = GFX_focus_USA_mc_raise_corporate_taxes
+		icon = GFX_focus_USA_mc_tax_rich
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 1
@@ -301,7 +327,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_expand_worker_rights
-		icon = GFX_focus_USA_mc_expand_worker_rights
+		icon = GFX_focus_USA_mc_real_worker
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 2
@@ -397,7 +423,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_expand_our_research_capabilities
-		icon = GFX_focus_USA_mc_expand_our_research_capabilities
+		icon = GFX_focus_USA_mc_research
 
 		relative_position_id = USA_mc_agricultural_revitalization_program
 		y = 2
@@ -418,7 +444,7 @@ focus_tree = {
 	#Military branch
 	focus = {
 		id = USA_mc_fighting_for_democracy
-		icon = GFX_focus_USA_mc_freedom_fight
+		icon = GFX_focus_USA_mc_kazya_skibidi
 
 		relative_position_id = USA_mc_declare_macarthur_president
 		y = 1
@@ -537,7 +563,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_loyalty_to_democracy
-		icon = GFX_focus_USA_mc_loyalty_to_democracy
+		icon = GFX_focus_USA_mc_freedom_fight
 
 		relative_position_id = USA_mc_professionalize_the_army
 		y = 1
@@ -1022,8 +1048,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_mc_destroy_the_movie_maker
-		icon = GFX_focus_USA_mc_destroy_the_movie_maker
+		id = USA_mc_destroy_the_oregon_soviet
+		icon = GFX_focus_USA_mc_destroy_the_oregon_soviet
 
 		relative_position_id = USA_mc_utilize_californian_oil
 		y = 1
@@ -1034,8 +1060,8 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_utilize_californian_oil }
 	}
 	focus = {
-		id = USA_mc_a_holy_war
-		icon = GFX_focus_USA_mc_a_holy_war
+		id = USA_mc_retake_seattle
+		icon = GFX_focus_USA_mc_retake_seattle
 
 		relative_position_id = USA_mc_utilize_californian_oil
 		y = 1
@@ -1045,8 +1071,8 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_utilize_californian_oil }
 	}
 	focus = {
-		id = USA_mc_civilize_the_tribes
-		icon = GFX_focus_USA_mc_civilize_the_tribes
+		id = USA_mc_civilize_the_mormons
+		icon = GFX_focus_USA_mc_civilize_the_mormons
 
 		relative_position_id = USA_mc_utilize_californian_oil
 		y = 1
@@ -1065,9 +1091,9 @@ focus_tree = {
 
 		cost = 5
 		
-		prerequisite =	{ focus = USA_mc_destroy_the_movie_maker }
-		prerequisite =	{ focus = USA_mc_a_holy_war }
-		prerequisite =	{ focus = USA_mc_civilize_the_tribes }
+		prerequisite =	{ focus = USA_mc_destroy_the_oregon_soviet }
+		prerequisite =	{ focus = USA_mc_retake_seattle }
+		prerequisite =	{ focus = USA_mc_civilize_the_mormons }
 	}
 	focus = {
 		id = USA_mc_demand_texan_annexation
@@ -1129,8 +1155,8 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_offer_the_resistance_amnesty }
 	}
 	focus = {
-		id = USA_mc_one_final_war
-		icon = GFX_focus_USA_mc_one_final_war
+		id = USA_mc_war_for_americas_destiny
+		icon = GFX_focus_USA_mc_war_for_americas_destiny
 
 		relative_position_id = USA_mc_offer_the_resistance_amnesty
 		y = 1
@@ -1141,8 +1167,8 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_offer_the_resistance_amnesty }
 	}
 	focus = {
-		id = USA_mc_god_bless_america
-		icon = GFX_focus_USA_mc_god_bless_america
+		id = USA_mc_god_bless_american_unity
+		icon = GFX_focus_USA_mc_reunification
 
 		relative_position_id = USA_mc_offer_the_resistance_amnesty
 		y = 2
@@ -1150,6 +1176,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_extinguish_the_fire_of_revolution }
-		prerequisite =	{ focus = USA_mc_one_final_war }
+		prerequisite =	{ focus = USA_mc_war_for_americas_destiny }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+
+
+		}
+		
 	}
 }

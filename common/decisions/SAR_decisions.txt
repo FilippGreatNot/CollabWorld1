@@ -1,7 +1,7 @@
 SAR_skelton = {
 	SAR_tusc_sub = {
 		available = {
-			date = 1922.6.30
+			date > 1922.6.30
 		}
 		visible = {country_exists = TUS}
 		
@@ -17,7 +17,7 @@ SAR_skelton = {
 	}
 	SAR_tusc_kill = {
 		available = {
-			date = 1924.1.20
+			date > 1925.1.20
 			has_war = no
 			country_exists = TUS
 		}
@@ -38,18 +38,9 @@ SAR_skelton = {
 	}
 	SAR_its_kill = {
 		available = {
-			date = 1924.1.20
+			date > 1925.1.20
 			has_war = no
-			OR = {
-				AND = {
-					owns_state = 162
-					owns_state = 884
-				}
-				ITS = {
-					owns_state = 162
-					owns_state = 884				
-				}
-			}
+			NOT = { country_exists = TUS }
 		}
 		visible = {country_exists = ITS}
 		
@@ -68,9 +59,12 @@ SAR_skelton = {
 	}
 	SAR_vne_kill = {
 		available = {
-			date = 1924.1.20
+			date > 1925.1.20
 			has_war = no
-			owns_state = 159
+			NOT = {
+				country_exists = TUS
+				country_exists = ITS 
+			}
 		}
 		visible = {country_exists = VNE}
 		
@@ -89,9 +83,10 @@ SAR_skelton = {
 	}
 	SAR_ita_kill = {
 		available = {
-			date = 1924.1.20
+			date > 1925.1.20
 			has_war = no
 			NOT = {
+				country_exists = TUS
 				country_exists = ITS
 				country_exists = VNE
 			}
@@ -113,9 +108,10 @@ SAR_skelton = {
 	}
 	SAR_mss_kill = {
 		available = {
-			date = 1924.1.20
+			date > 1925.1.20
 			has_war = no
 			NOT = {
+				country_exists = TUS
 				country_exists = ITS
 				country_exists = VNE
 				country_exists = ITA
