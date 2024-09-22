@@ -10,6 +10,9 @@ country_event = {
 		name = nyc.1.a
 		set_country_flag = NYC_al_smith
 		mark_focus_tree_layout_dirty = yes
+		hidden_effect = {
+			complete_national_focus = NYC_elections
+		}
 	}
 	
 	
@@ -27,6 +30,43 @@ country_event = {
     			ideology = conservatism
     			popularity = 0.25
 			}
+			complete_national_focus = NYC_elections
 		}
+	}
+}
+country_event = {
+	id = nyc.2
+	title = nyc.2.t
+	desc = nyc.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = nyc.2.a
+		mark_focus_tree_layout_dirty = yes
+		set_politics = {
+    		ruling_party = liberalism
+    		elections_allowed = no
+    		long_name = NYC_liberal_al_capone
+    		name = NYC_liberal_al_capone_long
+		}
+		create_country_leader = {
+			name = "Al Capone"
+			ideology = market_liberalism
+			traits = {
+			}
+		}
+		hidden_effect = {
+			uncomplete_national_focus = {
+  				focus = NYC_al_smith
+  				uncomplete_children = yes
+  				refund_political_power = no
+			}
+			uncomplete_national_focus = {
+  				focus = NYC_nathan_miller
+  				uncomplete_children = yes
+  				refund_political_power = no
+			}
+		}
+		remove_mission = NYC_arrest_al_capone_mission
 	}
 }
