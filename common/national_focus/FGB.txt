@@ -3592,17 +3592,6 @@ focus_tree = {
 						has_tech = basic_light_tank
 					}
 				}
-				set_technology = { basic_light_tank = 1 }
-			}
-			if = {
-				limit = { 
-					NOT = { 
-						has_dlc = "No Step Back" 
-					} 
-					NOT = { 
-						has_tech = basic_light_tank
-					}
-				}
 				add_equipment_to_stockpile = {
 					type = light_tank_equipment_1
 					amount = 200
@@ -3611,11 +3600,14 @@ focus_tree = {
 			}
 			else = {
 				add_equipment_to_stockpile = {
-					set_technology = { basic_light_tank_chassis = 1 }
 					type = light_tank_chassis_1
 					amount = 200
 					producer = FGB
 				}
+			}
+			hidden_effect = {
+				#set_technology = { basic_light_tank = 1 }
+				#set_technology = { basic_light_tank_chassis = 1 }
 			}
 		}
 	}
