@@ -1,0 +1,82 @@
+division_template = {
+	name = "Burmese Infantrymen"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 0 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+	}
+	support = {
+		#
+	}
+}
+
+division_template = {
+	name = "Regional Militias"
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry = { x = 0 y = 1 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+	}
+	support = {
+		#
+	}
+}
+
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1330
+		division_template = "Burmese Infantrymen"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1330
+		division_template = "Burmese Infantrymen"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1492
+		division_template = "Regional Militias"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.4
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "BRM"
+		}
+		requested_factories = 1
+		progress = 0.52
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "BRM"
+		}
+		requested_factories = 1
+		progress = 0.31
+		efficiency = 100
+	}
+}
