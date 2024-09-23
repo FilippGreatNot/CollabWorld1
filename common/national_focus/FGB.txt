@@ -3576,11 +3576,7 @@ focus_tree = {
 		cost = 5
 		relative_position_id = FGB_fortify_the_north
 		prerequisite = { focus = FGB_fortify_the_north }
-		select_effect = {
-			add_manpower = -2000
-		}
 		completion_reward = {
-			add_manpower = 2000
 			add_tech_bonus = {
 				name = FGB_tank_innovations
 				bonus = 1
@@ -3588,10 +3584,35 @@ focus_tree = {
 				category = armor
 			}
 			if = {
-				limit = { NOT = { has_tech = basic_light_tank } }
+				limit = { 
+					NOT = { 
+						has_dlc = "No Step Back" 
+					} 
+					NOT = { 
+						has_tech = basic_light_tank
+					}
+				}
 				set_technology = { basic_light_tank = 1 }
+			}
+			if = {
+				limit = { 
+					NOT = { 
+						has_dlc = "No Step Back" 
+					} 
+					NOT = { 
+						has_tech = basic_light_tank
+					}
+				}
 				add_equipment_to_stockpile = {
 					type = light_tank_equipment_1
+					amount = 200
+					producer = FGB
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					set_technology = { basic_light_tank_chassis = 1 }
+					type = light_tank_chassis_1
 					amount = 200
 					producer = FGB
 				}
@@ -3701,13 +3722,26 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_AIR_XP }
 		completion_reward = {
 			air_experience = 10
-			add_equipment_to_stockpile = {
-				type = fighter_equipment_0
-				amount = 50
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 50
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_cas_airframe_0
+					amount = 50
+				}
 			}
-			add_equipment_to_stockpile = {
-				type = CAS_equipment_1
-				amount = 50
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 50
+				}
+				add_equipment_to_stockpile = {
+					type = CAS_equipment_1
+					amount = 50
+				}
 			}
 		}
 	}
@@ -3771,13 +3805,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			air_experience = 15
-			add_equipment_to_stockpile = {
-				type = fighter_equipment_0
-				amount = -120
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = -120
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_1
+					amount = 100
+				}
 			}
-			add_equipment_to_stockpile = {
-				type = fighter_equipment_1
-				amount = 100
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = -120
+				}
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_1
+					amount = 100
+				}
 			}
 		}
 	}
