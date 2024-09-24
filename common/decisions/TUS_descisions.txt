@@ -590,15 +590,15 @@ TUS_propaganda = {
 }
 TUS_civil_war_cat = {
 	TUS_soc_rise = {	
-		allowed = { tag = TUS }
-		activation = { has_country_flag = TUS_italy_civil_war }
+		allowed = { original_tag = TUS }
+		activation = { has_country_flag = TUS_italy_civil_war is_ai = no }
 		available = { always = no }		
-		days_mission_timeout = 70
+		days_mission_timeout = 50
 		is_good = no
 		fire_only_once = yes
 		selectable_mission = no
 		timeout_effect = {
-			country_event = tus_civ_war.2
+			TUS = {country_event = tus_civ_war.2}
 		}
 	}
 }
