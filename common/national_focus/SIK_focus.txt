@@ -604,6 +604,16 @@ focus_tree = {
 			add_war_support = 0.05
 			add_stability = 0.05
 			set_cosmetic_tag = SIK_SINKIANG
+			if = {
+				limit = { NOT = { has_completed_focus = SIK_volunteers_from_the_ksr } }
+				bypass_focus = {
+					SIK_volunteers_from_the_ksr
+				}
+			}
+			else = {
+				delete_unit_template_and_units = { division_template = "Kyrgyz Volunteers" }
+				add_manpower = 5000
+			}
 		}
 	}
 
@@ -621,6 +631,156 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_ideas = { SIK_migration }
+		}	
+	}
+
+	focus = {
+		id = SIK_forge_a_new_alliance
+		icon = GFX_goal_generic_major_alliance
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = SIK_encourage_migration
+		prerequisite = { focus = SIK_encourage_migration }
+		completion_reward = {
+			create_faction = "Axis of the Orient"
+		}	
+	}
+
+	focus = {
+		id = SIK_claim_the_chinese_islamic_mantle
+		icon = GFX_focus_ARG_defense_and_democracy
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = SIK_forge_a_new_alliance
+		prerequisite = { focus = SIK_forge_a_new_alliance }
+		completion_reward = {
+			completion_reward = {
+				add_war_support = 0.05
+				MCE = { 
+					every_core_state = { add_claim_by = SIK }
+				}
+				XSM = { 
+					every_core_state = { add_claim_by = SIK }
+				}
+				NIN = { 
+					every_core_state = { add_claim_by = SIK }
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_volunteers_from_the_ksr
+		icon = GFX_focus_secret_rearmament
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = SIK_encourage_migration
+		prerequisite = { focus = SIK_encourage_migration }
+		completion_reward = {
+			add_manpower = 10000
+			division_template = {
+				name = "Kyrgyz Volunteers"
+				priority = 1
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					artillery_brigade = { x = 3 y = 0 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+				is_locked = yes
+			}
+			random_owned_controlled_state = {
+				prioritize = { 817 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"1st Cavalry Brigade\" division_template = \"Kyrgyz Volunteers\" start_experience_factor = 0.4" 
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"1st Cavalry Brigade\" division_template = \"Kyrgyz Volunteers\" start_experience_factor = 0.4" 
+					owner = PREV
+				}
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_crush_the_mas
+		icon = GFX_focus_generic_annex_country_2
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = SIK_volunteers_from_the_ksr
+		prerequisite = { focus = SIK_volunteers_from_the_ksr }
+		completion_reward = {
+			declare_war_on = {
+				target = MCE
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = XSM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = NIN
+				type = annex_everything
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_a_new_era_for_chinese_islam
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			NOT = { country_exists = MCE }
+			NOT = { country_exists = XSM }
+			NOT = { country_exists = NIN }
+			NOT = { country_exists = NGO }
+		}
+		relative_position_id = SIK_crush_the_mas
+		prerequisite = { focus = SIK_crush_the_mas }
+		prerequisite = { focus = SIK_claim_the_chinese_islamic_mantle }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			set_cosmetic_tag = SIK_SINKIANG2
+			MCE = { 
+				every_core_state = { add_core_of = SIK }
+			}
+			XSM = { 
+				every_core_state = { add_core_of = SIK }
+			}
+			NIN = { 
+				every_core_state = { add_core_of = SIK }
+			}
+			release_puppet = NGO
 		}	
 	}
 }
