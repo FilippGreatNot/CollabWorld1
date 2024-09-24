@@ -1112,3 +1112,28 @@ news_event = {
 	}
 }
 
+country_event = {
+	id = tus_civ_war.4
+	title = tus_civ_war.4.t
+	desc = tus_civ_war.4.d
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			original_tag = TUS
+			original_tag = ITS
+		}
+		has_war = no
+		has_country_flag = TUS_italy_civil_war
+	}
+	
+	option = {
+		name = tus_civ_war.4.a
+		if = {
+			limit = { original_tag = TUS }
+			load_focus_tree = { tree = tus.focus keep_completed = yes }
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+
