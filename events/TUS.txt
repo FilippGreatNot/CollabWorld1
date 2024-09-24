@@ -891,80 +891,25 @@ country_event = {
 		name = tus_civ_war.1.a
 		hidden_effect = {
 			news_event = tus_civ_war.3
-			remove_ideas = {
-				TUS_army_reforms_1
-				TUS_army_reforms_2
-				TUS_army_reforms_cav
-				TUS_army_reforms_art
-				TUS_army_reforms_cav_2
-				TUS_army_reforms_art_2
-				TUS_army_reforms_cav_3
-				TUS_army_reforms_art_3
-				TUS_army_reforms_car
-				TUS_army_reforms_tank
-			}
-			set_country_flag = TUS_italy_civil_war
-			add_popularity = {
-				ideology = despotism 
-				popularity = -0.5
-			}
-			add_popularity = {
-				ideology = conservatism
-				popularity = -0.12
-			}
-			add_popularity = {
-				ideology = liberalism
-				popularity = -0.12
-			}
-			add_popularity = {
-				ideology = reactionism
-				popularity = -0.05
-			}
+			
 			delete_unit = {
 				disband = yes
 			}
-			load_focus_tree = empty			
-			load_oob = TUS_civ_war_1
-			157 = {remove_core_of = ROOT}
-			117 = {remove_core_of = ROOT}
-			156 = {remove_core_of = ROOT}
-			115 = {remove_core_of = ROOT}
-			931 = {remove_core_of = ROOT}
-			932 = {remove_core_of = ROOT}
-			933 = {remove_core_of = ROOT}
-			934 = {remove_core_of = ROOT}
-			114 = {remove_core_of = ROOT}
-			add_timed_idea = {
-				idea = TUS_unplanned_attack
-				days = 30
-			}
-			create_dynamic_country = {
-				original_tag = TUS
-				inherit_technology = TUS
-				transfer_state = 157
-				transfer_state = 117
-				transfer_state = 156
-				transfer_state = 115
-				transfer_state = 931
-				transfer_state = 932
-				transfer_state = 933
-				transfer_state = 934
-				157 = {add_core_of = PREV}
-				117 = {add_core_of = PREV}
-				156 = {add_core_of = PREV}
-				115 = {add_core_of = PREV}
-				931 = {add_core_of = PREV}
-				932 = {add_core_of = PREV}
-				933 = {add_core_of = PREV}
-				934 = {add_core_of = PREV}
+			
+			start_civil_war = {
+				ruling_party = ROOT
+				ideology = despotism
+				size = 0
+				capital = 117
+				states = {
+					157 117 156 115 931 932 933 934				
+				}
 				
+				inherit_technology = TUS
+			
 				set_cosmetic_tag = ITA
 				
 				set_country_flag = TUS_italy_civil_war
-				
-				set_politics = {
-					ruling_party = despotism
-				}
 				
 				create_country_leader = {
 					name = TUS_italian_provisional_government
@@ -987,13 +932,35 @@ country_event = {
 					producer = TUS
 				}
 				
-				declare_war_on = {
-					target = ROOT
-					type = annex_everything
-				}
-				add_civil_war_target = ROOT
 				load_focus_tree = empty	
-				load_oob = TUS_civ_war_2				
+				load_oob = TUS_civ_war_2	
+				set_country_flag = TUS_italy_civil_war
+			}
+			set_country_flag = TUS_italy_civil_war
+			add_popularity = {
+				ideology = despotism 
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.12
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			load_focus_tree = empty			
+			load_oob = TUS_civ_war_1
+			add_timed_idea = {
+				idea = TUS_unplanned_attack
+				days = 30
+			}
+			every_other_country = {
+				limit = { original_tag = TUS }
 				change_tag_from = ROOT
 			}
 		}
@@ -1004,17 +971,50 @@ country_event = {
 		custom_effect_tooltip = TUS_why_would_you_do_this
 		hidden_effect = {
 			news_event = tus_civ_war.3
-			remove_ideas = {
-				TUS_army_reforms_1
-				TUS_army_reforms_2
-				TUS_army_reforms_cav
-				TUS_army_reforms_art
-				TUS_army_reforms_cav_2
-				TUS_army_reforms_art_2
-				TUS_army_reforms_cav_3
-				TUS_army_reforms_art_3
-				TUS_army_reforms_car
-				TUS_army_reforms_tank
+			
+			delete_unit = {
+				disband = yes
+			}
+			
+			start_civil_war = {
+				ruling_party = ROOT
+				ideology = despotism
+				size = 0
+				capital = 117
+				states = {
+					157 117 156 115 931 932 933 934				
+				}
+				
+				inherit_technology = TUS
+			
+				set_cosmetic_tag = ITA
+				
+				set_country_flag = TUS_italy_civil_war
+				
+				create_country_leader = {
+					name = TUS_italian_provisional_government
+					picture = "gfx/leaders/CAN/Parlament.tga"
+					ideology = military_junta
+				}
+				
+				set_popularities = {
+					authoritarian_democrat = 30
+					despotism = 30
+					reactionism = 13
+					conservatism = 15
+					liberalism = 7
+					social_democrat = 5
+				}
+				
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1500
+					producer = TUS
+				}
+				
+				load_focus_tree = empty	
+				load_oob = TUS_civ_war_2	
+				set_country_flag = TUS_italy_civil_war
 			}
 			set_country_flag = TUS_italy_civil_war
 			add_popularity = {
@@ -1033,81 +1033,11 @@ country_event = {
 				ideology = reactionism
 				popularity = -0.05
 			}
-			delete_unit = {
-				disband = yes
-			}
 			load_focus_tree = empty			
 			load_oob = TUS_civ_war_1
-			157 = {remove_core_of = ROOT}
-			117 = {remove_core_of = ROOT}
-			156 = {remove_core_of = ROOT}
-			115 = {remove_core_of = ROOT}
-			931 = {remove_core_of = ROOT}
-			932 = {remove_core_of = ROOT}
-			933 = {remove_core_of = ROOT}
-			934 = {remove_core_of = ROOT}
-			114 = {remove_core_of = ROOT}
 			add_timed_idea = {
 				idea = TUS_unplanned_attack
 				days = 30
-			}
-			create_dynamic_country = {
-				original_tag = TUS
-				inherit_technology = TUS
-				transfer_state = 157
-				transfer_state = 117
-				transfer_state = 156
-				transfer_state = 115
-				transfer_state = 931
-				transfer_state = 932
-				transfer_state = 933
-				transfer_state = 934
-				157 = {add_core_of = PREV}
-				117 = {add_core_of = PREV}
-				156 = {add_core_of = PREV}
-				115 = {add_core_of = PREV}
-				931 = {add_core_of = PREV}
-				932 = {add_core_of = PREV}
-				933 = {add_core_of = PREV}
-				934 = {add_core_of = PREV}
-				
-				set_cosmetic_tag = ITA
-				
-				set_country_flag = TUS_italy_civil_war
-				
-				set_politics = {
-					ruling_party = despotism
-				}
-				
-				create_country_leader = {
-					name = TUS_italian_provisional_government
-					picture = "gfx/leaders/CAN/Parlament.tga"
-					ideology = military_junta
-				}
-				
-				set_popularities = {
-					authoritarian_democrat = 30
-					despotism = 30
-					reactionism = 13
-					conservatism = 15
-					liberalism = 7
-					social_democrat = 5
-				}
-			
-				add_equipment_to_stockpile = {
-					type = infantry_equipment
-					amount = 1500
-					producer = TUS
-				}
-				
-				declare_war_on = {
-					target = ROOT
-					type = annex_everything
-				}
-				
-				add_civil_war_target = ROOT
-				load_focus_tree = empty
-				load_oob = TUS_civ_war_2
 			}
 		}
 	}
