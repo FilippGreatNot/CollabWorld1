@@ -606,9 +606,7 @@ focus_tree = {
 			set_cosmetic_tag = SIK_SINKIANG
 			if = {
 				limit = { NOT = { has_completed_focus = SIK_volunteers_from_the_ksr } }
-				bypass_focus = {
-					SIK_volunteers_from_the_ksr
-				}
+				unlock_national_focus = SIK_volunteers_from_the_ksr
 			}
 			else = {
 				delete_unit_template_and_units = { division_template = "Kyrgyz Volunteers" }
@@ -662,17 +660,15 @@ focus_tree = {
 		relative_position_id = SIK_forge_a_new_alliance
 		prerequisite = { focus = SIK_forge_a_new_alliance }
 		completion_reward = {
-			completion_reward = {
-				add_war_support = 0.05
-				MCE = { 
-					every_core_state = { add_claim_by = SIK }
-				}
-				XSM = { 
-					every_core_state = { add_claim_by = SIK }
-				}
-				NIN = { 
-					every_core_state = { add_claim_by = SIK }
-				}
+			add_war_support = 0.05
+			MCE = { 
+				every_core_state = { add_claim_by = SIK }
+			}
+			XSM = { 
+				every_core_state = { add_claim_by = SIK }
+			}
+			NIN = { 
+				every_core_state = { add_claim_by = SIK }
 			}
 		}
 	}
