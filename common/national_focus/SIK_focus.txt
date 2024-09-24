@@ -78,7 +78,7 @@ focus_tree = {
 		y = 1
 		cost = 3
 		ai_will_do = {
-			factor = 50
+			factor = 40
 		}
 		relative_position_id = SIK_call_to_action
 		prerequisite = { focus = SIK_call_to_action }
@@ -254,10 +254,10 @@ focus_tree = {
 		id = SIK_university_of_urumqi
 		icon = GFX_focus_NORDIC_dem_research
 		x = 0
-		y = 1
+		y = 2
 		cost = 8
-		relative_position_id = SIK_revamp_our_internal_structure
-		prerequisite = { focus = SIK_revamp_our_internal_structure }
+		relative_position_id = SIK_call_to_action
+		prerequisite = { focus = SIK_call_to_action }
 		completion_reward = {
 			army_experience = 50
 			add_research_slot = 1
@@ -268,11 +268,12 @@ focus_tree = {
 		id = SIK_knowledge_of_the_eastern_world
 		icon = GFX_focus_NORDIC_dem_capstone_research
 		x = 0
-		y = 3
+		y = 4
 		cost = 12
 		available = {
-			has_completed_focus = SIK_industrial_revitalisation
-			has_completed_focus = SIK_faith_in_the_nra
+			NOT = { country_exists = ALT }
+			NOT = { country_exists = KUM }
+			NOT = { country_exists = TIA }
 		}
 		relative_position_id = SIK_university_of_urumqi
 		prerequisite = { focus = SIK_university_of_urumqi }
@@ -455,5 +456,171 @@ focus_tree = {
 			add_manpower = 20000
 			add_war_support = 0.05
 		}
+	}
+
+	focus = {
+		id = SIK_challenge_tungani_governance
+		icon = GFX_goal_generic_demand_territory
+		x = -2
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = SIK_eyes_to_the_east
+		prerequisite = { focus = SIK_eyes_to_the_east }
+		completion_reward = {
+			add_war_support = 0.05
+			TIA = { 
+				every_core_state = { add_claim_by = SIK }
+			}
+			declare_war_on = {
+				target = TIA
+				type = annex_everything
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_reincorporate_the_kazakh_yoke
+		icon = GFX_focus_attack_soviet
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = SIK_challenge_tungani_governance
+		prerequisite = { focus = SIK_challenge_tungani_governance }
+		completion_reward = {
+			declare_war_on = {
+				target = ALT
+				type = annex_everything
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_concessions_to_the_turks
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		x = 0
+		y = 1
+		cost = 6
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { country_exists = TIA }
+		}
+		relative_position_id = SIK_reincorporate_the_kazakh_yoke
+		prerequisite = { focus = SIK_reincorporate_the_kazakh_yoke }
+		completion_reward = {
+			add_stability = 0.05
+			936 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			759 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			TIA = { 
+				every_core_state = { add_core_of = SIK }
+			}
+			hidden_effect = {
+				936 = {
+					add_extra_state_shared_building_slots = 1
+				}
+				759 = {
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_end_the_kumulik_uprising
+		icon = GFX_focus_BRA_end_the_state_of_emergency
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = SIK_challenge_tungani_governance
+		prerequisite = { focus = SIK_challenge_tungani_governance }
+		completion_reward = {
+			declare_war_on = {
+				target = KUM
+				type = annex_everything
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_the_prefecture_of_hami
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		x = 0
+		y = 1
+		cost = 6
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+			NOT = { country_exists = KUM }
+		}
+		relative_position_id = SIK_end_the_kumulik_uprising
+		prerequisite = { focus = SIK_end_the_kumulik_uprising }
+		completion_reward = {
+			add_stability = -0.05
+			KUM = { 
+				every_core_state = { add_core_of = SIK }
+			}
+			760 = {
+				set_state_name = "Hami"
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_sinkiang_remeemerged
+		icon = GFX_focus_generic_infiltration
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+			has_war = no
+		}
+		relative_position_id = SIK_the_prefecture_of_hami
+		prerequisite = { focus = SIK_concessions_to_the_turks }
+		prerequisite = { focus = SIK_the_prefecture_of_hami }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.05
+			set_cosmetic_tag = SIK_SINKIANG
+		}
+	}
+
+	focus = {
+		id = SIK_encourage_migration
+		icon = GFX_focus_generic_manpower
+		x = 2
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 50
+		}
+		relative_position_id = SIK_eyes_to_the_east
+		prerequisite = { focus = SIK_eyes_to_the_east }
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = { SIK_migration }
+		}	
 	}
 }
