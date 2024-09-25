@@ -15,7 +15,7 @@
         cost = 3
 			
 		completion_reward = {
-
+			country_event = tus_alt.1
 		}
 
 	}
@@ -31,14 +31,14 @@
 		
 		relative_position_id = TUS_a_new_direction
 		
+		available = { always = no }
+		
         x = 2
         y = 1
 		
         cost = 0
 			
-		completion_reward = {
-
-		}
+		completion_reward = {}
 	}
 	
 	focus = {
@@ -81,13 +81,33 @@
 		
 		relative_position_id = TUS_a_new_direction
 		
+		available = { always = no }
+		
         x = -2
         y = 1
 		
         cost = 0
 			
+		completion_reward = {}
+	}
+	
+	focus = {
+		id = TUS_hold_election
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_prepare_election}
+		
+		relative_position_id = TUS_prepare_election
+			
+        x = 0
+        y = 1
+		
+        cost = 10
+			
 		completion_reward = {
-
+			set_politics = {
+				ruling_party = conservatism
+			}
 		}
 	}
 	
@@ -102,13 +122,373 @@
 		
 		relative_position_id = TUS_a_new_direction
 		
+		available = { always = no }
+		
         x = 0
         y = 1
 		
         cost = 0
 			
+		completion_reward = {}
+	}
+	
+	focus = {
+		id = TUS_reorg_council
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_cement_council}	
+		
+		relative_position_id = TUS_cement_council
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+			
 		completion_reward = {
+			hidden_effect = {
+				create_country_leader = {
+					name = TUS_italian_council
+					picture = "gfx/leaders/CAN/Parlament.tga"
+					ideology = despotism_subtype
+				}
+				promote_character = TUS_italian_council
+			}
+		}	
+	}
+	
+	focus = {
+		id = TUS_rebuild_italy_2
+		icon = GFX_goal_generic_construction
+		
+		x = 0
+		y = 3
+		
+		relative_position_id = TUS_reorg_council
+		
+		prerequisite = {
+			focus = TUS_hold_election
+			focus = TUS_reorg_council
+			focus = TUS_coronation
+		}
+		
+		bypass = { has_country_flag = TUS_has_rebuild_italy }
+			
+        cost = 10
+		
+		completion_reward = {
+			857 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			893 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = 	arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			2 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+		}
+	}
 
+	focus = {
+		id = TUS_improve_the_north_2
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy_2
+		}
+		
+        x = -3
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy_2
+		
+        cost = 20
+		
+		completion_reward = {
+			161 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			159 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			158 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			160 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_improve_the_south_2
+		icon = GFX_goal_generic_construction
+
+		prerequisite = {
+			focus = TUS_rebuild_italy_2
+		}
+		
+        x = -1
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy_2
+		
+        cost = 15
+		
+		completion_reward = {
+			117 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			156 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			115 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = 	arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = 	industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_start_trade_relations_2
+		icon = GFX_goal_generic_construction
+
+		bypass = {NOT = {has_idea = economically_isolated}}
+		
+		prerequisite = {
+			focus = TUS_rebuild_italy_2
+		}
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy_2
+		
+        cost = 8
+		
+		completion_reward = {
+			remove_ideas = economically_isolated
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = limited_exports
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_government = despotism
+						has_government = authoritarian_democrat
+						has_government = conservatism
+						has_government = liberalism
+					}
+					NOT = {has_idea = economically_isolated}
+				}
+				add_opinion_modifier = { target = TUS modifier = small_increase}				
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_research_division_2
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_rebuild_italy_2
+		}
+		
+        x = 3
+        y = 1
+		
+		relative_position_id = TUS_rebuild_italy_2
+		
+        cost = 6
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = TUS_join_can
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_improve_the_north_2
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south_2
+		}
+		prerequisite = {
+			focus = TUS_start_trade_relations_2
+		}
+		prerequisite = {
+			focus = TUS_research_division_2
+		}
+		
+		available = {
+			CAN = {  
+				is_faction_leader = yes
+			}
+			is_in_faction = no
+		}
+	
+		relative_position_id = TUS_improve_the_south_2
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			CAN = { country_event = tus.2 }
+		}
+	}
+	focus = {
+		id = TUS_join_ger
+		icon = GFX_focus_WRD_uber_alles
+		
+		prerequisite = {
+			focus = TUS_improve_the_north_2
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south_2
+		}
+		prerequisite = {
+			focus = TUS_start_trade_relations_2
+		}
+		prerequisite = {
+			focus = TUS_research_division_2
+		}
+		
+		available = {
+			WRD = {  
+				is_faction_leader = yes
+			}
+			is_in_faction = no
+		}
+	
+		relative_position_id = TUS_start_trade_relations_2
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			WRD = { country_event = tus.2 }
 		}
 	}
 }

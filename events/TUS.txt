@@ -962,6 +962,11 @@ country_event = {
 					producer = TUS
 				}
 				
+				if = {
+					limit = { TUS = { has_completed_focus = TUS_rebuild_italy } }
+					set_country_flag = TUS_has_rebuild_italy
+				}
+				
 				load_focus_tree = empty	
 				load_oob = TUS_civ_war_2	
 				set_country_flag = TUS_italy_civil_war			
@@ -1041,6 +1046,11 @@ country_event = {
 					type = infantry_equipment
 					amount = 1500
 					producer = TUS
+				}
+				
+				if = {
+					limit = { TUS = { has_completed_focus = TUS_rebuild_italy } }
+					set_country_flag = TUS_has_rebuild_italy
 				}
 				
 				load_focus_tree = empty	
@@ -1176,6 +1186,26 @@ country_event = {
 			clr_country_flag = TUS_italy_civil_war
 			mark_focus_tree_layout_dirty = yes
 		}
+	}
+}
+
+country_event = {
+	id = tus_alt.1
+	title = tus_alt.1.t
+	desc = tus_alt.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_alt.1.a
+		complete_national_focus = TUS_prepare_election
+	}
+	option = {
+		name = tus_alt.1.b
+		complete_national_focus = TUS_cement_council
+	}
+	option = {
+		name = tus_alt.1.c
+		complete_national_focus = TUS_return_king
 	}
 }
 
