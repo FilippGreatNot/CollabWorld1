@@ -17,6 +17,10 @@
         y = 1
 		
         cost = 3
+		
+		allow_branch = {
+			NOT = { has_country_flag = TUS_italy_civil_war }
+		}
 				
 		completion_reward = {
 		    add_stability = 0.05
@@ -228,6 +232,10 @@
 		prerequisite = {
 			focus = TUS_get_french_support
 		}
+
+		bypass = {
+			has_completed_focus = TUS_balbos_speech_2
+		}
 	
 		relative_position_id = TUS_get_french_support
 		
@@ -249,6 +257,10 @@
 		
 		prerequisite = {
 			focus = TUS_french_financial_support
+		}
+		
+		bypass = {
+			has_completed_focus = TUS_balbos_speech_2
 		}
 	
 		relative_position_id = TUS_french_financial_support
@@ -275,6 +287,7 @@
 				producer = FRA
 			}
 			add_political_power = -80
+			FRA = { add_opinion_modifier = { target = TUS modifier = medium_increase} }	
 		}
 
 	}
@@ -1806,6 +1819,10 @@
 			}
 		}
 		
+		allow_branch = {
+			NOT = { has_country_flag = TUS_italy_civil_war }
+		}
+		
 		mutually_exclusive = {focus = TUS_army_type_2}
 
 		x = 15
@@ -1827,6 +1844,10 @@
 			hidden_trigger = {
 				always = no
 			}
+		}
+		
+		allow_branch = {
+			NOT = { has_country_flag = TUS_italy_civil_war }
 		}
 		
 		mutually_exclusive = {focus = TUS_army_type_1}

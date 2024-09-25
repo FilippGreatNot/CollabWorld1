@@ -4,6 +4,7 @@ add_namespace = tus_coun1
 add_namespace = tus_cap
 add_namespace = tus_coun2
 add_namespace = tus_civ_war
+add_namespace = tus_alt
 
 ## MAIN ##
 
@@ -733,11 +734,18 @@ country_event = {
 	
 	option = {
 		name = tus_cap.1.a
-		set_country_flag = TUS_mussolini_killed
+		add_stability = -0.1
 	}
 	option = {
 		name = tus_cap.2.a
-		set_country_flag = TUS_mussolini_prison
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.06
+		}	
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.03
+		}			
 	}
 }
 
@@ -756,7 +764,14 @@ country_event = {
 	
 	option = {
 		name = tus_cap.2.a
-		set_country_flag = TUS_mussolini_prison
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.06
+		}	
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.03
+		}
 	}
 }
 
@@ -775,11 +790,18 @@ country_event = {
 	
 	option = {
 		name = tus_cap.1.a
-		set_country_flag = TUS_victor_killed
+		add_stability = -0.1
 	}
 	option = {
 		name = tus_cap.2.a
-		set_country_flag = TUS_victor_prison
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.06
+		}	
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.03
+		}
 	}
 }
 
@@ -798,7 +820,14 @@ country_event = {
 	
 	option = {
 		name = tus_cap.2.a
-		set_country_flag = TUS_victor_prison
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.06
+		}	
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.03
+		}
 	}
 }
 
@@ -900,6 +929,7 @@ country_event = {
 				ruling_party = ROOT
 				ideology = despotism
 				size = 0
+				keep_all_characters = yes
 				capital = 117
 				states = {
 					157 117 156 115 931 932 933 934				
@@ -932,9 +962,14 @@ country_event = {
 					producer = TUS
 				}
 				
+				if = {
+					limit = { TUS = { has_completed_focus = TUS_rebuild_italy } }
+					set_country_flag = TUS_has_rebuild_italy
+				}
+				
 				load_focus_tree = empty	
 				load_oob = TUS_civ_war_2	
-				set_country_flag = TUS_italy_civil_war
+				set_country_flag = TUS_italy_civil_war			
 			}
 			set_country_flag = TUS_italy_civil_war
 			add_popularity = {
@@ -953,7 +988,7 @@ country_event = {
 				ideology = reactionism
 				popularity = -0.05
 			}
-			load_focus_tree = empty			
+			mark_focus_tree_layout_dirty = yes		
 			load_oob = TUS_civ_war_1
 			add_timed_idea = {
 				idea = TUS_unplanned_attack
@@ -980,6 +1015,7 @@ country_event = {
 				ruling_party = ROOT
 				ideology = despotism
 				size = 0
+				keep_all_characters = yes
 				capital = 117
 				states = {
 					157 117 156 115 931 932 933 934				
@@ -1012,6 +1048,11 @@ country_event = {
 					producer = TUS
 				}
 				
+				if = {
+					limit = { TUS = { has_completed_focus = TUS_rebuild_italy } }
+					set_country_flag = TUS_has_rebuild_italy
+				}
+				
 				load_focus_tree = empty	
 				load_oob = TUS_civ_war_2	
 				set_country_flag = TUS_italy_civil_war
@@ -1033,7 +1074,7 @@ country_event = {
 				ideology = reactionism
 				popularity = -0.05
 			}
-			load_focus_tree = empty			
+			mark_focus_tree_layout_dirty = yes		
 			load_oob = TUS_civ_war_1
 			add_timed_idea = {
 				idea = TUS_unplanned_attack
@@ -1084,19 +1125,20 @@ country_event = {
 		}
 	}
 	
-	option = {
-		name = tus_civ_war.2.b
-		ai_chance = { base = 0 }
-		hidden_effect = {
-			ITS = {
-				annex_country = {
-					target = TUS
-					transfer_troops = yes
-				}
-				change_tag_from = ROOT
-			}
-		}
-	}
+	##when ITS is done##
+	#option = {
+	#	name = tus_civ_war.2.b
+	#	ai_chance = { base = 0 }
+	#	hidden_effect = {
+	#		ITS = {
+	#			annex_country = {
+	#				target = TUS
+	#				transfer_troops = yes
+	#			}
+	#			change_tag_from = ROOT
+	#		}
+	#	}
+	#}
 }
 
 news_event = {
@@ -1130,10 +1172,43 @@ country_event = {
 	option = {
 		name = tus_civ_war.4.a
 		if = {
-			limit = { original_tag = TUS }
-			load_focus_tree = { tree = tus.focus keep_completed = yes }
+			limit = { 
+				original_tag = TUS
+				has_government = despotism
+			}
+			set_capital = {state = 2}
+			set_cosmetic_tag = ITA_REP
+			load_focus_tree = { tree = tus_alt.focus keep_completed = yes }
+		}
+		if = {
+			limit = { 
+				original_tag = TUS
+				has_government = national_syndicalism
+			}
+			set_capital = {state = 2}
+			clr_country_flag = TUS_italy_civil_war
 			mark_focus_tree_layout_dirty = yes
 		}
+	}
+}
+
+country_event = {
+	id = tus_alt.1
+	title = tus_alt.1.t
+	desc = tus_alt.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = tus_alt.1.a
+		complete_national_focus = TUS_prepare_election
+	}
+	option = {
+		name = tus_alt.1.b
+		complete_national_focus = TUS_cement_council
+	}
+	option = {
+		name = tus_alt.1.c
+		complete_national_focus = TUS_return_king
 	}
 }
 
