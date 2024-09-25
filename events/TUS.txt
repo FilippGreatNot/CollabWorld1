@@ -953,7 +953,7 @@ country_event = {
 				ideology = reactionism
 				popularity = -0.05
 			}
-			load_focus_tree = empty			
+			mark_focus_tree_layout_dirty = yes		
 			load_oob = TUS_civ_war_1
 			add_timed_idea = {
 				idea = TUS_unplanned_attack
@@ -1033,7 +1033,7 @@ country_event = {
 				ideology = reactionism
 				popularity = -0.05
 			}
-			load_focus_tree = empty			
+			mark_focus_tree_layout_dirty = yes		
 			load_oob = TUS_civ_war_1
 			add_timed_idea = {
 				idea = TUS_unplanned_attack
@@ -1084,19 +1084,20 @@ country_event = {
 		}
 	}
 	
-	option = {
-		name = tus_civ_war.2.b
-		ai_chance = { base = 0 }
-		hidden_effect = {
-			ITS = {
-				annex_country = {
-					target = TUS
-					transfer_troops = yes
-				}
-				change_tag_from = ROOT
-			}
-		}
-	}
+	##when ITS is done##
+	#option = {
+	#	name = tus_civ_war.2.b
+	#	ai_chance = { base = 0 }
+	#	hidden_effect = {
+	#		ITS = {
+	#			annex_country = {
+	#				target = TUS
+	#				transfer_troops = yes
+	#			}
+	#			change_tag_from = ROOT
+	#		}
+	#	}
+	#}
 }
 
 news_event = {
@@ -1130,8 +1131,18 @@ country_event = {
 	option = {
 		name = tus_civ_war.4.a
 		if = {
-			limit = { original_tag = TUS }
-			load_focus_tree = { tree = tus.focus keep_completed = yes }
+			limit = { 
+				original_tag = TUS
+				has_government = despotism
+			}
+			load_focus_tree = { tree = tus_alt.focus keep_completed = yes }
+		}
+		if = {
+			limit = { 
+				original_tag = TUS
+				has_government = national_syndicalism
+			}
+			clr_country_flag = TUS_italy_civil_war
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
