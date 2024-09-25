@@ -25,6 +25,9 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {focus = TUS_a_new_direction}
+
+		mutually_exclusive = { focus = TUS_prepare_election }
+		mutually_exclusive = { focus = TUS_cement_council }
 		
 		relative_position_id = TUS_a_new_direction
 		
@@ -39,10 +42,33 @@
 	}
 	
 	focus = {
-		id = TUS_prepare_for_election
+		id = TUS_coronation
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {focus = TUS_return_king}
+		
+		relative_position_id = TUS_return_king
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+			
+		completion_reward = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_prepare_election
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {focus = TUS_a_new_direction}
+
+		mutually_exclusive = { focus = TUS_return_king }
+		mutually_exclusive = { focus = TUS_cement_council }
 		
 		relative_position_id = TUS_a_new_direction
 		
@@ -61,6 +87,9 @@
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {focus = TUS_a_new_direction}
+		
+		mutually_exclusive = { focus = TUS_return_king }
+		mutually_exclusive = { focus = TUS_prepare_election }		
 		
 		relative_position_id = TUS_a_new_direction
 		
