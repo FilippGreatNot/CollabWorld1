@@ -14,7 +14,6 @@ focus_tree = {
 		
         cost = 4
 		
-		available = { hidden_trigger = { always = no }}
 	}		
 	focus = {
 		id = VAT_reorganise_government
@@ -72,6 +71,113 @@ focus_tree = {
         y = 1
 		
         cost = 10
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = VAT_catholic_charity
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_integrate_army 
+		}
+		prerequisite = {
+			focus = VAT_integrate_economy 
+		}
+		
+		mutually_exclusive = {focus = VAT_catholic_control }
+
+		available = {
+		}
+		
+		relative_position_id = VAT_integrate_economy
+        x = 0
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = VAT_catholic_control
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_integrate_army 
+		}
+		prerequisite = {
+			focus = VAT_integrate_economy 
+		}
+		
+		mutually_exclusive = {focus = VAT_catholic_charity }
+
+		available = {
+		}
+		
+		relative_position_id = VAT_integrate_army
+        x = 0
+        y = 1
+		
+        cost = 10
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = VAT_deal_with_crime
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_catholic_control
+			focus = VAT_catholic_charity
+		}
+
+		available = {
+		}
+		
+		relative_position_id = VAT_catholic_charity
+        x = 1
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+			declare_war_on = {
+				target = MSS
+				type = annex_everything
+			}	
+			add_civil_war_target = MSS
+		}
+	}
+	
+	focus = {
+		id = VAT_expansionism
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_catholic_control
+		}
+		prerequisite = {
+			focus = VAT_deal_with_crime
+		}
+
+		available = {
+			has_country_leader = {
+				character = VAT_pope_pius_xi_val
+				ruling_only = yes
+			}
+		}
+		
+		relative_position_id = VAT_catholic_control
+        x = 2
+        y = 2
+		
+        cost = 5
 
 		completion_reward = {
 		}
