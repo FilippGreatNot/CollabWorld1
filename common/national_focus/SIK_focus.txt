@@ -159,7 +159,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SIK_urbanising_barkol
+		id = SIK_urbanising_turpan
 		icon = GFX_focus_DEN_civilian_preparations
 		x = 1
 		y = 1
@@ -167,7 +167,7 @@ focus_tree = {
 		relative_position_id = SIK_rebuilding_the_local_stockpile
 		prerequisite = { focus = SIK_rebuilding_the_local_stockpile }
 		completion_reward = {
-			944 = {
+			961 = {
 				add_manpower = 19000
 				increase_state_category_by_one_level = yes
 				add_building_construction = {
@@ -185,10 +185,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
-		relative_position_id = SIK_urbanising_barkol
-		prerequisite = { focus = SIK_urbanising_barkol }
+		relative_position_id = SIK_urbanising_turpan
+		prerequisite = { focus = SIK_urbanising_turpan }
 		completion_reward = {
-			944 = {
+			961 = {
 				add_building_construction = {
 					type = bunker
 					level = 1
@@ -205,25 +205,19 @@ focus_tree = {
 					type = bunker
 					level = 1
 					instant_build = yes
-					province = 7732
+					province = 10545
 				}
 				add_building_construction = {
 					type = bunker
 					level = 1
 					instant_build = yes
-					province = 10839
+					province = 10614
 				}
 				add_building_construction = {
 					type = bunker
 					level = 1
 					instant_build = yes
 					province = 12524
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = 12671
 				}
 			}
 		}
@@ -492,6 +486,9 @@ focus_tree = {
 		}
 		relative_position_id = SIK_challenge_tungani_governance
 		prerequisite = { focus = SIK_challenge_tungani_governance }
+		bypass = {
+			NOT = { country_exists = ALT }
+		}
 		completion_reward = {
 			declare_war_on = {
 				target = ALT
@@ -533,6 +530,7 @@ focus_tree = {
 			TIA = { 
 				every_core_state = { add_core_of = SIK }
 			}
+			936 = { add_core_of = SIK }
 			hidden_effect = {
 				936 = {
 					add_extra_state_shared_building_slots = 1
@@ -555,6 +553,9 @@ focus_tree = {
 		}
 		relative_position_id = SIK_challenge_tungani_governance
 		prerequisite = { focus = SIK_challenge_tungani_governance }
+		bypass = {
+			NOT = { country_exists = KUM }
+		}
 		completion_reward = {
 			declare_war_on = {
 				target = KUM
@@ -726,6 +727,9 @@ focus_tree = {
 		cost = 5
 		ai_will_do = {
 			factor = 10
+		}
+		available = {
+			has_war = no
 		}
 		relative_position_id = SIK_volunteers_from_the_ksr
 		prerequisite = { focus = SIK_volunteers_from_the_ksr }
