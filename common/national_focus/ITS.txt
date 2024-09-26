@@ -1,0 +1,111 @@
+focus_tree = {
+	id = ITS
+	default=no
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 50
+			tag = ITS
+		}
+	} 
+	
+	focus = {
+		id = ITS_mussolinis_vision
+		icon = GFX_focus_ITA_capo_supremo
+		x = 5
+		y = 0
+		cost = 5
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ITS_fund_new_factories
+		icon = GFX_focus_generic_industry_3
+		x = -1
+		y = 1
+		cost = 6
+		relative_position_id = ITS_mussolinis_vision
+		prerequisite = { focus = ITS_mussolinis_vision }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ITS_produce_new_guns
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 1
+		y = 1
+		cost = 6
+		relative_position_id = ITS_mussolinis_vision
+		prerequisite = { focus = ITS_mussolinis_vision }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ITS_increase_northern_development
+		icon = GFX_focus_ITA_northern_industry
+		x = 1
+		y = 1
+		cost = 6
+		relative_position_id = ITS_fund_new_factories
+		prerequisite = { focus = ITS_fund_new_factories }
+		prerequisite = { focus = ITS_produce_new_guns }
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}

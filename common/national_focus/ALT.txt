@@ -12,7 +12,7 @@ focus_tree = {
 	} 
 	
 	focus = {
-		id = ALT_in_the_shadows
+		id = ALT_in_the_shade_of_xinjiang
 		icon = GFX_focus_ETH_boots_on_the_shore
 		x = 5
 		y = 0
@@ -20,6 +20,47 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_political_power = 30
+		}
+	}
+
+	focus = {
+		id = ALT_the_secret_force
+		icon = GFX_goal_generic_secret_weapon
+		x = 0
+		y = 1
+		cost = 3
+		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
+		relative_position_id = ALT_in_the_shade_of_xinjiang
+		completion_reward = {
+			division_template = {
+				name = "The Secret Force"
+				priority = 1
+				regiments = {
+					irregular_infantry = { x = 0 y = 0 }
+					irregular_infantry = { x = 0 y = 1 }
+					irregular_infantry = { x = 1 y = 0 }
+					irregular_infantry = { x = 1 y = 1 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 817 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Irregular Brigade No.1\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 817 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
 		}
 	}
 }
