@@ -32,7 +32,12 @@ ideas = {
 				marxism_drift = 0.02
 				custom_modifier_tooltip = TUS_bolshevik_influence_tool_tip
 			}
-			cancel = {NOT={country_exists = ITS}}
+			cancel = {
+				OR = {
+					has_war_with = ITS
+					NOT={country_exists = ITS}
+				}
+			}
 		}
 		
 		TUS_investment_in_small_businesses = {
