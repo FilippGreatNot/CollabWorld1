@@ -1,0 +1,56 @@
+## SETUP ##
+add_namespace = its
+
+## MAIN ##
+
+country_event = {
+	id = its.1
+	title = its.1.t
+	desc = its.1.d
+	
+	fire_only_once = yes
+	
+	trigger = {
+		focus_progress = {
+			focus = ITS_assure_ppl
+			progress > 0.5
+		}	
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ITS_assassination_attempt
+			unlock_national_focus = ITS_assure_ppl
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+	option = {
+		name = its.1.a
+		complete_national_focus = ITS_he_lives
+	}
+	option = {
+		name = its.1.b
+		complete_national_focus = ITS_he_died
+	}
+}
+
+country_event = {
+	id = its.2
+	title = its.2.t
+	desc = its.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = its.2.a
+		complete_national_focus = ITS_natsyn_win
+	}
+	option = {
+		name = its.2.b
+		complete_national_focus = ITS_marx_win
+	}
+	option = {
+		name = its.2.c
+		complete_national_focus = ITS_libsco_win
+	}
+}

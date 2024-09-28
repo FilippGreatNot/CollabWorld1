@@ -28,12 +28,12 @@ focus_tree = {
 		icon = GFX_focus_generic_industry_3
 		x = -1
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = ITS_mussolinis_vision
 		prerequisite = { focus = ITS_mussolinis_vision }
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -41,7 +41,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -56,12 +56,12 @@ focus_tree = {
 		icon = GFX_focus_ETH_freedom_at_gunpoint
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = ITS_mussolinis_vision
 		prerequisite = { focus = ITS_mussolinis_vision }
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -69,7 +69,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -78,16 +78,28 @@ focus_tree = {
 			}
 		}
 	}
-
+	
+	focus = {
+		id = ITS_reorg_industry
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_fund_new_factories
+		prerequisite = { focus = ITS_fund_new_factories }
+		prerequisite = { focus = ITS_produce_new_guns }
+		completion_reward = {
+		}
+	}
+	
 	focus = {
 		id = ITS_increase_northern_development
 		icon = GFX_focus_ITA_northern_industry
 		x = 1
 		y = 1
-		cost = 6
-		relative_position_id = ITS_fund_new_factories
-		prerequisite = { focus = ITS_fund_new_factories }
-		prerequisite = { focus = ITS_produce_new_guns }
+		cost = 7
+		relative_position_id = ITS_reorg_industry
+		prerequisite = { focus = ITS_reorg_industry }
 		completion_reward = {
 			every_owned_state = {
 				add_extra_state_shared_building_slots = 1
@@ -106,6 +118,499 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+		}
+	}
+	
+	focus = {
+		id = ITS_reorg_army
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 7
+		relative_position_id = ITS_reorg_industry
+		prerequisite = { focus = ITS_reorg_industry }
+		completion_reward = {
+
+		}
+	}
+	
+	focus = {
+		id = ITS_assure_ppl
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 10
+		available = { hidden_trigger = {NOT = { has_country_flag = ITS_assassination_attempt } } }
+		cancel_if_invalid = yes
+		relative_position_id = ITS_reorg_army
+		prerequisite = { focus = ITS_reorg_army }
+		prerequisite = { focus = ITS_increase_northern_development }
+		completion_reward = {
+			#to good because you cant do it
+			add_stability = 0.2
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = ITS_he_lives
+		icon = GFX_goal_generic_construction
+		x = -4
+		y = 1
+		cost = 0
+		allow_branch = { has_country_flag = ITS_assassination_attempt }
+		available = { always = no }
+		relative_position_id = ITS_assure_ppl
+		mutually_exclusive = { focus = ITS_he_died }
+		prerequisite = { focus = ITS_assure_ppl }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_he_died
+		icon = GFX_goal_generic_construction
+		x = 4
+		y = 1
+		cost = 0
+		allow_branch = { has_country_flag = ITS_assassination_attempt }
+		available = { always = no }
+		relative_position_id = ITS_assure_ppl
+		mutually_exclusive = { focus = ITS_he_lives }
+		prerequisite = { focus = ITS_assure_ppl }
+		completion_reward = {				
+			kill_country_leader = yes
+			promote_character = ITS_emergency_council
+		}
+	}
+	focus = {
+		id = ITS_investigate
+		icon = GFX_goal_generic_construction
+		x = -4
+		y = 1
+		cost = 5
+		relative_position_id = ITS_he_died
+		prerequisite = { focus = ITS_he_died focus = ITS_he_lives }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_purge
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_investigate
+		prerequisite = { focus = ITS_investigate }
+		available = {
+			OR = {
+				has_completed_focus = ITS_first_election
+				has_completed_focus = ITS_he_lives
+			}
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_blame_tus
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 2
+		relative_position_id = ITS_purge
+		prerequisite = { focus = ITS_purge }
+		mutually_exclusive = { focus = ITS_tell_the_truth }
+		available = {
+			OR = {
+				has_completed_focus = ITS_he_lives
+				has_completed_focus = ITS_natsyn_win
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = ITS_tell_the_truth
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 2
+		relative_position_id = ITS_purge
+		prerequisite = { focus = ITS_purge }
+		mutually_exclusive = { focus = ITS_blame_tus }
+		available = {
+			OR = {
+				has_completed_focus = ITS_marx_win
+				has_completed_focus = ITS_libsco_win
+			}
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = ITS_first_election
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_he_died
+		prerequisite = { focus = ITS_he_died }
+		completion_reward = {
+			country_event = its.2
+		}
+	}
+	focus = {
+		id = ITS_natsyn_win
+		icon = GFX_goal_generic_construction
+		x = -2
+		y = 1
+		available = { always = no }
+		cost = 0
+		mutually_exclusive = { focus = ITS_marx_win }
+		mutually_exclusive = { focus = ITS_libsco_win }
+		relative_position_id = ITS_first_election
+		prerequisite = { focus = ITS_first_election }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_marx_win
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		available = { always = no }
+		cost = 0
+		mutually_exclusive = { focus = ITS_natsyn_win }
+		mutually_exclusive = { focus = ITS_libsco_win }
+		relative_position_id = ITS_first_election
+		prerequisite = { focus = ITS_first_election }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_libsco_win
+		icon = GFX_goal_generic_construction
+		x = 2
+		y = 1
+		available = { always = no }
+		cost = 0
+		mutually_exclusive = { focus = ITS_marx_win }
+		mutually_exclusive = { focus = ITS_natsyn_win }
+		relative_position_id = ITS_first_election
+		prerequisite = { focus = ITS_first_election }
+		completion_reward = {
+		}
+	}
+	
+# Mussolini tree
+# Mussolini tree
+# Mussolini tree
+# SEE THIS PLEASE
+	
+	focus = {
+		id = ITS_full_rat_1
+		icon = GFX_goal_generic_construction
+		#x = 5
+		#y = 0
+		x = 1
+		y = 1
+		relative_position_id = ITS_blame_tus
+		prerequisite = { focus = ITS_blame_tus }
+		allow_branch = {
+			has_completed_focus = ITS_blame_tus
+			has_completed_focus = ITS_he_lives
+		}
+		cost = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_crackdown_on_industry_1
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_full_rat_1
+		prerequisite = { focus = ITS_full_rat_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_expand_weapon_production_1
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_crackdown_on_industry_1
+		prerequisite = { focus = ITS_crackdown_on_industry_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_control_industry_1
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_crackdown_on_industry_1
+		prerequisite = { focus = ITS_crackdown_on_industry_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_prepare_for_revenge_1
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = ITS_expand_weapon_production_1
+		prerequisite = { focus = ITS_expand_weapon_production_1 }
+		prerequisite = { focus = ITS_control_industry_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_kill_tuscany_1
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_prepare_for_revenge_1
+		prerequisite = { focus = ITS_prepare_for_revenge_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_just_the_beginning_1
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_kill_tuscany_1
+		prerequisite = { focus = ITS_kill_tuscany_1 }
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+# NATSYN tree
+# NATSYN tree
+# NATSYN tree
+# PLEASE SEE THIS
+	
+	focus = {
+		id = ITS_make_gov_syn
+		icon = GFX_goal_generic_construction
+		#x = 5
+		#y = 0
+		cost = 5
+		x = 1
+		y = 1
+		relative_position_id = ITS_blame_tus
+		prerequisite = { focus = ITS_blame_tus }
+		allow_branch = {
+			has_completed_focus = ITS_blame_tus
+			has_completed_focus = ITS_natsyn_win
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_full_rat_2
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_make_gov_syn
+		prerequisite = { focus = ITS_make_gov_syn }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_syn_industry
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_full_rat_2
+		prerequisite = { focus = ITS_full_rat_2 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_expand_weapon_production_2
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_syn_industry
+		prerequisite = { focus = ITS_syn_industry }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_control_industry_2
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_syn_industry
+		prerequisite = { focus = ITS_syn_industry }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_prepare_for_revenge_2
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = ITS_expand_weapon_production_2
+		prerequisite = { focus = ITS_expand_weapon_production_2 }
+		prerequisite = { focus = ITS_control_industry_2 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_kill_tuscany_2
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_prepare_for_revenge_2
+		prerequisite = { focus = ITS_prepare_for_revenge_2 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_just_the_beginning_2
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_kill_tuscany_2
+		prerequisite = { focus = ITS_kill_tuscany_2 }
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+# MARX/LIVSCO tree
+# MARX/LIVSCO tree
+# MARX/LIVSCO tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_undo_ultranat
+		icon = GFX_goal_generic_construction
+		#x = 5
+		#y = 0
+		x = 1
+		y = 1
+		relative_position_id = ITS_blame_tus
+		prerequisite = { focus = ITS_tell_the_truth }
+		allow_branch = {
+			has_completed_focus = ITS_tell_the_truth
+		}
+		cost = 5
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_crackdown_on_industry_3
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_undo_ultranat
+		prerequisite = { focus = ITS_undo_ultranat }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_expand_weapon_production_3
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_crackdown_on_industry_1
+		prerequisite = { focus = ITS_crackdown_on_industry_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_excite_workers
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_crackdown_on_industry_1
+		prerequisite = { focus = ITS_crackdown_on_industry_1 }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_intigrate_venice
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = ITS_expand_weapon_production_1
+		prerequisite = { focus = ITS_expand_weapon_production_1 }
+		prerequisite = { focus = ITS_excite_workers }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_why_we_fight
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_intigrate_venice
+		prerequisite = { focus = ITS_intigrate_venice}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+# Unite tree
+# Unite tree
+# Unite tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_free_italy
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		offset = {
+			y = 1
+			trigger = { has_completed_focus = ITS_just_the_beginning_1 }
+		}
+		offset = {
+			y = 2
+			trigger = { has_completed_focus = ITS_just_the_beginning_2 }
+		}
+		relative_position_id = ITS_why_we_fight
+		cost = 5
+		prerequisite = { 
+			focus = ITS_why_we_fight
+			focus = ITS_just_the_beginning_1
+			focus = ITS_just_the_beginning_2
+		}
+		allow_branch = {
+			OR = {
+				has_completed_focus = ITS_why_we_fight
+				has_completed_focus = ITS_just_the_beginning_1
+				has_completed_focus = ITS_just_the_beginning_2
+			}
+		}
+		completion_reward = {
 		}
 	}
 }
