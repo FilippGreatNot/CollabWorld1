@@ -954,6 +954,111 @@ focus_tree = {
 
 		}
 	}
+	focus = {
+		id = NYC_voluntary_scociety
+		x = -1
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_self_ownership}
+		prerequisite = {focus = NYC_non_agression_principle}
+		relative_position_id = NYC_self_ownership
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_voluntary_exchange
+		x = 1
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_free_markets}
+		prerequisite = {focus = NYC_non_agression_principle}
+		relative_position_id = NYC_free_markets
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_private_property
+		x = 1
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_voluntary_exchange focus = NYC_voluntary_scociety}
+		relative_position_id = NYC_voluntary_exchange
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_voluntary_slavery
+		x = -1
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_voluntary_exchange}
+		relative_position_id = NYC_voluntary_exchange
+		completion_reward = {
+			country_event = nyc_liberal.1
+		}
+	}
+	focus = {
+		id = NYC_agencies_as_law
+		x = 1
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 4.5
+		prerequisite = {focus = NYC_voluntary_scociety}
+		relative_position_id = NYC_voluntary_scociety
+		completion_reward = {
+			add_ideas = {
+				NYC_agencies_law
+			}
+		}
+	}
+	focus = {
+		id = NYC_trust_companies
+		x = -2
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 6
+		prerequisite = {focus = NYC_agencies_as_law}
+		prerequisite = {focus = NYC_private_property}
+		prerequisite = {focus = NYC_voluntary_slavery}
+		relative_position_id = NYC_agencies_as_law
+	}	
 }
 	
 	
