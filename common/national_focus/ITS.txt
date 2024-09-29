@@ -484,6 +484,11 @@ focus_tree = {
 		relative_position_id = ITS_prepare_for_revenge_2
 		prerequisite = { focus = ITS_prepare_for_revenge_2 }
 		completion_reward = {
+			declare_war_on = {
+				target = TUS
+				type = annex_everything
+			}	
+			add_civil_war_target = TUS
 		}
 	}
 	focus = {
@@ -571,6 +576,12 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		available = {
+			OR = {
+				owns_state = 162
+				owns_state = 884
+			}
+		}
 		relative_position_id = ITS_intigrate_venice
 		prerequisite = { focus = ITS_intigrate_venice}
 		completion_reward = {
@@ -609,6 +620,132 @@ focus_tree = {
 				has_completed_focus = ITS_just_the_beginning_1
 				has_completed_focus = ITS_just_the_beginning_2
 			}
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = ITA
+				type = annex_everything
+			}	
+			add_civil_war_target = ITA
+		}
+	}
+	
+	focus = {
+		id = ITS_separate_church_and_state
+		icon = GFX_goal_generic_construction
+		x = 2
+		y = 1
+		relative_position_id = ITS_free_italy
+		cost = 5
+		prerequisite = { 
+			focus = ITS_free_italy
+		}
+		available = { VAT = { has_country_flag = papal_state } }
+		completion_reward = {
+			declare_war_on = {
+				target = VAT
+				type = take_claimed_state
+			}	
+		}
+	}
+	
+	focus = {
+		id = ITS_kill_vne
+		icon = GFX_goal_generic_construction
+		x = -2
+		y = 1
+		relative_position_id = ITS_free_italy
+		cost = 5
+		prerequisite = { 
+			focus = ITS_free_italy
+		}
+		available = {
+			NOT = {
+				OR = {
+					owns_state = 160
+					owns_state = 860
+				}
+			}
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = VNE
+				type = annex_everything
+			}	
+			add_civil_war_target = VNE	
+		}
+	}
+	
+	focus = {
+		id = ITS_expand_the_front
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_free_italy
+		cost = 2
+		prerequisite = { 
+			focus = ITS_free_italy
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = SAN
+				type = annex_everything
+			}	
+			add_civil_war_target = SAN
+		}
+	}
+	focus = {
+		id = ITS_fight_crime
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_expand_the_front
+		cost = 5
+		prerequisite = { 
+			focus = ITS_expand_the_front
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = MSS
+				type = annex_everything
+			}	
+			add_civil_war_target = MSS
+		}
+	}
+	focus = {
+		id = ITS_return_to_sar
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_fight_crime
+		cost = 5
+		prerequisite = { 
+			focus = ITS_fight_crime
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = SAR
+				type = annex_everything
+			}	
+			add_civil_war_target = SAR
+		}
+	}
+	focus = {
+		id = ITS_italy_finally_free
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_fight_crime
+		cost = 5
+		available = {
+			has_country_flag = ITAS_has_cored_tus
+			has_country_flag = ITAS_has_cored_vne
+			has_country_flag = ITAS_has_cored_ita
+			has_country_flag = ITAS_has_cored_mss
+			has_country_flag = ITAS_has_cored_sar		
+		}
+		prerequisite = { 
+			focus = ITS_return_to_sar
 		}
 		completion_reward = {
 		}
