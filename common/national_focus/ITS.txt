@@ -13,7 +13,7 @@ focus_tree = {
 	
 	focus = {
 		id = ITS_mussolinis_vision
-		icon = GFX_focus_ITA_capo_supremo
+		icon = GFX_goal_generic_construction
 		x = 5
 		y = 0
 		cost = 5
@@ -25,7 +25,7 @@ focus_tree = {
 
 	focus = {
 		id = ITS_fund_new_factories
-		icon = GFX_focus_generic_industry_3
+		icon = GFX_goal_generic_construction
 		x = -1
 		y = 1
 		cost = 5
@@ -53,7 +53,7 @@ focus_tree = {
 
 	focus = {
 		id = ITS_produce_new_guns
-		icon = GFX_focus_ETH_freedom_at_gunpoint
+		icon = GFX_goal_generic_construction
 		x = 1
 		y = 1
 		cost = 5
@@ -94,7 +94,7 @@ focus_tree = {
 	
 	focus = {
 		id = ITS_increase_northern_development
-		icon = GFX_focus_ITA_northern_industry
+		icon = GFX_goal_generic_construction
 		x = 1
 		y = 1
 		cost = 7
@@ -130,7 +130,7 @@ focus_tree = {
 		relative_position_id = ITS_reorg_industry
 		prerequisite = { focus = ITS_reorg_industry }
 		completion_reward = {
-
+			remove_ideas = ITS_separate_militias_from_army
 		}
 	}
 	
@@ -216,21 +216,9 @@ focus_tree = {
 				if = {
 					limit = { has_completed_focus = ITS_natsyn_win }
 					add_popularity = {
-						ideology = marxism
-						popularity = -0.1
-					}	
-					add_popularity = {
-						ideology = libertarian_socialism
-						popularity = -0.1
+						ideology = national_syndicalism
+						popularity = 0.15
 					}
-					add_popularity = {
-						ideology = social_democrat
-						popularity = -0.05
-					}					
-					add_popularity = {
-						ideology = bolshevism
-						popularity = -0.05
-					}	
 				}
 				else = {
 					add_popularity = {
@@ -481,6 +469,10 @@ focus_tree = {
 		relative_position_id = ITS_full_rat_2
 		prerequisite = { focus = ITS_full_rat_2 }
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITS_socialist_economy
+				add_idea = ITS_syndicalist_economy
+			}
 		}
 	}
 	focus = {
@@ -877,23 +869,9 @@ focus_tree = {
 		prerequisite = { 
 			focus = ITS_reassure_ppl
 		}
-		mutually_exclusive = { focus = ITS_autarky }
+		mutually_exclusive = { focus = ITS_mass_trade }
 		available = { NOT = { has_government = libertarian_socialism } }
 		allow_branch = { has_completed_focus = ITS_reassure_ppl }
-		completion_reward = {
-		}
-	}
-	
-	focus = {
-		id = ITS_autarky_2
-		icon = GFX_goal_generic_construction
-		x = 0
-		y = 1
-		relative_position_id = ITS_autarky
-		cost = 5
-		prerequisite = { 
-			focus = ITS_autarky
-		}
 		completion_reward = {
 		}
 	}
