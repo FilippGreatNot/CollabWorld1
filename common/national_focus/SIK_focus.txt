@@ -16,7 +16,7 @@ focus_tree = {
 		icon = GFX_focus_generic_china1
 		x = 5
 		y = 0
-		cost = 3
+		cost = 2
 		ai_will_do = {
 			factor = 50
 		}
@@ -31,7 +31,7 @@ focus_tree = {
 		icon = GFX_focus_generic_modernize_industry
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
 		ai_will_do = {
 			factor = 50
 		}
@@ -54,7 +54,7 @@ focus_tree = {
 		icon = GFX_goal_demand_sudetenland
 		x = 0
 		y = 1
-		cost = 2
+		cost = 4
 		ai_will_do = {
 			factor = 50
 		}
@@ -76,7 +76,7 @@ focus_tree = {
 		icon = GFX_focus_ARG_strengthening_the_concordancia
 		x = -4
 		y = 1
-		cost = 3
+		cost = 2
 		ai_will_do = {
 			factor = 40
 		}
@@ -89,11 +89,250 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SIK_rebuilding_the_local_stockpile
-		icon = GFX_focus_generic_combined_arms
+		id = SIK_investing_into_the_city
+		icon = GFX_goal_generic_construction
 		x = -2
 		y = 1
-		cost = 3
+		cost = 5
+		relative_position_id = SIK_revamp_our_internal_structure
+		prerequisite = { focus = SIK_revamp_our_internal_structure }
+		completion_reward = {
+			617 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_build_up_the_roads
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = SIK_investing_into_the_city
+		prerequisite = { focus = SIK_investing_into_the_city }
+		completion_reward = {
+			617 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			944 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			961 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_the_ores_of_xinjiang
+		icon = GFX_focus_generic_mining_industry
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SIK_build_up_the_roads
+		prerequisite = { focus = SIK_build_up_the_roads }
+		completion_reward = {
+			617 = {
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+			961 = {
+				add_resource = {
+					type = steel
+					amount = 7
+				}
+				add_resource = {
+					type = tungsten
+					amount = 2 
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_urbanising_turpan
+		icon = GFX_focus_DEN_civilian_preparations
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SIK_investing_into_the_city
+		prerequisite = { focus = SIK_investing_into_the_city }
+		completion_reward = {
+			961 = {
+				add_manpower = 19000
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_invite_industrial_experts
+		icon = GFX_focus_generic_resource_extraction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SIK_urbanising_turpan
+		prerequisite = { focus = SIK_urbanising_turpan }
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIK_invite_industrial_experts
+				bonus = 0.75
+				uses = 1
+				category = industry
+			}
+			add_ideas = { FGB_research_fund }
+		}
+	}
+
+	focus = {
+		id = SIK_industrial_revitalisation
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = SIK_the_ores_of_xinjiang
+		prerequisite = { focus = SIK_the_ores_of_xinjiang }
+		prerequisite = { focus = SIK_invite_industrial_experts }
+		completion_reward = {
+			617 = { 
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex 
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_develop_korla
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
+		x = 3
+		y = 1
+		cost = 5
+		relative_position_id = SIK_investing_into_the_city
+		prerequisite = { focus = SIK_investing_into_the_city }
+		completion_reward = {
+			617 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_victory_points = {
+					province = 1000
+					value = 3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_build_up_our_gold_reserves
+		icon = GFX_focus_CHL_silverworking
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = SIK_develop_korla
+		prerequisite = { focus = SIK_develop_korla }
+		completion_reward = {
+			add_political_power = 120
+			add_ideas = { SIK_gold_reserves }
+		}
+	}
+
+	focus = {
+		id = SIK_foresting_industry_of_altay
+		icon = GFX_focus_CHL_expand_the_forestry
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			owns_state = 936
+		}
+		relative_position_id = SIK_build_up_our_gold_reserves
+		prerequisite = { focus = SIK_build_up_our_gold_reserves }
+		completion_reward = {
+			936 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_developing_xinjiang
+		icon = GFX_focus_generic_land_reclamation
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+			NOT = { country_exists = ALT }
+			NOT = { country_exists = KUM }
+			NOT = { country_exists = TIA }
+		}
+		relative_position_id = SIK_industrial_revitalisation
+		prerequisite = { focus = SIK_industrial_revitalisation }
+		prerequisite = { focus = SIK_foresting_industry_of_altay }
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_rebuilding_the_local_stockpile
+		icon = GFX_focus_generic_combined_arms
+		x = 3
+		y = 1
+		cost = 5
 		relative_position_id = SIK_revamp_our_internal_structure
 		prerequisite = { focus = SIK_revamp_our_internal_structure }
 		completion_reward = {
@@ -114,33 +353,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SIK_investments_into_urumqi
-		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
-		x = -1
-		y = 1
-		cost = 3
-		relative_position_id = SIK_rebuilding_the_local_stockpile
-		prerequisite = { focus = SIK_rebuilding_the_local_stockpile }
-		completion_reward = {
-			617 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
 		id = SIK_our_first_aerodromes
 		icon = GFX_focus_generic_aircraft_production
 		x = 0
 		y = 1
-		cost = 4
-		relative_position_id = SIK_investments_into_urumqi
-		prerequisite = { focus = SIK_investments_into_urumqi }
+		cost = 5
+		relative_position_id = SIK_rebuilding_the_local_stockpile
+		prerequisite = { focus = SIK_rebuilding_the_local_stockpile }
 		completion_reward = {
 			617 = {
 				add_extra_state_shared_building_slots = 1
@@ -159,34 +378,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SIK_urbanising_turpan
-		icon = GFX_focus_DEN_civilian_preparations
-		x = 1
-		y = 1
-		cost = 3
-		relative_position_id = SIK_rebuilding_the_local_stockpile
-		prerequisite = { focus = SIK_rebuilding_the_local_stockpile }
-		completion_reward = {
-			961 = {
-				add_manpower = 19000
-				increase_state_category_by_one_level = yes
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
 		id = SIK_fortify_our_borders
 		icon = GFX_goal_generic_defence
 		x = 0
 		y = 1
-		cost = 3
-		relative_position_id = SIK_urbanising_turpan
-		prerequisite = { focus = SIK_urbanising_turpan }
+		cost = 5
+		relative_position_id = SIK_our_first_aerodromes
+		prerequisite = { focus = SIK_our_first_aerodromes }
 		completion_reward = {
 			961 = {
 				add_building_construction = {
@@ -224,32 +422,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SIK_industrial_revitalisation
-		icon = GFX_goal_generic_construct_civ_factory
-		x = -1
-		y = 1
-		cost = 5
-		relative_position_id = SIK_fortify_our_borders
-		prerequisite = { focus = SIK_our_first_aerodromes }
-		prerequisite = { focus = SIK_fortify_our_borders }
-		completion_reward = {
-			617 = { 
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex 
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
 		id = SIK_university_of_urumqi
 		icon = GFX_focus_NORDIC_dem_research
 		x = 0
-		y = 2
-		cost = 8
+		y = 1
+		cost = 5
 		relative_position_id = SIK_call_to_action
 		prerequisite = { focus = SIK_call_to_action }
 		completion_reward = {
@@ -260,10 +437,10 @@ focus_tree = {
 
 	focus = {
 		id = SIK_knowledge_of_the_eastern_world
-		icon = GFX_focus_NORDIC_dem_capstone_research
+		icon = GFX_focus_ARG_universidad_de_buenos_aires
 		x = 0
-		y = 4
-		cost = 12
+		y = 5
+		cost = 10
 		available = {
 			NOT = { country_exists = ALT }
 			NOT = { country_exists = KUM }
@@ -285,16 +462,120 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SIK_import_military_blueprints
+		icon = GFX_focus_generic_annex_country_2
+		x = 13
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_war = no
+		}
+		prerequisite = { focus = SIK_the_frontier_province }
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIK_import_military_blueprints
+				bonus = 0.75
+				uses = 1
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = SIK_import_military_blueprints
+				bonus = 0.75
+				uses = 1
+				category = artillery
+			}
+		}	
+	}
+
+	focus = {
+		id = SIK_reform_the_army
+		icon = GFX_focus_generic_little_entente
+		x = -1
+		y = 1
+		cost = 6
+		ai_will_do = {
+			factor = 20
+		}
+		relative_position_id = SIK_import_military_blueprints
+		prerequisite = { focus = SIK_import_military_blueprints }
+		completion_reward = {
+			army_experience = 40
+			add_ideas = { SIK_premature_reorganisation }
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_increase_military_spending
+		icon = GFX_focus_generic_treaty
+		x = 0
+		y = 1
+		cost = 6
+		ai_will_do = {
+			factor = 20
+		}
+		relative_position_id = SIK_reform_the_army
+		prerequisite = { focus = SIK_reform_the_army }
+		completion_reward = {
+			army_experience = 20
+			swap_ideas = {
+				remove_idea = SIK_premature_reorganisation
+				add_idea = SIK_a_worthwhile_force
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_our_strength_within
+		icon = GFX_focus_generic_support_the_left_right
+		x = 0
+		y = 1
+		cost = 6
+		ai_will_do = {
+			factor = 20
+		}
+		relative_position_id = SIK_increase_military_spending
+		prerequisite = { focus = SIK_increase_military_spending }
+		completion_reward = {
+			army_experience = 10
+			swap_ideas = {
+				remove_idea = SIK_a_worthwhile_force
+				add_idea = SIK_fury_of_the_east
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
 		id = SIK_summon_the_new_forces
 		icon = GFX_focus_usa_honor_the_confederacy
 		x = 2
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
-		relative_position_id = SIK_revamp_our_internal_structure
-		prerequisite = { focus = SIK_revamp_our_internal_structure }
+		relative_position_id = SIK_import_military_blueprints
+		prerequisite = { focus = SIK_import_military_blueprints }
 		completion_reward = {
 			division_template = {
 				name = "NRA Cavalry"
@@ -330,7 +611,7 @@ focus_tree = {
 		icon = GFX_focus_generic_full_employment
 		x = -1
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -349,7 +630,7 @@ focus_tree = {
 		icon = GFX_focus_generic_annex_country
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = SIK_recruitment_campaigns
 		prerequisite = { focus = SIK_recruitment_campaigns }
 		completion_reward = {
@@ -376,7 +657,7 @@ focus_tree = {
 		icon = GFX_focus_chi_army_reform
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		relative_position_id = SIK_summon_the_new_forces
 		prerequisite = { focus = SIK_summon_the_new_forces }
 		completion_reward = {
@@ -395,7 +676,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_artillery
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		relative_position_id = SIK_study_foreign_doctrines
 		prerequisite = { focus = SIK_study_foreign_doctrines }
 		completion_reward = {
@@ -440,7 +721,7 @@ focus_tree = {
 		icon = GFX_focus_SMB_atacama_training
 		x = 4
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -457,7 +738,7 @@ focus_tree = {
 		icon = GFX_goal_generic_demand_territory
 		x = -2
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -480,7 +761,7 @@ focus_tree = {
 		icon = GFX_focus_attack_soviet
 		x = -1
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -502,7 +783,7 @@ focus_tree = {
 		icon = GFX_focus_CHL_enlarge_the_textile_industries
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 40
 		}
@@ -547,7 +828,7 @@ focus_tree = {
 		icon = GFX_focus_BRA_end_the_state_of_emergency
 		x = 1
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -569,7 +850,7 @@ focus_tree = {
 		icon = GFX_focus_ICE_embrace_the_workers_revolution
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -619,9 +900,9 @@ focus_tree = {
 	focus = {
 		id = SIK_encourage_migration
 		icon = GFX_focus_generic_manpower
-		x = 2
+		x = 1
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -638,7 +919,7 @@ focus_tree = {
 		icon = GFX_goal_generic_major_alliance
 		x = -1
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -679,7 +960,7 @@ focus_tree = {
 		icon = GFX_focus_secret_rearmament
 		x = 1
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}

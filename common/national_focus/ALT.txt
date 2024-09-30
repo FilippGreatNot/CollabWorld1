@@ -16,19 +16,20 @@ focus_tree = {
 		icon = GFX_focus_ETH_boots_on_the_shore
 		x = 5
 		y = 0
-		cost = 3
+		cost = 2
 		completion_reward = {
 			add_stability = 0.05
-			add_political_power = 30
+			add_war_support = 0.05
+			add_political_power = 50
 		}
 	}
 
 	focus = {
 		id = ALT_the_secret_force
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_focus_generic_full_social_mobilization
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		relative_position_id = ALT_in_the_shade_of_xinjiang
 		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
 		completion_reward = {
@@ -46,7 +47,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = { 817 }
+				prioritize = { 936 }
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
 					division = "name = \"Irregular Brigade No.1\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
@@ -54,7 +55,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				prioritize = { 817 }
+				prioritize = { 936 }
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
 					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
@@ -65,11 +66,39 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_industrial_mobilisation
+		icon = GFX_focus_generic_reorient_production
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_the_secret_force 
+		prerequisite = { focus = ALT_the_secret_force }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_mend_the_economic_abyss
 		icon = GFX_goal_generic_construction2
 		x = 1
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = ALT_the_secret_force 
 		prerequisite = { focus = ALT_the_secret_force }
 		completion_reward = {

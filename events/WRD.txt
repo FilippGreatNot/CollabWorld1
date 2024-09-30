@@ -246,7 +246,17 @@ country_event = {
 				}
 			}
 		}
-	    WRD = {
+		FGB = {
+			if = {
+				limit = { has_completed_focus = FGB_government_of_national_salvation }
+				complete_national_focus = FGB_attack_wehrkommando
+				add_war_support = 0.05
+			}
+			else = {
+				add_war_support = 0.05
+			}
+		}
+	    	WRD = {
 			declare_war_on = {
 				target = FGB
 				type = annex_everything

@@ -130,9 +130,7 @@ focus_tree = {
 		relative_position_id = USA_mc_declare_macarthur_president
 		y = 1
 		x = -15
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_declare_macarthur_president }
 	}
 	##Corporatocracy
@@ -143,9 +141,7 @@ focus_tree = {
 		relative_position_id = USA_mc_fixing_the_economy
 		y = 1
 		x = -2
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_fixing_the_economy }
 		mutually_exclusive = { focus = USA_mc_destroy_the_corporatocracy }
 	}
@@ -156,55 +152,59 @@ focus_tree = {
 		relative_position_id = USA_mc_cooperate_with_loyal_corporations
 		y = 1
 		x = -1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_cooperate_with_loyal_corporations }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_restart_trade
 		icon = GFX_focus_USA_mc_open_trade
-
 		relative_position_id = USA_mc_cooperate_with_loyal_corporations
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_cooperate_with_loyal_corporations }
-		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus	USA_mc_to_save_a_nation"
-			
 			add_ideas = {
 				export_focus
 			}
 			add_political_power = 50
 		}
-		
 	}
 	focus = {
 		id = USA_mc_hike_the_population_tax
 		icon = GFX_focus_USA_mc_increase_taxes
-
 		relative_position_id = USA_mc_emergency_industrialization
 		y = 1
 		x = -1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_emergency_industrialization }
 	}
 	focus = {
 		id = USA_mc_increase_working_hours
 		icon = GFX_focus_USA_mc_working_hours
-
 		relative_position_id = USA_mc_emergency_industrialization
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_emergency_industrialization }
 	}
 	focus = {
@@ -213,9 +213,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_emergency_industrialization
 		y = 2
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_hike_the_population_tax }
 		prerequisite =	{ focus = USA_mc_increase_working_hours }
 	}
@@ -226,9 +224,7 @@ focus_tree = {
 		relative_position_id = USA_mc_import_mexican_labor
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_import_mexican_labor }
 	}
 	focus = {
@@ -238,9 +234,7 @@ focus_tree = {
 		relative_position_id = USA_mc_token_worker_rights
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{
 			focus = USA_mc_token_worker_rights
 			focus = USA_mc_fight_poverty
@@ -257,15 +251,13 @@ focus_tree = {
 		relative_position_id = USA_mc_fixing_the_economy
 		y = 1
 		x = 2
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_fixing_the_economy }
 		mutually_exclusive = { focus = USA_mc_cooperate_with_loyal_corporations }
 	}
 	focus = {
-		id = USA_mc_principles_of_autakry
-		icon = GFX_focus_USA_mc_principles_of_autakry
+		id = USA_mc_principles_of_autarky
+		icon = GFX_focus_USA_mc_principles_of_autarky
 
 		relative_position_id = USA_mc_destroy_the_corporatocracy
 		y = 1
@@ -298,10 +290,26 @@ focus_tree = {
 		relative_position_id = USA_mc_destroy_the_corporatocracy
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_destroy_the_corporatocracy }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_develop_our_infrastructure
@@ -310,9 +318,7 @@ focus_tree = {
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_intervene_in_the_economy }
 	}
 	focus = {
@@ -322,9 +328,7 @@ focus_tree = {
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 1
 		x = -1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_intervene_in_the_economy }
 	}
 	focus = {
@@ -333,9 +337,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_intervene_in_the_economy
 		y = 2
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_develop_our_infrastructure }
 		prerequisite =	{ focus = USA_mc_raise_corporate_taxes }
 	}
@@ -346,9 +348,7 @@ focus_tree = {
 		relative_position_id = USA_mc_expand_worker_rights
 		y = 1
 		x = -1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_expand_worker_rights }
 	}
 	focus = {
@@ -358,9 +358,7 @@ focus_tree = {
 		relative_position_id = USA_mc_fight_poverty
 		y = 1
 		x = -1
-
 		cost = 5
-
 		prerequisite =	{
 			focus = USA_mc_fight_poverty
 			focus = USA_mc_token_worker_rights
@@ -375,12 +373,25 @@ focus_tree = {
 
 		relative_position_id = USA_mc_fixing_the_economy
 		y = 3
-
 		cost = 5
-
-		prerequisite =	{
-			focus = USA_mc_restart_trade
-			focus = USA_mc_principles_of_autakry
+		prerequisite =	{ focus = USA_mc_restart_trade focus = USA_mc_principles_of_autarky }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -390,9 +401,7 @@ focus_tree = {
 		relative_position_id = USA_mc_expand_the_military_industry
 		y = 1
 		x = -1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_expand_the_military_industry }
 		mutually_exclusive = { focus = USA_mc_develop_our_resources }
 	}
@@ -403,9 +412,7 @@ focus_tree = {
 		relative_position_id = USA_mc_expand_the_military_industry
 		y = 1
 		x = 1
-
 		cost = 5
-
 		prerequisite =	{ focus = USA_mc_expand_the_military_industry }
 		mutually_exclusive = { focus = USA_mc_be_resourceful }
 	}
@@ -415,9 +422,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_expand_the_military_industry
 		y = 2
-
 		cost = 5
-
 		prerequisite =	{
 			focus = USA_mc_be_resourceful
 			focus = USA_mc_develop_our_resources
@@ -429,9 +434,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_agricultural_revitalization_program
 		y = 2
-
 		cost = 5
-
 		prerequisite =	{
 			focus = USA_mc_fight_our_debt
 			focus = USA_mc_deficit_spending
@@ -450,9 +453,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_declare_macarthur_president
 		y = 1
-
 		cost = 5
-		
 		prerequisite =	{ focus = USA_mc_declare_macarthur_president }
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"

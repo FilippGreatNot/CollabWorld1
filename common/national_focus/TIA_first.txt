@@ -19,11 +19,11 @@ focus_tree = {
 	## Industry branch ##
 
 	focus = {
-		id = TIA_the_tungan_republic
-		icon = GFX_focus_generic_camel_corps
-		x = 5
+		id = TIA_at_the_edge_of_civilisation
+		icon = GFX_focus_generic_copy_plane_designs
+		x = 6
 		y = 0
-		cost = 3
+		cost = 2
 		ai_will_do = {
 			factor = 10
 		}
@@ -40,14 +40,12 @@ focus_tree = {
 	focus = {
 		id = TIA_develop_the_tarim_basin
 		icon = GFX_goal_generic_construction
-		x = 0
-		y = 2
+		x = 18
+		y = 0
 		cost = 4
 		ai_will_do = {
-			factor = 10
+			factor = 20
 		}
-		relative_position_id = TIA_the_tungan_republic
-		prerequisite = { focus = TIA_the_tungan_republic }
 		completion_reward = {
 			add_stability = 0.05
 			every_core_state = {
@@ -67,9 +65,9 @@ focus_tree = {
 		icon = GFX_focus_generic_railroad
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
-			factor = 10
+			factor = 20
 		}
 		relative_position_id = TIA_develop_the_tarim_basin
 		prerequisite = { focus = TIA_develop_the_tarim_basin }
@@ -81,8 +79,16 @@ focus_tree = {
 			}
 			add_equipment_to_stockpile = {
 				type = train_equipment_1
-				amount = 5
+				amount = 20
 				producer = TIA
+			}
+			759 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = 4973
+				}
 			}
 		}
 	}
@@ -92,7 +98,7 @@ focus_tree = {
 		icon = GFX_focus_generic_mining_industry
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -117,9 +123,9 @@ focus_tree = {
 		icon = GFX_focus_CHL_silverworking
 		x = -1
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
-			factor = 10
+			factor = 30
 		}
 		relative_position_id = TIA_a_train_to_khotan
 		prerequisite = { focus = TIA_develop_the_tarim_basin }
@@ -149,7 +155,7 @@ focus_tree = {
 		icon = GFX_focus_generic_coffee
 		x = 0
 		y = 2
-		cost = 6
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -231,7 +237,11 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 2
-		prerequisite = { focus = TIA_the_tungan_republic }
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = TIA_at_the_edge_of_civilisation }
+		mutually_exclusive = { focus = TIA_the_tungan_republic }
 		mutually_exclusive = { focus = TIA_a_chinese_nation }
 		completion_reward = {
 			add_political_power = 50
@@ -245,7 +255,7 @@ focus_tree = {
 		icon = GFX_focus_generic_horse_studs
 		x = -2
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = TIA_a_turkic_state
 		prerequisite = { focus = TIA_a_turkic_state }
 		completion_reward = {
@@ -289,7 +299,7 @@ focus_tree = {
 		icon = GFX_focus_ETH_freedom_at_gunpoint
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = TIA_deploy_the_mares
 		prerequisite = { focus = TIA_deploy_the_mares }
 		completion_reward = {
@@ -307,7 +317,7 @@ focus_tree = {
 		icon = GFX_focus_generic_farmland
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = TIA_a_turkic_state
 		prerequisite = { focus = TIA_a_turkic_state }
 		completion_reward = {
@@ -331,7 +341,7 @@ focus_tree = {
 		icon = GFX_focus_generic_annex_country_2
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = TIA_agricultural_subsidies
 		prerequisite = { focus = TIA_agricultural_subsidies }
 		completion_reward = {
@@ -349,7 +359,7 @@ focus_tree = {
 		icon = GFX_goal_continuous_increase_nu
 		x = 2
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -369,7 +379,7 @@ focus_tree = {
 		icon = GFX_focus_rom_handle_king
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = TIA_east_turkic_zeal
 		prerequisite = { focus = TIA_east_turkic_zeal }
 		completion_reward = {
@@ -387,7 +397,7 @@ focus_tree = {
 		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
 		x = -1
 		y = 1
-		cost = 4
+		cost = 5
 		available = {
 			NOT = { country_exists = ALT }
 			NOT = { country_exists = SIK }
@@ -411,7 +421,7 @@ focus_tree = {
 		icon = GFX_focus_TUR_treaty_of_saadabad
 		x = 1 
 		y = 1
-		cost = 4
+		cost = 5
 		available = {
 			NOT = { country_exists = SIK }
 			NOT = { country_exists = KUM }
@@ -435,7 +445,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_rebuild_the_savior_cathedral
 		x = 0
 		y = 2
-		cost = 4
+		cost = 5
 		available = {
 			NOT = { country_exists = SIK }
 			has_full_control_of_state = 617
@@ -459,7 +469,7 @@ focus_tree = {
 		icon = GFX_focus_NORDIC_com_civilian
 		x = -1
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = TIA_convene_the_provincial_assembly
 		prerequisite = { focus = TIA_convene_the_provincial_assembly }
 		completion_reward = {
@@ -487,7 +497,7 @@ focus_tree = {
 		icon = GFX_focus_generic_truck
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = TIA_convene_the_provincial_assembly
 		prerequisite = { focus = TIA_convene_the_provincial_assembly }
 		completion_reward = {
@@ -524,7 +534,7 @@ focus_tree = {
 		icon = GFX_focus_generic_befriend_afghanistan
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = TIA_expand_civilian_industry
 		prerequisite = { focus = TIA_expand_civilian_industry focus = TIA_connect_rural_villages }
 		completion_reward = {
@@ -534,19 +544,262 @@ focus_tree = {
 		}
 	}
 
+	## Political - Hui branch ## 
+
+	focus = {
+		id = TIA_the_tungan_republic
+		icon = GFX_focus_generic_camel_corps
+		x = 6
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 40
+		}
+		prerequisite = { focus = TIA_at_the_edge_of_civilisation }
+		mutually_exclusive = { focus = TIA_a_turkic_state }
+		mutually_exclusive = { focus = TIA_a_chinese_nation }
+		completion_reward = {
+			add_stability = 0.05
+			add_command_power = 30
+		}
+	}
+
+	focus = {
+		id = TIA_expand_the_army
+		icon = GFX_focus_SWE_varnplikt
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_the_tungan_republic
+		prerequisite = { focus = TIA_the_tungan_republic }
+		completion_reward = {
+			add_war_support = 0.05
+			add_manpower = 15000
+			add_command_power = 20
+			619 = {
+				create_unit = {
+					division = "name = \"1st. Revolutionary Brigade\" division_template = \"Revolutionary Forces\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+			759 = {
+				create_unit = {
+					division = "name = \"2nd. Revolutionary Brigade\" division_template = \"Revolutionary Forces\" start_experience_factor = 0.4" 
+					owner = TIA
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_militarise_kashgar
+		icon = GFX_focus_SWE_landsverk
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_the_tungan_republic
+		prerequisite = { focus = TIA_the_tungan_republic }
+		completion_reward = {
+			619 = {
+				add_manpower = 10000
+				increase_state_category_by_two_levels = yes
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_small_border_skirmishes
+		icon = GFX_focus_generic_provoke_border_clashes
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_militarise_kashgar
+		prerequisite = { focus = TIA_militarise_kashgar }
+		mutually_exclusive = { focus = TIA_by_the_swords_edge }
+		completion_reward = {
+			custom_effect_tooltip = CHI_institute_cross_border_raids_effect_tooltip
+			set_country_flag = CHI_institute_cross_border_raids
+		}
+	}
+
+	focus = {
+		id = TIA_by_the_swords_edge
+		icon = GFX_focus_SWI_helvetic_junta
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_militarise_kashgar
+		prerequisite = { focus = TIA_militarise_kashgar }
+		mutually_exclusive = { focus = TIA_small_border_skirmishes }
+		completion_reward = {
+			add_war_support = 0.05
+			create_wargoal = {
+				target = ALT
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = SIK
+				type = annex_everything
+			}
+			create_wargoal = {
+				target = KUM
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_integrate_hami
+		icon = GFX_focus_AST_rats_tobruk
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			owns_state = 760
+		}
+		relative_position_id = TIA_small_border_skirmishes
+		prerequisite = { focus = TIA_small_border_skirmishes focus = TIA_by_the_swords_edge }
+		completion_reward = {
+			760 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_integrate_the_center
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			owns_state = 617
+			owns_state = 944
+			owns_state = 961
+		}
+		relative_position_id = TIA_small_border_skirmishes
+		prerequisite = { focus = TIA_small_border_skirmishes focus = TIA_by_the_swords_edge }
+		completion_reward = {
+			617 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			944 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			961 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_integrate_the_north
+		icon = GFX_focus_SOV_restore_cossack_units
+		x = 3
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			owns_state = 618
+			owns_state = 936
+			owns_state = 962
+		}
+		relative_position_id = TIA_small_border_skirmishes
+		prerequisite = { focus = TIA_small_border_skirmishes focus = TIA_by_the_swords_edge }
+		completion_reward = {
+			618 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			936 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			962 = {
+				add_core_of = TIA
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
 	## Political - Chinese branch ##
 
 	focus = {
 		id = TIA_a_chinese_nation
 		icon = GFX_focus_chi_legislative_yuan
-		x = 10
+		x = 12
 		y = 1
 		cost = 2
 		ai_will_do = {
-			factor = 15
+			factor = 50
 		}
-		prerequisite = { focus = TIA_the_tungan_republic }
+		prerequisite = { focus = TIA_at_the_edge_of_civilisation }
 		mutually_exclusive = { focus = TIA_a_turkic_state }
+		mutually_exclusive = { focus = TIA_the_tungan_republic }
 		completion_reward = {
 			army_experience = 20
 			add_war_support = 0.05
@@ -558,7 +811,7 @@ focus_tree = {
 		icon = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
 		x = 2
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -596,7 +849,7 @@ focus_tree = {
 		icon = GFX_focus_chi_one_china_policy
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -613,14 +866,14 @@ focus_tree = {
 	focus = {
 		id = TIA_reinvigorate_shaowus_governorship
 		icon = GFX_goal_generic_demand_territory
-		x = -2
+		x = -3
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
 		relative_position_id = TIA_a_chinese_nation
-		prerequisite = { focus = TIA_a_chinese_nation }
+		prerequisite = { focus = TIA_a_chinese_nation focus = TIA_the_tungan_republic }
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = 0.05
@@ -639,15 +892,16 @@ focus_tree = {
 	focus = {
 		id = TIA_seize_hami
 		icon = GFX_focus_generic_annex_country
-		x = 0
+		x = 1
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
 		available = {
 			is_neighbor_of = KUM
 			has_war = no
+			has_completed_focus = TIA_a_chinese_nation
 		}
 		bypass = {
 			if = { 
@@ -655,7 +909,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = TIA_reinvigorate_shaowus_governorship
-		prerequisite = { focus = TIA_a_chinese_nation }
+		prerequisite = { focus = TIA_reinvigorate_shaowus_governorship }
 		completion_reward = {
 			declare_war_on = {
 				target = KUM
@@ -669,7 +923,7 @@ focus_tree = {
 		icon = GFX_goal_generic_attack_allies
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -697,7 +951,7 @@ focus_tree = {
 		icon = GFX_goal_anti_comintern_pact
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -725,7 +979,7 @@ focus_tree = {
 		icon = GFX_goal_generic_forceful_treaty
 		x = 0
 		y = 1
-		cost = 8
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -795,7 +1049,7 @@ focus_tree = {
 		icon = GFX_focus_generic_road_investment
 		x = -1
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -831,7 +1085,7 @@ focus_tree = {
 		icon = GFX_focus_por_the_pink_map
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
@@ -857,7 +1111,7 @@ focus_tree = {
 		icon = GFX_focus_generic_diplomatic_treaty
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
