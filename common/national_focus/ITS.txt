@@ -13,7 +13,7 @@ focus_tree = {
 	
 	focus = {
 		id = ITS_mussolinis_vision
-		icon = GFX_focus_ITA_capo_supremo
+		icon = GFX_goal_generic_construction
 		x = 5
 		y = 0
 		cost = 5
@@ -25,7 +25,7 @@ focus_tree = {
 
 	focus = {
 		id = ITS_fund_new_factories
-		icon = GFX_focus_generic_industry_3
+		icon = GFX_goal_generic_construction
 		x = -1
 		y = 1
 		cost = 5
@@ -53,7 +53,7 @@ focus_tree = {
 
 	focus = {
 		id = ITS_produce_new_guns
-		icon = GFX_focus_ETH_freedom_at_gunpoint
+		icon = GFX_goal_generic_construction
 		x = 1
 		y = 1
 		cost = 5
@@ -94,7 +94,7 @@ focus_tree = {
 	
 	focus = {
 		id = ITS_increase_northern_development
-		icon = GFX_focus_ITA_northern_industry
+		icon = GFX_goal_generic_construction
 		x = 1
 		y = 1
 		cost = 7
@@ -130,7 +130,7 @@ focus_tree = {
 		relative_position_id = ITS_reorg_industry
 		prerequisite = { focus = ITS_reorg_industry }
 		completion_reward = {
-
+			remove_ideas = ITS_separate_militias_from_army
 		}
 	}
 	
@@ -211,6 +211,22 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			if = {
+				limit = { has_completed_focus = ITS_investigate }
+				if = {
+					limit = { has_completed_focus = ITS_natsyn_win }
+					add_popularity = {
+						ideology = national_syndicalism
+						popularity = 0.15
+					}
+				}
+				else = {
+					add_popularity = {
+						ideology = national_syndicalism
+						popularity = -0.1
+					}					
+				}
+			}
 		}
 	}
 	focus = {
@@ -275,6 +291,9 @@ focus_tree = {
 		relative_position_id = ITS_first_election
 		prerequisite = { focus = ITS_first_election }
 		completion_reward = {
+			set_politics = {
+				ruling_party = national_syndicalism
+			}	
 		}
 	}
 	focus = {
@@ -288,7 +307,10 @@ focus_tree = {
 		mutually_exclusive = { focus = ITS_libsco_win }
 		relative_position_id = ITS_first_election
 		prerequisite = { focus = ITS_first_election }
-		completion_reward = {
+		completion_reward = {	
+			set_politics = {
+				ruling_party = marxism
+			}			
 		}
 	}
 	focus = {
@@ -303,6 +325,9 @@ focus_tree = {
 		relative_position_id = ITS_first_election
 		prerequisite = { focus = ITS_first_election }
 		completion_reward = {
+			set_politics = {
+				ruling_party = libertarian_socialism
+			}	
 		}
 	}
 	
@@ -382,6 +407,11 @@ focus_tree = {
 		relative_position_id = ITS_prepare_for_revenge_1
 		prerequisite = { focus = ITS_prepare_for_revenge_1 }
 		completion_reward = {
+			declare_war_on = {
+				target = TUS
+				type = annex_everything
+			}	
+			add_civil_war_target = TUS
 		}
 	}
 	focus = {
@@ -439,6 +469,10 @@ focus_tree = {
 		relative_position_id = ITS_full_rat_2
 		prerequisite = { focus = ITS_full_rat_2 }
 		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITS_socialist_economy
+				add_idea = ITS_syndicalist_economy
+			}
 		}
 	}
 	focus = {
@@ -484,6 +518,11 @@ focus_tree = {
 		relative_position_id = ITS_prepare_for_revenge_2
 		prerequisite = { focus = ITS_prepare_for_revenge_2 }
 		completion_reward = {
+			declare_war_on = {
+				target = TUS
+				type = annex_everything
+			}	
+			add_civil_war_target = TUS
 		}
 	}
 	focus = {
@@ -537,8 +576,8 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		relative_position_id = ITS_crackdown_on_industry_1
-		prerequisite = { focus = ITS_crackdown_on_industry_1 }
+		relative_position_id = ITS_crackdown_on_industry_3
+		prerequisite = { focus = ITS_crackdown_on_industry_3 }
 		completion_reward = {
 		}
 	}
@@ -548,8 +587,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
-		relative_position_id = ITS_crackdown_on_industry_1
-		prerequisite = { focus = ITS_crackdown_on_industry_1 }
+		relative_position_id = ITS_crackdown_on_industry_3
+		prerequisite = { focus = ITS_crackdown_on_industry_3 }
 		completion_reward = {
 		}
 	}
@@ -559,8 +598,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 10
-		relative_position_id = ITS_expand_weapon_production_1
-		prerequisite = { focus = ITS_expand_weapon_production_1 }
+		relative_position_id = ITS_expand_weapon_production_3
+		prerequisite = { focus = ITS_expand_weapon_production_3 }
 		prerequisite = { focus = ITS_excite_workers }
 		completion_reward = {
 		}
@@ -571,6 +610,12 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		available = {
+			OR = {
+				owns_state = 162
+				owns_state = 884
+			}
+		}
 		relative_position_id = ITS_intigrate_venice
 		prerequisite = { focus = ITS_intigrate_venice}
 		completion_reward = {
@@ -610,6 +655,906 @@ focus_tree = {
 				has_completed_focus = ITS_just_the_beginning_2
 			}
 		}
+		completion_reward = {
+			declare_war_on = {
+				target = ITA
+				type = annex_everything
+			}	
+			add_civil_war_target = ITA
+		}
+	}
+	
+	focus = {
+		id = ITS_separate_church_and_state
+		icon = GFX_goal_generic_construction
+		x = 2
+		y = 1
+		relative_position_id = ITS_free_italy
+		cost = 5
+		prerequisite = { 
+			focus = ITS_free_italy
+		}
+		available = { VAT = { has_country_flag = papal_state } }
+		completion_reward = {
+			declare_war_on = {
+				target = VAT
+				type = take_claimed_state
+			}	
+		}
+	}
+	
+	focus = {
+		id = ITS_kill_vne
+		icon = GFX_goal_generic_construction
+		x = -2
+		y = 1
+		relative_position_id = ITS_free_italy
+		cost = 5
+		prerequisite = { 
+			focus = ITS_free_italy
+		}
+		available = {
+			NOT = {
+				OR = {
+					owns_state = 160
+					owns_state = 860
+				}
+			}
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = VNE
+				type = annex_everything
+			}	
+			add_civil_war_target = VNE	
+		}
+	}
+	
+	focus = {
+		id = ITS_expand_the_front
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_free_italy
+		cost = 2
+		prerequisite = { 
+			focus = ITS_free_italy
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = SAN
+				type = annex_everything
+			}	
+			add_civil_war_target = SAN
+		}
+	}
+	focus = {
+		id = ITS_fight_crime
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_expand_the_front
+		cost = 5
+		prerequisite = { 
+			focus = ITS_expand_the_front
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = MSS
+				type = annex_everything
+			}	
+			add_civil_war_target = MSS
+		}
+	}
+	focus = {
+		id = ITS_return_to_sar
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_fight_crime
+		cost = 5
+		prerequisite = { 
+			focus = ITS_fight_crime
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = SAR
+				type = annex_everything
+			}	
+			add_civil_war_target = SAR
+		}
+	}
+	focus = {
+		id = ITS_italy_finally_free
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_return_to_sar
+		cost = 5
+		available = {
+			has_country_flag = ITAS_has_cored_tus
+			has_country_flag = ITAS_has_cored_vne
+			has_country_flag = ITAS_has_cored_ita
+			has_country_flag = ITAS_has_cored_mss
+			has_country_flag = ITAS_has_cored_sar		
+		}
+		prerequisite = { 
+			focus = ITS_return_to_sar
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	
+# Rebuild tree
+# Rebuild tree
+# Rebuild tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_reorg_gov
+		icon = GFX_goal_generic_construction
+		x = -2
+		y = 1
+		relative_position_id = ITS_italy_finally_free
+		cost = 5
+		allow_branch = { has_completed_focus = ITS_italy_finally_free}
+		prerequisite = { 
+			focus = ITS_italy_finally_free
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_reallocate_welth
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_italy_finally_free
+		cost = 5
+		allow_branch = { has_completed_focus = ITS_italy_finally_free}
+		prerequisite = { 
+			focus = ITS_italy_finally_free
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_reorg_industry_after
+		icon = GFX_goal_generic_construction
+		x = 2
+		y = 1
+		relative_position_id = ITS_italy_finally_free
+		cost = 5
+		allow_branch = { has_completed_focus = ITS_italy_finally_free}
+		prerequisite = { 
+			focus = ITS_italy_finally_free
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = ITS_reassure_ppl
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_reallocate_welth
+		cost = 5
+		prerequisite = { 
+			focus = ITS_reallocate_welth
+		}
+		prerequisite = { 
+			focus = ITS_reorg_industry_after
+		}
+		prerequisite = { 
+			focus = ITS_reorg_gov
+		}
+		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+# shared idustry tree
+# shared idustry tree
+# shared idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_autarky
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		relative_position_id = ITS_reassure_ppl
+		cost = 5
+		prerequisite = { 
+			focus = ITS_reassure_ppl
+		}
+		mutually_exclusive = { focus = ITS_mass_trade }
+		available = { NOT = { has_government = libertarian_socialism } }
+		allow_branch = { has_completed_focus = ITS_reassure_ppl }
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_mass_trade
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		relative_position_id = ITS_reassure_ppl
+		cost = 5
+		prerequisite = { 
+			focus = ITS_reassure_ppl
+		}
+		mutually_exclusive = { focus = ITS_autarky }
+		available = { NOT = { has_government = national_syndicalism } }
+		allow_branch = { has_completed_focus = ITS_reassure_ppl }
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_mass_trade_2
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_mass_trade
+		cost = 5
+		prerequisite = { 
+			focus = ITS_mass_trade
+		}
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_future_of_the_nation
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_autarky_2
+		cost = 5
+		prerequisite = { 
+			focus = ITS_mass_trade_2
+			focus = ITS_autarky_2
+		}
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_future_of_the_revolution
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = ITS_mass_trade_2
+		cost = 5
+		prerequisite = { 
+			focus = ITS_mass_trade_2
+			focus = ITS_autarky_2
+		}
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_our_allies
+		icon = GFX_goal_generic_construction
+		x = 1
+		y = 1
+		relative_position_id = ITS_future_of_the_nation
+		prerequisite = { 
+			focus = ITS_future_of_the_revolution
+		}
+		prerequisite = { 
+			focus = ITS_future_of_the_nation
+		}
+		completion_reward = {
+			set_rule = { can_join_factions = yes }
+		}
+	}	
+	focus = {
+		id = ITS_join_uvs
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = ITS_our_allies
+		}
+		
+		available = {
+			UVS = {  
+				is_faction_leader = yes
+			}
+			is_in_faction = no
+		}
+	
+		relative_position_id = ITS_our_allies
+		
+        x = -2
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			UVS = {
+				country_event = its.3
+			}
+		}
+	}
+	focus = {
+		id = ITS_join_sov
+		icon = GFX_goal_generic_construction 
+		
+		prerequisite = {
+			focus = ITS_our_allies
+		}
+		
+		available = {
+			SOV = {  
+				is_faction_leader = yes
+			}
+			is_in_faction = no
+		}
+	
+		relative_position_id = ITS_our_allies
+		
+        x = 0
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			SOV = {
+				country_event = its.3
+			}
+		}
+	}
+	focus = {
+		id = ITS_create_factoin
+		icon = GFX_goal_generic_construction 
+		
+		prerequisite = {
+			focus = ITS_our_allies
+		}
+		
+		ai_will_do = {
+			base = 0
+		}
+		
+		available = {
+			is_in_faction = no
+			is_puppet = no
+		}
+	
+		relative_position_id = ITS_our_allies
+		
+        x = 2
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "Mediterranean Revolutionary Front"
+		}
+	}
+	
+# Nat idustry tree
+# Nat idustry tree
+# Nat idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_a_strong_nation
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_future_of_the_nation
+		}
+		
+		allow_branch = {
+			OR = {
+				has_government = national_syndicalism
+				has_government = bolshevism
+			}
+			has_completed_focus = ITS_reassure_ppl
+		}
+	
+		relative_position_id = ITS_future_of_the_nation
+		
+        x = -6
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_nat_idustry_civ
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_a_strong_nation
+		}
+		
+	
+		relative_position_id = ITS_a_strong_nation
+		
+        x = -1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_nat_idustry_mil
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_a_strong_nation
+		}
+		
+	
+		relative_position_id = ITS_a_strong_nation
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+# Natbol idustry tree
+# Natbol idustry tree
+# Natbol idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_natbol_eff_work
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_nat_idustry_mil
+		}
+		prerequisite = {
+			focus = ITS_nat_idustry_civ
+		}
+		
+		allow_branch = {
+			OR = {
+				has_government = bolshevism
+			}
+			has_completed_focus = ITS_reassure_ppl
+		}		
+	
+		relative_position_id = ITS_nat_idustry_civ
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_natbol_mils_1
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_natbol_eff_work
+		}
+	
+		relative_position_id = ITS_natbol_eff_work
+		
+        x = -1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_natbol_mils_2
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_natbol_eff_work
+		}
+	
+		relative_position_id = ITS_natbol_eff_work
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_natbol_mass_weapons
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_natbol_mils_1
+		}
+		prerequisite = {
+			focus = ITS_natbol_mils_2
+		}
+	
+		relative_position_id = ITS_natbol_mils_1
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+# Natsyn idustry tree
+# Natsyn idustry tree
+# Natsyn idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_natsyn_an_adaptive_nation
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_nat_idustry_mil
+		}
+		prerequisite = {
+			focus = ITS_nat_idustry_civ
+		}
+		
+		allow_branch = {
+			OR = {
+				has_government = national_syndicalism
+			}
+			has_completed_focus = ITS_reassure_ppl
+		}		
+	
+		relative_position_id = ITS_nat_idustry_civ
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_natsyn_mils_1
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_natsyn_an_adaptive_nation
+		}
+	
+		relative_position_id = ITS_natsyn_an_adaptive_nation
+		
+        x = -1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_natsyn_mils_2
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_natsyn_an_adaptive_nation
+		}
+	
+		relative_position_id = ITS_natsyn_an_adaptive_nation
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_natsyn_mass_weapons
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_natsyn_mils_1
+		}
+		prerequisite = {
+			focus = ITS_natsyn_mils_2
+		}
+	
+		relative_position_id = ITS_natsyn_mils_1
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+# Nonnat idustry tree
+# Nonnat idustry tree
+# Nonnat idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_an_adaptive_nation
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_future_of_the_nation
+		}
+		
+		allow_branch = {
+			OR = {
+				has_government = marxism
+				has_government = libertarian_socialism
+			}
+			has_completed_focus = ITS_reassure_ppl
+		}
+	
+		relative_position_id = ITS_future_of_the_nation
+		
+        x = -5
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_nonnat_idustry_civ
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_an_adaptive_nation
+		}
+		
+	
+		relative_position_id = ITS_an_adaptive_nation
+		
+        x = -1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_nonnat_idustry_mil
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_an_adaptive_nation
+		}
+		
+	
+		relative_position_id = ITS_an_adaptive_nation
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+# Marx idustry tree
+# Marx idustry tree
+# Marx idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_marx_eff_work
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_nonnat_idustry_mil
+		}
+		prerequisite = {
+			focus = ITS_nonnat_idustry_civ
+		}
+		
+		allow_branch = {
+			OR = {
+				has_government = marxism
+			}
+			has_completed_focus = ITS_reassure_ppl
+		}		
+	
+		relative_position_id = ITS_nonnat_idustry_civ
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_marx_civs_1
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_marx_eff_work
+		}
+	
+		relative_position_id = ITS_marx_eff_work
+		
+        x = -1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_marx_civs_2
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_marx_eff_work
+		}
+	
+		relative_position_id = ITS_marx_eff_work
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_marx_social_programs
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_marx_civs_1
+		}
+		prerequisite = {
+			focus = ITS_marx_civs_2
+		}
+	
+		relative_position_id = ITS_marx_civs_1
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+# Libsco idustry tree
+# Libsco idustry tree
+# Libsco idustry tree
+# PLEASE SEE THIS
+
+	focus = {
+		id = ITS_libsco_agricualtral
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_nonnat_idustry_mil
+		}
+		prerequisite = {
+			focus = ITS_nonnat_idustry_civ
+		}
+		
+		allow_branch = {
+			OR = {
+				has_government = libertarian_socialism
+			}
+			has_completed_focus = ITS_reassure_ppl
+		}		
+	
+		relative_position_id = ITS_nonnat_idustry_civ
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_libsco_civs_1
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_libsco_agricualtral
+		}
+	
+		relative_position_id = ITS_libsco_agricualtral
+		
+        x = -1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_libsco_civs_2
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_libsco_agricualtral
+		}
+	
+		relative_position_id = ITS_libsco_agricualtral
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_libsco_social_programs
+		icon = GFX_goal_generic_construction   
+		
+		prerequisite = {
+			focus = ITS_libsco_civs_1
+		}
+		prerequisite = {
+			focus = ITS_libsco_civs_2
+		}
+	
+		relative_position_id = ITS_libsco_civs_1
+		
+        x = 1
+        y = 1
+		
+        cost = 5
+		
 		completion_reward = {
 		}
 	}
