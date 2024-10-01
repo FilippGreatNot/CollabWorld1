@@ -1471,9 +1471,9 @@
 		
 		completion_reward = {
 			add_state_core = 39
-			declare_war_on = {
-				target = AUS
+			create_wargoal = {
 				type = puppet_wargoal_focus
+				target = AUS
 			}
 		}
 	}
@@ -1495,7 +1495,32 @@
 		
 		completion_reward = {
 			add_state_claim = 44
-			ALB = {country_event = tus.8}
+			if = {
+				limit = { country_exists = ALB }
+				ALB = {country_event = tus.8}
+			}
+			else = {
+				every_other_country = {
+					limit = {
+						any_owned_state = { state = 44 }
+						NOT = {
+							OR = {
+								original_tag = HUN
+								original_tag = BUL
+								original_tag = GRE
+								original_tag = AUS
+								original_tag = YUG
+							}
+						}
+					}
+					TUS = {
+						create_wargoal = {
+							type = take_claimed_state
+							target = PREV
+						}
+					}
+				}			
+			}
 		}
 	}
 
@@ -1525,9 +1550,25 @@
 				}
 			}
 			#dont forget to change when yugo update out
-			declare_war_on = {
-				target = YUG
-				type = annex_everything
+			every_other_country = {
+				limit = {
+					any_owned_state = { is_core_of = YUG }
+					NOT = {
+						OR = {
+							original_tag = HUN
+							original_tag = BUL
+							original_tag = GRE
+							original_tag = AUS
+							original_tag = ALB
+						}
+					}
+				}
+				TUS = {
+					create_wargoal = {
+						type = take_claimed_state
+						target = PREV
+					}
+				}
 			}
 		}
 	}
@@ -1562,12 +1603,14 @@
 		
 		relative_position_id = TUS_revenge_for_the_great_war
 		
+		bypass = {NOT = { country_exists = HUN } }
+		
         cost = 8
 		
 		completion_reward = {
-			declare_war_on = {
-				target = HUN
+			create_wargoal = {
 				type = puppet_wargoal_focus
+				target = HUN
 			}
 		}
 	}
@@ -1600,10 +1643,14 @@
 		
 		relative_position_id = TUS_realign_hungary
 		
+		bypass = { is_faction_leader = no }
+		
         cost = 5
 		
 		completion_reward = {
-		
+			HUN = {
+				country_event = tus.20
+			}
 		}
 	}
 
@@ -1623,6 +1670,8 @@
 			}
 		}
 		
+		bypass = {NOT = { country_exists = BUL } }
+		
 		mutually_exclusive = {focus = TUS_team_bulgaria}
 		
 		prerequisite = {
@@ -1633,7 +1682,7 @@
 			focus = TUS_team_hungary
 		}
 		
-		x = -1
+		x = 1
         y = 1
 		
 		relative_position_id = TUS_team_hungary
@@ -1641,9 +1690,9 @@
         cost = 10
 		
 		completion_reward = {
-			declare_war_on = {
-				target = BUL
+			create_wargoal = {
 				type = puppet_wargoal_focus
+				target = BUL
 			}
 		}
 	}
@@ -1676,14 +1725,15 @@
 		x = -1
         y = 1
 		
-		relative_position_id = TUS_realign_hungary
+		relative_position_id = TUS_team_hungary
 		
         cost = 10
 		
+		bypass = { is_faction_leader = no }
+		
 		completion_reward = {
-			declare_war_on = {
-				target = BUL
-				type = annex_everything
+			BUL = {
+				country_event = tus.20
 			}
 		}
 	}
@@ -1719,12 +1769,14 @@
 		
 		relative_position_id = TUS_take_yugoslavian_lands
 		
+		bypass = {NOT = { country_exists = GRE } }
+		
         cost = 10
 		
 		completion_reward = {
-			declare_war_on = {
-				target = GRE
+			create_wargoal = {
 				type = puppet_wargoal_focus
+				target = GRE
 			}
 		}
 	}
@@ -1761,41 +1813,14 @@
 		
         cost = 10
 		
+		bypass = { is_faction_leader = no }
+		
 		completion_reward = {
-			declare_war_on = {
-				target = GRE
-				type = annex_everything
+			GRE = {
+				country_event = tus.20
 			}
 		}
 	}
-	
-	#focus = {
-	#	id = TUS_invade_romania
-	#	icon = GFX_goal_generic_construction
-	#	
-	#	prerequisite = {
-	#		focus = TUS_take_yugoslavian_lands
-	#	}
-	#	prerequisite = {
-	#		focus = TUS_realign_hungary
-	#		focus = TUS_team_hungary
-	#	}
-	#	
-	#	x = 1
-    #   y = 1
-	#	
-	#	relative_position_id = TUS_take_yugoslavian_lands
-	#	
-    #   cost = 15
-	#	
-	#	completion_reward = {
-	#		ROM = {every_core_state = {add_claim_by = TUS}}
-	#		declare_war_on = {
-	#			target = ROM
-	#			type = annex_everything
-	#		}
-	#	}
-	#}
 
 	## army focus tree ##
 

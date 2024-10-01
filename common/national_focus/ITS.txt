@@ -192,6 +192,7 @@ focus_tree = {
 		y = 1
         cost = 8 
 		cancelable = no
+		dynamic = yes
 		relative_position_id = ITS_he_died
 		prerequisite = { focus = ITS_he_died focus = ITS_he_lives }
 		available = {
@@ -292,6 +293,12 @@ focus_tree = {
 		relative_position_id = ITS_first_election
 		prerequisite = { focus = ITS_first_election }
 		completion_reward = {
+			hidden_effect = {
+				country_event = {
+					id = its.4
+					days = 35
+				}	
+			}
 			set_politics = {
 				ruling_party = national_syndicalism
 			}	
