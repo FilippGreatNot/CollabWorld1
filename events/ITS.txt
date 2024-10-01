@@ -1,7 +1,8 @@
 ## SETUP ##
 add_namespace = its
+add_namespace = its_coverup
 
-## MAIN ##
+## Main ##
 
 country_event = {
 	id = its.1
@@ -71,3 +72,93 @@ country_event = {
 	}
 }
 
+## Coverup ##
+
+country_event = {
+	id = its_coverup.1
+	title = its_coverup.1.t
+	desc = its_coverup.1.d
+	fire_only_once = yes
+	
+	trigger = {
+		focus_progress = {
+			focus = ITS_investigate
+			progress > 0
+		}	
+	}
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = its_coverup.2
+				days = 20
+			}			
+		}
+		set_variable = {
+			var = ITS_coverup_points
+			value = 0
+		}
+	}
+	
+	option = {
+		#kill assassin
+		name = its_coverup.1.a
+	}
+	option = {
+		#let the assassin live
+		name = its_coverup.1.b
+		add_to_variable = {
+			var = ITS_coverup_points
+			value = 1
+		}
+	}
+}
+
+country_event = {
+	id = its_coverup.2
+	title = its_coverup.2.t
+	desc = its_coverup.2.d
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = its_coverup.3
+				days = 20
+			}	
+		}
+	}
+
+	option = {
+		#plant evidence at assassin's home
+		name = its_coverup.2.a
+		add_to_variable = {
+			var = ITS_coverup_points
+			value = 1
+		}
+	}
+	option = {
+		#dont
+		name = its_coverup.2.b
+	}
+}
+
+country_event = {
+	id = its_coverup.3
+	title = its_coverup.3.t
+	desc = its_coverup.3.d
+	is_triggered_only = yes
+
+	option = {
+		#kill untrustworthy party members
+		name = its_coverup.3.a
+	}
+	option = {
+		#dont
+		name = its_coverup.3.b
+		add_to_variable = {
+			var = ITS_coverup_points
+			value = 1
+		}
+	}
+}

@@ -190,9 +190,16 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = -4
 		y = 1
-		cost = 5
+        cost = 8 
+		cancelable = no
 		relative_position_id = ITS_he_died
 		prerequisite = { focus = ITS_he_died focus = ITS_he_lives }
+		available = {
+			OR = {
+				has_completed_focus = ITS_first_election
+				has_completed_focus = ITS_he_lives
+			}
+		}
 		completion_reward = {
 		}
 	}
@@ -204,12 +211,6 @@ focus_tree = {
 		cost = 5
 		relative_position_id = ITS_investigate
 		prerequisite = { focus = ITS_investigate }
-		available = {
-			OR = {
-				has_completed_focus = ITS_first_election
-				has_completed_focus = ITS_he_lives
-			}
-		}
 		completion_reward = {
 			if = {
 				limit = { has_completed_focus = ITS_investigate }
@@ -872,6 +873,20 @@ focus_tree = {
 		mutually_exclusive = { focus = ITS_mass_trade }
 		available = { NOT = { has_government = libertarian_socialism } }
 		allow_branch = { has_completed_focus = ITS_reassure_ppl }
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = ITS_autarky_2
+		icon = GFX_goal_generic_construction
+		x = -1
+		y = 1
+		relative_position_id = ITS_autarky
+		cost = 5
+		prerequisite = { 
+			focus = ITS_autarky
+		}
 		completion_reward = {
 		}
 	}
