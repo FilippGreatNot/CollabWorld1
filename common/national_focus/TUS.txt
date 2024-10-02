@@ -1438,7 +1438,7 @@
 		}
 		
 		x = -2
-		y = 1
+		y = 2
 		relative_position_id = TUS_start_trade_relations
 		
         cost = 10
@@ -1457,7 +1457,7 @@
 		icon = GFX_goal_generic_construction
 		
         x = 2
-        y = 0
+        y = -1
 
 		prerequisite = {
 			focus = TUS_improve_the_north
@@ -1477,7 +1477,7 @@
 		
 		relative_position_id = TUS_revenge_for_the_great_war
 		
-        cost = 8
+        cost = 6
 		
 		completion_reward = {
 			LBA = {
@@ -1489,6 +1489,36 @@
 				type = annex_everything
 				target = LBA
 			}	
+		}
+	}
+	focus = {
+		id = TUS_african_claims
+		icon = GFX_goal_generic_construction
+		
+        x = 0
+        y = 1
+
+		prerequisite = {
+			focus = TUS_return_to_libya
+		}
+		
+		relative_position_id = TUS_return_to_libya
+		
+        cost = 5
+		
+		completion_reward = {
+			every_state = {
+				limit = {
+					region = 17
+					NOT = { 
+						OR = {
+							state = 268 
+							state = 269 
+						}
+					}
+				}
+				add_claim_by = TUS
+			}
 		}
 	}
 	
@@ -1519,7 +1549,7 @@
 		
 		relative_position_id = TUS_revenge_for_the_great_war
 		
-        cost = 8
+        cost = 5
 		
 		completion_reward = {
 			add_state_claim = 44
@@ -1568,7 +1598,7 @@
 		
 		relative_position_id = TUS_demand_albania
 		
-        cost = 15
+        cost = 12
 		
 		completion_reward = {
 			YUG = {
@@ -1715,7 +1745,7 @@
 		
 		relative_position_id = TUS_team_hungary
 		
-        cost = 10
+        cost = 8
 		
 		completion_reward = {
 			create_wargoal = {
@@ -1755,7 +1785,7 @@
 		
 		relative_position_id = TUS_team_hungary
 		
-        cost = 10
+        cost = 5
 		
 		bypass = { is_faction_leader = no }
 		
@@ -1799,7 +1829,7 @@
 		
 		bypass = {NOT = { country_exists = GRE } }
 		
-        cost = 10
+        cost = 8
 		
 		completion_reward = {
 			create_wargoal = {
@@ -1839,7 +1869,7 @@
 		
 		relative_position_id = TUS_take_yugoslavian_lands
 		
-        cost = 10
+        cost = 5
 		
 		bypass = { is_faction_leader = no }
 		
