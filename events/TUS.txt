@@ -96,17 +96,6 @@ country_event = {
 }
 
 country_event = {
-	id = tus.7
-	title = tus.7.t
-	desc = tus.7.d
-	is_triggered_only = yes
-	
-	option = {
-		name = tus.7.a	
-	}
-}
-
-country_event = {
 	id = tus.9
 	title = tus.9.t
 	desc = tus.9.d
@@ -380,16 +369,9 @@ country_event = {
 	
 	option = {
 		name = tus.16.a	
-
-	}
-	
-	option = {
-		name = tus.16.b
-		TUS = {
-			declare_war_on = {
-				target = ALB
-				type = annex_everything
-			}
+		create_wargoal = {
+			type = annex_everything
+			target = ALB
 		}
 	}
 }
@@ -594,6 +576,27 @@ country_event = {
 	}	
 }  
 
+## invite ##
+
+country_event = {
+	id = tus.20
+	title = tus.20.t
+	desc = tus.20.d
+	is_triggered_only = yes
+
+	option = {
+		name = tus.20.a
+		TUS = {
+			add_to_faction = ROOT
+		}
+	}
+
+	option = {
+		name = tus.20.b
+		ai_chance = { base = 0 }
+	}	
+}  
+
 ## First Meeting ##
 country_event = {
 	id = tus_coun1.1
@@ -720,61 +723,61 @@ country_event = {
 }
 
 ## Capture Events ##
-country_event = {
-	id = tus_cap.1
-	title = tus_cap.1.t
-	desc = tus_cap.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = TUS
-		has_idea = TUS_unified_government
-		owns_state = 159
-	}
-	
-	option = {
-		name = tus_cap.1.a
-		add_stability = -0.1
-	}
-	option = {
-		name = tus_cap.2.a
-		add_popularity = {
-			ideology = bolshevism
-			popularity = 0.06
-		}	
-		add_popularity = {
-			ideology = marxism
-			popularity = 0.03
-		}			
-	}
-}
+#country_event = {
+#	id = tus_cap.1
+#	title = tus_cap.1.t
+#	desc = tus_cap.1.d
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		tag = TUS
+#		has_idea = TUS_unified_government
+#		owns_state = 159
+#	}
+#	
+#	option = {
+#		name = tus_cap.1.a
+#		add_stability = -0.1
+#	}
+#	option = {
+#		name = tus_cap.2.a
+#		add_popularity = {
+#			ideology = bolshevism
+#			popularity = 0.06
+#		}	
+#		add_popularity = {
+#			ideology = marxism
+#			popularity = 0.03
+#		}			
+#	}
+#}
 
-country_event = {
-	id = tus_cap.2
-	title = tus_cap.1.t
-	desc = tus_cap.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = TUS
-		has_idea = TUS_disunified_government
-		owns_state = 159
-	}
-	
-	option = {
-		name = tus_cap.2.a
-		add_popularity = {
-			ideology = bolshevism
-			popularity = 0.06
-		}	
-		add_popularity = {
-			ideology = marxism
-			popularity = 0.03
-		}
-	}
-}
+#country_event = {
+#	id = tus_cap.2
+#	title = tus_cap.1.t
+#	desc = tus_cap.1.d
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		tag = TUS
+#		has_idea = TUS_disunified_government
+#		owns_state = 159
+#	}
+#	
+#	option = {
+#		name = tus_cap.2.a
+#		add_popularity = {
+#			ideology = bolshevism
+#			popularity = 0.06
+#		}	
+#		add_popularity = {
+#			ideology = marxism
+#			popularity = 0.03
+#		}
+#	}
+#}
 
 country_event = {
 	id = tus_cap.3
