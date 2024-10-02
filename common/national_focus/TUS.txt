@@ -1418,7 +1418,7 @@
 	}
 	
 	focus = {
-		id = TUS_balbos_speech_3
+		id = TUS_revenge_for_the_great_war
 		icon = GFX_goal_generic_construction
 		
 		prerequisite = {
@@ -1437,35 +1437,9 @@
 			focus = TUS_research_division
 		}
 		
-		available = {
-			is_in_faction = yes
-		}
-		
-		relative_position_id = TUS_restabilize_the_government
-		
-        x = -2
-        y = 2
-		
-        cost = 2
-		
-		completion_reward = {
-			country_event = tus.7
-		}
-	}
-	
-	focus = {
-		id = TUS_revenge_for_the_great_war
-		icon = GFX_goal_generic_construction
-		
-		#available = {has_completed_focus = TUS_balbos_speech_3}
-		
-        #x = 24
-        #y = 0
-		
-		x = -1
+		x = -2
 		y = 1
-		relative_position_id = TUS_balbos_speech_3
-		prerequisite = {focus = TUS_balbos_speech_3}
+		relative_position_id = TUS_start_trade_relations
 		
         cost = 10
 		
@@ -1479,15 +1453,69 @@
 	}
 	
 	focus = {
+		id = TUS_return_to_libya
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+        y = 0
+
+		prerequisite = {
+			focus = TUS_improve_the_north
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south
+		}		
+		prerequisite = {
+			focus = TUS_start_trade_relations
+		}
+		prerequisite = {
+			focus = TUS_resolve_workers_strikes
+		}
+		prerequisite = {
+			focus = TUS_research_division
+		}
+		
+		relative_position_id = TUS_revenge_for_the_great_war
+		
+        cost = 8
+		
+		completion_reward = {
+			LBA = {
+				every_core_state = {
+					add_claim_by = TUS
+				}
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = LBA
+			}	
+		}
+	}
+	
+	focus = {
 		id = TUS_demand_albania
 		icon = GFX_goal_generic_construction
 		
 		#available = {has_completed_focus = TUS_balbos_speech_3}
 		
-        x = 2
+        x = 4
         y = 0
 
-		prerequisite = {focus = TUS_balbos_speech_3}
+		prerequisite = {
+			focus = TUS_improve_the_north
+		}
+		prerequisite = {
+			focus = TUS_improve_the_south
+		}		
+		prerequisite = {
+			focus = TUS_start_trade_relations
+		}
+		prerequisite = {
+			focus = TUS_resolve_workers_strikes
+		}
+		prerequisite = {
+			focus = TUS_research_division
+		}
 		
 		relative_position_id = TUS_revenge_for_the_great_war
 		
@@ -1535,7 +1563,7 @@
 			focus = TUS_revenge_for_the_great_war
 		}
 		
-        x = 1
+        x = 0
 		y = 1
 		
 		relative_position_id = TUS_demand_albania
@@ -1598,7 +1626,7 @@
 		
 		mutually_exclusive = { focus = TUS_team_hungary }
 		
-        x = 1
+        x = 2
         y = 1
 		
 		relative_position_id = TUS_revenge_for_the_great_war
