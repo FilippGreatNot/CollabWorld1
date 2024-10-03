@@ -477,6 +477,30 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fighting_for_democracy }
+		
+		completion_reward = {
+			air_experience = 25
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				}
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 25
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_tactical_bombardment
@@ -490,6 +514,32 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_wings_of_freedom }
 		mutually_exclusive = { focus = USA_mc_fight_for_air_superiority }
+		completion_reward = {
+		     air_experience = 25
+		     if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = {
+					type = medium_plane_airframe_0
+					amount = 100
+					producer = USA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = CAS_equipment_1
+					amount = 100
+					producer = USA
+				}
+			}
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 1
+				category = tactical_bomber
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_research_new_bombers
@@ -501,6 +551,22 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_tactical_bombardment }
+		
+		completion_reward = {
+			
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 2
+				category = tactical_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = FRA_air_ground_cooperation
+				category = air_doctrine
+				uses = 1
+				cost_reduction = 0.5
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_bombs_of_freedom
@@ -512,6 +578,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_research_new_bombers }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_thalmannomics_log"
+			add_ideas = {
+				CCC_bombs_of_freedom
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_fight_for_air_superiority
@@ -525,6 +598,29 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_wings_of_freedom }
 		mutually_exclusive = { focus = USA_mc_tactical_bombardment }
+		
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 100
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 100
+				}
+			}
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+	}
 	}
 	focus = {
 		id = USA_mc_cas_research
@@ -536,6 +632,21 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fight_for_air_superiority }
+		completion_reward = {
+			
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 2
+				category = cas_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = FRA_air_ground_cooperation
+				category = air_doctrine
+				uses = 1
+				cost_reduction = 0.5
+			}
+	}
 	}
 	focus = {
 		id = USA_mc_simplify_plane_production
@@ -547,6 +658,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_cas_research }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_thalmannomics_log"
+			add_ideas = {
+				CCC_simplified_plane_production
+			}
+		}
 	}
 
 	##Army subbranches
