@@ -1,0 +1,49 @@
+focus_tree = {
+	id = MAN.txt
+	default = no
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 50
+			tag = MAN
+		}
+	}
+
+	focus = {
+		id = MAN_invade_the_zheltorossiyans
+		icon = GFX_focus_generic_china1
+		x = 5
+		cost = 60
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			ZHL = { every_core_state = { add_core_of = MAN }}
+			declare_war_on = {
+				target = ZHL
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_recapture_hunchun
+		icon = GFX_focus_generic_china1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}
+		relative_position_id = MAN_invade_the_zheltorossiyans
+		prerequisite = { focus = MAN_invade_the_zheltorossiyans }
+		completion_reward = {
+			KOR = { every_core_state = { add_core_of = MAN }}
+			declare_war_on = {
+				target = KOR
+				type = annex_everything
+			}
+		}
+	}
+}

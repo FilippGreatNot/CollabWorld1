@@ -1,0 +1,24 @@
+#Important to put HIGHEST first
+SIK_inadequate_farming_level_down = {
+	if = {
+		limit = { has_idea = SIK_inadequate_farming_1 }
+		swap_ideas = {
+			remove_idea = SIK_inadequate_farming_1
+			add_idea = SIK_inadequate_farming_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = SIK_inadequate_farming_2 }
+		swap_ideas = {
+			remove_idea = SIK_inadequate_farming_2
+			add_idea = SIK_inadequate_farming_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = FGB_shrivelled_army_control_3 }
+		swap_ideas = {
+			remove_idea = SIK_inadequate_farming_3
+			add_idea = SIK_inadequate_farming_4
+		}
+	}
+}
