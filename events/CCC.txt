@@ -99,4 +99,35 @@ country_event = {
 	    }
 		add_war_support = 0.03
 	}
- }
+}
+ 
+country_event = {
+	id = ccc.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = ccc.5.t
+	desc = ccc.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = ccc.5.a
+		ai_chance = { base = 4 }
+		CCC = {
+			declare_war_on = {
+				target = ALA
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = ccc.5.b
+		ai_chance = { base = 6 }
+	    CCC = {
+			annex_country = { 
+				target = ALA
+				transfer_troops = yes 
+			}
+		}
+		
+	}
+}

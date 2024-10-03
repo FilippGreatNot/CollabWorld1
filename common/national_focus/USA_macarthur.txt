@@ -377,7 +377,7 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_restart_trade focus = USA_mc_principles_of_autarky }
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -385,7 +385,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -468,7 +468,7 @@ focus_tree = {
 	##Air subbranch
 	focus = {
 		id = USA_mc_wings_of_freedom
-		icon = USA_mc_wings_of_freedom
+		icon = GFX_focus_USA_mc_wings_of_freedom
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1
@@ -576,10 +576,17 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_professionalize_the_army }
 		mutually_exclusive = { focus = USA_mc_loyalty_to_the_marshal }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime
+				add_idea = CCC_the_marshals_regime4
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_loyalty_to_the_marshal
-		icon = GFX_focus_USA_mc_loyalty_to_the_marshal
+		icon = GFX_focus_USA_mc_dictator
 
 		relative_position_id = USA_mc_professionalize_the_army
 		y = 1
@@ -589,6 +596,19 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_professionalize_the_army }
 		mutually_exclusive = { focus = USA_mc_loyalty_to_democracy }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime
+				add_idea = CCC_the_marshals_regime2
+			}
+		}
+		
 	}
 	focus = {
 		id = USA_mc_train_the_next_generation
@@ -616,6 +636,14 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_train_the_next_generation }
 		prerequisite = { focus = USA_mc_loyalty_to_democracy }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_political_power = -50
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime4
+				add_idea = CCC_the_marshals_regime5
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_purge_unloyal_officers
@@ -629,6 +657,15 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_train_the_next_generation }
 		prerequisite =	{ focus = USA_mc_loyalty_to_the_marshal }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_stability = -0.05
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime2
+				add_idea = CCC_the_marshals_regime3
+			}
+		}
 	}
 
 	##Centralized army
