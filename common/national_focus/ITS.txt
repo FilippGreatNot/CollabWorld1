@@ -215,19 +215,22 @@ focus_tree = {
 		prerequisite = { focus = ITS_investigate }
 		completion_reward = {
 			if = {
-				limit = { has_completed_focus = ITS_investigate }
-				if = {
-					limit = { has_completed_focus = ITS_natsyn_win }
-					add_popularity = {
-						ideology = national_syndicalism
-						popularity = 0.15
-					}
+				limit = { has_completed_focus = ITS_natsyn_win }
+				add_popularity = {
+					ideology = national_syndicalism
+					popularity = 0.15
 				}
-				else = {
-					add_popularity = {
-						ideology = national_syndicalism
-						popularity = -0.1
-					}					
+			}
+			else = {
+				add_popularity = {
+					ideology = national_syndicalism
+					popularity = -0.1
+				}	
+				hidden_effect = {
+					if = {
+						limit = { check_variable = { ITS_coverup_points < 2 } }	
+						country_event = its_coverup.4
+					}
 				}
 			}
 		}
