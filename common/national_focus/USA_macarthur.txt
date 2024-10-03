@@ -257,7 +257,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_principles_of_autarky
-		icon = GFX_focus_USA_mc_principles_of_autarky
+		icon = GFX_focus_USA_mc_principles
 
 		relative_position_id = USA_mc_destroy_the_corporatocracy
 		y = 1
@@ -343,7 +343,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_mc_fight_poverty
-		icon = GFX_focus_USA_mc_fight_poverty
+		icon = GFX_focus_USA_mc_poverty
 
 		relative_position_id = USA_mc_expand_worker_rights
 		y = 1
@@ -369,7 +369,7 @@ focus_tree = {
 	##Common
 	focus = {
 		id = USA_mc_expand_the_military_industry
-		icon = GFX_focus_USA_mc_expand_the_military_industry
+		icon = GFX_focus_USA_mc_military_industry
 
 		relative_position_id = USA_mc_fixing_the_economy
 		y = 3
@@ -377,7 +377,7 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_restart_trade focus = USA_mc_principles_of_autarky }
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -385,7 +385,7 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
@@ -468,7 +468,7 @@ focus_tree = {
 	##Air subbranch
 	focus = {
 		id = USA_mc_wings_of_freedom
-		icon = USA_mc_wings_of_freedom
+		icon = GFX_focus_USA_mc_wings_of_freedom
 
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 1
@@ -477,6 +477,30 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fighting_for_democracy }
+		
+		completion_reward = {
+			air_experience = 25
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				}
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 25
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 25
+				}
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_tactical_bombardment
@@ -490,6 +514,32 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_wings_of_freedom }
 		mutually_exclusive = { focus = USA_mc_fight_for_air_superiority }
+		completion_reward = {
+		     air_experience = 25
+		     if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = {
+					type = medium_plane_airframe_0
+					amount = 100
+					producer = USA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = CAS_equipment_1
+					amount = 100
+					producer = USA
+				}
+			}
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 1
+				category = tactical_bomber
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_research_new_bombers
@@ -501,6 +551,22 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_tactical_bombardment }
+		
+		completion_reward = {
+			
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 2
+				category = tactical_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = FRA_air_ground_cooperation
+				category = air_doctrine
+				uses = 1
+				cost_reduction = 0.5
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_bombs_of_freedom
@@ -512,6 +578,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_research_new_bombers }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_thalmannomics_log"
+			add_ideas = {
+				CCC_bombs_of_freedom
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_fight_for_air_superiority
@@ -525,6 +598,29 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_wings_of_freedom }
 		mutually_exclusive = { focus = USA_mc_tactical_bombardment }
+		
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 100
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 100
+				}
+			}
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
+	}
 	}
 	focus = {
 		id = USA_mc_cas_research
@@ -536,6 +632,21 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fight_for_air_superiority }
+		completion_reward = {
+			
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 2
+				category = cas_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = FRA_air_ground_cooperation
+				category = air_doctrine
+				uses = 1
+				cost_reduction = 0.5
+			}
+	}
 	}
 	focus = {
 		id = USA_mc_simplify_plane_production
@@ -547,6 +658,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_cas_research }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_thalmannomics_log"
+			add_ideas = {
+				CCC_simplified_plane_production
+			}
+		}
 	}
 
 	##Army subbranches
@@ -576,10 +694,17 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_professionalize_the_army }
 		mutually_exclusive = { focus = USA_mc_loyalty_to_the_marshal }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime
+				add_idea = CCC_the_marshals_regime4
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_loyalty_to_the_marshal
-		icon = GFX_focus_USA_mc_loyalty_to_the_marshal
+		icon = GFX_focus_USA_mc_dictator
 
 		relative_position_id = USA_mc_professionalize_the_army
 		y = 1
@@ -589,6 +714,19 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_professionalize_the_army }
 		mutually_exclusive = { focus = USA_mc_loyalty_to_democracy }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime
+				add_idea = CCC_the_marshals_regime2
+			}
+		}
+		
 	}
 	focus = {
 		id = USA_mc_train_the_next_generation
@@ -616,6 +754,14 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_train_the_next_generation }
 		prerequisite = { focus = USA_mc_loyalty_to_democracy }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_political_power = -50
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime4
+				add_idea = CCC_the_marshals_regime5
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_purge_unloyal_officers
@@ -629,6 +775,15 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_train_the_next_generation }
 		prerequisite =	{ focus = USA_mc_loyalty_to_the_marshal }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_stability = -0.05
+			swap_ideas = {
+				remove_idea = CCC_the_marshals_regime2
+				add_idea = CCC_the_marshals_regime3
+			}
+		}
 	}
 
 	##Centralized army

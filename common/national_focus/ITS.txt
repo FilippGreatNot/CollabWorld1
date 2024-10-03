@@ -84,11 +84,12 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = ITS_fund_new_factories
 		prerequisite = { focus = ITS_fund_new_factories }
 		prerequisite = { focus = ITS_produce_new_guns }
 		completion_reward = {
+			remove_ideas = { ITS_heavily_disorganised_industry }
 		}
 	}
 	
@@ -214,19 +215,22 @@ focus_tree = {
 		prerequisite = { focus = ITS_investigate }
 		completion_reward = {
 			if = {
-				limit = { has_completed_focus = ITS_investigate }
-				if = {
-					limit = { has_completed_focus = ITS_natsyn_win }
-					add_popularity = {
-						ideology = national_syndicalism
-						popularity = 0.15
-					}
+				limit = { has_completed_focus = ITS_natsyn_win }
+				add_popularity = {
+					ideology = national_syndicalism
+					popularity = 0.15
 				}
-				else = {
-					add_popularity = {
-						ideology = national_syndicalism
-						popularity = -0.1
-					}					
+			}
+			else = {
+				add_popularity = {
+					ideology = national_syndicalism
+					popularity = -0.1
+				}	
+				hidden_effect = {
+					if = {
+						limit = { check_variable = { ITS_coverup_points < 2 } }	
+						country_event = its_coverup.4
+					}
 				}
 			}
 		}
@@ -279,6 +283,7 @@ focus_tree = {
 		prerequisite = { focus = ITS_he_died }
 		completion_reward = {
 			country_event = its.2
+			add_stability = 0.05
 		}
 	}
 	focus = {

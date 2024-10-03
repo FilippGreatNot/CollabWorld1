@@ -107,15 +107,15 @@ focus_tree = {
 			
 			add_popularity = {
 				ideology = bolshevism
-				popularity = 0.75
+				popularity = 0.075
 			}
 			add_popularity = {
 				ideology = marxism
-				popularity = 0.75
+				popularity = 0.075
 			}
 			add_popularity = {
 				ideology = marxism
-				popularity = 0.75
+				popularity = 0.075
 			}
 		}
 	}
@@ -350,15 +350,15 @@ focus_tree = {
 			
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.75
+				popularity = 0.075
 			}
 			add_popularity = {
 				ideology = liberalism
-				popularity = 0.75
+				popularity = 0.075
 			}
 			add_popularity = {
 				ideology = conservatism
-				popularity = 0.75
+				popularity = 0.075
 			}
 		}
 	}
@@ -603,6 +603,19 @@ focus_tree = {
 		
 		completion_reward = {
 			update_focus_tree = yes
+			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.075
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.075
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.075
+			}
 		}
 	}
 	focus = {
@@ -615,9 +628,15 @@ focus_tree = {
 		y = 1
 		
 		prerequisite = { focus = generic_tree_for_the_nation }
+		mutually_exclusive = {
+			focus = generic_tree_restore_the_monarchy
+			focus = generic_tree_state_as_the_highest_value
+		}
 		
 		completion_reward = {
-			
+			set_politics = { ruling_party = authoritarian_democrat }
+			add_stability = -0.1
+			add_ideas = regulated_market_economy
 		}
 	}
 	focus = {
@@ -631,7 +650,8 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_glory_to_the_president }
 		
 		completion_reward = {
-			
+			add_stability = -0.1
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -644,8 +664,13 @@ focus_tree = {
 		
 		prerequisite = { focus = generic_tree_edit_the_constitution }
 		
+		available = {
+			has_political_power > 75
+		}
+		
 		completion_reward = {
-			
+			add_political_power = -75
+			add_stability = 0.2
 		}
 	}
 	focus = {
@@ -659,7 +684,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_personality_cult }
 		
 		completion_reward = {
-			
+			add_political_power = 300
 		}
 	}
 	focus = {
@@ -673,7 +698,21 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_an_argument_against_the_democracy }
 		
 		completion_reward = {
+			add_stability = -0.15
+			add_political_power = 150
 			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.075
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.075
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.075
+			}
 		}
 	}
 	focus = {
@@ -687,7 +726,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_blackmail_unloyal_media }
 		
 		completion_reward = {
-			
+			add_ideas = mixed_economy
 		}
 	}
 	focus = {
@@ -699,9 +738,15 @@ focus_tree = {
 		y = 1
 		
 		prerequisite = { focus = generic_tree_for_the_nation }
+		mutually_exclusive = {
+			focus = generic_tree_glory_to_the_president
+			focus = generic_tree_state_as_the_highest_value
+		}
 		
 		completion_reward = {
-			
+			set_politics = { ruling_party = despotism }
+			add_stability = -0.1
+			add_ideas = regulated_market_economy
 		}
 	}
 	focus = {
@@ -715,7 +760,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_restore_the_monarchy }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_mass_censorship_idea
 		}
 	}
 	focus = {
@@ -729,7 +774,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_mass_censorship }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_state_religion
 		}
 	}
 	focus = {
@@ -742,9 +787,15 @@ focus_tree = {
 		y = 1
 		
 		prerequisite = { focus = generic_tree_for_the_nation }
+		mutually_exclusive = {
+			focus = generic_tree_glory_to_the_president
+			focus = generic_tree_restore_the_monarchy
+		}
 		
 		completion_reward = {
-			
+			set_politics = { ruling_party = national_syndicalism }
+			add_stability = -0.1
+			add_ideas = state_economy
 		}
 	}
 	focus = {
@@ -758,7 +809,30 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_state_as_the_highest_value }
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
 		}
 	}
 	focus = {
@@ -772,7 +846,7 @@ focus_tree = {
 		prerequisite = { focus = generic_tree_gun_down_the_opposition }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_youth_militarisation_idea
 		}
 	}
 	focus = {
@@ -790,21 +864,9 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = generic_tree_deport_ethnic_minorities
-		icon = GFX_focus_generic_tree_deport_ethnic_minorities
-		cost = 6
-		
-		relative_position_id = generic_tree_the_eternal_regime
-		y = 1
-		
-		prerequisite = { focus = generic_tree_the_eternal_regime }
-		
-		completion_reward = {
-			
+			add_stability = 0.05
+			add_war_support = 0.1
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -812,15 +874,25 @@ focus_tree = {
 		icon = GFX_focus_generic_tree_give_titles_to_large_capitalists
 		cost = 6
 		
-		relative_position_id = generic_tree_deport_ethnic_minorities
+		relative_position_id = generic_tree_the_eternal_regime
 		x = -1
 		y = 1
 		
-		prerequisite = { focus = generic_tree_deport_ethnic_minorities }
+		prerequisite = { focus = generic_tree_the_eternal_regime }
 		prerequisite = { focus = generic_tree_introduce_the_state_religion }
 		
+		available = {
+			has_political_power > 100
+		}
+		
 		completion_reward = {
-			
+			add_political_power = -100
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
 		}
 	}
 	focus = {
@@ -828,15 +900,15 @@ focus_tree = {
 		icon = GFX_focus_generic_tree_no_taxes_for_state_business
 		cost = 6
 		
-		relative_position_id = generic_tree_deport_ethnic_minorities
+		relative_position_id = generic_tree_the_eternal_regime
 		x = 1
 		y = 1
 		
-		prerequisite = { focus = generic_tree_deport_ethnic_minorities }
+		prerequisite = { focus = generic_tree_the_eternal_regime }
 		prerequisite = { focus = generic_tree_youth_militarisation }
 		
 		completion_reward = {
-			
+			add_ideas = generic_tree_state_business_privileges
 		}
 	}
 	
@@ -942,7 +1014,7 @@ focus_tree = {
 	}
 	focus = {
 		id = generic_tree_pro_french_diplomacy
-		icon = GFX_focus_generic_tree_pro_soviet_diplomacy
+		icon = GFX_focus_TUS_join_france  
 		cost = 6
 		
 		relative_position_id = generic_tree_our_own_way
