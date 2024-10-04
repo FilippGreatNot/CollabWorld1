@@ -20,7 +20,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			every_owned_controlled_state = {
+			every_owned_state = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -93,6 +93,10 @@ focus_tree = {
 					level = 1
 				}
 			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+			}
 		}
 	}
 
@@ -115,6 +119,7 @@ focus_tree = {
 					level = 1
 				}
 			}
+			add_research_slot = 1
 		}
 	}
 
@@ -193,6 +198,13 @@ focus_tree = {
 				target = JIL
 				type = annex_everything
 			}
+			random_owned_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
+					owner = PREV
+				}
+			}
 		}
 	}
 
@@ -212,6 +224,13 @@ focus_tree = {
 			declare_war_on = {
 				target = ZHL
 				type = annex_everything
+			}
+			random_owned_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
+					owner = PREV
+				}
 			}
 		}
 	}
@@ -234,6 +253,13 @@ focus_tree = {
 				target = KOR
 				type = annex_everything
 			}
+			random_owned_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
+					owner = PREV
+				}
+			}
 		}
 	}
 
@@ -252,6 +278,13 @@ focus_tree = {
 			declare_war_on = {
 				target = HVN
 				type = annex_everything
+			}
+			random_owned_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
+					owner = PREV
+				}
 			}
 		}
 	}
