@@ -114,6 +114,98 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SIK_develop_industrial_tools
+		icon = GFX_goal_generic_production
+		x = -3
+		y = 2
+		cost = 5
+		relative_position_id = SIK_investing_into_the_city
+		prerequisite = { focus = SIK_investing_into_the_city }
+		completion_reward = {
+			SIK_inadequate_farming_level_down = yes
+			add_tech_bonus = {
+				name = SIK_develop_tools
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_fund_agricultural_expansion
+		icon = GFX_focus_generic_public_works
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			num_of_owned_factories > 9
+		}
+		relative_position_id = SIK_develop_industrial_tools
+		prerequisite = { focus = SIK_develop_industrial_tools }
+		completion_reward = {
+			SIK_inadequate_farming_level_down = yes
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = SIK_the_fields_of_the_south
+		icon = GFX_focus_DEN_schleswigian_farmers
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			num_of_owned_factories > 19
+			any_owned_state = {
+				is_core_of = TIA
+			}
+		}
+		relative_position_id = SIK_fund_agricultural_expansion
+		prerequisite = { focus = SIK_fund_agricultural_expansion }
+		completion_reward = {
+			SIK_inadequate_farming_level_down = yes
+			940 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			759 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SIK_resolve_the_food_problem
+		icon = GFX_focus_ARG_capitalize_the_beef_industry
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+			num_of_owned_factories > 24
+		}
+		relative_position_id = SIK_the_fields_of_the_south
+		prerequisite = { focus = SIK_industrial_revitalisation }
+		prerequisite = { focus = SIK_the_fields_of_the_south }
+		completion_reward = {
+			SIK_inadequate_farming_level_down = yes
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
 		id = SIK_build_up_the_roads
 		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
 		x = -1
@@ -242,7 +334,7 @@ focus_tree = {
 		id = SIK_develop_korla
 		icon = GFX_focus_CHL_enlarge_the_textile_industries
 		x = 3
-		y = 1
+		y = 2
 		cost = 5
 		relative_position_id = SIK_investing_into_the_city
 		prerequisite = { focus = SIK_investing_into_the_city }
@@ -304,7 +396,7 @@ focus_tree = {
 		id = SIK_developing_xinjiang
 		icon = GFX_focus_generic_land_reclamation
 		x = 1
-		y = 1
+		y = 2
 		cost = 5
 		available = {
 			NOT = { country_exists = ALT }
@@ -463,7 +555,7 @@ focus_tree = {
 
 	focus = {
 		id = SIK_import_military_blueprints
-		icon = GFX_focus_generic_annex_country_2
+		icon = GFX_focus_SMB_mountain_guns
 		x = 14
 		y = 1
 		cost = 5
@@ -916,7 +1008,7 @@ focus_tree = {
 
 	focus = {
 		id = SIK_forge_a_new_alliance
-		icon = GFX_goal_generic_major_alliance
+		icon = GFX_goal_tripartite_pact
 		x = -1
 		y = 1
 		cost = 5
