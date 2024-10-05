@@ -373,7 +373,7 @@ focus_tree = {
 	}
 	focus = {
 		id = NYC_rearment_program
-		x = -4
+		x = -3
 		y = 1
 		allow_branch = {
 			has_country_flag = NYC_al_smith
@@ -829,6 +829,25 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -15
 			add_stability = 0.1
+			hidden_effect = {
+			division_template = {
+    			name = "NYPD"
+    			is_locked = yes
+    			division_cap = 3 
+    			division_names_group = USA_INF_01
+    			priority = 0
+    			template_counter = 0
+    			regiments = {
+        			infantry = { x = 0 y = 0 }
+        			infantry = { x = 0 y = 1 }
+        			infantry = { x = 0 y = 2 }
+        			infantry = { x = 0 y = 3 }
+    			}
+    			support = {
+       				military_police = { x = 0 y = 0 }
+    			}
+			}
+			}
 		}
 	}
 
@@ -873,7 +892,7 @@ focus_tree = {
 	
 	focus = {
 		id = NYC_al_capone
-		x = 18
+		x = 24
 		y = 0
 		cost = 4
 		available = {
@@ -1004,7 +1023,7 @@ focus_tree = {
 		prerequisite = {focus = NYC_voluntary_exchange focus = NYC_voluntary_scociety}
 		relative_position_id = NYC_voluntary_exchange
 		completion_reward = {
-
+			add_political_power = 20
 		}
 	}
 	focus = {
@@ -1058,7 +1077,63 @@ focus_tree = {
 		prerequisite = {focus = NYC_private_property}
 		prerequisite = {focus = NYC_voluntary_slavery}
 		relative_position_id = NYC_agencies_as_law
+	}
+	focus = {
+		id = NYC_continue_print_money
+		x = -3
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 5
+		prerequisite = {focus = NYC_trust_companies}
+		relative_position_id = NYC_trust_companies
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = NYC_tax_theft
+		x = 3
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 5
+		prerequisite = {focus = NYC_trust_companies}
+		relative_position_id = NYC_trust_companies
+		completion_reward = {
+			add_ideas = {
+				NYC_tax_is_theft
+			}
+		}
 	}	
+	focus = {
+		id = NYC_support_individualism
+		x = 0
+		y = 1
+		available = {
+			has_country_leader = {
+    			name = "Al Capone"
+    			ruling_only = yes
+			}
+		}
+		cost = 5
+		prerequisite = {focus = NYC_trust_companies}
+		relative_position_id = NYC_trust_companies
+		completion_reward = {
+			add_popularity = {
+    			ideology = liberalism
+    			popularity = 0.15
+			}
+		}
+	}
 }
 	
 	
