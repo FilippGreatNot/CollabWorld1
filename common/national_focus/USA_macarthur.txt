@@ -156,18 +156,10 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_cooperate_with_loyal_corporations }
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -301,14 +293,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
 		}
 	}
 	focus = {
@@ -320,6 +304,21 @@ focus_tree = {
 		x = 1
 		cost = 5
 		prerequisite =	{ focus = USA_mc_intervene_in_the_economy }
+		
+		completion_reward = {
+			every_core_state = {
+				tooltip = every_owned_core_with_less_than_3_infrastructure_tt
+				limit = {
+					is_owned_by = CCC
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			}
 	}
 	focus = {
 		id = USA_mc_raise_corporate_taxes
@@ -340,6 +339,12 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{ focus = USA_mc_develop_our_infrastructure }
 		prerequisite =	{ focus = USA_mc_raise_corporate_taxes }
+		completion_reward = {
+		
+		    add_ideas = {
+                      CCC_expanded_workers_rights
+			    }
+			}
 	}
 	focus = {
 		id = USA_mc_fight_poverty
@@ -376,6 +381,14 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{ focus = USA_mc_restart_trade focus = USA_mc_principles_of_autarky }
 		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
