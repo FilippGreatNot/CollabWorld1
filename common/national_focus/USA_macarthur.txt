@@ -132,6 +132,12 @@ focus_tree = {
 		x = -15
 		cost = 5
 		prerequisite =	{ focus = USA_mc_declare_macarthur_president }
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare
+				add_idea = CCC_corporate_nightmare2
+			}
+		}
 	}
 	##Corporatocracy
 	focus = {
@@ -144,6 +150,13 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{ focus = USA_mc_fixing_the_economy }
 		mutually_exclusive = { focus = USA_mc_destroy_the_corporatocracy }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare2
+				add_idea = CCC_corporate_nightmare6
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_emergency_industrialization
@@ -163,6 +176,10 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			swap_ideas = {
+				remove_idea = CCC_corporate_nightmare6
+				add_idea = CCC_corporate_nightmare7
+			}
 		}
 	}
 	focus = {
@@ -176,7 +193,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus	USA_mc_to_save_a_nation"
 			add_ideas = {
-				export_focus
+				free_trade
 			}
 			add_political_power = 50
 		}
@@ -189,6 +206,13 @@ focus_tree = {
 		x = -1
 		cost = 5
 		prerequisite =	{ focus = USA_mc_emergency_industrialization }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare7
+				add_idea = CCC_corporate_nightmare8
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_increase_working_hours
@@ -208,6 +232,13 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{ focus = USA_mc_hike_the_population_tax }
 		prerequisite =	{ focus = USA_mc_increase_working_hours }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare8
+				add_idea = CCC_corporate_nightmare9
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_token_worker_rights
@@ -218,6 +249,12 @@ focus_tree = {
 		x = 1
 		cost = 5
 		prerequisite =	{ focus = USA_mc_import_mexican_labor }
+		
+		completion_reward = {
+		    add_ideas = {
+                      CCC_token_workers_rights
+			    }
+			}
 	}
 	focus = {
 		id = USA_mc_fight_our_debt
@@ -246,6 +283,13 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{ focus = USA_mc_fixing_the_economy }
 		mutually_exclusive = { focus = USA_mc_cooperate_with_loyal_corporations }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare2
+				add_idea = CCC_corporate_nightmare3
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_principles_of_autarky
@@ -293,6 +337,10 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			swap_ideas = {
+				remove_idea = CCC_corporate_nightmare3
+				add_idea = CCC_corporate_nightmare4
+			}
 		}
 	}
 	focus = {
@@ -329,6 +377,13 @@ focus_tree = {
 		x = -1
 		cost = 5
 		prerequisite =	{ focus = USA_mc_intervene_in_the_economy }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare4
+				add_idea = CCC_corporate_nightmare5
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_expand_worker_rights
@@ -355,6 +410,12 @@ focus_tree = {
 		x = -1
 		cost = 5
 		prerequisite =	{ focus = USA_mc_expand_worker_rights }
+		
+		completion_reward = {
+		    remove_ideas = {
+				CCC_corporate_nightmare5
+			}
+	}
 	}
 	focus = {
 		id = USA_mc_deficit_spending
@@ -370,6 +431,8 @@ focus_tree = {
 		}
 		prerequisite = { focus = USA_mc_agricultural_revitalization_program }
 		mutually_exclusive = { focus = USA_mc_fight_our_debt }
+		
+		
 	}
 	##Common
 	focus = {
@@ -1036,6 +1099,13 @@ focus_tree = {
 		prerequisite =	{
 			focus = USA_mc_ban_the_socialists
 			focus = USA_mc_outlaw_the_nationalists
+		}
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = CCC_high_instability
+				add_idea = CCC_moderate_instability
+			}
 		}
 	}
 	focus = {
