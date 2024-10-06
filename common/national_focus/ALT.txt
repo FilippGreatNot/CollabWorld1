@@ -14,7 +14,7 @@ focus_tree = {
 	focus = {
 		id = ALT_into_altays_politics
 		icon = GFX_focus_ETH_boots_on_the_shore
-		x = 18
+		x = 25
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -66,7 +66,7 @@ focus_tree = {
 	focus = {
 		id = ALT_in_the_shade_of_xinjiang
 		icon = GFX_focus_ETH_boots_on_the_shore
-		x = 9
+		x = 16
 		y = 0
 		ai_will_do = {
 			factor = 15
@@ -118,13 +118,13 @@ focus_tree = {
 			random_owned_controlled_state = {
 				prioritize = { 936 }
 				create_unit = {
-					division = "name = \"Irregular Brigade No.1\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
 					owner = PREV
 				}
 			}
 			962 = {
 				create_unit = {
-					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					division = "name = \"Irregular Brigade No.3\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
 					owner = PREV
 					prioritize_location = 12601
 					allow_spawning_on_enemy_provs = yes
@@ -716,7 +716,7 @@ focus_tree = {
 	focus = {
 		id = ALT_allocate_stockpiled_arms
 		icon = GFX_goal_generic_construction2
-		x = 0
+		x = 5
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -881,9 +881,27 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_seize_warlord_assets
+		icon = GFX_goal_generic_research
+		x = -3
+		y = 1
+		cost = 5
+		relative_position_id = ALT_eyes_on_the_prize
+		prerequisite = { focus = ALT_eyes_on_the_prize }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ALT_underfunding
+				add_idea = ALT_underfunding2
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_urumqi_public_library
 		icon = GFX_focus_generic_research2
-		x = 0
+		x = 4
 		y = 1
 		cost = 5
 		relative_position_id = ALT_eyes_on_the_prize
@@ -893,6 +911,58 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = ALT_modest_education_reform_idea
 				add_idea = ALT_public_education_idea
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_centralise_industrial_throughput
+		icon = GFX_focus_generic_research2
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_a_bolshevik_government
+		}
+		mutually_exclusive = { focus = ALT_implement_an_agrarian_model }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_centralised_economy }
+			random_owned_state = {
+				limit = { is_not_state = 287 }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_implement_an_agrarian_model
+		icon = GFX_focus_generic_research2
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_the_peoples_council
+		}
+		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_the_workers_economy }
+			random_owned_state = {
+				limit = { is_not_state = 287 }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
