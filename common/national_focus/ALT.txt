@@ -10,11 +10,63 @@ focus_tree = {
 			tag = ALT
 		}
 	} 
+
+	focus = {
+		id = ALT_into_altays_politics
+		icon = GFX_focus_ETH_boots_on_the_shore
+		x = 18
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ALT_form_a_bolshevik_government
+		icon = GFX_focus_ETH_boots_on_the_shore
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 1
+		mutually_exclusive = { focus = ALT_form_the_peoples_council }
+		relative_position_id = ALT_into_altays_politics
+		prerequisite = { focus = ALT_into_altays_politics }
+		completion_reward = {
+			set_politics = {
+				ruling_party = bolshevism
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_form_the_peoples_council
+		icon = GFX_focus_ETH_boots_on_the_shore
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 1
+		mutually_exclusive = { focus = ALT_form_a_bolshevik_government }
+		relative_position_id = ALT_into_altays_politics
+		prerequisite = { focus = ALT_into_altays_politics }
+		completion_reward = {
+			set_politics = {
+				ruling_party = marxism
+			}
+		}
+	}
 	
 	focus = {
 		id = ALT_in_the_shade_of_xinjiang
 		icon = GFX_focus_ETH_boots_on_the_shore
-		x = 5
+		x = 9
 		y = 0
 		ai_will_do = {
 			factor = 15
@@ -23,7 +75,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			add_political_power = 50
+			army_experience = 10
 		}
 	}
 
@@ -39,6 +91,9 @@ focus_tree = {
 		relative_position_id = ALT_in_the_shade_of_xinjiang
 		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
 		completion_reward = {
+			962 = {
+				ALT = { set_province_controller = 12601 }
+			}
 			division_template = {
 				name = "The Secret Force"
 				priority = 1
@@ -62,12 +117,627 @@ focus_tree = {
 			}
 			random_owned_controlled_state = {
 				prioritize = { 936 }
-				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
-					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					division = "name = \"Irregular Brigade No.1\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
 					owner = PREV
 				}
 			}
+			962 = {
+				create_unit = {
+					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					owner = PREV
+					prioritize_location = 12601
+					allow_spawning_on_enemy_provs = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_bring_bolshevism_to_the_dzungar_people
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = DZG }
+		}
+		relative_position_id = ALT_the_secret_force
+		prerequisite = { focus = ALT_the_secret_force }
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			DZG = { 
+				every_core_state = { add_core_of = ALT }
+				every_core_state = { remove_core_of = DZG }
+			}
+			set_country_flag = ALT_civil_war_ended
+		}
+	}
+
+	focus = {
+		id = ALT_take_the_revolution_to_the_rest_of_xinjiang
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			has_war = no
+		}
+		relative_position_id = ALT_bring_bolshevism_to_the_dzungar_people
+		prerequisite = { focus = ALT_bring_bolshevism_to_the_dzungar_people }
+		completion_reward = {
+			add_war_support = 0.1
+			SIK = {
+				every_owned_state = { add_claim_by = ALT }
+			}
+			TIA = {
+				every_owned_state = { add_claim_by = ALT }
+			}
+			KUM = {
+				every_owned_state = { add_claim_by = ALT }
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_through_ili_we_go
+		icon = GFX_goal_generic_construction2
+		x = -4
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = TIA }
+				TIA = { any_core_state = { is_owned_by = ALT } }
+				TIA = {
+					has_war_with = ALT
+				}
+			}
+		}
+		relative_position_id = ALT_take_the_revolution_to_the_rest_of_xinjiang
+		prerequisite = { focus = ALT_take_the_revolution_to_the_rest_of_xinjiang }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = TIA
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_fix_the_backwaters_of_the_south
+		icon = GFX_goal_generic_construction2
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = TIA }
+		}
+		relative_position_id = ALT_through_ili_we_go
+		prerequisite = { focus = ALT_through_ili_we_go }
+		completion_reward = {
+			945 = {
+				add_core_of = ALT
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			759 = {
+				add_core_of = ALT
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			287 = {
+				add_core_of = ALT
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_raise_the_support_of_the_local_farmers
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = TIA }
+		}
+		relative_position_id = ALT_through_ili_we_go
+		prerequisite = { focus = ALT_through_ili_we_go }
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			add_manpower = 13000
+			940 = {
+				add_core_of = ALT
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			619 = {
+				add_core_of = ALT
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			929 = {
+				add_core_of = ALT
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_stamp_out_hui_influence
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = TIA }
+		}
+		relative_position_id = ALT_fix_the_backwaters_of_the_south
+		prerequisite = { focus = ALT_fix_the_backwaters_of_the_south }
+		prerequisite = { focus = ALT_raise_the_support_of_the_local_farmers }
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.05
+			every_owned_state = {
+				remove_core_of = TIA
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_take_out_the_khan
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = KUM }
+				KUM = { any_core_state = { is_owned_by = ALT } }
+				KUM = {
+					has_war_with = ALT
+				}
+			}
+		}
+		relative_position_id = ALT_take_the_revolution_to_the_rest_of_xinjiang
+		prerequisite = { focus = ALT_take_the_revolution_to_the_rest_of_xinjiang }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = KUM
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_found_local_councils_in_hami
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = KUM }
+			owns_state = 760
+		}
+		relative_position_id = ALT_take_out_the_khan
+		prerequisite = { focus = ALT_take_out_the_khan }
+		completion_reward = {
+			760 = {
+				set_state_owner_to = KUM
+				set_state_name = "Hami"
+			}
+			puppet = KUM
+			hidden_effect = {
+				KUM = {
+					set_cosmetic_tag = KUM_puppet_of_altay
+					set_popularities = {
+						bolshevism = 20
+						marxism = 15
+						authoritarian_democrat = 10
+						despotism = 30
+						conservatism = 5
+						national_syndicalism = 15
+						social_democrat = 5
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_invigorate_economic_dependence
+		icon = GFX_goal_generic_construction2
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		relative_position_id = ALT_found_local_councils_in_hami
+		prerequisite = { focus = ALT_found_local_councils_in_hami }
+		completion_reward = {
+			KUM = {
+				add_autonomy_score = {
+					value = -250
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.1
+				}
+			}
+			760 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_discredit_and_destroy
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		relative_position_id = ALT_found_local_councils_in_hami
+		prerequisite = { focus = ALT_found_local_councils_in_hami }
+		completion_reward = {
+			add_stability = -0.05
+			KUM = {
+				add_autonomy_score = {
+					value = -250
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.1
+				}
+			}
+			760 = {
+				add_manpower = -120
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_revise_the_hami_administration
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		relative_position_id = ALT_invigorate_economic_dependence
+		prerequisite = { focus = ALT_invigorate_economic_dependence }
+		prerequisite = { focus = ALT_discredit_and_destroy }
+		completion_reward = {
+			add_political_power = 150
+			KUM = {
+				add_autonomy_score = {
+					value = -500
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_dagger_through_dihua
+		icon = GFX_goal_generic_construction2
+		x = 4
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = SIK }
+				SIK = { 
+					any_core_state = { 
+						limit = { NOT = { is_core_of = ALT } }
+						is_owned_by = ALT 
+					} 
+				}
+				SIK = {
+					has_war_with = ALT
+				}
+			}
+		}
+		relative_position_id = ALT_take_the_revolution_to_the_rest_of_xinjiang
+		prerequisite = { focus = ALT_take_the_revolution_to_the_rest_of_xinjiang }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = SIK
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_red_spirit_of_the_people
+		icon = GFX_goal_generic_construction2
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = SIK }
+		}
+		relative_position_id = ALT_dagger_through_dihua
+		prerequisite = { focus = ALT_dagger_through_dihua }
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_manpower = 6000
+			944 = {
+				add_core_of = ALT
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_villainise_the_clique
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = SIK }
+		}
+		relative_position_id = ALT_dagger_through_dihua
+		prerequisite = { focus = ALT_dagger_through_dihua }
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			add_manpower = 13000
+			961 = {
+				add_core_of = ALT
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_brush_out_yang_zengxins_face
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = SIK }
+		}
+		relative_position_id = ALT_the_red_spirit_of_the_people
+		prerequisite = { focus = ALT_the_red_spirit_of_the_people }
+		prerequisite = { focus = ALT_villainise_the_clique }
+		completion_reward = {
+			617 = {
+				add_core_of = ALT
+			}
+			add_stability = -0.05
+			add_war_support = 0.05
+			SIK = {
+				every_core_state = {
+					remove_core_of = SIK
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_establish_a_soviet_republic
+		icon = GFX_goal_generic_construction2
+		x = -1
+		y = 2
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = SIK }
+			NOT = { country_exists = TIA }
+			has_government = bolshevism
+			KUM = {
+				has_government = bolshevism
+			}
+		}
+		mutually_exclusive = { focus = ALT_install_the_peoples_state }
+		relative_position_id = ALT_revise_the_hami_administration
+		prerequisite = { focus = ALT_stamp_out_hui_influence }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+			set_cosmetic_tag = ALT_went_bolshevist
+			set_country_flag = ALT_xinjiang_unified
+		}
+	}
+
+	focus = {
+		id = ALT_install_the_peoples_state
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 2
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = SIK }
+			NOT = { country_exists = TIA }
+			has_government = marxism
+			KUM = {
+				has_government = bolshevism
+			}
+		}
+		mutually_exclusive = { focus = ALT_establish_a_soviet_republic }
+		relative_position_id = ALT_revise_the_hami_administration
+		prerequisite = { focus = ALT_brush_out_yang_zengxins_face }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+			set_cosmetic_tag = ALT_went_marxist
+			set_country_flag = ALT_xinjiang_unified
+		}
+	}
+
+	focus = {
+		id = ALT_the_state_constitution
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		available = {
+			NOT = { country_exists = KUM }
+			NOT = { country_exists = SIK }
+			NOT = { country_exists = TIA }
+		}
+		relative_position_id = ALT_establish_a_soviet_republic
+		prerequisite = { focus = ALT_revise_the_hami_administration }
+		prerequisite = { focus = ALT_establish_a_soviet_republic focus = ALT_install_the_peoples_state }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+			set_capital = {
+				state = 617
+				remember_old_capital = no
+			}
+			every_owned_state = {
+				remove_claim_by = SIK
+				remove_claim_by = TIA
+				remove_claim_by = KUM
+				remove_claim_by = DZG
+			}
+			annex_country = {
+				target = KUM
+				transfer_troops = yes
+			}
+			KUM = {
+				every_core_state = {
+					add_core_of = ALT
+					remove_core_of = KUM
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_allocate_stockpiled_arms
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 2
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_early_economic_development
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALT_civil_war_ended_tt
+				has_country_flag = ALT_civil_war_ended
+			}
+		}
+		relative_position_id = ALT_allocate_stockpiled_arms
+		prerequisite = { focus = ALT_allocate_stockpiled_arms }
+		completion_reward = {
+			add_stability = 0.05
 		}
 	}
 
@@ -77,8 +747,8 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
-		relative_position_id = ALT_the_secret_force 
-		prerequisite = { focus = ALT_the_secret_force }
+		relative_position_id = ALT_early_economic_development
+		prerequisite = { focus = ALT_early_economic_development }
 		completion_reward = {
 			936 = {
 				add_extra_state_shared_building_slots = 2
@@ -98,13 +768,33 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_improving_military_theory
+		icon = GFX_focus_generic_reorient_production
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_industrial_mobilisation
+		prerequisite = { focus = ALT_industrial_mobilisation }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 30
+			add_command_power = 40
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				name = 1
+				category = cat_superior_firepower
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_mend_the_economic_abyss
 		icon = GFX_goal_generic_construction2
 		x = 1
 		y = 1
 		cost = 5
-		relative_position_id = ALT_the_secret_force 
-		prerequisite = { focus = ALT_the_secret_force }
+		relative_position_id = ALT_early_economic_development
+		prerequisite = { focus = ALT_early_economic_development }
 		completion_reward = {
 			936 = {
 				add_extra_state_shared_building_slots = 2
@@ -125,23 +815,73 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_bring_bolshevism_to_the_dzungar_people
-		icon = GFX_goal_generic_construction2
+		id = ALT_modest_education_reform
+		icon = GFX_goal_generic_research
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_mend_the_economic_abyss
+		prerequisite = { focus = ALT_mend_the_economic_abyss }
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = { ALT_modest_education_reform_idea }
+			add_tech_bonus = {
+				name = 1
+				bonus = 0.5
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_scale_up_electrification
+		icon = GFX_goal_generic_research
 		x = 1
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
 		cost = 5
-		relative_position_id = ALT_industrial_mobilisation
-		prerequisite = { focus = ALT_the_secret_force }
+		relative_position_id = ALT_improving_military_theory
+		prerequisite = { focus = ALT_improving_military_theory }
+		prerequisite = { focus = ALT_modest_education_reform }
 		completion_reward = {
-			add_popularity = {
-				ideology = bolshevism
-				popularity = 0.05
+			every_owned_state = {
+				increase_state_category_by_one_level = yes
 			}
-			DZG = { 
-				every_core_state = { add_core_of = ALT }
+		}
+	}
+
+	focus = {
+		id = ALT_eyes_on_the_prize
+		icon = GFX_goal_generic_research
+		x = 0
+		y = 1
+		cost = 1
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = ALT_xinjiang_unified_tt
+				has_country_flag = ALT_xinjiang_unified
+			}
+		}
+		relative_position_id = ALT_scale_up_electrification
+		prerequisite = { focus = ALT_scale_up_electrification }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = ALT_urumqi_public_library
+		icon = GFX_focus_generic_research2
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_eyes_on_the_prize
+		prerequisite = { focus = ALT_eyes_on_the_prize }
+		completion_reward = {
+			add_research_slot = 1
+			swap_ideas = {
+				remove_idea = ALT_modest_education_reform_idea
+				add_idea = ALT_public_education_idea
 			}
 		}
 	}
