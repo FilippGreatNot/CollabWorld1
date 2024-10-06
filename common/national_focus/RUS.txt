@@ -115,32 +115,3 @@ focus_tree = {
 		y = 1
 	}
 }
-focus_tree = {
-	id = RUS_placeholder
-	country = {
-		factor = 0
-		modifier = {
-			add = 20
-			tag = RUS
-		}
-	}
-	initial_show_position = { focus = RUS_eat_sea }
-	default = no
-
-	focus = {
-		id = RUS_eat_sea
-		icon = GFX_focus_RUS_eat_sea
-		cost = 10
-
-		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus RUS_eat_sea"
-			
-			annex_country = {
-				target = SEA
-				transfer_troops = no
-			}
-
-			custom_effect_tooltip = RUS_placeholder_tree_tt
-		}
-	}
-}
