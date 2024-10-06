@@ -147,11 +147,14 @@ focus_tree = {
 		prerequisite = { focus = ITS_reorg_army }
 		prerequisite = { focus = ITS_increase_northern_development }
 		completion_reward = {
-			#to good because you cant do it
-			add_stability = 0.2
+			add_stability = 0.1
 			add_popularity = {
 				ideology = bolshevism
-				popularity = 0.1
+				popularity = 0.08
+			}
+			hidden_effect = {
+				country_event = its.5
+				mark_focus_tree_layout_dirty = yes
 			}
 		}
 	}
@@ -159,7 +162,7 @@ focus_tree = {
 	focus = {
 		id = ITS_he_lives
 		icon = GFX_goal_generic_construction
-		x = -4
+		x = -3
 		y = 1
 		cost = 0
 		allow_branch = { has_country_flag = ITS_assassination_attempt }
@@ -168,12 +171,16 @@ focus_tree = {
 		mutually_exclusive = { focus = ITS_he_died }
 		prerequisite = { focus = ITS_assure_ppl }
 		completion_reward = {
+			set_country_leader_portrait = {
+				ideology = national_marxism
+				portrait = "gfx/leaders/ITS/ITS_mussolini2.dds"
+			}
 		}
 	}
 	focus = {
 		id = ITS_he_died
 		icon = GFX_goal_generic_construction
-		x = 4
+		x = 3
 		y = 1
 		cost = 0
 		allow_branch = { has_country_flag = ITS_assassination_attempt }
@@ -189,12 +196,13 @@ focus_tree = {
 	focus = {
 		id = ITS_investigate
 		icon = GFX_goal_generic_construction
-		x = -4
+		x = 0
+		x = 0
 		y = 1
         cost = 8 
 		cancelable = no
 		dynamic = yes
-		relative_position_id = ITS_he_died
+		relative_position_id = ITS_he_lives
 		prerequisite = { focus = ITS_he_died focus = ITS_he_lives }
 		available = {
 			OR = {
@@ -233,6 +241,25 @@ focus_tree = {
 					popularity = -0.1
 				}	
 			}
+		}
+	}
+	focus = {
+		id = ITS_purge_2
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_assure_ppl
+		allow_branch = {
+			NOT = { has_country_flag = ITS_assassination_attempt }
+			has_completed_focus = ITS_assure_ppl 
+		}
+		prerequisite = { focus = ITS_assure_ppl }
+		completion_reward = {
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.1
+			}	
 		}
 	}
 	focus = {
@@ -371,9 +398,20 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = 0
 		y = 1
+		offset = {
+			x = 3
+			y = -4
+			trigger = {
+				has_completed_focus = ITS_assure_ppl
+				NOT = { has_country_flag = ITS_assassination_attempt }
+			}
+		}		
 		cost = 5
 		relative_position_id = ITS_full_rat_1
-		prerequisite = { focus = ITS_full_rat_1 }
+		prerequisite = {
+			focus = ITS_full_rat_1
+			focus = ITS_purge_2
+		}
 		completion_reward = {
 		}
 	}
