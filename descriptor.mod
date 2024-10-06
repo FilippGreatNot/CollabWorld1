@@ -1,4 +1,4 @@
-version="0.0.1 beta"
+version="0.2.0.0 beta (Bleeding sands)"
 picture="thumbnail.png"
 tags={
 	"Alternative History"
@@ -47,4 +47,5 @@ replace_path="history/states"
 replace_path="map/strategicregions"
 name="Collapsing World: Rise of Radicalism"
 supported_version="1.14.*"
-path="mod/CollabWorld1"
+path="C:/Users/User/Documents/Paradox Interactive/Hearts of Iron IV/mod/CollabWorld1"
+remote_file_id="3297046215"
