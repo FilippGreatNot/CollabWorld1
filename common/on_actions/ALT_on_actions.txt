@@ -1,0 +1,22 @@
+on_actions = {
+	on_capitulation = { ##making sure that once dzungaria capitulates, its actually annexed
+        effect = { 
+	        if = { 
+				limit = {
+					ROOT = {
+						original_tag = DZG
+					}
+					FROM = {
+						original_tag = ALT
+					}
+				}
+				ALT = {
+					annex_country = {
+						target = DZG
+						transfer_troops = no
+					}
+				}
+			}
+        }
+	}
+}
