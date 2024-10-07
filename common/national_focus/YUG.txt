@@ -353,6 +353,11 @@ focus_tree = {
                 remove_idea = YUG_agricultural_focus_economy3
                 add_idea = YUG_agricultural_focus_economy4
             }
+            add_equipment_to_stockpile = {
+                type = motorized
+                amount = 150
+                producer = YUG
+            }
         }
     }
     ##Right eco branch 
@@ -365,6 +370,8 @@ focus_tree = {
         mutually_exclusive = { focus = YUG_farmer_subsidies }
         prerequisite = { focus = YUG_stimulating_the_economy }
         completion_reward = {
+            remove_ideas = YUG_agrarian_economy
+            add_ideas = YUG_industrialising_society1
             107 = {
 			    add_extra_state_shared_building_slots = 2
 			    add_building_construction = {
@@ -392,7 +399,22 @@ focus_tree = {
 
         prerequisite = { focus = YUG_begin_industrialisation }
         completion_reward = {
-            add_political_power = 5
+            107 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+            862 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build  = yes
+                }
+            }
         }
     }
     focus = {
@@ -419,8 +441,16 @@ focus_tree = {
             add_resource = {
                 type = steel 
                 amount = 9
-                state = `08
+                state = 88
             }
+            104 = {
+			    add_extra_state_shared_building_slots = 2
+			    add_building_construction = {
+				    type = industrial_complex
+				    level = 2
+				    instant_build = yes
+                }  
+        }
         }
     }
     focus = {
