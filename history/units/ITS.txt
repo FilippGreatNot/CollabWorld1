@@ -9,7 +9,7 @@ division_template = {
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
 
-		artillery = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 0 }
 	}
     support = {
         engineer = { x = 0 y = 0 }
@@ -20,8 +20,8 @@ division_template = {
 	name = "Militia Brigade"
 	regiments = {
 		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
+		
+		infantry = { x = 1 y = 0 }
 	}
 }
 
@@ -37,21 +37,75 @@ division_template = {
 	}
 }
 
-division_template = {
-	name = "Artillery Brigade"
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		
-		artillery_brigade = { x = 1 y = 0 }
-		artillery_brigade = { x = 1 y = 1 }
-		artillery_brigade = { x = 1 y = 2 }
-	}
-}
-
 units = {
 	division = {
 		location = 6606
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 3780
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 6788
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 6780
+		division_template = "Specialist Calvary Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 611
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 11891
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 3776
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 6793
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 3976
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 782
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 9741
+		division_template = "Militia Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 6661
 		division_template = "Militia Brigade"
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
@@ -63,7 +117,16 @@ instant_effect = {
 	add_equipment_production = {
 		equipment = {
 			type = infantry_equipment_0
-			creator = "TUS"
+			creator = "ITS"
+		}
+		requested_factories = 3
+		progress = 0.75
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "ITS"
 		}
 		requested_factories = 1
 		progress = 0.75
@@ -71,10 +134,10 @@ instant_effect = {
 	}
 	add_equipment_production = {
 		equipment = {
-			type = support_equipment_1
-			creator = "TUS"
+			type = artillery_equipment_1
+			creator = "ITS"
 		}
-		requested_factories = 1
+		requested_factories = 2
 		progress = 0.75
 		efficiency = 100
 	}
