@@ -23,7 +23,26 @@ on_actions = {
 		effect = {
 			FRA = {
 				if = {
-					limit = {any_owned_state = { is_claimed_by = TUS}}
+					limit = {
+						any_owned_state = { is_claimed_by = TUS}
+						has_subject = TUS
+					}
+					every_owned_state = {
+						limit = {is_claimed_by = TUS}
+						transfer_state_to = TUS
+					}
+				}
+			}
+		}
+	}
+	on_monthly_VNE = {
+		effect = {
+			VNE = {
+				if = {
+					limit = {
+						any_owned_state = { is_claimed_by = TUS}
+						is_subject_of = TUS
+					}
 					every_owned_state = {
 						limit = {is_claimed_by = TUS}
 						transfer_state_to = TUS

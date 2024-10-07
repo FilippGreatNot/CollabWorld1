@@ -13,8 +13,8 @@ focus_tree = {
 
 	focus = {
 		id = ALT_into_altays_politics
-		icon = GFX_focus_ETH_boots_on_the_shore
-		x = 18
+		icon = GFX_goal_generic_political_pressure
+		x = 25
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -27,7 +27,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_form_a_bolshevik_government
-		icon = GFX_focus_ETH_boots_on_the_shore
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -46,7 +46,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_form_the_peoples_council
-		icon = GFX_focus_ETH_boots_on_the_shore
+		icon = GFX_focus_ARG_women_in_industry
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -66,7 +66,7 @@ focus_tree = {
 	focus = {
 		id = ALT_in_the_shade_of_xinjiang
 		icon = GFX_focus_ETH_boots_on_the_shore
-		x = 9
+		x = 16
 		y = 0
 		ai_will_do = {
 			factor = 15
@@ -118,13 +118,13 @@ focus_tree = {
 			random_owned_controlled_state = {
 				prioritize = { 936 }
 				create_unit = {
-					division = "name = \"Irregular Brigade No.1\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
 					owner = PREV
 				}
 			}
 			962 = {
 				create_unit = {
-					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
+					division = "name = \"Irregular Brigade No.3\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
 					owner = PREV
 					prioritize_location = 12601
 					allow_spawning_on_enemy_provs = yes
@@ -135,7 +135,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_bring_bolshevism_to_the_dzungar_people
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -162,7 +162,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_take_the_revolution_to_the_rest_of_xinjiang
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_ARG_no_gods_no_masters
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -190,7 +190,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_through_ili_we_go
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
 		x = -4
 		y = 1
 		ai_will_do = {
@@ -222,7 +222,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_fix_the_backwaters_of_the_south
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_public_works
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -235,6 +235,10 @@ focus_tree = {
 		relative_position_id = ALT_through_ili_we_go
 		prerequisite = { focus = ALT_through_ili_we_go }
 		completion_reward = {
+			993 = {
+				add_core_of = ALT
+				increase_state_category_by_one_level = yes
+			}
 			945 = {
 				add_core_of = ALT
 				increase_state_category_by_one_level = yes
@@ -259,7 +263,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_raise_the_support_of_the_local_farmers
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_workers_and_farmers_rise
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -277,6 +281,13 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_manpower = 13000
+			990 = {
+				add_core_of = ALT
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
 			940 = {
 				add_core_of = ALT
 				add_building_construction = {
@@ -299,7 +310,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_stamp_out_hui_influence
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_ARG_end_operation_bolivar
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -323,7 +334,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_take_out_the_khan
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_BRA_end_the_state_of_emergency
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -336,7 +347,7 @@ focus_tree = {
 		bypass = {
 			OR = {
 				NOT = { country_exists = KUM }
-				KUM = { any_core_state = { is_owned_by = ALT } }
+				760 = { is_owned_by = ALT }
 				KUM = {
 					has_war_with = ALT
 				}
@@ -355,7 +366,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_found_local_councils_in_hami
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_SWI_dissolve_the_federal_council
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -393,7 +404,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_invigorate_economic_dependence
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_full_employment
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -424,7 +435,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_discredit_and_destroy
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_BUL_destroy_the_zveno
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -452,7 +463,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_revise_the_hami_administration
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_ARG_the_buenos_aires_conference
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -478,7 +489,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_dagger_through_dihua
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_attack_china
 		x = 4
 		y = 1
 		ai_will_do = {
@@ -515,7 +526,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_the_red_spirit_of_the_people
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_SOV_builder_of_the_red_army
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -544,7 +555,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_villainise_the_clique
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_mex_arrest_general_cedillo
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -570,7 +581,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_brush_out_yang_zengxins_face
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_ARG_march_to_la_casa_rosada
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -599,7 +610,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_establish_a_soviet_republic
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_join_comintern
 		x = -1
 		y = 2
 		ai_will_do = {
@@ -630,7 +641,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_install_the_peoples_state
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_BUL_the_peoples_republic_of_bulgaria
 		x = 1
 		y = 2
 		ai_will_do = {
@@ -661,7 +672,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_the_state_constitution
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_rom_parties_end
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -704,8 +715,8 @@ focus_tree = {
 
 	focus = {
 		id = ALT_allocate_stockpiled_arms
-		icon = GFX_goal_generic_construction2
-		x = 0
+		icon = GFX_focus_SOV_support_spanish_poum
+		x = 5
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -721,7 +732,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_early_economic_development
-		icon = GFX_goal_generic_construction2
+		icon = GFX_goal_generic_construct_civ_factory
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -738,6 +749,9 @@ focus_tree = {
 		prerequisite = { focus = ALT_allocate_stockpiled_arms }
 		completion_reward = {
 			add_stability = 0.05
+			936 = {
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -769,7 +783,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_improving_military_theory
-		icon = GFX_focus_generic_reorient_production
+		icon = GFX_focus_SOV_organize_wreckers
 		x = 0
 		y = 1
 		cost = 5
@@ -816,7 +830,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_modest_education_reform
-		icon = GFX_goal_generic_research
+		icon = GFX_focus_NORDIC_dem_selector_research
 		x = 0
 		y = 1
 		cost = 5
@@ -835,7 +849,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_scale_up_electrification
-		icon = GFX_goal_generic_research
+		icon = GFX_focus_ARG_develop_the_electricity_sector
 		x = 1
 		y = 1
 		cost = 5
@@ -843,6 +857,7 @@ focus_tree = {
 		prerequisite = { focus = ALT_improving_military_theory }
 		prerequisite = { focus = ALT_modest_education_reform }
 		completion_reward = {
+			add_stability = 0.05
 			every_owned_state = {
 				increase_state_category_by_one_level = yes
 			}
@@ -851,7 +866,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_eyes_on_the_prize
-		icon = GFX_goal_generic_research
+		icon = GFX_focus_generic_low_cost_housing
 		x = 0
 		y = 1
 		cost = 1
@@ -866,13 +881,40 @@ focus_tree = {
 		prerequisite = { focus = ALT_scale_up_electrification }
 		completion_reward = {
 			add_stability = 0.05
+			962 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			936 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			618 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_seize_warlord_assets
+		icon = GFX_focus_generic_communist_industry
+		x = -3
+		y = 1
+		cost = 5
+		relative_position_id = ALT_eyes_on_the_prize
+		prerequisite = { focus = ALT_eyes_on_the_prize }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ALT_underfunding
+				add_idea = ALT_underfunding2
+			}
 		}
 	}
 
 	focus = {
 		id = ALT_urumqi_public_library
-		icon = GFX_focus_generic_research2
-		x = 0
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = 4
 		y = 1
 		cost = 5
 		relative_position_id = ALT_eyes_on_the_prize
@@ -882,6 +924,62 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = ALT_modest_education_reform_idea
 				add_idea = ALT_public_education_idea
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_centralise_industrial_throughput
+		icon = GFX_focus_generic_modernize_industry
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_a_bolshevik_government
+		}
+		mutually_exclusive = { focus = ALT_implement_an_agrarian_model }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_centralised_economy }
+			random_owned_state = {
+				limit = { 
+					ROOT = { NOT = { has_state_category = wasteland } } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_implement_an_agrarian_model
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_the_peoples_council
+		}
+		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_the_workers_economy }
+			random_owned_state = {
+				limit = { 
+					ROOT = { NOT = { has_state_category = wasteland } } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
