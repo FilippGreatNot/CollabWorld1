@@ -14,7 +14,7 @@ focus_tree = {
 	focus = {
 		id = ALT_into_altays_politics
 		icon = GFX_goal_generic_political_pressure
-		x = 25
+		x = 26
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -66,7 +66,7 @@ focus_tree = {
 	focus = {
 		id = ALT_in_the_shade_of_xinjiang
 		icon = GFX_focus_ETH_boots_on_the_shore
-		x = 16
+		x = 17
 		y = 0
 		ai_will_do = {
 			factor = 15
@@ -716,7 +716,7 @@ focus_tree = {
 	focus = {
 		id = ALT_allocate_stockpiled_arms
 		icon = GFX_focus_SOV_support_spanish_poum
-		x = 5
+		x = 4
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -866,7 +866,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_eyes_on_the_prize
-		icon = GFX_focus_generic_low_cost_housing
+		icon = GFX_focus_usa_reestablish_the_gold_standard
 		x = 0
 		y = 1
 		cost = 1
@@ -929,13 +929,131 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_centralise_industrial_throughput
-		icon = GFX_focus_generic_modernize_industry
+		id = ALT_implement_an_agrarian_model
+		icon = GFX_focus_prc_agrarian_socialism
 		x = -3
 		y = 1
 		cost = 5
 		available = {
 			has_completed_focus = ALT_form_a_bolshevik_government
+		}
+		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_the_workers_economy }
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_fund_state_farms
+		icon = GFX_focus_generic_farmland
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = ALT_implement_an_agrarian_model
+		prerequisite = { focus = ALT_implement_an_agrarian_model }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_distribute_unused_fields
+		icon = GFX_goal_generic_soviet_construction
+		x = 0
+		y = 1.5
+		cost = 5
+		relative_position_id = ALT_implement_an_agrarian_model
+		prerequisite = { focus = ALT_implement_an_agrarian_model }
+		completion_reward = {
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ALT_the_workers_economy
+				add_idea = ALT_the_workers_economy2
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_support_the_struggling_southern_farmers
+		icon = GFX_focus_por_workers_of_iberia
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = ALT_implement_an_agrarian_model
+		prerequisite = { focus = ALT_implement_an_agrarian_model }
+		completion_reward = {
+			759 = {
+				limit = { 
+					has_full_control_of_state = { ROOT }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_centralise_industrial_throughput
+		icon = GFX_focus_generic_modernize_industry
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_the_peoples_council
 		}
 		mutually_exclusive = { focus = ALT_implement_an_agrarian_model }
 		relative_position_id = ALT_urumqi_public_library
@@ -944,7 +1062,7 @@ focus_tree = {
 			add_ideas = { ALT_centralised_economy }
 			random_owned_state = {
 				limit = { 
-					ROOT = { NOT = { has_state_category = wasteland } } 
+					NOT = { has_state_category = wasteland }
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -957,29 +1075,98 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_implement_an_agrarian_model
-		icon = GFX_focus_prc_agrarian_socialism
-		x = 3
+		id = ALT_construct_new_offices
+		icon = GFX_focus_generic_low_cost_housing
+		x = -2
 		y = 1
 		cost = 5
-		available = {
-			has_completed_focus = ALT_form_the_peoples_council
-		}
-		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
-		relative_position_id = ALT_urumqi_public_library
-		prerequisite = { focus = ALT_urumqi_public_library }
+		relative_position_id = ALT_centralise_industrial_throughput
+		prerequisite = { focus = ALT_centralise_industrial_throughput }
 		completion_reward = {
-			add_ideas = { ALT_the_workers_economy }
+			617 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_synthesise_gun_production
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 1.5
+		cost = 5
+		relative_position_id = ALT_centralise_industrial_throughput
+		prerequisite = { focus = ALT_centralise_industrial_throughput }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ALT_centralised_economy
+				add_idea = ALT_centralised_economy2
+			}
 			random_owned_state = {
 				limit = { 
-					ROOT = { NOT = { has_state_category = wasteland } } 
+					NOT = { has_state_category = wasteland }
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = industrial_complex
+					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_urbanise_the_countryside
+		icon = GFX_focus_NORDIC_com_capstone_civilian
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = ALT_centralise_industrial_throughput
+		prerequisite = { focus = ALT_centralise_industrial_throughput }
+		completion_reward = {
+			940 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+				add_manpower = 5000
+			}
+			945 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+				add_manpower = 5000
+			}
+			962 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+				add_manpower = 5000
 			}
 		}
 	}
