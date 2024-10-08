@@ -903,7 +903,7 @@ focus_tree = {
 	focus = {
 		id = ALT_seize_warlord_assets
 		icon = GFX_focus_generic_communist_industry
-		x = -3
+		x = -4
 		y = 1
 		cost = 5
 		relative_position_id = ALT_eyes_on_the_prize
@@ -914,6 +914,226 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = ALT_underfunding
 				add_idea = ALT_underfunding2
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_scraps_of_war
+		icon = GFX_focus_generic_communist_industry
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_seize_warlord_assets
+		prerequisite = { focus = ALT_seize_warlord_assets }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_resource = {
+					type = tungsten
+					amount = 2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_recycle_guns
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_seize_warlord_assets
+		prerequisite = { focus = ALT_seize_warlord_assets }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 2000
+				producer = ALT
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = ALT
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_bring_in_investors
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+			num_of_owned_factories > 29
+		}
+		relative_position_id = ALT_the_scraps_of_war
+		prerequisite = { focus = ALT_seize_warlord_assets }
+		completion_reward = {
+			add_political_power = 50
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = ALT_underfunding2
+				add_idea = ALT_underfunding3
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_state_funded_excavation
+		icon = GFX_focus_generic_steel
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_the_scraps_of_war
+		prerequisite = { focus = ALT_the_scraps_of_war }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = -1
+				add_resource = {
+					type = aluminium
+					amount = 3
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = -1
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_improve_plans_for_a_war_economy
+		icon = GFX_focus_generic_communist_industry
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_recycle_guns
+		prerequisite = { focus = ALT_recycle_guns }
+		completion_reward = {
+			add_war_support = 0.1
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = { ALT_war_economy_plans }
+		}
+	}
+
+	focus = {
+		id = ALT_the_four_year_plan
+		icon = GFX_focus_generic_communist_industry
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_bring_in_investors
+		prerequisite = { focus = ALT_state_funded_excavation }
+		prerequisite = { focus = ALT_bring_in_investors }
+		prerequisite = { focus = ALT_improve_plans_for_a_war_economy }
+		completion_reward = {
+			add_timed_idea = {
+				idea = ALT_four_year_plan
+				days = 1460
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_complete_economic_restoration
+		icon = GFX_focus_generic_communist_industry
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+			NOT = { has_idea = ALT_four_year_plan }
+		}
+		relative_position_id = ALT_the_four_year_plan
+		prerequisite = { focus = ALT_the_four_year_plan }
+		completion_reward = {
+			remove_ideas = ALT_underfunding3 
+			every_core_state = {
+				limit = { NOT = { has_state_category = wasteland } }
+				increase_state_category_by_one_level = yes
 			}
 		}
 	}
@@ -998,10 +1218,34 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_self_sustained_growth
+		icon = GFX_focus_generic_farmland
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_fund_state_farms
+		prerequisite = { focus = ALT_fund_state_farms }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_ideas = { ALT_self_sustainability }
+		}
+	}
+
+	focus = {
 		id = ALT_distribute_unused_fields
 		icon = GFX_goal_generic_soviet_construction
 		x = 0
-		y = 1.5
+		y = 2
 		cost = 5
 		relative_position_id = ALT_implement_an_agrarian_model
 		prerequisite = { focus = ALT_implement_an_agrarian_model }
@@ -1105,7 +1349,7 @@ focus_tree = {
 		id = ALT_synthesise_gun_production
 		icon = GFX_goal_generic_production
 		x = 0
-		y = 1.5
+		y = 2
 		cost = 5
 		relative_position_id = ALT_centralise_industrial_throughput
 		prerequisite = { focus = ALT_centralise_industrial_throughput }
