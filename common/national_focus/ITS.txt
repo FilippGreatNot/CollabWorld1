@@ -236,10 +236,19 @@ focus_tree = {
 				}
 			}
 			else = {
-				add_popularity = {
-					ideology = national_syndicalism
-					popularity = -0.1
-				}	
+				if = {
+					limit = { has_completed_focus = ITS_he_lives }
+					add_popularity = {
+						ideology = national_syndicalism
+						popularity = -0.05
+					}	
+				}
+				else = {
+					add_popularity = {
+						ideology = national_syndicalism
+						popularity = -0.1
+					}				
+				}
 			}
 		}
 	}
@@ -267,7 +276,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = -1
 		y = 1
-		cost = 2
+		cost = 4
 		relative_position_id = ITS_purge
 		prerequisite = { focus = ITS_purge }
 		mutually_exclusive = { focus = ITS_tell_the_truth }
@@ -279,6 +288,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			mark_focus_tree_layout_dirty = yes
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.03
+			}
 		}
 	}
 	focus = {
@@ -286,7 +301,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = 1
 		y = 1
-		cost = 2
+		cost = 4
 		relative_position_id = ITS_purge
 		prerequisite = { focus = ITS_purge }
 		mutually_exclusive = { focus = ITS_blame_tus }
@@ -298,6 +313,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			mark_focus_tree_layout_dirty = yes
+			add_stability = -0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.03
+			}
 		}
 	}
 	focus = {
@@ -391,6 +411,15 @@ focus_tree = {
 		}
 		cost = 5
 		completion_reward = {
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.06
+			}
+			add_war_support = 0.08
 		}
 	}
 	focus = {
@@ -404,6 +433,31 @@ focus_tree = {
 			focus = ITS_full_rat_1
 		}
 		completion_reward = {
+			add_ideas = state_economy
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}			
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}				
 		}
 	}
 	focus = {
@@ -500,6 +554,15 @@ focus_tree = {
 		relative_position_id = ITS_make_gov_syn
 		prerequisite = { focus = ITS_make_gov_syn }
 		completion_reward = {
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.02
+			}
+			add_war_support = 0.08
 		}
 	}
 	focus = {
@@ -621,6 +684,31 @@ focus_tree = {
 			focus = ITS_purge_2
 		}
 		completion_reward = {
+			add_ideas = state_economy
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}			
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
