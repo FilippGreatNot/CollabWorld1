@@ -220,6 +220,38 @@ GER_reunification = {
 			}
 		}
 	}
+	WRD_unite_germany_wilhelm_ii = {
+		icon = generic_form_nation
+		
+		fire_only_once = yes
+		
+		allowed = {
+			original_tag = WRD
+		}
+		
+		visible = {
+			has_country_leader = {
+					character = WRD_wilhelm_ii
+					ruling_only = yes
+				}
+		}
+		ai_will_do = { base = 2000 }
+ 
+		available = {
+			is_subject = no
+			has_war = no
+			fully_controls_germany = yes
+		}
+
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = WRD_german_empire
+			hidden_effect = {
+				news_event = wrd.14
+			}
+			
+		}
+	}
 	WRD_unite_germany_german_empire = {
 		icon = generic_form_nation
 		
@@ -237,10 +269,6 @@ GER_reunification = {
 				}
 				has_country_leader = {
 					character = WRD_erich_ludendorff
-					ruling_only = yes
-				}
-				has_country_leader = {
-					character = WRD_wilhelm_ii
 					ruling_only = yes
 				}
 				has_country_leader = {
