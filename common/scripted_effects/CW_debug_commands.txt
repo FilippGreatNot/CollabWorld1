@@ -8,31 +8,19 @@ d_print_amount_of_states = {
 d_print_strategic_value = {
 	log = "Strategic value of [THIS.GetName] is [?state_strategic_value]"
 }
-d_get_SOV_bop = {
-	set_power_balance = { #Unused, read bop file for details
-		id = SOV_stalin_support
-	}
-}
 d_ee = {
-	add_days_mission_timeout = {
-		mission = legacy_of_the_great_war_mission
-		days = args^0
+	log = "Test: [?token:test_idea.GetTokenLocalizedKey]"
+	log = "Hidden test: [?token:hidden_test_idea.GetTokenLocalizedKey]"
+}
+d_ee2 = {
+	every_owned_state = {
+		log = "far_east [THIS.GetID]"
 	}
 }
 d_retire_leader = {
 	retire_country_leader = yes
 }
-d_retire_rockfeller = {
-	retire_character = USA_john_d_rockfeller
-}
-d_ee2 = {
-	character_list_tooltip = {
-		limit = {
-			#NOT = { has_id = -1 }
-			always = yes
-		}
-	}
-}
+
 d_add_vp = {
 	add_victory_points = {
 		province = args^0
