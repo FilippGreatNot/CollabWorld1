@@ -793,6 +793,25 @@ focus_tree = {
 			focus = USA_mc_decentralized_army_structure
 			focus = USA_mc_centralize_the_army_command
 		}
+		
+		completion_reward = {
+		if = { 
+				limit = { has_idea = CCC_the_liberation_army3 }
+				swap_ideas = { 
+				remove_idea = CCC_the_liberation_army3
+				add_idea = CCC_the_liberation_army5
+			}
+			}
+		if = { 
+				limit = { has_idea = CCC_the_liberation_army4 }
+				swap_ideas = { 
+				remove_idea = CCC_the_liberation_army4
+				add_idea = CCC_the_liberation_army6
+			}
+		}
+			custom_effect_tooltip = CCC_effects_tt
+		
+	}
 	}
 	focus = {
 		id = USA_mc_loyalty_to_democracy
@@ -853,6 +872,12 @@ focus_tree = {
 			focus = USA_mc_loyalty_to_democracy
 			focus = USA_mc_loyalty_to_the_marshal
 		}
+		completion_reward = {
+		     add_manpower = 5000
+			 add_war_support = 0.05
+			 army_experience = 25
+	}
+			 
 	}
 	focus = {
 		id = USA_mc_prisoners_no_more
@@ -911,6 +936,13 @@ focus_tree = {
 		
 		mutually_exclusive = { focus = USA_mc_decentralized_army_structure }
 		prerequisite =	{ focus = USA_mc_fighting_for_democracy }
+		
+		completion_reward = {
+		swap_ideas = {
+				remove_idea = CCC_the_liberation_army2
+				add_idea = CCC_the_liberation_army4
+			}
+			}
 	}
 	focus = {
 		id = USA_mc_patience_is_key
@@ -1003,6 +1035,13 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_fighting_for_democracy }
 		mutually_exclusive = { focus = USA_mc_centralize_the_army_command }
+		
+		completion_reward = {
+		swap_ideas = {
+				remove_idea = CCC_the_liberation_army2
+				add_idea = CCC_the_liberation_army3
+			}
+			}
 	}
 	focus = {
 		id = USA_mc_blow_the_traitors_to_dust
@@ -1217,6 +1256,12 @@ focus_tree = {
 			focus = USA_mc_foreign_expertise
 			focus = USA_mc_raise_militias
 		}
+		
+		completion_reward = {
+		     add_manpower = 100000
+			 add_war_support = 0.1
+			 army_experience = 200
+			 }
 	}
 
 	#America reunification branch
