@@ -652,7 +652,15 @@ country_event = {
 		USA = {
 		    every_country_division = { destroy_unit = yes }
 		}
+		show_superevent_USA_civil_war = yes
+		hidden_effect = {
+			country_event = {
+				id = usa_collapse.20
+				days = 5
+			}
 	}
+	}
+	
 	
 	option = {
 		name = usa_collapse.4.a
@@ -660,6 +668,7 @@ country_event = {
 			factor = 100
 		}
 	}
+
 	
 	option = {
 		name = usa_collapse.4.b
@@ -686,7 +695,7 @@ country_event = {
 	}
 	
 	option = {
-		name = usa_collapse.4.a
+		name = usa_collapse.18.a
 		ai_chance = {
 			factor = 100
 		}
@@ -694,6 +703,25 @@ country_event = {
 				set_state_owner = 685
 			}
 	}
+	
+}
+
+news_event = { 
+	id = usa_collapse.20
+	title = usa_collapse.20.t
+	desc = usa_collapse.20.d
+	is_triggered_only = yes
+	major = yes
+	picture = GFX_news_event_USA_civil_war
+	
+	option = {
+		name = usa_collapse.20.a
+		ai_chance = {
+			factor = 100
+		}
+		show_superevent_USA_civil_war = yes
+	}
+
 	
 }
 

@@ -787,7 +787,7 @@ focus_tree = {
 		relative_position_id = USA_mc_fighting_for_democracy
 		y = 2
 
-		cost = 5
+		cost = 7
 		
 		prerequisite =	{ 
 			focus = USA_mc_decentralized_army_structure
@@ -821,7 +821,7 @@ focus_tree = {
 		y = 1
 		x = -1
 
-		cost = 5
+		cost = 6
 		
 		prerequisite =	{ focus = USA_mc_professionalize_the_army }
 		mutually_exclusive = { focus = USA_mc_loyalty_to_the_marshal }
@@ -841,7 +841,7 @@ focus_tree = {
 		y = 1
 		x = 1
 
-		cost = 5
+		cost = 6
 		
 		prerequisite =	{ focus = USA_mc_professionalize_the_army }
 		mutually_exclusive = { focus = USA_mc_loyalty_to_democracy }
@@ -1000,6 +1000,7 @@ focus_tree = {
 
 		relative_position_id = USA_mc_centralize_the_army_command
 		y = 2
+		x = 1
 
 		cost = 5
 		
@@ -1194,6 +1195,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fight_radicalism }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_worker_soviets"
+			add_ideas = {
+				free_press
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_reopen_democratic_institutions
@@ -1228,6 +1236,13 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_state_radio }
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = CCC_moderate_instability
+				add_idea = CCC_low_instability
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_paper_democracy
@@ -1240,6 +1255,15 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_reopen_democratic_institutions }
 		prerequisite =	{ focus = USA_mc_token_civil_rights }
+		
+			completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_deal_with_social_fascists"
+		
+			remove_ideas = {
+				CCC_low_instability
+			}
+			add_political_power = -25
+		}
 	}
 	focus = {
 		id = USA_mc_end_of_the_army_reforms
@@ -1369,6 +1393,12 @@ focus_tree = {
 			focus = USA_mc_destroy_the_californian_traitors
 		}
 		
+		available = {
+			NOT = {
+				country_exists = CAL
+			}
+		}
+		
 		completion_reward = {
 			
 			add_political_power = 25
@@ -1390,6 +1420,16 @@ focus_tree = {
 
 		cost = 5
 		
+		available = {
+			has_war = no
+			is_neighbor_of = ORG
+		}
+		bypass = {
+			NOT = {
+				country_exists = ORG
+			}
+		}
+		
 		prerequisite =	{ focus = USA_mc_utilize_californian_oil }
 
 		completion_reward = {
@@ -1407,6 +1447,16 @@ focus_tree = {
 		y = 1
 
 		cost = 5
+		
+		available = {
+			has_war = no
+			is_neighbor_of = WSH
+		}
+		bypass = {
+			NOT = {
+				country_exists = WSH
+			}
+		}
 		
 		prerequisite =	{ focus = USA_mc_utilize_californian_oil }
 
@@ -1426,6 +1476,16 @@ focus_tree = {
 		x = 2
 
 		cost = 5
+		
+		available = {
+			has_war = no
+			is_neighbor_of = IDA
+		}
+		bypass = {
+			NOT = {
+				country_exists = IDA
+			}
+		}
 		
 		prerequisite =	{ focus = USA_mc_utilize_californian_oil }
 
@@ -1467,7 +1527,23 @@ focus_tree = {
 
 		cost = 5
 		
+		available = {
+			has_war = no
+			is_neighbor_of = TEX
+		}
+		bypass = {
+			NOT = {
+				country_exists = TEX
+			}
+		}
+		
 		prerequisite =	{ focus = USA_mc_the_west_is_ours }
+		
+		completion_reward = {
+		TEX = {	
+				country_event = ccc.8
+			}
+			}
 	}
 	focus = {
 		id = USA_mc_end_the_motor_company
@@ -1478,6 +1554,16 @@ focus_tree = {
 		x = 1
 
 		cost = 5
+		
+		available = {
+			has_war = no
+			is_neighbor_of = FOC
+		}
+		bypass = {
+			NOT = {
+				country_exists = FOC
+			}
+		}
 		
 		prerequisite =	{ focus = USA_mc_the_west_is_ours }
 
@@ -1496,6 +1582,16 @@ focus_tree = {
 		y = 2
 
 		cost = 5
+		
+		available = {
+			has_war = no
+			is_neighbor_of = KKK
+		}
+		bypass = {
+			NOT = {
+				country_exists = KKK
+			}
+		}
 		
 		prerequisite =	{ focus = USA_mc_demand_texan_annexation }
 		prerequisite =	{ focus = USA_mc_end_the_motor_company }
@@ -1516,7 +1612,23 @@ focus_tree = {
 
 		cost = 5
 		
+		available = {
+			has_war = no
+			is_neighbor_of = BRE
+		}
+		bypass = {
+			NOT = {
+				country_exists = BRE
+			}
+		}
+		
 		prerequisite =	{ focus = USA_mc_torture_the_racists }
+		
+		completion_reward = {
+		BRE = {	
+				country_event = ccc.7
+			}
+			}
 	}
 	focus = {
 		id = USA_mc_extinguish_the_fire_of_revolution
@@ -1527,6 +1639,16 @@ focus_tree = {
 		x = -1
 
 		cost = 5
+		
+		available = {
+			has_war = no
+			is_neighbor_of = ASF
+		}
+		bypass = {
+			NOT = {
+				country_exists = ASF
+			}
+		}
 		
 		prerequisite =	{ focus = USA_mc_offer_the_resistance_amnesty }
 
@@ -1547,11 +1669,27 @@ focus_tree = {
 
 		cost = 5
 		
+		available = {
+			has_war = no
+		}
+		
 		prerequisite =	{ focus = USA_mc_offer_the_resistance_amnesty }
 
 		completion_reward = {
 			declare_war_on = {
 				target = USA
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = NEE
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = PEN
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = NYC
 				type = annex_everything
 			}
 		}
@@ -1565,13 +1703,18 @@ focus_tree = {
 
 		cost = 5
 		
+		available = {
+			has_war = no
+		}
+		
 		prerequisite =	{ focus = USA_mc_extinguish_the_fire_of_revolution }
 		prerequisite =	{ focus = USA_mc_war_for_americas_destiny }
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
 
-
+                 country_event = ccc.6
+				 
 		}
 		
 	}
