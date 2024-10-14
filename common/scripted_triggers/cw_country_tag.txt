@@ -14,3 +14,24 @@ is_russian_tag = {
 is_chinese_tag = {
 	is_in_array = { global.chinese_tags = THIS }
 }
+
+same_country_as_PREV = {
+	OR = {
+		AND = {
+			PREV = { is_italian_tag = yes }
+			is_italian_tag = yes
+		}
+		AND = {
+			PREV = { is_german_tag = yes }
+			is_german_tag = yes
+		}
+		AND = {
+			PREV = { is_russian_tag = yes }
+			is_russian_tag = yes
+		}
+		AND = {
+			PREV = { is_american_tag = yes }
+			is_american_tag = yes
+		}
+	}
+}

@@ -1,0 +1,16 @@
+# ROOT - Negotiator country (who is doing the negotiation)
+# FROM - Taker country (who will be the owner after the conference)
+# FROM.FROM - Giver country (who was the owner before the conference)
+# FROM.FROM.FROM - State (if peace action refers to a state)
+peace_ai_desires = {
+	germany_annex_other_germans = { #They shouldn't puppet them
+		peace_action_type = take_states
+		
+		enable = {
+			FROM = { original_tag = PREV } #I'm not sure what it is needed for but seems like it's important
+			FROM.FROM = { same_country_as_PREV = yes }
+		}
+		
+		ai_desire = 9999
+	}
+}
