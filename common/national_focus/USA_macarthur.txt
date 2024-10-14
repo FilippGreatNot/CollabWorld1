@@ -1136,6 +1136,19 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fighting_for_democracy }
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus USA_mc_convice_the_military"
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_political_power = 50
+		}
 	}
 	focus = {
 		id = USA_mc_ban_the_socialists
@@ -1149,6 +1162,22 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_republican_democrat_unity }
 		mutually_exclusive = { focus = USA_mc_outlaw_the_nationalists }
+		
+		completion_reward = {
+		    add_popularity = {
+					ideology = marxism
+					popularity = -0.05
+				}
+			add_popularity = {
+					ideology = libertarian_socialism
+					popularity = -0.05
+				}
+			add_popularity = {
+					ideology = bolshevism
+					popularity = -0.05
+				}
+			add_political_power = 50
+	}
 	}
 	focus = {
 		id = USA_mc_outlaw_the_nationalists
@@ -1162,6 +1191,14 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_republican_democrat_unity }
 		mutually_exclusive = { focus = USA_mc_ban_the_socialists }
+		
+		    completion_reward = {
+		    add_popularity = {
+					ideology = national_syndicalism
+					popularity = -0.1
+				}
+			add_stability = 0.05
+	}
 	}
 	focus = {
 		id = USA_mc_fight_radicalism
@@ -1213,10 +1250,17 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_restore_freedom_of_speech }
+		
+	    completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_worker_soviets"
+			add_ideas = {
+				CCC_local_autonomy
+			}
+		 }
 	}
 	focus = {
 		id = USA_mc_state_radio
-		icon = GFX_focus_USA_mc_state_radio
+		icon = GFX_focus_USA_mc_radios
 
 		relative_position_id = USA_mc_fight_radicalism
 		y = 1
@@ -1225,7 +1269,12 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite =	{ focus = USA_mc_fight_radicalism }
-	}
+		
+		completion_reward = {
+				add_ideas = CCC_federal_radio_station
+			    } 
+				
+		}
 	focus = {
 		id = USA_mc_token_civil_rights
 		icon = GFX_focus_USA_mc_token_civil_rights
@@ -1318,7 +1367,7 @@ focus_tree = {
 		icon = GFX_focus_USA_mc_great_crusade
 		
 		available = { 
-			date > 1925.1.1
+			date > 1924.7.1
 		}
 
 		relative_position_id = USA_mc_declare_macarthur_president
