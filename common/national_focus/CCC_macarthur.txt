@@ -795,23 +795,24 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-		if = { 
-				limit = { has_idea = CCC_the_liberation_army3 }
-				swap_ideas = { 
-				remove_idea = CCC_the_liberation_army3
-				add_idea = CCC_the_liberation_army5
+			if = { 
+					limit = { has_idea = CCC_the_liberation_army3 }
+					swap_ideas = { 
+					remove_idea = CCC_the_liberation_cen
+					add_idea = CCC_the_liberation_cen2
+				}
 			}
+			else if = { 
+					limit = { has_idea = CCC_the_liberation_army4 }
+					swap_ideas = { 
+					remove_idea = CCC_the_liberation_decen
+					add_idea = CCC_the_liberation_decen2
+				}
 			}
-		if = { 
-				limit = { has_idea = CCC_the_liberation_army4 }
-				swap_ideas = { 
-				remove_idea = CCC_the_liberation_army4
-				add_idea = CCC_the_liberation_army6
+			else = {
+				custom_effect_tooltip = CCC_effects_tt
 			}
 		}
-			custom_effect_tooltip = CCC_effects_tt
-		
-	}
 	}
 	focus = {
 		id = USA_mc_loyalty_to_democracy
@@ -938,11 +939,11 @@ focus_tree = {
 		prerequisite =	{ focus = USA_mc_fighting_for_democracy }
 		
 		completion_reward = {
-		swap_ideas = {
+			swap_ideas = {
 				remove_idea = CCC_the_liberation_army2
-				add_idea = CCC_the_liberation_army4
+				add_idea = CCC_the_liberation_army_cen
 			}
-			}
+		}
 	}
 	focus = {
 		id = USA_mc_patience_is_key
@@ -956,6 +957,12 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_centralize_the_army_command }
 		mutually_exclusive = { focus = USA_mc_mobile_warfare_tactics }
+		
+		completion_reward = {
+			add_ideas = {
+				CCC_army_doctrineC
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_support_companies
@@ -968,6 +975,13 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_patience_is_key }
 		prerequisite = { focus = USA_mc_queen_of_the_battlefield }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = CCC_army_doctrineC2
+				remove_idea = CCC_army_doctrineC
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_mobile_warfare_tactics
@@ -981,6 +995,12 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_centralize_the_army_command }
 		mutually_exclusive = { focus = USA_mc_patience_is_key }
+		
+		completion_reward = {
+			add_ideas = {
+				CCC_army_doctrineD
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_research_new_tanks
@@ -993,6 +1013,19 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_mobile_warfare_tactics }
 		prerequisite = { focus = USA_mc_queen_of_the_battlefield }
+		
+		completion_reward = {
+			swap_ideas = {
+				add_idea = CCC_army_doctrineD2
+				remove_idea = CCC_army_doctrineD
+			}
+		    add_tech_bonus = {
+				name = secret_bonus
+				bonus = 0.15
+				uses = 3
+				category = armor
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_queen_of_the_battlefield
@@ -1044,11 +1077,11 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_mc_centralize_the_army_command }
 		
 		completion_reward = {
-		swap_ideas = {
+			swap_ideas = {
 				remove_idea = CCC_the_liberation_army2
-				add_idea = CCC_the_liberation_army3
+				add_idea = CCC_the_liberation_army_decen
 			}
-			}
+		}
 	}
 	focus = {
 		id = USA_mc_blow_the_traitors_to_dust
@@ -1061,6 +1094,12 @@ focus_tree = {
 		
 		mutually_exclusive = { focus = USA_mc_mass_mobolization }
 		prerequisite =	{ focus = USA_mc_decentralized_army_structure }
+		
+		completion_reward = {
+			add_ideas = {
+				CCC_army_doctrineA
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_mass_mobolization
@@ -1074,6 +1113,12 @@ focus_tree = {
 		
 		mutually_exclusive = { focus = USA_mc_blow_the_traitors_to_dust }
 		prerequisite =	{ focus = USA_mc_decentralized_army_structure }
+		
+		completion_reward = {
+			add_ideas = {
+				CCC_army_doctrineB
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_guns_for_true_patriots
@@ -1110,6 +1155,13 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_mass_mobolization }
 		prerequisite =	{ focus = USA_mc_guns_for_true_patriots }
+		
+		completion_reward = {
+			swap_ideas = {
+				add_idea = CCC_army_doctrineB2
+				remove_idea = CCC_army_doctrineB
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_expand_artillery_production
@@ -1122,6 +1174,13 @@ focus_tree = {
 		
 		prerequisite =	{ focus = USA_mc_blow_the_traitors_to_dust }
 		prerequisite =	{ focus = USA_mc_guns_for_true_patriots }
+		
+		completion_reward = {
+			swap_ideas = {
+				add_idea = CCC_army_doctrineA2
+				remove_idea = CCC_army_doctrineA
+			}
+		}
 	}
 	focus = {
 		id = USA_mc_raise_militias
