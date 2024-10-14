@@ -21,19 +21,44 @@ focus_tree = {
 		
 	
 		
-		bypass = {
-			NOT = {
-				country_exists = UGA
-			}
-		}
+		#bypass = {
+		#	NOT = {
+		#		country_exists = UGA
+		#	}
+		#}
 		available = {
 			has_war = no
 			is_neighbor_of = UGA
 		}
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_destroy_capitalist_swine_log"
 			declare_war_on = {
 				target = UGA
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = KEN_remove_germans
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 0
+		y = 1
+		cost = 10
+		relative_position_id = KEN_spread_revolution_to_uganda
+		prerequisite = { focus = KEN_spread_revolution_to_uganda }
+		
+		#bypass = {
+		#	NOT = {
+		#		country_exists = DOA
+		#	}
+		#}
+		available = {
+			has_war = no
+			is_neighbor_of = DOA
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = DOA
 				type = annex_everything
 			}
 		}
