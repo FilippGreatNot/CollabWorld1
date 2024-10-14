@@ -3,24 +3,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					OR = {
-						AND = {
-							FROM = { is_italian_tag = yes }
-							is_italian_tag = yes
-						}
-						AND = {
-							FROM = { is_german_tag = yes }
-							is_german_tag = yes
-						}
-						AND = {
-							FROM = { is_russian_tag = yes }
-							is_russian_tag = yes
-						}
-						AND = {
-							FROM = { is_american_tag = yes }
-							is_american_tag = yes
-						}
-					}
+					FROM = { same_country_as_PREV = yes }
 				}
 				add_civil_war_target = FROM
 			}
