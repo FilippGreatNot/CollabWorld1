@@ -1061,6 +1061,10 @@ focus_tree = {
 			focus = USA_mc_support_companies
 			focus = USA_mc_research_new_tanks
 		}
+		
+		completion_reward = {
+			add_ideas = { CCC_entente_advisors }
+		}
 	}
 	##Decentralized army
 	focus = {
@@ -1194,6 +1198,58 @@ focus_tree = {
 		prerequisite =	{ 
 			focus = USA_mc_the_army_is_people
 			focus = USA_mc_expand_artillery_production
+		}
+		
+		completion_reward = {
+			division_template = {
+				name = "Militia Brigade"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+
+					cavalry = { x = 2 y = 0 }
+					cavalry = { x = 2 y = 1 }
+					
+					artillery_brigade = { x = 3 y = 0 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			379 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 2
+				}
+			}
+			380 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 3
+				}
+			}
+			382 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 2
+				}
+			}
+			376 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 3
+				}
+			}
 		}
 	}
 
