@@ -2669,6 +2669,9 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_pabst
 		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
@@ -2694,6 +2697,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_pabst
 		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
@@ -2716,6 +2722,9 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_pabst
 		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
@@ -2735,11 +2744,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_legacy_of_the_erhardt_brigade
+		id = FGB_legacy_of_the_ehrhardt_brigade
 		icon = GFX_focus_FGB_pabst
 		x = -1
 		y = 1
 		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_quell_urban_revolts
 		prerequisite = { focus = FGB_quell_urban_revolts }
 		prerequisite = { focus = FGB_deploy_counterrevolutionary_militias }
@@ -2779,7 +2791,10 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst
 		x = 1
 		y = 1
-		cost = 2
+		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_quell_urban_revolts
 		prerequisite = { focus = FGB_quell_urban_revolts }
 		prerequisite = { focus = FGB_give_pabst_field_command }
@@ -2798,9 +2813,12 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst
 		x = 0
 		y = 1
-		cost = 4
-		relative_position_id = FGB_legacy_of_the_erhardt_brigade
-		prerequisite = { focus = FGB_legacy_of_the_erhardt_brigade }
+		cost = 3
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_legacy_of_the_ehrhardt_brigade
+		prerequisite = { focus = FGB_legacy_of_the_ehrhardt_brigade }
 		completion_reward = {
 			add_war_support = 0.05
 			add_popularity = {
@@ -2820,6 +2838,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_implement_curfews
 		prerequisite = { focus = FGB_implement_curfews }
 		completion_reward = {
@@ -2843,9 +2864,39 @@ focus_tree = {
 	focus = {
 		id = FGB_under_a_populist_veil
 		icon = GFX_goal_demand_sudetenland
-		x = 1
+		x = -2
 		y = 1
 		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+		mutually_exclusive = { focus = FGB_ehrhardt_takes_charge }
+		relative_position_id = FGB_raise_conservative_support
+		prerequisite = { focus = FGB_raise_conservative_support }
+		prerequisite = { focus = FGB_execute_the_revolutionaries }
+		completion_reward = {
+			add_political_power = 70
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = reactionism
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_ehrhardt_takes_charge
+		icon = GFX_goal_demand_sudetenland
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		mutually_exclusive = { focus = FGB_under_a_populist_veil }
 		relative_position_id = FGB_raise_conservative_support
 		prerequisite = { focus = FGB_raise_conservative_support }
 		prerequisite = { focus = FGB_execute_the_revolutionaries }
@@ -2868,6 +2919,9 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_under_a_populist_veil
 		prerequisite = { focus = FGB_under_a_populist_veil }
 		completion_reward = {
@@ -2901,6 +2955,9 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
 		relative_position_id = FGB_under_a_populist_veil
 		prerequisite = { focus = FGB_under_a_populist_veil }
 		completion_reward = {

@@ -12,172 +12,830 @@ focus_tree = {
 	} 
 
 	focus = {
-		id = ALT_into_altays_politics
-		icon = GFX_goal_generic_political_pressure
-		x = 28
+		id = ALT_allocate_stockpiled_arms
+		icon = GFX_focus_SOV_support_spanish_poum
+		x = 8
 		y = 1
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 3
+		cost = 2
 		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
 		completion_reward = {
-			add_political_power = 50
-		}
-	}
-
-	focus = {
-		id = ALT_form_a_bolshevik_government
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = -2
-		y = 1
-		ai_will_do = {
-			factor = 85
-		}
-		cost = 2
-		mutually_exclusive = { focus = ALT_form_the_peoples_council }
-		relative_position_id = ALT_into_altays_politics
-		prerequisite = { focus = ALT_into_altays_politics }
-		completion_reward = {
-			set_politics = {
-				ruling_party = bolshevism
-			}
-			add_popularity = {
-				ideology = bolshevism
-				popularity = 0.2
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_abolish_illegal_trading_rings
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = -2
-		y = 1
-		ai_will_do = {
-			factor = 85
-		}
-		cost = 4
-		relative_position_id = ALT_form_a_bolshevik_government
-		prerequisite = { focus = ALT_form_a_bolshevik_government }
-		completion_reward = {
-			add_political_power = -40
-			add_popularity = {
-				ideology = bolshevism
-				popularity = 0.1
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_removing_capitalists_from_office
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		id = ALT_early_economic_development
+		icon = GFX_goal_generic_construct_civ_factory
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 85
+			factor = 15
 		}
-		cost = 4
-		relative_position_id = ALT_form_a_bolshevik_government
-		prerequisite = { focus = ALT_form_a_bolshevik_government }
-		completion_reward = {
-			add_stability = -0.05
-			add_popularity = {
-				ideology = libertarian_socialism
-				popularity = -0.15
+		cost = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALT_civil_war_ended_tt
+				has_country_flag = ALT_civil_war_ended
 			}
 		}
-	}
-
-	focus = {
-		id = ALT_nationalisation_of_industry
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = 2
-		y = 1
-		ai_will_do = {
-			factor = 85
-		}
-		cost = 4
-		relative_position_id = ALT_form_a_bolshevik_government
-		prerequisite = { focus = ALT_form_a_bolshevik_government focus = ALT_form_the_peoples_council }
-		completion_reward = {
-			set_temp_variable = { ideology_change_var = 0.1 }
-			change_ruling_party_popularity = yes
-			add_offsite_building = { type = arms_factory level = 1 }
-			add_offsite_building = { type = industrial_complex level = 1 }
-		}
-	}
-
-	focus = {
-		id = ALT_invest_in_workers_services
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = 4
-		y = 1
-		ai_will_do = {
-			factor = 85
-		}
-		cost = 4
-		relative_position_id = ALT_form_a_bolshevik_government
-		prerequisite = { focus = ALT_form_the_peoples_council }
+		relative_position_id = ALT_allocate_stockpiled_arms
+		prerequisite = { focus = ALT_allocate_stockpiled_arms }
 		completion_reward = {
 			add_stability = 0.05
-			add_popularity = {
-				ideology = marxism
-				popularity = 0.05
+			936 = {
+				add_extra_state_shared_building_slots = 1
 			}
-			add_ideas = { ALT_moderate_welfare_services }
 		}
 	}
 
 	focus = {
-		id = ALT_drawing_towards_urbanisation
-		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = 6
+		id = ALT_industrial_mobilisation
+		icon = GFX_focus_generic_reorient_production
+		x = -1
 		y = 1
-		ai_will_do = {
-			factor = 85
-		}
-		cost = 4
-		relative_position_id = ALT_form_a_bolshevik_government
-		prerequisite = { focus = ALT_form_the_peoples_council }
+		cost = 5
+		relative_position_id = ALT_early_economic_development
+		prerequisite = { focus = ALT_early_economic_development }
 		completion_reward = {
-			add_popularity = {
-				ideology = marxism
-				popularity = 0.1
+			936 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
 			}
-			add_victory_points = {
-				province = 4823
-				value = 2
+			army_experience = 30
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = ALT
 			}
-			add_victory_points = {
-				province = 7693
-				value = 2
+		}
+	}
+
+	focus = {
+		id = ALT_improving_military_theory
+		icon = GFX_focus_SOV_organize_wreckers
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_industrial_mobilisation
+		prerequisite = { focus = ALT_industrial_mobilisation }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 30
+			add_command_power = 40
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = cat_superior_firepower
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_mend_the_economic_abyss
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_early_economic_development
+		prerequisite = { focus = ALT_early_economic_development }
+		completion_reward = {
+			936 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
 			}
 			936 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_modest_education_reform
+		icon = GFX_focus_NORDIC_dem_selector_research
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_mend_the_economic_abyss
+		prerequisite = { focus = ALT_mend_the_economic_abyss }
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = { ALT_modest_education_reform_idea }
+			add_tech_bonus = {
+				name = 1
+				bonus = 0.5
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_scale_up_electrification
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_improving_military_theory
+		prerequisite = { focus = ALT_improving_military_theory }
+		prerequisite = { focus = ALT_modest_education_reform }
+		completion_reward = {
+			add_stability = 0.05
+			every_owned_state = {
 				increase_state_category_by_one_level = yes
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_form_the_peoples_council
-		icon = GFX_focus_ARG_women_in_industry
+		id = ALT_eyes_on_the_prize
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 0
+		y = 1
+		cost = 1
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ALT_xinjiang_unified_tt
+				has_country_flag = ALT_xinjiang_unified
+			}
+		}
+		relative_position_id = ALT_scale_up_electrification
+		prerequisite = { focus = ALT_scale_up_electrification }
+		completion_reward = {
+			add_stability = 0.05
+			962 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			936 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			618 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_seize_warlord_assets
+		icon = GFX_focus_generic_communist_industry
+		x = -8
+		y = 1
+		cost = 5
+		relative_position_id = ALT_eyes_on_the_prize
+		prerequisite = { focus = ALT_eyes_on_the_prize }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ALT_underfunding
+				add_idea = ALT_underfunding2
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_scraps_of_war
+		icon = GFX_focus_CHL_silverworking
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_seize_warlord_assets
+		prerequisite = { focus = ALT_seize_warlord_assets }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_resource = {
+					type = tungsten
+					amount = 2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_recycle_guns
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_seize_warlord_assets
+		prerequisite = { focus = ALT_seize_warlord_assets }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = 2000
+				producer = ALT
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = ALT
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_bring_in_investors
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+			num_of_owned_factories > 29
+		}
+		relative_position_id = ALT_the_scraps_of_war
+		prerequisite = { focus = ALT_seize_warlord_assets }
+		completion_reward = {
+			add_political_power = 50
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = ALT_underfunding2
+				add_idea = ALT_underfunding3
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_state_funded_excavation
+		icon = GFX_focus_generic_mining_industry
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_the_scraps_of_war
+		prerequisite = { focus = ALT_the_scraps_of_war }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = -1
+				add_resource = {
+					type = aluminium
+					amount = 3
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = -1
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_improve_plans_for_a_war_economy
+		icon = GFX_focus_generic_self_propelled_gun
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_recycle_guns
+		prerequisite = { focus = ALT_recycle_guns }
+		completion_reward = {
+			add_war_support = 0.1
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = { ALT_war_economy_plans }
+		}
+	}
+
+	focus = {
+		id = ALT_the_four_year_plan
+		icon = GFX_focus_SOV_merge_plants
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_bring_in_investors
+		prerequisite = { focus = ALT_state_funded_excavation }
+		prerequisite = { focus = ALT_bring_in_investors }
+		prerequisite = { focus = ALT_improve_plans_for_a_war_economy }
+		completion_reward = {
+			add_timed_idea = {
+				idea = ALT_four_year_plan
+				days = 1460
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_complete_economic_restoration
+		icon = GFX_focus_generic_industry_3
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+			NOT = { has_idea = ALT_four_year_plan }
+		}
+		relative_position_id = ALT_the_four_year_plan
+		prerequisite = { focus = ALT_the_four_year_plan }
+		completion_reward = {
+			remove_ideas = ALT_underfunding3 
+			every_core_state = {
+				limit = { NOT = { has_state_category = wasteland } }
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_urumqi_public_library
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_eyes_on_the_prize
+		prerequisite = { focus = ALT_eyes_on_the_prize }
+		completion_reward = {
+			add_research_slot = 1
+			swap_ideas = {
+				remove_idea = ALT_modest_education_reform_idea
+				add_idea = ALT_public_education_idea
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_implement_an_agrarian_model
+		icon = GFX_focus_prc_agrarian_socialism
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_a_bolshevik_government
+		}
+		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_the_workers_economy }
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_fund_state_farms
+		icon = GFX_focus_ARG_capitalize_the_beef_industry
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = ALT_implement_an_agrarian_model
+		prerequisite = { focus = ALT_implement_an_agrarian_model }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_self_sustained_growth
+		icon = GFX_focus_generic_farmland
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_fund_state_farms
+		prerequisite = { focus = ALT_fund_state_farms }
+		completion_reward = {
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_ideas = { ALT_self_sustainability }
+		}
+	}
+
+	focus = {
+		id = ALT_distribute_unused_fields
+		icon = GFX_goal_generic_soviet_construction
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_implement_an_agrarian_model
+		prerequisite = { focus = ALT_implement_an_agrarian_model }
+		completion_reward = {
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = ALT_the_workers_economy
+				add_idea = ALT_the_workers_economy2
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_support_the_struggling_southern_farmers
+		icon = GFX_focus_por_workers_of_iberia
 		x = 2
 		y = 1
-		ai_will_do = {
-			factor = 15
+		cost = 5
+		available = {
+			has_full_control_of_state = 759
 		}
-		cost = 2
-		mutually_exclusive = { focus = ALT_form_a_bolshevik_government }
-		relative_position_id = ALT_into_altays_politics
-		prerequisite = { focus = ALT_into_altays_politics }
+		relative_position_id = ALT_implement_an_agrarian_model
+		prerequisite = { focus = ALT_implement_an_agrarian_model }
 		completion_reward = {
-			set_politics = {
-				ruling_party = marxism
+			759 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
 			}
-			add_popularity = {
-				ideology = marxism
-				popularity = 0.2
+		}
+	}
+
+	focus = {
+		id = ALT_modernise_farming_tools
+		icon = GFX_focus_por_workers_of_iberia
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_support_the_struggling_southern_farmers
+		prerequisite = { focus = ALT_support_the_struggling_southern_farmers }
+		completion_reward = {
+			add_stability = 0.05
+			add_tech_bonus = {
+				name = toolsforfools
+				bonus = 0.75
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_centralise_industrial_throughput
+		icon = GFX_focus_generic_modernize_industry
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+			has_completed_focus = ALT_form_the_peoples_council
+		}
+		mutually_exclusive = { focus = ALT_implement_an_agrarian_model }
+		relative_position_id = ALT_urumqi_public_library
+		prerequisite = { focus = ALT_urumqi_public_library }
+		completion_reward = {
+			add_ideas = { ALT_centralised_economy }
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_construct_new_offices
+		icon = GFX_focus_generic_low_cost_housing
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = ALT_centralise_industrial_throughput
+		prerequisite = { focus = ALT_centralise_industrial_throughput }
+		completion_reward = {
+			617 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_attract_foreign_capital
+		icon = GFX_focus_generic_low_cost_housing
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_construct_new_offices
+		prerequisite = { focus = ALT_construct_new_offices }
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = { ALT_foreign_capital }
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_synthesise_gun_production
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = ALT_centralise_industrial_throughput
+		prerequisite = { focus = ALT_centralise_industrial_throughput }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ALT_centralised_economy
+				add_idea = ALT_centralised_economy2
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_urbanise_the_countryside
+		icon = GFX_focus_NORDIC_com_capstone_civilian
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = ALT_centralise_industrial_throughput
+		prerequisite = { focus = ALT_centralise_industrial_throughput }
+		completion_reward = {
+			940 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+				add_manpower = 5000
+			}
+			945 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+				add_manpower = 5000
+			}
+			962 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+				add_manpower = 5000
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_cleanse_the_slums
+		icon = GFX_focus_NORDIC_com_capstone_civilian
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ALT_urbanise_the_countryside
+		prerequisite = { focus = ALT_urbanise_the_countryside }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = -30
+			617 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			940 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			944 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			961 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_improve_the_railway_connections
+		icon = GFX_focus_generic_railway_gun
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_attract_foreign_capital
+		prerequisite = { focus = ALT_attract_foreign_capital }
+		prerequisite = { focus = ALT_synthesise_gun_production }
+		completion_reward = {
+			760 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = 4704
+				}
+			}
+			build_railway = {
+				#level = 1
+				start_province = 4709
+				target_province = 4704
+			}
+			build_railway = {
+				#level = 1
+				start_province = 4704
+				target_province = 4823
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_unemployment_programmes
+		icon = GFX_focus_NORDIC_com_capstone_civilian
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_cleanse_the_slums
+		prerequisite = { focus = ALT_cleanse_the_slums }
+		prerequisite = { focus = ALT_synthesise_gun_production }
+		completion_reward = {
+			add_stability = 0.05
+			add_manpower = 35000
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -772,7 +1430,7 @@ focus_tree = {
 			NOT = { country_exists = TIA }
 			has_government = marxism
 			KUM = {
-				has_government = bolshevism
+				has_government = marxism
 			}
 		}
 		mutually_exclusive = { focus = ALT_establish_a_soviet_republic }
@@ -799,7 +1457,6 @@ focus_tree = {
 		}
 		cost = 5
 		available = {
-			NOT = { country_exists = KUM }
 			NOT = { country_exists = SIK }
 			NOT = { country_exists = TIA }
 		}
@@ -833,704 +1490,1003 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_allocate_stockpiled_arms
-		icon = GFX_focus_SOV_support_spanish_poum
-		x = 4
+		id = ALT_into_altays_politics
+		icon = GFX_goal_generic_political_pressure
+		x = 35
 		y = 1
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 2
+		cost = 3
 		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
 		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_0
-				amount = 500
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ALT_form_a_bolshevik_government
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		x = -9
+		y = 1
+		ai_will_do = {
+			factor = 35
+		}
+		cost = 2
+		mutually_exclusive = { focus = ALT_form_the_peoples_council }
+		relative_position_id = ALT_into_altays_politics
+		prerequisite = { focus = ALT_into_altays_politics }
+		completion_reward = {
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.2
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_early_economic_development
-		icon = GFX_goal_generic_construct_civ_factory
+		id = ALT_abolish_illegal_trading_rings
+		icon = GFX_focus_NOR_broken_gun_policies
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_form_a_bolshevik_government
+		prerequisite = { focus = ALT_form_a_bolshevik_government }
+		completion_reward = {
+			add_political_power = -40
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_empower_the_working_class
+		icon = GFX_focus_NOR_broken_gun_policies
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 85
 		}
-		cost = 1
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ALT_civil_war_ended_tt
-				has_country_flag = ALT_civil_war_ended
-			}
-		}
-		relative_position_id = ALT_allocate_stockpiled_arms
-		prerequisite = { focus = ALT_allocate_stockpiled_arms }
+		cost = 4
+		relative_position_id = ALT_abolish_illegal_trading_rings
+		prerequisite = { focus = ALT_abolish_illegal_trading_rings }
 		completion_reward = {
 			add_stability = 0.05
-			936 = {
-				add_extra_state_shared_building_slots = 1
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			add_ideas = { ALT_empowered_working_class }
+		}
+	}
+
+	focus = {
+		id = ALT_removing_capitalists_from_office
+		icon = GFX_focus_NORDIC_com_institution_2
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_form_a_bolshevik_government
+		prerequisite = { focus = ALT_form_a_bolshevik_government }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.15
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_industrial_mobilisation
-		icon = GFX_focus_generic_reorient_production
-		x = -1
+		id = ALT_cleansing_the_military
+		icon = GFX_focus_NORDIC_com_institution_2
+		x = 0
 		y = 1
+		ai_will_do = {
+			factor = 85
+		}
 		cost = 5
-		relative_position_id = ALT_early_economic_development
-		prerequisite = { focus = ALT_early_economic_development }
+		relative_position_id = ALT_removing_capitalists_from_office
+		prerequisite = { focus = ALT_removing_capitalists_from_office }
 		completion_reward = {
-			936 = {
+			add_manpower = -15000
+			add_war_support = -0.1
+			add_command_power = 50
+			army_experience = -40
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
 					level = 1
-					instant_build  = yes
+					instant_build = yes
 				}
 			}
-			army_experience = 30
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_0
-				amount = 1000
-				producer = ALT
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_improving_military_theory
-		icon = GFX_focus_SOV_organize_wreckers
-		x = 0
+		id = ALT_develop_a_cult_of_personality
+		icon = GFX_focus_NORDIC_com_institution_2
+		x = 1
 		y = 1
+		ai_will_do = {
+			factor = 85
+		}
 		cost = 5
-		relative_position_id = ALT_industrial_mobilisation
-		prerequisite = { focus = ALT_industrial_mobilisation }
+		relative_position_id = ALT_empower_the_working_class
+		prerequisite = { focus = ALT_empower_the_working_class }
+		prerequisite = { focus = ALT_cleansing_the_military }
+		completion_reward = {
+			add_stability = -0.05
+			add_country_leader_trait = gordienkos_personality_cult
+		}
+	}
+
+	focus = {
+		id = ALT_nationalisation_of_industry
+		icon = GFX_focus_NORDIC_com_civilian
+		x = 6
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_form_a_bolshevik_government
+		prerequisite = { focus = ALT_form_a_bolshevik_government focus = ALT_form_the_peoples_council }
+		completion_reward = {
+			set_temp_variable = { ideology_change_var = 0.1 }
+			change_ruling_party_popularity = yes
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+
+	focus = {
+		id = ALT_civilian_grants
+		icon = GFX_focus_NORDIC_com_civilian
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_nationalisation_of_industry
+		prerequisite = { focus = ALT_nationalisation_of_industry }
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+
+	focus = {
+		id = ALT_military_grants
+		icon = GFX_focus_NORDIC_com_civilian
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_nationalisation_of_industry
+		prerequisite = { focus = ALT_nationalisation_of_industry }
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+
+	focus = {
+		id = ALT_create_an_airforce
+		icon = GFX_focus_NORDIC_com_civilian
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_nationalisation_of_industry
+		prerequisite = { focus = ALT_nationalisation_of_industry }
+		completion_reward = {
+			air_experience = 30
+			random_owned_controlled_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_form_the_peoples_council
+		icon = GFX_focus_ARG_women_in_industry
+		x = 8
+		y = 1
+		ai_will_do = {
+			factor = 65
+		}
+		cost = 2
+		mutually_exclusive = { focus = ALT_form_a_bolshevik_government }
+		relative_position_id = ALT_into_altays_politics
+		prerequisite = { focus = ALT_into_altays_politics }
+		completion_reward = {
+			set_politics = {
+				ruling_party = marxism
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_council_authority
+		icon = GFX_focus_SWE_socialist_reforms
+		x = -6
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_primacy_of_the_marshal }
+		relative_position_id = ALT_form_the_peoples_council
+		prerequisite = { focus = ALT_form_the_peoples_council }
+		completion_reward = {
+			add_stability = 0.05
+			add_country_leader_role = {
+				character = ALT_soviet_council
+				promote_leader = yes
+				country_leader = {
+					ideology = council_communism
+					expire = "1985.1.1.1"
+					traits = { the_council }
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_national_trade_unions
+		icon = GFX_focus_SWE_socialist_reforms
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_council_authority
+		prerequisite = { focus = ALT_council_authority }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			add_ideas = { ALT_national_trade_unions_idea }
+		}
+	}
+
+	focus = {
+		id = ALT_authority_from_within
+		icon = GFX_focus_SWE_socialist_reforms
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_council_authority
+		prerequisite = { focus = ALT_council_authority }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 20
+			add_ideas = { ALT_authority_from_within_idea }
+		}
+	}
+
+	focus = {
+		id = ALT_primacy_of_the_marshal
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 3
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_council_authority }
+		relative_position_id = ALT_form_the_peoples_council
+		prerequisite = { focus = ALT_form_the_peoples_council }
 		completion_reward = {
 			add_war_support = 0.05
-			army_experience = 30
-			add_command_power = 40
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = ALT_print_more_copies_of_the_manifesto
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_primacy_of_the_marshal
+		prerequisite = { focus = ALT_primacy_of_the_marshal }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_administrative_reorganisation
+		icon = GFX_focus_generic_improve_the_administration
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		relative_position_id = ALT_print_more_copies_of_the_manifesto
+		prerequisite = { focus = ALT_print_more_copies_of_the_manifesto }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 70
+			add_command_power = 20
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+			every_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_force_farmers_into_factories
+		icon = GFX_focus_DEN_heavy_regulations
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_administrative_reorganisation
+		prerequisite = { focus = ALT_administrative_reorganisation }
+		prerequisite = { focus = ALT_drawing_towards_urbanisation }
+		completion_reward = {
+			add_stability = -0.1
+			random_owned_controlled_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland }
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_planned_economy
+		icon = GFX_focus_DEN_heavy_regulations
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 3
+		relative_position_id = ALT_force_farmers_into_factories
+		prerequisite = { focus = ALT_force_farmers_into_factories }
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = { state_economy }
+		}
+	}
+
+	focus = {
+		id = ALT_organise_raids
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_administrative_reorganisation
+		prerequisite = { focus = ALT_administrative_reorganisation }
+		completion_reward = {
+			add_manpower = -300
+			army_experience = 20
 			add_doctrine_cost_reduction = {
+				name = raidworking
+				cost_reduction = 0.1
+				uses = 2
+				category = land_doctrine
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_recruit_new_guards
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 3
+		relative_position_id = ALT_organise_raids
+		prerequisite = { focus = ALT_organise_raids }
+		completion_reward = {
+			add_manpower = 500
+			army_experience = 20
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"1st Infantry Guards\" division_template = \"Local Soviet Militias\" start_experience_factor = 0.4" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"2nd Infantry Guards\" division_template = \"Local Soviet Militias\" start_experience_factor = 0.4" 
+					owner = PREV
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_press_reforms
+		icon = GFX_focus_generic_improve_the_administration
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 3
+		relative_position_id = ALT_administrative_reorganisation
+		prerequisite = { focus = ALT_administrative_reorganisation }
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 40
+			add_ideas = { state_edited_press }
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_engage_in_political_suppression
+		icon = GFX_focus_generic_improve_the_administration
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_press_reforms
+		prerequisite = { focus = ALT_press_reforms }
+		completion_reward = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_increase_dependance_on_the_government
+		icon = GFX_focus_generic_improve_the_administration
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_engage_in_political_suppression
+		prerequisite = { focus = ALT_engage_in_political_suppression }
+		completion_reward = {
+			add_ideas = { ALT_state_controlled_salaries }
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_a_limited_purge
+		icon = GFX_focus_generic_manpower
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_the_planned_economy
+		prerequisite = { focus = ALT_the_planned_economy }
+		prerequisite = { focus = ALT_recruit_new_guards }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_king_of_xinjiang
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 5
+		relative_position_id = ALT_a_limited_purge
+		prerequisite = { focus = ALT_a_limited_purge}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.15
+			add_country_leader_trait = king_of_xinjiang
+		}
+	}
+
+	focus = {
+		id = ALT_welfare_of_the_workers
+		icon = GFX_focus_FIN_socialist_welfare
+		x = -4
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_primacy_of_the_marshal
+		prerequisite = { focus = ALT_council_authority focus = ALT_primacy_of_the_marshal }
+		completion_reward = {
+			add_ideas = { ALT_minor_welfare_services }
+		}
+	}
+
+	focus = {
+		id = ALT_invest_in_workers_services
+		icon = GFX_focus_NORDIC_com_capstone_army
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_welfare_of_the_workers
+		prerequisite = { focus = ALT_welfare_of_the_workers }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+			swap_ideas = { 
+				remove_idea = ALT_minor_welfare_services
+				add_idea = ALT_moderate_welfare_services 
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_drawing_towards_urbanisation
+		icon = GFX_focus_SWE_urbanization
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_welfare_of_the_workers
+		prerequisite = { focus = ALT_welfare_of_the_workers }
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+			add_victory_points = {
+				province = 4823
+				value = 2
+			}
+			add_victory_points = {
+				province = 7693
+				value = 1
+			}
+			936 = {
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_import_western_healthcare
+		icon = GFX_focus_SWE_urbanization
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_invest_in_workers_services
+		prerequisite = { focus = ALT_invest_in_workers_services }
+		prerequisite = { focus = ALT_drawing_towards_urbanisation }
+		completion_reward = {
+			add_manpower = 2000
+			add_ideas = { ALT_western_healthcare }
+		}
+	}
+
+	focus = {
+		id = ALT_four_sides_of_societal_wellbeing
+		icon = GFX_focus_SWE_urbanization
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_import_western_healthcare
+		prerequisite = { focus = ALT_import_western_healthcare }
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = ALT_moderate_welfare_services 
+				add_idea = ALT_all_encompassing_welfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_training_in_the_hills
+		icon = GFX_focus_GRE_a_land_of_mountains
+		x = 27
+		y = 8
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		completion_reward = {
+			army_experience = 50
+			add_doctrine_cost_reduction = {
+				name = hillworking
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_purchase_kyrgyz_guns
+		icon = GFX_focus_SWE_let_fly_all_guns
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 85
+		}
+		cost = 4
+		relative_position_id = ALT_training_in_the_hills
+		prerequisite = { focus = ALT_training_in_the_hills }
+		completion_reward = {
+			add_political_power = -90
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = KYR
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_specialised_attack
+		icon = GFX_focus_ETH_expand_the_levy
+		x = -6
+		y = 1
+		ai_will_do = {
+			factor = 40
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_a_mass_offensive }
+		mutually_exclusive = { focus = ALT_the_western_doctrines }
+		mutually_exclusive = { focus = ALT_the_importance_of_quality }
+		relative_position_id =  ALT_purchase_kyrgyz_guns
+		prerequisite = { focus =  ALT_purchase_kyrgyz_guns }
+		completion_reward = {
+			add_ideas = { ALT_specialised_attack1 }
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
 				cost_reduction = 1
-				name = 1
+				uses = 1
+				category = cat_grand_battle_plan
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_hilltop_battles
+		icon = GFX_focus_ETH_expand_the_levy
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 4
+		relative_position_id = ALT_specialised_attack
+		prerequisite = { focus =  ALT_specialised_attack }
+		completion_reward = {
+			ALT_specialised_attack_level_up = yes
+		}
+	}
+
+	focus = {
+		id = ALT_winter_training
+		icon = GFX_focus_ETH_expand_the_levy
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 4
+		relative_position_id = ALT_specialised_attack
+		prerequisite = { focus = ALT_specialised_attack }
+		completion_reward = {
+			ALT_specialised_attack_level_up = yes
+		}
+	}
+
+	focus = {
+		id = ALT_analyse_the_terrain
+		icon = GFX_focus_ETH_expand_the_levy
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 4
+		relative_position_id = ALT_hilltop_battles
+		prerequisite = { focus = ALT_hilltop_battles }
+		completion_reward = {
+			ALT_specialised_attack_level_up = yes
+		}
+	}
+
+	focus = {
+		id = ALT_endurance_tests
+		icon = GFX_focus_ETH_expand_the_levy
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 4
+		relative_position_id = ALT_winter_training
+		prerequisite = { focus = ALT_winter_training }
+		completion_reward = {
+			ALT_specialised_attack_level_up = yes
+		}
+	}
+
+	focus = {
+		id = ALT_an_invisible_force
+		icon = GFX_focus_ETH_expand_the_levy
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_endurance_tests
+		prerequisite = { focus = ALT_analyse_the_terrain }
+		prerequisite = { focus = ALT_endurance_tests }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_grand_battle_plan
+			}
+			swap_ideas = {
+				remove_idea = ALT_a_peoples_force
+				add_idea = ALT_an_invisible_force_idea
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_importance_of_quality
+		icon = GFX_focus_generic_combined_arms
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 20
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_a_mass_offensive }
+		mutually_exclusive = { focus = ALT_the_western_doctrines }
+		mutually_exclusive = { focus = ALT_specialised_attack }
+		relative_position_id =  ALT_purchase_kyrgyz_guns
+		prerequisite = { focus =  ALT_purchase_kyrgyz_guns }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
 				category = cat_superior_firepower
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_mend_the_economic_abyss
-		icon = GFX_goal_generic_construction2
-		x = 1
+		id = ALT_the_western_doctrines
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 2
 		y = 1
-		cost = 5
-		relative_position_id = ALT_early_economic_development
-		prerequisite = { focus = ALT_early_economic_development }
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_a_mass_offensive }
+		mutually_exclusive = { focus = ALT_the_importance_of_quality }
+		mutually_exclusive = { focus = ALT_specialised_attack }
+		relative_position_id =  ALT_purchase_kyrgyz_guns
+		prerequisite = { focus =  ALT_purchase_kyrgyz_guns }
 		completion_reward = {
-			936 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build  = yes
-				}
-			}
-			936 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build  = yes
-				}
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_modest_education_reform
-		icon = GFX_focus_NORDIC_dem_selector_research
-		x = 0
+		id = ALT_a_mass_offensive
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 6
 		y = 1
-		cost = 5
-		relative_position_id = ALT_mend_the_economic_abyss
-		prerequisite = { focus = ALT_mend_the_economic_abyss }
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_the_western_doctrines }
+		mutually_exclusive = { focus = ALT_the_importance_of_quality }
+		mutually_exclusive = { focus = ALT_specialised_attack }
+		relative_position_id =  ALT_purchase_kyrgyz_guns
+		prerequisite = { focus =  ALT_purchase_kyrgyz_guns }
 		completion_reward = {
-			add_stability = 0.05
-			add_ideas = { ALT_modest_education_reform_idea }
-			add_tech_bonus = {
-				name = 1
-				bonus = 0.5
-				category = industry
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
 			}
 		}
 	}
 
 	focus = {
-		id = ALT_scale_up_electrification
-		icon = GFX_focus_ARG_develop_the_electricity_sector
-		x = 1
+		id = ALT_to_unite_a_state
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 55
 		y = 1
-		cost = 5
-		relative_position_id = ALT_improving_military_theory
-		prerequisite = { focus = ALT_improving_military_theory }
-		prerequisite = { focus = ALT_modest_education_reform }
-		completion_reward = {
-			add_stability = 0.05
-			every_owned_state = {
-				increase_state_category_by_one_level = yes
-			}
+		ai_will_do = {
+			factor = 30
 		}
-	}
-
-	focus = {
-		id = ALT_eyes_on_the_prize
-		icon = GFX_focus_usa_reestablish_the_gold_standard
-		x = 0
-		y = 1
-		cost = 1
+		cost = 5
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = ALT_xinjiang_unified_tt
-				has_country_flag = ALT_xinjiang_unified
-			}
-		}
-		relative_position_id = ALT_scale_up_electrification
-		prerequisite = { focus = ALT_scale_up_electrification }
-		completion_reward = {
-			add_stability = 0.05
-			962 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			936 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			618 = {
-				add_extra_state_shared_building_slots = 1
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_seize_warlord_assets
-		icon = GFX_focus_generic_communist_industry
-		x = -4
-		y = 1
-		cost = 5
-		relative_position_id = ALT_eyes_on_the_prize
-		prerequisite = { focus = ALT_eyes_on_the_prize }
-		completion_reward = {
-			add_stability = -0.05
-			add_political_power = 50
-			swap_ideas = {
-				remove_idea = ALT_underfunding
-				add_idea = ALT_underfunding2
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_the_scraps_of_war
-		icon = GFX_focus_CHL_silverworking
-		x = -1
-		y = 1
-		cost = 5
-		relative_position_id = ALT_seize_warlord_assets
-		prerequisite = { focus = ALT_seize_warlord_assets }
-		completion_reward = {
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_resource = {
-					type = steel
-					amount = 5
+				tooltip = ALT_focus_tt
+				OR = {
+					has_completed_focus = ALT_form_a_bolshevik_government
+					has_completed_focus = ALT_council_authority
+					has_completed_focus = ALT_primacy_of_the_marshal
 				}
 			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_resource = {
-					type = steel
-					amount = 4
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_resource = {
-					type = tungsten
-					amount = 2
-				}
+			custom_trigger_tooltip = {
+				tooltip = ALT_date_tt
+				date > 1926.12.30
 			}
 		}
-	}
-
-	focus = {
-		id = ALT_recycle_guns
-		icon = GFX_focus_ETH_freedom_at_gunpoint
-		x = 1
-		y = 1
-		cost = 5
-		relative_position_id = ALT_seize_warlord_assets
-		prerequisite = { focus = ALT_seize_warlord_assets }
-		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_1
-				amount = 2000
-				producer = ALT
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment_1
-				amount = 500
-				producer = ALT
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_bring_in_investors
-		icon = GFX_goal_generic_intelligence_exchange
-		x = 1
-		y = 1
-		cost = 5
-		available = {
-			num_of_owned_factories > 29
-		}
-		relative_position_id = ALT_the_scraps_of_war
-		prerequisite = { focus = ALT_seize_warlord_assets }
 		completion_reward = {
 			add_political_power = 50
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-			}
-			swap_ideas = {
-				remove_idea = ALT_underfunding2
-				add_idea = ALT_underfunding3
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_state_funded_excavation
-		icon = GFX_focus_generic_mining_industry
-		x = 0
-		y = 2
-		cost = 5
-		relative_position_id = ALT_the_scraps_of_war
-		prerequisite = { focus = ALT_the_scraps_of_war }
-		completion_reward = {
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = -1
-				add_resource = {
-					type = aluminium
-					amount = 3
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = -1
-				add_resource = {
-					type = steel
-					amount = 3
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_improve_plans_for_a_war_economy
-		icon = GFX_focus_generic_self_propelled_gun
-		x = 0
-		y = 2
-		cost = 5
-		relative_position_id = ALT_recycle_guns
-		prerequisite = { focus = ALT_recycle_guns }
-		completion_reward = {
-			add_war_support = 0.1
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			add_ideas = { ALT_war_economy_plans }
-		}
-	}
-
-	focus = {
-		id = ALT_the_four_year_plan
-		icon = GFX_focus_SOV_merge_plants
-		x = 0
-		y = 2
-		cost = 5
-		relative_position_id = ALT_bring_in_investors
-		prerequisite = { focus = ALT_state_funded_excavation }
-		prerequisite = { focus = ALT_bring_in_investors }
-		prerequisite = { focus = ALT_improve_plans_for_a_war_economy }
-		completion_reward = {
-			add_timed_idea = {
-				idea = ALT_four_year_plan
-				days = 1460
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_complete_economic_restoration
-		icon = GFX_focus_generic_industry_3
-		x = 0
-		y = 2
-		cost = 5
-		available = {
-			NOT = { has_idea = ALT_four_year_plan }
-		}
-		relative_position_id = ALT_the_four_year_plan
-		prerequisite = { focus = ALT_the_four_year_plan }
-		completion_reward = {
-			remove_ideas = ALT_underfunding3 
-			every_core_state = {
-				limit = { NOT = { has_state_category = wasteland } }
-				increase_state_category_by_one_level = yes
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_urumqi_public_library
-		icon = GFX_focus_NOR_moscows_education_centers
-		x = 4
-		y = 1
-		cost = 5
-		relative_position_id = ALT_eyes_on_the_prize
-		prerequisite = { focus = ALT_eyes_on_the_prize }
-		completion_reward = {
-			add_research_slot = 1
-			swap_ideas = {
-				remove_idea = ALT_modest_education_reform_idea
-				add_idea = ALT_public_education_idea
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_implement_an_agrarian_model
-		icon = GFX_focus_prc_agrarian_socialism
-		x = -3
-		y = 1
-		cost = 5
-		available = {
-			has_completed_focus = ALT_form_a_bolshevik_government
-		}
-		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
-		relative_position_id = ALT_urumqi_public_library
-		prerequisite = { focus = ALT_urumqi_public_library }
-		completion_reward = {
-			add_ideas = { ALT_the_workers_economy }
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_fund_state_farms
-		icon = GFX_focus_ARG_capitalize_the_beef_industry
-		x = -2
-		y = 1
-		cost = 5
-		relative_position_id = ALT_implement_an_agrarian_model
-		prerequisite = { focus = ALT_implement_an_agrarian_model }
-		completion_reward = {
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland }
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_self_sustained_growth
-		icon = GFX_focus_generic_farmland
-		x = 0
-		y = 1
-		cost = 5
-		relative_position_id = ALT_fund_state_farms
-		prerequisite = { focus = ALT_fund_state_farms }
-		completion_reward = {
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			add_ideas = { ALT_self_sustainability }
-		}
-	}
-
-	focus = {
-		id = ALT_distribute_unused_fields
-		icon = GFX_goal_generic_soviet_construction
-		x = 0
-		y = 2
-		cost = 5
-		relative_position_id = ALT_implement_an_agrarian_model
-		prerequisite = { focus = ALT_implement_an_agrarian_model }
-		completion_reward = {
-			add_political_power = 50
-			swap_ideas = {
-				remove_idea = ALT_the_workers_economy
-				add_idea = ALT_the_workers_economy2
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_support_the_struggling_southern_farmers
-		icon = GFX_focus_por_workers_of_iberia
-		x = 2
-		y = 1
-		cost = 5
-		available = {
-			has_full_control_of_state = 759
-		}
-		relative_position_id = ALT_implement_an_agrarian_model
-		prerequisite = { focus = ALT_implement_an_agrarian_model }
-		completion_reward = {
-			759 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_centralise_industrial_throughput
-		icon = GFX_focus_generic_modernize_industry
-		x = 3
-		y = 1
-		cost = 5
-		available = {
-			has_completed_focus = ALT_form_the_peoples_council
-		}
-		mutually_exclusive = { focus = ALT_implement_an_agrarian_model }
-		relative_position_id = ALT_urumqi_public_library
-		prerequisite = { focus = ALT_urumqi_public_library }
-		completion_reward = {
-			add_ideas = { ALT_centralised_economy }
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland }
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_construct_new_offices
-		icon = GFX_focus_generic_low_cost_housing
-		x = -2
-		y = 1
-		cost = 5
-		relative_position_id = ALT_centralise_industrial_throughput
-		prerequisite = { focus = ALT_centralise_industrial_throughput }
-		completion_reward = {
-			617 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_synthesise_gun_production
-		icon = GFX_goal_generic_production
-		x = 0
-		y = 2
-		cost = 5
-		relative_position_id = ALT_centralise_industrial_throughput
-		prerequisite = { focus = ALT_centralise_industrial_throughput }
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = ALT_centralised_economy
-				add_idea = ALT_centralised_economy2
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland }
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland }
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ALT_urbanise_the_countryside
-		icon = GFX_focus_NORDIC_com_capstone_civilian
-		x = 2
-		y = 1
-		cost = 5
-		relative_position_id = ALT_centralise_industrial_throughput
-		prerequisite = { focus = ALT_centralise_industrial_throughput }
-		completion_reward = {
-			940 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				increase_state_category_by_one_level = yes
-				add_manpower = 5000
-			}
-			945 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				increase_state_category_by_one_level = yes
-				add_manpower = 5000
-			}
-			962 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				increase_state_category_by_one_level = yes
-				add_manpower = 5000
-			}
+			add_war_support = 0.05
 		}
 	}
 }

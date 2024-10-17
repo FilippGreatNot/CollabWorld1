@@ -1,0 +1,40 @@
+SRF_placeholder_cat = {
+	SRF_war_with_geo = {	
+		available = {
+			is_neighbor_of = GEO
+			country_exists = GEO
+			date > 1923.08.010
+		}
+		
+		fire_only_once = yes
+
+		remove_effect	= {
+			declare_war_on = {
+				target = GEO
+				type = annex_everything
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	SRF_annex_azr = {	
+		available = {
+			has_subject = AZR
+			is_neighbor_of = AZR
+			date > 1924.02.010
+		}
+		
+		fire_only_once = yes
+
+		remove_effect	= {
+			annex_country = {
+				target = AZR
+				transfer_troops = yes
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}

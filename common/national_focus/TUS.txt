@@ -1416,11 +1416,14 @@
 			add_research_slot = 1
 		}
 	}
-	
+ #africa expansion	
 	focus = {
-		id = TUS_revenge_for_the_great_war
+		id = TUS_colonial_ambitions
 		icon = GFX_goal_generic_construction
 		
+        x = 0
+        y = 1
+
 		prerequisite = {
 			focus = TUS_improve_the_north
 		}
@@ -1437,17 +1440,45 @@
 			focus = TUS_research_division
 		}
 		
-		x = -2
-		y = 2
-		relative_position_id = TUS_start_trade_relations
+		relative_position_id = TUS_research_division
 		
-        cost = 10
+        cost = 5
 		
 		completion_reward = {
-			add_state_core = 39
-			create_wargoal = {
-				type = puppet_wargoal_focus
-				target = AUS
+			add_war_support = 0.15
+			add_political_power = 30
+		}
+		
+	}
+		
+	focus = {
+		id = TUS_claims_on_libya
+		icon = GFX_goal_generic_construction
+		
+        x = -1
+        y = 1
+
+		prerequisite = {
+			focus = TUS_colonial_ambitions
+		}
+		
+		relative_position_id = TUS_colonial_ambitions
+		
+        cost = 6
+		
+		completion_reward = {
+			custom_effect_tooltip = TUS_add_claims_on_libya
+			hidden_effect = {
+				add_state_claim = 448
+				add_state_claim = 662
+				add_state_claim = 661
+				add_state_claim = 449
+				add_state_claim = 1009
+				add_state_claim = 1008
+				add_state_claim = 273
+				add_state_claim = 663
+				add_state_claim = 450
+				add_state_claim = 451
 			}
 		}
 	}
@@ -1456,43 +1487,58 @@
 		id = TUS_return_to_libya
 		icon = GFX_goal_generic_construction
 		
-        x = 2
-        y = -1
+        x = 0
+        y = 1
 
 		prerequisite = {
-			focus = TUS_improve_the_north
-		}
-		prerequisite = {
-			focus = TUS_improve_the_south
-		}		
-		prerequisite = {
-			focus = TUS_start_trade_relations
-		}
-		prerequisite = {
-			focus = TUS_resolve_workers_strikes
-		}
-		prerequisite = {
-			focus = TUS_research_division
+			focus = TUS_claims_on_libya
 		}
 		
-		relative_position_id = TUS_revenge_for_the_great_war
+		relative_position_id = TUS_claims_on_libya
 		
-        cost = 6
+		bypass = {
+			NOT = { country_exists = TRP }
+		}
+		
+        cost = 5
 		
 		completion_reward = {
-			LBA = {
-				every_core_state = {
-					add_claim_by = TUS
-				}
-			}
 			create_wargoal = {
+				target = TRP
 				type = annex_everything
-				target = LBA
-			}	
+			}				
 		}
 	}
+	
 	focus = {
-		id = TUS_african_claims
+		id = TUS_secure_the_coast
+		icon = GFX_goal_generic_construction
+		
+        x = -2
+        y = 1
+
+		prerequisite = {
+			focus = TUS_claims_on_libya
+		}
+		
+		relative_position_id = TUS_claims_on_libya
+		
+		bypass = {
+			NOT = { country_exists = CYR }
+		}
+		
+        cost = 5
+		
+		completion_reward = {
+			create_wargoal = {
+				target = CYR
+				type = annex_everything
+			}				
+		}
+	}
+	
+	focus = {
+		id = TUS_clean_up_the_region
 		icon = GFX_goal_generic_construction
 		
         x = 0
@@ -1501,8 +1547,34 @@
 		prerequisite = {
 			focus = TUS_return_to_libya
 		}
+		prerequisite = {
+			focus = TUS_secure_the_coast
+		}
 		
 		relative_position_id = TUS_return_to_libya
+		
+        cost = 5
+		
+		completion_reward = {
+			create_wargoal = {
+				target = LBA
+				type = annex_everything
+			}				
+		}
+	}
+	
+	focus = {
+		id = TUS_claims_on_the_horn
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+
+		prerequisite = {
+			focus = TUS_colonial_ambitions
+		}
+		
+		relative_position_id = TUS_colonial_ambitions
 		
         cost = 5
 		
@@ -1521,15 +1593,117 @@
 			}
 		}
 	}
-	
 	focus = {
-		id = TUS_demand_albania
+		id = TUS_return_to_eritrea
 		icon = GFX_goal_generic_construction
 		
-		#available = {has_completed_focus = TUS_balbos_speech_3}
+        x = 0
+        y = 1
+
+		prerequisite = {
+			focus = TUS_claims_on_the_horn
+		}
 		
-        x = 4
-        y = 0
+		relative_position_id = TUS_claims_on_the_horn
+		
+		bypass = {
+			NOT = { country_exists = ERI }
+		}
+		
+        cost = 5
+		
+		completion_reward = {
+			create_wargoal = {
+				target = ERI
+				type = annex_everything
+			}				
+		}
+	}
+	focus = {
+		id = TUS_return_to_somaliland
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+        y = 1
+
+		prerequisite = {
+			focus = TUS_claims_on_the_horn
+		}
+		
+		relative_position_id = TUS_claims_on_the_horn
+		
+		bypass = {
+			NOT = { country_exists = SOM }
+		}
+		
+        cost = 5
+		
+		completion_reward = {
+			create_wargoal = {
+				target = SOM
+				type = annex_everything
+			}				
+		}
+	}
+	focus = {
+		id = TUS_finally_crush_ethiopia
+		icon = GFX_goal_generic_construction
+		
+        x = 0
+        y = 1
+
+		prerequisite = {
+			focus = TUS_return_to_eritrea
+		}
+		prerequisite = {
+			focus = TUS_return_to_somaliland
+		}
+		
+		relative_position_id = TUS_return_to_eritrea
+		
+        cost = 8
+		
+		completion_reward = {
+			create_wargoal = {
+				target = ETH
+				type = annex_everything
+			}				
+		}
+	}
+	focus = {
+		id = TUS_clear_a_path
+		icon = GFX_goal_generic_construction
+		
+        x = 0
+        y = 1
+
+		prerequisite = {
+			focus = TUS_return_to_eritrea
+		}
+		prerequisite = {
+			focus = TUS_return_to_somaliland
+		}
+		
+		relative_position_id = TUS_return_to_somaliland
+		
+        cost = 2
+		
+		completion_reward = {
+			create_wargoal = {
+				target = ASA
+				type = annex_everything
+			}				
+		}
+	}
+	
+ #euro expansion	
+	focus = {
+		id = TUS_dominate_the_balkans
+		icon = GFX_goal_generic_construction
+		
+		
+        x = 0
+        y = 1
 
 		prerequisite = {
 			focus = TUS_improve_the_north
@@ -1547,7 +1721,51 @@
 			focus = TUS_research_division
 		}
 		
-		relative_position_id = TUS_revenge_for_the_great_war
+		relative_position_id = TUS_improve_the_north
+        cost = 5
+		
+		completion_reward = {
+			add_war_support = 0.15
+			add_political_power = 30
+		}		
+	}
+	
+	focus = {
+		id = TUS_revenge_for_the_great_war
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_dominate_the_balkans
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = TUS_dominate_the_balkans
+		
+        cost = 10
+		
+		completion_reward = {
+			add_state_core = 39
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AUS
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_demand_albania
+		icon = GFX_goal_generic_construction
+		
+		#available = {has_completed_focus = TUS_balbos_speech_3}
+		
+		prerequisite = {
+			focus = TUS_dominate_the_balkans
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = TUS_dominate_the_balkans
 		
         cost = 5
 		
@@ -1593,7 +1811,7 @@
 			focus = TUS_revenge_for_the_great_war
 		}
 		
-        x = 0
+        x = 1
 		y = 1
 		
 		relative_position_id = TUS_demand_albania
@@ -1656,7 +1874,7 @@
 		
 		mutually_exclusive = { focus = TUS_team_hungary }
 		
-        x = 2
+        x = 1
         y = 1
 		
 		relative_position_id = TUS_revenge_for_the_great_war
