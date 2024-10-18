@@ -1661,6 +1661,10 @@
 		
 		relative_position_id = TUS_return_to_eritrea
 		
+		bypass = {
+			NOT = { country_exists = ETH }
+		}		
+		
         cost = 8
 		
 		completion_reward = {
@@ -1674,17 +1678,14 @@
 		id = TUS_clear_a_path
 		icon = GFX_goal_generic_construction
 		
-        x = 0
+        x = 2
         y = 1
 
 		prerequisite = {
-			focus = TUS_return_to_eritrea
-		}
-		prerequisite = {
-			focus = TUS_return_to_somaliland
+			focus = TUS_finally_crush_ethiopia
 		}
 		
-		relative_position_id = TUS_return_to_somaliland
+		relative_position_id = TUS_finally_crush_ethiopia
 		
         cost = 2
 		
@@ -1693,6 +1694,35 @@
 				target = ASA
 				type = annex_everything
 			}				
+		}
+	}
+	focus = {
+		id = TUS_control_the_suez
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+
+		prerequisite = {
+			focus = TUS_clean_up_the_region
+			focus = TUS_finally_crush_ethiopia
+		}
+		
+		relative_position_id = TUS_clean_up_the_region
+		
+        cost = 8
+		
+		completion_reward = {	
+			add_state_claim = 446
+			every_country = {
+				limit = { owns_state = 446 }
+				TUS = {
+					create_wargoal = {
+						target = PREV
+						type = annex_everything
+					}	
+				}
+			}
 		}
 	}
 	
@@ -2094,6 +2124,98 @@
 		completion_reward = {
 			GRE = {
 				country_event = tus.20
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_destroy_the_source
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_team_bulgaria
+			focus = TUS_team_greece
+			focus = TUS_realign_bulgaria
+			focus = TUS_realign_greece
+		}
+		
+		available = { is_faction_leader = yes }
+		
+		cancel_if_invalid = yes
+		
+		x = 0
+		y = 1
+		relative_position_id = TUS_realign_bulgaria
+		
+        cost = 10
+		
+		completion_reward = {
+			if = {
+				limit = { country_exists = UVS }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = UVS
+				}
+			}
+			if = {
+				limit = { country_exists = BAV }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = BAV
+				}
+			}
+			if = {
+				limit = { country_exists = FWG }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = FWG
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TUS_the_biggest_exporter
+		icon = GFX_goal_generic_construction
+		
+		prerequisite = {
+			focus = TUS_team_bulgaria
+			focus = TUS_team_greece
+			focus = TUS_realign_bulgaria
+			focus = TUS_realign_greece
+		}
+		
+		available = { is_faction_leader = yes }
+		
+		cancel_if_invalid = yes
+		
+		x = 0
+		y = 1
+		relative_position_id = TUS_team_greece
+		
+        cost = 10
+		
+		completion_reward = {
+			if = {
+				limit = { country_exists = SOV }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = SOV
+				}
+			}
+			if = {
+				limit = { country_exists = PBD }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = PBD
+				}
+			}
+			if = {
+				limit = { country_exists = UKR }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = UKR
+				}
 			}
 		}
 	}
