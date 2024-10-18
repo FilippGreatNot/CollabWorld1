@@ -9,18 +9,18 @@ focus_tree = {
 	}
 	default = no
 	focus = {
-		id = UKR_kyiv_on_fire
-		icon = GFX_focus_UKR_kyiv_on_fire
+		id = UKR_soc_kyiv_on_fire
+		icon = GFX_focus_UKR_soc_kyiv_on_fire
 		cost = 5
 		x = 11
 		y = 0
 		completion_reward = {
-			remove_ideas = { UKR_dissunited_nation }
+			remove_ideas = { UKR_soc_dissunited_nation }
 		}
 	}
 	focus = {
-		id = UKR_fix_ind
-		icon = GFX_focus_UKR_fix_ind
+		id = UKR_soc_fix_ind
+		icon = GFX_focus_UKR_soc_fix_ind
 		cost = 5
 		x = 19
 		y = 0
@@ -29,8 +29,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_fix_army
-		icon = GFX_focus_UKR_fix_army
+		id = UKR_soc_fix_army
+		icon = GFX_focus_UKR_soc_fix_army
 		cost = 5
 		x = 25
 		y = 0
@@ -39,29 +39,41 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_expand_industrialisation
-		icon = GFX_focus_UKR_expand_industrialisation
+		id = UKR_soc_expand_industrialisation
+		icon = GFX_focus_UKR_soc_expand_industrialisation
 		cost = 5
 		x = 19
 		y = 3
-		prerequisite = { focus = UKR_expand_energy }
-		prerequisite = { focus = UKR_bread_for_electricty }
+		prerequisite = { focus = UKR_soc_expand_energy }
+		prerequisite = { focus = UKR_soc_bread_for_electricty }
 		completion_reward = {
-			221 = {
+			202 = {
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build  = yes
 				}
 				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			221 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+		    }
 			}
 		}
 	}
 	focus = {
-		id = UKR_kill_opposition
-		icon = GFX_focus_UKR_kill_opposition
+		id = UKR_soc_kill_opposition
+		icon = GFX_focus_UKR_soc_kill_opposition
 		cost = 5
-		prerequisite = { focus = UKR_kyiv_on_fire }
+		prerequisite = { focus = UKR_soc_kyiv_on_fire }
 		x = 9
 		y = 1
 		completion_reward = {
@@ -69,10 +81,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_kill_monarch
-		icon = GFX_focus_UKR_kill_monarch
+		id = UKR_soc_kill_monarch
+		icon = GFX_focus_UKR_soc_kill_monarch
 		cost = 5
-		prerequisite = { focus = UKR_kill_opposition }
+		prerequisite = { focus = UKR_soc_kill_opposition }
 		x = 9
 		y = 2
 		completion_reward = {
@@ -80,10 +92,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_germ_garrison
-		icon = GFX_focus_UKR_germ_garrison
+		id = UKR_soc_germ_garrison
+		icon = GFX_focus_UKR_soc_germ_garrison
 		cost = 5
-		prerequisite = { focus = UKR_kyiv_on_fire }
+		prerequisite = { focus = UKR_soc_kyiv_on_fire }
 		x = 14
 		y = 1
 		completion_reward = {
@@ -91,11 +103,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_shoot_them
-		icon = GFX_focus_UKR_shoot_them
+		id = UKR_soc_shoot_them
+		icon = GFX_focus_UKR_soc_shoot_them
 		cost = 5
-		prerequisite = { focus = UKR_germ_garrison }
-		mutually_exclusive = { focus = UKR_reintegrate_them }
+		prerequisite = { focus = UKR_soc_germ_garrison }
+		mutually_exclusive = { focus = UKR_soc_reintegrate_them }
 		x = 13
 		y = 2
 		completion_reward = {
@@ -103,11 +115,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_reintegrate_them
-		icon = GFX_focus_UKR_reintegrate_them
+		id = UKR_soc_reintegrate_them
+		icon = GFX_focus_UKR_soc_reintegrate_them
 		cost = 5
-		prerequisite = { focus = UKR_germ_garrison }
-		mutually_exclusive = { focus = UKR_shoot_them }
+		prerequisite = { focus = UKR_soc_germ_garrison }
+		mutually_exclusive = { focus = UKR_soc_shoot_them }
 		x = 15
 		y = 2
 		completion_reward = {
@@ -115,14 +127,14 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_sit_stabilize
-		icon = GFX_focus_UKR_sit_stabilize
+		id = UKR_soc_sit_stabilize
+		icon = GFX_focus_UKR_soc_sit_stabilize
 		cost = 5
 		prerequisite = {
-			focus = UKR_shoot_them
-			focus = UKR_reintegrate_them
+			focus = UKR_soc_shoot_them
+			focus = UKR_soc_reintegrate_them
 		}
-		prerequisite = { focus = UKR_kill_monarch }
+		prerequisite = { focus = UKR_soc_kill_monarch }
 		x = 11
 		y = 3
 		completion_reward = {
@@ -130,10 +142,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_expand
-		icon = GFX_focus_UKR_expand
+		id = UKR_soc_expand
+		icon = GFX_focus_UKR_soc_expand
 		cost = 5
-		prerequisite = { focus = UKR_sit_stabilize }
+		prerequisite = { focus = UKR_soc_sit_stabilize }
 		x = 7
 		y = 4
 		completion_reward = {
@@ -141,10 +153,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_look_on_west
-		icon = GFX_focus_UKR_look_on_west
+		id = UKR_soc_look_on_west
+		icon = GFX_focus_UKR_soc_look_on_west
 		cost = 5
-		prerequisite = { focus = UKR_expand }
+		prerequisite = { focus = UKR_soc_expand }
 		x = 5
 		y = 5
 		completion_reward = {
@@ -152,10 +164,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_tukha_problem
-		icon = GFX_focus_UKR_tukha_problem
+		id = UKR_soc_tukha_problem
+		icon = GFX_focus_UKR_soc_tukha_problem
 		cost = 5
-		prerequisite = { focus = UKR_look_on_west }
+		prerequisite = { focus = UKR_soc_look_on_west }
 		x = 4
 		y = 6
 		completion_reward = {
@@ -163,11 +175,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_unite
-		icon = GFX_focus_UKR_unite
+		id = UKR_soc_unite
+		icon = GFX_focus_UKR_soc_unite
 		cost = 5
-		prerequisite = { focus = UKR_tukha_problem }
-		mutually_exclusive = { focus = UKR_invade }
+		prerequisite = { focus = UKR_soc_tukha_problem }
+		mutually_exclusive = { focus = UKR_soc_invade }
 		x = 3
 		y = 7
 		completion_reward = {
@@ -175,10 +187,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_demand_bessarab
-		icon = GFX_focus_UKR_demand_bessarab
+		id = UKR_soc_demand_bessarab
+		icon = GFX_focus_UKR_soc_demand_bessarab
 		cost = 5
-		prerequisite = { focus = UKR_look_on_west }
+		prerequisite = { focus = UKR_soc_look_on_west }
 		x = 6
 		y = 6
 		completion_reward = {
@@ -186,10 +198,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_call_from_moscow
-		icon = GFX_focus_UKR_call_from_moscow
+		id = UKR_soc_call_from_moscow
+		icon = GFX_focus_UKR_soc_call_from_moscow
 		cost = 5
-		prerequisite = { focus = UKR_expand }
+		prerequisite = { focus = UKR_soc_expand }
 		x = 9
 		y = 5
 		completion_reward = {
@@ -197,11 +209,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_accept
-		icon = GFX_focus_UKR_accept
+		id = UKR_soc_accept
+		icon = GFX_focus_UKR_soc_accept
 		cost = 5
-		prerequisite = { focus = UKR_call_from_moscow }
-		mutually_exclusive = { focus = UKR_reject }
+		prerequisite = { focus = UKR_soc_call_from_moscow }
+		mutually_exclusive = { focus = UKR_soc_reject }
 		x = 8
 		y = 6
 		completion_reward = {
@@ -209,11 +221,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_reject
-		icon = GFX_focus_UKR_reject
+		id = UKR_soc_reject
+		icon = GFX_focus_UKR_soc_reject
 		cost = 5
-		prerequisite = { focus = UKR_call_from_moscow }
-		mutually_exclusive = { focus = UKR_accept }
+		prerequisite = { focus = UKR_soc_call_from_moscow }
+		mutually_exclusive = { focus = UKR_soc_accept }
 		x = 10
 		y = 6
 		completion_reward = {
@@ -221,10 +233,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_call_from_berlin
-		icon = GFX_focus_UKR_call_from_berlin
+		id = UKR_soc_call_from_berlin
+		icon = GFX_focus_UKR_soc_call_from_berlin
 		cost = 5
-		prerequisite = { focus = UKR_reject }
+		prerequisite = { focus = UKR_soc_reject }
 		available = { country_exists = UVS }
 		x = 12
 		y = 7
@@ -233,10 +245,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_establish
-		icon = GFX_focus_UKR_establish
+		id = UKR_soc_establish
+		icon = GFX_focus_UKR_soc_establish
 		cost = 5
-		prerequisite = { focus = UKR_sit_stabilize }
+		prerequisite = { focus = UKR_soc_sit_stabilize }
 		x = 15
 		y = 4
 		completion_reward = {
@@ -244,10 +256,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_propoganda
-		icon = GFX_focus_UKR_propoganda
+		id = UKR_soc_propoganda
+		icon = GFX_focus_UKR_soc_propoganda
 		cost = 5
-		prerequisite = { focus = UKR_establish }
+		prerequisite = { focus = UKR_soc_establish }
 		x = 15
 		y = 5
 		completion_reward = {
@@ -255,10 +267,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_whip
-		icon = GFX_focus_UKR_whip
+		id = UKR_soc_whip
+		icon = GFX_focus_UKR_soc_whip
 		cost = 5
-		prerequisite = { focus = UKR_propoganda }
+		prerequisite = { focus = UKR_soc_propoganda }
 		x = 14
 		y = 6
 		completion_reward = {
@@ -266,10 +278,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_cookie
-		icon = GFX_focus_UKR_cookie
+		id = UKR_soc_cookie
+		icon = GFX_focus_UKR_soc_cookie
 		cost = 5
-		prerequisite = { focus = UKR_propoganda }
+		prerequisite = { focus = UKR_soc_propoganda }
 		x = 16
 		y = 6
 		completion_reward = {
@@ -277,11 +289,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_together_to_victory
-		icon = GFX_focus_UKR_together_to_victory
+		id = UKR_soc_together_to_victory
+		icon = GFX_focus_UKR_soc_together_to_victory
 		cost = 5
-		prerequisite = { focus = UKR_whip }
-		prerequisite = { focus = UKR_cookie }
+		prerequisite = { focus = UKR_soc_whip }
+		prerequisite = { focus = UKR_soc_cookie }
 		x = 15
 		y = 7
 		completion_reward = {
@@ -289,34 +301,34 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_forced_industrialisation
-		icon = GFX_focus_UKR_forced_industrialisation
+		id = UKR_soc_forced_industrialisation
+		icon = GFX_focus_UKR_soc_forced_industrialisation
 		cost = 5
-		prerequisite = { focus = UKR_fix_ind }
-		mutually_exclusive = { focus = UKR_agrarian_economy }
+		prerequisite = { focus = UKR_soc_fix_ind }
+		mutually_exclusive = { focus = UKR_soc_agrarian_economy }
 		x = 18
 		y = 1
 		completion_reward = {
 		add_stability = -0.10
-		remove_ideas = { UKR_non_industrial_country }
+		remove_ideas = { UKR_soc_non_industrial_country }
 		}
 	}
 	focus = {
-		id = UKR_expand_energy
-		icon = GFX_focus_UKR_expand_energy
+		id = UKR_soc_expand_energy
+		icon = GFX_focus_UKR_soc_expand_energy
 		cost = 5
-		prerequisite = { focus = UKR_forced_industrialisation }
+		prerequisite = { focus = UKR_soc_forced_industrialisation }
 		x = 18
 		y = 2
 		completion_reward = {
-			remove_ideas = { UKR_weak_electrification }
+			remove_ideas = { UKR_soc_weak_electrification }
 		}
 	}
 	focus = {
-		id = UKR_build_more_factories
-		icon = GFX_focus_UKR_build_more_factories
+		id = UKR_soc_build_more_factories
+		icon = GFX_focus_UKR_soc_build_more_factories
 		cost = 5
-		prerequisite = { focus = UKR_expand_industrialisation }
+		prerequisite = { focus = UKR_soc_expand_industrialisation }
 		x = 18
 		y = 4
 		completion_reward = {
@@ -368,22 +380,22 @@ focus_tree = {
 		}
 	}
 	focus = {  
-		id = UKR_rapid_growth
-		icon = GFX_focus_UKR_rapid_growth
+		id = UKR_soc_rapid_growth
+		icon = GFX_focus_UKR_soc_rapid_growth
 		cost = 5
-		prerequisite = { focus = UKR_build_more_factories }
+		prerequisite = { focus = UKR_soc_build_more_factories }
 		x = 18
 		y = 5
 		completion_reward = {
-		add_ideas = { UKR_into_the_new_age_idea }
+		add_ideas = { UKR_soc_into_the_new_age_idea }
 		}
 	}
 	focus = {
-		id = UKR_agrarian_economy
-		icon = GFX_focus_UKR_agrarian_economy
+		id = UKR_soc_agrarian_economy
+		icon = GFX_focus_UKR_soc_agrarian_economy
 		cost = 5
-		prerequisite = { focus = UKR_fix_ind }
-		mutually_exclusive = { focus = UKR_forced_industrialisation }
+		prerequisite = { focus = UKR_soc_fix_ind }
+		mutually_exclusive = { focus = UKR_soc_forced_industrialisation }
 		x = 20
 		y = 1
 		completion_reward = {
@@ -391,21 +403,21 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_bread_for_electricty
-		icon = GFX_focus_UKR_bread_for_electricty
+		id = UKR_soc_bread_for_electricty
+		icon = GFX_focus_UKR_soc_bread_for_electricty
 		cost = 5
-		prerequisite = { focus = UKR_agrarian_economy }
+		prerequisite = { focus = UKR_soc_agrarian_economy }
 		x = 20
 		y = 2
 		completion_reward = {
-			remove_ideas = { UKR_weak_electrification }
+			remove_ideas = { UKR_soc_weak_electrification }
 		}
 	}
 	focus = {
-		id = UKR_industrialise_farming
-		icon = GFX_focus_UKR_industrialise_farming
+		id = UKR_soc_industrialise_farming
+		icon = GFX_focus_UKR_soc_industrialise_farming
 		cost = 5
-		prerequisite = { focus = UKR_expand_industrialisation }
+		prerequisite = { focus = UKR_soc_expand_industrialisation }
 		x = 20
 		y = 4
 		completion_reward = {
@@ -413,10 +425,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_new_roads
-		icon = GFX_focus_UKR_new_roads
+		id = UKR_soc_new_roads
+		icon = GFX_focus_UKR_soc_new_roads
 		cost = 5
-		prerequisite = { focus = UKR_industrialise_farming }
+		prerequisite = { focus = UKR_soc_industrialise_farming }
 		x = 20
 		y = 5
 		completion_reward = {
@@ -424,11 +436,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_int_anarchy
-		icon = GFX_focus_UKR_int_anarchy
+		id = UKR_soc_int_anarchy
+		icon = GFX_focus_UKR_soc_int_anarchy
 		cost = 5
-		prerequisite = { focus = UKR_fix_army }
-		mutually_exclusive = { focus = UKR_kill_wrong }
+		prerequisite = { focus = UKR_soc_fix_army }
+		mutually_exclusive = { focus = UKR_soc_kill_wrong }
 		x = 24
 		y = 1
 		completion_reward = {
@@ -436,11 +448,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_kill_wrong
-		icon = GFX_focus_UKR_kill_wrong
+		id = UKR_soc_kill_wrong
+		icon = GFX_focus_UKR_soc_kill_wrong
 		cost = 5
-		prerequisite = { focus = UKR_fix_army }
-		mutually_exclusive = { focus = UKR_int_anarchy }
+		prerequisite = { focus = UKR_soc_fix_army }
+		mutually_exclusive = { focus = UKR_soc_int_anarchy }
 		x = 26
 		y = 1
 		completion_reward = {
@@ -448,12 +460,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_centralised_command
-		icon = GFX_focus_UKR_centralised_command
+		id = UKR_soc_centralised_command
+		icon = GFX_focus_UKR_soc_centralised_command
 		cost = 5
 		prerequisite = {
-			focus = UKR_int_anarchy
-			focus = UKR_kill_wrong
+			focus = UKR_soc_int_anarchy
+			focus = UKR_soc_kill_wrong
 		}
 		x = 25
 		y = 2
@@ -462,10 +474,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_with_great_lenin
-		icon = GFX_focus_UKR_with_great_lenin
+		id = UKR_soc_with_great_lenin
+		icon = GFX_focus_UKR_soc_with_great_lenin
 		cost = 5
-		prerequisite = { focus = UKR_centralised_command }
+		prerequisite = { focus = UKR_soc_centralised_command }
 		x = 25
 		y = 3
 		completion_reward = {
@@ -473,10 +485,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_expand_army
-		icon = GFX_focus_UKR_expand_army
+		id = UKR_soc_expand_army
+		icon = GFX_focus_UKR_soc_expand_army
 		cost = 5
-		prerequisite = { focus = UKR_with_great_lenin }
+		prerequisite = { focus = UKR_soc_with_great_lenin }
 		x = 23
 		y = 4
 		completion_reward = {
@@ -484,10 +496,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_expand_air
-		icon = GFX_focus_UKR_expand_air
+		id = UKR_soc_expand_air
+		icon = GFX_focus_UKR_soc_expand_air
 		cost = 5
-		prerequisite = { focus = UKR_with_great_lenin }
+		prerequisite = { focus = UKR_soc_with_great_lenin }
 		x = 27
 		y = 4
 		completion_reward = {
@@ -495,11 +507,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_tac_bom
-		icon = GFX_focus_UKR_tac_bom
+		id = UKR_soc_tac_bom
+		icon = GFX_focus_UKR_soc_tac_bom
 		cost = 5
-		prerequisite = { focus = UKR_expand_air }
-		mutually_exclusive = { focus = UKR_fighter }
+		prerequisite = { focus = UKR_soc_expand_air }
+		mutually_exclusive = { focus = UKR_soc_fighter }
 		x = 26
 		y = 5
 		completion_reward = {
@@ -507,11 +519,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_fighter
-		icon = GFX_focus_UKR_fighter
+		id = UKR_soc_fighter
+		icon = GFX_focus_UKR_soc_fighter
 		cost = 5
-	    prerequisite = { focus = UKR_expand_air }
-		mutually_exclusive = { focus = UKR_tac_bom }
+	    prerequisite = { focus = UKR_soc_expand_air }
+		mutually_exclusive = { focus = UKR_soc_tac_bom }
 		x = 28
 		y = 5
 		completion_reward = {
@@ -519,12 +531,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_modern_tech
-		icon = GFX_focus_UKR_modern_tech
+		id = UKR_soc_modern_tech
+		icon = GFX_focus_UKR_soc_modern_tech
 		cost = 5
 		prerequisite = {
-			focus = UKR_tac_bom
-			focus = UKR_fighter
+			focus = UKR_soc_tac_bom
+			focus = UKR_soc_fighter
 		}
 		x = 27
 		y = 6
@@ -533,10 +545,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_demand_crimea
-		icon = GFX_focus_UKR_demand_crimea
+		id = UKR_soc_demand_crimea
+		icon = GFX_focus_UKR_soc_demand_crimea
 		cost = 5
-		prerequisite = { focus = UKR_reject }
+		prerequisite = { focus = UKR_soc_reject }
 		x = 10
 		y = 7
 		completion_reward = {
@@ -544,11 +556,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_moscow_advisors
-		icon = GFX_focus_UKR_moscow_advisors
+		id = UKR_soc_moscow_advisors
+		icon = GFX_focus_UKR_soc_moscow_advisors
 		cost = 5
 		prerequisite = {
-			focus = UKR_accept
+			focus = UKR_soc_accept
 		}
 		x = 8
 		y = 7
@@ -557,11 +569,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_quick_military_operation
-		icon = GFX_focus_UKR_quick_military_operation
+		id = UKR_soc_quick_military_operation
+		icon = GFX_focus_UKR_soc_quick_military_operation
 		cost = 5
-		prerequisite = { focus = UKR_demand_crimea }
-		prerequisite = { focus = UKR_moscow_advisors }
+		prerequisite = { focus = UKR_soc_demand_crimea }
+		prerequisite = { focus = UKR_soc_moscow_advisors }
 		x = 9
 		y = 8
 		completion_reward = {
@@ -569,11 +581,11 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_invade
-		icon = GFX_focus_UKR_invade
+		id = UKR_soc_invade
+		icon = GFX_focus_UKR_soc_invade
 		cost = 5
-		prerequisite = { focus = UKR_tukha_problem }
-		mutually_exclusive = { focus = UKR_unite }
+		prerequisite = { focus = UKR_soc_tukha_problem }
+		mutually_exclusive = { focus = UKR_soc_unite }
 		x = 5
 		y = 7
 		completion_reward = {
@@ -581,10 +593,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_modern_tanks
-		icon = GFX_focus_UKR_modern_tanks
+		id = UKR_soc_modern_tanks
+		icon = GFX_focus_UKR_soc_modern_tanks
 		cost = 5
-		prerequisite = { focus = UKR_expand_army }
+		prerequisite = { focus = UKR_soc_expand_army }
 		x = 23
 		y = 5
 		completion_reward = {
@@ -592,10 +604,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = UKR_united_spirit
-		icon = GFX_focus_UKR_united_spirit
+		id = UKR_soc_united_spirit
+		icon = GFX_focus_UKR_soc_united_spirit
 		cost = 5
-		prerequisite = { focus = UKR_modern_tanks }
+		prerequisite = { focus = UKR_soc_modern_tanks }
 		x = 23
 		y = 6
 		completion_reward = {
