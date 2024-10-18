@@ -172,4 +172,29 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SIC_victory_in_the_east
+		icon = GFX_focus_demand_sudetenland
+		x = 0
+		y = 2
+		cost = 10
+		available = {
+			NOT = { country_exists = CBT }
+		}
+		relative_focus_id = SIC_strike_at_the_bandits
+		prerequisite = { focus = SIC_strike_at_the_bandits }
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+			CBT = { 
+				every_core_state = { remove_core_of = CBT }
+			}
+			set_cosmetic_tag = SIC_reunited
+			add_timed_idea = { 
+				idea = UVS_recent_victory 
+				months = 2
+			}
+		}
+	}
 }
