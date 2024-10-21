@@ -394,9 +394,9 @@ focus_tree = {
 		relative_position_id = KKK_loot_old_armories_and_museums
 		x = 4
 		y = 1
-		cost = 7
-		available = {
-		
+		cost = 6
+		available = { 
+			date > 1924.7.1
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1507,6 +1507,56 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			
+		}
+	}
+	
+	focus = {
+		id = KKK_operation_taco_demise
+		icon = GFX_KKK_white_only_recruitment
+		prerequisite = { focus = KKK_our_manifest_destiny }
+		relative_position_id = KKK_our_manifest_destiny
+		x = 1
+		y = 1
+		cost = 6
+		available = { 
+			date > 1924.7.1
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			has_completed_focus = KKK_our_manifest_destiny
+			factor = 10
+			}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
+			
+		}
+	}
+	
+	focus = {
+		id = KKK_march_to_hudson_bay
+		icon = GFX_KKK_white_only_recruitment
+		prerequisite = { focus = KKK_our_manifest_destiny }
+		relative_position_id = KKK_our_manifest_destiny
+		x = -1
+		y = 1
+		cost = 6
+		available = { 
+			date > 1924.7.1
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			has_completed_focus = KKK_our_manifest_destiny
+			factor = 10
+			}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
 			
 		}
 	}
