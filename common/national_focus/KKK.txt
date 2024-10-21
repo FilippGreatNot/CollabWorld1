@@ -394,7 +394,7 @@ focus_tree = {
 		relative_position_id = KKK_loot_old_armories_and_museums
 		x = 4
 		y = 1
-		cost = 6
+		cost = 5
 		available = { 
 			date > 1924.7.1
 		}
@@ -408,7 +408,8 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
-			
+			add_stability = 0.05
+			add_war_support = 0.1
 		}
 	}
 	
@@ -1229,7 +1230,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = BRE
+				type = annex_everything
+			}				
 		}
 	}
 	
@@ -1254,7 +1258,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = TEX
+				type = annex_everything
+			}			
 		}
 	}
 	
@@ -1279,7 +1286,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = CCC
+				type = annex_everything
+			}			
 		}
 	}
 	
@@ -1304,7 +1314,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = USA
+				type = annex_everything
+			}			
 		}
 	}
 	
@@ -1336,10 +1349,11 @@ focus_tree = {
 	focus = {
 		id = KKK_the_shortlived_nation_of_new_england
 		icon = GFX_KKK_globally_distribute_cotton
-		prerequisite = { focus = KKK_virginia_will_be_ours_once_more }
+		prerequisite = { focus = KKK_cleanse_this_satanist_scum_from_our_nation }
+		prerequisite = { focus = KKK_weve_got_them_surrounded }
 		relative_position_id = KKK_white_only_recruitment
-		x = 0
-		y = 3
+		x = 1
+		y = 4
 		cost = 5
 		available = {
 		
@@ -1354,7 +1368,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = NEE
+				type = annex_everything
+			}				
 		}
 	}
 	
@@ -1380,7 +1397,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = ASF
+				type = annex_everything
+			}				
 		}
 	}
 	
@@ -1405,7 +1425,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = IDA
+				type = annex_everything
+			}			
 		}
 	}
 	
@@ -1414,7 +1437,7 @@ focus_tree = {
 		icon = GFX_KKK_globally_distribute_cotton
 		prerequisite = { focus = KKK_pulzerize_the_east_coast }
 		relative_position_id = KKK_white_only_recruitment
-		x = -2
+		x = -1
 		y = 4
 		cost = 5
 		available = {
@@ -1430,17 +1453,52 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = ORG
+				type = annex_everything
+			}	
+			declare_war_on = {
+				target = WSH
+				type = annex_everything
+			}				
 		}
 	}
 	
 	focus = {
 		id = KKK_cleanse_this_satanist_scum_from_our_nation
 		icon = GFX_KKK_globally_distribute_cotton
+		prerequisite = { focus = KKK_virginia_will_be_ours_once_more }
+		relative_position_id = KKK_white_only_recruitment
+		x = 0
+		y = 3
+		cost = 5
+		available = {
+		
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			has_completed_focus = KKK_the_shadow_economy
+			factor = 1
+			}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			declare_war_on = {
+				target = PEN
+				type = annex_everything
+			}				
+		}
+	}
+	focus = {
+		id = KKK_from_sea_to_sea
+		icon = GFX_KKK_globally_distribute_cotton
+		prerequisite = { focus = KKK_an_end_to_film_production }
 		prerequisite = { focus = KKK_the_shortlived_nation_of_new_england }
 		relative_position_id = KKK_white_only_recruitment
 		x = 0
-		y = 4
+		y = 5
 		cost = 5
 		available = {
 		
@@ -1455,44 +1513,20 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
-		}
-	}
-	
-	focus = {
-		id = KKK_history_repeats_itself
-		icon = GFX_KKK_globally_distribute_cotton
-		prerequisite = { focus = KKK_weve_got_them_surrounded }
-		relative_position_id = KKK_white_only_recruitment
-		x = 2
-		y = 4
-		cost = 5
-		available = {
-		
-		}
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-			modifier = {
-			has_completed_focus = KKK_the_shadow_economy
-			factor = 1
-			}
-		}
-		completion_reward = {	
-			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = CAL
+				type = annex_everything
+			}				
 		}
 	}
 	
 	focus = {
 		id = KKK_our_manifest_destiny
 		icon = GFX_KKK_globally_distribute_cotton
-		prerequisite = { focus = KKK_history_repeats_itself }
-		prerequisite = { focus = KKK_an_end_to_film_production }
-		prerequisite = { focus = KKK_cleanse_this_satanist_scum_from_our_nation }
+		prerequisite = { focus = KKK_from_sea_to_sea }
 		relative_position_id = KKK_white_only_recruitment
 		x = 0
-		y = 5
+		y = 6
 		cost = 5
 		available = {
 		
