@@ -78,7 +78,7 @@ focus_tree = {
         }
     }
     focus = {
-        id = YUG_celebrating_national_unity_day
+        id = YUG_celebrating_national_unity
         icon = GFX_focus_YUG_celebrate_national_unity_day
         cost = 5
 
@@ -97,7 +97,7 @@ focus_tree = {
         icon = GFX_focus_YUG_the_ethnic_situation
         cost = 6
 
-        prerequisite = { focus = YUG_celebrating_national_unity_day }
+        prerequisite = { focus = YUG_celebrating_national_unity }
         prerequisite = { focus = YUG_introduce_veteran_pensions }
 
         relative_position_id = YUG_a_broken_kingdom
@@ -107,6 +107,18 @@ focus_tree = {
             country_event = yugo.3
         }
     }
+    focus = {
+        id = YUG_1923_elections
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 10
+        x = 11
+        y = 8
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+###INDUSTRY TREE 
+##BEGINNING FOCUSES
     focus = {
         id = YUG_infrastructure_program
         icon = GFX_focus_YUG_infrastructure_program
@@ -179,7 +191,10 @@ focus_tree = {
         cost = 10
         prerequisite = { focus = YUG_putting_funds_into_education }
         completion_reward = {
-            add_ideas = YUG_funding_education1
+            swap_ideas = {
+                remove_idea = YUG_funding_education
+                add_idea = YUG_funding_education1
+            }
             add_political_power = 50
         }
     }
@@ -191,7 +206,10 @@ focus_tree = {
         cost = 10
         prerequisite = { focus = YUG_opening_new_schools }
         completion_reward = {
-            add_ideas = YUG_funding_education2
+            swap_ideas = {
+                remove_idea = YUG_funding_education1
+                add_idea = YUG_funding_education2
+            }
             add_political_power = 50
         }
     }
@@ -358,6 +376,19 @@ focus_tree = {
                 amount = 150
                 producer = YUG
             }
+            913 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build  = yes
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+            }
         }
     }
     focus = {
@@ -372,6 +403,22 @@ focus_tree = {
             swap_ideas = {
                 remove_idea = YUG_agricultural_focused_economy3
                 add_idea = YUG_agricultural_focused_economy4
+            }
+            45 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+            861 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
             }
             add_political_power = 25
         }
@@ -442,6 +489,10 @@ focus_tree = {
 
         prerequisite = { focus = YUG_begin_industrialisation }
         completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_industrialising_society1
+                add_idea = YUG_industrialising_society2
+            }
             add_tech_bonus = {
                 bonus = 1
                 uses = 2
@@ -493,7 +544,7 @@ focus_tree = {
         }
     }
     focus = { 
-        id = YUG_buying_foreign_industry_machines
+        id = YUG_expanding_manufacturing_facilities
         icon = GFX_focus_introduce_veteran_pensions
         x = 32 
         y = 5
@@ -501,7 +552,26 @@ focus_tree = {
 
         prerequisite = { focus = YUG_investing_into_new_tools }
         completion_reward = {
-            add_political_power = 5
+            swap_ideas = {
+                remove_idea = YUG_industrialising_society2
+                add_idea = YUG_industrialising_society3
+            }
+            885 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+            992 = {
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build  = yes
+                }
+            }
         }
     }
     focus = { 
@@ -510,7 +580,7 @@ focus_tree = {
         x = 32
         y = 6
         cost = 5
-        prerequisite = { focus = YUG_buying_foreign_industry_machines }
+        prerequisite = { focus = YUG_expanding_manufacturing_facilities }
         completion_reward = {
             add_stability = -0.1
             random_owned_controlled_state = {

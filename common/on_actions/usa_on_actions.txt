@@ -1,0 +1,16 @@
+on_actions = {
+	on_weekly = {
+		effect = {
+			if = { 
+				limit = {
+					is_american_tag = yes
+					361 = { is_owned_and_controlled_by = PREV } #Washington DC
+					NOT = {
+						capital_scope = { state = 361 }
+					}
+				}
+				country_event = usa.1
+			}
+		}
+	}
+}

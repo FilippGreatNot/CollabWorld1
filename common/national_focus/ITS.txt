@@ -462,7 +462,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ITS_expand_weapon_production_1
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_ENG_gun_production
 		x = -1
 		y = 1
 		cost = 5
@@ -587,7 +587,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = 0
 		y = 1
-		cost = 5
+		cost = 10
 		relative_position_id = ITS_full_rat_2
 		prerequisite = { focus = ITS_full_rat_2 }
 		completion_reward = {
@@ -595,11 +595,14 @@ focus_tree = {
 				remove_idea = ITS_socialist_economy
 				add_idea = ITS_syndicalist_economy
 			}
+			remove_ideas = {
+				UVS_post_poverty
+			}
 		}
 	}
 	focus = {
 		id = ITS_expand_weapon_production_2
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_ENG_gun_production
 		x = -1
 		y = 1
 		cost = 5
@@ -753,7 +756,7 @@ focus_tree = {
 	}
 	focus = {
 		id = ITS_expand_weapon_production_3
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_ENG_gun_production
 		x = -2
 		y = 1
 		cost = 5
@@ -787,6 +790,9 @@ focus_tree = {
 		cost = 5
 		relative_position_id = ITS_crackdown_on_industry_3
 		prerequisite = { focus = ITS_crackdown_on_industry_3 }
+		allow_branch = {
+			has_completed_focus = ITS_first_election
+		}
 		completion_reward = {
 			add_ideas = {
 				ITS_worker_propaganda
@@ -794,8 +800,23 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = ITS_control_industry_3
+		icon = GFX_focus_SOV_first_increase_the_influence_of_nep
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = ITS_crackdown_on_industry_3
+		prerequisite = { focus = ITS_crackdown_on_industry_3 }
+		allow_branch = {
+		
+		}
+		completion_reward = {
+			NOT = { has_completed_focus = ITS_first_election }
+		}
+	}
+	focus = {
 		id = ITS_economy_recover_1
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_UVS_fight_poverty
 		x = 2
 		y = 1
 		cost = 5
@@ -813,7 +834,10 @@ focus_tree = {
 		cost = 10
 		relative_position_id = ITS_excite_workers
 		prerequisite = { focus = ITS_expand_weapon_production_3 }
-		prerequisite = { focus = ITS_excite_workers }
+		prerequisite = {
+			focus = ITS_excite_workers 
+			focus = ITS_control_industry_3
+		}
 		prerequisite = { focus = ITS_economy_recover_1 }
 		completion_reward = {
 		}
