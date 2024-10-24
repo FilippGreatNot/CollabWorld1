@@ -41,10 +41,13 @@ focus_tree = {
 	focus = {
 		id = focus_arm_economy
 		icon = GFX_focus_arm_economy
-		cost = 10.00
+		cost = 5
 		x = 105
 		y = 0
-
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 30
+		}
 	}
 	focus = {
 		id = focus_arm_homenetmen
@@ -1638,29 +1641,33 @@ focus_tree = {
 	focus = {
 		id = focus_arm_east_foundation
 		icon = GFX_focus_arm_east_foundation
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_economy
 		}
 		x = 103
 		y = 1
-
+		completion_reward = {
+			add_ideas = ARM_near_east_foun
+		}
 	}
 	focus = {
 		id = focus_arm_relief_committe
 		icon = GFX_focus_arm_relief_committe
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_economy
 		}
 		x = 107
 		y = 1
-
+		completion_reward = {
+			add_ideas = ARM_relief_com_1
+		}
 	}
 	focus = {
 		id = focus_arm_end_of_hunger
 		icon = GFX_focus_arm_end_of_hunger
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_east_foundation
 		}
@@ -1669,18 +1676,28 @@ focus_tree = {
 		}
 		x = 105
 		y = 2
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ARM_relief_com_1
+				add_idea = ARM_relief_com_2
+			}
+		}
 
 	}
 	focus = {
 		id = focus_arm_new_phase
 		icon = GFX_focus_arm_new_phase
-		cost = 10.00
+		cost = 8
 		prerequisite = {
 			focus = focus_arm_end_of_hunger
 		}
 		x = 105
 		y = 3
-
+		completion_reward = {
+			230 = {
+				add_extra_state_shared_building_slots = 3
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_zemstvos
@@ -1696,29 +1713,63 @@ focus_tree = {
 	focus = {
 		id = focus_arm_land_distribution
 		icon = GFX_focus_arm_land_distribution
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_zemstvos
 		}
 		x = 103
 		y = 5
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
 	}
 	focus = {
 		id = focus_arm_hospitals
 		icon = GFX_focus_arm_hospitals
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_zemstvos
 		}
 		x = 107
 		y = 5
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}				
+		}
 	}
 	focus = {
 		id = focus_arm_restore_cities
 		icon = GFX_focus_arm_restore_cities
-		cost = 10.00
+		cost = 8
 		prerequisite = {
 			focus = focus_arm_land_distribution
 		}
@@ -1727,29 +1778,67 @@ focus_tree = {
 		}
 		x = 105
 		y = 6
-
+		completion_reward = {
+			912 = {
+				add_extra_state_shared_building_slots = 3
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_restore_railroads
 		icon = GFX_focus_arm_restore_railroads
-		cost = 10.00
+		cost = 8
 		prerequisite = {
 			focus = focus_arm_restore_cities
 		}
 		x = 103
 		y = 7
+		completion_reward = {
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 10472 3564 12320 12450 1539 }
+				start_state = 921
+				target_state = 230
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 12450 1467 13258 }
+				start_state = 230
+				target_state = 912
+			}
+			912 = {
+				add_building_construction = {
+					type = 	supply_node
+					level = 1
+					instant_build = yes
+					province = 1467
+				}
+			}
+		}
 
 	}
 	focus = {
 		id = focus_arm_new_roads
 		icon = GFX_focus_arm_new_roads
-		cost = 10.00
+		cost = 8
 		prerequisite = {
 			focus = focus_arm_restore_cities
 		}
 		x = 107
 		y = 7
-
+		completion_reward = {
+			every_core_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_mass_indus
@@ -1768,51 +1857,170 @@ focus_tree = {
 	focus = {
 		id = focus_arm_new_edu_inst
 		icon = GFX_focus_arm_new_edu_inst
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_mass_indus
 		}
 		x = 105
 		y = 14
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = focus_arm_yvn_mil_ac
 		icon = GFX_focus_arm_yvn_mil_ac
-		cost = 10.00
+		cost = 5
 		prerequisite = {
 			focus = focus_arm_new_edu_inst
 		}
 		x = 105
 		y = 15
-
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = ARM_research_edu_1
+							has_idea = ARM_research_edu_2
+							has_idea = ARM_research_edu_3
+							has_idea = ARM_research_edu_4
+							has_idea = ARM_research_edu_5
+						}
+					}
+				}
+				add_ideas = ARM_research_edu_3
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_1
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_1
+					add_idea = ARM_research_edu_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_2
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_2
+					add_idea = ARM_research_edu_5
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_kars_uni
 		icon = GFX_focus_arm_kars_uni
-		cost = 10.00
+		cost = 5
 		prerequisite = {
 			focus = focus_arm_new_edu_inst
 		}
 		x = 102
 		y = 15
-
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = ARM_research_edu_1
+							has_idea = ARM_research_edu_2
+							has_idea = ARM_research_edu_3
+							has_idea = ARM_research_edu_4
+							has_idea = ARM_research_edu_5
+						}
+					}
+				}
+				add_ideas = ARM_research_edu_1
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_1
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_1
+					add_idea = ARM_research_edu_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_3
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_3
+					add_idea = ARM_research_edu_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_4
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_4
+					add_idea = ARM_research_edu_5
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_shushi_uni
 		icon = GFX_focus_arm_shushi_uni
-		cost = 10.00
+		cost = 5
 		prerequisite = {
 			focus = focus_arm_new_edu_inst
 		}
 		x = 108
 		y = 15
-
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = ARM_research_edu_1
+							has_idea = ARM_research_edu_2
+							has_idea = ARM_research_edu_3
+							has_idea = ARM_research_edu_4
+							has_idea = ARM_research_edu_5
+						}
+					}
+				}
+				add_ideas = ARM_research_edu_1
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_1
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_1
+					add_idea = ARM_research_edu_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_3
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_3
+					add_idea = ARM_research_edu_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ARM_research_edu_4
+				}
+				swap_ideas = {
+					remove_idea = ARM_research_edu_4
+					add_idea = ARM_research_edu_5
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_natsc_ac
 		icon = GFX_focus_arm_natsc_ac
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_kars_uni
 		}
@@ -1824,51 +2032,144 @@ focus_tree = {
 		}
 		x = 105
 		y = 16
-
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = focus_arm_khariskh
 		icon = GFX_focus_arm_khariskh
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_mass_indus
 		}
 		x = 107
 		y = 9
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
 	}
 	focus = {
 		id = focus_arm_syunikair
 		icon = GFX_focus_arm_syunikair
-		cost = 10.00
+		cost = 5
 		prerequisite = {
 			focus = focus_arm_khariskh
 		}
 		x = 112
 		y = 10
-
+		completion_reward = {
+			912 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_vanandzen
 		icon = GFX_focus_arm_vanandzen
-		cost = 10.00
+		cost = 4
 		prerequisite = {
 			focus = focus_arm_syunikair
 		}
 		x = 110
 		y = 11
-
+		completion_reward = {
+			921 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_fort_west
 		icon = GFX_focus_arm_fort_west
-		cost = 10.00
+		cost = 8
 		prerequisite = {
 			focus = focus_arm_vanandzen
 		}
 		x = 108
 		y = 12
-
+		completion_reward = {
+			917 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12441
+				}
+			}
+			921 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 10403
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 10472
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 13259
+				}
+			}
+			230 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12320
+				}	
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 13257
+				}	
+			}
+			912 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 6997
+				}	
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 4660
+				}	
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_hom_dev
@@ -1931,13 +2232,22 @@ focus_tree = {
 	focus = {
 		id = focus_arm_syunikzen
 		icon = GFX_focus_arm_syunikzen
-		cost = 10.00
+		cost = 4
 		prerequisite = {
 			focus = focus_arm_syunikair
 		}
 		x = 114
 		y = 11
-
+		completion_reward = {
+			912 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_tsegh_hayreniq
@@ -2263,13 +2573,30 @@ focus_tree = {
 	focus = {
 		id = focus_arm_yeraz
 		icon = GFX_focus_arm_yeraz
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_mass_indus
 		}
 		x = 103
 		y = 9
-
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}	
+		}
 	}
 	focus = {
 		id = focus_arm_railroads
@@ -2285,46 +2612,76 @@ focus_tree = {
 	focus = {
 		id = focus_arm_nairit
 		icon = GFX_focus_arm_nairit
-		cost = 10.00
+		cost = 4
 		prerequisite = {
 			focus = focus_arm_railroads
 		}
 		x = 96
 		y = 11
-
+		completion_reward = {
+			230 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_petrolium
 		icon = GFX_focus_arm_petrolium
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_nairit
 		}
 		x = 94
 		y = 12
-
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 921
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_armenal
 		icon = GFX_focus_arm_armenal
-		cost = 10.00
+		cost = 4
 		prerequisite = {
 			focus = focus_arm_railroads
 		}
 		x = 100
 		y = 11
-
+		completion_reward = {
+			230 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_zangcomb
 		icon = GFX_focus_arm_zangcomb
-		cost = 10.00
+		cost = 6
 		prerequisite = {
 			focus = focus_arm_armenal
 		}
 		x = 102
 		y = 12
-
+		completion_reward = {
+			add_resource = {
+				type = tungsten
+				amount = 5
+				state = 912
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_sevanmech
@@ -2343,13 +2700,58 @@ focus_tree = {
 	focus = {
 		id = focus_arm_fort_east
 		icon = GFX_focus_arm_fort_east
-		cost = 10.00
+		cost = 8
 		prerequisite = {
 			focus = focus_arm_syunikzen
 		}
 		x = 116
 		y = 12
-
+		completion_reward = {
+			912 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 13258
+				}	
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 1467
+				}	
+			}
+			230 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 1539
+				}	
+			}
+			917 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 11708
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 13260
+				}					
+			}
+			922 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9702
+				}	
+			}
+		}
 	}
 	focus = {
 		id = focus_arm_skhnakhs
