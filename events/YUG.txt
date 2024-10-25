@@ -81,6 +81,36 @@ country_event = {
 
     option = {
         name = yugo.5.a
+		custom_effect_tooltip = YUG_collapse_tt
+		every_owned_state = {
+             limit = {
+             NOT = { original_tag = SER }
+             }
+			 set_demilitarized_zone = yes
+          }
+		add_political_power = -50
+		country_event = {
+				id = yugo.6
+				days = 3
+			}
+    }
+}
+
+country_event = {
+    id = yugo.6
+    title = yugo.6.t
+    desc = yugo.6.d 
+    is_triggered_only = yes 
+
+    option = {
+        name = yugo.6.a
+        add_manpower = -5000
+		add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -2000
+				producer = YUG
+		}
+		add_war_support = -0.1
     }
 }
         
