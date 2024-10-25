@@ -35,8 +35,10 @@ country_event = {
     id = yugo.4
     title = yugo.4.t
     desc = yugo.4.d 
-    mean_time_to_happen = {
-    days = 438}
+    trigger = {
+        date < 1923.02.1
+        tag = YUG
+    }
     option = {
         name = yugo.4a.a
     }
@@ -45,21 +47,21 @@ country_event = {
     id = yugo.eventresults
     title = yugo.eventresults.t
     desc = yugo.eventresults.d 
-    #mean_time_to_happen = {days = 445}
-	trigger = {always = false} #you should trigger this a better way
+    trigger = {
+        date < 1923.03.18
+        tag = YUG
+    }
     option = {
 		name = yugo.eventresults.1
 		set_politics = {
 			ruling_party = conservatism
 			elections_allowed = no
-			last_election = "1935.12.17"
-			election_frequency = 48
 		}
 		add_popularity = {
 			ideology = conservatism
-			popularity = 15
+			popularity = 0.15
 		}
-		add_stability = 0.5
+		add_stability = 0.05
 		set_country_flag = pasic_tree_unlocked
 		complete_national_focus = YUG_pasic_wins
 		mark_focus_tree_layout_dirty = yes
