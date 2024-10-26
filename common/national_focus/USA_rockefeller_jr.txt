@@ -14,13 +14,15 @@ focus_tree = {
 	}
 	
 	default = no
+
+	continuous_focus_position = { x = 100 y = 100 }
 	
 	focus = {
 		id = USA_rockefeller_jr_presidency
 		icon = GFX_focus_USA_rockefeller_jr_presidency
 		x = 10
 		y = 0
-		cost = 4
+		cost = 5
 		completion_reward = {
             country_event = USA_rockefeller_jr.4
 		}
@@ -149,12 +151,84 @@ focus_tree = {
 		id = USA_support_the_american_farmers
 		icon = GFX_focus_USA_support_the_american_famers
 		x = -1
-		y = 1
+		y = 2
 		cost = 5
 		relative_position_id = USA_victory_of_william_randolf
 		prerequisite = { focus = USA_victory_of_william_randolf }
 		completion_reward = {
+		}
+	}
 
+	focus = {
+		id = USA_solve_the_worker_corporation_dispute
+		icon = GFX_focus_USA_solve_the_worker_corporation_dispute
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_support_the_american_farmers
+		prerequisite = { focus = USA_support_the_american_farmers }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_restore_our_institutions
+		icon = GFX_focus_USA_restore_our_institutions
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_solve_the_worker_corporation_dispute
+		prerequisite = { focus = USA_solve_the_worker_corporation_dispute }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_strengthen_the_education_system
+		icon = GFX_focus_USA_strengthen_the_education_system
+		x = 1
+		y = 2
+		cost = 5
+		relative_position_id = USA_victory_of_william_randolf
+		prerequisite = { focus = USA_victory_of_william_randolf }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_apologise_for_the_murder_of_theodore_roosevelt
+		icon = GFX_focus_USA_apologise_for_the_murder_of_theodore_roosevelt
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_strengthen_the_education_system
+		prerequisite = { focus = USA_strengthen_the_education_system }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_great_reform_act
+		icon = GFX_focus_USA_the_great_reform_act
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_apologise_for_the_murder_of_theodore_roosevelt
+		prerequisite = { focus = USA_apologise_for_the_murder_of_theodore_roosevelt }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_democracy_shall_prevail
+		icon = GFX_focus_USA_democracy_shall_prevail
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_great_reform_act
+		prerequisite = { focus = USA_restore_our_institutions }
+		prerequisite = { focus = USA_the_great_reform_act }
+		completion_reward = {
 		}
 	}
 
@@ -186,6 +260,91 @@ focus_tree = {
 	}
 
 	focus = {
+		id = USA_implement_reforms_of_the_treasury
+		icon = GFX_focus_USA_implement_reforms_of_the_treasury
+		x = -1
+		y = 2
+		cost = 5
+		relative_position_id = USA_andrew_mellon_secures_power
+		prerequisite = { focus = USA_andrew_mellon_secures_power }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_we_need_more_money
+		icon = GFX_focus_USA_we_need_more_money
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_implement_reforms_of_the_treasury
+		prerequisite = { focus = USA_implement_reforms_of_the_treasury }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_or_we_are_dead
+		icon = GFX_focus_USA_or_we_are_dead
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_we_need_more_money
+		prerequisite = { focus = USA_we_need_more_money }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_connect_the_american_countryside
+		icon = GFX_focus_USA_connect_the_american_countryside
+		x = 1
+		y = 2
+		cost = 5
+		relative_position_id = USA_andrew_mellon_secures_power
+		prerequisite = { focus = USA_andrew_mellon_secures_power }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_clamp_down_on_congress_corruption
+		icon = GFX_focus_USA_clamp_down_on_congress_corruption
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_connect_the_american_countryside
+		prerequisite = { focus = USA_connect_the_american_countryside }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_implement_token_worker_rights
+		icon = GFX_focus_USA_implement_token_worker_rights
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_clamp_down_on_congress_corruption
+		prerequisite = { focus = USA_clamp_down_on_congress_corruption }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_power_of_the_stock_market
+		icon = GFX_focus_USA_the_power_of_the_stock_market
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_implement_token_worker_rights
+		prerequisite = { focus = USA_or_we_are_dead }
+		prerequisite = { focus = USA_implement_token_worker_rights }
+		completion_reward = {
+		}
+	}
+
+	focus = {
 		id = USA_the_legitimate_successor
 		icon = GFX_focus_USA_the_legitimate_successor
 		x = 0
@@ -209,6 +368,91 @@ focus_tree = {
 		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
 		completion_reward = {
 			set_country_flag = USA_JDRJ
+		}
+	}
+
+	focus = {
+		id = USA_buy_back_our_weapons
+		icon = GFX_focus_USA_buy_back_our_weapons
+		x = -1
+		y = 2
+		cost = 5
+		relative_position_id = USA_the_legitimate_successor
+		prerequisite = { focus = USA_the_legitimate_successor }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_continue_heavy_economic_expansion
+		icon = GFX_focus_USA_continue_heavy_economic_expansion
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_buy_back_our_weapons
+		prerequisite = { focus = USA_buy_back_our_weapons }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_make_them_work_by_jingo
+		icon = GFX_focus_USA_make_them_work_by_jingo
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_continue_heavy_economic_expansion
+		prerequisite = { focus = USA_continue_heavy_economic_expansion }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_centralize_the_economy_of_maryland
+		icon = GFX_focus_USA_centralize_the_economy_of_maryland
+		x = 1
+		y = 2
+		cost = 5
+		relative_position_id = USA_the_legitimate_successor
+		prerequisite = { focus = USA_the_legitimate_successor }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_crush_the_crimson_plot
+		icon = GFX_focus_USA_crush_the_crimson_plot
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_centralize_the_economy_of_maryland
+		prerequisite = { focus = USA_centralize_the_economy_of_maryland }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_eternal_legacy_of_the_father
+		icon = GFX_focus_USA_the_eternal_legacy_of_the_father
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_crush_the_crimson_plot
+		prerequisite = { focus = USA_crush_the_crimson_plot }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_we_will_all_be_gay_when_money_comes_marching_home
+		icon = GFX_focus_USA_the_power_of_the_stock_market
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_eternal_legacy_of_the_father
+		prerequisite = { focus = USA_make_them_work_by_jingo }
+		prerequisite = { focus = USA_the_eternal_legacy_of_the_father }
+		completion_reward = {
 		}
 	}
 
@@ -240,6 +484,91 @@ focus_tree = {
 	}
 
 	focus = {
+		id = USA_expand_our_oil_refineries
+		icon = GFX_focus_USA_expand_our_oil_refineries
+		x = -1
+		y = 2
+		cost = 5
+		relative_position_id = USA_edward_l_dohney_will_continue_the_dream
+		prerequisite = { focus = USA_edward_l_dohney_will_continue_the_dream }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_tap_into_our_resource_deposits
+		icon = GFX_focus_USA_tap_into_our_resource_deposits
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_expand_our_oil_refineries
+		prerequisite = { focus = USA_expand_our_oil_refineries }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_oil_more_oil_oil_makes_the_world_go_round
+		icon = GFX_focus_USA_oil_more_oil_oil_makes_the_world_go_round
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_tap_into_our_resource_deposits
+		prerequisite = { focus = USA_tap_into_our_resource_deposits }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_cooperate_with_the_son
+		icon = GFX_focus_USA_cooperate_with_the_son
+		x = 1
+		y = 2
+		cost = 5
+		relative_position_id = USA_edward_l_dohney_will_continue_the_dream
+		prerequisite = { focus = USA_edward_l_dohney_will_continue_the_dream }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_better_dead_than_red
+		icon = GFX_focus_USA_better_dead_than_red
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_cooperate_with_the_son
+		prerequisite = { focus = USA_cooperate_with_the_son }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_bribe_establishment_politicians
+		icon = GFX_focus_USA_bribe_establishment_politicians
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_better_dead_than_red
+		prerequisite = { focus = USA_better_dead_than_red }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_america_goes_choo_choo
+		icon = GFX_focus_USA_america_goes_choo_choo
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_bribe_establishment_politicians
+		prerequisite = { focus = USA_oil_more_oil_oil_makes_the_world_go_round }
+		prerequisite = { focus = USA_bribe_establishment_politicians }
+		completion_reward = {
+		}
+	}
+
+	focus = {
 		id = USA_charles_m_schwab_will_make_them_fear
 		icon = GFX_focus_USA_charles_m_schwab_will_make_them_fear
 		x = 8
@@ -263,6 +592,595 @@ focus_tree = {
 		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
 		completion_reward = {
 			set_country_flag = USA_CMS
+		}
+	}
+
+	focus = {
+		id = USA_focus_on_heavy_military_industry
+		icon = GFX_focus_USA_focus_on_heavy_military_industry
+		x = -1
+		y = 2
+		cost = 5
+		relative_position_id = USA_charles_m_schwab_will_make_them_fear
+		prerequisite = { focus = USA_charles_m_schwab_will_make_them_fear }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_expand_our_steel_mines
+		icon = GFX_focus_USA_expand_our_steel_mines
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_focus_on_heavy_military_industry
+		prerequisite = { focus = USA_focus_on_heavy_military_industry }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_an_economy_of_production_and_excavation
+		icon = GFX_focus_USA_an_economy_of_production_and_excavation
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_expand_our_steel_mines
+		prerequisite = { focus = USA_expand_our_steel_mines }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_mysterious_abductions_of_the_left
+		icon = GFX_focus_USA_mysterious_abductions_of_the_left
+		x = 1
+		y = 2
+		cost = 5
+		relative_position_id = USA_charles_m_schwab_will_make_them_fear
+		prerequisite = { focus = USA_charles_m_schwab_will_make_them_fear }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_opress_all_minorities
+		icon = GFX_focus_USA_opress_all_minorities
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_mysterious_abductions_of_the_left
+		prerequisite = { focus = USA_mysterious_abductions_of_the_left }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_obliterate_the_urban_mafia
+		icon = GFX_focus_USA_obliterate_the_urban_mafia
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_opress_all_minorities
+		prerequisite = { focus = USA_opress_all_minorities }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_liberation_by_the_sword
+		icon = GFX_focus_USA_liberation_by_the_sword
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_obliterate_the_urban_mafia
+		prerequisite = { focus = USA_an_economy_of_production_and_excavation }
+		prerequisite = { focus = USA_obliterate_the_urban_mafia }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_corporate_economic_development
+		icon = GFX_focus_USA_corporate_economic_development
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = USA_we_will_all_be_gay_when_money_comes_marching_home
+		prerequisite = { focus = USA_democracy_shall_prevail focus = USA_the_power_of_the_stock_market focus = USA_we_will_all_be_gay_when_money_comes_marching_home focus = USA_america_goes_choo_choo focus = USA_liberation_by_the_sword }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_money_marches_against_poverty
+		icon = GFX_focus_USA_money_marches_against_poverty
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_corporate_economic_development
+		prerequisite = { focus = USA_corporate_economic_development }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_prepare_to_strike_the_marxists
+		icon = GFX_focus_USA_prepare_to_strike_the_marxists
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_money_marches_against_poverty
+		prerequisite = { focus = USA_money_marches_against_poverty }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_intervene_in_the_northeast
+		icon = GFX_focus_USA_intervene_in_the_northeast
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_money_marches_against_poverty
+		prerequisite = { focus = USA_money_marches_against_poverty }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_war_for_americas_destiny
+		icon = GFX_focus_USA_the_war_for_americas_destiny
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_prepare_to_strike_the_marxists
+		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
+		prerequisite = { focus = USA_intervene_in_the_northeast }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_a_strike_against_the_deranged_southerners
+		icon = GFX_focus_USA_a_strike_against_the_deranged_southerners
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_prepare_to_strike_the_marxists
+		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
+		prerequisite = { focus = USA_intervene_in_the_northeast }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_reincorporate_the_empire_states_capital
+		icon = GFX_focus_USA_reincorporate_the_empire_states_capital
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_intervene_in_the_northeast
+		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
+		prerequisite = { focus = USA_intervene_in_the_northeast }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_east_is_ours
+		icon = GFX_focus_USA_the_east_is_ours
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = USA_a_strike_against_the_deranged_southerners
+		prerequisite = { focus = USA_the_war_for_americas_destiny }
+		prerequisite = { focus = USA_a_strike_against_the_deranged_southerners }
+		prerequisite = { focus = USA_reincorporate_the_empire_states_capital }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_myth_of_a_free_texan_republic
+		icon = GFX_focus_USA_the_myth_of_a_free_texan_republic
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_east_is_ours
+		prerequisite = { focus = USA_the_east_is_ours }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_teach_ford_an_valuable_lesson
+		icon = GFX_focus_USA_teach_ford_an_valuable_lesson
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_east_is_ours
+		prerequisite = { focus = USA_the_east_is_ours }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_memories_of_nineteensixteen
+		icon = GFX_focus_USA_the_memories_of_nineteensixteen
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_myth_of_a_free_texan_republic
+		prerequisite = { focus = USA_the_myth_of_a_free_texan_republic }
+		prerequisite = { focus = USA_teach_ford_an_valuable_lesson }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_take_back_the_northwest
+		icon = GFX_focus_USA_take_back_the_northwest
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_memories_of_nineteensixteen
+		prerequisite = { focus = USA_the_memories_of_nineteensixteen }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_an_armed_gold_rush
+		icon = GFX_focus_USA_an_armed_gold_rush
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_memories_of_nineteensixteen
+		prerequisite = { focus = USA_the_memories_of_nineteensixteen }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_american_dream_returns
+		icon = GFX_focus_USA_the_american_dream_returns
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_take_back_the_northwest
+		prerequisite = { focus = USA_take_back_the_northwest }
+		prerequisite = { focus = USA_an_armed_gold_rush }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_end_the_alaskan_oil_barons
+		icon = GFX_focus_USA_end_the_alaskan_oil_barons
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_american_dream_returns
+		prerequisite = { focus = USA_the_american_dream_returns }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_demand_cuban_submission
+		icon = GFX_focus_USA_demand_cuban_submission
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_american_dream_returns
+		prerequisite = { focus = USA_the_american_dream_returns }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_strike_the_mexican_cartels
+		icon = GFX_focus_USA_strike_the_mexican_cartels
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_american_dream_returns
+		prerequisite = { focus = USA_the_american_dream_returns }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_question_of_the_military
+		icon = GFX_focus_USA_the_question_of_the_military
+		x = 18
+		y = 0
+		cost = 5
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_re_establish_the_armed_forces
+		icon = GFX_focus_USA_re_establish_the_armed_forces
+		x = -2
+		y = 1
+		cost = 5
+		mutually_exclusive = { focus = USA_empower_the_mercenaries }
+		relative_position_id = USA_the_question_of_the_military
+		prerequisite = { focus = USA_the_question_of_the_military }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_form_new_army_brigades
+		icon = GFX_focus_USA_form_new_army_brigades
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_re_establish_the_armed_forces
+		prerequisite = { focus = USA_re_establish_the_armed_forces }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_commence_a_substantial_recruitment_drive
+		icon = GFX_focus_USA_commence_a_substantial_recruitment_drive
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_form_new_army_brigades
+		prerequisite = { focus = USA_form_new_army_brigades }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_reorganise_the_command_structure
+		icon = GFX_focus_USA_reorganise_the_command_structure
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_re_establish_the_armed_forces
+		prerequisite = { focus = USA_re_establish_the_armed_forces }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_assign_production_lines_for_the_military
+		icon = GFX_focus_USA_assign_production_lines_for_the_military
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_reorganise_the_command_structure
+		prerequisite = { focus = USA_reorganise_the_command_structure }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_prevent_another_nineteensixteen
+		icon = GFX_focus_USA_prevent_another_nineteensixteen
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_commence_a_substantial_recruitment_drive
+		prerequisite = { focus = USA_commence_a_substantial_recruitment_drive }
+		prerequisite = { focus = USA_assign_production_lines_for_the_military }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_empower_the_mercenaries
+		icon = GFX_focus_USA_empower_the_mercenaries
+		x = 2
+		y = 1
+		cost = 5
+		mutually_exclusive = { focus = USA_re_establish_the_armed_forces }
+		relative_position_id = USA_the_question_of_the_military
+		prerequisite = { focus = USA_the_question_of_the_military }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_our_shrewd_scientists
+		icon = GFX_focus_USA_form_new_army_brigades
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_empower_the_mercenaries
+		prerequisite = { focus = USA_empower_the_mercenaries }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_hire_foreign_legions
+		icon = GFX_focus_USA_hire_foreign_legions
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_our_shrewd_scientists
+		prerequisite = { focus = USA_our_shrewd_scientists }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_doing_right_what_ford_did_wrong
+		icon = GFX_focus_USA_doing_right_what_ford_did_wrong
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_empower_the_mercenaries
+		prerequisite = { focus = USA_empower_the_mercenaries }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_develop_mercenary_communication_structures
+		icon = GFX_focus_USA_develop_mercenary_communication_structures
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_doing_right_what_ford_did_wrong
+		prerequisite = { focus = USA_doing_right_what_ford_did_wrong }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_a_truly_corporate_military
+		icon = GFX_focus_USA_a_truly_corporate_military
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_hire_foreign_legions
+		prerequisite = { focus = USA_hire_foreign_legions }
+		prerequisite = { focus = USA_develop_mercenary_communication_structures }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_create_a_new_airforce
+		icon = GFX_focus_USA_create_a_new_airforce
+		x = 6
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_question_of_the_military
+		prerequisite = { focus = USA_the_question_of_the_military }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_focus_on_arial_superiority
+		icon = GFX_focus_USA_focus_on_arial_superiority
+		x = -1
+		y = 1
+		cost = 5
+		mutually_exclusive = { focus = USA_focus_on_tactical_bombardment }
+		relative_position_id = USA_create_a_new_airforce
+		prerequisite = { focus = USA_create_a_new_airforce }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_sharper_bullets
+		icon = GFX_focus_USA_sharper_bullets
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_focus_on_arial_superiority
+		prerequisite = { focus = USA_focus_on_arial_superiority }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_focus_on_tactical_bombardment
+		icon = GFX_focus_USA_focus_on_tactical_bombardment
+		x = 1
+		y = 1
+		cost = 5
+		mutually_exclusive = { focus = USA_focus_on_arial_superiority }
+		relative_position_id = USA_create_a_new_airforce
+		prerequisite = { focus = USA_create_a_new_airforce }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_flood_the_skies
+		icon = GFX_focus_USA_flood_the_skies
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_focus_on_tactical_bombardment
+		prerequisite = { focus = USA_focus_on_tactical_bombardment }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_in_the_air_and_on_the_waters
+		icon = GFX_focus_USA_in_the_air_and_on_the_waters
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_flood_the_skies
+		prerequisite = { focus = USA_flood_the_skies }
+		prerequisite = { focus = USA_the_effectiveness_of_small_ships }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_naval_act
+		icon = GFX_focus_USA_the_naval_act
+		x = 10
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_question_of_the_military
+		prerequisite = { focus = USA_the_question_of_the_military }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_a_private_navy
+		icon = GFX_focus_USA_a_private_navy
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_naval_act
+		prerequisite = { focus = USA_the_naval_act }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_effectiveness_of_small_ships
+		icon = GFX_focus_USA_the_effectiveness_of_small_ships
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_a_private_navy
+		prerequisite = { focus = USA_a_private_navy }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_a_united_fleet
+		icon = GFX_focus_USA_a_united_fleet
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = USA_the_naval_act
+		prerequisite = { focus = USA_the_naval_act }
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = USA_the_potency_of_battleships
+		icon = GFX_focus_USA_the_potency_of_battleships
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = USA_a_united_fleet
+		prerequisite = { focus = USA_a_united_fleet }
+		completion_reward = {
 		}
 	}
 }
