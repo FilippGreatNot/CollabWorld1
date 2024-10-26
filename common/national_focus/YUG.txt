@@ -121,7 +121,7 @@ focus_tree = {
         }
     }
     focus = {
-        id = YUG_insert_friendly_ministers
+        id = YUG_inserting_friendly_ministers
         icon = GFX_focus_introduce_veteran_pensions
         cost = 10 
         x = 11 
@@ -138,6 +138,18 @@ focus_tree = {
         cost = 7
         x = 11
         y = 10
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_inserting_friendly_ministers }
+        completion_reward = {
+            add_political_power = 5
+        }
+    }
+    focus = {
+        id = YUG_centralisation_of_the_economy
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 13
+        y = 8
         allow_branch = { has_country_flag = pasic_tree_unlocked }
         prerequisite = { focus = YUG_pasic_wins }
         completion_reward = {
