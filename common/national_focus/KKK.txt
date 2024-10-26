@@ -14,7 +14,7 @@ focus_tree = {
 		icon = GFX_KKK_the_reborn_confederacy
 		x = 25
 		y = 0
-		cost = 2
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -1218,7 +1218,13 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = BRE
+		}
+		bypass = {
+			NOT = {
+				country_exists = BRE
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1246,7 +1252,13 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = TEX
+		}
+		bypass = {
+			NOT = {
+				country_exists = TEX
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1274,7 +1286,13 @@ focus_tree = {
 		y = 2
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = CCC
+		}
+		bypass = {
+			NOT = {
+				country_exists = CCC
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1302,7 +1320,13 @@ focus_tree = {
 		y = 2
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = USA
+		}
+		bypass = {
+			NOT = {
+				country_exists = USA
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1340,9 +1364,21 @@ focus_tree = {
 			factor = 1
 			}
 		}
+		available = {
+			has_war = no
+			is_neighbor_of = FOC
+		}
+		bypass = {
+			NOT = {
+				country_exists = FOC
+			}
+		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			declare_war_on = {
+				target = FOC
+				type = annex_everything
+			}	
 		}
 	}
 	
@@ -1356,7 +1392,13 @@ focus_tree = {
 		y = 4
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = ASF
+		}
+		bypass = {
+			NOT = {
+				country_exists = ASF
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1385,7 +1427,13 @@ focus_tree = {
 		y = 3
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = ASF
+		}
+		bypass = {
+			NOT = {
+				country_exists = ASF
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1413,7 +1461,13 @@ focus_tree = {
 		y = 3
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = IDA
+		}
+		bypass = {
+			NOT = {
+				country_exists = IDA
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1441,7 +1495,13 @@ focus_tree = {
 		y = 4
 		cost = 5
 		available = {
-		
+		     has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = ORG
+				country_exists = WSH
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1473,7 +1533,13 @@ focus_tree = {
 		y = 3
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = PEN
+		}
+		bypass = {
+			NOT = {
+				country_exists = PEN
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1564,9 +1630,6 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 6
-		available = { 
-			date > 1924.7.1
-		}
 		available = {
 			has_war = no
 			is_neighbor_of = MEX
@@ -1602,9 +1665,6 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 6
-		available = { 
-			date > 1924.7.1
-		}
 		available = {
 			has_war = no
 			is_neighbor_of = CAN
