@@ -548,13 +548,28 @@ focus_tree = {
 
         prerequisite = { focus = YUG_increasing_steel_production }
         completion_reward = {
-            104 = {
-                add_extra_state_shared_building_slots = 2
+            108 = {
+                add_extra_state_shared_building_slots = 4
                 add_building_construction = {
                     type = industrial_complex
                     level = 2
                     instant_build  = yes
                 }
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+            add_resource = {
+                type = aluminium
+                amount = 3
+                state = 108
+            } 
+            add_resource = {
+                type = steel
+                amount = 3
+                state = 108
             }
         }
     }
@@ -644,7 +659,7 @@ focus_tree = {
                 }
             }
             swap_ideas = {
-                remove_idea = YUG_agricultural_focused_economy4
+                remove_idea = YUG_industrialising_society4
                 add_idea = YUG_industrial_powerhouse
             }
         }
