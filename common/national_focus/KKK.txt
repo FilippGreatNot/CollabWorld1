@@ -23,6 +23,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_the_reborn_confederacy"
 			
 			add_political_power = 85
+			add_war_support = 0.05
 			
 			#set_power_balance = {
 			#	id = KKK_power_balance
@@ -215,7 +216,7 @@ focus_tree = {
 		relative_position_id = KKK_the_new_united_states
 		x = -4
 		y = 1
-		cost = 3
+		cost = 7
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 15
@@ -253,7 +254,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_unite_reactionists_with_national_syndicalists"
-			
+			add_ideas = KKK_reinstated_slavery
 		}
 	}
 	
@@ -275,6 +276,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_begin_national_executions"
+			add_ideas = KKK_wheres_my_husband
 		}
 	}
 	
@@ -738,7 +740,7 @@ focus_tree = {
 		relative_position_id = KKK_the_qestion_of_slavery
 		x = 0
 		y = 2
-		cost = 4
+		cost = 6
 		available = {
 		
 		}
@@ -802,7 +804,7 @@ focus_tree = {
 		relative_position_id = KKK_the_qestion_of_slavery
 		x = 1
 		y = 3
-		cost = 3
+		cost = 5
 		available = {
 		
 		}
@@ -816,7 +818,11 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-		##event goes here
+		    swap_ideas = {
+			remove_idea = KKK_wheres_my_husband
+			add_idea = KKK_wheres_my_husband2
+			}
+			country_event = kkk.1
 		}
 	}
 	
@@ -852,7 +858,7 @@ focus_tree = {
 		relative_position_id = KKK_the_qestion_of_slavery
 		x = 1
 		y = 4
-		cost = 2
+		cost = 5
 		available = {
 		
 		}
@@ -866,7 +872,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-
+             swap_ideas = {
+			 remove_idea = KKK_wheres_my_husband2
+			 add_idea = KKK_wheres_my_husband3
+			 }
 		}
 	}
 	
@@ -946,7 +955,15 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_stability = 0.05
+			    375 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			    }
+				add_political_power = 25
 		}
 	}
 	
