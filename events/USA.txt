@@ -337,6 +337,40 @@ country_event = { #military says bye
 		
 		hidden_effect = {
 			USA_release_CCC = yes
+			CCC = {
+				diplomatic_relation = {
+					country = TEX
+					relation = non_aggression_pact
+					active = yes
+				}	
+				diplomatic_relation = {
+					country = TEX
+					relation = military_access
+					active = yes
+				}	
+				diplomatic_relation = {
+					country = TEX
+					relation = docking_rights
+					active = yes
+				}				
+			}
+			TEX = {
+				diplomatic_relation = {
+					country = CCC
+					relation = non_aggression_pact
+					active = yes
+				}	
+				diplomatic_relation = {
+					country = CCC
+					relation = military_access
+					active = yes
+				}	
+				diplomatic_relation = {
+					country = CCC
+					relation = docking_rights
+					active = yes
+				}				
+			}
 			set_cosmetic_tag = USA_JDR
 			country_event = {
 				id = usa_collapse.6
@@ -717,6 +751,7 @@ news_event = {
 	
 	option = {
 		name = usa_collapse.20.a
+		set_global_flag = usa_collapsed
 		ai_chance = {
 			factor = 100
 		}
