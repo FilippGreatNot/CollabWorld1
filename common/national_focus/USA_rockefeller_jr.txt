@@ -12,9 +12,8 @@ focus_tree = {
 			}
 		}
 	}
+	
 	default = no
-	
-	
 	
 	focus = {
 		id = USA_rockefeller_jr_presidency
@@ -22,59 +21,56 @@ focus_tree = {
 		x = 10
 		y = 0
 		cost = 4
-		
 		completion_reward = {
             country_event = USA_rockefeller_jr.4
 		}
 	}
+
 	focus = {
 		id = USA_analyze_the_current_military_situation
 		icon = GFX_focus_USA_analyze_the_current_military_situation
 		x = 1
 		y = 1
 		cost = 5
-		prerequisite = { focus = USA_rockefeller_jr_presidency }
 		relative_position_id = USA_rockefeller_jr_presidency
-		
+		prerequisite = { focus = USA_rockefeller_jr_presidency }
 		completion_reward = {
-
 		}
 	}
+
 	focus = {
 		id = USA_soldify_control_over_the_loyalist_states
 		icon = GFX_focus_USA_soldify_control_over_the_loyalist_states
 		x = -1
 		y = 1
 		cost = 5
-		prerequisite = {focus = USA_rockefeller_jr_presidency}
 		relative_position_id = USA_rockefeller_jr_presidency
-		
+		prerequisite = { focus = USA_rockefeller_jr_presidency }
 		completion_reward = {
-
 		}
 	}
+
 	focus = {
 		id = USA_a_meeting_with_the_oligarchs
 		icon = GFX_focus_USA_a_meeting_with_the_oligarchs
 		x = 0
 		y = 1
 		cost = 5
-		prerequisite = { focus = USA_soldify_control_over_the_loyalist_states }
 		relative_position_id = USA_soldify_control_over_the_loyalist_states
-
+		prerequisite = { focus = USA_soldify_control_over_the_loyalist_states }
 		completion_reward = {
 			country_event = USA_rockefeller_jr.1
 		}
 	}
+
 	focus = {
 		id = USA_barricade_the_eastern_border
 		icon = GFX_focus_USA_barricade_the_eastern_border
 		x = 0
 		y = 1
 		cost = 5
-		prerequisite = {focus = USA_analyze_the_current_military_situation}
 		relative_position_id = USA_analyze_the_current_military_situation
-		
+		prerequisite = { focus = USA_analyze_the_current_military_situation }
 		completion_reward = {
             remove_ideas = {
 				USA_socialist_nightmare
@@ -95,651 +91,178 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		id = USA_everything_is_under_control
 		icon = GFX_focus_USA_everything_is_under_control
 		x = -1
 		y = 1
 		cost = 5
-		prerequisite = {focus = USA_a_meeting_with_the_oligarchs}
-		prerequisite = {focus = USA_barricade_the_eastern_border}
 		relative_position_id = USA_barricade_the_eastern_border
-		
+		prerequisite = { focus = USA_a_meeting_with_the_oligarchs }
+		prerequisite = { focus = USA_barricade_the_eastern_border }
 		completion_reward = {
-		
 		}
 	}
+
 	focus = {
-		id = USA_new_america
-		icon = GFX_focus_USA_new_america
+		id = USA_hold_a_congress_of_the_corporations
+		icon = GFX_focus_USA_hold_a_congress_of_the_corporations
 		x = 0
 		y = 1
 		cost = 5
-		prerequisite = {focus = USA_everything_is_under_control }
 		relative_position_id = USA_everything_is_under_control
-		
+		prerequisite = {focus = USA_everything_is_under_control }
 		completion_reward = {
 			country_event = USA_rockefeller_jr.2
 		}
 	}
+
 	focus = {
-		id = USA_joseph_kenedy_focus
-		icon = GFX_focus_USA_joseph_kenedy_focus
-		x = 4
+		id = USA_victory_of_william_randolf
+		icon = GFX_focus_USA_victory_of_william_randolf
+		x = -8
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_new_america}
-		relative_position_id = USA_new_america
-
+		cost = 5
 		available = {
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = USA_selected_candidate_tt
+				NOT = {
+					OR = {
+						has_country_flag = USA_AM
+						has_country_flag = USA_JDJR
+						has_country_flag = USA_ELD
+						has_country_flag = USA_CMS
+					}
+				}
+				always = no
+			}
 		}
+		relative_position_id = USA_hold_a_congress_of_the_corporations
+		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
+		completion_reward = {
+			set_country_flag = USA_WR
+		}
+	}
 
+	focus = {
+		id = USA_support_the_american_farmers
+		icon = GFX_focus_USA_support_the_american_famers
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = USA_victory_of_william_randolf
+		prerequisite = { focus = USA_victory_of_william_randolf }
 		completion_reward = {
 
 		}
 	}
+
 	focus = {
-		id = USA_william_randolf_focus
-		icon = GFX_focus_USA_william_randolf_focus
+		id = USA_andrew_mellon_secures_power
+		icon = GFX_focus_USA_andrew_mellon_secures_power
 		x = -4
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_new_america}
-		relative_position_id = USA_new_america
-		
+		cost = 5
 		available = {
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = USA_selected_candidate_tt
+				NOT = {
+					OR = {
+						has_country_flag = USA_WR
+						has_country_flag = USA_JDJR
+						has_country_flag = USA_ELD
+						has_country_flag = USA_CMS
+					}
+				}
+				always = no
+			}
 		}
-
+		relative_position_id = USA_hold_a_congress_of_the_corporations
+		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
 		completion_reward = {
- 
+			set_country_flag = USA_AM
 		}
 	}
+
 	focus = {
-		id = USA_edward_dohney_focus
-		icon = GFX_focus_USA_edward_dohney_focus
+		id = USA_the_legitimate_successor
+		icon = GFX_focus_USA_the_legitimate_successor
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = USA_selected_candidate_tt
+				NOT = {
+					OR = {
+						has_country_flag = USA_WR
+						has_country_flag = USA_AM
+						has_country_flag = USA_ELD
+						has_country_flag = USA_CMS
+					}
+				}
+				always = no
+			}
+		}
+		relative_position_id = USA_hold_a_congress_of_the_corporations
+		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
+		completion_reward = {
+			set_country_flag = USA_JDRJ
+		}
+	}
+
+	focus = {
+		id = USA_edward_l_dohney_will_continue_the_dream
+		icon = GFX_focus_USA_edward_l_dohney_will_continue_the_dream
+		x = 4
+		y = 1
+		cost = 5
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = USA_selected_candidate_tt
+				NOT = {
+					OR = {
+						has_country_flag = USA_WR
+						has_country_flag = USA_AM
+						has_country_flag = USA_JDJR
+						has_country_flag = USA_CMS
+					}
+				}
+				always = no
+			}
+		}
+		relative_position_id = USA_hold_a_congress_of_the_corporations
+		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
+		completion_reward = {
+			set_country_flag = USA_ELD
+		}
+	}
+
+	focus = {
+		id = USA_charles_m_schwab_will_make_them_fear
+		icon = GFX_focus_USA_charles_m_schwab_will_make_them_fear
 		x = 8
 		y = 1
-		cost = 4
-		prerequisite = {focus = USA_new_america}
-		relative_position_id = USA_new_america
-		
+		cost = 5
 		available = {
-			always = no
-		}
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_democrat_state
-		icon = GFX_goal_generic_demand_territory
-		x = -2
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_william_randolf_focus}
-		relative_position_id = USA_william_randolf_focus
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_oil_production
-		icon = GFX_goal_generic_oil_refinery
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_edward_dohney_focus}
-		relative_position_id = USA_edward_dohney_focus
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_ban_extremists
-		icon = GFX_focus_generic_anti_fascist_diplomacy
-		x = -2
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_democrat_state}
-		relative_position_id = USA_democrat_state
-		mutually_exclusive = {focus = USA_calm_extremeists}
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_outlaw_socialists
-		icon = GFX_goal_anti_comintern_pact
-		x = 2
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_democrat_state}
-		relative_position_id = USA_democrat_state
-		mutually_exclusive = {focus = USA_calm_extremeists}
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_fight_radicalism
-		icon = GFX_focus_USA_fight_radicalism
-		x = -1
-		y = 2
-		cost = 4
-		prerequisite = {focus = USA_outlaw_socialists focus = USA_ban_extremists}
-		relative_position_id = USA_democrat_state
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_free_speech
-		icon = GFX_goal_continuous_boost_freedom
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_fight_radicalism}
-		relative_position_id = USA_fight_radicalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_civil_rights
-		icon = GFX_focus_USA_civil_rights
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_fight_radicalism focus = USA_radicalist_peace}
-		relative_position_id = USA_fight_radicalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_american_pride
-		icon = GFX_focus_USA_american_pride
-		x = 0
-		y = 2
-		cost = 4
-		prerequisite = {focus = USA_free_speech focus = USA_civil_rights}
-		relative_position_id = USA_fight_radicalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_favor_capitalism
-		icon = GFX_focus_USA_favor_capitalism
-		x = 2
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_edward_dohney_focus}
-		relative_position_id = USA_edward_dohney_focus
-		mutually_exclusive = {focus = USA_nationalism}
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_build_industry
-		icon = GFX_goal_generic_construct_civ_factory
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_favor_capitalism focus = USA_nationalism}
-		relative_position_id = USA_favor_capitalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_iron_deposites
-		icon = GFX_focus_generic_mining_industry
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_favor_capitalism}
-		prerequisite = {focus = USA_oil_production}
-		relative_position_id = USA_favor_capitalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_money_produce
-		icon = GFX_focus_mex_privatisation
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_iron_deposites}
-		relative_position_id = USA_iron_deposites
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_industrial_nationalism
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_build_industry}
-		relative_position_id = USA_build_industry
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_build_factories
-		icon = GFX_focus_generic_industry_1
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_industrial_nationalism}
-		relative_position_id = USA_industrial_nationalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_trust_companies
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_money_produce}
-		relative_position_id = USA_money_produce
-		
-		completion_reward = {
- 
-		}
-	}
-
-	focus = {
-		id = USA_five_yr_plan
-		icon = GFX_focus_generic_industry_3
-		x = 1
-		y = 2
-		cost = 4
-		prerequisite = {focus = USA_build_factories focus = USA_trust_companies}
-		relative_position_id = USA_money_produce
-		
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = USA_nationalism
-		x = 5
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_edward_dohney_focus}
-		relative_position_id = USA_edward_dohney_focus
-		mutually_exclusive = {focus = USA_favor_capitalism}
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_calm_extremeists
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_democrat_state}
-		relative_position_id = USA_democrat_state
-		mutually_exclusive = {focus = USA_ban_extremists focus = USA_outlaw_socialists}
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_radicalist_peace
-		icon = GFX_goal_generic_dangerous_deal
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_calm_extremeists}
-		relative_position_id = USA_calm_extremeists
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_american_companies
-		icon = GFX_focus_generic_low_cost_housing
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_nationalism}
-		relative_position_id = USA_nationalism
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_american_patriots
-		icon = GFX_focus_generic_befriend_usa
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_american_companies}
-		relative_position_id = USA_american_companies
-		
-		completion_reward = {
- 
-		}
-	}
-	focus = {
-		id = USA_auth_democracy
-		icon = GFX_goal_support_democracy
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_american_patriots}
-		relative_position_id = USA_american_patriots
-		
-		completion_reward = {
- 			set_politics = {
-    			ruling_party = authoritarian_democrat
+			custom_trigger_tooltip = {
+				tooltip = USA_selected_candidate_tt
+				NOT = {
+					OR = {
+						has_country_flag = USA_WR
+						has_country_flag = USA_AM
+						has_country_flag = USA_JDJR
+						has_country_flag = USA_ELD
+					}
+				}
+				always = no
 			}
 		}
-	}
-	focus = {
-		id = USA_neutral_state
-		icon = GFX_goal_generic_neutrality_focus
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_joseph_kenedy_focus}
-		relative_position_id = USA_joseph_kenedy_focus
-		
+		relative_position_id = USA_hold_a_congress_of_the_corporations
+		prerequisite = { focus = USA_hold_a_congress_of_the_corporations }
 		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_end_slavery
-		icon = GFX_focus_generic_support_the_left_right
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_neutral_state}
-		relative_position_id = USA_neutral_state
-		
-		completion_reward = {
-			remove_ideas = {
-				USA_uninstitutional_slavery
-			}
-		}
-	}
-	focus = {
-		id = USA_end_corporate_military
-		icon = GFX_focus_generic_military_mission
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_neutral_state}
-		relative_position_id = USA_neutral_state
-		
-		completion_reward = {
-			remove_ideas = {
-				USA_corprate_military
-			}
-		}
-	}
-	focus = {
-		id = USA_improve_nation
-		icon = GFX_focus_generic_improve_the_administration
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_end_slavery}
-		prerequisite = {focus = USA_end_corporate_military}
-		relative_position_id = USA_end_slavery
-		
-		completion_reward = {
-			add_political_power = 30
-			add_stability = 0.1
-		}
-	}
-	focus = {
-		id = USA_self_sustain
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_improve_nation}
-		relative_position_id = USA_improve_nation
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_army_improve
-		icon = GFX_focus_chi_army_reform
-		x = 2
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_improve_nation}
-		relative_position_id = USA_improve_nation
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_prevent_inflation
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_self_sustain}
-		relative_position_id = USA_self_sustain
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_company_deals
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_self_sustain}
-		relative_position_id = USA_self_sustain
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_civilian_economy
-		icon = GFX_goal_generic_consumer_goods
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_company_deals}
-		prerequisite = {focus = USA_prevent_inflation}
-		relative_position_id = USA_company_deals
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_military_economy
-		icon = GFX_goal_continuous_non_factory_construct
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_army_improve}
-		relative_position_id = USA_army_improve
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_fight_poverty
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_civilian_economy}
-		relative_position_id = USA_civilian_economy
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_new_american_state
-		icon = GFX_focus_usa_guarantee_the_american_dream
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_fight_poverty}
-		relative_position_id = USA_fight_poverty
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_rockefeller_jr_focus
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_new_america}
-		relative_position_id = USA_new_america
-
-		available = {
-			always = no
-		}
-
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_rockefeller_legacy
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_rockefeller_jr_focus}
-		relative_position_id = USA_rockefeller_jr_focus
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_cut_corporate_taxes
-		icon = GFX_focus_USA_cut_taxes
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_rockefeller_legacy}
-		relative_position_id = USA_rockefeller_legacy
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_no_weekends
-		icon = GFX_focus_USA_no_weekends
-		x = -1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_rockefeller_legacy}
-		relative_position_id = USA_rockefeller_legacy
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_polarize_public
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_cut_corporate_taxes}
-		relative_position_id = USA_cut_corporate_taxes
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_maximize_economic_growth
-		x = 0
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_no_weekends}
-		relative_position_id = USA_no_weekends
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_plan_dream
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_maximize_economic_growth}
-		prerequisite = {focus = USA_polarize_public}
-		relative_position_id = USA_maximize_economic_growth
-		
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = USA_stable_nation
-		icon = GFX_goal_generic_construct_civilian
-		x = 1
-		y = 1
-		cost = 4
-		prerequisite = {focus = USA_plan_dream focus = USA_self_sustain}
-		relative_position_id = USA_plan_dream
-		
-		completion_reward = {
-			remove_ideas = {
-				USA_unstable_nation
-			}
-		}
-	}
-	focus = {
-		id = USA_true_american_dream
-		icon = GFX_focus_USA_american_dream
-		x = 0
-		y = 3
-		cost = 6
-		prerequisite = {focus = USA_plan_dream}
-		relative_position_id = USA_plan_dream
-		
-		completion_reward = {
-
+			set_country_flag = USA_CMS
 		}
 	}
 }
