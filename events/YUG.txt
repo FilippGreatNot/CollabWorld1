@@ -35,9 +35,6 @@ country_event = {
     id = yugo.4
     title = yugo.4.t
     desc = yugo.4.d 
-    trigger = {
-        tag = YUG
-    }
     option = {
         name = yugo.4a.a
     }
@@ -46,9 +43,6 @@ country_event = {
     id = yugo.eventresults
     title = yugo.eventresults.t
     desc = yugo.eventresults.d 
-    trigger = {
-        tag = YUG
-    }
     option = {
 		name = yugo.eventresults.1
 		set_politics = {
@@ -109,6 +103,214 @@ country_event = {
 				producer = YUG
 		}
 		add_war_support = -0.1
+		country_event = {
+				id = yugo.7
+				days = 3
+			}
+    }
+}
+
+country_event = {
+    id = yugo.7
+    title = yugo.7.t
+    desc = yugo.7.d 
+    is_triggered_only = yes 
+
+    option = {
+        name = yugo.7.a
+        add_political_power = -100
+		add_stability = -0.1
+		country_event = {
+				id = yugo.8
+				days = 3
+			}
+    }
+}
+
+country_event = {
+    id = yugo.8
+    title = yugo.8.t
+    desc = yugo.8.d 
+    is_triggered_only = yes 
+
+    option = {
+        name = yugo.8.a
+        add_political_power = 50
+		add_stability = -0.1
+		country_event = {
+				id = yugo.9
+				days = 3
+			}
+    }
+}
+
+country_event = {
+    id = yugo.9
+    title = yugo.9.t
+    desc = yugo.9.d 
+    is_triggered_only = yes 
+	
+	immediate = {
+	hidden_effect = {
+          YUG_release_SLV = yes
+    }
+	country_event = {
+				id = yugo.10
+				days = 4
+			}
+	}
+	
+    option = {
+        name = yugo.9.a
+		SLV = {
+			change_tag_from = YUG
+		}
+    }
+	 option = {
+        name = yugo.9.b
+    }
+}
+
+country_event = {
+    id = yugo.10
+    title = yugo.10.t
+    desc = yugo.10.d 
+    is_triggered_only = yes 
+	
+	immediate = {
+	hidden_effect = {
+          YUG_release_CRO = yes
+    }
+	country_event = {
+				id = yugo.11
+				days = 4
+			}
+	}
+	
+    option = {
+        name = yugo.10.a
+		CRO = {
+			change_tag_from = YUG
+		}
+    }
+	 option = {
+        name = yugo.10.b
+    }
+}
+
+country_event = {
+    id = yugo.11
+    title = yugo.11.t
+    desc = yugo.11.d 
+    is_triggered_only = yes 
+	
+	immediate = {
+	hidden_effect = {
+          YUG_release_BOS = yes
+    }
+	country_event = {
+				id = yugo.12
+				days = 4
+			}
+	}
+	
+    option = {
+        name = yugo.11.a
+		BOS = {
+			change_tag_from = YUG
+		}
+    }
+	 option = {
+        name = yugo.11.b
+    }
+}
+
+country_event = {
+    id = yugo.12
+    title = yugo.12.t
+    desc = yugo.12.d 
+    is_triggered_only = yes 
+	
+	immediate = {
+	    country_event = {
+				id = yugo.13
+				days = 4
+			}
+	}
+	
+	option = {
+        name = yugo.12.a
+		if = {
+			limit = {
+				owns_state = 803
+			}
+			803 = {
+				 transfer_state_to = BUL
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 106
+			}
+			106 = {
+				 transfer_state_to = BUL
+			}
+		}
+		if = {
+			limit = {
+				owns_state = 1005
+			}
+			1005 = {
+				 transfer_state_to = BUL
+			}
+		}
+		803 = { set_demilitarized_zone = no }
+	    106 = { set_demilitarized_zone = no }
+	    1005 = { set_demilitarized_zone = no }
+    }
+}
+
+country_event = {
+    id = yugo.13
+    title = yugo.13.t
+    desc = yugo.13.d 
+    is_triggered_only = yes 
+	
+	immediate = {
+	hidden_effect = {
+          YUG_release_MNT = yes
+    }
+	country_event = {
+				id = yugo.14
+				days = 4
+			}
+	}
+	
+    option = {
+        name = yugo.13.a
+		MNT = {
+			change_tag_from = YUG
+		}
+    }
+	 option = {
+        name = yugo.13.b
+    }
+}
+
+country_event = {
+    id = yugo.14
+    title = yugo.14.t
+    desc = yugo.14.d 
+    is_triggered_only = yes 
+	
+    option = {
+        name = yugo.14.a
+		hidden_effect = {
+          YUG_release_SER = yes
+        }
+		SER = {
+			change_tag_from = YUG
+		}
     }
 }
         
