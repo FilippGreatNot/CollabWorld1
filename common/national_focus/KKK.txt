@@ -1501,7 +1501,13 @@ focus_tree = {
 		y = 5
 		cost = 5
 		available = {
-		
+			has_war = no
+			is_neighbor_of = CAL
+		}
+		bypass = {
+			NOT = {
+				country_exists = CAL
+			}
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1529,7 +1535,7 @@ focus_tree = {
 		y = 6
 		cost = 5
 		available = {
-		
+		     has_war = no
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1541,7 +1547,8 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			      add_war_support = 0.1
+				  
 		}
 	}
 	
@@ -1556,6 +1563,15 @@ focus_tree = {
 		available = { 
 			date > 1924.7.1
 		}
+		available = {
+			has_war = no
+			is_neighbor_of = MEX
+		}
+		bypass = {
+			NOT = {
+				country_exists = MEX
+			}
+		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -1566,6 +1582,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
+			declare_war_on = {
+				target = MEX
+				type = annex_everything
+			}
 			
 		}
 	}
@@ -1581,6 +1601,15 @@ focus_tree = {
 		available = { 
 			date > 1924.7.1
 		}
+		available = {
+			has_war = no
+			is_neighbor_of = CAN
+		}
+		bypass = {
+			NOT = {
+				country_exists = CAN
+			}
+		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -1591,7 +1620,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
-			
+			declare_war_on = {
+				target = CAN
+				type = annex_everything
+			}
 		}
 	}
 	
