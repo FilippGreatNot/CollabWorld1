@@ -308,16 +308,61 @@ country_event = {
     is_triggered_only = yes 
 	
     option = {
-        name = yugo.14.a
+        	name = yugo.14.a
 		hidden_effect = {
-		  YUG = {
-		    every_country_division = { destroy_unit = yes }
-		  }
-          YUG_release_SER = yes
-        }
+		  	YUG = {
+		    		every_country_division = { destroy_unit = yes }
+		  	}
+          		YUG_release_SER = yes
+        	}
 		SER = {
 			change_tag_from = YUG
 		}
-    }
+	}
 }
         
+country_event = {
+    	id = yugo.15
+	title = yugo.15.t
+    	desc = yugo.15.d 
+    	is_triggered_only = yes 
+
+	trigger = {
+		NOT = { has_country_flag = YUG_ramadan }
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag ={ flag =  YUG_ramadan days = 20 value = 1 }
+			country_event = { id = yugo.15 days = 365 }
+		}
+	}
+	
+    	option = {
+        	name = yugo.15.a
+		add_political_power = 25
+		add_stability = 0.02
+	}
+}
+
+country_event = {
+    id = yugo.16
+    title = yugo.16.t
+    desc = yugo.16.d 
+    is_triggered_only = yes 
+
+	trigger = {
+		NOT = { has_country_flag = YUG_vidovdan }
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag ={ flag =  YUG_vidovdan days = 20 value = 1 }
+			country_event = { id = yugo.16 days = 365 }
+		}
+	}
+	
+    	option = {
+        	name = yugo.16.a
+		add_political_power = 25
+		add_stability = 0.02
+	}
+}
