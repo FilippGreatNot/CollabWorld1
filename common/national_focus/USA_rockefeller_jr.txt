@@ -818,7 +818,19 @@ focus_tree = {
 		cost = 5
 		relative_position_id = USA_the_east_is_ours
 		prerequisite = { focus = USA_the_east_is_ours }
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = TEX
+			}
+		}
 		completion_reward = {
+		       declare_war_on = {
+				target = TEX
+				type = annex_everything
+			    }  
 		}
 	}
 
