@@ -228,7 +228,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_unite_reactionists_with_national_syndicalists"
 			country_event = confederacy.2
-			
+			add_ideas = KKK_limited_segregation
 		}
 	}
 	
@@ -385,7 +385,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_form_the_military_branch_of_government"
-			
+			add_ideas = KKK_the_klansmen
 		}
 	}
 	
@@ -532,14 +532,8 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_improve_the_quality_of_southern_life"
-			364 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			
-			}
+			add_stability = 0.1
+			add_political_power = 50
 		}
 	}
 	
@@ -693,7 +687,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-		every_state = {
+		    every_owned_state = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -726,6 +720,12 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			374 = {
+				add_resource = {
+					type = oil
+					amount = 30
+				}
+			}
 		swap_ideas = {
 		remove_idea = KKK_the_economic_boom
 		add_idea = KKK_the_economic_boom2
@@ -783,7 +783,12 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-		370 = {
+			add_resource = {
+	                 type = rubber
+	                 amount = 8
+	                 state = 367
+			}
+		    370 = {
 				
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -791,6 +796,8 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+				
+				
 			
 			}
 		}
@@ -847,7 +854,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-		
+		    swap_ideas = {
+			remove_idea = KKK_reinstated_slavery
+			add_idea = KKK_reinstated_slavery2
+			}
 		}
 	}
 	
@@ -929,7 +939,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-
+            add_ideas = KKK_immeasurable_crusade
 		}
 	}
 	
@@ -943,7 +953,7 @@ focus_tree = {
 		y = 6
 		cost = 7
 		available = {
-		
+			controls_state = 375
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -988,16 +998,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_stability = 0.03
-			add_war_support = 0.02
-			add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = 0.05
-			}
-			add_popularity = {
-			ideology = national_syndicalism
-			popularity = -0.05
-			}
+			add_war_support = 0.1
 		}
 	}
 	
@@ -1008,7 +1009,7 @@ focus_tree = {
 		relative_position_id = KKK_the_second_charlston_act
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 		available = {
 		
 		}
@@ -1022,11 +1023,8 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_stability = -0.05
-			add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.015
-			}
+			add_manpower = 20000
+			add_command_power = 20
 		}
 	}
 	
@@ -1051,18 +1049,11 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_stability = 0.04
-			add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = 0.05
-			}
+			add_stability = 0.05
+			add_political_power = 25
 			add_popularity = {
 			ideology = national_syndicalism
 			popularity = 0.05
-			}
-			add_popularity = {
-			ideology = conservatism
-			popularity = -0.05
 			}
 		}
 	}
@@ -1090,7 +1081,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			add_stability = 0.04
 			add_popularity = {
-			ideology = conservatism
+			ideology = social_democrat
 			popularity = -0.05
 			}
 		}
@@ -1119,6 +1110,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			country_event = confederacy.8
+			custom_effect_tooltip = KKK_plan_tt
 		}
 	}
 	
@@ -1198,6 +1190,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			country_event = confederacy.11
+			custom_effect_tooltip = KKK_black_tt
 		}
 	}
 	
@@ -1223,6 +1216,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			country_event = confederacy.12
+			custom_effect_tooltip = KKK_huey_tt
 		}
 	}
 	
@@ -1410,11 +1404,11 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_war = no
-			is_neighbor_of = ASF
+			is_neighbor_of = NYC
 		}
 		bypass = {
 			NOT = {
-				country_exists = ASF
+				country_exists = NYC
 			}
 		}
 		available_if_capitulated = yes
@@ -1428,7 +1422,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			declare_war_on = {
-				target = NEE
+				target = NYC
 				type = annex_everything
 			}				
 		}
@@ -1753,12 +1747,19 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			build_railway = {
-				level = 1
-				build_only_on_allied = yes
-				start_province = 1646
-				target_province = 2043
-			}
+			 374 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			    }
 		}
 	}
 	
@@ -1858,8 +1859,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_stability = -0.02
-			add_war_support = 0.05
+			add_ideas = a_gun_for_every_household
 		}
 	}
 	
@@ -1882,7 +1882,8 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_political_power = 85
+			add_political_power = 200
+			add_stability = 0.05
 		}
 	}
 	
@@ -1989,7 +1990,11 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+			}
+			army_experience = 50
 		}
 	}
 	
@@ -2078,6 +2083,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			add_research_slot = 1
+			add_political_power = 50
 		}
 	}
 	
@@ -2099,7 +2105,6 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_research_slot = 1
 		}
 	}
 	

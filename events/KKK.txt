@@ -7,6 +7,7 @@ country_event = {
 	title = kkk.1.t
 	desc = kkk.1.d
 	is_triggered_only = yes
+	picture = GFX_report_event_klansmen
 
 	option = {
 		name = kkk.1.a
@@ -20,15 +21,15 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.1" }
 	title = confederacy.1.t
 	desc = confederacy.1.d
-	picture = GFX_news_event_SOV_invasion_iran
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.1.a
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
-			amount = 1100
-			producer = KKK
+			amount = 2000
+			producer = USA
 		}
 	}
 }
@@ -38,7 +39,7 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.2" }
 	title = confederacy.2.t
 	desc = confederacy.2.d
-	picture = GFX_report_event_canada_treaty
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
@@ -57,17 +58,17 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.3" }
 	title = confederacy.3.t
 	desc = confederacy.3.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.3.a
 		add_political_power = -50
 		add_popularity = {
-			ideology = conservatism
+			ideology = authoritarian_democrat
 			popularity = 0.05
 		}
-		country_event = { days = 1 id = confederacy.4 }
+		country_event = { days = 50 id = confederacy.4 }
 	}
 }
 
@@ -76,21 +77,24 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.4" }
 	title = confederacy.4.t
 	desc = confederacy.4.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.4.a
-		add_political_power = -50
+		add_political_power = 75
 		add_stability = -0.05
-		country_event = { days = 1 id = confederacy.5 }
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.1
+		}
 	}
 	
 	option = {
 		name = confederacy.4.b
-		add_political_power = 35
-		add_war_support = 0.035
-		country_event = { days = 1 id = confederacy.6 }
+		add_political_power = -100
+		add_stability = 0.05
+		add_manpower = -5
 	}
 }
 
@@ -99,7 +103,7 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.4" }
 	title = confederacy.5.t
 	desc = confederacy.5.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
@@ -119,7 +123,7 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.4" }
 	title = confederacy.6.t
 	desc = confederacy.6.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
@@ -140,7 +144,7 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.4" }
 	title = confederacy.7.t
 	desc = confederacy.7.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
@@ -161,35 +165,33 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.8" }
 	title = confederacy.8.t
 	desc = confederacy.8.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.8.a
-		add_political_power = 85
-		country_event = { days = 1 id = confederacy.9 }
+		add_political_power = 50
 		add_popularity = {
 			ideology = national_syndicalism
-			popularity = 0.075
+			popularity = 0.05
 		}
 	}
 	
 	option = {
 		name = confederacy.8.b
 		add_political_power = 25
-		country_event = { days = 1 id = confederacy.9 }
 		add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = 0.075
+			ideology = reactionism
+			popularity = 0.05
 		}
 	}
 	
 	option = {
 		name = confederacy.8.c
-		add_political_power = -100
+		add_political_power = 50
 		add_popularity = {
-			ideology = conservatism
-			popularity = 0.075
+			ideology = authoritarian_democrat
+			popularity = 0.05
 		}
 	}
 }
@@ -199,7 +201,7 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.8" }
 	title = confederacy.9.t
 	desc = confederacy.9.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
@@ -219,7 +221,7 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.8" }
 	title = confederacy.10.t
 	desc = confederacy.10.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
@@ -248,26 +250,24 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.8" }
 	title = confederacy.11.t
 	desc = confederacy.11.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.11.a
-		add_political_power = -150
-		add_stability = -0.1
+		add_political_power = 50
 		add_popularity = {
-			ideology = conservatism
-			popularity = 0.075
+			ideology = libertarian_socialism
+			popularity = 0.05
 		}
 	}
 	
 	option = {
 		name = confederacy.11.b
-		add_political_power = 85
-		add_stability = 0.05
+		add_political_power = -50
 		add_popularity = {
-			ideology = conservatism
-			popularity = -0.075
+			ideology = libertarian_socialism
+			popularity = 0.05
 		}
 	}
 }
@@ -277,28 +277,23 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.8" }
 	title = confederacy.12.t
 	desc = confederacy.12.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.12.a
-		add_stability = -0.035
+		add_stability = -0.1
 		add_popularity = {
-			ideology = authoritarian_democrat
-			popularity = 0.075
-		}
-		add_popularity = {
-			ideology = national_syndicalism
-			popularity = 0.075
+			ideology = social_democrat
+			popularity = -0.2
 		}
 	}
 	
 	option = {
 		name = confederacy.12.b
-		add_stability = 0.075
 		add_popularity = {
-			ideology = conservatism
-			popularity = -0.1
+			ideology = social_democrat
+			popularity = 0.1
 		}
 	}
 }
@@ -308,12 +303,12 @@ country_event = {
 	immediate = { log = "[GetDateText]: [Root.GetName]: event confederacy.8" }
 	title = confederacy.13.t
 	desc = confederacy.13.d
-	picture = GFX_report_event_gathering_protest
+	picture = GFX_report_event_klansmen
 	is_triggered_only = yes
 
 	option = {
 		name = confederacy.13.a
-		add_stability = -0.01
+		add_stability = -0.05
 		add_popularity = {
 			ideology = national_syndicalism
 			popularity = 0.075
@@ -322,6 +317,7 @@ country_event = {
 	
 	option = {
 		name = confederacy.13.b
+		add_stability = 0.05
 		add_popularity = {
 			ideology = authoritarian_democrat
 			popularity = 0.075
