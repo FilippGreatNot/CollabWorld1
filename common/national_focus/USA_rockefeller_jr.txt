@@ -747,10 +747,27 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = KKK
+				country_exists = BRE
+			}
+		}
 		relative_position_id = USA_prepare_to_strike_the_marxists
 		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
 		prerequisite = { focus = USA_intervene_in_the_northeast }
 		completion_reward = {
+		     declare_war_on = {
+				target = KKK
+				type = annex_everything
+			}
+              declare_war_on = {
+				target = BRE
+				type = annex_everything
+			}				
 		}
 	}
 
@@ -760,10 +777,22 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = NYC
+			}
+		}
 		relative_position_id = USA_intervene_in_the_northeast
 		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
 		prerequisite = { focus = USA_intervene_in_the_northeast }
 		completion_reward = {
+		     declare_war_on = {
+				target = NYC
+				type = annex_everything
+			 } 
 		}
 	}
 
@@ -799,9 +828,24 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		
+		available = {
+			has_war = no
+			is_neighbor_of = FOC
+		}
+		bypass = {
+			NOT = {
+				country_exists = FOC
+			}
+		}
+		
 		relative_position_id = USA_the_east_is_ours
 		prerequisite = { focus = USA_the_east_is_ours }
 		completion_reward = {
+		     declare_war_on = {
+				target = FOC
+				type = annex_everything
+			}	
 		}
 	}
 
@@ -811,10 +855,23 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+			is_neighbor_of = CCC
+		}
+		bypass = {
+			NOT = {
+				country_exists = CCC
+			}
+		}
 		relative_position_id = USA_the_myth_of_a_free_texan_republic
 		prerequisite = { focus = USA_the_myth_of_a_free_texan_republic }
 		prerequisite = { focus = USA_teach_ford_an_valuable_lesson }
 		completion_reward = {
+		     declare_war_on = {
+				target = CCC
+				type = annex_everything
+			}	
 		}
 	}
 
@@ -836,9 +893,22 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+			is_neighbor_of = CAL
+		}
+		bypass = {
+			NOT = {
+				country_exists = CAL
+			}
+		}
 		relative_position_id = USA_the_memories_of_nineteensixteen
 		prerequisite = { focus = USA_the_memories_of_nineteensixteen }
 		completion_reward = {
+		      declare_war_on = {
+				target = CAL
+				type = annex_everything
+			}	
 		}
 	}
 
@@ -852,6 +922,7 @@ focus_tree = {
 		prerequisite = { focus = USA_take_back_the_northwest }
 		prerequisite = { focus = USA_an_armed_gold_rush }
 		completion_reward = {
+		     add_stability = 0.1
 		}
 	}
 

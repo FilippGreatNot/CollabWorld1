@@ -13,4 +13,64 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = { 
+        effect = { 
+	        if = { 
+				limit = {
+					ROOT = {
+						original_tag = CZE
+					}
+					FROM = {
+						original_tag = UVS
+					}
+				}
+				UVS = {
+				     	white_peace = CZE
+			}
+			UVS = {
+			set_autonomy = {
+	            target = CZE
+	            autonomous_state = autonomy_puppet
+                }
+			}
+			887 = {transfer_state_to = UVS}
+			74 = {transfer_state_to = UVS}
+			69 = {transfer_state_to = UVS}
+			CZE = {
+			set_cosmetic_tag = CZE_red
+			set_popularities = {
+				marxism = 20
+				libertarian_socialism = 20
+				bolshevism = 20
+				despotism = 10
+				liberalism = 10
+				reactionism = 10
+				national_syndicalism = 10
+			}
+			
+			}
+				
+			}
+        }
+	}
+	on_capitulation = {
+        effect = { 
+	        if = { 
+				limit = {
+					ROOT = {
+						original_tag = AUS
+					}
+					FROM = {
+						original_tag = UVS
+					}
+				}
+				UVS = {
+					annex_country = {
+						target = AUS
+						transfer_troops = no
+					}
+				}
+			}
+        }
+	}
 }

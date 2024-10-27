@@ -406,11 +406,25 @@ focus_tree = {
 		#y = 0
 		x = 1
 		y = 1
+		offset = {
+			trigger = {
+				NOT = {has_country_flag = ITS_assassination_attempt}
+			}
+			x = 3
+			y = -4
+		}
 		relative_position_id = ITS_blame_tus
-		prerequisite = { focus = ITS_blame_tus }
+		prerequisite = { 
+			focus = ITS_blame_tus 
+		}
 		allow_branch = {
-			has_completed_focus = ITS_blame_tus
-			has_completed_focus = ITS_he_lives
+			OR = {
+				AND = {
+					has_completed_focus = ITS_blame_tus
+					has_completed_focus = ITS_he_lives
+				}
+				NOT = {set_country_flag = ITS_assassination_attempt}
+			}
 		}
 		cost = 5
 		completion_reward = {
@@ -899,13 +913,13 @@ focus_tree = {
 			focus = ITS_just_the_beginning_1
 			focus = ITS_just_the_beginning_2
 		}
-		allow_branch = {
-			OR = {
-				has_completed_focus = ITS_why_we_fight
-				has_completed_focus = ITS_just_the_beginning_1
-				has_completed_focus = ITS_just_the_beginning_2
-			}
-		}
+		#allow_branch = {
+		#	OR = {
+		#		has_completed_focus = ITS_why_we_fight
+		#		has_completed_focus = ITS_just_the_beginning_1
+		#		has_completed_focus = ITS_just_the_beginning_2
+		#	}
+		#}
 		completion_reward = {
 			declare_war_on = {
 				target = ITA
@@ -1049,7 +1063,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITS_italy_finally_free
 		cost = 5
-		allow_branch = { has_completed_focus = ITS_italy_finally_free}
+		#allow_branch = { has_completed_focus = ITS_italy_finally_free}
 		prerequisite = { 
 			focus = ITS_italy_finally_free
 		}
@@ -1063,7 +1077,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITS_italy_finally_free
 		cost = 5
-		allow_branch = { has_completed_focus = ITS_italy_finally_free}
+		#allow_branch = { has_completed_focus = ITS_italy_finally_free}
 		prerequisite = { 
 			focus = ITS_italy_finally_free
 		}
@@ -1077,7 +1091,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITS_italy_finally_free
 		cost = 5
-		allow_branch = { has_completed_focus = ITS_italy_finally_free}
+		#allow_branch = { has_completed_focus = ITS_italy_finally_free}
 		prerequisite = { 
 			focus = ITS_italy_finally_free
 		}
@@ -1122,7 +1136,7 @@ focus_tree = {
 		}
 		mutually_exclusive = { focus = ITS_mass_trade }
 		available = { NOT = { has_government = libertarian_socialism } }
-		allow_branch = { has_completed_focus = ITS_reassure_ppl }
+		#allow_branch = { has_completed_focus = ITS_reassure_ppl }
 		completion_reward = {
 		}
 	}
@@ -1130,7 +1144,7 @@ focus_tree = {
 	focus = {
 		id = ITS_autarky_2
 		icon = GFX_goal_generic_construction
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = ITS_autarky
 		cost = 5
@@ -1153,7 +1167,7 @@ focus_tree = {
 		}
 		mutually_exclusive = { focus = ITS_autarky }
 		available = { NOT = { has_government = national_syndicalism } }
-		allow_branch = { has_completed_focus = ITS_reassure_ppl }
+		#allow_branch = { has_completed_focus = ITS_reassure_ppl }
 		completion_reward = {
 		}
 	}
@@ -1322,7 +1336,7 @@ focus_tree = {
 				has_government = national_syndicalism
 				has_government = bolshevism
 			}
-			has_completed_focus = ITS_reassure_ppl
+			#has_completed_focus = ITS_reassure_ppl
 		}
 	
 		relative_position_id = ITS_future_of_the_nation
@@ -1396,7 +1410,7 @@ focus_tree = {
 			OR = {
 				has_government = bolshevism
 			}
-			has_completed_focus = ITS_reassure_ppl
+			#has_completed_focus = ITS_reassure_ppl
 		}		
 	
 		relative_position_id = ITS_nat_idustry_civ
@@ -1490,7 +1504,7 @@ focus_tree = {
 			OR = {
 				has_government = national_syndicalism
 			}
-			has_completed_focus = ITS_reassure_ppl
+			#has_completed_focus = ITS_reassure_ppl
 		}		
 	
 		relative_position_id = ITS_nat_idustry_civ
@@ -1582,7 +1596,7 @@ focus_tree = {
 				has_government = marxism
 				has_government = libertarian_socialism
 			}
-			has_completed_focus = ITS_reassure_ppl
+			#has_completed_focus = ITS_reassure_ppl
 		}
 	
 		relative_position_id = ITS_future_of_the_nation
@@ -1656,7 +1670,7 @@ focus_tree = {
 			OR = {
 				has_government = marxism
 			}
-			has_completed_focus = ITS_reassure_ppl
+			#has_completed_focus = ITS_reassure_ppl
 		}		
 	
 		relative_position_id = ITS_nonnat_idustry_civ
@@ -1750,7 +1764,7 @@ focus_tree = {
 			OR = {
 				has_government = libertarian_socialism
 			}
-			has_completed_focus = ITS_reassure_ppl
+			#has_completed_focus = ITS_reassure_ppl
 		}		
 	
 		relative_position_id = ITS_nonnat_idustry_civ
