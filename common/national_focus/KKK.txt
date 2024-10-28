@@ -137,7 +137,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_a_recovery_from_the_graveyard"
-		
+		    swap_ideas = {
+			remove_idea = KKK_backward_southern_economy
+			add_idea = KKK_backward_southern_economy2
+			}
 		}
 	}
 	
@@ -317,9 +320,6 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 7
-		available = {
-			has_idea = KKK_the_klansmen2
-		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 5
@@ -660,8 +660,8 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
-			
 			}
+			remove_ideas = KKK_backward_southern_economy2
 		}
 	}
 	
@@ -1404,6 +1404,41 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_war = no
+			is_neighbor_of = NEE
+		}
+		bypass = {
+			NOT = {
+				country_exists = NEE
+			}
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			has_completed_focus = KKK_the_shadow_economy
+			factor = 1
+			}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			declare_war_on = {
+				target = NEE
+				type = annex_everything
+			}				
+		}
+	}
+	
+	focus = {
+		id = KKK_weve_got_them_surrounded
+		icon = GFX_KKK_globally_distribute_cotton
+		prerequisite = { focus = KKK_virginia_will_be_ours_once_more }
+		prerequisite = { focus = KKK_put_and_end_to_the_motor_works }
+		relative_position_id = KKK_white_only_recruitment
+		x = 2
+		y = 3
+		cost = 5
+		available = {
+			has_war = no
 			is_neighbor_of = NYC
 		}
 		bypass = {
@@ -1429,12 +1464,11 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = KKK_weve_got_them_surrounded
+		id = KKK_end_the_red_plague
 		icon = GFX_KKK_globally_distribute_cotton
-		prerequisite = { focus = KKK_virginia_will_be_ours_once_more }
-		prerequisite = { focus = KKK_put_and_end_to_the_motor_works }
+		prerequisite = { focus = KKK_virginia_will_be_ours_once_more focus = KKK_put_and_end_to_the_motor_works }
 		relative_position_id = KKK_white_only_recruitment
-		x = 2
+		x = 4
 		y = 3
 		cost = 5
 		available = {
@@ -1544,7 +1578,6 @@ focus_tree = {
 		y = 3
 		cost = 5
 		available = {
-			has_war = no
 			is_neighbor_of = PEN
 		}
 		bypass = {
@@ -2105,6 +2138,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			add_ideas = KKK_improved_training_camps
 		}
 	}
 	
