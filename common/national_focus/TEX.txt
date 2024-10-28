@@ -1,0 +1,679 @@
+focus_tree = {
+	id = tex.focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TEX
+		}
+	}
+	default = no
+	
+	## MAIN ##
+	
+	focus = {
+		id = TEX_the_lone_star
+		icon = GFX_goal_generic_construction
+		
+        x = 5
+        y = 1
+		
+        cost = 5
+	}	
+	
+	focus = {
+		id = TEX_look_to_the_past
+		icon = GFX_goal_generic_construction
+		
+        x = -2
+        y = 1
+		
+		relative_position_id = TEX_the_lone_star
+		prerequisite = { focus = TEX_the_lone_star }
+		
+        cost = 5
+	}	
+	
+	focus = {
+		id = TEX_democracy_failed
+		icon = GFX_goal_generic_construction
+		
+        x = -1
+        y = 1
+		
+		relative_position_id = TEX_look_to_the_past
+		prerequisite = { focus = TEX_look_to_the_past }
+		mutually_exclusive = { focus = TEX_rampant_corruption }
+		
+        cost = 5
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}			
+		}
+	}
+	
+	focus = {
+		id = TEX_rampant_corruption
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TEX_look_to_the_past
+		prerequisite = { focus = TEX_look_to_the_past }
+		mutually_exclusive = { focus = TEX_democracy_failed }
+		
+        cost = 5
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}			
+		}
+	}
+	
+	focus = {
+		id = TEX_look_to_the_future
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+        y = 1
+		
+		relative_position_id = TEX_the_lone_star
+		prerequisite = { focus = TEX_the_lone_star }
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_nation_first
+		icon = GFX_goal_generic_construction
+		
+        x = -1
+        y = 1
+		
+		relative_position_id = TEX_look_to_the_future
+		prerequisite = { focus = TEX_look_to_the_future }
+		mutually_exclusive = { focus = TEX_people_first }
+		
+        cost = 5
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}			
+		}
+	}
+	
+	focus = {
+		id = TEX_people_first
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TEX_look_to_the_future
+		prerequisite = { focus = TEX_look_to_the_future }
+		mutually_exclusive = { focus = TEX_nation_first }
+		
+        cost = 5
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}			
+		}
+	}
+	
+	focus = {
+		id = TEX_texas_on_its_own
+		icon = GFX_goal_generic_construction
+		
+        x = -1
+        y = 1
+		
+		relative_position_id = TEX_rampant_corruption
+		mutually_exclusive = { focus = TEX_a_better_usa}
+		prerequisite = {
+			focus = TEX_nation_first
+			focus = TEX_people_first
+		}
+		prerequisite = {
+			focus = TEX_democracy_failed
+			focus = TEX_rampant_corruption
+		}
+		
+        cost = 5
+		
+		completion_reward = {
+			set_cosmetic_tag = TEX_REP
+		}
+	}
+	
+	focus = {
+		id = TEX_a_better_usa
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TEX_nation_first
+		mutually_exclusive = { focus = TEX_texas_on_its_own}
+		prerequisite = {
+			focus = TEX_nation_first
+			focus = TEX_people_first
+		}
+		prerequisite = {
+			focus = TEX_democracy_failed
+			focus = TEX_rampant_corruption
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_texan_nationalism
+		icon = GFX_goal_generic_construction
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TEX_texas_on_its_own
+		mutually_exclusive = {
+			focus = TEX_american_nationalism
+			focus = TEX_southern_pride
+		}
+		prerequisite = {
+			focus = TEX_texas_on_its_own
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_southern_pride
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+        y = 1
+		
+		relative_position_id = TEX_texas_on_its_own
+		mutually_exclusive = {
+			focus = TEX_texan_nationalism
+			focus = TEX_american_nationalism
+		}
+		prerequisite = {
+			focus = TEX_texas_on_its_own
+			focus = TEX_a_better_usa
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_american_nationalism
+		icon = GFX_goal_generic_construction
+		
+        x = 0
+        y = 1
+		
+		relative_position_id = TEX_a_better_usa
+		mutually_exclusive = {
+			focus = TEX_texan_nationalism
+			focus = TEX_southern_pride
+		}
+		prerequisite = {
+			focus = TEX_a_better_usa
+		}
+		
+        cost = 5
+	}
+	
+	##Economy branch##
+	focus = {
+		id = TEX_fixing_the_economy
+		icon = GFX_focus_USA_mc_fix_economy
+		
+		y = 1
+		x = 20
+		
+		available = {
+			OR = {
+				has_completed_focus = TEX_texas_on_its_own
+				has_completed_focus = TEX_a_better_usa
+			}
+		}
+
+		cost = 5
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare
+				add_idea = CCC_corporate_nightmare2
+			}
+		}
+	}
+	##Corporatocracy
+	focus = {
+		id = TEX_cooperate_with_loyal_corporations
+		icon = GFX_focus_USA_mc_loyal_corporations
+
+		relative_position_id = TEX_fixing_the_economy
+		y = 1
+		x = -2
+		cost = 5
+		prerequisite =	{ focus = TEX_fixing_the_economy }
+		mutually_exclusive = { focus = TEX_destroy_the_corporatocracy }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare2
+				add_idea = CCC_corporate_nightmare6
+			}
+		}
+	}
+	focus = {
+		id = TEX_emergency_industrialization
+		icon = GFX_focus_USA_mc_emergency
+
+		relative_position_id = TEX_cooperate_with_loyal_corporations
+		y = 1
+		x = -1
+		cost = 5
+		prerequisite =	{ focus = TEX_cooperate_with_loyal_corporations }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = CCC_corporate_nightmare6
+				add_idea = CCC_corporate_nightmare7
+			}
+		}
+	}
+	focus = {
+		id = TEX_restart_trade
+		icon = GFX_focus_USA_mc_open_trade
+		relative_position_id = TEX_cooperate_with_loyal_corporations
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_cooperate_with_loyal_corporations }
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus	USA_mc_to_save_a_nation"
+			add_ideas = {
+				free_trade
+			}
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = TEX_hike_the_population_tax
+		icon = GFX_focus_USA_mc_increase_taxes
+		relative_position_id = TEX_emergency_industrialization
+		y = 1
+		x = -1
+		cost = 5
+		prerequisite =	{ focus = TEX_emergency_industrialization }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare7
+				add_idea = CCC_corporate_nightmare8
+			}
+		}
+	}
+	focus = {
+		id = TEX_increase_working_hours
+		icon = GFX_focus_USA_mc_working_hours
+		relative_position_id = TEX_emergency_industrialization
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_emergency_industrialization }
+		completion_reward = {
+		add_ideas = {
+                 CCC_increased_working_hours
+			    }
+				}
+	}
+	focus = {
+		id = TEX_import_mexican_labor
+		icon = GFX_focus_USA_mc_mexicans
+
+		relative_position_id = TEX_emergency_industrialization
+		y = 2
+		cost = 5
+		prerequisite =	{ focus = TEX_hike_the_population_tax }
+		prerequisite =	{ focus = TEX_increase_working_hours }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare8
+				add_idea = CCC_corporate_nightmare9
+			}
+		}
+	}
+	focus = {
+		id = TEX_token_worker_rights
+		icon = GFX_focus_USA_mc_fake_worker
+
+		relative_position_id = TEX_import_mexican_labor
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_import_mexican_labor }
+		
+		completion_reward = {
+		    add_ideas = {
+                      CCC_token_workers_rights
+			    }
+			}
+	}
+	focus = {
+		id = TEX_fight_our_debt
+		icon = GFX_focus_USA_mc_pay_debts
+
+		relative_position_id = TEX_token_worker_rights
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{
+			focus = TEX_token_worker_rights
+			focus = TEX_fight_poverty
+		}
+		prerequisite = { focus = TEX_agricultural_revitalization_program }
+		mutually_exclusive = { focus = TEX_deficit_spending }
+		
+		completion_reward = {
+		    add_timed_idea = { 
+				idea = CCC_fighting_our_debts
+				days = 120
+			}
+			}
+	}
+
+	##Not corporatocracy
+	focus = {
+		id = TEX_destroy_the_corporatocracy
+		icon = GFX_focus_USA_mc_stop_corp
+
+		relative_position_id = TEX_fixing_the_economy
+		y = 1
+		x = 2
+		cost = 5
+		prerequisite =	{ focus = TEX_fixing_the_economy }
+		mutually_exclusive = { focus = TEX_cooperate_with_loyal_corporations }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare2
+				add_idea = CCC_corporate_nightmare3
+			}
+		}
+	}
+	focus = {
+		id = TEX_principles_of_autarky
+		icon = GFX_focus_USA_mc_principles
+
+		relative_position_id = TEX_destroy_the_corporatocracy
+		y = 1
+		x = -1
+
+		cost = 5
+
+		prerequisite =	{ focus = TEX_destroy_the_corporatocracy }
+		
+		completion_reward = {
+		    377 = {
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			376 = {
+				add_resource = {
+					type = aluminium
+					amount = 6
+				}
+			}
+		    add_political_power = -25
+		}
+	}
+	focus = {
+		id = TEX_intervene_in_the_economy
+		icon = GFX_focus_USA_mc_intervene
+
+		relative_position_id = TEX_destroy_the_corporatocracy
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_destroy_the_corporatocracy }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = CCC_corporate_nightmare3
+				add_idea = CCC_corporate_nightmare4
+			}
+		}
+	}
+	focus = {
+		id = TEX_develop_our_infrastructure
+		icon = GFX_focus_USA_mc_roads
+
+		relative_position_id = TEX_intervene_in_the_economy
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_intervene_in_the_economy }
+		
+		completion_reward = {
+			every_core_state = {
+				tooltip = every_owned_core_with_less_than_3_infrastructure_tt
+				limit = {
+					is_owned_by = TEX
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			}
+	}
+	focus = {
+		id = TEX_raise_corporate_taxes
+		icon = GFX_focus_USA_mc_tax_rich
+
+		relative_position_id = TEX_intervene_in_the_economy
+		y = 1
+		x = -1
+		cost = 5
+		prerequisite =	{ focus = TEX_intervene_in_the_economy }
+		
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = CCC_corporate_nightmare4
+				add_idea = CCC_corporate_nightmare5
+			}
+		}
+	}
+	focus = {
+		id = TEX_expand_worker_rights
+		icon = GFX_focus_USA_mc_real_worker
+
+		relative_position_id = TEX_intervene_in_the_economy
+		y = 2
+		cost = 5
+		prerequisite =	{ focus = TEX_develop_our_infrastructure }
+		prerequisite =	{ focus = TEX_raise_corporate_taxes }
+		completion_reward = {
+		
+		    add_ideas = {
+                      CCC_expanded_workers_rights
+			    }
+			}
+	}
+	focus = {
+		id = TEX_fight_poverty
+		icon = GFX_focus_USA_mc_poverty
+
+		relative_position_id = TEX_expand_worker_rights
+		y = 1
+		x = -1
+		cost = 5
+		prerequisite =	{ focus = TEX_expand_worker_rights }
+		
+		completion_reward = {
+		    remove_ideas = {
+				CCC_corporate_nightmare5
+			}
+	}
+	}
+	focus = {
+		id = TEX_deficit_spending
+		icon = GFX_focus_USA_mc_deficit
+
+		relative_position_id = TEX_fight_poverty
+		y = 1
+		x = -1
+		cost = 5
+		prerequisite =	{
+			focus = TEX_fight_poverty
+			focus = TEX_token_worker_rights
+		}
+		prerequisite = { focus = TEX_agricultural_revitalization_program }
+		mutually_exclusive = { focus = TEX_fight_our_debt }
+		
+		completion_reward = {
+		    add_timed_idea = { 
+				idea = CCC_deficit_spending
+				days = 120
+			}
+			}
+		
+	}
+	##Common
+	focus = {
+		id = TEX_expand_the_military_industry
+		icon = GFX_focus_USA_mc_military_industry
+
+		relative_position_id = TEX_fixing_the_economy
+		y = 3
+		cost = 5
+		prerequisite =	{ focus = TEX_restart_trade focus = TEX_principles_of_autarky }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TEX_be_resourceful
+		icon = GFX_focus_USA_mc_resourceful
+
+		relative_position_id = TEX_expand_the_military_industry
+		y = 1
+		x = -1
+		cost = 5
+		prerequisite =	{ focus = TEX_expand_the_military_industry }
+		mutually_exclusive = { focus = TEX_develop_our_resources }
+		
+		completion_reward = {
+		    add_ideas = {
+                      CCC_resourcefulnes
+			    }
+			}
+	}
+	focus = {
+		id = TEX_develop_our_resources
+		icon = GFX_focus_USA_mc_excavation
+
+		relative_position_id = TEX_expand_the_military_industry
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_expand_the_military_industry }
+		mutually_exclusive = { focus = TEX_be_resourceful }
+		
+		completion_reward = {
+		    add_ideas = {
+                      CCC_improved_excavation
+			    }
+			}
+	}
+	focus = {
+		id = TEX_agricultural_revitalization_program
+		icon = GFX_focus_USA_mc_agri
+
+		relative_position_id = TEX_expand_the_military_industry
+		y = 2
+		cost = 5
+		prerequisite =	{
+			focus = TEX_be_resourceful
+			focus = TEX_develop_our_resources
+		}
+		
+		completion_reward = {
+		    add_ideas = {
+                      CCC_revitalized_agriculture
+			    }
+			}
+	}
+	focus = {
+		id = TEX_expand_our_research_capabilities
+		icon = GFX_goal_generic_construction
+
+		relative_position_id = TEX_agricultural_revitalization_program
+		y = 2
+		cost = 5
+		prerequisite =	{
+			focus = TEX_fight_our_debt
+			focus = TEX_deficit_spending
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus TEX_expand_our_research_capabilities"
+			add_research_slot = 1
+			add_political_power = 25
+		}
+	}
+}

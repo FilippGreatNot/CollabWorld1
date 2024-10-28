@@ -1,13 +1,10 @@
 USA_warlord_base = {
 	inherit_technology = PREV
-	USA = {
+	every_country = {
+		limit = {is_american_tag = yes}
 		every_core_state = {
 			add_claim_by = PREV.PREV
 		}
-	}
-	add_ideas = {
-		mixed_economy
-		extensive_conscription
 	}
 	kill_all_divisions_on_territory = yes
 }
@@ -21,6 +18,7 @@ USA_release_ASF = {
 	}
 	release = ASF
 	ASF = {
+		USA_warlord_base = yes
 		add_ideas = state_economy
 		load_oob = USA_ASF
 	}
@@ -35,6 +33,7 @@ USA_release_CCC = {
 	}
 	release = CCC
 	CCC = {
+		USA_warlord_base = yes
 	    add_ideas = regulated_market_economy
 		add_ideas = extensive_conscription
 		add_ideas = limited_exports
@@ -65,6 +64,9 @@ USA_release_FOC = {
 			add_state_core = 389
 		}
 		release = FOC
+		FOC = {
+			USA_warlord_base = yes
+		}
 	}
 }
 USA_release_PEN = {
@@ -105,6 +107,7 @@ USA_release_KKK = {
 		}
 		release = KKK
 		KKK = {
+			USA_warlord_base = yes
 			add_ideas = closed_economy
 			load_oob = KKK
 		}
@@ -119,9 +122,9 @@ USA_release_TEX = {
 			add_state_core = 1041
 		}
 		release = TEX
-		TEX = {
-			USA_warlord_base = yes
-		}
+		#TEX = {
+		#	USA_warlord_base = yes
+		#}
 	}
 }
 #USA_release_DIC = {
@@ -160,6 +163,7 @@ USA_release_ORG = {
 		}
 		release = ORG
 		ORG = {
+			USA_warlord_base = yes
 			add_ideas = closed_economy
 		}
 	}
