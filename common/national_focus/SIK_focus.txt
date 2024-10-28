@@ -400,6 +400,7 @@ focus_tree = {
 		cost = 5
 		available = {
 			NOT = { country_exists = ALT }
+			NOT = { country_exists = DZG }
 			NOT = { country_exists = KUM }
 			NOT = { country_exists = TIA }
 		}
@@ -535,6 +536,7 @@ focus_tree = {
 		cost = 10
 		available = {
 			NOT = { country_exists = ALT }
+			NOT = { country_exists = DZG }
 			NOT = { country_exists = KUM }
 			NOT = { country_exists = TIA }
 		}
@@ -734,6 +736,10 @@ focus_tree = {
 				add_war_support = -0.05
 				add_stability = -0.05
 			}
+			DZG = {
+				add_war_support = -0.05
+				add_stability = -0.05
+			}
 			ALT = {
 				add_war_support = -0.05
 				add_stability = -0.05
@@ -860,7 +866,12 @@ focus_tree = {
 		relative_position_id = SIK_challenge_tungani_governance
 		prerequisite = { focus = SIK_challenge_tungani_governance }
 		bypass = {
-			NOT = { country_exists = ALT }
+			if = {
+				OR = {
+					NOT = { country_exists = ALT }
+					NOT = { country_exists = DZG }
+				}
+			}
 		}
 		completion_reward = {
 			declare_war_on = {
