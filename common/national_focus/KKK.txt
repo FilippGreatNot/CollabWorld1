@@ -26,7 +26,7 @@ focus_tree = {
 			add_war_support = 0.05
 			
 			hidden_effect = {
-			     country_event = { id = kkk.2 days = 10 }
+			     country_event = { id = kkk.2 days = 287 }
 			}
 			
 		}
@@ -366,24 +366,30 @@ focus_tree = {
 	focus = {
 		id = KKK_form_the_military_branch_of_government
 		icon = GFX_KKK_form_the_military_branch_of_government
-		prerequisite = { focus = KKK_loot_old_armories_and_museums }
-		relative_position_id = KKK_loot_old_armories_and_museums
 		x = -4
 		y = 1
 		cost = 10
 		available = {
-		
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 			modifier = {
-			has_completed_focus = KKK_loot_old_armories_and_museums
-			factor = 10
+				has_completed_focus = KKK_loot_old_armories_and_museums
+				factor = 10
 			}
 		}
+		select_effect = {
+			add_timed_idea = {
+				idea = KKK_funding_a_new_military
+				days = 140
+			}
+		}
+		prerequisite = { focus = KKK_loot_old_armories_and_museums }
+		relative_position_id = KKK_loot_old_armories_and_museums
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_form_the_military_branch_of_government"
+			custom_effect_tooltip = KKK_funding_a_new_military_tt
 			add_ideas = KKK_the_klansmen
 		}
 	}

@@ -373,6 +373,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_war_support = 0.1
 			ALT = { make_every_core_national_for_PREV = yes }
+			DZG = { make_every_core_national_for_PREV = yes }
 			KUM = { make_every_core_national_for_PREV = yes }
 			SIK = { make_every_core_national_for_PREV = yes }
 		}
@@ -404,7 +405,7 @@ focus_tree = {
 		cost = 5
 		available = {
 			NOT = { country_exists = ALT }
-			NOT = { country_exists = SIK }
+			NOT = { country_exists = DZG }
 		}
 		mutually_exclusive = { focus = TIA_establish_a_multiethnic_democracy }
 		relative_position_id = TIA_depose_the_illegitimate_governor
@@ -662,6 +663,10 @@ focus_tree = {
 				type = annex_everything
 			}
 			create_wargoal = {
+				target = DZG
+				type = annex_everything
+			}
+			create_wargoal = {
 				target = SIK
 				type = annex_everything
 			}
@@ -884,13 +889,16 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			add_stability = 0.05
-			SIK = { 
-				every_core_state = { add_claim_by = TIA }
-			}
 			ALT = { 
 				every_core_state = { add_claim_by = TIA }
 			}
+			DZG = { 
+				every_core_state = { add_claim_by = TIA }
+			}
 			KUM = { 
+				every_core_state = { add_claim_by = TIA }
+			}
+			SIK = { 
 				every_core_state = { add_claim_by = TIA }
 			}
 		}
@@ -963,12 +971,18 @@ focus_tree = {
 			factor = 15
 		}
 		available = {
-			is_neighbor_of = ALT
+			OR = {
+				is_neighbor_of = ALT
+				is_neighbor_of = DZG
+			}
 			has_war = no
 		}
 		bypass = {
 			if = { 
-				NOT = { country_exists = ALT }
+				OR = {
+					NOT = { country_exists = ALT }
+					NOT = { country_exists = DZG }
+				}
 			}
 		}
 		relative_position_id = TIA_form_a_new_army
@@ -996,6 +1010,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = { country_exists = ALT }
+			NOT = { country_exists = DZG }
 			NOT = { country_exists = KUM }
 			NOT = { country_exists = SIK }
 			has_war = no
@@ -1008,6 +1023,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_war_support = 0.1
 			ALT = { make_every_core_national_for_PREV = yes }
+			DZG = { make_every_core_national_for_PREV = yes }
 			KUM = { make_every_core_national_for_PREV = yes }
 			SIK = { make_every_core_national_for_PREV = yes }
 		}
