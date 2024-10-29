@@ -925,12 +925,18 @@ focus_tree = {
 		#		has_completed_focus = ITS_just_the_beginning_2
 		#	}
 		#}
+		ai_will_do = {
+			base = 5
+		}
 		completion_reward = {
 			declare_war_on = {
 				target = ITA
 				type = annex_everything
 			}	
 			add_civil_war_target = ITA
+		}
+		available = {
+			has_war = no
 		}
 	}
 	
@@ -951,17 +957,23 @@ focus_tree = {
 				type = take_claimed_state
 			}	
 		}
+		available = {
+			has_war = no
+		}
 	}
 	
 	focus = {
 		id = ITS_kill_vne
 		icon = GFX_goal_generic_construction
 		x = -2
-		y = 1
+		y = 0
+		y = 0
 		relative_position_id = ITS_free_italy
 		cost = 5
 		prerequisite = { 
-			focus = ITS_free_italy
+			focus = ITS_why_we_fight
+			focus = ITS_just_the_beginning_1
+			focus = ITS_just_the_beginning_2
 		}
 		available = {
 			NOT = {
@@ -971,12 +983,18 @@ focus_tree = {
 				}
 			}
 		}
+		ai_will_do = {
+			base = 10
+		}
 		completion_reward = {
 			declare_war_on = {
 				target = VNE
 				type = annex_everything
 			}	
 			add_civil_war_target = VNE	
+		}
+		available = {
+			has_war = no
 		}
 	}
 	
@@ -997,6 +1015,9 @@ focus_tree = {
 			}	
 			add_civil_war_target = SAN
 		}
+		available = {
+			has_war = no
+		}
 	}
 	focus = {
 		id = ITS_fight_crime
@@ -1015,6 +1036,9 @@ focus_tree = {
 			}	
 			add_civil_war_target = MSS
 		}
+		available = {
+			has_war = no
+		}
 	}
 	focus = {
 		id = ITS_return_to_sar
@@ -1032,6 +1056,9 @@ focus_tree = {
 				type = annex_everything
 			}	
 			add_civil_war_target = SAR
+		}
+		available = {
+			has_war = no
 		}
 	}
 	focus = {
