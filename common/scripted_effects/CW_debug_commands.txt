@@ -9,7 +9,12 @@ d_print_strategic_value = {
 	log = "Strategic value of [THIS.GetName] is [?state_strategic_value]"
 }
 d_ee = {
-	LEB = { white_peace = PREV.FROM }
+	POL = {
+		every_core_state = {
+			limit = { is_core_of = PBD }
+			log = "[THIS.GetID]: [THIS.GetName]"
+		}
+	}
 }
 d_ee2 = {
 	every_owned_state = {
