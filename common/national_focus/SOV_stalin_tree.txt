@@ -381,7 +381,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_dash_to_the_west"
 			LAT = { make_every_core_national_for_PREV = yes }
-			PBD = { make_every_core_national_for_PREV = yes }
+			BLR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -421,7 +421,7 @@ focus_tree = {
 		id = SOV_stalin_a_call_to_tukhachevsky
 		icon = GFX_focus_SOV_stalin_a_call_to_tukhachevsky
 		cost = 4
-		will_lead_to_war_with = PBD
+		will_lead_to_war_with = BLR
 		
 		relative_position_id = SOV_stalin_end_the_baltics_white_threat
 		y = 1
@@ -432,15 +432,15 @@ focus_tree = {
 		available = {
 			has_war = no
 			OR = {
-				is_neighbor_of = PBD
-				NOT = { country_exists = PBD }
+				is_neighbor_of = BLR
+				NOT = { country_exists = BLR }
 			}
 			is_subject = no
 		}
 		
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_a_call_to_tukhachevsky"
-			PBD = {	country_event = sov.unification.1 }
+			BLR = {	country_event = sov.unification.1 }
 		}
 	}
 	focus = {
@@ -481,9 +481,9 @@ focus_tree = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_congratulations_on_the_promotion"
 			if = {
 				limit = {
-					has_character = PBD_mikhail_tukhachevsky
+					has_character = BLR_mikhail_tukhachevsky
 				}
-				PBD_mikhail_tukhachevsky = {
+				BLR_mikhail_tukhachevsky = {
 					add_field_marshal_role = {
 						traits = { 
 							offensive_doctrine
@@ -542,7 +542,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_tukhachevsky_case"
 			
-			retire_character = PBD_mikhail_tukhachevsky
+			retire_character = BLR_mikhail_tukhachevsky
 			add_timed_idea = {
 				idea = SOV_tukhachevsky_case
 				years = 1
@@ -568,7 +568,6 @@ focus_tree = {
 			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_question_of_the_north"
 			
 			KAR = { make_every_core_national_for_PREV = yes }
-			FIN = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -592,10 +591,6 @@ focus_tree = {
 			annex_country = { 
 				target = KAR
 				transfer_troops = yes 
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = FIN
 			}
 		}
 	}

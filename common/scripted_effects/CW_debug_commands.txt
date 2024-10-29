@@ -9,11 +9,10 @@ d_print_strategic_value = {
 	log = "Strategic value of [THIS.GetName] is [?state_strategic_value]"
 }
 d_ee = {
-	POL = {
-		every_core_state = {
-			limit = { is_core_of = PBD }
-			log = "[THIS.GetID]: [THIS.GetName]"
-		}
+	for_each_scope_loop = {
+		array = global.russian_tags
+		
+		log = "[THIS.GetName]"
 	}
 }
 d_ee2 = {

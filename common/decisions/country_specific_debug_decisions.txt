@@ -34,25 +34,20 @@ SOV_debug_decisions_category = {
 			country_event = sov.lenin.1
 		}
 	}
-	SOV_SOV_bogdanov_unification_event = {
-		complete_effect = {
-			country_event = sov.bogdanov.1
-		}
-	}
 	SOV_annex_everything_needed_for_unification = {
 		complete_effect = {
-			annex_country = { target = UKR }
-			annex_country = { target = RUS }
-			annex_country = { target = OCG }
-			annex_country = { target = LAT }
-			annex_country = { target = FER }
-			annex_country = { target = SEA }
-			annex_country = { target = KAZ }
-			annex_country = { target = KYR }
-			annex_country = { target = KMP }
-			annex_country = { target = SRF }
-			annex_country = { target = PBD }
-			annex_country = { target = KAR }
+			for_each_scope_loop = {
+				array = global.russian_tags
+				
+				if = {
+					limit = {
+						NOT = { tag = PREV }
+					}
+					ROOT = {
+						annex_country = { target = PREV }
+					}
+				}
+			}
 		}
 	}
 }
@@ -62,7 +57,7 @@ USA_debug_decisions_category = {
 		complete_effect = {
 			USA_release_NYC = yes
 			NYC = {
-			change_tag_from = USA
+				change_tag_from = USA
 		    }
 		}
 	}
@@ -70,7 +65,7 @@ USA_debug_decisions_category = {
 		complete_effect = {
 			USA_release_CCC = yes
 			CCC = {
-			change_tag_from = USA
+				change_tag_from = USA
 		    }
 		}
 	}
@@ -78,7 +73,7 @@ USA_debug_decisions_category = {
 		complete_effect = {
 			USA_release_NEE = yes
 			NEE = {
-			change_tag_from = USA
+				change_tag_from = USA
 		    }
 		}
 	}
@@ -86,7 +81,7 @@ USA_debug_decisions_category = {
 		complete_effect = {
 			USA_release_ASF = yes
 			ASF = {
-			change_tag_from = USA
+				change_tag_from = USA
 		    }
 		}
 	}
@@ -94,7 +89,7 @@ USA_debug_decisions_category = {
 		complete_effect = {
 			USA_release_KKK = yes
 			KKK = {
-			change_tag_from = USA
+				change_tag_from = USA
 		    }
 		}
 	}
@@ -102,7 +97,7 @@ USA_debug_decisions_category = {
 		complete_effect = {
 			USA_release_TEX = yes
 			TEX = {
-			change_tag_from = USA
+				change_tag_from = USA
 		    }
 		}
 	}
