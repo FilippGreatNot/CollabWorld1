@@ -6,7 +6,7 @@ focus_tree = {
 	default = no
 	
 	focus = {
-		id = VAT_purge_government
+		id = VAT_purge_radicals
 		icon = GFX_goal_generic_construction
 		
         x = 5
@@ -16,7 +16,7 @@ focus_tree = {
 		
 	}		
 	focus = {
-		id = VAT_reorganise_government
+		id = VAT_purge_radicals
 		icon = GFX_goal_generic_construction
 	
 		prerequisite = {
@@ -26,8 +26,36 @@ focus_tree = {
 		available = {
 		}
 		
-		relative_position_id = VAT_purge_government
-        x = 0
+		mutually_exclusive = {
+			focus = VAT_papal_government
+		}
+		
+		relative_position_id = VAT_purge_radicals
+        x = -1
+        y = 1
+		
+        cost = 6
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = VAT_papal_government
+		icon = GFX_goal_generic_construction
+	
+		prerequisite = {
+			focus = VAT_purge_radicals
+		}
+
+		available = {
+		}
+		
+		mutually_exclusive = {
+			focus = VAT_separate_government
+		}
+		
+		relative_position_id = VAT_purge_radicals
+        x = 1
         y = 1
 		
         cost = 6
