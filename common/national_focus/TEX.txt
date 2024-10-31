@@ -135,7 +135,7 @@ focus_tree = {
 		id = TEX_texas_on_its_own
 		icon = GFX_goal_generic_construction
 		
-        x = -1
+        x = 0
         y = 1
 		
 		relative_position_id = TEX_rampant_corruption
@@ -160,7 +160,7 @@ focus_tree = {
 		id = TEX_a_better_usa
 		icon = GFX_goal_generic_construction
 		
-        x = 1
+        x = 0
         y = 1
 		
 		relative_position_id = TEX_nation_first
@@ -181,7 +181,7 @@ focus_tree = {
 		id = TEX_texan_nationalism
 		icon = GFX_goal_generic_construction
 		
-        x = 0
+        x = -1
         y = 1
 		
 		relative_position_id = TEX_texas_on_its_own
@@ -200,7 +200,7 @@ focus_tree = {
 		id = TEX_southern_pride
 		icon = GFX_goal_generic_construction
 		
-        x = 2
+        x = 1
         y = 1
 		
 		relative_position_id = TEX_texas_on_its_own
@@ -217,10 +217,46 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = TEX_confederate_hero
+		icon = GFX_goal_generic_construction
+		
+        x = -1
+        y = 1
+		
+		relative_position_id = TEX_southern_pride
+		mutually_exclusive = {
+			focus = TEX_confederate_villain
+		}
+		prerequisite = {
+			focus = TEX_southern_pride
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_confederate_villain
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TEX_southern_pride
+		mutually_exclusive = {
+			focus = TEX_confederate_hero
+		}
+		prerequisite = {
+			focus = TEX_southern_pride
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
 		id = TEX_american_nationalism
 		icon = GFX_goal_generic_construction
 		
-        x = 0
+        x = 1
         y = 1
 		
 		relative_position_id = TEX_a_better_usa
@@ -230,6 +266,43 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TEX_a_better_usa
+		}
+		
+        cost = 5
+	}
+	
+	##Deal with KKK##
+	
+	focus = {
+		id = TEX_kkk_moderates
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+        y = 1
+		
+		relative_position_id = TEX_people_first
+		mutually_exclusive = {
+			focus = TEX_crush_kkk
+		}
+		prerequisite = {
+			focus = TEX_people_first
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_crush_kkk
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+		
+		relative_position_id = TEX_kkk_moderates
+		mutually_exclusive = {
+			focus = TEX_kkk_moderates
+		}
+		prerequisite = {
+			focus = TEX_people_first
 		}
 		
         cost = 5
