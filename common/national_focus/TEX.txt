@@ -286,6 +286,7 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TEX_people_first
+			focus = TEX_nation_first
 		}
 		
         cost = 5
@@ -303,9 +304,376 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TEX_people_first
+			focus = TEX_nation_first
 		}
 		
         cost = 5
+	}
+	
+	focus = {
+		id = TEX_crush_kkk_radicals
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+		y = 1
+		
+		relative_position_id = TEX_kkk_moderates
+		prerequisite = {
+			focus = TEX_kkk_moderates
+			focus = TEX_crush_kkk
+		}
+		
+        cost = 5
+	}
+	
+	##Fortification##
+	focus = {
+		id = TEX_hold_boarders
+		icon = GFX_goal_generic_construction
+		
+		y = 6
+		x = 14
+		
+		available = {
+			has_completed_focus = TEX_texas_on_its_own
+			has_completed_focus = TEX_expand_the_military_industry
+		}
+
+		cost = 5
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TEX_keep_klansmen_out
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		x = -2
+		
+		relative_position_id = TEX_hold_boarders
+		prerequisite = {
+			focus = TEX_hold_boarders
+		}
+
+		cost = 5
+		completion_reward = {
+			375 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 1500
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12486
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 4577
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 6968
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 5001
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TEX_fortify_red_river
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		x = 0
+		
+		relative_position_id = TEX_hold_boarders
+		prerequisite = {
+			focus = TEX_hold_boarders
+		}
+
+		cost = 5
+		completion_reward = {
+			375 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9829
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 2082
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 5085
+				}
+			}
+			1041 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 3875
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 3972
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 2055
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TEX_fortify_ccc
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		x = 2
+		
+		relative_position_id = TEX_hold_boarders
+		prerequisite = {
+			focus = TEX_hold_boarders
+		}
+
+		cost = 5
+		completion_reward = {
+			1041 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9908
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12893
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9773
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 1998
+				}
+			}
+			1028 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 4955
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 10894
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 10740
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TEX_fortify_rio_grande
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		x = -1
+		
+		relative_position_id = TEX_fortify_red_river
+		
+		prerequisite = {
+			focus = TEX_keep_klansmen_out
+		}
+		prerequisite = {
+			focus = TEX_fortify_red_river
+		}
+		prerequisite = {
+			focus = TEX_fortify_ccc
+		}
+
+		cost = 5
+		completion_reward = {
+			837 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12369
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 5061
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 2019
+				}
+			}
+			375 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 12728
+				}
+			}
+			1028 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 5038
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 1954
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 10894
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TEX_fortify_water
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		x = 1
+		
+		relative_position_id = TEX_fortify_red_river
+		
+		prerequisite = {
+			focus = TEX_keep_klansmen_out
+		}
+		prerequisite = {
+			focus = TEX_fortify_red_river
+		}
+		prerequisite = {
+			focus = TEX_fortify_ccc
+		}
+
+		cost = 5
+		completion_reward = {
+			837 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 12369
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 6785
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 2042
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 4884
+				}
+			}
+			375 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 1500
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 10337
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 12410
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = TEX_practically_a_fortress
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		x = 1
+		
+		relative_position_id = TEX_fortify_rio_grande
+		
+		prerequisite = {
+			focus = TEX_fortify_rio_grande
+		}
+		prerequisite = {
+			focus = TEX_fortify_water
+		}
+
+		cost = 5
+		completion_reward = {
+		}
 	}
 	
 	##Economy branch##
