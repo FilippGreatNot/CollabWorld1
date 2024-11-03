@@ -1737,6 +1737,10 @@ focus_tree = {
 				target = CAN
 				type = annex_everything
 			}
+			declare_war_on = {
+				target = ALA
+				type = annex_everything
+			}
 		}
 	}
 	
@@ -2385,6 +2389,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			add_ideas = KKK_government_military_synthesis
 			
 		}
 	}
@@ -2398,7 +2403,7 @@ focus_tree = {
 		y = 5
 		cost = 5
 		available = {
-		
+		         has_completed_focus = KKK_we_must_become_self_dependant
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -2407,7 +2412,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			swap_ideas = {
+			remove_idea = KKK_the_shadow_economy2
+			add_idea = KKK_the_shadow_economy3
+			}
 		}
 	}
 	
@@ -2429,7 +2437,12 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = ENG
+			}
+			add_political_power = 25
 		}
 	}
 	
@@ -2442,7 +2455,7 @@ focus_tree = {
 		y = 5
 		cost = 5
 		available = {
-		
+		         has_completed_focus = KKK_open_up_the_slave_market
 		}
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -2451,7 +2464,10 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			swap_ideas = {
+			remove_idea = KKK_reinstated_slavery2
+			add_idea = KKK_reinstated_slavery3
+			}
 		}
 	}
 	
@@ -2473,7 +2489,22 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				}
+			army_experience = 10
 		}
 	}
 }
