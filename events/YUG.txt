@@ -352,7 +352,7 @@ country_event = {
 	
     	option = {
         	name = yugo.15.a
-		add_political_power = 25
+		add_political_power = 15
 		add_stability = 0.02
 	}
 }
@@ -375,7 +375,40 @@ country_event = {
 	
     	option = {
         	name = yugo.16.a
-		add_political_power = 25
+		add_political_power = 15
 		add_stability = 0.02
+	}
+}
+## Instability Events ##
+country_event = {
+	id = yugo.instability1
+	title = yugo.instability1.t 
+	desc = yugo.instability1.d
+	is_triggered_only = yes 
+
+	trigger = { 
+		mean_time_to_happen = {
+			days = 140
+
+			modifier = {
+				factor = 0.5
+				is_at_peace = yes
+			}
+		}
+	}
+	option = {
+		name = yugo.instability1.a 
+		add_political_power = -25
+		add_stability = -0.01
+		damage_building = {
+			type = infrastructure
+			damage = 3
+			province = 11572
+		}
+	}
+	option = {
+		name = yugo.instability1.b 
+		add_political_power = -45
+		add_stability = -0.05
 	}
 }
