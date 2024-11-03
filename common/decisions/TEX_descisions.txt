@@ -1,0 +1,28 @@
+TEX_peace_out_cat = {
+	TEX_usa_surrenders = {	
+		allowed = { tag = TEX }		
+		activation = {
+			any_other_country = {
+				has_offensive_war_with = TEX
+				is_american_tag = yes
+			}
+		}
+		available = { always = no }	
+		visible = {			
+			any_other_country = {
+				has_offensive_war_with = TEX
+				is_american_tag = yes
+			}
+		}
+		days_mission_timeout = 180
+		is_good = yes
+		fire_only_once = yes
+		selectable_mission = no
+		timeout_effect = {
+			every_other_country = {
+				limit = { is_american_tag = yes }
+				white_peace = TEX
+			}
+		}
+	}
+}
