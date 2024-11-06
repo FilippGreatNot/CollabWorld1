@@ -28,3 +28,56 @@ TEX_peace_out_cat = {
 		}
 	}
 }
+TEX_fight_kkk_cat = {
+	TEX_fight_kkk_1 = {
+		state_target = yes
+		targets = { state = 1041 }
+		on_map_mode = map_and_decisions_view
+		days_remove = 70
+		available = { 
+			tag = TEX  
+			NOT = { has_country_flag = fighting_kkk }
+		}
+		complete_effect = {
+			set_country_flag = fighting_kkk
+		}
+		remove_effect = {
+			clr_country_flag = fighting_kkk
+			set_country_flag = kill_kkk_1
+		}
+	}
+	TEX_fight_kkk_2 = {
+		state_target = yes
+		targets = { state = 375 }
+		on_map_mode = map_and_decisions_view
+		days_remove = 140
+		available = { 
+			tag = TEX  
+			NOT = { has_country_flag = fighting_kkk }
+		}
+		complete_effect = {
+			set_country_flag = fighting_kkk
+		}
+		remove_effect = {
+			clr_country_flag = fighting_kkk
+			set_country_flag = kill_kkk_2
+		}
+	}
+	TEX_fight_kkk_3 = {
+		state_target = yes
+		targets = { state = 837 }
+		on_map_mode = map_and_decisions_view
+		days_remove = 70
+		available = { 
+			tag = TEX  
+			NOT = { has_country_flag = fighting_kkk }
+		}
+		complete_effect = {
+			set_country_flag = fighting_kkk
+		}
+		remove_effect = {
+			clr_country_flag = fighting_kkk
+			set_country_flag = kill_kkk_3
+		}
+	}
+}

@@ -174,6 +174,15 @@ focus_tree = {
 			focus = TEX_rampant_corruption
 		}
 		
+		completion_reward = {
+			every_country = {
+				limit = {is_american_tag = yes}
+				every_core_state = {
+					add_claim_by = TEX
+				}
+			}
+		}
+		
         cost = 5
 	}
 	
@@ -288,23 +297,39 @@ focus_tree = {
 		
         cost = 5
 	}
+
+	##Politics##
 	
-	##Deal with KKK##
+	focus = {
+		id = TEX_contentious_politics
+		icon = GFX_goal_generic_construction
+		
+        x = 5
+        y = 1
+		
+		relative_position_id = TEX_people_first
+		
+		prerequisite = {
+			focus = TEX_people_first
+			focus = TEX_nation_first
+		}
+		
+        cost = 5
+	}
 	
 	focus = {
 		id = TEX_kkk_moderates
 		icon = GFX_goal_generic_construction
 		
-        x = 2
+        x = -3
         y = 1
 		
-		relative_position_id = TEX_people_first
+		relative_position_id = TEX_contentious_politics
 		mutually_exclusive = {
 			focus = TEX_crush_kkk
 		}
 		prerequisite = {
-			focus = TEX_people_first
-			focus = TEX_nation_first
+			focus = TEX_contentious_politics
 		}
 		
         cost = 5
@@ -321,8 +346,7 @@ focus_tree = {
 			focus = TEX_kkk_moderates
 		}
 		prerequisite = {
-			focus = TEX_people_first
-			focus = TEX_nation_first
+			focus = TEX_contentious_politics
 		}
 		
         cost = 5
@@ -341,6 +365,64 @@ focus_tree = {
 			focus = TEX_crush_kkk
 		}
 		
+		available = {
+			has_country_flag = kill_kkk_1
+			has_country_flag = kill_kkk_2
+			has_country_flag = kill_kkk_3
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_condone_socialism
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+		
+		relative_position_id = TEX_crush_kkk
+		mutually_exclusive = {
+			focus = TEX_condemn_socialism
+		}
+		prerequisite = {
+			focus = TEX_contentious_politics
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_condemn_socialism
+		icon = GFX_goal_generic_construction
+		
+        x = 2
+		
+		relative_position_id = TEX_condone_socialism
+		mutually_exclusive = {
+			focus = TEX_condone_socialism
+		}
+		prerequisite = {
+			focus = TEX_contentious_politics
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_fight_promote_socialism
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+		y = 1
+		
+		dynamic = yes
+		
+		relative_position_id = TEX_condone_socialism
+		prerequisite = {
+			focus = TEX_condone_socialism
+			focus = TEX_condemn_socialism
+		}
+		
         cost = 5
 	}
 	
@@ -349,7 +431,7 @@ focus_tree = {
 		id = TEX_hold_boarders
 		icon = GFX_goal_generic_construction
 		
-		y = 6
+		y = 8
 		x = 14
 		
 		available = {
@@ -700,7 +782,7 @@ focus_tree = {
 		icon = GFX_focus_USA_mc_fix_economy
 		
 		y = 1
-		x = 20
+		x = 25
 		
 		available = {
 			OR = {
