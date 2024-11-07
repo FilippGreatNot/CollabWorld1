@@ -33,3 +33,40 @@ indo_reform_cat = {
 		}
 	}
 }
+
+indo_war_cat = {
+	indo_war = {		
+		activation = {
+			always = yes
+		}
+		available = { always = no }	
+		days_mission_timeout = 450
+		is_good = no
+		fire_only_once = yes
+		selectable_mission = no
+		timeout_effect = {
+			if = {
+				limit = {tag = FRI}
+				declare_war_on = {
+					target = LAO
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = VIN
+					type = annex_everything
+				}				
+			}
+			if = {
+				limit = {tag = ICS}
+				declare_war_on = {
+					target = LAO
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = VIN
+					type = annex_everything
+				}				
+			}
+		}
+	}
+}
