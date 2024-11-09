@@ -12,6 +12,7 @@ focus_tree = {
 	
 	focus = {
 		id = NYC_elections
+		icon = GFX_focus_NOR_restore_public_trust_in_the_storting
 		x = 3
 		y = 0
 		cost = 3
@@ -24,7 +25,7 @@ focus_tree = {
 	}
 	focus = {
 		id = NYC_al_smith
-		x = 10
+		x = 11
 		y = 0
 		cost = 3
 		allow_branch = {
@@ -45,7 +46,7 @@ focus_tree = {
 	}
 	focus = {
 		id = NYC_worker_saftey_laws
-		x = -2
+		x = -3
 		y = 1
 		allow_branch = {
 			NOT = {
@@ -77,7 +78,8 @@ focus_tree = {
 	}
 	focus = {
 		id = NYC_support_labor_unions
-		x = 2
+		icon = GFX_focus_generic_workers
+		x = 3
 		y = 1
 		allow_branch = {
 			NOT = {
@@ -108,6 +110,50 @@ focus_tree = {
 
 		}
 	}
+
+	focus = {
+		id = NYC_root_bolsheviks
+		icon = GFX_focus_SWE_attack_landsorganisationen
+		x = 0
+		y = 1
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_nathan_miller
+			}
+		}
+		prerequisite = {focus = NYC_greater_workers_rights}
+		relative_position_id = NYC_greater_workers_rights
+		cost = 3
+		completion_reward = {
+			add_popularity = {
+    			ideology = bolshevism
+    			popularity = -0.1
+			}
+			add_popularity = {
+    			ideology = marxism
+    			popularity = -0.1
+			}
+			add_popularity = {
+    			ideology = libertarian_socialism
+    			popularity = -0.2
+			}
+			hidden_effect = {
+				set_party_name = {
+    				ideology = bolshevism
+    				name = banned_party
+				}
+				set_party_name = {
+    				ideology = marxism
+    				name = banned_party
+				}
+				set_party_name = {
+    				ideology = libertarian_socialism
+    				name = banned_party
+				}
+			}
+		}
+	}
+
 	focus = {
 		id = NYC_unite_the_state
 		x = -1
@@ -127,7 +173,7 @@ focus_tree = {
 	}
 	focus = {
 		id = NYC_new_progressive_era
-		x = -1
+		x = -2
 		y = 1
 		allow_branch = {
 			NOT = {
@@ -136,10 +182,24 @@ focus_tree = {
 		}
 		prerequisite = {focus = NYC_unite_the_state}
 		prerequisite = {focus = NYC_safer_workers}
+		prerequisite = {focus = NYC_root_bolsheviks}
 		relative_position_id = NYC_unite_the_state
 		cost = 5
 		completion_reward = {
-
+			add_popularity = {
+    			ideology = national_syndicalism
+    			popularity = -0.02
+			}
+			add_popularity = {
+    			ideology = reactionism
+    			popularity = -0.025
+			}
+			hidden_effect = {
+				set_party_name = {
+    				ideology = esotericism
+    				name = banned_party
+				}
+			}
 		}
 	}
 	### Al Smith Re-Elected
@@ -531,7 +591,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = NYC_establish_nyc_home_defence
+		id = NYC_police_reforms
 		x = 1
 		y = 1
 		allow_branch = {
@@ -548,6 +608,7 @@ focus_tree = {
 
 		}
 	}
+
 	focus = {
 		id = NYC_tank_production
 		x = 0
@@ -831,9 +892,9 @@ focus_tree = {
 			add_stability = 0.1
 			hidden_effect = {
 			division_template = {
-    			name = "NYPD"
+    			name = "New York National Gaurd"
     			is_locked = yes
-    			division_cap = 3 
+    			division_cap = 10
     			division_names_group = USA_INF_01
     			priority = 0
     			template_counter = 0
@@ -900,6 +961,9 @@ focus_tree = {
     			name = "Al Capone"
     			ruling_only = yes
 			}
+		}
+		allow_branch = {
+			has_country_flag = NYC_al_capone_flag
 		}
 	}
 	focus = {
