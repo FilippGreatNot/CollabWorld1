@@ -1,0 +1,80 @@
+add_namespace = alt
+
+country_event = {
+	id = alt.1
+	title = alt.1.t
+	desc = alt.1.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.1.a
+		add_war_support = 0.05
+		set_country_flag = ALT_puppets_rma_true
+	}
+
+	option = {
+		name = alt.1.b
+		add_stability = 0.05
+		set_country_flag = ALT_puppets_rma_false
+	}
+}
+
+country_event = {
+	id = alt.2
+	title = alt.2.t
+	desc = alt.2.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.2.a
+		add_war_support = 0.05
+		add_stability = -0.05
+		custom_effect_tooltip = ALT_they_could_declare_war
+	}
+
+	option = {
+		name = alt.2.b
+		add_political_power = -50
+		add_war_support = -0.1
+		MON = {
+			annex_country = {
+				target = RMA
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = alt.3
+	title = alt.3.t
+	desc = alt.3.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.3.a
+		add_war_support = 0.05
+		add_stability = 0.05
+		ALT = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PREV
+			}
+		}
+	}
+
+	option = {
+		name = alt.3.b
+		add_political_power = -50
+		add_war_support = -0.1
+		ALT = {
+			puppet = {
+    				target = PREV
+    				end_wars = yes
+			}
+		}
+	}
+}

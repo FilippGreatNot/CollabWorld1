@@ -19,7 +19,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 2
+		cost = 3
 		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
 		completion_reward = {
 			add_equipment_to_stockpile = {
@@ -37,7 +37,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 1
+		cost = 2
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ALT_civil_war_ended_tt
@@ -168,7 +168,7 @@ focus_tree = {
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 		x = 0
 		y = 1
-		cost = 1
+		cost = 3
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ALT_xinjiang_unified_tt
@@ -257,6 +257,7 @@ focus_tree = {
 		relative_position_id = ALT_seize_warlord_assets
 		prerequisite = { focus = ALT_seize_warlord_assets }
 		completion_reward = {
+			army_experience = -40
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_1
 				amount = 2000
@@ -275,7 +276,7 @@ focus_tree = {
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 1
 		y = 1
-		cost = 5
+		cost = 6
 		available = {
 			num_of_owned_factories > 29
 		}
@@ -287,10 +288,21 @@ focus_tree = {
 				limit = { 
 					NOT = { has_state_category = wasteland } 
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 3
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					NOT = { has_state_category = wasteland } 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -306,7 +318,7 @@ focus_tree = {
 		icon = GFX_focus_generic_mining_industry
 		x = 0
 		y = 2
-		cost = 5
+		cost = 6
 		relative_position_id = ALT_the_scraps_of_war
 		prerequisite = { focus = ALT_the_scraps_of_war }
 		completion_reward = {
@@ -337,7 +349,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 3
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -349,7 +361,7 @@ focus_tree = {
 		icon = GFX_focus_generic_self_propelled_gun
 		x = 0
 		y = 2
-		cost = 5
+		cost = 6
 		relative_position_id = ALT_recycle_guns
 		prerequisite = { focus = ALT_recycle_guns }
 		completion_reward = {
@@ -387,7 +399,24 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_ideas = { ALT_war_economy_plans }
+			add_timed_idea = { idea = ALT_war_economy_plans days = 200 }
+		}
+	}
+
+	focus = {
+		id = ALT_khotan_weapons_manufacturing_complex
+		icon = GFX_focus_generic_production
+		x = 1
+		y = 1
+		cost = 6
+		relative_position_id = ALT_improve_plans_for_a_war_economy
+		prerequisite = { focus = ALT_improve_plans_for_a_war_economy }
+		completion_reward = {
+			759 = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			}
 		}
 	}
 
@@ -396,7 +425,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_merge_plants
 		x = 0
 		y = 2
-		cost = 5
+		cost = 6
 		relative_position_id = ALT_bring_in_investors
 		prerequisite = { focus = ALT_state_funded_excavation }
 		prerequisite = { focus = ALT_bring_in_investors }
@@ -404,7 +433,7 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = {
 				idea = ALT_four_year_plan
-				days = 1460
+				years = 4
 			}
 		}
 	}
@@ -846,13 +875,33 @@ focus_tree = {
 		x = 17
 		y = 0
 		ai_will_do = {
-			factor = 15
+			factor = 150
 		}
-		cost = 2
+		cost = 3
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
 			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ALT_the_final_push
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 150
+		}
+		cost = 3
+		relative_position_id = ALT_in_the_shade_of_xinjiang
+		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
+		completion_reward = {
+			add_war_support = 0.05
+			add_timed_idea = {
+				idea = ALT_the_spring_offensive
+				months = 2
+			}
 		}
 	}
 
@@ -862,49 +911,38 @@ focus_tree = {
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 150
 		}
-		cost = 5
-		relative_position_id = ALT_in_the_shade_of_xinjiang
-		prerequisite = { focus = ALT_in_the_shade_of_xinjiang }
+		cost = 3
+		relative_position_id = ALT_the_final_push
+		prerequisite = { focus = ALT_the_final_push }
 		completion_reward = {
-			962 = {
-				ALT = { set_province_controller = 12601 }
-			}
-			division_template = {
-				name = "The Secret Force"
-				priority = 1
-				regiments = {
-					irregular_infantry = { x = 0 y = 0 }
-					irregular_infantry = { x = 0 y = 1 }
-					irregular_infantry = { x = 1 y = 0 }
-					irregular_infantry = { x = 1 y = 1 }
+			add_manpower = 15000
+			army_experience = 10
+			custom_effect_tooltip = ALT_mobilisation_tt
+			hidden_effect = { 
+				962 = {
+					ALT = { set_province_controller = 12601 }
 				}
-				support = {
-					artillery = { x = 0 y = 0 }
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Infantry Conscriptss No.1\" division_template = \"Local Soviet Militias\" start_experience_factor = 0.5" 
+						owner = PREV
+					}
 				}
-			}
-			random_owned_controlled_state = {
-				prioritize = { 936 }
-				limit = { PREV = { has_full_control_of_state = PREV } }
-				create_unit = {
-					division = "name = \"Irregular Brigade No.1\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
-					owner = PREV
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Infantry Conscripts No.2\" division_template = \"Local Soviet Militias\" start_experience_factor = 0.5" 
+						owner = PREV
+					}
 				}
-			}
-			random_owned_controlled_state = {
-				prioritize = { 936 }
-				create_unit = {
-					division = "name = \"Irregular Brigade No.2\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
-					owner = PREV
-				}
-			}
-			962 = {
-				create_unit = {
-					division = "name = \"Irregular Brigade No.3\" division_template = \"The Secret Force\" start_experience_factor = 0.5" 
-					owner = PREV
-					prioritize_location = 12601
-					allow_spawning_on_enemy_provs = yes
+				962 = {
+					create_unit = {
+						division = "name = \"The Sabotage Force\" division_template = \"Local Soviet Militias\" start_experience_factor = 0.4" 
+						owner = PREV
+						prioritize_location = 12601
+						allow_spawning_on_enemy_provs = yes
+					}
 				}
 			}
 		}
@@ -916,7 +954,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 150
 		}
 		cost = 5
 		available = {
@@ -943,7 +981,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 150
 		}
 		cost = 5
 		available = {
@@ -971,7 +1009,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 150
 		}
 		cost = 5
 		available = {
@@ -1115,7 +1153,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 150
 		}
 		cost = 5
 		available = {
@@ -1270,7 +1308,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 200
 		}
 		cost = 5
 		available = {
@@ -1512,7 +1550,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 35
 		}
-		cost = 2
+		cost = 3
 		mutually_exclusive = { focus = ALT_form_the_peoples_council }
 		relative_position_id = ALT_into_altays_politics
 		prerequisite = { focus = ALT_into_altays_politics }
@@ -1535,7 +1573,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_form_a_bolshevik_government
 		prerequisite = { focus = ALT_form_a_bolshevik_government }
 		completion_reward = {
@@ -1555,7 +1593,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_abolish_illegal_trading_rings
 		prerequisite = { focus = ALT_abolish_illegal_trading_rings }
 		completion_reward = {
@@ -1576,7 +1614,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_form_a_bolshevik_government
 		prerequisite = { focus = ALT_form_a_bolshevik_government }
 		completion_reward = {
@@ -1659,10 +1697,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 5
 		relative_position_id = ALT_form_a_bolshevik_government
 		prerequisite = { focus = ALT_form_a_bolshevik_government focus = ALT_form_the_peoples_council }
 		completion_reward = {
+			add_stability = -0.05
 			set_temp_variable = { ideology_change_var = 0.1 }
 			change_ruling_party_popularity = yes
 			add_offsite_building = { type = arms_factory level = 1 }
@@ -1671,34 +1710,41 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_civilian_grants
+		id = ALT_bayingolin_steel_plant
 		icon = GFX_focus_NORDIC_com_civilian
 		x = -1
 		y = 1
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 5
 		relative_position_id = ALT_nationalisation_of_industry
 		prerequisite = { focus = ALT_nationalisation_of_industry }
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 2 }
+			945 = {
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = steel
+					amount = 15
+				}
+			}
 		}
 	}
 
 	focus = {
-		id = ALT_military_grants
+		id = ALT_incorporate_weapon_makers
 		icon = GFX_focus_NORDIC_com_civilian
 		x = 1
 		y = 1
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 5
 		relative_position_id = ALT_nationalisation_of_industry
 		prerequisite = { focus = ALT_nationalisation_of_industry }
 		completion_reward = {
-			add_offsite_building = { type = arms_factory level = 2 }
+			army_experience = 20
+			add_offsite_building = { type = arms_factory level = 1 }
 		}
 	}
 
@@ -1710,7 +1756,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 5
 		relative_position_id = ALT_nationalisation_of_industry
 		prerequisite = { focus = ALT_nationalisation_of_industry }
 		completion_reward = {
@@ -1744,7 +1790,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 65
 		}
-		cost = 2
+		cost = 3
 		mutually_exclusive = { focus = ALT_form_a_bolshevik_government }
 		relative_position_id = ALT_into_altays_politics
 		prerequisite = { focus = ALT_into_altays_politics }
@@ -1767,7 +1813,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		mutually_exclusive = { focus = ALT_primacy_of_the_marshal }
 		relative_position_id = ALT_form_the_peoples_council
 		prerequisite = { focus = ALT_form_the_peoples_council }
@@ -1793,7 +1839,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_council_authority
 		prerequisite = { focus = ALT_council_authority }
 		completion_reward = {
@@ -1818,7 +1864,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_council_authority
 		prerequisite = { focus = ALT_council_authority }
 		completion_reward = {
@@ -1836,7 +1882,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		mutually_exclusive = { focus = ALT_council_authority }
 		relative_position_id = ALT_form_the_peoples_council
 		prerequisite = { focus = ALT_form_the_peoples_council }
@@ -1858,7 +1904,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_primacy_of_the_marshal
 		prerequisite = { focus = ALT_primacy_of_the_marshal }
 		completion_reward = {
@@ -1912,7 +1958,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_administrative_reorganisation
 		prerequisite = { focus = ALT_administrative_reorganisation }
 		prerequisite = { focus = ALT_drawing_towards_urbanisation }
@@ -1968,7 +2014,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_administrative_reorganisation
 		prerequisite = { focus = ALT_administrative_reorganisation }
 		completion_reward = {
@@ -2048,7 +2094,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_press_reforms
 		prerequisite = { focus = ALT_press_reforms }
 		completion_reward = {
@@ -2075,7 +2121,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_engage_in_political_suppression
 		prerequisite = { focus = ALT_engage_in_political_suppression }
 		completion_reward = {
@@ -2095,7 +2141,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_the_planned_economy
 		prerequisite = { focus = ALT_the_planned_economy }
 		prerequisite = { focus = ALT_recruit_new_guards }
@@ -2134,7 +2180,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_primacy_of_the_marshal
 		prerequisite = { focus = ALT_council_authority focus = ALT_primacy_of_the_marshal }
 		completion_reward = {
@@ -2150,7 +2196,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_welfare_of_the_workers
 		prerequisite = { focus = ALT_welfare_of_the_workers }
 		completion_reward = {
@@ -2174,7 +2220,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_welfare_of_the_workers
 		prerequisite = { focus = ALT_welfare_of_the_workers }
 		completion_reward = {
@@ -2204,7 +2250,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_invest_in_workers_services
 		prerequisite = { focus = ALT_invest_in_workers_services }
 		prerequisite = { focus = ALT_drawing_towards_urbanisation }
@@ -2222,7 +2268,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 85
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_import_western_healthcare
 		prerequisite = { focus = ALT_import_western_healthcare }
 		completion_reward = {
@@ -2239,9 +2285,9 @@ focus_tree = {
 		x = 27
 		y = 8
 		ai_will_do = {
-			factor = 85
+			factor = 30
 		}
-		cost = 4
+		cost = 3.5714
 		completion_reward = {
 			army_experience = 50
 			add_doctrine_cost_reduction = {
@@ -2259,9 +2305,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		ai_will_do = {
-			factor = 85
+			factor = 30
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_training_in_the_hills
 		prerequisite = { focus = ALT_training_in_the_hills }
 		completion_reward = {
@@ -2282,7 +2328,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 40
 		}
-		cost = 4
+		cost = 3.5714
 		mutually_exclusive = { focus = ALT_a_mass_offensive }
 		mutually_exclusive = { focus = ALT_the_western_doctrines }
 		mutually_exclusive = { focus = ALT_the_importance_of_quality }
@@ -2307,7 +2353,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_specialised_attack
 		prerequisite = { focus =  ALT_specialised_attack }
 		completion_reward = {
@@ -2324,7 +2370,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_specialised_attack
 		prerequisite = { focus = ALT_specialised_attack }
 		completion_reward = {
@@ -2341,7 +2387,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_hilltop_battles
 		prerequisite = { focus = ALT_hilltop_battles }
 		completion_reward = {
@@ -2376,7 +2422,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 4
+		cost = 3.5714
 		relative_position_id = ALT_winter_training
 		prerequisite = { focus = ALT_winter_training }
 		completion_reward = {
@@ -2468,7 +2514,7 @@ focus_tree = {
 		}
 		cost = 5
 		relative_position_id = ALT_an_invisible_force
-		prerequisite = { focus = ALT_an_invisible_force }
+		prerequisite = { focus = ALT_an_invisible_force focus = ALT_punitive_brigades }
 		completion_reward = {
 			add_war_support = 0.05
 			add_ideas = { ALT_sheer_determination }
@@ -2483,7 +2529,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 20
 		}
-		cost = 4
+		cost = 3.5714
 		mutually_exclusive = { focus = ALT_a_mass_offensive }
 		mutually_exclusive = { focus = ALT_the_western_doctrines }
 		mutually_exclusive = { focus = ALT_specialised_attack }
@@ -2500,14 +2546,188 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_the_western_doctrines
-		icon = GFX_focus_hol_the_fourth_ally
+		id = ALT_scaled_up_training_excercises
+		icon = GFX_focus_generic_combined_arms
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 3.5714
+		relative_position_id = ALT_the_importance_of_quality
+		prerequisite = { focus = ALT_the_importance_of_quality }
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ALT_learn_from_the_wprld
+		icon = GFX_focus_generic_combined_arms
 		x = 2
 		y = 1
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 4
+		cost = 3.5714
+		relative_position_id = ALT_the_importance_of_quality
+		prerequisite = { focus = ALT_the_importance_of_quality focus = ALT_the_western_doctrines }
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_toughen_army_restrictions
+		icon = GFX_focus_generic_combined_arms
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 3.5714
+		relative_position_id = ALT_scaled_up_training_excercises
+		prerequisite = { focus = ALT_scaled_up_training_excercises }
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ALT_punitive_brigades
+		icon = GFX_focus_generic_combined_arms
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 3.5714
+		relative_position_id = ALT_toughen_army_restrictions
+		prerequisite = { focus = ALT_toughen_army_restrictions }
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ALT_stamp_out_incompetence
+		icon = GFX_focus_generic_combined_arms
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 3.5714
+		relative_position_id = ALT_scaled_up_training_excercises
+		prerequisite = { focus = ALT_scaled_up_training_excercises }
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ALT_need_for_lingual_homogenity
+		icon = GFX_focus_generic_combined_arms
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 3.5714
+		relative_position_id = ALT_stamp_out_incompetence
+		prerequisite = { focus = ALT_stamp_out_incompetence }
+		completion_reward = {
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = ALT_revise_army_codes
+		icon = GFX_focus_generic_combined_arms
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 7.142857
+		relative_position_id = ALT_punitive_brigades
+		prerequisite = { focus = ALT_punitive_brigades }
+		prerequisite = { focus = ALT_need_for_lingual_homogenity }
+		completion_reward = {
+			army_experience = 150
+		}
+	}
+
+	focus = {
+		id = ALT_the_new_altay_military
+		icon = GFX_focus_generic_combined_arms
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5.714
+		relative_position_id = ALT_revise_army_codes
+		prerequisite = { focus = ALT_revise_army_codes }
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+
+	focus = {
+		id = ALT_foreign_education
+		icon = GFX_focus_generic_combined_arms
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5.714
+		relative_position_id = ALT_revise_army_codes
+		prerequisite = { focus = ALT_revise_army_codes }
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+
+	focus = {
+		id = ALT_invest_in_improved_weaponry
+		icon = GFX_focus_generic_combined_arms
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5.714
+		relative_position_id = ALT_the_new_altay_military
+		prerequisite = { focus = ALT_the_new_altay_military }
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_western_doctrines
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 3.5714
 		mutually_exclusive = { focus = ALT_a_mass_offensive }
 		mutually_exclusive = { focus = ALT_the_importance_of_quality }
 		mutually_exclusive = { focus = ALT_specialised_attack }
@@ -2531,7 +2751,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 30
 		}
-		cost = 4
+		cost = 3.5714
 		mutually_exclusive = { focus = ALT_the_western_doctrines }
 		mutually_exclusive = { focus = ALT_the_importance_of_quality }
 		mutually_exclusive = { focus = ALT_specialised_attack }
@@ -2557,7 +2777,7 @@ focus_tree = {
 		}
 		cost = 5
 		relative_position_id = ALT_purchase_kyrgyz_guns
-		prerequisite = { focus = ALT_better_than_the_best }
+		prerequisite = { focus = ALT_better_than_the_best focus = ALT_invest_in_improved_weaponry }
 		completion_reward = {
 			army_experience = 40
 			air_experience = 30
@@ -2617,7 +2837,7 @@ focus_tree = {
 	focus = {
 		id = ALT_to_unite_a_state
 		icon = GFX_focus_generic_limited_social_mobilization
-		x = 55
+		x = 54
 		y = 1
 		ai_will_do = {
 			factor = 30
@@ -2640,6 +2860,326 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ALT_army_preparations
+		icon = GFX_focus_research
+		x = -3
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_to_unite_a_state
+		prerequisite = { focus = ALT_to_unite_a_state }
+		completion_reward = {
+			add_political_power = -50
+			add_war_support = 0.05
+			add_timed_idea = {
+				idea = ALT_army_preparations_idea
+				days = 120
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_recruitment_waves
+		icon = GFX_focus_research
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_army_preparations
+		prerequisite = { focus = ALT_army_preparations }
+		completion_reward = {
+			add_political_power = -50
+			add_manpower = 30000
+			add_timed_idea = {
+				idea = ALT_rapid_recruitment_idea
+				days = 60
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_build_up_our_military_production
+		icon = GFX_focus_research
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_army_preparations
+		prerequisite = { focus = ALT_army_preparations }
+		completion_reward = {
+			add_political_power = -50
+			add_timed_idea = {
+				idea = ALT_war_bonds_idea
+				days = 90
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_expand_administrative_capabilities
+		icon = GFX_focus_research
+		x = 1
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_recruitment_waves
+		prerequisite = { focus = ALT_recruitment_waves focus = ALT_build_up_our_military_production }
+		completion_reward = {
+			custom_effect_tooltip = ALT_we_will_try_to_advance_our_current_capabilities_tt
+			#add_timed_idea = {
+			#	idea = ALT_administratve_revisions
+			#	days = 200
+			#}
+		}
+	}
+
+	focus = {
+		id = ALT_institute_of_foreign_territories
+		icon = GFX_focus_research
+		x = 3
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_to_unite_a_state
+		prerequisite = { focus = ALT_to_unite_a_state }
+		completion_reward = {
+			add_stability = -0.05
+			custom_effect_tooltip = ALT_the_institute_tt
+			add_ideas = { ALT_the_institute_of_foreign_territories }
+		}
+	}
+
+	focus = {
+		id = ALT_solve_the_yadan_issue
+		icon = GFX_focus_research
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_institute_of_foreign_territories
+		prerequisite = { focus = ALT_institute_of_foreign_territories }
+		completion_reward = {
+			1007 = { add_core_of = ALT }
+			custom_effect_tooltip = ALT_we_will_claim_the_mas_tt
+			hidden_effect = {
+				XSM = { every_owned_state = { add_claim_by = ALT } }
+				MCE = { every_owned_state = { add_claim_by = ALT } }
+				NIN = { every_owned_state = { add_claim_by = ALT } }
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_strike_at_the_ma_filth
+		icon = GFX_focus_demand_territory
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		mutually_exclusive = { focus = ALT_offer_the_mas_a_place_in_socialism }
+		relative_position_id = ALT_solve_the_yadan_issue
+		prerequisite = { focus = ALT_solve_the_yadan_issue }
+		completion_reward = {
+			add_war_support = 0.05
+			create_wargoal = {
+				type = annex_everything
+				target = XSM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = MCE
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NIN
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_offer_the_mas_a_place_in_socialism
+		icon = GFX_focus_demand_territory
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		mutually_exclusive = { focus = ALT_strike_at_the_ma_filth }
+		relative_position_id = ALT_solve_the_yadan_issue
+		prerequisite = { focus = ALT_solve_the_yadan_issue }
+		completion_reward = {
+			add_stability = 0.05
+			custom_effect_tooltip = ALT_we_will_offer_them_a_place_tt
+			hidden_effect = {
+				XSM = {
+					country_event = alt.3
+				}
+				MCE = {
+					country_event = alt.3
+				}
+				NIN = {
+					country_event = alt.3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_towards_the_north
+		icon = GFX_focus_research
+		x = 6
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 3
+		relative_position_id = ALT_to_unite_a_state
+		prerequisite = { focus = ALT_institute_of_foreign_territories }
+		completion_reward = {
+			add_political_power = 50
+			country_event = alt.1
+		}
+	}
+
+	focus = {
+		id = ALT_our_own_goals
+		icon = GFX_focus_research
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_country_flag = ALT_puppets_rma_true
+		}
+		cost = 5
+		mutually_exclusive = { focus = ALT_collaborate_with_the_mongols }
+		relative_position_id = ALT_towards_the_north
+		prerequisite = { focus = ALT_towards_the_north }
+		completion_reward = {
+			818 = {
+				add_claim_by = ALT
+			}
+			declare_war_on = {
+				target = RMA
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_collaborate_with_the_mongols
+		icon = GFX_focus_research
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_country_flag = ALT_puppets_rma_false
+		}
+		cost = 5
+		mutually_exclusive = { focus = ALT_our_own_goals }
+		relative_position_id = ALT_towards_the_north
+		prerequisite = { focus = ALT_towards_the_north }
+		completion_reward = {
+			create_faction = ALT_anti_russian_bloc
+			MON = {
+				add_to_faction = ALT_anti_russian_bloc
+			}
+			declare_war_on = {
+				target = RMA
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_gendens_coup
+		icon = GFX_focus_research
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_country_flag = ALT_puppets_rma_false
+		}
+		cost = 8
+		relative_position_id = ALT_collaborate_with_the_mongols
+		prerequisite = { focus = ALT_collaborate_with_the_mongols }
+		completion_reward = {
+			custom_effect_tooltip = ALT_genden_will_coup_the_mongols_tt
+			MON = {
+				add_stability = -0.1
+				add_popularity = {
+					ideology = despotism
+					popularity = -0.2
+				}
+				set_politics = {
+					ruling_party = bolshevism
+				}
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.15
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_law_on_equality
+		icon = GFX_focus_research
+		x = 0
+		y = 3
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_institute_of_foreign_territories
+		prerequisite = { focus = ALT_strike_at_the_ma_filth focus = ALT_offer_the_mas_a_place_in_socialism }
+		prerequisite = { focus = ALT_our_own_goals focus = ALT_collaborate_with_the_mongols }
+		completion_reward = {
+			add_stability = 0.05
+			custom_effect_tooltip = ALT_the_institute_tt
+			add_ideas = { ALT_religious_tolerance }
+		}
+	}
+
+	focus = {
+		id = ALT_republic_of_northwestern_chinese_soviet_republics
+		icon = GFX_focus_research
+		x = 0
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		relative_position_id = ALT_to_unite_a_state
+		prerequisite = { focus = ALT_expand_administrative_capabilities }
+		prerequisite = { focus = ALT_law_on_equality }
+		completion_reward = {
+			add_stability = -0.05
+			custom_effect_tooltip = ALT_the_institute_tt
 		}
 	}
 }

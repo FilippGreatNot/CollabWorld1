@@ -1,0 +1,38 @@
+add_namespace = par
+
+news_event = { 
+	id = par.1
+	title = par.1.t
+	desc = par.1.d 
+	picture = GFX_news_event_paraguayan_civil_war
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = par.1.a
+
+		hidden_effect = {
+			PAR = {
+				start_civil_war = {
+					ideology = liberalism
+					size = 0.1
+					army_ratio = 0.33
+					navy_ratio = 0.1
+					air_ratio = 0.2
+					capital = 1045
+					states = { 1045 }
+					set_cosmetic_tag = PCW
+					set_country_flag = PCW_flag
+					keep_political_leader = yes
+					keep_unit_leaders_trigger = { always = yes }
+					create_country_leader = {
+						name = "Adolfo Chirife"
+						desc = "POLITICS_ADOLFO_CHIFIRE_DESC"
+						picture = "gfx/leaders/PAR/Chirife.dds"
+						ideology = classical_liberalism
+					}
+				}	
+			}
+		}
+	}
+}

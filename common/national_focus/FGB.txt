@@ -2446,7 +2446,18 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_establish_the_europakt }
 		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
-			add_political_power = 10
+			DEN = {
+				country_event = fgb.31
+			}
+			FIN = {
+				country_event = fgb.31
+			}
+			NOR = {
+				country_event = fgb.31
+			}
+			SWE = {
+				country_event = fgb.31
+			}
 		}
 	}
 
@@ -2459,7 +2470,24 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_establish_the_europakt }
 		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
-			add_political_power = 10
+			ALB = {
+				country_event = fgb.31
+			}
+			BUL = {
+				country_event = fgb.31
+			}
+			GRE = {
+				country_event = fgb.31
+			}
+			HUN = {
+				country_event = fgb.31
+			}
+			ROM = {
+				country_event = fgb.31
+			}
+			YUG = {
+				country_event = fgb.31
+			}
 		}
 	}
 
@@ -2472,7 +2500,15 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_establish_the_europakt }
 		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
-			add_political_power = 10
+			BEL = {
+				country_event = fgb.31
+			}
+			HOL = {
+				country_event = fgb.31
+			}
+			LUX = {
+				country_event = fgb.31
+			}
 		}
 	}
 
@@ -2501,6 +2537,9 @@ focus_tree = {
 			create_wargoal = {
 				type = puppet_wargoal_focus
 				target = BLR
+			}
+			EPR = {
+				make_every_core_national_for_PREV = yes
 			}
 		}
 	}
@@ -2901,14 +2940,56 @@ focus_tree = {
 		prerequisite = { focus = FGB_raise_conservative_support }
 		prerequisite = { focus = FGB_execute_the_revolutionaries }
 		completion_reward = {
-			add_political_power = 70
-			add_war_support = 0.05
 			add_popularity = {
-				ideology = reactionism
-				popularity = 0.1
+				ideology = despotism
+				popularity = 0.15
 			}
-			set_politics = {
-				ruling_party = reactionism
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = FGB_arouse_popular_support
+		icon = GFX_goal_demand_sudetenland
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_ehrhardt_takes_charge
+		prerequisite = { focus = FGB_ehrhardt_takes_charge }
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.05
+			add_stability = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pump_money_into_the_factories
+		icon = GFX_goal_demand_sudetenland
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_ehrhardt_takes_charge
+		prerequisite = { focus = FGB_ehrhardt_takes_charge }
+		completion_reward = {
+			army_experience = 30
+			50 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = FGB
 			}
 		}
 	}
@@ -2925,11 +3006,6 @@ focus_tree = {
 		relative_position_id = FGB_under_a_populist_veil
 		prerequisite = { focus = FGB_under_a_populist_veil }
 		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_0
-				amount = 2000
-				producer = FGB
-			}
 			50 = {
 				add_building_construction = {
 					type = arms_factory
