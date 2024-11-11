@@ -1,5 +1,4 @@
 add_namespace = nyc
-add_namespace = nyc_liberal
 
 country_event = {
 	id = nyc.1
@@ -25,7 +24,7 @@ country_event = {
 			set_politics = {
     			ruling_party = conservatism
     			elections_allowed = yes
-    			last_election = "1922.11.3"
+    			last_election = "1922.11.5"
 			}
 			add_popularity = {
     			ideology = conservatism
@@ -46,9 +45,14 @@ country_event = {
 		mark_focus_tree_layout_dirty = yes
 		create_country_leader = {
 			name = "Al Capone"
+			picture = "gfx/leaders/NYC/Portrait_NYC_Al_Capone.png"
 			ideology = market_liberalism
 			traits = {
 			}
+		}
+		add_popularity = {
+    		ideology = liberalism
+    		popularity = 0.12
 		}
 		hidden_effect = {
 			uncomplete_national_focus = {
@@ -65,27 +69,22 @@ country_event = {
 			set_politics = {
     			ruling_party = liberalism
     			elections_allowed = no
-    			long_name = NYC_liberal_al_capone
-    			name = NYC_liberal_al_capone_long
+    			long_name = NYC_liberal_al_capone_long
+    			name = NYC_liberal_al_capone
+			}
+			set_country_flag = NYC_al_capone_flag
+			division_template = {
+    			name = "Gang Militias"
+    			division_names_group = USA_INF_01
+    			priority = 1
+    			template_counter = 13
+    			regiments = {
+        			infantry = { x = 0 y = 0 }
+        			infantry = { x = 0 y = 1 }
+        			infantry = { x = 0 y = 2 }
+        			infantry = { x = 0 y = 3 }
+    			}
 			}
 		}
-	}
-}
-country_event = {
-	id = nyc_liberal.1
-	title = nyc_liberal.1.t
-	desc = nyc_liberal.1.d
-	is_triggered_only = yes
-
-	option = {
-		name = nyc_liberal.a
-		add_ideas = {
-			NYC_voluntary_slavery_idea
-		}
-	}
-	option = {
-		name = nyc_liberal.b
-		add_political_power = 25
-		add_stability = 0.05
 	}
 }
