@@ -82,11 +82,56 @@ news_event = {
     picture = GFX_news_event_eser_armenia
     major = yes
     is_triggered_only = yes
-    country = ARM
 
     option = {
         name = arm.5.a
-		political_power = -25
+		add_political_power = -25
     }
 }
+
+news_event = {
+	id = arm.6
+	title = arm.6.t
+	desc = arm.6.d
+	is_triggered_only = yes
+	picture = GFX_news_event_tseghakron
+	
+	
+	option = {
+		name = arm.6.a
+		add_war_support = 0.05
+		add_political_power = 25
+}
+}
+
+
+country_event = {
+	id = arm.7
+	title = arm.7.t
+	desc = arm.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = arm.7.a
+		ai_chance = { base = 0 }
+		ARM = {
+			declare_war_on = {
+				target = CIL
+				type = annex_everything
+			}
+		}
+		add_stability = -0.1
+	}
+	
+	option = {
+		name = arm.7.b
+		ai_chance = { base = 10 }
+	    ARM = {
+			annex_country = { 
+				target = CIL
+				transfer_troops = yes 
+			}
+		}
+		
+	}
 }

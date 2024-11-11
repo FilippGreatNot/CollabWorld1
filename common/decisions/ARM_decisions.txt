@@ -1,0 +1,51 @@
+
+ARM_armenian_national_policies = {
+	ARM_quietly= {
+		available = {
+			has_completed_focus = focus_arm_takank
+		}
+		visible = {
+			has_completed_focus = focus_arm_tseghakron
+			NOT = { has_taken_decision = ARM_quietly }
+		}
+        
+		fire_only_once = yes
+		
+		days_remove = 100
+		cost = 150
+		
+		complete_effect = {
+			add_stability = 0.05
+			}
+		remove_effect = {
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			}
+		}
+	}
+	ARM_immedieately = {
+		available = {
+			has_completed_focus = focus_arm_takank
+		}
+		visible = {
+			has_completed_focus = focus_arm_tseghakron
+			NOT = { has_taken_decision = ARM_quietly }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 75
+
+		
+		complete_effect = {
+			add_stability = -0.05
+			add_political_power = -25
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.1
+			}
+		}
+	}
+	
+}
