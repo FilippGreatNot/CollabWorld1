@@ -1,3 +1,4 @@
+#!gfx:interface/country/asia/ALT/ALT.gfx
 focus_tree = {
 	id = ALT
 	default=no
@@ -24,7 +25,7 @@ focus_tree = {
 		completion_reward = {
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 500
+				amount = 800
 			}
 		}
 	}
@@ -1876,7 +1877,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_primacy_of_the_marshal
-		icon = GFX_focus_spr_masters_of_our_own_fate
+		icon = GFX_focus_ALT_primacy_of_the_marshal
 		x = 3
 		y = 1
 		ai_will_do = {
@@ -3160,7 +3161,7 @@ focus_tree = {
 		prerequisite = { focus = ALT_our_own_goals focus = ALT_collaborate_with_the_mongols }
 		completion_reward = {
 			add_stability = 0.05
-			custom_effect_tooltip = ALT_the_institute_tt
+			custom_effect_tooltip = ALT_equality_law_tt
 			add_ideas = { ALT_religious_tolerance }
 		}
 	}
@@ -3178,8 +3179,26 @@ focus_tree = {
 		prerequisite = { focus = ALT_expand_administrative_capabilities }
 		prerequisite = { focus = ALT_law_on_equality }
 		completion_reward = {
-			add_stability = -0.05
-			custom_effect_tooltip = ALT_the_institute_tt
+			add_stability = -0.1
+			custom_effect_tooltip = ALT_unification_of_the_north_tt
+			add_timed_idea = { 
+				idea = UVS_recent_victory 
+				months = 2
+			}
+			add_timed_idea = { 
+				idea = ALT_recent_unification
+				months = 1.5
+			}
+			set_cosmetic_tag = ALT_NWCSR
+			hidden_effect = {
+				any_other_country = {
+					limit = { PREV = { is_subject_of = ALT } }
+					ALT = {
+						annex_country = PREV
+						transfer_troops = yes
+					}
+				}
+			}
 		}
 	}
 }

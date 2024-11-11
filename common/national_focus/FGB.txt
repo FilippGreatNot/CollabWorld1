@@ -1288,7 +1288,21 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
 		x = 0
 		y = 1
-		cost = 2
+		cost = 3
+		bypass = {
+			OR = {
+				NOT = { country_exists = FWG }
+				FWG = { 
+					any_core_state = { 
+						NOT = { is_core_of = FGB } 
+						is_owned_by = FGB
+					} 
+				}
+				FWG = {
+					has_war_with = FGB
+				}
+			}
+		}
 		relative_position_id = FGB_noske_inwards_and_outwards
 		prerequisite = { focus = FGB_noske_inwards_and_outwards }
 		completion_reward = {
