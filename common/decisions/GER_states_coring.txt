@@ -23,6 +23,7 @@ GER_states_coring_category = {
 				state = 62
 				state = 64
 				state = 836
+				state = 1056
 			}
 		}
 		
@@ -46,12 +47,14 @@ GER_states_coring_category = {
 			add_state_core = 64
 			add_state_core = 61
 			add_state_core = 62
+			add_state_core = 1056
 			every_other_country = {
 				limit = { is_german_tag = yes }
 				remove_state_core = 836
 				remove_state_core = 64
 				remove_state_core = 61
 				remove_state_core = 62
+				remove_state_core = 1056
 			}
 		}
 	}
@@ -542,6 +545,55 @@ GER_states_coring_category = {
 				remove_state_core = 807
 				remove_state_core = 847
 				remove_state_core = 86
+			}
+		}
+	}
+
+	GER_coring_integrate_lit_prussia = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			controls_state = 963
+		}
+
+		visible = {
+			owns_state = 963
+			NOT = {
+				963 = {
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 188
+				state = 963
+			}
+		}
+		
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		days_remove = 60
+		fire_only_once = yes
+
+		remove_effect	= {
+			add_state_core = 188
+			add_state_core = 963
+			every_other_country = {
+				limit = { is_german_tag = yes }
+				remove_state_core = 188
+				remove_state_core = 963
 			}
 		}
 	}
