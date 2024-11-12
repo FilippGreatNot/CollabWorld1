@@ -15,7 +15,7 @@ focus_tree = {
 		id = TEX_the_lone_star
 		icon = GFX_goal_generic_construction
 		
-        x = 5
+        x = 8
         y = 1
 		
         cost = 5
@@ -135,7 +135,7 @@ focus_tree = {
 		id = TEX_texas_on_its_own
 		icon = GFX_goal_generic_construction
 		
-        x = 0
+        x = -3
         y = 1
 		
 		relative_position_id = TEX_rampant_corruption
@@ -160,10 +160,10 @@ focus_tree = {
 		id = TEX_a_better_usa
 		icon = GFX_goal_generic_construction
 		
-        x = 0
-        y = 1
+        x = 2
+        y = 0
 		
-		relative_position_id = TEX_nation_first
+		relative_position_id = TEX_texas_on_its_own
 		mutually_exclusive = { focus = TEX_texas_on_its_own}
 		prerequisite = {
 			focus = TEX_nation_first
@@ -200,6 +200,21 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = TEX_texas_on_its_own
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_texan_endurance
+		icon = GFX_goal_generic_construction
+		
+        x = -1
+        y = 1
+		
+		relative_position_id = TEX_texan_nationalism
+		prerequisite = {
+			focus = TEX_texan_nationalism
 		}
 		
         cost = 5
@@ -297,6 +312,21 @@ focus_tree = {
 		
         cost = 5
 	}
+	
+	focus = {
+		id = TEX_american_strength
+		icon = GFX_goal_generic_construction
+		
+        x = 1
+        y = 1
+		
+		relative_position_id = TEX_american_nationalism
+		prerequisite = {
+			focus = TEX_american_nationalism
+		}
+		
+        cost = 5
+	}
 
 	##Politics##
 	
@@ -304,10 +334,10 @@ focus_tree = {
 		id = TEX_contentious_politics
 		icon = GFX_goal_generic_construction
 		
-        x = 5
-        y = 1
+        x = 6
+        y = 0
 		
-		relative_position_id = TEX_people_first
+		relative_position_id = TEX_a_better_usa
 		
 		prerequisite = {
 			focus = TEX_people_first
@@ -426,13 +456,272 @@ focus_tree = {
         cost = 5
 	}
 	
-	##Fortification##
 	focus = {
-		id = TEX_hold_boarders
+		id = TEX_state_of_elections
 		icon = GFX_goal_generic_construction
 		
-		y = 8
-		x = 14
+		y = 6
+		
+		relative_position_id = TEX_the_lone_star
+		prerequisite = {
+			focus = TEX_texan_endurance
+			focus = TEX_american_strength
+			focus = TEX_confederate_hero
+			focus = TEX_confederate_villain
+		}
+		prerequisite = {
+			focus = TEX_crush_kkk_radicals
+		}
+		prerequisite = {
+			focus = TEX_fight_promote_socialism
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_election
+		icon = GFX_goal_generic_construction
+		
+		x = -4
+		y = 1
+		
+		relative_position_id = TEX_state_of_elections
+		prerequisite = {
+			focus = TEX_state_of_elections
+		}
+		available = {
+			NOT = { has_completed_focus = TEX_democracy_failed }
+		}
+		mutually_exclusive = {
+			focus = TEX_no_election
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_no_election
+		icon = GFX_goal_generic_construction
+		
+		x = 4
+		y = 1
+		
+		relative_position_id = TEX_state_of_elections
+		prerequisite = {
+			focus = TEX_state_of_elections
+		}
+		available = {
+			has_completed_focus = TEX_democracy_failed
+		}
+		mutually_exclusive = {
+			focus = TEX_election
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_scodem_victory
+		icon = GFX_goal_generic_construction
+		
+		x = -2
+		y = 1
+		
+		relative_position_id = TEX_election
+		prerequisite = {
+			focus = TEX_election
+		}
+		available = {
+			NOT = { has_completed_focus = TEX_condemn_socialism }
+		}
+		mutually_exclusive = {
+			focus = TEX_lib_victory
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_lib_victory
+		icon = GFX_goal_generic_construction
+		
+		x = 2
+		y = 1
+		
+		relative_position_id = TEX_election
+		prerequisite = {
+			focus = TEX_election
+		}
+		available = {
+			has_completed_focus = TEX_people_first
+		}
+		mutually_exclusive = {
+			focus = TEX_scodem_victory
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_crush_NDP
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		
+		relative_position_id = TEX_scodem_victory
+		prerequisite = {
+			focus = TEX_scodem_victory
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_expose_NDP_politicians
+		icon = GFX_goal_generic_construction
+		
+		y = 1
+		
+		relative_position_id = TEX_lib_victory
+		prerequisite = {
+			focus = TEX_lib_victory
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_reactionary_coup
+		icon = GFX_goal_generic_construction
+		
+		x = 2
+		y = 1
+		
+		relative_position_id = TEX_no_election
+		prerequisite = {
+			focus = TEX_no_election
+		}
+		available = {
+			has_completed_focus = TEX_a_better_usa
+		}
+		mutually_exclusive = {
+			focus = TEX_eternal_president
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_eternal_president
+		icon = GFX_goal_generic_construction
+		
+		x = -2
+		y = 1
+		
+		relative_position_id = TEX_no_election
+		prerequisite = {
+			focus = TEX_no_election
+		}
+		mutually_exclusive = {
+			focus = TEX_reactionary_coup
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_abolish_fed_elections
+		icon = GFX_goal_generic_construction
+		
+		x = 2
+		y = 1
+		
+		relative_position_id = TEX_eternal_president
+		prerequisite = {
+			focus = TEX_eternal_president
+			focus = TEX_reactionary_coup
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_seize_full_power
+		icon = GFX_goal_generic_construction
+		
+		x = 2
+		y = 1
+		
+		relative_position_id = TEX_abolish_fed_elections
+		prerequisite = {
+			focus = TEX_reactionary_coup
+		}
+		prerequisite = {
+			focus = TEX_abolish_fed_elections
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_consolidate_power
+		icon = GFX_goal_generic_construction
+		
+		x = -2
+		y = 1
+		
+		relative_position_id = TEX_abolish_fed_elections
+		prerequisite = {
+			focus = TEX_eternal_president
+		}
+		prerequisite = {
+			focus = TEX_abolish_fed_elections
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_deal_with_outroar
+		icon = GFX_goal_generic_construction
+		
+		x = 2
+		y = 1
+		
+		relative_position_id = TEX_consolidate_power
+		prerequisite = {
+			focus = TEX_consolidate_power
+			focus = TEX_seize_full_power
+		}
+		
+        cost = 5
+	}
+	
+	focus = {
+		id = TEX_spread_reactionary_propaganda
+		icon = GFX_goal_generic_construction
+		
+		y = 2
+		
+		relative_position_id = TEX_seize_full_power
+		prerequisite = {
+			focus = TEX_seize_full_power
+		}
+		prerequisite = {
+			focus = TEX_deal_with_outroar
+		}
+		
+        cost = 5
+	}
+	
+	##Fortification##
+	focus = {
+		id = TEX_hold_borders
+		icon = GFX_goal_generic_construction
+		
+		y = 12
+		x = 25
 		
 		available = {
 			has_completed_focus = TEX_texas_on_its_own
@@ -451,9 +740,9 @@ focus_tree = {
 		y = 1
 		x = -2
 		
-		relative_position_id = TEX_hold_boarders
+		relative_position_id = TEX_hold_borders
 		prerequisite = {
-			focus = TEX_hold_boarders
+			focus = TEX_hold_borders
 		}
 
 		cost = 5
@@ -500,9 +789,9 @@ focus_tree = {
 		y = 1
 		x = 0
 		
-		relative_position_id = TEX_hold_boarders
+		relative_position_id = TEX_hold_borders
 		prerequisite = {
-			focus = TEX_hold_boarders
+			focus = TEX_hold_borders
 		}
 
 		cost = 5
@@ -557,9 +846,9 @@ focus_tree = {
 		y = 1
 		x = 2
 		
-		relative_position_id = TEX_hold_boarders
+		relative_position_id = TEX_hold_borders
 		prerequisite = {
-			focus = TEX_hold_boarders
+			focus = TEX_hold_borders
 		}
 
 		cost = 5
@@ -786,8 +1075,10 @@ focus_tree = {
 		
 		available = {
 			OR = {
-				has_completed_focus = TEX_texas_on_its_own
-				has_completed_focus = TEX_a_better_usa
+				has_completed_focus = TEX_eternal_president
+				has_completed_focus = TEX_reactionary_coup
+				has_completed_focus = TEX_scodem_victory
+				has_completed_focus = TEX_lib_victory
 			}
 		}
 
@@ -810,6 +1101,15 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{ focus = TEX_fixing_the_economy }
 		mutually_exclusive = { focus = TEX_destroy_the_corporatocracy }
+		
+		available = {
+			NOT = {
+				OR = {
+					has_completed_focus = TEX_scodem_victory
+					has_completed_focus = TEX_reactionary_coup
+				}
+			}
+		}
 		
 		completion_reward = {
 		     swap_ideas = {
@@ -884,19 +1184,74 @@ focus_tree = {
 		prerequisite =	{ focus = TEX_emergency_industrialization }
 		completion_reward = {
 		add_ideas = {
-                 CCC_increased_working_hours
-			    }
-				}
+                CCC_increased_working_hours
+			}
+		}
 	}
 	focus = {
-		id = TEX_import_mexican_labor
-		icon = GFX_focus_USA_mc_mexicans
+		id = TEX_token_worker_rights
+		icon = GFX_focus_USA_mc_fake_worker
 
 		relative_position_id = TEX_emergency_industrialization
 		y = 2
 		cost = 5
 		prerequisite =	{ focus = TEX_hike_the_population_tax }
 		prerequisite =	{ focus = TEX_increase_working_hours }
+		
+		completion_reward = {
+		    add_ideas = {
+                      CCC_token_workers_rights
+			    }
+			}
+	}
+	focus = {
+		id = TEX_free_the_economy
+		icon = GFX_goal_generic_construction
+
+		relative_position_id = TEX_token_worker_rights
+		y = 1
+		x = 1
+		cost = 5
+		prerequisite =	{ focus = TEX_token_worker_rights }
+		mutually_exclusive = {
+			focus = TEX_continue_the_course_2
+		}
+		
+		completion_reward = {
+			add_ideas = {
+				free_market_economy
+			}
+		}
+	}
+	focus = {
+		id = TEX_continue_the_course_2
+		icon = GFX_goal_generic_construction
+
+		relative_position_id = TEX_token_worker_rights
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite =	{
+			focus = TEX_token_worker_rights
+		}
+		available = {
+			NOT = { has_completed_focus = TEX_eternal_president }
+		}
+		mutually_exclusive = {
+			focus = TEX_free_the_economy
+		}
+	}
+	focus = {
+		id = TEX_import_mexican_labor
+		icon = GFX_focus_USA_mc_mexicans
+
+		relative_position_id = TEX_free_the_economy
+		y = 1
+		cost = 5
+		prerequisite =	{ 
+			focus = TEX_free_the_economy 
+			focus = TEX_continue_the_course_2
+		}
 		
 		completion_reward = {
 		     swap_ideas = {
@@ -906,31 +1261,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = TEX_token_worker_rights
-		icon = GFX_focus_USA_mc_fake_worker
+		id = TEX_fight_our_debt
+		icon = GFX_focus_USA_mc_pay_debts
 
 		relative_position_id = TEX_import_mexican_labor
 		y = 1
 		x = 1
 		cost = 5
-		prerequisite =	{ focus = TEX_import_mexican_labor }
-		
-		completion_reward = {
-		    add_ideas = {
-                      CCC_token_workers_rights
-			    }
-			}
-	}
-	focus = {
-		id = TEX_fight_our_debt
-		icon = GFX_focus_USA_mc_pay_debts
-
-		relative_position_id = TEX_token_worker_rights
-		y = 1
-		x = 1
-		cost = 5
 		prerequisite =	{
-			focus = TEX_token_worker_rights
+			focus = TEX_import_mexican_labor
 			focus = TEX_fight_poverty
 		}
 		prerequisite = { focus = TEX_agricultural_revitalization_program }
@@ -941,7 +1280,7 @@ focus_tree = {
 				idea = CCC_fighting_our_debts
 				days = 120
 			}
-			}
+		}
 	}
 
 	##Not corporatocracy
@@ -1000,6 +1339,9 @@ focus_tree = {
 		x = 1
 		cost = 5
 		prerequisite =	{ focus = TEX_destroy_the_corporatocracy }
+		mutually_exclusive = {
+			focus = TEX_tighten_grip_on_economy
+		}
 		completion_reward = {
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 2
@@ -1023,7 +1365,9 @@ focus_tree = {
 		y = 1
 		x = 1
 		cost = 5
-		prerequisite =	{ focus = TEX_intervene_in_the_economy }
+		prerequisite =	{
+			focus = TEX_intervene_in_the_economy 
+		}
 		
 		completion_reward = {
 			every_core_state = {
@@ -1038,7 +1382,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			}
+		}
 	}
 	focus = {
 		id = TEX_raise_corporate_taxes
@@ -1048,7 +1392,9 @@ focus_tree = {
 		y = 1
 		x = -1
 		cost = 5
-		prerequisite =	{ focus = TEX_intervene_in_the_economy }
+		prerequisite =	{
+			focus = TEX_intervene_in_the_economy 
+		}
 		
 		completion_reward = {
 		     swap_ideas = {
@@ -1074,20 +1420,66 @@ focus_tree = {
 			}
 	}
 	focus = {
+		id = TEX_continue_the_course
+		icon = GFX_goal_generic_construction
+
+		relative_position_id = TEX_expand_worker_rights
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite =	{
+			focus = TEX_expand_worker_rights
+		}
+		available = {
+			NOT = { has_completed_focus = TEX_scodem_victory }
+		}
+		mutually_exclusive = {
+			focus = TEX_tighten_grip_on_economy
+		}
+	}
+	focus = {
+		id = TEX_tighten_grip_on_economy
+		icon = GFX_goal_generic_construction
+
+		relative_position_id = TEX_continue_the_course
+		x = 2
+		cost = 5
+		prerequisite =	{
+			focus = TEX_expand_worker_rights
+		}
+		available = {
+			OR = {
+				has_completed_focus = TEX_scodem_victory
+				has_completed_focus = TEX_reactionary_coup
+			}
+		}
+		mutually_exclusive = {
+			focus = TEX_continue_the_course
+		}
+		completion_reward = {
+			add_ideas = {
+				mixed_economy
+			}
+		}
+	}
+	focus = {
 		id = TEX_fight_poverty
 		icon = GFX_focus_USA_mc_poverty
 
 		relative_position_id = TEX_expand_worker_rights
-		y = 1
+		y = 2
 		x = -1
 		cost = 5
-		prerequisite =	{ focus = TEX_expand_worker_rights }
+		prerequisite =	{
+			focus = TEX_continue_the_course
+			focus = TEX_tighten_grip_on_economy
+		}
 		
 		completion_reward = {
 		    remove_ideas = {
 				CCC_corporate_nightmare5
 			}
-	}
+		}
 	}
 	focus = {
 		id = TEX_deficit_spending
@@ -1099,7 +1491,7 @@ focus_tree = {
 		cost = 5
 		prerequisite =	{
 			focus = TEX_fight_poverty
-			focus = TEX_token_worker_rights
+			focus = TEX_import_mexican_labor
 		}
 		prerequisite = { focus = TEX_agricultural_revitalization_program }
 		mutually_exclusive = { focus = TEX_fight_our_debt }
@@ -1117,8 +1509,9 @@ focus_tree = {
 		id = TEX_expand_the_military_industry
 		icon = GFX_focus_USA_mc_military_industry
 
-		relative_position_id = TEX_fixing_the_economy
-		y = 3
+		relative_position_id = TEX_restart_trade
+		y = 1
+		x = 1
 		cost = 5
 		prerequisite =	{ focus = TEX_restart_trade focus = TEX_principles_of_autarky }
 		completion_reward = {
@@ -1205,7 +1598,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 
 		relative_position_id = TEX_agricultural_revitalization_program
-		y = 2
+		y = 3
 		cost = 5
 		prerequisite =	{
 			focus = TEX_fight_our_debt
