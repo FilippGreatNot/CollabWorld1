@@ -255,7 +255,19 @@ country_event = {
 	}
 }
 
-## fgb.10 is used for Friekorps unifying germany news event 
+news_event = { #Noske unites germany
+	id = fgb.10
+	title = fgb.10.t
+	desc = fgb.10.d
+	picture = GFX_news_event_freikorps_germany
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = fgb.10.a
+		set_country_flag = super_event_noske_germany
+	}
+}
 
 country_event = {
 	id = fgb.11
@@ -799,8 +811,26 @@ country_event = {
 
 	option = {
 		name = fgb.31.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 5
+				OR = {
+					has_government = social_democrat
+					has_government = liberalism
+					has_government = conservatism
+				}
+			}
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = FGB
+					value < 20
+				}
+			}
+		}
 		add_stability = 0.02
-		add_to_faction = faction_FGB_europakt
+		FROM = { add_to_faction = PREV }
 		FGB = {
 			country_event = fgb.33
 		}
@@ -808,6 +838,24 @@ country_event = {
 
 	option = {
 		name = fgb.31.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 4
+				OR = {
+					NOT = { has_government = social_democrat }
+					NOT = { has_government = liberalism }
+					NOT = { has_government = conservatism }
+				}
+			}
+			modifier = {
+				factor = 4
+				has_opinion = {
+					target = FGB
+					value > 20
+				}
+			}
+		}
 		add_political_power = 30
 		FGB = {
 			country_event = fgb.32
@@ -841,6 +889,33 @@ country_event = {
 		name = fgb.33.a
 		add_stability = 0.02
 		add_political_power = 10
+	}
+}
+
+country_event = {
+	id = fgb.34
+	title = fgb.34.t
+	desc = fgb.34.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.34.a
+		add_country_leader_role = {
+    			character = FGB_konrad_adenauer
+    			promote_leader = yes
+    			country_leader = {
+        			ideology = liberal_conservatism
+        			expire = "1965.1.1.1"
+        			traits = { # }
+    			}
+			}
+		}		
+		add_popularity = {
+			ideology = conservatism
+			popularity = 0.06
+		}
 	}
 }
 		
