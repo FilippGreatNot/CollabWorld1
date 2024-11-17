@@ -8,31 +8,30 @@
 # can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
 #
 # division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
-#					however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
-#					for example the current one is no longer available due to the can_use trigger saying so).
-#					In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
 #
 # fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
-#				 mechanics to be used for fallbacks, then just skip this option.
+#                 mechanics to be used for fallbacks, then just skip this option.
 #
 # unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
-#			 this option is available here mainly for a mods.
+#             this option is available here mainly for a mods.
 #
 # ordered - Is a list of all historical names. 
-#			Numbers must start from 1 and up. 
-#			Numbers can't repeat in one scope.
-#			If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
-#			All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
-#			1st argument = The name. It must contain either: 
-#							%d (for decimal number placement)
-#							%s (for string number placement - ROMAN numbers like XIV).
-#			2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
-#										where you choose the historical division name.
-#			3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
-#										the current game version.
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
 
-GER_Inf_01 = 
-{
+GER_Inf_01 = {
 	name = "Infantry Divisions"
 
 	for_countries = { GER }
@@ -48,8 +47,7 @@ GER_Inf_01 =
 
 	# Names with numbers (only one number per entry). 
 	# It's okay to have gaps in numbering.
-	ordered =
-	{
+	ordered = {
 		1 = { "%d. Infanterie-Division" }
 		2 = { "%d. Infanterie-Division" }
 		3 = { "%d. Infanterie-Division" }
@@ -182,7 +180,7 @@ GER_Inf_01 =
 		123 = { "%d. Infanterie-Division" }
 		122 = { "%d. Infanterie-Division" }
 		137 = { "%d. Infanterie-Division" }
-		100 = { "%d. leichte Infanterie-Division" }
+		100 = { "%d. Leichte Infanterie-Division" }
 		126 = { "%d. Infanterie-Division" }
 		125 = { "%d. Infanterie-Division" }
 		129 = { "%d. Infanterie-Division" }
@@ -196,13 +194,13 @@ GER_Inf_01 =
 		333 = { "%d. Infanterie-Division" }
 		340 = { "%d. Infanterie-Division" }
 		337 = { "%d. Infanterie-Division" }
-		99 = { "%d. leichte Infanterie-Division" }
+		99 = { "%d. Leichte Infanterie-Division" }
 		342 = { "%d. Infanterie-Division" }
 		335 = { "%d. Infanterie-Division" }
 		106 = { "%d. Infanterie-Division" }
 		320 = { "%d. Infanterie-Division" }
-		97 = { "%d. leichte Infanterie-Division" }
-		101 = { "%d. leichte Infanterie-Division" }
+		97 = { "%d. Leichte Infanterie-Division" }
+		101 = { "%d. Leichte Infanterie-Division" }
 		110 = { "%d. Infanterie-Division" }
 		112 = { "%d. Infanterie-Division" }
 		113 = { "%d. Infanterie-Division" }
@@ -374,23 +372,21 @@ GER_Inf_01 =
 	}
 }
 
-GER_ALTINF_01 = 
-{
+GER_ALTINF_01 = {
 	name = "Late/Alternate Infantry Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "infantry"	}
+	division_types = { "infantry"  }
 
 	fallback_name = "%d. Volksgrenadier-Division"
 
 	link_numbering_with = { GER_Inf_01 }
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		22 = { "%d.(Luftlande) Infanterie-Division" }
 		78 = { "%d. Sturm-Division" }
 		44 = { "(44.) Reichsgrenadier-Division Hoch- und Deutschmeister" }
@@ -459,24 +455,22 @@ GER_ALTINF_01 =
 }
 
 
-GER_LTINF_01 = 
-{
+GER_LTINF_01 = {
 	name = "Light Infantry Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "infantry"	}
+	division_types = { "infantry"  }
 
 	fallback_name = "%d. Jäger-Division"
 
 	link_numbering_with = { GER_Inf_01 }
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
-		8 = { "%d. Jäger-Division" }
+	ordered = {
+	    8 = { "%d. Jäger-Division" }
 		5 = { "%d. Jäger-Division" }
 		28 = { "%d. Jäger-Division" }
 		97 = { "%d. Jäger-Division" }
@@ -494,8 +488,7 @@ GER_LTINF_01 =
 	}
 }
 
-GER_MOT_01 = 
-{
+GER_MOT_01 = {
 	name = "Motorized Divisions"
 
 	for_countries = { GER }
@@ -504,15 +497,14 @@ GER_MOT_01 =
 		always = yes
 	}
 
-	division_types = { "motorized"	}
+	division_types = { "motorized"  }
 
 	fallback_name = "%d. Infanterie-Division (mot)"
 
 	link_numbering_with = { GER_Inf_01 }
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		2 = { "%d. Infanterie-Division (mot.)" }
 		13 = { "%d. Infanterie-Division (mot.)" }
 		20 = { "%d. Infanterie-Division (mot.)" }
@@ -535,23 +527,21 @@ GER_MOT_01 =
 	}
 }
 
-GER_MEC_01 = 
-{
+GER_MEC_01 = {
 	name = "Panzergrenadier Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "mechanized"	}
+	division_types = { "mechanized"  }
 
 	fallback_name = "%d. Panzergrenadier-Division"
 
 	link_numbering_with = { GER_Inf_01 }
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		932 = { "Panzer-Grenadier-Division Großdeutschland" }
 		10 = { "%d. Panzer-Grenadier-Division" }
 		60 = { "Panzer-Grenadier-Division Feldherrnhalle" }
@@ -574,21 +564,19 @@ GER_MEC_01 =
 	}
 }
 
-GER_Mnt_01 = 
-{
+GER_Mnt_01 = {
 	name = "Mountain Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "mountaineers"	}
+	division_types = { "mountaineers"  }
 
 	fallback_name = "%d. Gebirgs-Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		2 = { "%d. Gebirgs-Division" }
 		3 = { "%d. Gebirgs-Division" }
 		1 = { "%d. Gebirgs-Division" }
@@ -606,21 +594,19 @@ GER_Mnt_01 =
 	}
 }
 
-GER_MAR_01 = 
-{
+GER_MAR_01 = {
 	name = "Marine Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "marine"	}
+	division_types = { "marine"  }
 
 	fallback_name = "%d. Seelande-Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		1 = { "%d. Seelande-Division" }
 		2 = { "%d. Seelande-Division" }
 		3 = { "%d. Seelande-Division" }
@@ -632,21 +618,19 @@ GER_MAR_01 =
 	}
 }
 
-GER_PAR_01 = 
-{
+GER_PAR_01 = {
 	name = "Paratrooper Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "paratrooper"	}
+	division_types = { "paratrooper"  }
 
 	fallback_name = "%d. Fallschirmjäger-Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		1 = { "%d. Fallschirmjäger-Division" }
 		2 = { "%d. Fallschirmjäger-Division" }
 		3 = { "%d. Fallschirmjäger-Division" }
@@ -666,23 +650,21 @@ GER_PAR_01 =
 	}
 }
 
-GER_GAR_01 = 
-{
+GER_GAR_01 = {
 	name = "Garrison Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "infantry"	}
+	division_types = { "infantry"  }
 
 	fallback_name = "%d. Sicherungs-Division"
 
 	link_numbering_with = { GER_Inf_01 }
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		539 = { "Divisionsstab z.b.V. 539" }
 		540 = { "Divisionsstab z.b.V. 540" }
 		442 = { "Divisionsstab z.b.V. 442" }
@@ -779,8 +761,7 @@ GER_GAR_01 =
 
 
 
-GER_Arm_01 = 
-{
+GER_Arm_01 = {
 	name = "Panzer Divisions"
 
 	for_countries = { GER }
@@ -792,8 +773,7 @@ GER_Arm_01 =
 	fallback_name = "%d. Panzer-Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		1 = { "%d. Panzer-Division" }
 		2 = { "%d. Panzer-Division" }
 		3 = { "%d. Panzer-Division" }
@@ -843,8 +823,7 @@ GER_Arm_01 =
 	}
 }
 
-GER_LTARM_01 = 
-{
+GER_LTARM_01 = {
 	name = "Light Divisions"
 
 	for_countries = { GER }
@@ -853,39 +832,36 @@ GER_LTARM_01 =
 
 	division_types = { "light_armor" }
 
-	fallback_name = "%d. leichte-Division"
+	fallback_name = "%d. Leichte-Division"
 	
 	link_numbering_with = { GER_Arm_01 }
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
-	9 = { "4. leichte-Division" }
-	6 = { "1. leichte-Division" }
-	7 = { "2. leichte-Division" }
-	8 = { "3. leichte-Division" }
-	21 = { "5. leichte-Division" }
+	ordered = {
+	9 = { "4. Leichte-Division" }
+	6 = { "1. Leichte-Division" }
+	7 = { "2. Leichte-Division" }
+	8 = { "3. Leichte-Division" }
+	21 = { "5. Leichte-Division" }
 	
 	# a small series of early war 'light' armoured divisions raised as an attempt by the cavalry branch to remain relevant in modern war. They were found to be too light to fight after Poland and converted in to full Panzer Divisions. X = number of the Panzer Division they were converted in to.
 	
 	}
 }
 
-GER_Cav_01 = 
-{
+GER_Cav_01 = {
 	name = "Cavalry Divisions"
 
 	for_countries = { GER }
 
 	can_use = { always = yes }
 
-	division_types = { "cavalry"	}
+	division_types = { "cavalry"  }
 
 	fallback_name = "%d. Kavallerie-Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		1 = { "%d. Kavallerie-Division" }
 		900 = { "Kavallerie-Division 'Nord'" }
 		3 = { "%d. Kavallerie-Division" }
@@ -897,8 +873,30 @@ GER_Cav_01 =
 	
 }
 
-GER_MONINF_01 = 
-{
+GER_MIL_01 = {
+	name = "Freikorps Divisions"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "militia"  }
+
+	fallback_name = "%d. Freikorps-Division"
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+		1 = { "%d. Freikorps-Division" }
+		2 = { "%d Freikorps-Division" }
+		3 = { "%d. Freikorps-Division" }
+		4 = { "%d. Freikorps-Division" }
+
+	}
+	
+}
+
+
+GER_MONINF_01 = {
 	name = "Monarchist Infantry Divisions"
 
 	for_countries = { GER }
@@ -912,8 +910,7 @@ GER_MONINF_01 =
 	fallback_name = "%d. Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		901 = { "1. Garde-Division" }
 		902 = { "2. Garde-Division" }
 		903 = { "3. Garde-Division" }
@@ -1130,8 +1127,7 @@ GER_MONINF_01 =
 	}
 }
 
-GER_MONMOB_01 = 
-{
+GER_MONMOB_01 = {
 	name = "Monarchist Mobile Divisions"
 
 	for_countries = { GER }
@@ -1140,13 +1136,12 @@ GER_MONMOB_01 =
 		always = yes
 	}
 
-	division_types = {	"cavalry" "light_armor" "medium_armor" "heavy_armor" "modern_armor"	}
+	division_types = {  "cavalry" "light_armor" "medium_armor" "heavy_armor" "modern_armor"  }
 
 	fallback_name = "%d. Schnell-Division"
 
 	# Names with numbers (only one number per entry)
-	ordered =
-	{
+	ordered = {
 		901 = { "Gardes du Corps-Division" }
 		902 = { "Garde-Kürassier-Division" }
 		903 = { "Garde-Dragoner-Division 'Königin Viktoria von Großbritannien u. Irland'" }
