@@ -10,6 +10,7 @@ tags={
 	"Military"
 }
 replace_path="common/abilities"
+replace_path="common/focus_inlay_windows"
 replace_path="common/autonomous_states"
 replace_path="common/ai_equipment"
 replace_path="common/ai_focuses"
