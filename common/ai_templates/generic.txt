@@ -1,8 +1,4 @@
 armor_generic = {
-
-	blocked_for = {
-	}
-
 	role = armor
 	
 	upgrade_prio = {
@@ -58,193 +54,114 @@ armor_generic = {
 		target_min_match = 0.5
 	}
 
+	medium_armor_early = {
+	
+		upgrade_prio = {
+			base = 1
 
-# TODO reintroduce a fortress buster role maybe?
-#	heavy_armor_default = {
-#		upgrade_prio = {
-#			base = 2
-#
-#			modifier = {
-#				factor = 1
-#			}
-#		}
-#
-#		target_width = 18.0
-#		width_weight = 3.0
-#		column_swap_factor = 0.1
-#
-#		stat_weights = {
-#			0.00 #-- default_morale
-#			1.10 #-- defense
-#			1.10 #-- breakthrough
-#			0.60 #-- hardness
-#			2.00 #-- soft_attack
-#			0.00 #-- hard_attack
-#			0.10 #-- recon
-#			0.01 #-- entrenchment
-#			0.10 #-- initiative
-#			0.01 #-- casualty_trickleback
-#			-0.05 #-- supply_consumption_factor
-#			-0.01 #-- supply_consumption
-#			0.00 #-- suppression
-#			0.00 #-- suppression_factor
-#			0.01 #-- experience_loss_factor
-#			0.00 #-- equipment_capture_factor
-#			0.00 #-- fuel_capacity
-#			#-- Air Values
-#			0.02 #-- air_attack
-#			#-- Common Values
-#			10.00 #-- max_organisation
-#			0.80 #-- max_strength
-#			0.0 #-- maximum_speed
-#			0.20 #-- armor_value
-#			0.05 #-- ap_attack
-#			0.10 #-- reliability
-#			0.10 #-- reliability_factor
-#			0.00 #-- weight
-#			0.00 #-- fuel_consumption
-#			0.00 #-- fuel_consumption_factor
-#			0.00 #-- strat_attack
-#			0.00 #-- carrier_size
-#			0.00 #-- acc_hot_gain
-#			0.00 #-- acc_cold_gain
-#			0.00 #-- build_cost_ic
-#		}
-#
-#		target_template = {
-#			weight = 1.0
-#			match_value = 1000.0
-#
-#			support = {
-#				engineer = 1
-#				recon = 1
-#				logistics_company = 1
-#				maintenance_company = 1
-#			}
-#
-#			regiments = {
-#				heavy_armor = 6
-#				infantry = 3
-#			}
-#		}
-#
-#		replace_at_match = 0.4
-#		replace_with = modern_armor_default
-#		target_min_match = 0.5
-#	}
-#
-#	medium_armor_early = {
-#	
-#		upgrade_prio = {
-#			base = 1
-#
-#			modifier = {
-#				factor = 3
-#				OR = {
-#					has_tech = basic_medium_tank
-#					has_tech = basic_medium_tank_chassis
-#				}
-#			}
-#		}
-#
-#		target_template = {
-#			
-#			support = {
-#				engineer = 1
-#				mot_recon = 1
-#				maintenance_company = 1
-#				logistics_company = 1
-#			}
-#			
-#			regiments = {
-#				medium_armor = 4
-#				light_armor = 2
-#				motorized = 4
-#			}
-#		}
-#		
-#		replace_at_match = 1.5  # value higher than 1.0 means it will only upgrade/replace when upgrade_prio takes over
-#		replace_with = medium_armor_mid
-#		target_min_match = 0.5
-#	}
-#
-#	medium_armor_mid = {
-#	
-#		upgrade_prio = {
-#			base = 1
-#
-#			modifier = {
-#				factor = 4
-#				OR = {
-#					has_tech = improved_medium_tank
-#					has_tech = improved_medium_tank_chassis
-#				}
-#			}
-#
-#			modifier = {
-#				factor = 0
-#				NOT = { has_tech = armored_car1 }
-#			}
-#		}
-#
-#		target_template = {
-#			
-#			support = {
-#				engineer = 1
-#				armored_car_recon = 1
-#				maintenance_company = 1
-#				logistics_company = 1
-#			}
-#			
-#			regiments = {
-#				medium_armor = 6
-#				motorized = 4
-#			}
-#		}
-#		
-#		replace_at_match = 1.5  # value higher than 1.0 means it will only upgrade/replace when upgrade_prio takes over
-#		replace_with = modern_armor_default
-#		target_min_match = 0.5
-#	}
-#
-#	modern_armor_default = {
-#	
-#		upgrade_prio = {
-#			base = 1
-#
-#			modifier = {
-#				factor = 5
-#				OR = {
-#					has_tech = main_battle_tank
-#					has_tech = main_battle_tank_chassis
-#				}
-#			}
-#		}
-#
-#		target_template = {
-#			
-#			support = {
-#				engineer = 1
-#				light_tank_recon = 1
-#				maintenance_company = 1
-#				logistics_company = 1
-#				signal_company = 1
-#			}
-#			
-#			regiments = {
-#				modern_armor = 6
-#				mechanized = 4
-#				modern_sp_artillery_brigade = 1
-#			}
-#		}
-#	}
-#}
+			modifier = {
+				factor = 3
+				OR = {
+					has_tech = basic_medium_tank
+					has_tech = basic_medium_tank_chassis
+				}
+			}
+		}
+
+		target_template = {
+			
+			support = {
+				engineer = 1
+				mot_recon = 1
+				maintenance_company = 1
+				logistics_company = 1
+			}
+			
+			regiments = {
+				medium_armor = 4
+				light_armor = 2
+				motorized = 4
+			}
+		}
+		
+		replace_at_match = 1.5  # value higher than 1.0 means it will only upgrade/replace when upgrade_prio takes over
+		replace_with = medium_armor_mid
+		target_min_match = 0.5
+	}
+
+	medium_armor_mid = {
+	
+		upgrade_prio = {
+			base = 1
+
+			modifier = {
+				factor = 4
+				OR = {
+					has_tech = improved_medium_tank
+					has_tech = improved_medium_tank_chassis
+				}
+			}
+
+			modifier = {
+				factor = 0
+				NOT = { has_tech = armored_car1 }
+			}
+		}
+
+		target_template = {
+			
+			support = {
+				engineer = 1
+				armored_car_recon = 1
+				maintenance_company = 1
+				logistics_company = 1
+			}
+			
+			regiments = {
+				medium_armor = 6
+				motorized = 4
+			}
+		}
+		
+		replace_at_match = 1.5  # value higher than 1.0 means it will only upgrade/replace when upgrade_prio takes over
+		replace_with = modern_armor_default
+		target_min_match = 0.5
+	}
+
+	modern_armor_default = {
+	
+		upgrade_prio = {
+			base = 1
+
+			modifier = {
+				factor = 5
+				OR = {
+					has_tech = main_battle_tank
+					has_tech = main_battle_tank_chassis
+				}
+			}
+		}
+
+		target_template = {
+			
+			support = {
+				engineer = 1
+				light_tank_recon = 1
+				maintenance_company = 1
+				logistics_company = 1
+				signal_company = 1
+			}
+			
+			regiments = {
+				modern_armor = 6
+				mechanized = 4
+				modern_sp_artillery_brigade = 1
+			}
+		}
+	}
+}
 
 garrison_generic = {
-
-	blocked_for = {
-	}
-	
 	role = garrison
 	
 	upgrade_prio = {
@@ -282,7 +199,6 @@ garrison_generic = {
 }
 
 suppression_generic = {
-	
 	role = suppression
 	
 	upgrade_prio = {
@@ -317,10 +233,6 @@ suppression_generic = {
 }
 
 infantry_generic = {
-
-	blocked_for = {
-	}
-
 	role = infantry
 	
 	upgrade_prio = {
@@ -388,10 +300,6 @@ infantry_generic = {
 }
 
 mountaineers_generic = {
-
-	blocked_for = {
-	}
-
 	role = mountaineers
 	
 	upgrade_prio = {
@@ -433,10 +341,6 @@ mountaineers_generic = {
 }
 
 marines_generic = {
-
-	blocked_for = {
-	}
-
 	role = marines
 	
 	upgrade_prio = {
@@ -518,10 +422,6 @@ marines_generic = {
 
 
 paratrooper_generic = {
-
-	blocked_for = {
-	}
-
 	role = paratroopers
 	
 	upgrade_prio = {
