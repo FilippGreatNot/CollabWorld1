@@ -217,6 +217,7 @@ country_event = {
 			logistics_skill = 1
 		}
 		activate_advisor = FGB_adolf_hiedler_prop
+		set_country_flag = FGB_hitler_in_government
 	}
 	option = {
 		name = fgb.8.b
@@ -235,6 +236,7 @@ country_event = {
 		name = fgb.8.c
 		add_stability = -0.03
 		custom_effect_tooltip = FGB_hitler_angered.tt
+		set_country_flag = FGB_hitler_rejected_from_government
 	}
 }
 
@@ -502,7 +504,7 @@ country_event = {
 	}
 }
 
-news_event = {
+country_event = {
 	id = fgb.20
 	title = fgb.20.t
 	desc = fgb.20.d
@@ -513,8 +515,23 @@ news_event = {
 	option = {
 		name = fgb.20.a
 		FGB = {
-			add_threat = 0.05
+			make_every_core_national_for_PREV = yes
+			annex_country = {
+				target = GER
+				transfer_troops = yes
+			}
 		}
+	}
+	option = {
+		name = fgb.21.a
+		add_war_support = 0.05
+		FGB = {
+			add_stability = -0.05
+			create_wargoal = {
+				target = GER
+				type = annex_everything
+			}
+		}	
 	}
 }
 
@@ -609,6 +626,11 @@ country_event = {
 		add_stability = -0.15	
 		set_temp_variable = { ideology_change_var = -0.1 }
 		change_ruling_party_popularity = yes
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.07
+		}
+		set_country_flag = FGB_deadlock
 	}
 }
 
@@ -903,18 +925,118 @@ country_event = {
 	option = {
 		name = fgb.34.a
 		add_country_leader_role = {
-    			character = FGB_konrad_adenauer
-    			promote_leader = yes
-    			country_leader = {
-        			ideology = liberal_conservatism
-        			expire = "1965.1.1.1"
-        			traits = { # }
-    			}
+    		character = FGB_konrad_adenauer
+    		promote_leader = yes
+    		country_leader = {
+        		ideology = liberal_conservatism
+        		expire = "1965.1.1.1"
 			}
 		}		
 		add_popularity = {
 			ideology = conservatism
 			popularity = 0.06
+		}
+	}
+}
+
+country_event = {
+	id = fgb.35
+	title = fgb.35.t
+	desc = fgb.35.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.35.a
+		add_political_power = -200
+		FGB = {
+			puppet = {
+				target = PLA
+				end_wars = no
+			}
+		}
+	}
+	option = {
+		name = fgb.35.b
+		add_war_support = 0.10
+		FGB = {
+			create_wargoal = {
+				target = PLA
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.36
+	title = fgb.36.t
+	desc = fgb.36.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.36.a
+		add_political_power = 50
+		add_manpower = -1200
+		add_stability = 0.05
+	}
+	option = {
+		name = fgb.36.b
+		add_manpower = -50
+		add_war_support = 0.05
+		army_experience = 50
+		custom_effect_tooltip = FGB_hitler_will_not_like_this_one_tt
+		set_country_flag = FGB_hitler_conspiracy
+	}
+}
+
+country_event = {
+	id = fgb.37
+	title = fgb.37.t
+	desc = fgb.37.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = no
+	trigger = {
+		tag = FGB
+		has_country_flag = FGB_hitler_conspiracy
+		has_country_flag = FGB_deadlock
+	}
+	fire_only_once = yes
+
+	option = {
+		name = fgb.37.a
+		complete_national_focus = FGB_hitlers_coup
+		set_country_flag = FGB_hitler_focus_branch
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = fgb.37.b
+		add_stability = -0.15
+		add_war_support = -0.15
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.1
+		}
+	}
+}
+
+country_event = {
+	id = fgb.38
+	title = fgb.38.t
+	desc = fgb.38.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.38.a
+		add_political_power = 50
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
 		}
 	}
 }
