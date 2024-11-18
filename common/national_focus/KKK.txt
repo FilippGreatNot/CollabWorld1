@@ -422,7 +422,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_we_must_become_self_dependant
-		icon = GFX_KKK_white_only_recruitment
+		icon = GFX_KKK_self
 		prerequisite = { focus = KKK_the_shadow_economy }
 		relative_position_id = KKK_the_shadow_economy
 		x = 0
@@ -450,7 +450,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_confederate_civilian_works
-		icon = GFX_confederate_civilian_works
+		icon = GFX_KKK_civworks
 		prerequisite = { focus = KKK_we_must_become_self_dependant }
 		relative_position_id = KKK_the_shadow_economy
 		x = 0
@@ -518,7 +518,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_improve_the_quality_of_southern_life
-		icon = GFX_KKK_improve_the_quality_of_southern_life
+		icon = GFX_KKK_quality
 		prerequisite = { focus = KKK_begin_economic_internationalism }
 		relative_position_id = KKK_begin_economic_internationalism
 		x = 0
@@ -544,7 +544,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_the_southern_economic_boom
-		icon = GFX_KKK_improve_the_quality_of_southern_life
+		icon = GFX_KKK_boom
 		prerequisite = { focus = KKK_improve_the_quality_of_southern_life }
 		relative_position_id = KKK_begin_economic_internationalism
 		x = 0
@@ -598,7 +598,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_turn_georgia_into_a_metal_rich_monopoly
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_georgia
 		prerequisite = { focus = KKK_begin_economic_internationalism focus = KKK_the_shadow_economy }
 		relative_position_id = KKK_begin_economic_internationalism
 		x = -2
@@ -638,7 +638,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_expand_workers_unions
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_unions
 		prerequisite = { focus = KKK_turn_georgia_into_a_metal_rich_monopoly }
 		relative_position_id = KKK_begin_economic_internationalism
 		x = -2
@@ -2058,7 +2058,13 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			add_tech_bonus = {
+				name = KKK_panzergrenadier
+				ahead_reduction = 1
+				bonus = 1
+				uses = 1
+				category = cat_mechanized_equipment
+			}
 			
 		}
 	}
@@ -2081,7 +2087,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			navy_experience = 50
 		}
 	}
 	
@@ -2103,7 +2109,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-		
+		     air_experience = 50
 		}
 	}
 	
@@ -2290,7 +2296,14 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	
@@ -2301,7 +2314,7 @@ focus_tree = {
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 3
 		y = 3
-		cost = 5
+		cost = 4
 		available = {
 		has_completed_focus = KKK_the_second_charlston_act
 		}
@@ -2312,7 +2325,25 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_tech_bonus = {
+					name = KKK_domestic_designs
+					bonus = 0.75
+					uses = 1
+					category = plane_modules_tech
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = KKK_domestic_designs
+					bonus = 0.75
+					uses = 1
+					category = light_fighter
+				}
+			}
 		}
 	}
 	
@@ -2404,7 +2435,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			navy_experience = 50
 		}
 	}
 	
