@@ -69,25 +69,6 @@ country_event = { #SHIT BEGINS
 		
 		hidden_effect = {
 			USA_release_ASF = yes
-			country_event = {
-				id = usa_collapse.5
-				days = 7
-			}
-			add_popularity = {
-				ideology = bolshevism
-				popularity = -0.3
-			}
-			add_popularity = {
-				ideology = libertarian_socialism
-				popularity = -0.3
-			}
-			add_popularity = {
-				ideology = marxism
-				popularity = -0.3
-			}
-			
-			add_stability = 0.15
-			add_war_support = 0.2
 		}
 	}
 
@@ -95,17 +76,6 @@ country_event = { #SHIT BEGINS
 		name = usa_collapse.2.a
 		ai_chance = {
 			factor = 100
-		}
-	}
-	
-	option = {
-		name = usa_collapse.2.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		ASF = {
-			change_tag_from = USA
 		}
 	}
 }
@@ -134,17 +104,6 @@ country_event = { #буржуи ебаные
 		name = usa_collapse.5.a
 		ai_chance = {
 			factor = 100
-		}
-	}
-	
-	option = {
-		name = usa_collapse.5.b
-		ai_chance = {
-			factor = 0
-		}
-
-		FOC = {
-			change_tag_from = USA
 		}
 	}
 }
@@ -244,17 +203,6 @@ country_event = { #ААААААААААААААААА НЕГРЫ
 			factor = 100
 		}
 	}
-	
-	option = {
-		name = usa_collapse.11.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		BRE = {
-			change_tag_from = USA
-		}
-	}
 }
 country_event = { #идём снимать вестерны
 	id = usa_collapse.9
@@ -277,17 +225,6 @@ country_event = { #идём снимать вестерны
 		name = usa_collapse.9.a
 		ai_chance = {
 			factor = 100
-		}
-	}
-	
-	option = {
-		name = usa_collapse.9.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		TEX = {
-			change_tag_from = USA
 		}
 	}
 }
@@ -319,17 +256,6 @@ country_event = { #калифорния
 			factor = 100
 		}
 		
-	}
-	
-	option = {
-		name = usa_collapse.12.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		CAL = {
-			change_tag_from = USA
-		}
 	}
 }
 country_event = { #military says bye
@@ -427,17 +353,6 @@ country_event = { #Масоны
 			factor = 100
 		}
 	}
-	
-	option = {
-		name = usa_collapse.6.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		PEN = {
-			change_tag_from = USA
-		}
-	}
 }
 # country_event = { 
 #	id = usa_collapse.14
@@ -504,17 +419,6 @@ country_event = {
 			factor = 100
 		}
 	}
-	
-	option = {
-		name = usa_collapse.14.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		ORG = {
-			change_tag_from = USA
-		}
-	}
 }
 
 
@@ -543,17 +447,6 @@ country_event = { #Железнодорожники
 			factor = 100
 		}
 	}
-	
-	option = {
-		name = usa_collapse.17.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		WSH = {
-			change_tag_from = USA
-		}
-	}
 }
 
 
@@ -580,17 +473,6 @@ country_event = { #Мормоны
 		
 		ai_chance = {
 			factor = 100
-		}
-	}
-	
-	option = {
-		name = usa_collapse.16.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		IDA = {
-			change_tag_from = USA
 		}
 	}
 }
@@ -628,17 +510,6 @@ country_event = { #аЛЯСКАЯ
 			factor = 100
 		}
 	}
-	
-	option = {
-		name = usa_collapse.13.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		ALA = {
-			change_tag_from = USA
-		}
-	}
 
 }
 country_event = { #Нью_йорк и зачем?
@@ -666,17 +537,6 @@ country_event = { #Нью_йорк и зачем?
 			factor = 100
 		}
 	}
-	
-	option = {
-		name = usa_collapse.7.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		NYC = {
-			change_tag_from = USA
-		}
-	}
 }
 country_event = { 
 	id = usa_collapse.4
@@ -692,6 +552,7 @@ country_event = {
 		USA = {
 		    every_country_division = { destroy_unit = yes }
 		}
+		load_oob = USA_new
 		show_superevent_USA_civil_war = yes
 		hidden_effect = {
 			country_event = {
@@ -706,18 +567,6 @@ country_event = {
 		name = usa_collapse.4.a
 		ai_chance = {
 			factor = 100
-		}
-	}
-
-	
-	option = {
-		name = usa_collapse.4.b
-		ai_chance = {
-			factor = 0
-		}
-		
-		NEE = {
-			change_tag_from = USA
 		}
 	}
 }
@@ -774,16 +623,16 @@ country_event = {
 
 	option = {
 		name = usa_rockefeller_jr.1.a
-		add_political_power = 10
-		add_stability = 0.1
+		add_political_power = -75
 		hidden_effect = {
 			set_global_flag = USA_columbia_deal
 		}
+		custom_effect_tooltip = USA_corporate_deal_tt
 	}
 	option = {
 		name = usa_rockefeller_jr.1.b
-		add_political_power = -15
-		add_stability = -0.1
+		add_political_power = 25
+		add_stability = -0.02
 	}
 }
 
