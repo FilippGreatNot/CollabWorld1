@@ -55,12 +55,12 @@ country_event = {
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = FGB_noske
 	}
-	option = {
-		name = fgb.2.b
-		set_country_flag = FGB_pabst_flag
-		mark_focus_tree_layout_dirty = yes
-		complete_national_focus = FGB_pabst
-	}
+	#option = {
+	#	name = fgb.2.b
+	#	set_country_flag = FGB_pabst_flag
+	#	mark_focus_tree_layout_dirty = yes
+	#	complete_national_focus = FGB_pabst
+	#}
 	#option = {
 	#	name = fgb.2.c
 	#	set_country_flag = FGB_rohm_flag
@@ -116,7 +116,7 @@ news_event = {
 			FGB = {
 				country_event = {
 					id = fgb.5
-					random_days = 2
+					days = 2
 				}
 				add_war_support = -0.05
 				add_stability = -0.05
@@ -569,7 +569,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = fgb.21.b
+		name = fgb.21.c
 		set_country_flag = FGB_noske_conservatives_win 
 		add_popularity = {
 			ideology = conservatism
@@ -909,7 +909,7 @@ country_event = {
 
 	option = {
 		name = fgb.33.a
-		add_stability = 0.02
+		add_stability = 0.03
 		add_political_power = 10
 	}
 }
@@ -1036,7 +1036,135 @@ country_event = {
 		add_political_power = 50
 		add_popularity = {
 			ideology = social_democrat
-			popularity = -0.05
+			popularity = -0.1
+		}
+	}
+}
+
+country_event = {
+	id = fgb.39
+	title = fgb.39.t
+	desc = fgb.39.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = fgb.39.a
+		188 = {
+			add_core_of = FGB
+			add_core_of = LIT
+			remove_core_of = LAT
+			set_state_owner_to = FGB
+		}
+		963 = {
+			add_core_of = FGB
+			add_claim_by = LIT
+			remove_core_of = LAT
+			set_state_owner_to = FGB
+		}
+		if = { limit = { 784 = { is_owned_by = LAT } }
+			784 = {
+				remove_core_of = BLR
+				add_core_of = LIT
+				set_state_owner_to = LIT
+			}
+		}
+		11 = {
+			add_core_of = LIT
+			set_state_owner_to = LIT
+		}
+		189 = {
+			add_core_of = LIT
+			set_state_owner_to = LIT
+		}
+		814 = {
+			add_core_of = LIT
+			set_state_owner_to = LIT
+		}
+		815 = {
+			add_core_of = LIT
+			set_state_owner_to = LIT
+		}
+		FGB = {
+			puppet = LIT
+			annex_country = {
+				target = LAT
+				transfer_troops = yes
+			}
+			release_puppet = LAT
+		}
+		LAT = {	
+			set_capital = {
+  				state = 808
+  				remember_old_capital = no
+			}
+			set_cosmetic_tag = BALTIC
+		}
+		LIT = {
+			set_capital = {
+  				state = 784
+  				remember_old_capital = no
+			}	
+			set_cosmetic_tag = LITREP
+		}
+		if = { limit = { NOT = { country_exists = BLR } } 
+			FGB = { release_puppet = BLR }
+			BLR = {
+				set_cosmetic_tag = BLRREP
+			}
+			FGB = {
+				every_owned_state = {
+					limit = { 
+						is_core_of = POL
+						is_core_of = FGB
+					} 
+					transfer_state_to = EST
+				}
+				release_puppet = POL
+				annex_country = { target = EST }
+			}
+			POL = {
+				set_cosmetic_tag = POLREP
+			}
+			FGB = { puppet = { target = POL } }
+			89 = {
+				add_core_of = POL
+				set_state_owner_to = POL
+			}
+			91 = {
+				add_core_of = POL
+				set_state_owner_to = POL
+			}
+			845 = {
+				add_core_of = POL
+				set_state_owner_to = POL
+			}
+			86 = {
+				add_core_of = FGB
+				set_state_owner_to = FGB
+			}
+			807 = {
+				add_core_of = FGB
+				set_state_owner_to = FGB
+			}
+			847 = {
+				add_core_of = FGB
+				set_state_owner_to = FGB
+			}
+			if = { 
+				limit = { country_exists = UKR }
+				93 = { set_state_owner_to = UKR }
+			}
+		}
+	}
+	option = {
+		name = fgb.39.a
+		FGB = {
+			declare_war_on = {
+				target = LAT
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }

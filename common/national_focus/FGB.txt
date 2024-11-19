@@ -2607,6 +2607,9 @@ focus_tree = {
 			add_war_support = 0.05
 			add_stability = 0.05
 			add_threat = 5
+			EPR = {
+				make_every_core_national_for_PREV = yes
+			}
 		}
 	}
 
@@ -2659,16 +2662,16 @@ focus_tree = {
 		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
 			DEN = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			FIN = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			NOR = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			SWE = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 		}
 	}
@@ -2683,22 +2686,22 @@ focus_tree = {
 		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
 			ALB = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			BUL = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			GRE = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			HUN = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			ROM = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			YUG = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 		}
 	}
@@ -2713,13 +2716,13 @@ focus_tree = {
 		relative_position_id = FGB_noske_establish_the_europakt
 		completion_reward = {
 			BEL = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			HOL = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 			LUX = {
-				country_event = fgb.31
+				country_event = { id = fgb.31 }
 			}
 		}
 	}
@@ -2730,10 +2733,31 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		available = {
+			is_subject = no
+			AND = {
+				country_exists = SWE
+				SWE = { is_subject = no }
+				NOT = { has_war_with = SWE }
+			}
+		}
 		prerequisite = { focus = FGB_noske_invite_the_scandinavian_democracies }
 		relative_position_id = FGB_noske_invite_the_scandinavian_democracies
 		completion_reward = {
-			add_political_power = 10
+			SWE = {
+				country_event = { id = wuw_GER_diplomacy.1 days = 2 }
+			}
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				SWE = {
+					add_ideas = GER_german_trade_ns
+					add_opinion_modifier = {
+						target = PREV
+						modifier = GER_trading_partners
+					}
+				}
+				custom_effect_tooltip = war_will_cancel_deal_tt
+			}
 		}
 	}
 
@@ -2743,6 +2767,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		bypass = {
+			NOT = { country_exists = BLR }
+		}
 		prerequisite = { focus = FGB_noske_invite_the_scandinavian_democracies focus = FGB_noske_offer_protection_to_the_balkan_states focus = FGB_noske_invite_the_benelux }
 		relative_position_id = FGB_noske_offer_protection_to_the_balkan_states
 		completion_reward = {
@@ -2750,8 +2777,21 @@ focus_tree = {
 				type = puppet_wargoal_focus
 				target = BLR
 			}
-			EPR = {
-				make_every_core_national_for_PREV = yes
+		}
+	}
+
+	focus = {
+		id = FGB_noske_demand_pavels_submission
+		icon = GFX_focus_POL_nationalist_education
+		x = 2
+		y = 1
+		cost = 4
+		prerequisite = { focus = FGB_noske_offer_protection_to_the_balkan_states focus = FGB_noske_invite_the_benelux }
+		relative_position_id = FGB_noske_offer_protection_to_the_balkan_states
+		completion_reward = {
+			custom_effect_tooltip = FGB_we_will_demand_his_submission
+			LAT = {
+				country_event = { id = fgb.39 days = 3 }
 			}
 		}
 	}
@@ -3765,6 +3805,7 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
+			custom_effect_tooltip = FGB_this_focus_will_unlock_reform_decisions_tt
 			add_war_support = 0.1
 			country_event = fgb.1
 			add_political_power = -100

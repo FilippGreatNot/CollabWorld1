@@ -14,12 +14,60 @@ cw_debug_category = {
 			FGB = {
 				set_country_flag = FGB_noske_flag
 				set_country_flag = FGB_noske_reform_complete
+				set_country_flag = FGB_noske_victory_over_bavaria 
+				set_country_flag = FGB_bavaria_integrated_flag
 				set_country_flag = FGB_noske_wehrkommando_integration_complete_flag
 				set_country_flag = FGB_noske_unification_nearly_complete_flag
 				set_country_flag = FGB_noske_revolution_of_1848_flag
 				set_country_flag = FGB_noske_ger_unified_flag
 				set_country_flag = FGB_noske_policy_flag
 				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+	cw_debug_reunify_germany_already = {
+		visible = {
+			OR = {
+				original_tag = FWG
+				original_tag = WRD
+				original_tag = GER
+				original_tag = FGB
+				original_tag = UVS
+				original_tag = BAV
+			}
+		}
+		complete_effect = {
+			FWG = { make_every_core_national_for_PREV = yes }
+			WRD = { make_every_core_national_for_PREV = yes }
+			GER = { make_every_core_national_for_PREV = yes }
+			FGB = { make_every_core_national_for_PREV = yes }
+			UVS = { make_every_core_national_for_PREV = yes }
+			BAV = { make_every_core_national_for_PREV = yes }
+			hidden_effect = {
+				every_other_country = {
+					limit = { 	
+						has_war = no 
+						has_country_flag = germany
+					}
+					ROOT = {
+						PREV = {
+							every_core_state = {
+								add_core_of = ROOT
+							}
+						}
+						annex_country = {
+							target = PREV
+							transfer_troops = yes
+						}
+					}
+				}
+				if = {
+					limit = { 
+						original_tag = FGB 
+						has_completed_focus = FGB_noske
+					}
+					complete_national_focus = FGB_noske_the_second_revolution_of_1848
+				}
 			}
 		}
 	}
