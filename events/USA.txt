@@ -99,7 +99,6 @@ country_event = { #буржуи ебаные
 				days = 5
 			}
 			deactivate_advisor = USA_ford_hog
-			recruit_character = USA_vacant
 			activate_advisor = USA_vacant_hog
 		}
 	}
@@ -720,6 +719,110 @@ country_event = {
 	option = {
 		name = usa_rockefeller_jr.4.a
 		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = usa_rockefeller_jr.5
+	title = usa_rockefeller_jr.5.t
+	desc = usa_rockefeller_jr.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = usa_rockefeller_jr.5.a
+		add_political_power = 25
+		army_experience = 40
+		add_command_power = 15
+	}
+}
+
+country_event = {
+	id = usa_rockefeller_jr.6
+	title = usa_rockefeller_jr.6.t
+	desc = usa_rockefeller_jr.6.d
+	is_triggered_only = yes
+
+	option = {
+		name = usa_rockefeller_jr.6.a
+		add_war_support = 0.04
+		add_stability = -0.03
+		add_political_power = 15
+	}
+}
+
+country_event = {
+	id = usa_rockefeller_jr.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = usa_rockefeller_jr.7.t
+	desc = usa_rockefeller_jr.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = usa_rockefeller_jr.7.a
+		ai_chance = {
+			base = 19
+		}
+		USA = {
+			annex_country = { 
+				target = ALA
+				transfer_troops = yes 
+			}
+		}
+		ALA = {
+			every_unit_leader = {
+				set_nationality = USA
+			}
+		}
+	}
+	
+	option = {
+		name = usa_rockefeller_jr.7.b
+		ai_chance = {
+			base = 1
+			}
+		ALA = {
+			add_war_support = 0.05
+			add_stability = -0.1
+		}
+	    USA = {
+			declare_war_on = {
+				target = ALA
+				type = annex_everything
+			}
+		}
+	}
+	}
+country_event = {
+	id = usa_rockefeller_jr.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event uvs.2" }
+	title = usa_rockefeller_jr.8.t
+	desc = usa_rockefeller_jr.8.d
+	picture = GFX_report_event_soviet_people
+	is_triggered_only = yes
+
+	option = {
+		name = usa_rockefeller_jr.8.a
+		ai_chance = {
+			base = 10
+		}
+		USA = {
+			set_autonomy = {
+				target = CUB
+				autonomous_state = autonomy_puppet
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+	}
+	option = {
+		name = usa_rockefeller_jr.8.b
+		ai_chance = { base = 0 }
+		USA = {
+			declare_war_on = {
+				target = CUB
+				type = puppet_wargoal_focus
+			}
+		}
 	}
 }
 

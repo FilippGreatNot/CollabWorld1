@@ -6,10 +6,6 @@ focus_tree = {
 		modifier = {
 			add = 10
 			tag = USA
-			has_country_leader = {
-    			name = USA_john_d_rockfeller_jr
-    			ruling_only = yes
-			}
 		}
 	}
 	
@@ -37,6 +33,7 @@ focus_tree = {
 		relative_position_id = USA_rockefeller_jr_presidency
 		prerequisite = { focus = USA_rockefeller_jr_presidency }
 		completion_reward = {
+		     country_event = USA_rockefeller_jr.5
 		}
 	}
 
@@ -107,6 +104,8 @@ focus_tree = {
 		prerequisite = { focus = USA_a_meeting_with_the_oligarchs }
 		prerequisite = { focus = USA_barricade_the_eastern_border }
 		completion_reward = {
+		     add_stability = 0.05
+			 add_political_power = -50
 		}
 	}
 
@@ -166,6 +165,7 @@ focus_tree = {
 		relative_position_id = USA_victory_of_william_randolf
 		prerequisite = { focus = USA_victory_of_william_randolf }
 		completion_reward = {
+		     add_ideas = USA_supporting_the_farmers
 		}
 	}
 
@@ -178,6 +178,7 @@ focus_tree = {
 		relative_position_id = USA_support_the_american_farmers
 		prerequisite = { focus = USA_support_the_american_farmers }
 		completion_reward = {
+		    remove_ideas = USA_uninstitutional_slavery
 		}
 	}
 
@@ -190,6 +191,12 @@ focus_tree = {
 		relative_position_id = USA_solve_the_worker_corporation_dispute
 		prerequisite = { focus = USA_solve_the_worker_corporation_dispute }
 		completion_reward = {
+		    add_stability = 0.1
+			add_political_power = -100
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
 		}
 	}
 
@@ -202,6 +209,9 @@ focus_tree = {
 		relative_position_id = USA_victory_of_william_randolf
 		prerequisite = { focus = USA_victory_of_william_randolf }
 		completion_reward = {
+		     add_research_slot = 1
+			 add_stability = 0.03
+			 add_political_power = -15
 		}
 	}
 
@@ -214,6 +224,12 @@ focus_tree = {
 		relative_position_id = USA_strengthen_the_education_system
 		prerequisite = { focus = USA_strengthen_the_education_system }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_unstable_nation
+				add_idea = USA_unstable_nation2
+			 }
+			 add_political_power = 50
+			 add_stability = 0.03
 		}
 	}
 
@@ -226,6 +242,10 @@ focus_tree = {
 		relative_position_id = USA_apologise_for_the_murder_of_theodore_roosevelt
 		prerequisite = { focus = USA_apologise_for_the_murder_of_theodore_roosevelt }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_american_corporatocracy
+				add_idea = USA_american_corporatocracy_reform
+			}
 		}
 	}
 
@@ -239,6 +259,16 @@ focus_tree = {
 		prerequisite = { focus = USA_restore_our_institutions }
 		prerequisite = { focus = USA_the_great_reform_act }
 		completion_reward = {
+		     add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_stability = 0.025
+			add_political_power = 25
 		}
 	}
 
@@ -285,6 +315,10 @@ focus_tree = {
 		relative_position_id = USA_andrew_mellon_secures_power
 		prerequisite = { focus = USA_andrew_mellon_secures_power }
 		completion_reward = {
+		    swap_ideas = {
+				remove_idea = USA_american_corporatocracy
+				add_idea = USA_american_corporatocracy_mellon
+			}
 		}
 	}
 
@@ -297,6 +331,10 @@ focus_tree = {
 		relative_position_id = USA_implement_reforms_of_the_treasury
 		prerequisite = { focus = USA_implement_reforms_of_the_treasury }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_american_corporatocracy_mellon
+				add_idea = USA_american_corporatocracy_mellon2
+			}
 		}
 	}
 
@@ -309,6 +347,8 @@ focus_tree = {
 		relative_position_id = USA_we_need_more_money
 		prerequisite = { focus = USA_we_need_more_money }
 		completion_reward = {
+		     add_political_power = 200
+			 add_stability = -0.1
 		}
 	}
 
@@ -321,6 +361,28 @@ focus_tree = {
 		relative_position_id = USA_andrew_mellon_secures_power
 		prerequisite = { focus = USA_andrew_mellon_secures_power }
 		completion_reward = {
+		     random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
 		}
 	}
 
@@ -333,6 +395,11 @@ focus_tree = {
 		relative_position_id = USA_connect_the_american_countryside
 		prerequisite = { focus = USA_connect_the_american_countryside }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_unstable_nation
+				add_idea = USA_unstable_nation2
+			 }
+			 add_political_power = -25
 		}
 	}
 
@@ -345,12 +412,16 @@ focus_tree = {
 		relative_position_id = USA_clamp_down_on_congress_corruption
 		prerequisite = { focus = USA_clamp_down_on_congress_corruption }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_uninstitutional_slavery
+				add_idea = USA_token_worker_rights
+			}
 		}
 	}
 
 	focus = {
 		id = USA_the_power_of_the_stock_market
-		icon = GFX_focus_USA_the_power_of_the_stock_market
+		icon = GFX_current_affairs
 		x = -1
 		y = 1
 		cost = 5
@@ -358,6 +429,10 @@ focus_tree = {
 		prerequisite = { focus = USA_or_we_are_dead }
 		prerequisite = { focus = USA_implement_token_worker_rights }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_american_corporatocracy_mellon2
+				add_idea = USA_american_corporatocracy_mellon3
+			}
 		}
 	}
 
@@ -421,6 +496,10 @@ focus_tree = {
 		relative_position_id = USA_buy_back_our_weapons
 		prerequisite = { focus = USA_buy_back_our_weapons }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_american_corporatocracy
+				add_idea = USA_american_corporatocracy_jr
+			}
 		}
 	}
 
@@ -433,7 +512,7 @@ focus_tree = {
 		relative_position_id = USA_continue_heavy_economic_expansion
 		prerequisite = { focus = USA_continue_heavy_economic_expansion }
 		completion_reward = {
-		     swap_ideas = {
+		    swap_ideas = {
 				remove_idea = USA_uninstitutional_slavery
 				add_idea = USA_uninstitutional_slavery_jr
 			}
@@ -449,7 +528,21 @@ focus_tree = {
 		relative_position_id = USA_the_legitimate_successor
 		prerequisite = { focus = USA_the_legitimate_successor }
 		completion_reward = {
-		}
+		    361 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			361 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+			}
 	}
 
 	focus = {
@@ -461,6 +554,12 @@ focus_tree = {
 		relative_position_id = USA_centralize_the_economy_of_maryland
 		prerequisite = { focus = USA_centralize_the_economy_of_maryland }
 		completion_reward = {
+		     add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			add_stability = -0.05
+			add_political_power = 100
 		}
 	}
 
@@ -473,6 +572,7 @@ focus_tree = {
 		relative_position_id = USA_crush_the_crimson_plot
 		prerequisite = { focus = USA_crush_the_crimson_plot }
 		completion_reward = {
+		     country_event = USA_rockefeller_jr.6
 		}
 	}
 
@@ -486,6 +586,11 @@ focus_tree = {
 		prerequisite = { focus = USA_make_them_work_by_jingo }
 		prerequisite = { focus = USA_the_eternal_legacy_of_the_father }
 		completion_reward = {
+		    swap_ideas = {
+				remove_idea = USA_unstable_nation
+				add_idea = USA_unstable_nation2
+			}
+			army_experience = 35
 		}
 	}
 
@@ -530,6 +635,13 @@ focus_tree = {
 		relative_position_id = USA_edward_l_dohney_will_continue_the_dream
 		prerequisite = { focus = USA_edward_l_dohney_will_continue_the_dream }
 		completion_reward = {
+		    add_political_power = 25
+			362 = {
+				add_resource = {
+					type = oil
+					amount = 28
+				}
+			}
 		}
 	}
 
@@ -542,6 +654,9 @@ focus_tree = {
 		relative_position_id = USA_expand_our_oil_refineries
 		prerequisite = { focus = USA_expand_our_oil_refineries }
 		completion_reward = {
+		     add_ideas = {
+                      CCC_improved_excavation
+			    }
 		}
 	}
 
@@ -554,6 +669,25 @@ focus_tree = {
 		relative_position_id = USA_tap_into_our_resource_deposits
 		prerequisite = { focus = USA_tap_into_our_resource_deposits }
 		completion_reward = {
+		     362 = {
+				add_resource = {
+					type = oil
+					amount = 28
+				}
+			}
+			369 = {
+				add_resource = {
+					type = oil
+					amount = 36
+				}
+			}
+			261 = {
+				add_resource = {
+					type = oil
+					amount = 17
+				}
+			}
+			add_stability = -0.05
 		}
 	}
 
@@ -566,6 +700,11 @@ focus_tree = {
 		relative_position_id = USA_edward_l_dohney_will_continue_the_dream
 		prerequisite = { focus = USA_edward_l_dohney_will_continue_the_dream }
 		completion_reward = {
+		     add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			add_stability = 0.05
 		}
 	}
 
@@ -578,6 +717,17 @@ focus_tree = {
 		relative_position_id = USA_cooperate_with_the_son
 		prerequisite = { focus = USA_cooperate_with_the_son }
 		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			 add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			add_stability = -0.05
+			add_political_power = 75
+			add_war_support = 0.03
 		}
 	}
 
@@ -590,6 +740,15 @@ focus_tree = {
 		relative_position_id = USA_better_dead_than_red
 		prerequisite = { focus = USA_better_dead_than_red }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_unstable_nation
+				add_idea = USA_unstable_nation2
+			 }
+			 add_political_power = -50
+			  add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			    }
 		}
 	}
 
@@ -603,6 +762,10 @@ focus_tree = {
 		prerequisite = { focus = USA_oil_more_oil_oil_makes_the_world_go_round }
 		prerequisite = { focus = USA_bribe_establishment_politicians }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_american_corporatocracy
+				add_idea = USA_american_corporatocracy_oil
+			}
 		}
 	}
 
@@ -649,6 +812,14 @@ focus_tree = {
 		relative_position_id = USA_charles_m_schwab_will_make_them_fear
 		prerequisite = { focus = USA_charles_m_schwab_will_make_them_fear }
 		completion_reward = {
+		     random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -661,6 +832,16 @@ focus_tree = {
 		relative_position_id = USA_focus_on_heavy_military_industry
 		prerequisite = { focus = USA_focus_on_heavy_military_industry }
 		completion_reward = {
+		    261 = {
+					add_extra_state_shared_building_slots = 2
+				}
+			261 = {
+				add_resource = {
+					type = steel
+					amount = 21
+				}
+			}
+			add_political_power = -15
 		}
 	}
 
@@ -673,6 +854,9 @@ focus_tree = {
 		relative_position_id = USA_expand_our_steel_mines
 		prerequisite = { focus = USA_expand_our_steel_mines }
 		completion_reward = {
+		     add_ideas = {
+                      CCC_resourcefulnes
+			    }
 		}
 	}
 
@@ -685,6 +869,16 @@ focus_tree = {
 		relative_position_id = USA_charles_m_schwab_will_make_them_fear
 		prerequisite = { focus = USA_charles_m_schwab_will_make_them_fear }
 		completion_reward = {
+		    add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			add_stability = -0.05
+			add_political_power = -100
 		}
 	}
 
@@ -697,6 +891,10 @@ focus_tree = {
 		relative_position_id = USA_mysterious_abductions_of_the_left
 		prerequisite = { focus = USA_mysterious_abductions_of_the_left }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_uninstitutional_slavery
+				add_idea = USA_uninstitutional_slavery_schwab
+			}
 		}
 	}
 
@@ -709,6 +907,8 @@ focus_tree = {
 		relative_position_id = USA_opress_all_minorities
 		prerequisite = { focus = USA_opress_all_minorities }
 		completion_reward = {
+		     add_stability = 0.05
+			 add_political_power = -50
 		}
 	}
 
@@ -722,18 +922,34 @@ focus_tree = {
 		prerequisite = { focus = USA_an_economy_of_production_and_excavation }
 		prerequisite = { focus = USA_obliterate_the_urban_mafia }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_unstable_nation
+				add_idea = USA_unstable_nation2
+			 }
+			 add_war_support = 0.04
+			 army_experience = 50
 		}
 	}
 
 	focus = {
 		id = USA_corporate_economic_development
-		icon = GFX_focus_USA_corporate_economic_development
+		icon = GFX_focus_USA_mc_loyal_corporations
 		x = 0
 		y = 2
 		cost = 5
 		relative_position_id = USA_we_will_all_be_gay_when_money_comes_marching_home
 		prerequisite = { focus = USA_democracy_shall_prevail focus = USA_the_power_of_the_stock_market focus = USA_we_will_all_be_gay_when_money_comes_marching_home focus = USA_america_goes_choo_choo focus = USA_liberation_by_the_sword }
 		completion_reward = {
+		    random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			add_political_power = 25
 		}
 	}
 
@@ -742,10 +958,11 @@ focus_tree = {
 		icon = GFX_focus_USA_money_marches_against_poverty
 		x = 0
 		y = 1
-		cost = 5
+		cost = 8
 		relative_position_id = USA_corporate_economic_development
 		prerequisite = { focus = USA_corporate_economic_development }
 		completion_reward = {
+		     add_war_support = 0.1
 		}
 	}
 
@@ -758,6 +975,10 @@ focus_tree = {
 		relative_position_id = USA_money_marches_against_poverty
 		prerequisite = { focus = USA_money_marches_against_poverty }
 		completion_reward = {
+		     add_timed_idea = { 
+				idea = USA_clear_them_out
+				days = 120
+			}
 		}
 	}
 
@@ -767,22 +988,50 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = NEE
+				country_exists = PEN
+			}
+		}
 		relative_position_id = USA_money_marches_against_poverty
 		prerequisite = { focus = USA_money_marches_against_poverty }
 		completion_reward = {
+		      declare_war_on = {
+				target = PEN
+				type = annex_everything
+			 }
+              declare_war_on = {
+				target = NEE
+				type = annex_everything
+			 }			
 		}
 	}
 
 	focus = {
 		id = USA_the_war_for_americas_destiny
-		icon = GFX_focus_USA_the_war_for_americas_destiny
+		icon = GFX_focus_USA_mc_soc
 		x = -1
 		y = 1
 		cost = 5
+			available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = ASF
+			}
+		}
 		relative_position_id = USA_prepare_to_strike_the_marxists
 		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
-		prerequisite = { focus = USA_intervene_in_the_northeast }
 		completion_reward = {
+		      declare_war_on = {
+				target = ASF
+				type = annex_everything
+			}	
 		}
 	}
 
@@ -831,7 +1080,6 @@ focus_tree = {
 			}
 		}
 		relative_position_id = USA_intervene_in_the_northeast
-		prerequisite = { focus = USA_prepare_to_strike_the_marxists }
 		prerequisite = { focus = USA_intervene_in_the_northeast }
 		completion_reward = {
 		     declare_war_on = {
@@ -852,6 +1100,10 @@ focus_tree = {
 		prerequisite = { focus = USA_a_strike_against_the_deranged_southerners }
 		prerequisite = { focus = USA_reincorporate_the_empire_states_capital }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_unstable_nation2
+				add_idea = USA_unstable_nation3
+			 }
 		}
 	}
 
@@ -928,7 +1180,11 @@ focus_tree = {
 		     declare_war_on = {
 				target = CCC
 				type = annex_everything
-			}	
+			 }	
+			 swap_ideas = {
+				remove_idea = USA_unstable_nation3
+				add_idea = USA_unstable_nation4
+			 }
 		}
 	}
 
@@ -938,9 +1194,31 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = IDA
+				country_exists = WSH
+				country_exists = ORG
+			}
+		}
 		relative_position_id = USA_the_memories_of_nineteensixteen
 		prerequisite = { focus = USA_the_memories_of_nineteensixteen }
 		completion_reward = {
+		     declare_war_on = {
+				target = ORG
+				type = annex_everything
+			 }	
+			 declare_war_on = {
+				target = WSH
+				type = annex_everything
+			 }
+			 declare_war_on = {
+				target = IDA
+				type = annex_everything
+			 }	
 		}
 	}
 
@@ -971,15 +1249,20 @@ focus_tree = {
 
 	focus = {
 		id = USA_the_american_dream_returns
-		icon = GFX_focus_USA_the_american_dream_returns
+		icon = GFX_focus_USA_american_dream
 		x = 1
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
 		relative_position_id = USA_take_back_the_northwest
 		prerequisite = { focus = USA_take_back_the_northwest }
 		prerequisite = { focus = USA_an_armed_gold_rush }
 		completion_reward = {
-		     add_stability = 0.1
+			 remove_ideas = {
+				USA_unstable_nation4
+			}
 		}
 	}
 
@@ -989,9 +1272,20 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = ALA
+			}
+		}
 		relative_position_id = USA_the_american_dream_returns
 		prerequisite = { focus = USA_the_american_dream_returns }
 		completion_reward = {
+		     ALA = {	
+				country_event = usa_rockefeller_jr.7
+			}
 		}
 	}
 
@@ -1001,9 +1295,20 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = {
+				country_exists = CUB
+			}
+		}
 		relative_position_id = USA_the_american_dream_returns
 		prerequisite = { focus = USA_the_american_dream_returns }
 		completion_reward = {
+		      CUB = {	
+				country_event = usa_rockefeller_jr.8
+			}
 		}
 	}
 
@@ -1013,9 +1318,22 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
+		available = {
+			has_war = no
+			is_neighbor_of = MEX
+		}
+		bypass = {
+			NOT = {
+				country_exists = MEX
+			}
+		}
 		relative_position_id = USA_the_american_dream_returns
 		prerequisite = { focus = USA_the_american_dream_returns }
 		completion_reward = {
+		     declare_war_on = {
+				target = MEX
+				type = annex_everything
+			 } 
 		}
 	}
 
@@ -1025,8 +1343,14 @@ focus_tree = {
 		x = 18
 		y = 0
 		cost = 5
+		available = {
+			has_completed_focus = USA_analyze_the_current_military_situation
+		}
 		completion_reward = {
-		     
+		     add_political_power = 40
+			 army_experience = 30
+			 navy_experience = 15
+			 air_experience = 15
 		}
 	}
 
@@ -1040,6 +1364,10 @@ focus_tree = {
 		relative_position_id = USA_the_question_of_the_military
 		prerequisite = { focus = USA_the_question_of_the_military }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_corporate_military
+				add_idea = USA_reestablishing_the_armed_forces
+			}
 		}
 		
 	}
@@ -1053,7 +1381,42 @@ focus_tree = {
 		relative_position_id = USA_re_establish_the_armed_forces
 		prerequisite = { focus = USA_re_establish_the_armed_forces }
 		completion_reward = {
+		     division_template = {
+				name = "Militia Brigade"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+
+					cavalry = { x = 2 y = 0 }
+					cavalry = { x = 2 y = 1 }
+					
+					artillery_brigade = { x = 3 y = 0 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+			261 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 1
+				}
+			}
+			362 = {
+				create_unit = {
+					division = "name = \"Militia Brigade\" division_template = \"Militia Brigade\" start_experience_factor = 0"
+					owner = PREV
+					count = 1
+				}
 		}
+	}
 	}
 
 	focus = {
@@ -1062,9 +1425,16 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		available = {
+			has_completed_focus = USA_reorganise_the_command_structure
+		}
 		relative_position_id = USA_form_new_army_brigades
 		prerequisite = { focus = USA_form_new_army_brigades }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_reestablishing_the_armed_forces2
+				add_idea = USA_reestablishing_the_armed_forces3
+			}
 		}
 	}
 
@@ -1077,6 +1447,10 @@ focus_tree = {
 		relative_position_id = USA_re_establish_the_armed_forces
 		prerequisite = { focus = USA_re_establish_the_armed_forces }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_reestablishing_the_armed_forces
+				add_idea = USA_reestablishing_the_armed_forces2
+			}
 		}
 	}
 
@@ -1089,7 +1463,21 @@ focus_tree = {
 		relative_position_id = USA_reorganise_the_command_structure
 		prerequisite = { focus = USA_reorganise_the_command_structure }
 		completion_reward = {
-		}
+		      261 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = -2
+						instant_build = yes
+					}
+			 }
+		     261 = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
 	}
 
 	focus = {
@@ -1102,6 +1490,10 @@ focus_tree = {
 		prerequisite = { focus = USA_commence_a_substantial_recruitment_drive }
 		prerequisite = { focus = USA_assign_production_lines_for_the_military }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_reestablishing_the_armed_forces3
+				add_idea = USA_reestablishing_the_armed_forces4
+			}
 		}
 	}
 
@@ -1115,6 +1507,10 @@ focus_tree = {
 		relative_position_id = USA_the_question_of_the_military
 		prerequisite = { focus = USA_the_question_of_the_military }
 		completion_reward = {
+		      swap_ideas = {
+				remove_idea = USA_corporate_military
+				add_idea = USA_corporate_military2
+			}
 		}
 	}
 
@@ -1127,6 +1523,8 @@ focus_tree = {
 		relative_position_id = USA_empower_the_mercenaries
 		prerequisite = { focus = USA_empower_the_mercenaries }
 		completion_reward = {
+		     add_research_slot = 1
+			 add_command_power = 25
 		}
 	}
 
@@ -1139,6 +1537,8 @@ focus_tree = {
 		relative_position_id = USA_our_shrewd_scientists
 		prerequisite = { focus = USA_our_shrewd_scientists }
 		completion_reward = {
+		    add_manpower = 100000
+			add_political_power = -50
 		}
 	}
 
@@ -1151,6 +1551,10 @@ focus_tree = {
 		relative_position_id = USA_empower_the_mercenaries
 		prerequisite = { focus = USA_empower_the_mercenaries }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_corporate_military2
+				add_idea = USA_corporate_military3
+			}
 		}
 	}
 
@@ -1163,6 +1567,10 @@ focus_tree = {
 		relative_position_id = USA_doing_right_what_ford_did_wrong
 		prerequisite = { focus = USA_doing_right_what_ford_did_wrong }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_corporate_military3
+				add_idea = USA_corporate_military4
+			}
 		}
 	}
 
@@ -1176,6 +1584,10 @@ focus_tree = {
 		prerequisite = { focus = USA_hire_foreign_legions }
 		prerequisite = { focus = USA_develop_mercenary_communication_structures }
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = USA_corporate_military4
+				add_idea = USA_corporate_military5
+			}
 		}
 	}
 
@@ -1188,6 +1600,14 @@ focus_tree = {
 		relative_position_id = USA_the_question_of_the_military
 		prerequisite = { focus = USA_the_question_of_the_military }
 		completion_reward = {
+		    air_experience = 25
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				}
 		}
 	}
 
@@ -1201,6 +1621,26 @@ focus_tree = {
 		relative_position_id = USA_create_a_new_airforce
 		prerequisite = { focus = USA_create_a_new_airforce }
 		completion_reward = {
+		     air_experience = 25
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 100
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 100
+				}
+			}
+			add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
+			}
 		}
 	}
 
@@ -1213,6 +1653,18 @@ focus_tree = {
 		relative_position_id = USA_focus_on_arial_superiority
 		prerequisite = { focus = USA_focus_on_arial_superiority }
 		completion_reward = {
+            add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 2
+				category = cas_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = FRA_air_ground_cooperation
+				category = air_doctrine
+				uses = 1
+				cost_reduction = 0.5
+			}
 		}
 	}
 
@@ -1226,6 +1678,18 @@ focus_tree = {
 		relative_position_id = USA_create_a_new_airforce
 		prerequisite = { focus = USA_create_a_new_airforce }
 		completion_reward = {
+		     add_tech_bonus = {
+				name = FGB_aerial_innovations
+				bonus = 1.0
+				uses = 2
+				category = tactical_bomber
+			}
+			add_doctrine_cost_reduction = {
+				name = FRA_air_ground_cooperation
+				category = air_doctrine
+				uses = 1
+				cost_reduction = 0.5
+			}
 		}
 	}
 
@@ -1238,6 +1702,9 @@ focus_tree = {
 		relative_position_id = USA_focus_on_tactical_bombardment
 		prerequisite = { focus = USA_focus_on_tactical_bombardment }
 		completion_reward = {
+		     add_ideas = {
+				USA_simplified_plane_production
+			}
 		}
 	}
 
@@ -1251,6 +1718,7 @@ focus_tree = {
 		prerequisite = { focus = USA_flood_the_skies }
 		prerequisite = { focus = USA_the_effectiveness_of_small_ships }
 		completion_reward = {
+		    add_ideas = USA_naval_bombardment
 		}
 	}
 
@@ -1263,6 +1731,20 @@ focus_tree = {
 		relative_position_id = USA_the_question_of_the_military
 		prerequisite = { focus = USA_the_question_of_the_military }
 		completion_reward = {
+		     random_core_state = {
+				prioritize = { 361 }
+				limit = {
+					is_coastal = yes
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			navy_experience = 25
 		}
 	}
 
@@ -1276,6 +1758,11 @@ focus_tree = {
 		relative_position_id = USA_the_naval_act
 		prerequisite = { focus = USA_the_naval_act }
 		completion_reward = {
+		     add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
+
 		}
 	}
 
@@ -1288,6 +1775,47 @@ focus_tree = {
 		relative_position_id = USA_a_private_navy
 		prerequisite = { focus = USA_a_private_navy }
 		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_tech = advanced_ship_hull_submarine
+							has_tech = advanced_submarine
+						}
+					}
+				}
+
+
+				add_tech_bonus = {
+					name = ss_bonus
+					ahead_reduction = 1
+					uses = 1
+					category = ss_tech
+				}
+				
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+
+
+					add_tech_bonus = {
+						name = ss_bonus
+						ahead_reduction = 1
+						uses = 1
+						technology = basic_submarine_snorkel
+					}
+
+					
+				}
+				else = {
+					navy_experience = 20
+				}
+				
+			}
+			else = {
+				navy_experience = 70
+			}
 		}
 	}
 
@@ -1301,6 +1829,31 @@ focus_tree = {
 		relative_position_id = USA_the_naval_act
 		prerequisite = { focus = USA_the_naval_act }
 		completion_reward = {
+		    add_stability = 0.05
+		     every_navy_leader = {
+				limit = {
+					NOT = { has_trait = old_guard_navy }
+				}
+				random_select_amount = 3
+				add_trait = {
+				     character = THIS
+				     slot = navy_leader
+				     trait = fleet_protector
+				}
+
+				add_trait = {
+				     character = THIS
+				     slot = navy_leader
+				     trait = destroyer_leader
+				}
+			}
+
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = dd_tech # optional 
+				# technology  = technology_id # optional
+			}
 		}
 	}
 
@@ -1313,6 +1866,7 @@ focus_tree = {
 		relative_position_id = USA_a_united_fleet
 		prerequisite = { focus = USA_a_united_fleet }
 		completion_reward = {
+		    add_ideas = USA_battleship_primacy
 		}
 	}
 }
