@@ -261,7 +261,7 @@ news_event = { #Noske unites germany
 	id = fgb.10
 	title = fgb.10.t
 	desc = fgb.10.d
-	picture = GFX_news_event_freikorps_germany
+	picture = GFX_news_event_freikorps_berlin
 	is_triggered_only = yes
 	major = yes
 
@@ -829,28 +829,10 @@ country_event = {
 	desc = fgb.31.d
 	picture = GFX_report_event_valknut
 	is_triggered_only = yes
-	fire_only_once = yes
 
 	option = {
 		name = fgb.31.a
-		ai_chance = {
-			factor = 75
-			modifier = {
-				factor = 5
-				OR = {
-					has_government = social_democrat
-					has_government = liberalism
-					has_government = conservatism
-				}
-			}
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FGB
-					value < 20
-				}
-			}
-		}
+		ai_chance = { base = 5 }
 		add_stability = 0.02
 		FROM = { add_to_faction = PREV }
 		FGB = {
@@ -860,24 +842,7 @@ country_event = {
 
 	option = {
 		name = fgb.31.b
-		ai_chance = {
-			factor = 25
-			modifier = {
-				factor = 4
-				OR = {
-					NOT = { has_government = social_democrat }
-					NOT = { has_government = liberalism }
-					NOT = { has_government = conservatism }
-				}
-			}
-			modifier = {
-				factor = 4
-				has_opinion = {
-					target = FGB
-					value > 20
-				}
-			}
-		}
+		ai_chance = { base = 1 }
 		add_political_power = 30
 		FGB = {
 			country_event = fgb.32
@@ -891,7 +856,6 @@ country_event = {
 	desc = fgb.32.d
 	picture = GFX_report_event_valknut
 	is_triggered_only = yes
-	fire_only_once = yes
 
 	option = {
 		name = fgb.32.a
@@ -905,7 +869,6 @@ country_event = {
 	desc = fgb.33.d
 	picture = GFX_report_event_valknut
 	is_triggered_only = yes
-	fire_only_once = yes
 
 	option = {
 		name = fgb.33.a
