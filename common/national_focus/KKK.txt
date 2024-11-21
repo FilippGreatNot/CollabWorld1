@@ -1745,6 +1745,35 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = KKK_the_emperor_of_north_america
+		icon = GFX_KKK_white_only_recruitment
+		prerequisite = { focus = KKK_operation_taco_demise }
+		prerequisite = { focus = KKK_march_to_hudson_bay }
+		relative_position_id = KKK_operation_taco_demise
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+			has_war = no
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			has_completed_focus = KKK_our_manifest_destiny
+			factor = 10
+			}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
+	         add_country_leader_trait = {
+				ideology = national_syndicalism
+				trait = the_supreme_wizard_of_north_america
+			}
+		}
+	}
+	
+	focus = {
 		id = KKK_reconnect_oklahoma_with_the_klan
 		icon = GFX_KKK_reconnect_oklahoma_with_the_klan
 		prerequisite = { focus = KKK_widespread_southern_patriotism }
@@ -2155,7 +2184,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_improved_training_camps
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_training
 		prerequisite = { focus = KKK_ramp_up_research_spending }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = -1
@@ -2228,7 +2257,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_develop_new_assault_guns
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_assault
 		prerequisite = { focus = KKK_the_machine_gun }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 1
@@ -2255,7 +2284,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_begin_development_of_armored_vehicles
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_armored
 		prerequisite = { focus = KKK_develop_new_assault_guns }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 1
@@ -2338,7 +2367,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_advanced_fighters
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_advanced
 		prerequisite = { focus = KKK_we_must_catch_up_with_the_world }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 3
