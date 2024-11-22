@@ -1788,7 +1788,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_and_for_stability
-		icon = GFX_generic_democratic_medal_2
+		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
 		cost = 5
@@ -1796,8 +1796,8 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_the_second_revolution_of_1848 }
 		relative_position_id = FGB_noske_the_second_revolution_of_1848
 		completion_reward = {
-			add_stability = 0.2
-			add_political_power = 130
+			add_stability = 0.1
+			add_political_power = 100
 		}
 	}
 
@@ -1860,6 +1860,7 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_cdu_victory }
 		relative_position_id = FGB_noske_hold_our_first_elections
 		completion_reward = {
+			set_cosmetic_tag = FGB_hitler
 			add_stability = -0.1
 			add_war_support = 0.15
 			deactivate_advisor = FGB_adolf_hiedler_prop
@@ -1881,6 +1882,24 @@ focus_tree = {
 			}
 			custom_effect_tooltip = FGB_to_get_hitler_tt
 			country_event = { id = fgb.38 days = 3 }
+		}
+	}
+
+	focus = {
+		id = FGB_der_fuhrer
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 3
+		allow_branch = { 
+			has_government = national_syndicalism
+		}
+		prerequisite = { focus = FGB_hitlers_coup }
+		relative_position_id = FGB_hitlers_coup
+		completion_reward = {
+			add_war_support = 0.1
+			add_country_leader_trait = the_fuhrer
+			add_popularity = { ideology = national_syndicalism popularity = 0.05 }
 		}
 	}
 
@@ -2745,19 +2764,15 @@ focus_tree = {
 		relative_position_id = FGB_noske_invite_the_scandinavian_democracies
 		completion_reward = {
 			SWE = {
-				country_event = { id = wuw_GER_diplomacy.1 days = 2 }
+				country_event = { id = fgb.40 days = 2 }
 			}
-			custom_effect_tooltip = if_they_accept_tt
+			custom_effect_tooltip = FGB_if_they_accept_tt
 			effect_tooltip = {
-				SWE = {
-					add_ideas = GER_german_trade_ns
-					add_opinion_modifier = {
-						target = PREV
-						modifier = GER_trading_partners
-					}
-				}
-				custom_effect_tooltip = war_will_cancel_deal_tt
+				give_resource_rights = { receiver = FGB state = 666 }
+				SWE = { add_ideas = { FGB_german_trade } }
 			}
+			custom_effect_tooltip = FGB_if_they_refuse_tt
+			effect_tooltip = { country_event = { id = fgb.41 days = 3 } }
 		}
 	}
 
@@ -2913,12 +2928,12 @@ focus_tree = {
 		icon = GFX_goal_demand_sudetenland
 		x = 1
 		y = 1
-		cost = 4
+		cost = 2
 		prerequisite = { focus = FGB_noske_establish_the_euromark }
 		prerequisite = { focus = FGB_noske_establish_the_eurokorps_initiative }
 		relative_position_id = FGB_noske_establish_the_euromark
 		completion_reward = {
-			add_political_power = 10
+			country_event = fgb.42
 		}
 	}
 
@@ -2932,7 +2947,14 @@ focus_tree = {
 		mutually_exclusive = { focus = FGB_noske_a_free_europe }
 		relative_position_id = FGB_noske_presidency_of_the_europakt
 		completion_reward = {
-			add_political_power = 10
+			custom_effect_tooltip = FGB_we_will_message_every_member_tt
+			set_cosmetic_tag = FGBEUROPA
+			hidden_effect = {
+				every_other_country = {
+					limit = { is_in_faction_with = FGB }
+					country_event = { id = fgb.43 days = 2 }
+				}
+			}	
 		}
 	}
 
@@ -2941,12 +2963,14 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
-		cost = 6
+		cost = 3
 		prerequisite = { focus =  FGB_noske_presidency_of_the_europakt }
 		mutually_exclusive = { focus = FGB_noske_die_vereinigte_staaten_von_europa }
 		relative_position_id = FGB_noske_presidency_of_the_europakt
 		completion_reward = {
-			add_political_power = 10
+			custom_effect_tooltip = FGB_europe_will_remain_free_and_blah_tt
+			add_stability = 0.1
+			add_war_support = 0.1
 		}
 	}
 	
