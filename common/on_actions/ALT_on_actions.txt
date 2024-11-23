@@ -1,27 +1,7 @@
 on_actions = {
-	on_capitulation = { ##making sure that once dzungaria capitulates, its actually annexed
-        effect = { 
-	        if = { 
-				limit = {
-					ROOT = {
-						original_tag = DZG
-					}
-					FROM = {
-						original_tag = ALT
-					}
-				}
-				ALT = {
-					annex_country = {
-						target = DZG
-						transfer_troops = no
-					}
-				}
-			}
-        }
-	}
-	on_capitulation = { 
-        effect = { 
-	        if = { 
+	on_capitulation = {
+    	effect = { 
+	    	if = { 
 				limit = {
 					ROOT = {
 						original_tag = RMA
@@ -35,7 +15,7 @@ on_actions = {
 					end_puppet = RMA
 				}
 				ALT = {
-				    white_peace = RMA
+					white_peace = RMA
 					white_peace = RUS
 					set_autonomy = {
 	            		target = RMA
@@ -57,6 +37,46 @@ on_actions = {
 					add_core_of = MON
 					remove_core_of = RUS
 					transfer_state_to = RMA
+				}
+			}
+		}
+	}
+	on_capitulation = {
+		effect = { 
+	    	if = { 
+				limit = {
+					ROOT = {
+						original_tag = RMA
+					}
+					OR = {
+						FROM = {
+							original_tag = ALT
+							has_country_flag = ALT_puppets_rma_false
+						}
+						FROM = {
+							original_tag = MON
+						}
+					}
+				}
+				RUS = {
+					end_puppet = RMA
+				}
+				ALT = {
+					white_peace = RMA
+					white_peace = RUS
+				}
+				MON = {
+					white_peace = RMA
+					white_peace = RUS
+					annex_country = {
+						target = RMA
+						transfer_troops = yes
+					}
+				}
+				329 = {
+					add_core_of = MON
+					remove_core_of = RUS
+					transfer_state_to = MON
 				}
 			}
 		}

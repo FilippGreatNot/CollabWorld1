@@ -1435,8 +1435,9 @@ focus_tree = {
 			NOT = { country_exists = SIK }
 			NOT = { country_exists = TIA }
 			has_government = bolshevism
-			KUM = {
-				has_government = bolshevism
+			OR = {
+				KUM = { has_government = bolshevism }
+				KUM = { has_government = marxism }
 			}
 		}
 		mutually_exclusive = { focus = ALT_install_the_peoples_state }
@@ -1466,8 +1467,9 @@ focus_tree = {
 			NOT = { country_exists = SIK }
 			NOT = { country_exists = TIA }
 			has_government = marxism
-			KUM = {
-				has_government = marxism
+			OR = {	
+				KUM = { has_government = bolshevism }
+				KUM = { has_government = marxism }
 			}
 		}
 		mutually_exclusive = { focus = ALT_establish_a_soviet_republic }
@@ -3214,9 +3216,7 @@ focus_tree = {
 		prerequisite = { focus = ALT_towards_the_north }
 		completion_reward = {
 			create_faction = ALT_anti_russian_bloc
-			MON = {
-				add_to_faction = ALT_anti_russian_bloc
-			}
+			add_to_faction = MON
 			declare_war_on = {
 				target = RMA
 				type = puppet_wargoal_focus
@@ -3313,6 +3313,10 @@ focus_tree = {
 			}
 			set_cosmetic_tag = ALT_NWCSR
 			hidden_effect = {
+				every_owned_state = {
+					limit = { NOT = { is_core_of = RUS } } 
+					add_core_of = ALT
+				}
 				every_subject_country = {
 					set_country_flag = ALT_subject
 				}
