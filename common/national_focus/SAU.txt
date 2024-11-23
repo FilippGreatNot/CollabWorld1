@@ -1,0 +1,53 @@
+focus_tree = {
+    id = SAU_political_stability
+
+    country = {
+        base = 0
+        modifier = {
+            add = 10
+            tag = SAU
+        }
+    }
+    
+    focus = {
+        id = SAU_political_focus_1
+        icon = GFXsaupolit1
+        x = 1
+        y = 0
+        cost = 10
+        completion_reward = {
+            add_timed_idea = {
+                idea = custom_weekly_stability_boost10
+                days = 90
+            }
+        }        
+    }
+    focus = {
+        id = SAU_political_focus_2
+        icon = GFXsaupolit2
+        relative_position_id = SAU_political_focus_1
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = SAU_political_focus_1
+        }
+        completion_reward = {
+            
+        }
+    }
+    focus = {
+        id = SAU_political_focus_3
+        icon = GFXsaupolit3
+        relative_position_id = SAU_political_focus_1
+        x=1
+        y=1
+        cost = 5
+        completion_reward = {
+            add_political_power = 100
+        }
+        prerequisite = {
+            focus = SAU_political_focus_1
+        }
+    }
+}
