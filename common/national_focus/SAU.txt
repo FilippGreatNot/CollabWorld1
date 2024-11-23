@@ -11,10 +11,10 @@ focus_tree = {
     
     focus = {
         id = SAU_strenghten_the_sultanates_authority
-        icon = GFXsaupolit1
+        icon = GFX_focus_SAU_authority
         x = 5
         y = 0
-        cost = 5
+        cost = 7
         completion_reward = {
             add_timed_idea = {
                 idea = SAU_strenghtening_sultanate_authority
@@ -24,11 +24,11 @@ focus_tree = {
     }
     focus = {
         id = SAU_treaty_of_al_uqair
-        icon = GFXsaupolit2
+        icon = GFX_focus_SAU_treaty_of_al_uqair
         relative_position_id = SAU_strenghten_the_sultanates_authority
         x = -1
         y = 1
-        cost = 5
+        cost = 6
         prerequisite = {
             focus = SAU_strenghten_the_sultanates_authority
         }
@@ -45,11 +45,11 @@ focus_tree = {
     }
     focus = {
         id = SAU_consult_the_ulema
-        icon = GFXsaupolit3
+        icon = GFX_focus_SAU_quran
         relative_position_id = SAU_strenghten_the_sultanates_authority
         x=1
         y=1
-        cost = 5
+        cost = 6
         completion_reward = {
             add_political_power = 25
 			add_popularity = {
@@ -59,6 +59,104 @@ focus_tree = {
         }
         prerequisite = {
             focus = SAU_strenghten_the_sultanates_authority
+        }
+    }
+	 focus = {
+        id = SAU_strenghten_the_ikhwan
+        icon = GFX_focus_SAU_ikhwan
+        relative_position_id = SAU_strenghten_the_sultanates_authority
+        x=3
+        y=1
+        cost = 7
+		prerequisite = {
+            focus = SAU_strenghten_the_sultanates_authority
+        }
+        completion_reward = {
+            army_experience = 20
+			add_manpower = 7500
+			division_template = {
+				name = "Ikhwan Cavalry"
+				regiments = {
+					cavalry = { x = 0 y = 0 }
+					cavalry = { x = 0 y = 1 }
+					cavalry = { x = 0 y = 2 }
+				}
+			}
+			292 = {
+				create_unit = {
+					division = "name = \"Ikhwan Cavalry\" division_template = \"Ikhwan Cavalry\" start_experience_factor = 0"
+					owner = PREV
+					count = 2
+				}
+			}
+        }
+    }
+	 focus = {
+        id = SAU_support_local_tribal_communities
+        icon = GFX_focus_SAU_tribes
+        relative_position_id = SAU_strenghten_the_sultanates_authority
+        x=-3
+        y=1
+        cost = 6
+        completion_reward = {
+            random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 25
+			add_stability = 0.03
+        }
+        prerequisite = {
+            focus = SAU_strenghten_the_sultanates_authority
+        }
+    }
+	 focus = {
+        id = SAU_strike_the_occupiers_of_hejaz
+        icon = GFX_focus_SAU_hejaz_war
+        relative_position_id = SAU_consult_the_ulema
+        x= -1
+        y= 1
+        cost = 5
+		available = { 
+			date > 1924.1.1
+		}
+        completion_reward = {
+            declare_war_on = {
+				target = HEJ
+				type = annex_everything
+			}
+        }
+        prerequisite = {
+            focus = SAU_treaty_of_al_uqair
+			focus = SAU_consult_the_ulema
+			focus = SAU_strenghten_the_ikhwan
+			focus = SAU_support_local_tribal_communities
+        }
+    }
+	 focus = {
+        id = SAU_integrate_the_hejazi_territories
+        icon = GFX_focus_SAU_hejaz_integrate
+        relative_position_id = SAU_strike_the_occupiers_of_hejaz
+        x= 0
+        y= 1
+        cost = 8
+		available = {
+			HEJ = {
+				PREV_controls_all_cores = yes
+			}
+		}
+        completion_reward = {
+            HEJ = { 
+				every_core_state = { add_core_of = SAU }
+			}
+			set_cosmetic_tag = SAU_united
+        }
+        prerequisite = {
+            focus = SAU_strike_the_occupiers_of_hejaz
         }
     }
 }
