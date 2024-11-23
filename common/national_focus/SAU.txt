@@ -10,44 +10,55 @@ focus_tree = {
     }
     
     focus = {
-        id = SAU_political_focus_1
+        id = SAU_strenghten_the_sultanates_authority
         icon = GFXsaupolit1
-        x = 1
+        x = 5
         y = 0
-        cost = 10
+        cost = 5
         completion_reward = {
             add_timed_idea = {
-                idea = custom_weekly_stability_boost10
+                idea = SAU_strenghtening_sultanate_authority
                 days = 90
             }
         }        
     }
     focus = {
-        id = SAU_political_focus_2
+        id = SAU_treaty_of_al_uqair
         icon = GFXsaupolit2
-        relative_position_id = SAU_political_focus_1
+        relative_position_id = SAU_strenghten_the_sultanates_authority
         x = -1
         y = 1
         cost = 5
         prerequisite = {
-            focus = SAU_political_focus_1
+            focus = SAU_strenghten_the_sultanates_authority
         }
         completion_reward = {
+		     IRQ = {
+				add_opinion_modifier = {
+					target = SAU
+					modifier = SAU_treaty_of_al_uqair_modifier
+				}
+			}
+			add_stability = 0.02
             
         }
     }
     focus = {
-        id = SAU_political_focus_3
+        id = SAU_consult_the_ulema
         icon = GFXsaupolit3
-        relative_position_id = SAU_political_focus_1
+        relative_position_id = SAU_strenghten_the_sultanates_authority
         x=1
         y=1
         cost = 5
         completion_reward = {
-            add_political_power = 100
+            add_political_power = 25
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.03
+			}
         }
         prerequisite = {
-            focus = SAU_political_focus_1
+            focus = SAU_strenghten_the_sultanates_authority
         }
     }
 }
