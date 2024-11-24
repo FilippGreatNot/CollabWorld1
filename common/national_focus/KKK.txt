@@ -365,7 +365,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_form_the_military_branch_of_government
-		icon = GFX_KKK_form_the_military_branch_of_government
+		icon = GFX_KKK_branch
 		x = -4
 		y = 1
 		cost = 10
@@ -417,6 +417,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
 			add_stability = 0.05
 			add_war_support = 0.1
+			add_political_power = 100
 		}
 	}
 	
@@ -768,7 +769,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_not_only_cotton_but_rubber_too
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_rubber
 		prerequisite = { focus = KKK_escelate_segregational_laws }
 		prerequisite = { focus = KKK_put_slaves_to_work_on_the_feilds }
 		relative_position_id = KKK_the_qestion_of_slavery
@@ -896,7 +897,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_substantial_segregational_laws
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_substantial
 		prerequisite = { focus = KKK_not_only_cotton_but_rubber_too focus = KKK_mysterious_dissapearences_of_african_americans}
 		relative_position_id = KKK_the_qestion_of_slavery
 		x = 0
@@ -924,7 +925,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_the_immeasurable_crusade
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_crusade
 		prerequisite = { focus = KKK_substantial_segregational_laws }
 		prerequisite = { focus = KKK_preachings_of_the_grand_wizard_man }
 		relative_position_id = KKK_the_qestion_of_slavery
@@ -950,7 +951,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_slave_labor_over_taxes
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_labor
 		prerequisite = { focus = KKK_substantial_segregational_laws }
 		prerequisite = { focus = KKK_open_up_the_slave_market }
 		relative_position_id = KKK_the_qestion_of_slavery
@@ -1400,7 +1401,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_the_shortlived_nation_of_new_england
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_new_england
 		prerequisite = { focus = KKK_cleanse_this_satanist_scum_from_our_nation }
 		prerequisite = { focus = KKK_weve_got_them_surrounded }
 		relative_position_id = KKK_white_only_recruitment
@@ -1673,7 +1674,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_operation_taco_demise
-		icon = GFX_KKK_white_only_recruitment
+		icon = GFX_KKK_taco
 		prerequisite = { focus = KKK_our_manifest_destiny }
 		relative_position_id = KKK_our_manifest_destiny
 		x = 1
@@ -1708,7 +1709,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_march_to_hudson_bay
-		icon = GFX_KKK_white_only_recruitment
+		icon = GFX_KKK_hudson
 		prerequisite = { focus = KKK_our_manifest_destiny }
 		relative_position_id = KKK_our_manifest_destiny
 		x = -1
@@ -1740,6 +1741,35 @@ focus_tree = {
 			declare_war_on = {
 				target = ALA
 				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = KKK_the_emperor_of_north_america
+		icon = GFX_KKK_emperor
+		prerequisite = { focus = KKK_operation_taco_demise }
+		prerequisite = { focus = KKK_march_to_hudson_bay }
+		relative_position_id = KKK_operation_taco_demise
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+			has_war = no
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			has_completed_focus = KKK_our_manifest_destiny
+			factor = 10
+			}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: Focus KKK_white_only_recruitment"
+	         add_country_leader_trait = {
+				ideology = national_syndicalism
+				trait = the_supreme_wizard_of_north_america
 			}
 		}
 	}
@@ -2016,7 +2046,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_klan_reformists_in_the_military
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_reform
 		prerequisite = { focus = KKK_form_the_military_branch_of_government }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = -1
@@ -2042,7 +2072,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_rapid_modernisation
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_rapid
 		prerequisite = { focus = KKK_form_the_military_branch_of_government }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 1
@@ -2071,7 +2101,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_a_shard_of_the_navy
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_shard
 		prerequisite = { focus = KKK_form_the_military_branch_of_government }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 5
@@ -2088,12 +2118,29 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
 			navy_experience = 50
+			random_core_state = {
+				prioritize = { 364 }
+				limit = {
+					is_coastal = yes
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
 		}
 	}
 	
 	focus = {
 		id = KKK_confederacy_will_rule_the_skies
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_sky
 		prerequisite = { focus = KKK_form_the_military_branch_of_government }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 3
@@ -2115,7 +2162,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_ramp_up_research_spending
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_ramp
 		prerequisite = { focus = KKK_klan_reformists_in_the_military }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = -1
@@ -2138,7 +2185,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_improved_training_camps
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_training
 		prerequisite = { focus = KKK_ramp_up_research_spending }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = -1
@@ -2154,7 +2201,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			add_ideas = KKK_improved_training_camps
+			add_ideas = KKK_improved_training_camps_idea
 		}
 	}
 	
@@ -2183,7 +2230,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_the_machine_gun
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_machine_gun
 		prerequisite = { focus = KKK_rapid_modernisation }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 1
@@ -2199,13 +2246,19 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
-			
+			add_tech_bonus = {
+					name = KKK_support_tech
+					bonus = 0.5
+					uses = 2
+					category = support_tech
+
+				}
 		}
 	}
 	
 	focus = {
 		id = KKK_develop_new_assault_guns
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_assault
 		prerequisite = { focus = KKK_the_machine_gun }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 1
@@ -2221,12 +2274,18 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [Root.GetName]: Focus KKK_globally_distribute_cotton"
+			add_tech_bonus = {
+				name = KKK_government_weapons_contract
+			    bonus = 0.5
+			    uses = 2
+			    category = infantry_weapons
+			}
 		}
 	}
 	
 	focus = {
 		id = KKK_begin_development_of_armored_vehicles
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_armored
 		prerequisite = { focus = KKK_develop_new_assault_guns }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 1
@@ -2280,7 +2339,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_we_must_catch_up_with_the_world
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_catch
 		prerequisite = { focus = KKK_confederacy_will_rule_the_skies }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 3
@@ -2309,7 +2368,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_advanced_fighters
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_advanced
 		prerequisite = { focus = KKK_we_must_catch_up_with_the_world }
 		relative_position_id = KKK_form_the_military_branch_of_government
 		x = 3
@@ -2541,7 +2600,7 @@ focus_tree = {
 	
 	focus = {
 		id = KKK_we_must_militerize_immedietly
-		icon = GFX_KKK_globally_distribute_cotton
+		icon = GFX_KKK_militarize
 		prerequisite = { focus = KKK_the_steel_reserves_of_georgia }
 		relative_position_id = KKK_a_recovery_from_the_graveyard
 		x = 4

@@ -160,14 +160,16 @@ guiTypes = {
 		show_position = { x=-256 y =-1 }
 		animation_type = decelerated
 		animation_time = 1000					
-		size = { width = 256 height = 768}
+		size = { width = 256 height = 256 }
 		Orientation = upper_right
-
+		origo = upper_right
+		
 		ButtonType = {
 			name = "achievements_button"
 			position = { x = -50 y = 25 }
 			quadTextureSprite ="achievements"
 			pdx_tooltip = "MENU_ACHIEVEMENTS"
+			orientation = upper_right
 		}
 
 		iconType =
@@ -175,6 +177,7 @@ guiTypes = {
 			name ="frontend_dev_logo"
 			spriteType = "GFX_frontend_dev_logo"
 			position = { x= 15 y = 15 }
+			orientation = upper_right
 		}
 		
 		iconType =
@@ -182,8 +185,16 @@ guiTypes = {
 			name ="pdx_int_logo"
 			spriteType = "GFX_pdx_int_logo"
 			position = { x= 135 y = 15 }
-		}		
-		
+			orientation = upper_right
+		}
+		instantTextBoxType = {
+			name ="outdated_loc_warning"
+			font = "hoi_18mbs"
+			text = "outdated_loc_warning"
+			format = left
+			orientation = UPPER_LEFT
+			
+		}
 	}		
 
 	### SINGLE PLAYER MENU
@@ -282,7 +293,7 @@ guiTypes = {
 			shortcut = "ESCAPE"
 		}
 	}
-
+	
 	### MAIN MENU PANEL (bottom)
 	containerWindowType = {
 		name ="mainmenu_panel_bottom"
