@@ -187,3 +187,35 @@ country_event = {
 		add_stability = 0.05
 	}
 }
+
+country_event = {
+	id = ukr_soc.2
+	title = ukr_soc.2.t
+	desc = ukr_soc.2.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.2.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	137 = { transfer_state_to = UKR }
+			add_state_core = 137
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.3
+	title = ukr_soc.3.t
+	desc = ukr_soc.3.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.3.a
+		FROM = {
+			create_wargoal = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+		add_war_support = 0.1
+	}
+}
