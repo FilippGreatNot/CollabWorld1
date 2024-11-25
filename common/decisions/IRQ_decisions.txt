@@ -448,16 +448,24 @@ IRQ_coring_decisions = {
 		visible = {
 			owns_state = 292
 			NOT = {
-				292 = {
+				1066 = {
+					is_core_of = ROOT
+				}
+				1065  = {
 					is_core_of = ROOT
 				}
 				678 = {
+					is_core_of = ROOT
+				}
+				292 = {
 					is_core_of = ROOT
 				}
 			}
 		}
 
 		highlight_states = {
+			state = 1066
+			state = 1065
 			state = 678
 			state = 292
 		}
@@ -478,6 +486,8 @@ IRQ_coring_decisions = {
 
 		remove_effect	= {
 			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 1066
+			add_state_core = 1065
 			add_state_core = 678
 			add_state_core = 292
 		}
