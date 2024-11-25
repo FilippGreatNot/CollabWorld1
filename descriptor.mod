@@ -1,4 +1,4 @@
-version="0.2.0.0 beta (Bleeding sands)"
+version="0.3.0.1 beta (American Nightmare)"
 picture="thumbnail.png"
 tags={
 	"Alternative History"
