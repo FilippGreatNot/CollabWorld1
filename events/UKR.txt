@@ -224,12 +224,57 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc.3.a
-		FROM = {
+		PREV = {
 			create_wargoal = {
-				target = PREV
+				target = FROM
 				type = annex_everything
 			}
 		}
 		add_war_support = 0.1
+	}
+}
+
+#white suck
+country_event = {
+	id = ukr_soc.4
+	title = ukr_soc.4.t
+	desc = ukr_soc.4.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.4.a
+		add_stability = 0.1
+		add_war_support = 0.1
+		add_political_power = 100
+	}
+}
+
+country_event = {
+	id = ukr_soc.5
+	title = ukr_soc.5.t
+	desc = ukr_soc.5.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.5.a
+		hidden_effect = {
+			unlock_national_focus = UKR_soc_shoot_them
+		}
+	}
+	option = {
+		name = ukr_soc.5.b
+		hidden_effect = {
+			unlock_national_focus = UKR_soc_reintegrate_them
+		}
+	}
+}
+
+#finally industry
+country_event = {
+	id = ukr_soc.6
+	title = ukr_soc.6.t
+	desc = ukr_soc.6.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.6.a
+		remove_ideas = { UKR_non_industrial_country }
 	}
 }

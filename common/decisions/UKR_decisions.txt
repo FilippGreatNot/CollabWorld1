@@ -1,0 +1,21 @@
+UKR_demand_decisions = {
+	UKR_demand_crimea = {
+		cost = 0
+		icon = decision_generic_civil_support.dds
+		visible = {
+			has_country_flag = UKR_can_demand_crimea
+		}
+		available = {
+			has_army_manpower = {
+				size > 150000
+			}
+		}
+		complete_effect = {
+			SRF = { country_event = {
+					id = srf.1
+					days = 2
+				}
+			}
+		}
+	}
+}
