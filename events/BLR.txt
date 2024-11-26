@@ -1,0 +1,97 @@
+add_namespace = tukha
+
+
+country_event = {
+	id = tukha.1
+	title = tukha.1.t
+	desc = tukha.1.d
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = tukha.1.a
+		set_cosmetic_tag = BLR_rebellion
+		country_event = {
+				id = tukha.2
+				days = 4
+			}
+		add_stability = -0.1
+		add_political_power = -100
+		BLR_release_POL = yes
+		BLR_killer_base = yes
+		UKR = {
+				transfer_state = 93
+				transfer_state = 91
+				transfer_state = 89
+			}
+		LAT = {
+				transfer_state = 784
+			}
+		release = EPR
+		POL = {
+			change_tag_from = BLR
+		}
+	}
+ }
+ 
+country_event = {
+	id = tukha.2
+	title = tukha.2.t
+	desc = tukha.2.d
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = tukha.2.a
+		add_war_support = -0.05
+		declare_war_on = {
+				target = POL
+				type = annex_everything
+			}
+		BLR = {
+		load_oob = BLR_rebellion
+	    }
+		country_event = {
+				id = tukha.3
+				days = 10
+			}
+	}
+ }
+ 
+country_event = {
+	id = tukha.3
+	title = tukha.3.t
+	desc = tukha.3.d
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = tukha.3.a
+		add_war_support = -0.1
+		white_peace = POL
+		POL = {
+		country_event = {
+				id = tukha.4
+				days = 4
+			}
+		}
+	}
+ }
+ 
+country_event = {
+	id = tukha.4
+	title = tukha.4.t
+	desc = tukha.4.d
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = tukha.4.a
+		add_stability = 0.1
+		add_war_support = 0.1
+		add_political_power = 100
+		}
+	}
+ 
+ 
+ 
