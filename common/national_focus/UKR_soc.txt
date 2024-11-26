@@ -12,7 +12,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_kyiv_on_fire
 		icon = GFX_focus_UKR_soc_kyiv_on_fire
-		cost = 5
+		cost = 2
 		x = 11
 		y = 0
 		completion_reward = {
@@ -22,7 +22,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_fix_ind
 		icon = GFX_focus_UKR_soc_fix_ind
-		cost = 5
+		cost = 3
 		x = 19
 		y = 0
 		completion_reward = {
@@ -32,7 +32,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_fix_army
 		icon = GFX_focus_UKR_soc_fix_army
-		cost = 5
+		cost = 4
 		x = 25
 		y = 0
 		completion_reward = {
@@ -42,7 +42,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_expand_industrialisation
 		icon = GFX_focus_UKR_soc_expand_industrialisation
-		cost = 5
+		cost = 3
 		x = 19
 		y = 3
 		prerequisite = { 
@@ -76,12 +76,21 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_kill_opposition
 		icon = GFX_focus_UKR_soc_kill_opposition
-		cost = 5
+		cost = 2
 		prerequisite = { focus = UKR_soc_kyiv_on_fire }
 		x = 9
 		y = 1
 		completion_reward = {
-			
+			add_popularity = {
+    	    	ideology = libertarian_socialism
+    	    	popularity = -0.2
+   	 		}
+			add_popularity = {
+    	   		ideology = despotism
+    	    	popularity = -0.2
+   			}
+			add_manpower = -52488
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -92,9 +101,15 @@ focus_tree = {
 		x = 9
 		y = 2
 		completion_reward = {
-			
+			remove_ideas = UKR_denikintsi
+			add_timed_idea = {
+				idea = UKR_fighting_white_idea 
+				days = 270
+			}
+			add_stability = 0.05
 		}
 	}
+
 	focus = {
 		id = UKR_soc_germ_garrison
 		icon = GFX_focus_UKR_soc_germ_garrison
