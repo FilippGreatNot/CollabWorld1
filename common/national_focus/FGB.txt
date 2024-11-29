@@ -2021,6 +2021,7 @@ focus_tree = {
 			every_owned_state = {
 				create_unit = {
 					division = "name = \"Infanterie-Division\" division_template = \"Das Heer\" start_experience_factor = 0.4" 
+					owner = FGB
 				}
 			}
 		}
@@ -2038,6 +2039,7 @@ focus_tree = {
 		relative_position_id = FGB_ban_socialist_parties
 		completion_reward = {
 			add_stability = -0.1
+			add_manpower = -220
 			country_event = fgb.45
 		}
 	}
@@ -2431,7 +2433,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		relative_position_id = FGB_noske_encourage_migration
-		prerequisite = { focus = FGB_noske_encourage_migration }
+		prerequisite = { focus = FGB_noske_enforce_a_national_language focus = FGB_noske_encourage_migration }
 		completion_reward = {
 			add_stability = -0.05
 			add_political_power = 50
@@ -3167,6 +3169,7 @@ focus_tree = {
 					limit = { is_in_faction_with = FGB }
 					country_event = { id = fgb.43 days = 2 }
 				}
+				news_event = { id = fgb.46 days = 3 }
 			}	
 		}
 	}
