@@ -482,9 +482,6 @@ focus_tree = {
 		x = -3
 		y = 1
 		cost = 5
-		available = {
-			has_completed_focus = ALT_form_a_bolshevik_government
-		}
 		mutually_exclusive = { focus = ALT_centralise_industrial_throughput }
 		relative_position_id = ALT_urumqi_public_library
 		prerequisite = { focus = ALT_urumqi_public_library }
@@ -559,6 +556,24 @@ focus_tree = {
 				}
 			}
 			add_ideas = { ALT_self_sustainability }
+		}
+	}
+
+	focus = {
+		id = ALT_invest_in_fertiliser_production
+		icon = GFX_focus_generic_farmland
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = ALT_self_sustained_growth
+		prerequisite = { focus = ALT_self_sustained_growth }
+		prerequisite = { focus = ALT_distribute_unused_fields }
+		completion_reward = {
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = ALT_self_sustainability
+				add_idea = ALT_self_sustainability2
+			}
 		}
 	}
 
@@ -643,9 +658,6 @@ focus_tree = {
 		x = 3
 		y = 1
 		cost = 5
-		available = {
-			has_completed_focus = ALT_form_the_peoples_council
-		}
 		mutually_exclusive = { focus = ALT_implement_an_agrarian_model }
 		relative_position_id = ALT_urumqi_public_library
 		prerequisite = { focus = ALT_urumqi_public_library }
