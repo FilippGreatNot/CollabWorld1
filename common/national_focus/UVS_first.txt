@@ -3156,6 +3156,93 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = UVS_plan_a_second_four_year_plan
+		icon = GFX_focus_UVS_second_plan
+		x = 0
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_industrial_miracle
+		
+		
+		available = {
+		    NOT = { has_idea = UVS_first_four_year_plan_idea }
+			}
+			
+		prerequisite = {
+		    focus = UVS_industrial_miracle
+			focus = UVS_swedish_tungsten_trade_deal
+			focus = UVS_land_for_the_farmers_food_for_the_people
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+			country_event =  uvs.8
+
+		}
+	}
+	
+	focus = {
+		id = UVS_a_military_orientated_four_year_plan
+		icon = GFX_focus_SOV_stalin_increase_mic_funding
+		x = 2
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_plan_a_second_four_year_plan
+		
+		mutually_exclusive = { focus = UVS_a_civilian_orientated_four_year_plan }
+		
+		
+		available = {
+					always = no
+				}
+			
+		prerequisite = {
+		    focus = UVS_plan_a_second_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+            add_timed_idea = { 
+				idea = UVS_second_four_year_plan_military
+				days = 1460
+				}
+		}
+	}
+	
+	focus = {
+		id = UVS_a_civilian_orientated_four_year_plan
+		icon = GFX_focus_SOV_bogdanov_overindustrialisation
+		x = -2
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_plan_a_second_four_year_plan
+		
+		mutually_exclusive = { focus = UVS_a_military_orientated_four_year_plan }
+		
+		available = {
+					always = no
+				}
+			
+		prerequisite = {
+		    focus = UVS_plan_a_second_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+             add_timed_idea = { 
+				idea = UVS_second_four_year_plan_civilian
+				days = 1460
+				}
+		}
+	}
+	
 
 	### Imperialism (how supper socialist of them) ###
 	focus = {
