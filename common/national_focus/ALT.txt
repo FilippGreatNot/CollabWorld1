@@ -2681,7 +2681,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ALT_learn_from_the_wprld
+		id = ALT_learn_from_the_world
 		icon = GFX_focus_generic_combined_arms
 		x = 2
 		y = 1
@@ -2760,6 +2760,7 @@ focus_tree = {
 			factor = 10
 		}
 		cost = 4
+		mutually_exclusive = { focus = ALT_decentralised_command }
 		relative_position_id = ALT_stamp_out_incompetence
 		prerequisite = { focus = ALT_stamp_out_incompetence }
 		completion_reward = {
@@ -2863,6 +2864,176 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_recruiting_elite_battalions
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_the_western_doctrines
+		prerequisite = { focus = ALT_the_western_doctrines }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_the_best_like_the_west
+		icon = GFX_focus_hol_the_fourth_ally
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_recruiting_elite_battalions
+		prerequisite = { focus = ALT_recruiting_elite_battalions }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_decentralised_command
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_need_for_lingual_homogenity }
+		relative_position_id = ALT_the_best_like_the_west
+		prerequisite = { focus = ALT_the_best_like_the_west }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_modernise_our_cavalry
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_decentralised_command
+		prerequisite = { focus = ALT_decentralised_command }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_advice_from_the_german_socialists
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_recruiting_elite_battalions
+		prerequisite = { focus = ALT_recruiting_elite_battalions }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_import_german_rifles
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_advice_from_the_german_socialists
+		prerequisite = { focus = ALT_advice_from_the_german_socialists }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_worker_soldiers_from_the_ruhr
+		icon = GFX_focus_hol_the_fourth_ally
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_import_german_rifles
+		prerequisite = { focus = ALT_import_german_rifles }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_best_of_both_worlds
+		icon = GFX_focus_hol_the_fourth_ally
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = ALT_worker_soldiers_from_the_ruhr
+		prerequisite = { focus = ALT_modernise_our_cavalry }
+		prerequisite = { focus = ALT_worker_soldiers_from_the_ruhr }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mobile_warfare
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_a_mass_offensive
 		icon = GFX_focus_generic_limited_social_mobilization
 		x = 6
@@ -2896,7 +3067,7 @@ focus_tree = {
 		}
 		cost = 5
 		relative_position_id = ALT_purchase_kyrgyz_guns
-		prerequisite = { focus = ALT_better_than_the_best focus = ALT_invest_in_improved_weaponry }
+		prerequisite = { focus = ALT_better_than_the_best focus = ALT_invest_in_improved_weaponry focus = ALT_best_of_both_worlds }
 		completion_reward = {
 			army_experience = 40
 			air_experience = 30
