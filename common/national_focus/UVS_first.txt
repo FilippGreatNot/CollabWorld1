@@ -2596,7 +2596,7 @@ focus_tree = {
 		cost = 6
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY}
 		y = 0
-		x = 28
+		x = 29
 		
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
@@ -2711,7 +2711,7 @@ focus_tree = {
 	focus = {
 		id = UVS_east_railway_expansion
 		icon = GFX_focus_SOV_bogdanov_rocket_trains
-		x = -2
+		x = -4
 		y = 1
 		cost = 6
 		search_filters = {FOCUS_FILTER_POLITICAL}		
@@ -2738,6 +2738,183 @@ focus_tree = {
 			build_railway = {
 				path = { 11288 11372 11260 }
 			}
+		}
+	}
+	
+	focus = {
+		id = UVS_nationalize_the_rhenish_industrial_centers
+		icon = GFX_focus_UVS_rhineland
+		x = 0
+		y = 1
+		cost = 7
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_first_four_year_plan
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_first_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+
+			42 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			51 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			55 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = -0.05
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_modernize_road_system
+		icon = GFX_focus_UVS_road_system
+		x = 1
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_nationalize_the_rhenish_industrial_centers
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_nationalize_the_rhenish_industrial_centers
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+
+			every_core_state = {
+				tooltip = every_owned_core_with_less_than_4_infrastructure_tt
+				limit = {
+					is_owned_by = UVS
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = UVS_a_true_volkswagen
+		icon = GFX_focus_UVS_volkswagen
+		x = -1
+		y = 1
+		cost = 6
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_nationalize_the_rhenish_industrial_centers
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_nationalize_the_rhenish_industrial_centers
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+
+		   836 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			59 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+				producer = UVS
+			}
+		}
+	}
+	
+	focus = {
+		id = UVS_industrial_miracle
+		icon = GFX_focus_UVS_miracle
+		x = -1
+		y = 1
+		cost = 6
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_modernize_road_system
+		
+		
+		available = {
+			}
+			
+		prerequisite = {
+		    focus = UVS_modernize_road_system
+		}
+		prerequisite = {
+		    focus = UVS_a_true_volkswagen
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+
+		    random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				}
+			add_stability = 0.1
 		}
 	}
 	
@@ -2865,7 +3042,7 @@ focus_tree = {
 	focus = {
 		id = UVS_begin_agricultural_collectivization
 		icon = GFX_focus_SOV_first_start_collectivisation
-		x = 2
+		x = 4
 		y = 1
 		cost = 7
 		search_filters = {FOCUS_FILTER_POLITICAL}		
@@ -2976,6 +3153,93 @@ focus_tree = {
 				add_idea = UVS_finished_socialist_collectivization2
 			    }
 			
+		}
+	}
+	
+	focus = {
+		id = UVS_plan_a_second_four_year_plan
+		icon = GFX_focus_UVS_second_plan
+		x = 0
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_industrial_miracle
+		
+		
+		available = {
+		    NOT = { has_idea = UVS_first_four_year_plan_idea }
+			}
+			
+		prerequisite = {
+		    focus = UVS_industrial_miracle
+			focus = UVS_swedish_tungsten_trade_deal
+			focus = UVS_land_for_the_farmers_food_for_the_people
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+			country_event =  uvs.8
+
+		}
+	}
+	
+	focus = {
+		id = UVS_a_military_orientated_four_year_plan
+		icon = GFX_focus_SOV_stalin_increase_mic_funding
+		x = 2
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_plan_a_second_four_year_plan
+		
+		mutually_exclusive = { focus = UVS_a_civilian_orientated_four_year_plan }
+		
+		
+		available = {
+					always = no
+				}
+			
+		prerequisite = {
+		    focus = UVS_plan_a_second_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+            add_timed_idea = { 
+				idea = UVS_second_four_year_plan_military
+				days = 1460
+				}
+		}
+	}
+	
+	focus = {
+		id = UVS_a_civilian_orientated_four_year_plan
+		icon = GFX_focus_SOV_bogdanov_overindustrialisation
+		x = -2
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_plan_a_second_four_year_plan
+		
+		mutually_exclusive = { focus = UVS_a_military_orientated_four_year_plan }
+		
+		available = {
+					always = no
+				}
+			
+		prerequisite = {
+		    focus = UVS_plan_a_second_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+             add_timed_idea = { 
+				idea = UVS_second_four_year_plan_civilian
+				days = 1460
+				}
 		}
 	}
 	
