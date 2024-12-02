@@ -1,23 +1,18 @@
 focus_tree = {
-	id = SOV_felix
+	id = SOV_felix_tree
 	country = {
 		factor = 0
 	}
 	default = no
 	
 	focus = {
-		id = SOV_red_phoenix_in_power
-		icon = GFX_focus_SOV_red_phoenix_in_power
+		id = SOV_felix_tree_red_phoenix_in_power
+		icon = GFX_focus_SOV_felix_tree_red_phoenix_in_power
 		x = 20
 		y = 1
 		cost = 4
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_red_phoenix_in_power"
-			
+		
+		completion_reward = {
 			add_stability = 0.03
 			add_political_power = 50	
 		}
@@ -25,447 +20,348 @@ focus_tree = {
 
 
 	focus = {
-		id = SOV_regime_sustainability_issue
-		icon = GFX_focus_SOV_regime_sustainability_issue
+		id = SOV_felix_tree_regime_sustainability_issue
+		icon = GFX_focus_SOV_felix_tree_regime_sustainability_issue
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_red_phoenix_in_power
+		relative_position_id = SOV_felix_tree_red_phoenix_in_power
 		
 		prerequisite = {
-			focus = SOV_red_phoenix_in_power
+			focus = SOV_felix_tree_red_phoenix_in_power
 		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_regime_sustainability_issue"
-		
-		
+			
 		}
 	}	
 		
 		
 	focus = {
-		id = SOV_consolidate_power
-		icon = GFX_focus_SOV_consolidate_power
+		id = SOV_felix_tree_consolidate_power
+		icon = GFX_focus_SOV_felix_tree_consolidate_power
 		x = -5
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_regime_sustainability_issue
+		relative_position_id = SOV_felix_tree_regime_sustainability_issue
 		
 		prerequisite = {
-			focus = SOV_regime_sustainability_issue
+			focus = SOV_felix_tree_regime_sustainability_issue
 		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_consolidate_power"
-		
-		
+			
 		}
 	}
 
 	focus = {
-		id = SOV_funny_red_crusaders
-		icon = GFX_focus_SOV_funny_red_crusaders
+		id = SOV_felix_tree_funny_red_crusaders
+		icon = GFX_focus_SOV_felix_tree_funny_red_crusaders
 		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = SOV_consolidate_power
+		relative_position_id = SOV_felix_tree_consolidate_power
 		
 		prerequisite = {
-			focus = SOV_consolidate_power
+			focus = SOV_felix_tree_consolidate_power
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_funny_red_crusaders"
-		
-		
+			
 		}
 	}	
 	
 
 	focus = {
-		id = SOV_opportunists_in_disguise
-		icon = GFX_focus_SOV_opportunists_in_disguise
+		id = SOV_felix_tree_opportunists_in_disguise
+		icon = GFX_focus_SOV_felix_tree_opportunists_in_disguise
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_consolidate_power
+		relative_position_id = SOV_felix_tree_consolidate_power
 		
 		prerequisite = {
-			focus = SOV_consolidate_power
+			focus = SOV_felix_tree_consolidate_power
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_opportunists_in_disguise"
-		
-		
+			
 		}
 	}	
 	
 	focus = {
-		id = SOV_clear_counter_revolutionary_minds
-		icon = GFX_focus_SOV_clear_counter_revolutionary_minds
+		id = SOV_felix_tree_clear_counter_revolutionary_minds
+		icon = GFX_focus_SOV_felix_tree_clear_counter_revolutionary_minds
 		x = 2
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_consolidate_power
+		relative_position_id = SOV_felix_tree_consolidate_power
 		
 		prerequisite = {
-			focus = SOV_consolidate_power
+			focus = SOV_felix_tree_consolidate_power
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_clear_counter_revolutionary_minds"
-		
-		
+			
 		}
 	}
-	
-	
 	focus = {
-		id = SOV_the_party_is_stable
-		icon = GFX_focus_SOV_the_party_is_stable
-		x = -1
+		id = SOV_felix_tree_the_party_is_stable
+		icon = GFX_focus_SOV_felix_tree_the_party_is_stable
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_funny_red_crusaders
-		relative_position_id = SOV_opportunists_in_disguise
-		relative_position_id = SOV_clear_counter_revolutionary_minds
+		relative_position_id = SOV_felix_tree_opportunists_in_disguise
 		
 		prerequisite = {
-			focus = SOV_funny_red_crusaders
+			focus = SOV_felix_tree_funny_red_crusaders
 		}
 		prerequisite = {
-			focus = SOV_opportunists_in_disguise
+			focus = SOV_felix_tree_opportunists_in_disguise
 		}
 		prerequisite = {
-			focus = SOV_clear_counter_revolutionary_minds
+			focus = SOV_felix_tree_clear_counter_revolutionary_minds
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_the_party_is_stable"
-		
-		
+			
 		}
 	}	
 	
 	
 	focus = {
-		id = SOV_proletarian_army
-		icon = GFX_focus_SOV_proletarian_army
+		id = SOV_felix_tree_proletarian_army
+		icon = GFX_focus_SOV_felix_tree_proletarian_army
 		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = SOV_regime_sustainability_issue
+		relative_position_id = SOV_felix_tree_regime_sustainability_issue
 		
 		prerequisite = {
-			focus = SOV_regime_sustainability_issue
+			focus = SOV_felix_tree_regime_sustainability_issue
 		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_proletarian_army"
-		
-		
+			
 		}
 	}
 
 	focus = {
-		id = SOV_conversation_with_the_generals
-		icon = GFX_focus_SOV_conversation_with_the_generals
+		id = SOV_felix_tree_conversation_with_the_generals
+		icon = GFX_focus_SOV_felix_tree_conversation_with_the_generals
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_proletarian_army
+		relative_position_id = SOV_felix_tree_proletarian_army
 		
 		prerequisite = {
-			focus = SOV_proletarian_army
+			focus = SOV_felix_tree_proletarian_army
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_conversation_with_the_generals"
-		
-		
+			
 		}
-	}		
-	
-
-	
+	}
 	focus = {
-		id = SOV_industrial_reorganization
-		icon = GFX_focus_SOV_industrial_reorganization
+		id = SOV_felix_tree_industrial_reorganization
+		icon = GFX_focus_SOV_felix_tree_industrial_reorganization
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_regime_sustainability_issue
+		relative_position_id = SOV_felix_tree_regime_sustainability_issue
 		
 		prerequisite = {
-			focus = SOV_regime_sustainability_issue
+			focus = SOV_felix_tree_regime_sustainability_issue
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_industrial_reorganization"
-		
-		
-		}
-	}	
 			
-
+		}
+	}
 	focus = {
-		id = SOV_symphony_of_factories
-		icon = GFX_focus_SOV_symphony_of_factories
+		id = SOV_felix_tree_symphony_of_factories
+		icon = GFX_focus_SOV_felix_tree_symphony_of_factories
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_industrial_reorganization
+		relative_position_id = SOV_felix_tree_industrial_reorganization
 		
 		prerequisite = {
-			focus = SOV_industrial_reorganization
+			focus = SOV_felix_tree_industrial_reorganization
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_symphony_of_factories"
-		
-		
-		}
-	}		
 			
-	
+		}
+	}
 	focus = {
-		id = SOV_rally_the_ogpu
-		icon = GFX_focus_SOV_rally_the_ogpu
+		id = SOV_felix_tree_rally_the_ogpu
+		icon = GFX_focus_SOV_felix_tree_rally_the_ogpu
 		x = 5
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = SOV_regime_sustainability_issue
+		relative_position_id = SOV_felix_tree_regime_sustainability_issue
 		
 		prerequisite = {
-			focus = SOV_regime_sustainability_issue
+			focus = SOV_felix_tree_regime_sustainability_issue
 		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_rally_the_ogpu"
+		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_felix_tree_rally_the_ogpu"
 		
 		
 		}
-	}	
-	
-
+	}
 	focus = {
-		id = SOV_end_anti_leninist_sentiment
-		icon = GFX_focus_SOV_end_anti_leninist_sentiment
+		id = SOV_felix_tree_end_anti_leninist_sentiment
+		icon = GFX_focus_SOV_felix_tree_end_anti_leninist_sentiment
 		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = SOV_rally_the_ogpu
+		relative_position_id = SOV_felix_tree_rally_the_ogpu
 		
 		prerequisite = {
-			focus = SOV_rally_the_ogpu
+			focus = SOV_felix_tree_rally_the_ogpu
 		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_end_anti_leninist_sentiment"
+		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_felix_tree_end_anti_leninist_sentiment"
 		
 		remove_ideas = SOV_kronstadt_legacy
 		}
 	}	
 	
 	focus = {
-		id = SOV_rejection_of_nep
-		icon = GFX_focus_SOV_rejection_of_nep
+		id = SOV_felix_tree_rejection_of_nep
+		icon = GFX_focus_SOV_felix_tree_rejection_of_nep
 		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		
-		relative_position_id = SOV_end_anti_leninist_sentiment
+		relative_position_id = SOV_felix_tree_end_anti_leninist_sentiment
 		
 		prerequisite = {
-			focus = SOV_end_anti_leninist_sentiment
+			focus = SOV_felix_tree_end_anti_leninist_sentiment
 		}
 		
 		ai_will_do = {
 			factor = 10
 		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_rejection_of_nep"
-		
-		
+			
 		}
 	}	
 	
 	
 	focus = {
-		id = SOV_emergency_commission_against_hunger
-		icon = GFX_focus_SOV_emergency_commission_against_hunger
+		id = SOV_felix_tree_emergency_commission_against_hunger
+		icon = GFX_focus_SOV_felix_tree_emergency_commission_against_hunger
 		x = 1
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_rally_the_ogpu
+		relative_position_id = SOV_felix_tree_rally_the_ogpu
 		
 		prerequisite = {
-			focus = SOV_rally_the_ogpu
+			focus = SOV_felix_tree_rally_the_ogpu
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_emergency_commission_against_hunger"
-		
+			
 		}
 	}
 	
 	focus = {
-		id = SOV_convene_the_goelro
-		icon = GFX_focus_SOV_convene_the_goelro
+		id = SOV_felix_tree_convene_the_goelro
+		icon = GFX_focus_SOV_felix_tree_convene_the_goelro
 		x = 0
 		y = 1
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_emergency_commission_against_hunger
+		relative_position_id = SOV_felix_tree_emergency_commission_against_hunger
 		
 		prerequisite = {
-			focus = SOV_emergency_commission_against_hunger
+			focus = SOV_felix_tree_emergency_commission_against_hunger
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_convene_the_goelro"
-		
-		
+			
 		}
-	}	
-	
-	
-	
-	
-	
+	}
 	focus = {
-		id = SOV_problems_are_over
-		icon = GFX_focus_SOV_problems_are_over
-		x = 1
-		y = 1
+		id = SOV_felix_tree_problems_are_over
+		icon = GFX_focus_SOV_felix_tree_problems_are_over
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_convene_the_goelro
-		relative_position_id = SOV_rejection_of_nep
+		relative_position_id = SOV_felix_tree_rally_the_ogpu
+		y = 3
 		
 		prerequisite = {
-			focus = SOV_convene_the_goelro
+			focus = SOV_felix_tree_convene_the_goelro
 		}
 		prerequisite = {
-			focus = SOV_rejection_of_nep
+			focus = SOV_felix_tree_rejection_of_nep
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_problems_are_over"
-		
-		
+			
 		}
 	}	
 		
 	focus = {
-		id = SOV_consolidate_the_superiority_of_the_lubyanka
-		icon = GFX_focus_SOV_consolidate_the_superiority_of_the_lubyanka
-		x = -5
-		y = 1
+		id = SOV_felix_tree_consolidate_the_superiority_of_the_lubyanka
+		icon = GFX_focus_SOV_felix_tree_consolidate_the_superiority_of_the_lubyanka
+		y = 5
 		cost = 5
-		available_if_capitulated = yes
 		
-		relative_position_id = SOV_the_party_is_stable
-		relative_position_id = SOV_conversation_with_the_generals
-		relative_position_id = SOV_symphony_of_factories
-		relative_position_id = SOV_problems_are_over
+		relative_position_id = SOV_felix_tree_regime_sustainability_issue
 		
 		prerequisite = {
-			focus = SOV_the_party_is_stable
+			focus = SOV_felix_tree_the_party_is_stable
 		}
 		prerequisite = {
-			focus = SOV_conversation_with_the_generals
+			focus = SOV_felix_tree_conversation_with_the_generals
 		}
 		prerequisite = {
-			focus = SOV_symphony_of_factories
+			focus = SOV_felix_tree_symphony_of_factories
 		}
 		prerequisite = {
-			focus = SOV_problems_are_over
+			focus = SOV_felix_tree_problems_are_over
 		}
 		
-		ai_will_do = {
-			factor = 10
-		}
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus SOV_consolidate_the_superiority_of_the_lubyanka"
-		
-		
+			
 		}
 	}		
 	
