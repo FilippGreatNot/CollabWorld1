@@ -23,6 +23,35 @@ SOV_eat_BLR_generals = {
 		}
 	}
 }
+SOV_remove_nep = {
+	if = {
+		limit = {
+			has_idea = SOV_pragmatism_above_all_else
+		}
+		remove_ideas = SOV_pragmatism_above_all_else
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_pure_pragmatism_1
+		}
+		remove_ideas = SOV_pure_pragmatism_1
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_pure_pragmatism
+		}
+		remove_ideas = SOV_pure_pragmatism
+	}
+	else_if = {
+		limit = {
+			has_idea = SOV_socialist_market
+		}
+		remove_ideas = SOV_socialist_market
+	}
+	else = {
+		custom_effect_tooltip = SOV_where_nep_tt #Yee
+	}
+}
 
 ### PowerStruggle ###
 #begin_power_struggle = {
