@@ -4571,7 +4571,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_begin_reconstruction
 		x = 16
 		y = 0
-		cost = 6
+		cost = 5
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			has_completed_focus = FGB_death_of_kapp
@@ -4609,10 +4609,11 @@ focus_tree = {
 	focus = {
 		id = FGB_resource_smuggling
 		icon = GFX_focus_FGB_resource_smuggling
-		prerequisite = { focus = FGB_reconstruction }
-		x = 14
+		x = -2
 		y = 1
-		cost = 4
+		cost = 5
+		relative_position_id = FGB_reconstruction
+		prerequisite = { focus = FGB_reconstruction }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			852 = {
@@ -4634,10 +4635,11 @@ focus_tree = {
 	focus = {
 		id = FGB_repair_the_countryside
 		icon = GFX_focus_FGB_repair_the_countryside
-		prerequisite = { focus = FGB_reconstruction }
-		x = 18
+		x = 2
 		y = 1
-		cost = 6
+		cost = 5
+		relative_position_id = FGB_reconstruction
+		prerequisite = { focus = FGB_reconstruction }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = FGB_repairing_damaged_roads_decisions_unlocked_tt
@@ -4695,10 +4697,11 @@ focus_tree = {
 	focus = {
 		id = FGB_welfare_programmes
 		icon = GFX_focus_FGB_welfare_programmes
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
-		x = 16
-		y = 2
-		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
@@ -4723,15 +4726,16 @@ focus_tree = {
 	focus = {
 		id = FGB_combat_inflation
 		icon = GFX_focus_FGB_combat_inflation
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_welfare_programmes
 		prerequisite = { focus = FGB_welfare_programmes }
-		x = 13
-		y = 2
-		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
 				idea = FGB_reconstruction_efforts
-				days = 42
+				days = 35
 			}
 		}
 		completion_reward = {
@@ -4756,9 +4760,9 @@ focus_tree = {
 	focus = {
 		id = FGB_coop_corp
 		icon = GFX_focus_FGB_coop_corp
-		x = 19
-		y = 2
-		cost = 6
+		x = 2
+		y = 1
+		cost = 5
 		bypass = {
 			AND = {
 				NOT = { country_exists = FOC }
@@ -4774,6 +4778,7 @@ focus_tree = {
 			country_exists = FOC
 			NOT = { has_war_with = FOC }
 		}
+		relative_position_id = FGB_welfare_programmes
 		prerequisite = { focus = FGB_welfare_programmes }
 		completion_reward = {
 			add_ideas = {
@@ -4804,10 +4809,11 @@ focus_tree = {
 	focus = {
 		id = FGB_tax_foreign
 		icon = GFX_focus_FGB_tax_foreign
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_combat_inflation
 		prerequisite = { focus = FGB_combat_inflation }
-		x = 13
-		y = 3
-		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_war_support = 0.05
@@ -4821,11 +4827,12 @@ focus_tree = {
 	focus = {
 		id = FGB_etatism
 		icon = GFX_focus_FGB_reinforce_etatism
-		prerequisite = { focus = FGB_welfare_programmes }
+		x = -1
+		y = 2
+		cost = 5
+		relative_position_id = FGB_welfare_programmes
 		mutually_exclusive = { focus = FGB_market_liberalism }
-		x = 15
-		y = 3
-		cost = 4
+		prerequisite = { focus = FGB_welfare_programmes }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -4838,12 +4845,12 @@ focus_tree = {
 	focus = {
 		id = FGB_market_liberalism
 		icon = GFX_focus_FGB_promote_trade
-		prerequisite = { focus = FGB_welfare_programmes }
-		mutually_exclusive = { focus = FGB_etatism }
 		x = 1
-		y = 1
-		cost = 4
+		y = 2
+		cost = 5
+		mutually_exclusive = { focus = FGB_etatism }
 		relative_position_id = FGB_welfare_programmes
+		prerequisite = { focus = FGB_welfare_programmes }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -4856,15 +4863,16 @@ focus_tree = {
 	focus = {
 		id = FGB_modernise_taxes
 		icon = GFX_focus_FGB_modernise_taxes
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_coop_corp
 		prerequisite = { focus = FGB_coop_corp }
-		x = 19
-		y = 3
-		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
 				idea = FGB_reconstruction_efforts
-				days = 42
+				days = 35
 			}
 		}
 		completion_reward = {
@@ -4887,15 +4895,16 @@ focus_tree = {
 	focus = {
 		id = FGB_nationalise_industry
 		icon = GFX_focus_FGB_nationalise_industry
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_tax_foreign
 		prerequisite = { focus = FGB_tax_foreign }
-		x = 13
-		y = 4
-		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
 				idea = FGB_reconstruction_efforts
-				days = 42
+				days = 35
 			}
 		}
 		completion_reward = {
@@ -4921,10 +4930,11 @@ focus_tree = {
 	focus = {
 		id = FGB_increase_tariffs
 		icon = GFX_focus_FGB_increase_tariffs
-		prerequisite = { focus = FGB_etatism }
-		x = 15
-		y = 4
+		x = 0
+		y = 1
 		cost = 5
+		relative_position_id = FGB_etatism
+		prerequisite = { focus = FGB_etatism }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
@@ -4942,10 +4952,11 @@ focus_tree = {
 	focus = {
 		id = FGB_increase_exports
 		icon = GFX_focus_FGB_increase_exportations
-		prerequisite = { focus = FGB_market_liberalism }
-		x = 17
-		y = 4
+		x = 0
+		y = 1
 		cost = 5
+		relative_position_id = FGB_market_liberalism
+		prerequisite = { focus = FGB_market_liberalism }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
@@ -4963,15 +4974,16 @@ focus_tree = {
 	focus = {
 		id = FGB_buy_businesses
 		icon = GFX_focus_FGB_buy_out_businesses
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_modernise_taxes
 		prerequisite = { focus = FGB_modernise_taxes }
-		x = 19
-		y = 4
-		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
 				idea = FGB_reconstruction_efforts
-				days = 42
+				days = 35
 			}
 		}
 		completion_reward = {
@@ -4997,11 +5009,12 @@ focus_tree = {
 	focus = {
 		id = FGB_autarky
 		icon = GFX_focus_FGB_autarky
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_nationalise_industry
 		prerequisite = { focus = FGB_nationalise_industry }
 		prerequisite = { focus = FGB_increase_tariffs }
-		x = 14
-		y = 5
-		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -5014,11 +5027,12 @@ focus_tree = {
 	focus = {
 		id = FGB_market_decentralisation
 		icon = GFX_focus_FGB_complete_market_decentralisation
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_increase_exports
 		prerequisite = { focus = FGB_increase_exports }
 		prerequisite = { focus = FGB_buy_businesses }
-		x = 18
-		y = 5
-		cost = 4
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			swap_ideas = {
@@ -5031,19 +5045,20 @@ focus_tree = {
 	focus = {
 		id = FGB_complete_recovery
 		icon = GFX_focus_FGB_complete_recovery
-		prerequisite = { focus = FGB_autarky focus = FGB_market_decentralisation }
 		available = {
 			NOT = { has_idea = FGB_recovering_industry1 }
 			is_subject = no
 		}
-		x = 16
-		y = 6
-		cost = 6
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_autarky
+		prerequisite = { focus = FGB_autarky focus = FGB_market_decentralisation }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		select_effect = {
 			add_timed_idea = {
 				idea = FGB_reconstruction_efforts
-				days = 42
+				days = 35
 			}
 		}
 		completion_reward = {
@@ -5057,12 +5072,11 @@ focus_tree = {
 	focus = {
 		id = FGB_rebuild_schools
 		icon = GFX_focus_FGB_rebuild_schools
-		prerequisite = {
-			focus = FGB_complete_recovery
-		}
-		x = 16
-		y = 7
-		cost = 6
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_complete_recovery
+		prerequisite = { focus = FGB_complete_recovery }
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_ideas = {
@@ -5074,12 +5088,11 @@ focus_tree = {
 	focus = {
 		id = FGB_open_new_hospitals
 		icon = GFX_focus_FGB_open_new_hospitals
-		prerequisite = {
-			focus = FGB_rebuild_schools
-		}
-		x = 16
-		y = 8
-		cost = 7
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_complete_recovery
+		prerequisite = { focus = FGB_complete_recovery }
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_manpower = 150000
@@ -5094,17 +5107,19 @@ focus_tree = {
 	focus = {
 		id = FGB_revitalise_southern_industry
 		icon = GFX_goal_reichsautobahn
-		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
-			has_full_control_of_state = 852
-			has_full_control_of_state = 50
-			has_full_control_of_state = 52
-			has_full_control_of_state = 53
-			has_full_control_of_state = 54
+			NOT = { country_exists = BAV }
+			BAV = { 
+				any_core_state = {
+					is_owned_by = FGB
+				}
+			}
 		}
-		x = 16
-		y = 9
+		x = 2
+		y = 1
 		cost = 10
+		relative_position_id = FGB_rebuild_schools
+		prerequisite = { focus = FGB_rebuild_schools focus = FGB_open_new_hospitals }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			852 = {
@@ -5190,15 +5205,16 @@ focus_tree = {
 	focus = {
 		id = FGB_develop_the_rhine
 		icon = GFX_focus_WRD_rebuild_the_rhineland
-		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
 			has_full_control_of_state = 42
 			has_full_control_of_state = 51
 			has_full_control_of_state = 55
 		}
-		x = 14
-		y = 9
+		x = 0
+		y = 1
 		cost = 10
+		relative_position_id = FGB_rebuild_schools
+		prerequisite = { focus = FGB_rebuild_schools }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			42 = {
@@ -5254,16 +5270,17 @@ focus_tree = {
 	focus = {
 		id = FGB_industrialising_lower_saxony
 		icon = GFX_goal_generic_production
-		prerequisite = { focus = FGB_open_new_hospitals }
 		available = {
 			has_full_control_of_state = 56
 			has_full_control_of_state = 57
 			has_full_control_of_state = 58
 			has_full_control_of_state = 59
 		}
-		x = 18
-		y = 9
+		x = 0
+		y = 1
 		cost = 10
+		relative_position_id = FGB_open_new_hospitals
+		prerequisite = { focus = FGB_open_new_hospitals }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			56 = {
