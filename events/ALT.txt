@@ -78,3 +78,33 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = alt.4
+	title = alt.4.t
+	desc = alt.4.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	immediate = { hidden_effect = { ALT = { annex_country = { target = DZG } } } }
+
+	option = {
+		name = alt.4.a
+		add_war_support = 0.05
+		add_stability = 0.05
+		hidden_effect = {
+			if = { 
+				limit = { NOT = { has_completed_focus = ALT_in_the_shade_of_xinjiang } } 
+				complete_national_focus = ALT_in_the_shade_of_xinjiang
+			}
+			if = { 
+				limit = { NOT = { has_completed_focus = ALT_the_final_push } } 
+				complete_national_focus = ALT_the_final_push
+			}
+			if = { 
+				limit = { NOT = { has_completed_focus = ALT_the_secret_force } } 
+				complete_national_focus = ALT_the_secret_force
+			}
+		}
+	}
+}

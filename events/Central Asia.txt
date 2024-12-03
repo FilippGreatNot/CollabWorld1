@@ -1,0 +1,196 @@
+add_namespace = stan
+
+news_event = {
+	id = stan.1
+	title = stan.1.t
+	desc = stan.1.d
+	picture = GFX_news_event_generic_read_write
+	is_triggered_only = yes
+	major = yes
+
+	immediate = { hidden_effect = { KYR = { KAZ = { every_core_state = { add_claim_by = KYR } } declare_war_on = { target = KAZ type = annex_everything } } } }
+	
+	option = {
+		name = stan.1.a
+		hidden_effect = {
+			BSM = {
+				country_event = { id = stan.2 days = 3 }
+			}
+			BUK = {
+				country_event = { id = stan.2 days = 3 }
+			}
+			KHI = {
+				country_event = { id = stan.2 days = 3 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = stan.2
+	title = stan.2.t
+	desc = stan.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	
+	immediate = { hidden_effect = { TMS = { country_event = { id = stan.3 days = 2 } } } }
+	
+	option = {
+		name = stan.2.a
+		ai_chance = { base = 15 }
+		declare_war_on = { target = KYR type = annex_everything }
+		add_war_support = 0.1
+	}
+	option = {
+		name = stan.2.b
+		ai_chance = { base = 1 }
+		add_stability = 0.05
+		add_political_power = -50
+	}
+}
+
+country_event = {
+	id = stan.3
+	title = stan.3.t
+	desc = stan.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = stan.3.a
+		ai_chance = { base = 50 }
+		declare_war_on = { target = BSM type = annex_everything }
+		declare_war_on = { target = BUK type = annex_everything }
+		declare_war_on = { target = KHI type = annex_everything }
+		declare_war_on = { target = KAZ type = annex_everything }
+		declare_war_on = { target = KYR type = annex_everything }
+		add_war_support = 0.1
+		hidden_effect = {
+			BSM = { every_core_state = { add_claim_by = TMS } }
+			BUK = { every_core_state = { add_claim_by = TMS } }
+			KHI = { every_core_state = { add_claim_by = TMS } }
+			KAZ = { every_core_state = { add_claim_by = TMS } }
+			KYR = { every_core_state = { add_claim_by = TMS } }
+			news_event = stan.4
+		}
+	}
+}
+
+news_event = {
+	id = stan.4
+	title = stan.4.t
+	desc = stan.4.d
+	picture = GFX_news_event_generic_read_write
+	is_triggered_only = yes
+	major = yes
+	
+	immediate = { hidden_effect = { news_event = { id = stan.5 days = 20 } } }
+	
+	option = {
+		name = stan.4.a
+	}
+}
+
+news_event = {
+	id = stan.5
+	title = stan.5.t
+	desc = stan.5.d
+	picture = GFX_news_event_generic_read_write
+	is_triggered_only = yes
+	major = yes
+	
+	immediate = { hidden_effect = { BSM = { declare_war_on = { target = BUK type = annex_everything } declare_war_on = { target = KHI type = annex_everything } declare_war_on = { target = KAZ type = annex_everything } BUK = { every_core_state = { add_claim_by = BSM } } KHI = { every_core_state = { add_claim_by = BSM } } KAZ = { every_core_state = { add_claim_by = BSM } } } } }	
+	
+	option = {
+		name = stan.5.a
+		hidden_effect = {
+			KAZ = {
+				country_event = { id = stan.6 days = 7 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = stan.6
+	title = stan.6.t
+	desc = stan.6.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = stan.6.a
+		add_war_support = 0.05
+		KHI = {
+			country_event = { id = stan.7 days = 2 }
+		}
+		BUK = { 
+			country_event = { id = stan.7 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = stan.7
+	title = stan.7.t
+	desc = stan.7.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+		
+	immediate = { hidden_effect = { MNS = { country_event = { id = stan.8 days = 14 } } } }
+	
+	option = {
+		name = stan.7.a
+		ai_chance = { base = 3 }
+		add_stability = -0.2
+		if = {
+			limit = { original_tag = BUK }
+			KAZ = {
+				annex_country = { target = BUK transfer_troops = yes }
+			}
+		}
+		else_if = {
+			limit = { original_tag = KHI }
+			KAZ = {
+				annex_country = { target = KHI transfer_troops = yes }
+			}
+		}
+	}
+	option = {
+		name = stan.7.b
+		ai_chance = { base = 7 }
+		add_war_support = 0.2
+		declare_war_on = { 
+			target = KAZ
+			type = annex_everything
+		}
+	}
+}
+
+country_event = {
+	id = stan.8
+	title = stan.8.t
+	desc = stan.8.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = stan.8.a
+		add_war_support = 0.15
+		declare_war_on = { target = BSM type = annex_everything }
+		declare_war_on = { target = BUK type = annex_everything }
+		declare_war_on = { target = KHI type = annex_everything }
+		declare_war_on = { target = KAZ type = annex_everything }
+		declare_war_on = { target = KYR type = annex_everything }
+		declare_war_on = { target = TMS type = annex_everything }
+		BSM = { every_core_state = { add_claim_by = BSM } }
+		BUK = { every_core_state = { add_claim_by = BSM } }
+		KHI = { every_core_state = { add_claim_by = BSM } }
+		KAZ = { every_core_state = { add_claim_by = BSM } }
+		KYR = { every_core_state = { add_claim_by = BSM } }
+		TMS = { every_core_state = { add_claim_by = BSM } }
+	}
+}
