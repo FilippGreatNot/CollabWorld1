@@ -17,6 +17,9 @@ is_chinese_tag = {
 is_indian_tag = {
 	is_in_array = { global.indian_tags = THIS }
 }
+is_stan_tag = {
+	is_in_array = { global.stan_tags = THIS }
+}
 
 same_country_as_PREV = {
 	OR = {
@@ -43,6 +46,10 @@ same_country_as_PREV = {
 		AND = {
 			PREV = { is_indian_tag = yes }
 			is_indian_tag = yes
+		}
+		AND = {
+			PREV = { is_stan_tag = yes }
+			is_stan_tag = yes
 		}
 	}
 }

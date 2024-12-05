@@ -1,0 +1,270 @@
+focus_tree = {
+	id = TMS
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TMS
+		}
+	}
+	default = no
+
+	focus = {
+		id = TMS_industrial_investments
+		icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = 1
+				bonus = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_develop_the_caspian_coast
+		icon = GFX_focus_generic_improve_roads
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_industrial_investments
+		prerequisite = { focus = TMS_industrial_investments }
+		completion_reward = {
+			587 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+			1070 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+		}
+	}
+
+	focus = {
+		id = TMS_extend_the_railway_to_yeraliev
+		icon = GFX_focus_SOV_south_manchuria_railway
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_develop_the_caspian_coast
+		prerequisite = { focus = TMS_develop_the_caspian_coast }
+		completion_reward = {
+			build_railway = {
+				#level = 1
+				start_province = 7477
+				target_province = 1517
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_expand_ashkhabad_arsenal
+		icon = GFX_SOV_rehabilitated_military_ccp_2d_sov_compatibility
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_industrial_investments
+		prerequisite = { focus = TMS_industrial_investments }
+		completion_reward = {
+			584 = { add_building_construction = { type = arms_factory level = 1 instant_build = yes } }
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 200
+				producer = TMS
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_develop_the_industry_in_ashkhabad
+		icon = GFX_SOV_paced_industrialization_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_expand_ashkhabad_arsenal
+		prerequisite = { focus = TMS_expand_ashkhabad_arsenal }
+		completion_reward = {
+			584 = { 
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_exploit_the_balkan_steel_deposits
+		icon = GFX_focus_generic_steel
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_develop_the_industry_in_ashkhabad
+		prerequisite = { focus = TMS_extend_the_railway_to_yeraliev focus = TMS_develop_the_industry_in_ashkhabad }
+		completion_reward = {
+			1070 = { 
+				add_resource = { type = steel amount = 4 }
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_the_caspian_oil
+		icon = GFX_SOV_oil_production_ccp_2d_sov_compatibility
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_exploit_the_balkan_steel_deposits
+		prerequisite = { focus = TMS_extend_the_railway_to_yeraliev }
+		completion_reward = {
+			587 = { add_resource = { type = oil amount = 2 } }
+			1070 = { 
+				add_resource = { type = oil amount = 3 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_legacy_of_1917
+		icon = GFX_focus_SOV_support_spanish_poum
+		x = 5
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = TMS_will_of_the_whites }
+		completion_reward = {
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			add_popularity = { ideology = marxism popularity = 0.05 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 300
+				producer = TMS
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_will_of_the_whites
+		icon = GFX_focus_generic_combined_arms
+		x = 7
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = TMS_legacy_of_1917 }
+		completion_reward = {
+			add_popularity = { ideology = despotism popularity = 0.05 }
+			army_experience = 30
+		}
+	}
+
+	focus = {
+		id = TMS_political_training
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_legacy_of_1917
+		prerequisite = { focus = TMS_will_of_the_whites focus = TMS_legacy_of_1917 }
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = TMS_the_oncoming_war
+		icon = GFX_goal_generic_major_war
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_political_training
+		prerequisite = { focus = TMS_political_training }
+		completion_reward = {
+			add_war_support = 0.1
+			add_ideas = state_economy
+		}
+	}
+
+	focus = {
+		id = TMS_menshevism_succeeds
+		icon = GFX_SOV_left_opposition_coup_ccp_2d_sov_compatibility
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = TMS_savitsky_takes_command }
+		relative_position_id = TMS_the_oncoming_war
+		prerequisite = { focus = TMS_the_oncoming_war }
+		completion_reward = {
+			add_popularity = { ideology = marxism popularity = 0.1 }
+			set_politics = { ruling_party = marxism }
+		}
+	}
+
+	focus = {
+		id = TMS_exile_bolshevik_members
+		icon = GFX_focus_BRA_ban_communist_party
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_political_training
+		prerequisite = { focus = TMS_political_training }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = bolshevism popularity = -0.05 }
+			add_manpower = -120
+		}
+	}
+
+	focus = {
+		id = TMS_savitsky_takes_command
+		icon = GFX_focus_chi_army_reform
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		mutually_exclusive = { focus = TMS_menshevism_succeeds }
+		relative_position_id = TMS_exile_bolshevik_members
+		prerequisite = { focus = TMS_exile_bolshevik_members }
+		completion_reward = {
+			add_popularity = { ideology = despotism popularity = 0.1 }
+			set_politics = { ruling_party = despotism }
+		}
+	}
+}
