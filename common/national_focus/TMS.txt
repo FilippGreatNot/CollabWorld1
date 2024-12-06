@@ -12,7 +12,7 @@ focus_tree = {
 	focus = {
 		id = TMS_industrial_investments
 		icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
-		x = 1
+		x = 0
 		y = 1
 		ai_will_do = {
 			factor = 15
@@ -39,8 +39,14 @@ focus_tree = {
 		relative_position_id = TMS_industrial_investments
 		prerequisite = { focus = TMS_industrial_investments }
 		completion_reward = {
-			587 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
-			1070 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+			587 = { 
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes } 
+				add_extra_state_shared_building_slots = 1
+			}
+			1070 = { 
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes } 
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -100,6 +106,7 @@ focus_tree = {
 			584 = { 
 				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
 				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -141,6 +148,163 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
 			}
+		}
+	}
+
+	focus = {
+		id = TMS_urbanising_the_east
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_develop_the_industry_in_ashkhabad
+		prerequisite = { focus = TMS_develop_the_industry_in_ashkhabad }
+		completion_reward = {
+			832 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				add_manpower = 15000
+			}
+			1073 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				add_manpower = 20000
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_subsidise_the_farms_of_the_amu_darya
+		icon = GFX_focus_generic_farmland
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_urbanising_the_east
+		prerequisite = { focus = TMS_the_caspian_oil }
+		prerequisite = { focus = TMS_urbanising_the_east }
+		completion_reward = {
+			add_political_power = -100
+			832 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			1073 = { 
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_study_technology_from_the_AFSR
+		icon = GFX_focus_SWE_let_fly_all_guns
+		x = 3
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_industrial_investments
+		prerequisite = { focus = TMS_industrial_investments }
+		completion_reward = {
+			add_tech_bonus = {
+				name = 1
+				bonus = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = 1
+				bonus = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_buy_heavy_guns
+		icon = GFX_focus_SMB_mountain_guns
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_study_technology_from_the_AFSR
+		prerequisite = { focus = TMS_expand_ashkhabad_arsenal focus = TMS_study_technology_from_the_AFSR }
+		completion_reward = {
+			army_experience = 20
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 800
+				producer = SRF
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_empower_the_ministry_of_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_buy_heavy_guns
+		prerequisite = { focus = TMS_buy_heavy_guns }
+		prerequisite = { focus = TMS_the_oncoming_war }
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = { TMS_recruitment }
+		}
+	}
+
+	focus = {
+		id = TMS_extra_funding_towards_the_military
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_empower_the_ministry_of_propaganda
+		prerequisite = { focus = TMS_exploit_the_balkan_steel_deposits }
+		prerequisite = { focus = TMS_empower_the_ministry_of_propaganda }
+		completion_reward = {
+			add_political_power = -50
+			army_experience = 20
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_enact_affordable_education
+		icon = GFX_goal_continuous_research
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_subsidise_the_farms_of_the_amu_darya
+		prerequisite = { focus = TMS_the_caspian_oil focus = TMS_exploit_the_balkan_steel_deposits focus = TMS_extra_funding_towards_the_military }
+		completion_reward = {
+			add_stability = 0.05
+			add_research_slot = 1
 		}
 	}
 
