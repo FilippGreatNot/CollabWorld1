@@ -11,7 +11,10 @@ country_event = {
 
 	option = {
 		name = wrd.1.a
-		ai_chance = { base = 7 }
+		ai_chance = { 
+			base = 0 
+			modifier = { has_country_flag = WRD_ai_set_path_6 factor = 10 }
+		}
 		add_popularity = {
 			ideology = esotericism
 			popularity = -0.1
@@ -23,7 +26,10 @@ country_event = {
 	
 	option = {
 		name = wrd.1.b
-		ai_chance = { base = 3 }
+		ai_chance = { 
+			base = 0 
+			modifier = { NOT = { has_country_flag = WRD_ai_set_path_6 } factor = 10 }		
+		}
 		add_popularity = {
 			ideology = esotericism
 			popularity = 0.15
@@ -275,6 +281,10 @@ country_event = {
 	option = {
 		name = wrd.10.a
 		promote_character = WRD_wilhelm_iii
+		ai_chance = {
+			base = 0
+			modifier = { has_country_flag = WRD_ai_set_path_2 factor = 10 }
+		}
 		add_popularity = {
 			ideology = authoritarian_democrat
 			popularity = 0.05
@@ -286,6 +296,10 @@ country_event = {
 	
 	option = {
 		name = wrd.10.b
+		ai_chance = {
+			base = 0
+			modifier = { has_country_flag = WRD_ai_set_path_1 factor = 10 }
+		}
 		WRD_wilhelm_iii = {
 			remove_country_leader_role = { ideology = constitutional_monarchy }
 			add_country_leader_role = {
