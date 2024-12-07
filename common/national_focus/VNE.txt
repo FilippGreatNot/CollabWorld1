@@ -1376,7 +1376,7 @@
         prerequisite = { }
         mutually_exclusive = { }
         x = 13
-        y = 3
+        y = 2
         cost = 3
 		available = {
 			has_country_flag = can_start_reunification
@@ -1457,5 +1457,101 @@
 				type = annex_everything
 			}	
 			add_civil_war_target = TUS
+        } 
+    }
+	focus = {
+        id = VNE_fight_ita
+        icon = GFX_goal_generic_construction
+        mutually_exclusive = { }
+        y = 2
+		relative_position_id = VNE_nows_the_time_to_strike
+        cost = 3
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = { country_exists = ITA }
+		}
+		prerequisite = {
+			focus = VNE_fight_its
+		}
+		prerequisite = {
+			focus = VNE_fight_tus
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+		
+        completion_reward = {
+			declare_war_on = {
+				target = ITA
+				type = annex_everything
+			}	
+			add_civil_war_target = ITA
+        } 
+    }
+	focus = {
+        id = VNE_fight_mss
+        icon = GFX_goal_generic_construction
+        mutually_exclusive = { }
+        y = 1
+		relative_position_id = VNE_fight_ita
+        cost = 3
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = { country_exists = MSS }
+		}
+		prerequisite = {
+			focus = VNE_fight_ita
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+		
+        completion_reward = {
+			declare_war_on = {
+				target = MSS
+				type = annex_everything
+			}	
+			add_civil_war_target = MSS
+        } 
+    }
+	focus = {
+        id = VNE_fight_sar
+        icon = GFX_goal_generic_construction
+        mutually_exclusive = { }
+        y = 1
+		relative_position_id = VNE_fight_mss
+        cost = 3
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = { country_exists = SAR }
+		}
+		prerequisite = {
+			focus = VNE_fight_mss
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+		
+        completion_reward = {
+			declare_war_on = {
+				target = SAR
+				type = annex_everything
+			}	
+			add_civil_war_target = SAR
         } 
     }
