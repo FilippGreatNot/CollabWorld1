@@ -1347,7 +1347,7 @@
         id = VNE_the_worst_outcomee
         icon = GFX_goal_generic_construction
         x = 0
-        y = 4
+        y = 2
         cost = 3
 		relative_position_id = VNE_a_venetian_meeting
 
@@ -1356,7 +1356,7 @@
         }
 
         available = { always = no }
-		allow_branch = { has_country_flag = VNE_deadlock_flag }
+		#allow_branch = { has_country_flag = VNE_deadlock_flag }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
@@ -1368,8 +1368,10 @@
 		}
     }
 	
+	#REUNIFICATION WARS#
+	
 	 focus = {
-        id = VNE_the_second_risorgimento
+        id = VNE_nows_the_time_to_strike
         icon = GFX_goal_generic_construction
         prerequisite = { }
         mutually_exclusive = { }
@@ -1377,7 +1379,8 @@
         y = 3
         cost = 3
 		available = {
-		date > 1924.5.3
+			has_country_flag = can_start_reunification
+			has_war = no
 		}
 
         ai_will_do = {
@@ -1385,14 +1388,74 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
 
         completion_reward = {
             add_stability = 0.05
             add_political_power = 200
+        } 
+    }
+	
+	 focus = {
+        id = VNE_fight_its
+        icon = GFX_goal_generic_construction
+        mutually_exclusive = { }
+        x = -1
+        y = 1
+		relative_position_id = VNE_nows_the_time_to_strike
+        cost = 3
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = { country_exists = ITS }
+		}
+		prerequisite = {
+			focus = VNE_nows_the_time_to_strike
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+		
+        completion_reward = {
+			declare_war_on = {
+				target = ITS
+				type = annex_everything
+			}	
+			add_civil_war_target = ITS
+        } 
+	}
+	focus = {
+        id = VNE_fight_tus
+        icon = GFX_goal_generic_construction
+        mutually_exclusive = { }
+        x = 1
+        y = 1
+		relative_position_id = VNE_nows_the_time_to_strike
+        cost = 3
+		available = {
+			has_war = no
+		}
+		bypass = {
+			NOT = { country_exists = TUS }
+		}
+		prerequisite = {
+			focus = VNE_nows_the_time_to_strike
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+		
+        completion_reward = {
+			declare_war_on = {
+				target = TUS
+				type = annex_everything
+			}	
+			add_civil_war_target = TUS
         } 
     }
