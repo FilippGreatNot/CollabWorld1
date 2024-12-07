@@ -16,7 +16,6 @@ YUG_collapse_mechanic = {
 			country_event = yugo.5
 		}
 	}
-}
 YUG_pasic_decisions = {
 	YUG_ensuring_stability = {
 		allowed = { tag = YUG }
@@ -34,6 +33,7 @@ YUG_pasic_decisions = {
 			factor = 5
 		}
 	}
+}
 	YUG_calming_nationalist_tendencies = {
 		allowed = { tag = YUG }
 		icon = ger_mefo_bills
@@ -47,6 +47,38 @@ YUG_pasic_decisions = {
 		}
 		ai_will_do = {
 			factor = 3
+		}
+	}
+	YUG_attacking_croatian_nationalism = {
+		allowed = { tag = YUG }
+		icon = ger_mefo_bills
+		cost = 45
+		days_re_enable = 60
+		days_remove = 30
+
+		complete_effect = {
+			stability_weekly = 0.01
+			political_power_cost = 0.05
+			national_syndicalism_drift = -0.01
+		}
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	YUG_attacking_bosniak_nationalism = {
+		allowed = { tag = YUG }
+		icon = ger_mefo_bills
+		cost = 45
+		days_re_enable = 60
+		days_remove = 30
+
+		complete_effect = {
+			stability_weekly = 0.01
+			political_power_cost = 0.05
+			reactionism_drift = -0.01
+		}
+		ai_will_do = {
+			factor = 2
 		}
 	}
 }

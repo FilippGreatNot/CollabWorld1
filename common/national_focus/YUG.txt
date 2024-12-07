@@ -165,10 +165,10 @@ focus_tree = {
         }
     }
     focus = {
-        id = YUG_ensuring_stability
+        id = YUG_controlling_the_parliament
         icon = GFX_focus_introduce_veteran_pensions
         cost = 5
-        x = 10
+        x = 12
         y = 12
         allow_branch = { has_country_flag = pasic_tree_unlocked }
         prerequisite = { focus = YUG_New_Democracy }
@@ -185,7 +185,17 @@ focus_tree = {
         allow_branch = { has_country_flag = pasic_tree_unlocked }
         prerequisite = { focus = YUG_New_Democracy }
         completion_reward = {
-            
+            unlock_decision_tooltip = YUG_attacking_bosniak_nationalism
+            unlock_decision_tooltip = YUG_attacking_croatian_nationalism
+            add_stability = -0.05
+            add_popularity = {
+                ideology = reactionism
+                popularity = 0.05
+            }
+            add_popularity = {
+                ideology = national_syndicalism
+                popularity = 0.05
+            }
         }
     }
     focus = {
@@ -199,6 +209,22 @@ focus_tree = {
         completion_reward = {
             add_ideas = YUG_centralisation_of_economy
             add_political_power = 15
+        }
+    }
+    focus = {
+        id = YUG_tripartite_economic_council
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 13
+        y = 10
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_centralisation_of_economy }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_centralisation_of_economy
+                add_idea = YUG_centralisation_of_economy2
+            }
+            add_political_power = -25
         }
     }
 ##RADIC/COALITION TREE
