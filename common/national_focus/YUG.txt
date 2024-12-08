@@ -130,6 +130,7 @@ focus_tree = {
         prerequisite = { focus = YUG_pasic_wins }
         completion_reward = {
             activate_advisor = YUG_milan_srskic_hog
+            activate_advisor = YUG_nikola_uzunovic_hog
             add_political_power = 15
         }
     }
@@ -259,6 +260,42 @@ focus_tree = {
 				type = annex_everything
 				target = BUL
 			}
+        }
+    }
+    focus = {
+        id = YUG_retaking_carinthia
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 8
+        y = 11
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_crossing_stara_planina }
+        available = {
+            is_neighbor_of = AUS
+        }
+        completion_reward = {
+            add_state_claim = 1058
+            create_wargoal = {
+                type = take_claimed_state 
+                target = AUS 
+            }
+        }
+    }
+    focus = {
+        id = YUG_ultimatum_to_albania
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 6
+        y = 10
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_reviving_greater_ideas }
+        available = {
+            is_neighbor_of = ALB
+        }
+        completion_reward = {
+            ALB = {
+                country_event = yugo.19
+            }
         }
     }
 ##RADIC/COALITION TREE
@@ -582,7 +619,7 @@ focus_tree = {
     ##Right eco branch 
     focus = {
         id = YUG_begin_industrialisation
-        icon = GFX_focus_introduce_veteran_pensions
+        icon = GFX_focus_YUG_begin_industrialization
         x = 30
         y = 3
         cost = 5

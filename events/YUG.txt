@@ -380,12 +380,57 @@ country_event = {
 		add_stability = 0.02
 	}
 }
+## War Events ##
+country_event = {
+	id = yugo.19
+	title = yugo.19.t
+	desc = yugo.19.d
+	picture = GFX_report_event_soviet_people
+	is_triggered_only = yes
+
+	option = {
+		name = yugo.19.a 
+		ai_chance = { factor = 30 }
+		YUG = {
+			set_state_owner = 1058
+		}
+		}
+	
+	option = {
+		name = yugo.19.t
+		ai_chance = { factor = 70 }
+		YUG = { 
+			country_event = yugo.20
+		}
+	}
+}
+country_event = {
+	id = yugo.20
+	title = yugo.20.t 
+	desc = yugo.20.d 
+	is_triggered_only = yes 
+
+	option = {
+		name = yugo.20.a 
+		create_wargoal = {
+			type = annex_everything
+			target = ALB
+		}
+	}
+}
 ## Instability Events ##
 country_event = {
 	id = yugo.17
 	title = yugo.17.t 
 	desc = yugo.17.d
 	is_triggered_only = yes 
+	mean_time_to_happen = {
+		days = 95
+		modifier = {
+			factor = 0.2
+			tag = YUG
+		}
+	}
 	option = {
 		name = yugo.17.a 
 		add_political_power = -25
@@ -402,5 +447,22 @@ country_event = {
 		name = yugo.17.b 
 		add_political_power = -45
 		add_stability = -0.05
+	}
+}
+country_event = {
+	id = yugo.18
+	title = yugo.18.t
+	desc = yugo.18.d 
+	is_triggered_only = yes 
+	option = {
+		name = yugo.18.a 
+		add_stability = -0.05
+		add_manpower = -2
+	}
+	option = {
+		name = yugo.18.b
+		add_political_power = -25
+		add_stability = -0.02
+		add_manpower = -2
 	}
 }

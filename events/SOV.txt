@@ -6,6 +6,7 @@ add_namespace = sov.stalin_united
 add_namespace = sov.stalin_united.comintern
 add_namespace = sov
 add_namespace = sov.bogdanov
+add_namespace = sov.ukr
 
 country_event = { #Fate of the royal family
 	id = sov.1
@@ -350,5 +351,37 @@ country_event = {
 			name = SOV_tkp
 			long_name = SOV_tkp_long
 		}
+	}
+}
+
+country_event = {
+	id = sov.ukr.3
+	title = sov.ukr.3.t
+	desc = sov.ukr.3.d
+	is_triggered_only = yes
+	trigger = {
+		is_in_faction = no
+	}
+	option = {
+		name = sov.ukr.3.a
+		create_faction = revolutionary_alliance
+		add_to_faction = UKR
+		add_war_support = 0.05
+		UKR = { complete_national_focus = UKR_soc_accept }
+	}
+}
+
+country_event = {
+	id = sov.ukr.4
+	title = sov.ukr.4.t
+	desc = sov.ukr.4.d
+	is_triggered_only = yes
+	trigger = {
+		is_in_faction = yes
+	}
+	option = {
+		name = sov.ukr.4.a
+		add_to_faction = UKR
+		add_war_support = 0.05
 	}
 }
