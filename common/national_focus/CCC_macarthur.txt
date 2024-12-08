@@ -1861,19 +1861,20 @@ focus_tree = {
 	focus = {
 		id = USA_mc_war_for_americas_destiny
 		icon = GFX_focus_USA_mc_final
-
 		relative_position_id = USA_mc_offer_the_resistance_amnesty
 		y = 1
 		x = 1
-
 		cost = 5
-		
 		available = {
 			has_war = no
 		}
-		
+		bypass = {
+			NOT = { country_exists = USA }
+			NOT = { country_exists = NEE }
+			NOT = { country_exists = PEN }
+			NOT = { country_exists = NYC }
+		}
 		prerequisite =	{ focus = USA_mc_offer_the_resistance_amnesty }
-
 		completion_reward = {
 			declare_war_on = {
 				target = USA

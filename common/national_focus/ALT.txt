@@ -2949,6 +2949,7 @@ focus_tree = {
 			factor = 15
 		}
 		cost = 4
+		mutually_exclusive = { focus = ALT_muscovite_intellect } 
 		relative_position_id = ALT_recruiting_elite_battalions
 		prerequisite = { focus = ALT_recruiting_elite_battalions }
 		completion_reward = {
@@ -3050,6 +3051,186 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_mandated_military_service
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_a_mass_offensive
+		prerequisite = { focus = ALT_a_mass_offensive }
+		completion_reward = {
+			add_manpower = 150000
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_muscovite_intellect
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		mutually_exclusive = { focus = ALT_advice_from_the_german_socialists } 
+		relative_position_id = ALT_mandated_military_service
+		prerequisite = { focus = ALT_mandated_military_service }
+		completion_reward = {
+			army_experience = 50
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_import_russian_guns
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_muscovite_intellect
+		prerequisite = { focus = ALT_muscovite_intellect }
+		completion_reward = {
+			army_experience = 10
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = SOV
+			}
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_war_propaganda
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_a_mass_offensive
+		prerequisite = { focus = ALT_a_mass_offensive }
+		completion_reward = {
+			add_war_support = 0.1
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_will_of_the_heroes
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_war_propaganda
+		prerequisite = { focus = ALT_war_propaganda }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_raising_support_from_the_farmers
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_will_of_the_heroes
+		prerequisite = { focus = ALT_will_of_the_heroes }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_are_you_a_soldier_or_are_you_a_fool
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_raising_support_from_the_farmers
+		prerequisite = { focus = ALT_import_russian_guns }
+		prerequisite = { focus = ALT_raising_support_from_the_farmers }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_reorganising_the_mass_forces
+		icon = GFX_focus_generic_limited_social_mobilization
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 30
+		}
+		cost = 4
+		relative_position_id = ALT_are_you_a_soldier_or_are_you_a_fool
+		prerequisite = { focus = ALT_are_you_a_soldier_or_are_you_a_fool }
+		completion_reward = {
+			army_experience = -50
+			add_doctrine_cost_reduction = {
+				name = deez_nuts
+				cost_reduction = 1
+				uses = 1
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_improving_military_education
 		icon = GFX_focus_research
 		x = 0
@@ -3059,7 +3240,7 @@ focus_tree = {
 		}
 		cost = 5
 		relative_position_id = ALT_purchase_kyrgyz_guns
-		prerequisite = { focus = ALT_better_than_the_best focus = ALT_invest_in_improved_weaponry focus = ALT_best_of_both_worlds }
+		prerequisite = { focus = ALT_better_than_the_best focus = ALT_invest_in_improved_weaponry focus = ALT_best_of_both_worlds focus = ALT_reorganising_the_mass_forces }
 		completion_reward = {
 			army_experience = 40
 			air_experience = 30
