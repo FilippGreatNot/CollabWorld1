@@ -56,6 +56,31 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = SOV_stalin_question_of_the_north
+		icon = GFX_focus_SOV_stalin_question_of_the_north
+		x = 0
+		y = 1
+		cost = 4
+		
+		relative_position_id = SOV_stalin_army_reorganization
+		
+		prerequisite = {
+			focus = SOV_stalin_army_reorganization
+		}
+		
+		available = { is_subject = no }
+		
+		completion_reward = {
+			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_question_of_the_north"
+			
+			KAR = { make_every_core_national_for_PREV = yes }
+			annex_country = { 
+				target = KAR
+				transfer_troops = yes 
+			}
+		}
+	}
+	focus = {
 		id = SOV_stalin_suppress_the_resistance
 		icon = GFX_focus_SOV_stalin_suppress_the_resistance
 		y = 1
@@ -518,31 +543,6 @@ focus_tree = {
 			add_timed_idea = {
 				idea = SOV_tukhachevsky_case
 				years = 1
-			}
-		}
-	}
-	focus = {
-		id = SOV_stalin_question_of_the_north
-		icon = GFX_focus_SOV_stalin_question_of_the_north
-		x = 0
-		y = 1
-		cost = 4
-		
-		relative_position_id = SOV_stalin_army_reorganization
-		
-		prerequisite = {
-			focus = SOV_stalin_army_reorganization
-		}
-		
-		available = { is_subject = no }
-		
-		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_question_of_the_north"
-			
-			KAR = { make_every_core_national_for_PREV = yes }
-			annex_country = { 
-				target = KAR
-				transfer_troops = yes 
 			}
 		}
 	}
