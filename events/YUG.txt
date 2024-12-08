@@ -392,17 +392,68 @@ country_event = {
 		name = yugo.19.a 
 		ai_chance = { factor = 30 }
 		YUG = {
-			set_state_owner = 1058
+			set_state_owner = 44
+			puppet = ALB
 		}
 		}
 	
 	option = {
 		name = yugo.19.t
 		ai_chance = { factor = 70 }
+		YUG = { 
+			country_event = yugo.20
+		}
+	}
+}
+country_event = {
+	id = yugo.20
+	title = yugo.20.t 
+	desc = yugo.20.d 
+	is_triggered_only = yes 
+
+	option = {
+		name = yugo.20.a 
+		create_wargoal = {
+			type = annex_everything
+			target = ALB
+		}
+	}
+}
+country_event = {
+	id = yugo.greeceultimatum
+	title = yugo.greeceultimatum.t 
+	desc = yugo.greeceultimatum.d 
+	is_triggered_only = yes 
+
+	option = {
+		name = yugo.greeceultimatum.a
+		ai_chance = { factor = 20 }
 		YUG = {
-			declare_war_on = {
-				target = AUS
-				type = annex_everything
+			set_state_owner = 902
+			set_state_owner = 184
+			set_state_owner = 341
+		}
+	}
+	option = {
+		name = yugo.greeceultimatum.b 
+		ai_chance = { factor = 80 }
+		YUG = {
+			country_event = yugo.21
+		}
+	}
+}
+country_event = {
+	id = yugo.21
+	title = yugo.21.t 
+	desc = yugo.21.d
+	is_triggered_only = yes 
+
+	option = {
+		name = yugo.21.a 
+		YUG = {
+			create_wargoal = {
+				type = take_claimed_state
+				target = GRE
 			}
 		}
 	}
