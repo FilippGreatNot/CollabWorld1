@@ -380,12 +380,46 @@ country_event = {
 		add_stability = 0.02
 	}
 }
+## War Events ##
+country_event = {
+	id = yugo.1war
+	title = yugo.1war.t
+	desc = yugo.1war.d
+	picture = GFX_report_event_soviet_people
+	is_triggered_only = yes
+
+	option = {
+		name = yugo.1war.a 
+		ai_chance = { factor = 30 }
+		YUG = {
+			set_state_owner = 1058
+		}
+		}
+	
+	option = {
+		name = yugo.1war.t
+		ai_chance = { factor = 70 }
+		YUG = {
+			declare_war_on = {
+				target = AUS
+				type = annex_everything
+			}
+		}
+	}
+}
 ## Instability Events ##
 country_event = {
 	id = yugo.17
 	title = yugo.17.t 
 	desc = yugo.17.d
 	is_triggered_only = yes 
+	mean_time_to_happen = {
+		days = 95
+		modifier = {
+			factor = 0.2
+			tag = YUG
+		}
+	}
 	option = {
 		name = yugo.17.a 
 		add_political_power = -25
