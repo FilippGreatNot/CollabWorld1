@@ -17,21 +17,66 @@ YUG_collapse_mechanic = {
 		}
 	}
 }
-Pasic_Decisions = {
-	YUG_Ensuring_Stability = {
+YUG_pasic_decisions = {
+	YUG_ensuring_stability = {
 		allowed = { tag = YUG }
 		available = {
 			has_stability < 0.8
 		}
 		icon = ger_mefo_bills
 		cost = 35
+		days_re_enable = 90
 
 		complete_effect = {
 			add_stability = 0.05
-			add_political_power = 25
 		}
 		ai_will_do = {
 			factor = 5
+		}
+	}
+	YUG_calming_nationalist_tendencies = {
+		allowed = { tag = YUG }
+		icon = ger_mefo_bills
+		cost = 35
+		days_re_enable = 90
+
+		complete_effect = {
+			add_stability = 0.01
+			add_political_power = 25
+			add_war_support = -0.05
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	YUG_attacking_croatian_nationalism = {
+		allowed = { tag = YUG }
+		visible = { has_country_flag = fight_against_separatists }
+		icon = ger_mefo_bills
+		cost = 45
+		days_re_enable = 60
+		days_remove = 30
+
+		complete_effect = {
+            stability_weekly_factor = 0.01
+		}
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	YUG_attacking_bosniak_nationalism = {
+		allowed = { tag = YUG }
+		visible = { has_country_flag = fight_against_separatists }
+		icon = ger_mefo_bills
+		cost = 45
+		days_re_enable = 60
+		days_remove = 30
+
+		complete_effect = {
+            stability_weekly_factor = 0.01
+		}
+		ai_will_do = {
+			factor = 2
 		}
 	}
 }

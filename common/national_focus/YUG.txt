@@ -160,14 +160,15 @@ focus_tree = {
                 ideology = conservatism
                 popularity = 0.05
             }
-            unlock_decision_category_tooltip = Pasic_Decisions
+            unlock_decision_category_tooltip = YUG_pasic_decisions
+            set_country_flag = YUG_pasic_decisions_activated
         }
     }
     focus = {
-        id = YUG_ensuring_stability
+        id = YUG_controlling_the_parliament
         icon = GFX_focus_introduce_veteran_pensions
         cost = 5
-        x = 10
+        x = 12
         y = 12
         allow_branch = { has_country_flag = pasic_tree_unlocked }
         prerequisite = { focus = YUG_New_Democracy }
@@ -184,7 +185,18 @@ focus_tree = {
         allow_branch = { has_country_flag = pasic_tree_unlocked }
         prerequisite = { focus = YUG_New_Democracy }
         completion_reward = {
-            
+            set_country_flag = fight_against_separatists
+            unlock_decision_tooltip = YUG_attacking_bosniak_nationalism
+            unlock_decision_tooltip = YUG_attacking_croatian_nationalism
+            add_stability = -0.05
+            add_popularity = {
+                ideology = reactionism
+                popularity = 0.05
+            }
+            add_popularity = {
+                ideology = national_syndicalism
+                popularity = 0.05
+            }
         }
     }
     focus = {
@@ -198,6 +210,55 @@ focus_tree = {
         completion_reward = {
             add_ideas = YUG_centralisation_of_economy
             add_political_power = 15
+        }
+    }
+    focus = {
+        id = YUG_tripartite_economic_council
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 13
+        y = 10
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_centralisation_of_the_economy }
+        completion_reward = {
+            swap_ideas = {
+                remove_idea = YUG_centralisation_of_economy
+                add_idea = YUG_centralisation_of_economy2
+            }
+            add_political_power = -25
+        }
+    }
+#PASIC CONQUEST TREE 
+    focus = {
+        id = YUG_reviving_greater_ideas
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 8
+        y = 9
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_pasic_wins }
+        completion_reward = {
+            add_war_support = 0.05
+            add_stability = 0.05
+            custom_effect_tooltip = pasic1_tt
+        }
+    }
+    focus = {
+        id = YUG_crossing_stara_planina
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 8
+        y = 10
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_reviving_greater_ideas }
+		available = {
+			is_neighbor_of = BUL
+		}
+        completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = BUL
+			}
         }
     }
 ##RADIC/COALITION TREE
