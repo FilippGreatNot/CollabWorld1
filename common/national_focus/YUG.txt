@@ -243,6 +243,24 @@ focus_tree = {
             custom_effect_tooltip = pasic1_tt
         }
     }
+    focus = {
+        id = YUG_crossing_stara_planina
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 7
+        x = 8
+        y = 10
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_reviving_greater_ideas }
+		available = {
+			is_neighbor_of = BUL
+		}
+        completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = BUL
+			}
+        }
+    }
 ##RADIC/COALITION TREE
     focus = {
         id = YUG_the_federal_bloc_wins
