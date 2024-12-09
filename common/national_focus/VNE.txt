@@ -466,7 +466,7 @@
         }
     } 
 	
-		focus = {
+	focus = {
         id = VNE_glory_to_democracy
         icon = GFX_goal_generic_construction
 		available = { always = no }
@@ -497,38 +497,8 @@
         }
     }    
 	
+
 	focus = {
-        id = VNE_a_turn_to_the_left
-        icon = GFX_goal_generic_construction
-		available = { always = no }
-        mutually_exclusive = { }
-        x = 10
-        y = 2
-        cost = 3
-		relative_position_id = VNE_a_venetian_meeting
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-        }
-    }   
-
-		focus = {
         id = VNE_encourage_entrepreneurship
         icon = GFX_goal_generic_construction
 		prerequisite = { focus = VNE_glory_to_democracy }
@@ -894,7 +864,7 @@
         }
     }  	
 	
-		focus = {
+	focus = {
         id = VNE_venice_stronger_than_ever
         icon = GFX_goal_generic_construction
         prerequisite = { 
@@ -923,7 +893,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -934,7 +904,38 @@
     } 
 	
 	focus = {
-        id = VNE_the_people_are_venetia_and_venetia_is_the_people
+        id = VNE_a_turn_to_the_left
+        icon = GFX_goal_generic_construction
+		available = { always = no }
+        mutually_exclusive = { }
+        x = 10
+        y = 2
+        cost = 3
+		relative_position_id = VNE_a_venetian_meeting
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }   
+	
+	focus = {
+        id = VNE_venetia_is_the_people
         icon = GFX_goal_generic_construction
 		prerequisite = { focus = VNE_a_turn_to_the_left }
         mutually_exclusive = { }
@@ -954,7 +955,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -965,14 +966,14 @@
     }  	
 	
 	focus = {
-        id = VNE_seize_aristocrat_and_capitalist_property
+        id = VNE_take_from_the_rich
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_the_people_are_venetia_and_venetia_is_the_people }
+		prerequisite = { focus = VNE_venetia_is_the_people }
         mutually_exclusive = { }
         x = 0
         y = 1
         cost = 3
-		relative_position_id = VNE_the_people_are_venetia_and_venetia_is_the_people
+		relative_position_id = VNE_venetia_is_the_people
 
         ai_will_do = {
             factor = 10
@@ -985,7 +986,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -998,12 +999,12 @@
 	focus = {
         id = VNE_its_our_venice
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_seize_aristocrat_and_capitalist_property }
+		prerequisite = { focus = VNE_take_from_the_rich }
         mutually_exclusive = { }
         x = 0
         y = 1
         cost = 3
-		relative_position_id = VNE_seize_aristocrat_and_capitalist_property
+		relative_position_id = VNE_take_from_the_rich
 
         ai_will_do = {
             factor = 10
@@ -1016,7 +1017,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1048,7 +1049,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1059,7 +1060,7 @@
     } 
 	
     focus = {
-        id = VNE_question_the_legitemacy_of_the_house_of_savoy
+        id = VNE_question_savoy
         icon = GFX_goal_generic_construction
 		prerequisite = { focus = VNE_a_turn_to_the_left }	
         mutually_exclusive = { }
@@ -1079,7 +1080,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1090,14 +1091,14 @@
     }  	
 	
 	focus = {
-        id = VNE_begin_socialization_of_the_social_classes
+        id = VNE_remove_class_divides
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_question_the_legitemacy_of_the_house_of_savoy }	
+		prerequisite = { focus = VNE_question_savoy }	
         mutually_exclusive = { }
         x = 0
         y = 1
         cost = 3
-		relative_position_id = VNE_question_the_legitemacy_of_the_house_of_savoy
+		relative_position_id = VNE_question_savoy
         ai_will_do = {
             factor = 10
         }
@@ -1109,7 +1110,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1120,14 +1121,14 @@
     }  	
 	
 	focus = {
-        id = VNE_usage_of_socialist_propoganda
+        id = VNE_socialist_propoganda
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_begin_socialization_of_the_social_classes }
+		prerequisite = { focus = VNE_remove_class_divides }
         mutually_exclusive = { }
         x = 0
         y = 1
         cost = 3
-		relative_position_id = VNE_begin_socialization_of_the_social_classes
+		relative_position_id = VNE_remove_class_divides
 
         ai_will_do = {
             factor = 10
@@ -1140,7 +1141,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1153,12 +1154,12 @@
     	focus = {
         id = VNE_a_letter_to_milano
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_usage_of_socialist_propoganda }
+		prerequisite = { focus = VNE_socialist_propoganda }
         mutually_exclusive = { }
         x = 0
         y = 1
         cost = 3
-		relative_position_id = VNE_usage_of_socialist_propoganda
+		relative_position_id = VNE_socialist_propoganda
 
         ai_will_do = {
             factor = 10
@@ -1171,7 +1172,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1202,7 +1203,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1233,7 +1234,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1264,7 +1265,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1295,7 +1296,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1334,7 +1335,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -1358,7 +1359,7 @@
         available = { always = no }
 		#allow_branch = { has_country_flag = VNE_deadlock_flag }
         cancel_if_invalid = yes
-        continue_if_invalid = no
+        
         available_if_capitulated = no
 
         complete_tooltip = {
