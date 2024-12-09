@@ -470,7 +470,11 @@
         id = VNE_glory_to_democracy
         icon = GFX_goal_generic_construction
 		available = { always = no }
-        mutually_exclusive = { }
+        mutually_exclusive = {
+			focus = VNE_the_worst_outcomee 
+			focus = VNE_a_turn_to_the_left
+		}
+		prerequisite = { focus = VNE_a_venetian_meeting }
         x = -10
         y = 2
         cost = 3
@@ -919,6 +923,15 @@
 
         available = {
         }
+		
+		prerequisite = {
+			focus = VNE_a_venetian_meeting
+		}
+		
+		mutually_exclusive = {
+			focus = VNE_glory_to_democracy
+			focus = VNE_a_turn_to_the_left
+		}
         
         bypass = {
         }
@@ -994,10 +1007,10 @@
 
       completion_reward = {	
         }
-    }  	
+    } 
 	
 	focus = {
-        id = VNE_its_our_venice
+        id = VNE_give_to_the_poor
         icon = GFX_goal_generic_construction
 		prerequisite = { focus = VNE_take_from_the_rich }
         mutually_exclusive = { }
@@ -1025,19 +1038,22 @@
 
       completion_reward = {	
         }
-    }  	
-	
-    focus = {
-        id = VNE_promote_agrarianism
+    } 
+
+	focus = {
+        id = VNE_remove_class_divides
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_its_our_venice }
+		prerequisite = { 
+			focus = VNE_give_to_the_poor 
+		}
+		prerequisite = { 
+			focus = VNE_work_harder 
+		}
         mutually_exclusive = { }
-        x = 0
+        x = 2
         y = 1
         cost = 3
-
-		relative_position_id = VNE_its_our_venice
-
+		relative_position_id = VNE_give_to_the_poor
         ai_will_do = {
             factor = 10
         }
@@ -1057,135 +1073,12 @@
 
       completion_reward = {	
         }
-    } 
+    }   	  	
 	
     focus = {
         id = VNE_question_savoy
         icon = GFX_goal_generic_construction
 		prerequisite = { focus = VNE_a_turn_to_the_left }	
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_a_turn_to_the_left
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-        }
-    }  	
-	
-	focus = {
-        id = VNE_remove_class_divides
-        icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_question_savoy }	
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_question_savoy
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-        }
-    }  	
-	
-	focus = {
-        id = VNE_socialist_propoganda
-        icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_remove_class_divides }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_remove_class_divides
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-        }
-    }  	
-	
-    	focus = {
-        id = VNE_a_letter_to_milano
-        icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_socialist_propoganda }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_socialist_propoganda
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-        }
-    }  	
-	
-	    focus = {
-        id = VNE_more_factories_means_more_growth
-        icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_a_turn_to_the_left }
         mutually_exclusive = { }
         x = 3
         y = 1
@@ -1211,17 +1104,141 @@
 
       completion_reward = {	
         }
-    }  	
+    }  		
 	
 	focus = {
-        id = VNE_come_to_our_farm
+        id = VNE_socialist_propoganda
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_more_factories_means_more_growth }
+		prerequisite = { focus = VNE_question_savoy }
         mutually_exclusive = { }
         x = 0
         y = 1
         cost = 3
-		relative_position_id = VNE_more_factories_means_more_growth
+		relative_position_id = VNE_question_savoy
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  
+
+	focus = {
+        id = VNE_its_our_venice
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_socialist_propoganda}
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_socialist_propoganda
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        
+        available_if_capitulated = no
+
+        complete_tooltip = {
+       }
+	
+      completion_reward = {	
+        }
+    }	
+	
+	focus = {
+        id = VNE_more_factories
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_a_turn_to_the_left }
+        mutually_exclusive = { }
+        y = 1
+        cost = 3
+		relative_position_id = VNE_a_turn_to_the_left
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    }  	
+	
+    focus = {
+        id = VNE_promote_agrarianism
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_more_factories }
+        mutually_exclusive = { focus = VNE_forced_industrialization }
+        x = -1
+        y = 1
+        cost = 3
+
+		relative_position_id = VNE_more_factories
+
+        ai_will_do = {
+            factor = 10
+        }
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+        
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+        }
+    } 
+	
+	focus = {
+        id = VNE_forced_industrialization
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_more_factories }
+        mutually_exclusive = { focus = VNE_promote_agrarianism }
+        x = 1
+        y = 1
+        cost = 3
+		relative_position_id = VNE_more_factories
 
         ai_will_do = {
             factor = 10
@@ -1245,14 +1262,17 @@
     }  	
 	
 	focus = {
-        id = VNE_work_longer_not_harder
+        id = VNE_work_harder
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_come_to_our_farm }
+		prerequisite = {
+			focus = VNE_forced_industrialization 
+			focus = VNE_promote_agrarianism
+		}
         mutually_exclusive = { }
         x = 0
-        y = 1
+        y = 2
         cost = 3
-		relative_position_id = VNE_come_to_our_farm
+		relative_position_id = VNE_more_factories
 
         ai_will_do = {
             factor = 10
@@ -1276,14 +1296,19 @@
     }  	
 	
     	focus = {
-        id = VNE_united_under_the_banner_of_socialism
+        id = VNE_united_under_socialism
         icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_work_longer_not_harder }
+		prerequisite = { 
+			focus = VNE_work_harder
+		}
+		prerequisite = { 
+			focus = VNE_its_our_venice
+		}
         mutually_exclusive = { }
-        x = 0
+        x = 1
         y = 1
         cost = 3
-		relative_position_id = VNE_work_longer_not_harder
+		relative_position_id = VNE_work_harder
 
         ai_will_do = {
             factor = 10
@@ -1309,20 +1334,17 @@
 		focus = {
         id = VNE_venice_united_more_than_ever
         icon = GFX_goal_generic_construction
-        prerequisite = { 
-		focus = VNE_a_letter_to_milano
+		prerequisite = { 
+		focus = VNE_remove_class_divides
 		}
 		prerequisite = { 
-		focus = VNE_promote_agrarianism
-		}
-		prerequisite = { 
-		focus = VNE_united_under_the_banner_of_socialism
+		focus = VNE_united_under_socialism
 		}
         mutually_exclusive = { }
         x = 0
-        y = 1
+        y = 5
 		cost = 3
-		relative_position_id = VNE_a_letter_to_milano	
+		relative_position_id = VNE_a_turn_to_the_left
 
         ai_will_do = {
             factor = 10
@@ -1349,6 +1371,9 @@
         icon = GFX_goal_generic_construction
         x = 0
         y = 2
+		prerequisite = {
+			focus = VNE_a_venetian_meeting
+		}
         cost = 3
 		relative_position_id = VNE_a_venetian_meeting
 
@@ -1364,6 +1389,11 @@
 
         complete_tooltip = {
         }
+		
+		mutually_exclusive = {
+			focus = VNE_glory_to_democracy
+			focus = VNE_a_turn_to_the_left
+		}
 
         completion_reward = {	
 		}
