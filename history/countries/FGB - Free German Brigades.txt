@@ -77,6 +77,14 @@ country_event = { id = freikorps.2 days = 16 }
 
 if = {
 	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
 		has_dlc = "No Step Back"
 	}
 	create_equipment_variant = {
@@ -95,7 +103,6 @@ if = {
 			tank_nsb_engine_upgrade = 1
 			tank_nsb_armor_upgrade = 1
 		}
-		obsolete = yes
 	}
 	else = {
 		create_equipment_variant = {
