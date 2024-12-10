@@ -1,4 +1,6 @@
 add_namespace = nyc
+add_namespace = nyc_nypd
+add_namespace = nyc_capone
 
 country_event = {
 	id = nyc.1
@@ -40,21 +42,33 @@ country_event = {
 	desc = nyc.2.d
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			remove_power_balance = {
+    			id = NYC_power_balance
+			}
+		}
+	}
+
 	option = {
 		name = nyc.2.a
 		mark_focus_tree_layout_dirty = yes
-		create_country_leader = {
-			name = "Al Capone"
-			picture = "gfx/leaders/NYC/Portrait_NYC_Al_Capone.png"
-			ideology = market_liberalism
-			traits = {
-			}
+		add_ideas = {
+			NYC_unstable_nation
 		}
 		add_popularity = {
     		ideology = liberalism
     		popularity = 0.12
 		}
 		hidden_effect = {
+			recruit_character = NYC_al_capone
+			promote_character = {
+    			character = NYC_al_capone
+    			ideology = market_liberalism
+			}
+			deactivate_advisor = NYC_george_lunn_hog
+			recruit_character = NYC_jhonny_torrio
+			activate_advisor = NYC_jhonny_torrio_hog
 			uncomplete_national_focus = {
   				focus = NYC_al_smith
   				uncomplete_children = yes
@@ -64,6 +78,9 @@ country_event = {
   				focus = NYC_nathan_miller
   				uncomplete_children = yes
   				refund_political_power = no
+			}
+			remove_ideas = {
+				NYC_five_yr_plan
 			}
 			remove_mission = NYC_arrest_al_capone_mission
 			set_politics = {
@@ -85,6 +102,146 @@ country_event = {
         			infantry = { x = 0 y = 3 }
     			}
 			}
+		}
+	}
+}
+country_event = {
+	id = nyc.3
+	title = nyc.3.t
+	desc = nyc.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = nyc.3.a
+		NEE = {
+			
+		}
+	}
+	
+	
+	option = {
+		name = nyc.3.b
+		hidden_effect = {
+			NYC = {
+				uncomplete_national_focus = {
+  					focus = NYC_spare_them
+  					uncomplete_children = yes
+  					refund_political_power = no
+				}
+			}
+		}
+		NYC = {complete_national_focus = NYC_march_to_boston}
+	}
+}
+
+country_event = {
+	id = nyc_nypd.1
+	title = nyc_nypd.1.t
+	desc = nyc_nypd.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = nyc_nypd.1.a
+		mark_focus_tree_layout_dirty = yes
+		hidden_effect = {
+			uncomplete_national_focus = {
+  				focus = NYC_al_smith
+  				uncomplete_children = yes
+  				refund_political_power = no
+			}
+			uncomplete_national_focus = {
+  				focus = NYC_nathan_miller
+  				uncomplete_children = yes
+  				refund_political_power = no
+			}
+			uncomplete_national_focus = {
+  				focus = NYC_al_capone
+  				uncomplete_children = yes
+  				refund_political_power = no
+			}
+			set_politics = {
+    			long_name = NYC_despotism_party_long
+    			name = NYC_despotism_party
+			}
+			set_country_flag = NYC_nypd_flag
+			clr_country_flag = NYC_al_capone_flag
+			clr_country_flag = NYC_al_smith
+			clr_country_flag = NYC_nathan_miller
+			remove_mission = NYC_arrest_al_capone_mission
+		}
+		remove_power_balance = {
+    		id = NYC_power_balance
+		}
+		set_politics = {
+    		ruling_party = despotism
+    		elections_allowed = no
+		}
+	}
+}
+
+country_event = {
+	id = nyc_capone.1
+	title = nyc_capone.1.t
+	desc = nyc_capone.1.d
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			remove_power_balance = {
+    			id = NYC_power_balance
+			}
+		}
+	}
+
+	option = {
+		name = nyc_capone.1.a
+		add_country_leader_role = {
+    		character = NYC_al_capone
+    		promote_leader = yes
+    		country_leader = {
+        		ideology = warlordism
+    		}
+		}
+		hidden_effect = {
+			set_politics = {
+    			ruling_party = despotism
+    			elections_allowed = no
+    			long_name = NYC_despotism_party_al_capone_long
+    			name = NYC_despotism_party_al_capone
+			}
+			add_popularity = {
+    			ideology = despotism
+    			popularity = 0.15
+			}
+		}
+	}
+	
+	
+	option = {
+		name = nyc_capone.1.b
+		hidden_effect = {
+			recruit_character = NYC_the_commission
+			add_country_leader_role = {
+    			character = NYC_the_commission
+    			promote_leader = yes
+    			country_leader = {
+        			ideology = warlordism
+    			}
+			}
+			set_politics = {
+    			ruling_party = despotism
+    			elections_allowed = no
+    			long_name = NYC_despotism_commission_party_long
+    			name = NYC_despotism_commission_party
+			}
+			add_popularity = {
+    			ideology = despotism
+    			popularity = 0.2
+			}
+		}
+		promote_character = {
+    		character = NYC_the_commission
+    		ideology = military_junta
 		}
 	}
 }

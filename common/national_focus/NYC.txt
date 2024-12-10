@@ -10,14 +10,17 @@ focus_tree = {
 	}
 	default = no
 	
-	focus = {
+	focus = { 
 		id = NYC_elections
 		icon = GFX_focus_NOR_restore_public_trust_in_the_storting
 		x = 3
 		y = 0
 		cost = 3
 		available = {
-			date > 1922.11.03
+			date > 1922.11.05
+			NOT = {
+				has_country_flag = NYC_nypd_flag
+			}
 		}
 		completion_reward = {
 			country_event = nyc.1
@@ -31,14 +34,13 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		available = {
-			NOT = {
-				has_country_leader = {
-    				name = "Al Capone"
-    				ruling_only = yes
-				}
+			has_country_leader = {
+    			name = "Al Smith"
+    			ruling_only = yes
 			}
 		}
 		completion_reward = {
@@ -51,13 +53,14 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_al_smith}
 		relative_position_id = NYC_al_smith
 		cost = 3
 		completion_reward = {
-
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -67,13 +70,14 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_al_smith}
 		relative_position_id = NYC_al_smith
 		cost = 3
 		completion_reward = {
-
+			add_stability = 0.3
 		}
 	}
 	focus = {
@@ -84,13 +88,21 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_al_smith}
 		relative_position_id = NYC_al_smith
 		cost = 3
 		completion_reward = {
-
+			add_popularity = {
+    			ideology = libertarian_socialism
+    			popularity = 0.1
+			}
+			add_popularity = {
+    			ideology = social_democrat
+    			popularity = 0.15
+			}
 		}
 	}
 	focus = {
@@ -100,6 +112,7 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_worker_saftey_laws}
@@ -107,7 +120,7 @@ focus_tree = {
 		relative_position_id = NYC_worker_saftey_laws
 		cost = 4
 		completion_reward = {
-
+			add_research_slot = 1
 		}
 	}
 
@@ -119,6 +132,7 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_greater_workers_rights}
@@ -161,6 +175,7 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_support_labor_unions}
@@ -178,6 +193,7 @@ focus_tree = {
 		allow_branch = {
 			NOT = {
 				has_country_flag = NYC_nathan_miller
+				has_country_flag = NYC_nypd_flag
 			}
 		}
 		prerequisite = {focus = NYC_unite_the_state}
@@ -629,7 +645,7 @@ focus_tree = {
 	### Nathan Miller Elected
 	focus = {
 		id = NYC_nathan_miller
-		x = 10
+		x = 11
 		y = 0
 		cost = 3
 		allow_branch = {
@@ -878,6 +894,78 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = NYC_break_down_left
+		x = 2
+		y = 1
+		prerequisite = {focus = NYC_political_state}
+		relative_position_id = NYC_political_state
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_destroy_right
+		x = -2
+		y = 1
+		prerequisite = {focus = NYC_political_state}
+		relative_position_id = NYC_political_state
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_centere_stands_strong
+		x = 0
+		y = 1
+		prerequisite = {focus = NYC_political_state}
+		relative_position_id = NYC_political_state
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_economic_growth
+		x = 0
+		y = 1
+		prerequisite = {focus = NYC_industrial_planning}
+		relative_position_id = NYC_industrial_planning
+		cost = 3
+		allow_branch = {
+			NOT = {
+				has_country_flag = NYC_al_smith
+			}
+			has_country_flag = NYC_nathan_miller
+		}
+		completion_reward = {
+
+		}
+	}
+
 	### Al Capone Coup
 
 	focus = {
@@ -893,7 +981,6 @@ focus_tree = {
 			hidden_effect = {
 			division_template = {
     			name = "New York National Gaurd"
-    			is_locked = yes
     			division_cap = 10
     			division_names_group = USA_INF_01
     			priority = 0
@@ -909,6 +996,10 @@ focus_tree = {
     			}
 			}
 			}
+			add_power_balance_value = {
+    			id = NYC_power_balance
+    			value = 0.1
+			}
 		}
 	}
 
@@ -921,6 +1012,10 @@ focus_tree = {
 		relative_position_id = NYC_elections
 		completion_reward = {
 			add_stability = -0.2
+			add_power_balance_value = {
+    			id = NYC_power_balance
+    			value = 0.1
+			}
 		}
 	}
 
@@ -933,6 +1028,10 @@ focus_tree = {
 		relative_position_id = NYC_elections
 		completion_reward = {
 			add_command_power = 100
+			add_power_balance_value = {
+    			id = NYC_power_balance
+    			value = 0.15
+			}
 		}
 	}
 
@@ -948,254 +1047,697 @@ focus_tree = {
 		completion_reward = {
 			set_country_flag = NYC_arrest_al_capone_flag
 			activate_mission = NYC_arrest_al_capone_mission
+			add_power_balance_value = {
+    			id = NYC_power_balance
+    			value = -0.02
+			}
 		}
 	}
 	
 	focus = {
-		id = NYC_al_capone
+		id = NYC_al_capone_leader
 		x = 24
 		y = 0
 		cost = 4
 		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
+			has_country_flag = NYC_al_capone_flag
 		}
 		allow_branch = {
 			has_country_flag = NYC_al_capone_flag
 		}
 	}
 	focus = {
-		id = NYC_liberal_nyc
-		x = 0
+		id = NYC_abolish_the_nypd
+		x = -1
 		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_al_capone}
-		relative_position_id = NYC_al_capone
+		cost = 2.5
+		mutually_exclusive = {focus = NYC_good_terms_the_nypd}
+		prerequisite = {focus = NYC_al_capone_leader}
+		relative_position_id = NYC_al_capone_leader
 		completion_reward = {
 
-		}
-	}
-	focus = {
-		id = NYC_non_agression_principle
-		x = 0
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_liberal_nyc}
-		relative_position_id = NYC_liberal_nyc
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_free_markets
-		x = -2
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_liberal_nyc}
-		relative_position_id = NYC_liberal_nyc
-		completion_reward = {
 			swap_ideas = {
-    			remove_idea = mixed_economy
-    			add_idea = free_market_economy
+				remove_idea = NYC_corrupt_police
+    			add_idea = NYC_corrupt_police2
+			}
+			add_political_power = -10
+			add_popularity = {
+    			ideology = despotism
+    			popularity = -0.15
+			}
+			add_popularity = {
+    			ideology = reactionism
+    			popularity = -0.1
 			}
 		}
 	}
 	focus = {
-		id = NYC_self_ownership
-		x = 2
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_liberal_nyc}
-		relative_position_id = NYC_liberal_nyc
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_voluntary_scociety
-		x = -1
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_self_ownership}
-		prerequisite = {focus = NYC_non_agression_principle}
-		relative_position_id = NYC_self_ownership
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_voluntary_exchange
+		id = NYC_good_terms_the_nypd
 		x = 1
 		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
+		cost = 2.5
+		mutually_exclusive = {focus = NYC_abolish_the_nypd}
+		prerequisite = {focus = NYC_al_capone_leader}
+		relative_position_id = NYC_al_capone_leader
+		completion_reward = {
+
+			swap_ideas = {
+				remove_idea = NYC_corrupt_police
+    			add_idea = NYC_corrupt_police3
+				
+			}
+			add_political_power = 10
+			add_popularity = {
+    			ideology = despotism
+    			popularity = 0.02
+			}
+			add_popularity = {
+    			ideology = reactionism
+    			popularity = -0.05
 			}
 		}
-		cost = 4.5
-		prerequisite = {focus = NYC_free_markets}
-		prerequisite = {focus = NYC_non_agression_principle}
-		relative_position_id = NYC_free_markets
+	}
+	focus = {
+		id = NYC_free_nation
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_abolish_the_nypd focus = NYC_good_terms_the_nypd}
+		relative_position_id = NYC_abolish_the_nypd
 		completion_reward = {
 
 		}
 	}
 	focus = {
-		id = NYC_private_property
-		x = 1
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_voluntary_exchange focus = NYC_voluntary_scociety}
-		relative_position_id = NYC_voluntary_exchange
-		completion_reward = {
-			add_political_power = 20
-		}
-	}
-	focus = {
-		id = NYC_voluntary_slavery
-		x = -1
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_voluntary_exchange}
-		relative_position_id = NYC_voluntary_exchange
-		completion_reward = {
-			country_event = nyc_liberal.1
-		}
-	}
-	focus = {
-		id = NYC_agencies_as_law
-		x = 1
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 4.5
-		prerequisite = {focus = NYC_voluntary_scociety}
-		relative_position_id = NYC_voluntary_scociety
-		completion_reward = {
-			add_ideas = {
-				NYC_agencies_law
-			}
-		}
-	}
-	focus = {
-		id = NYC_trust_companies
-		x = -2
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 6
-		prerequisite = {focus = NYC_agencies_as_law}
-		prerequisite = {focus = NYC_private_property}
-		prerequisite = {focus = NYC_voluntary_slavery}
-		relative_position_id = NYC_agencies_as_law
-	}
-	focus = {
-		id = NYC_continue_print_money
-		x = -3
-		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 5
-		prerequisite = {focus = NYC_trust_companies}
-		relative_position_id = NYC_trust_companies
-		completion_reward = {
-
-		}
-	}
-	focus = {
-		id = NYC_tax_theft
+		id = NYC_control_chaos
 		x = 3
 		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
-		}
-		cost = 5
-		prerequisite = {focus = NYC_trust_companies}
-		relative_position_id = NYC_trust_companies
+		cost = 3.5
+		prerequisite = {focus = NYC_free_nation}
+		relative_position_id = NYC_free_nation
 		completion_reward = {
-			add_ideas = {
-				NYC_tax_is_theft
-			}
+
 		}
-	}	
+	}
 	focus = {
-		id = NYC_support_individualism
-		x = 0
+		id = NYC_abolish_prohibition
+		icon = GFX_focus_FIN_oy_alkoholiliike
+		x = -3
 		y = 1
-		available = {
-			has_country_leader = {
-    			name = "Al Capone"
-    			ruling_only = yes
-			}
+		cost = 3.5
+		prerequisite = {focus = NYC_free_nation}
+		relative_position_id = NYC_free_nation
+		completion_reward = {
+
 		}
-		cost = 5
-		prerequisite = {focus = NYC_trust_companies}
-		relative_position_id = NYC_trust_companies
+	}
+	focus = {
+		id = NYC_collaborate_with_other_gangs
+		mutually_exclusive = {focus = NYC_there_can_only_be_one}
+		x = -1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_free_nation}
+		relative_position_id = NYC_free_nation
+		completion_reward = {
+			custom_effect_tooltip = ancap_path
+
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = NYC_there_can_only_be_one
+		mutually_exclusive = {focus = NYC_collaborate_with_other_gangs}
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_free_nation}
+		relative_position_id = NYC_free_nation
+		completion_reward = {
+			custom_effect_tooltip = despot_path
+
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = NYC_abolish_extremists
+		x = -1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_there_can_only_be_one focus = NYC_collaborate_with_other_gangs}
+		relative_position_id = NYC_there_can_only_be_one
 		completion_reward = {
 			add_popularity = {
-    			ideology = liberalism
+    			ideology = reactionism
+    			popularity = -0.1
+			}
+			add_popularity = {
+    			ideology = national_syndicalism
+    			popularity = -0.1
+			}
+			hidden_effect = {
+				set_party_name = {
+    				ideology = reactionism
+    				name = banned_party
+				}
+				set_party_name = {
+    				ideology = national_syndicalism
+    				name = banned_party
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_end_tammany_hall
+		x = 0
+		y = 1
+		cost = 4
+		prerequisite = {focus = NYC_abolish_extremists}
+		relative_position_id = NYC_abolish_extremists
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_commision_sees_all
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_there_can_only_be_one}
+		relative_position_id = NYC_there_can_only_be_one
+		completion_reward = {
+			add_popularity = {
+    			ideology = despotism
     			popularity = 0.15
 			}
+		}
+	}
+
+	focus = {
+		id = NYC_deal_opposition
+		x = 0
+		y = 1
+		cost = 3.2
+		prerequisite = {focus = NYC_commision_sees_all}
+		relative_position_id = NYC_commision_sees_all
+		completion_reward = {
+			add_popularity = {
+    			ideology = despotism
+    			popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_support_true_faction
+		x = 2
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_commision_sees_all}
+		relative_position_id = NYC_commision_sees_all
+		completion_reward = {
+			add_popularity = {
+    			ideology = despotism
+    			popularity = 0.3
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_united_empire
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_deal_opposition}
+		prerequisite = {focus = NYC_support_true_faction}
+		relative_position_id = NYC_deal_opposition
+		completion_reward = {
+			country_event = nyc_capone.1
+			hidden_effect = {
+
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_unite_commission
+		x = -1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_collaborate_with_other_gangs}
+		relative_position_id = NYC_collaborate_with_other_gangs
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_end_family_conflicts
+		x = 0
+		y = 1
+		cost = 3.2
+		prerequisite = {focus = NYC_unite_commission}
+		relative_position_id = NYC_unite_commission
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_united_against_capitalism
+		x = -2
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_unite_commission}
+		relative_position_id = NYC_unite_commission
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_mob_unity
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_united_against_capitalism}
+		prerequisite = {focus = NYC_end_family_conflicts}
+		relative_position_id = NYC_united_against_capitalism
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_living_in_gangsters_paradise
+		x = 3
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_mob_unity focus = NYC_united_empire}
+		prerequisite = {focus = NYC_end_tammany_hall}
+		relative_position_id = NYC_mob_unity
+		completion_reward = {
+			remove_ideas = {
+				NYC_unstable_nation
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_expand_the_grey_market
+		x = -2
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_living_in_gangsters_paradise}
+		relative_position_id = NYC_living_in_gangsters_paradise
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_helping_people_city
+		x = 2
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_living_in_gangsters_paradise}
+		relative_position_id = NYC_living_in_gangsters_paradise
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_control_drug_trade
+		x = 0
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_living_in_gangsters_paradise}
+		relative_position_id = NYC_living_in_gangsters_paradise
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_state_of_global_crime
+		x = 0
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_expand_the_grey_market}
+		prerequisite = {focus = NYC_helping_people_city}
+		prerequisite = {focus = NYC_control_drug_trade}
+		relative_position_id = NYC_control_drug_trade
+		completion_reward = {
+
+		}
+	}
+
+	# Liberation Of Northern American States
+
+	focus = { 
+		id = NYC_expanding_our_liberty
+		icon = GFX_focus_ICE_embrace_the_workers_revolution
+		x = 1
+		y = 4
+		cost = 3
+		available = {
+			date > 1924.01.01
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_looking_to_hudson
+		x = -2
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_expanding_our_liberty}
+		relative_position_id = NYC_expanding_our_liberty
+		completion_reward = {
+			add_state_core = 358
+			add_state_core = 360
+		}
+	}
+
+	focus = {
+		id = NYC_our_sights_on_boston
+		x = 2
+		y = 1
+		cost = 3
+		
+		prerequisite = {focus = NYC_expanding_our_liberty}
+		relative_position_id = NYC_expanding_our_liberty
+		completion_reward = {
+			add_state_core = 838
+			add_state_core = 357
+		}
+	}
+	
+	focus = {
+		id = NYC_end_freemasons
+		x = 0
+		y = 1
+		cost = 4.5
+		prerequisite = {focus = NYC_looking_to_hudson}
+		relative_position_id = NYC_looking_to_hudson
+
+		bypass = {
+			PEN = {
+				exists = no
+			}
+		}
+
+		available = {
+			has_war = no
+			is_neighbor_of = PEN
+			is_subject = no
+		}
+
+		completion_reward = {
+			declare_war_on = {
+    			target = PEN
+    			type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_march_to_boston
+		x = -1
+		y = 1
+		cost = 4.5
+		mutually_exclusive = {focus = NYC_spare_them}
+		prerequisite = {focus = NYC_our_sights_on_boston}
+		relative_position_id = NYC_our_sights_on_boston
+
+		bypass = {
+			NEE = {
+				exists = no
+			}
+		}
+
+		available = {
+			has_war = no
+			is_neighbor_of = NEE
+			is_subject = no
+		}
+
+		completion_reward = {
+			declare_war_on = {
+    			target = NEE
+    			type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_spare_them
+		x = 1
+		y = 1
+		cost = 4.5
+		available = {
+			has_country_flag = american_cotalition_formed
+		}
+		bypass = {
+			NEE = {
+				exists = no
+			}
+		}
+
+		available = {
+			has_war = no
+			is_neighbor_of = NEE
+			is_subject = no
+		}
+
+		mutually_exclusive = {focus = NYC_march_to_boston}
+		prerequisite = {focus = NYC_our_sights_on_boston}
+		relative_position_id = NYC_our_sights_on_boston
+		completion_reward = {
+			NEE = {
+				country_event = nyc.3
+			}
+		}
+	}
+
+	focus = {
+		id = NYC_establish_free_cotalition
+		x = 0
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_expanding_our_liberty}
+		relative_position_id = NYC_expanding_our_liberty
+		completion_reward = {
+			create_faction = American_Cotalition
+			add_political_power = 50
+			set_country_flag = american_cotalition_formed
+		}
+	}
+
+	focus = {
+		id = NYC_purchase_new_jersey
+		x = 0
+		y = 2
+		cost = 3
+		prerequisite = {focus = NYC_establish_free_cotalition}
+		prerequisite = {focus = NYC_end_freemasons}
+		prerequisite = {focus = NYC_march_to_boston focus = NYC_spare_them}
+		relative_position_id = NYC_establish_free_cotalition
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_accepted
+		x = -1
+		y = 1
+		cost = 3
+		available = {
+			always = no
+		}
+		mutually_exclusive = {focus = NYC_denied}
+		prerequisite = {focus = NYC_purchase_new_jersey}
+		relative_position_id = NYC_purchase_new_jersey
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = NYC_denied
+		x = 1
+		y = 1
+		cost = 3
+		available = {
+			always = no
+		}
+		mutually_exclusive = {focus = NYC_accepted}
+		prerequisite = {focus = NYC_purchase_new_jersey}
+		relative_position_id = NYC_purchase_new_jersey
+		completion_reward = {
+
+		}
+	}
+
+	### NYPD Coup ###
+
+	focus = {
+		id = NYC_police_state
+		x = 11
+		y = 0
+		cost = 3
+		allow_branch = {
+			has_country_flag = NYC_nypd_flag
+		}
+		available = {
+			has_country_flag = NYC_nypd_flag
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = NYC_back_the_blue
+		x = 2
+		y = 1
+		cost = 3.4
+		prerequisite = {focus = NYC_police_state}
+		relative_position_id = NYC_police_state
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_eliminate_mafia
+		x = -2
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_police_state}
+		relative_position_id = NYC_police_state
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_crush_reds
+		x = 0
+		y = 1
+		cost = 3.4
+		prerequisite = {focus = NYC_police_state}
+		relative_position_id = NYC_police_state
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_always_watching
+		x = 1
+		y = 1
+		cost = 3.4
+		prerequisite = {focus = NYC_crush_reds}
+		prerequisite = {focus = NYC_back_the_blue}
+		relative_position_id = NYC_crush_reds
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_militirize_police
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_eliminate_mafia}
+		prerequisite = {focus = NYC_crush_reds}
+		relative_position_id = NYC_eliminate_mafia
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_shoot_looters
+		x = -1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_militirize_police}
+		relative_position_id = NYC_militirize_police
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_hunt_down_anarchists
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_militirize_police}
+		prerequisite = {focus = NYC_always_watching}
+		relative_position_id = NYC_militirize_police
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_implement_curfew
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_always_watching}
+		relative_position_id = NYC_always_watching
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_use_tammany_hall
+		x = 0
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_hunt_down_anarchists}
+		prerequisite = {focus = NYC_implement_curfew}
+		prerequisite = {focus = NYC_shoot_looters}
+		relative_position_id = NYC_hunt_down_anarchists
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_a_gun_every_household
+		x = -1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_shoot_looters}
+		relative_position_id = NYC_shoot_looters
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_implement_propaganda
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_implement_curfew}
+		relative_position_id = NYC_implement_curfew
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+	focus = {
+		id = NYC_stay_in_line
+		x = 0
+		y = 1
+		cost = 3
+		prerequisite = {focus = NYC_use_tammany_hall}
+		prerequisite = {focus = NYC_a_gun_every_household}
+		prerequisite = {focus = NYC_implement_propaganda}
+		relative_position_id = NYC_use_tammany_hall
+		completion_reward = {
+			add_stability = 0.5
 		}
 	}
 }
