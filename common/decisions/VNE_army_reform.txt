@@ -10,7 +10,6 @@ VNE_army_reform = {
 			}
 		}
 
-		days_remove = 100
 		fire_only_once = yes
 		
 		custom_cost_trigger = {
@@ -20,18 +19,15 @@ VNE_army_reform = {
 			hidden_effect = {
 				army_experience = -50
 			}
+			swap_ideas = {
+				remove_idea = VNE_nonexistent_army
+				add_idea = VNE_small_army
+			}
 		}
 		custom_cost_text = VNE_decision_cost_AX_-50
 		
 		ai_will_do = {
 			factor = 500
-		}
-		
-		remove_effect = {
-			swap_ideas = {
-				remove_idea = VNE_nonexistent_army
-				add_idea = VNE_small_army
-			}
 		}
 	}
 	VNE_army_reform_2 = {
@@ -48,7 +44,6 @@ VNE_army_reform = {
 			}
 		}
 
-		days_remove = 100
 		fire_only_once = yes
 		
 		custom_cost_trigger = {
@@ -58,21 +53,15 @@ VNE_army_reform = {
 			hidden_effect = {
 				army_experience = -50
 			}
+			swap_ideas = {
+				remove_idea = VNE_small_army
+				add_idea = VNE_deorged_army
+			}
 		}
 		custom_cost_text = VNE_decision_cost_AX_-50
 
 		ai_will_do = {
 			factor = 500
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			swap_ideas = {
-				remove_idea = VNE_small_army
-				add_idea = VNE_deorged_army
-			}
 		}
 	}
 	VNE_army_reform_3 = {
@@ -86,7 +75,6 @@ VNE_army_reform = {
 			}
 		}
 
-		days_remove = 100
 		fire_only_once = yes
 
 		custom_cost_trigger = {
@@ -95,19 +83,13 @@ VNE_army_reform = {
 		complete_effect = {
 			hidden_effect = {
 				army_experience = -50
+			remove_ideas = { VNE_deorged_army }
 			}
 		}
 		custom_cost_text = VNE_decision_cost_AX_-50
 
 		ai_will_do = {
 			factor = 500
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			remove_ideas = { VNE_deorged_army }
 		}
 	}
 }

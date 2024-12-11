@@ -34,207 +34,17 @@
             add_political_power = 200
 			country_event = vne.1
         } 
-    }
-
-    focus = {
-        id = VNE_the_fields_feed_us
+    }   
+	
+	 focus = {
+        id = VNE_sailors_are_our_wings
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_a_new_day_a_new_venice }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-        relative_position_id = VNE_a_new_day_a_new_venice
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-        completion_reward = { 
-		 add_ideas = {
-		              VNE_agricultural_renewal
-		 		
-			}
-		}
-	}
-
-
-   focus = {
-        id = VNE_the_factories_help_us
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_a_new_day_a_new_venice }
+        prerequisite = { focus = VNE_a_new_day_a_new_venice}
         mutually_exclusive = { }
         x = 2
         y = 1
         cost = 3
 		relative_position_id = VNE_a_new_day_a_new_venice
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-		completion_reward = { 
-		random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				}
-			add_political_power = 20
-			
-		 }
-	}
-    
-	focus = {
-        id = VNE_the_seas_guide_us
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_a_new_day_a_new_venice }
-        mutually_exclusive = { }
-        x = -2
-        y = 1
-        cost = 3
-		relative_position_id = VNE_a_new_day_a_new_venice
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-		completion_reward = { 
-		random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = dockyard
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				}
-			add_political_power = 20
-		}
-    }
-
-    focus = {
-        id = VNE_begin_our_economical_reconstruction
-        icon = GFX_goal_generic_construction
-        prerequisite = { 
-		focus = VNE_the_seas_guide_us 
-		}
-		prerequisite = { 
-		focus = VNE_the_factories_help_us 
-		}
-		prerequisite = { 
-		focus = VNE_the_fields_feed_us 
-		}
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_the_fields_feed_us
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-		swap_ideas = {
-				remove_idea = VNE_failing_economy
-				add_idea = VNE_recovering_economy
-			}
-        }
-    }    
-	
-    focus = {
-        id = VNE_call_upon_the_aristocrats
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_begin_our_economical_reconstruction}
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_begin_our_economical_reconstruction
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-      }   
-    }	
-	
-	 focus = {
-        id = VNE_fund_fishing_companies
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_begin_our_economical_reconstruction}
-        mutually_exclusive = { }
-        x = -2
-        y = 1
-        cost = 3
-		relative_position_id = VNE_begin_our_economical_reconstruction
 
         ai_will_do = {
             factor = 1
@@ -267,21 +77,145 @@
 				add_extra_state_shared_building_slots = 1
 			}
 		}
-	}
+	}	
 	
-		 focus = {
-        id = VNE_the_workers_are_our_veins
+	 focus = {
+        id = VNE_farmers_are_our_heart
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_begin_our_economical_reconstruction}
+        prerequisite = { focus = VNE_a_new_day_a_new_venice}
         mutually_exclusive = { }
-        x = 2
+        x = -2
+        y = 1
+        cost = 3
+		relative_position_id = VNE_a_new_day_a_new_venice
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+
+        available_if_capitulated = no
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+    }	
+	focus = {
+        id = VNE_workers_are_our_brains
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = VNE_a_new_day_a_new_venice}
+        mutually_exclusive = { }
+        y = 1
+        cost = 3
+		relative_position_id = VNE_a_new_day_a_new_venice
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+
+        available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type =  arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type =  arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}   
+    }		
+
+    focus = {
+        id = VNE_begin_our_economical_reconstruction
+        icon = GFX_goal_generic_construction
+        prerequisite = { 
+		focus = VNE_sailors_are_our_wings
+		}
+		prerequisite = { 
+		focus = VNE_farmers_are_our_heart
+		}
+		prerequisite = { 
+		focus = VNE_workers_are_our_brains
+		}
+        mutually_exclusive = { }
+        x = 0
+        y = 1
+        cost = 3
+		relative_position_id = VNE_workers_are_our_brains
+
+
+
+        available = {
+        }
+        
+        bypass = {
+        }
+
+        cancel_if_invalid = yes
+
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+      completion_reward = {	
+		swap_ideas = {
+				remove_idea = VNE_failing_economy
+				add_idea = VNE_recovering_economy
+			}
+        }
+    } 
+
+	focus = {
+        id = VNE_a_venetian_meeting
+        icon = GFX_goal_generic_construction
+		prerequisite = { focus = VNE_begin_our_economical_reconstruction }
+        mutually_exclusive = { }
+        x = 0
         y = 1
         cost = 3
 		relative_position_id = VNE_begin_our_economical_reconstruction
 
-        ai_will_do = {
-            factor = 1
-        }
+
 
         available = {
         }
@@ -290,170 +224,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
 
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-      }   
-    }	
-	
-	 focus = {
-        id = VNE_bring_in_investors
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_call_upon_the_aristocrats }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_call_upon_the_aristocrats
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-      }   
-    }	
-	 focus = {
-        id = VNE_promote_maritime_trade_and_buisnesses
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_fund_fishing_companies }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_fund_fishing_companies
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-      }   
-    }	
-	
-	 focus = {
-        id = VNE_the_farmers_are_our_arteries
-        icon = GFX_goal_generic_construction
-        prerequisite = { focus = VNE_the_workers_are_our_veins }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_the_workers_are_our_veins
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-      }   
-    }	
-	
-	focus = {
-        id = VNE_the_fate_of_venetia_awaits
-        icon = GFX_goal_generic_construction
-        prerequisite = { 
-		focus = VNE_promote_maritime_trade_and_buisnesses 
-		}
-		prerequisite = { 
-		focus = VNE_bring_in_investors
-		}
-		prerequisite = { 
-		focus = VNE_the_farmers_are_our_arteries
-		}
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_bring_in_investors		
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
-        available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-      completion_reward = {	
-        }
-    }    
-
-    
-	focus = {
-        id = VNE_a_venetian_meeting
-        icon = GFX_goal_generic_construction
-		prerequisite = { focus = VNE_the_fate_of_venetia_awaits }
-        mutually_exclusive = { }
-        x = 0
-        y = 1
-        cost = 3
-		relative_position_id = VNE_the_fate_of_venetia_awaits
-
-        ai_will_do = {
-            factor = 10
-        }
-
-        available = {
-        }
-        
-        bypass = {
-        }
-
-        cancel_if_invalid = yes
-        continue_if_invalid = no
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -480,9 +251,7 @@
         cost = 3
 		relative_position_id = VNE_a_venetian_meeting
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -491,7 +260,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -511,9 +280,7 @@
         cost = 3
 		relative_position_id = VNE_glory_to_democracy
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -522,7 +289,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -541,9 +308,7 @@
         cost = 3
 		relative_position_id = VNE_expand_fishing
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -552,7 +317,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -572,9 +337,7 @@
         cost = 3
 		relative_position_id = VNE_expand_our_maritime_fleet
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -583,7 +346,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -603,9 +366,7 @@
         cost = 3
 		relative_position_id = VNE_glory_to_democracy
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -614,7 +375,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -634,9 +395,7 @@
         cost = 3
 		relative_position_id = VNE_ban_radical_idealogiess
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -645,7 +404,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -665,9 +424,7 @@
         cost = 3
 		relative_position_id = VNE_ban_commies
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -676,7 +433,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -696,9 +453,7 @@
         cost = 3
 		relative_position_id = VNE_glory_to_democracy
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -707,7 +462,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -727,9 +482,7 @@
         cost = 3
 		relative_position_id = VNE_modernize_the_venetian_industry
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -738,7 +491,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -758,9 +511,7 @@
         cost = 3
 		relative_position_id = VNE_modernize_the_venetian_industry
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -769,7 +520,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -792,9 +543,7 @@
         cost = 3
 		relative_position_id = VNE_develop_the_countryside
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -803,7 +552,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -824,9 +573,7 @@
         cost = 3
 		relative_position_id = VNE_encourage_entrepreneurship
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -835,13 +582,14 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
         }
 
-      completion_reward = {	
+        completion_reward = {	
+			remove_ideas = {VNE_recovering_economy}
         }
     }  	
 	
@@ -855,9 +603,7 @@
         cost = 3
 		relative_position_id = VNE_the_houses_grow_taller
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -866,7 +612,7 @@
         }
 
         cancel_if_invalid = yes
-        continue_if_invalid = no
+
         available_if_capitulated = no
 
         complete_tooltip = {
@@ -891,9 +637,7 @@
         cost = 3
 		relative_position_id = VNE_encourage_entrepreneurship
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -922,9 +666,7 @@
         cost = 3
 		relative_position_id = VNE_a_venetian_meeting
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -962,9 +704,7 @@
         cost = 3
 		relative_position_id = VNE_a_turn_to_the_left
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -993,9 +733,7 @@
         cost = 3
 		relative_position_id = VNE_venetia_is_the_people
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1024,9 +762,7 @@
         cost = 3
 		relative_position_id = VNE_take_from_the_rich
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1059,9 +795,7 @@
         y = 1
         cost = 3
 		relative_position_id = VNE_give_to_the_poor
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1076,7 +810,8 @@
         complete_tooltip = {
         }
 
-      completion_reward = {	
+        completion_reward = {	
+			remove_ideas = {VNE_recovering_economy}
         }
     }   	  	
 	
@@ -1090,9 +825,7 @@
         cost = 3
 		relative_position_id = VNE_a_turn_to_the_left
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1121,9 +854,7 @@
         cost = 3
 		relative_position_id = VNE_question_savoy
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1152,9 +883,7 @@
         cost = 3
 		relative_position_id = VNE_socialist_propoganda
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1182,9 +911,7 @@
         cost = 3
 		relative_position_id = VNE_a_turn_to_the_left
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1214,9 +941,7 @@
 
 		relative_position_id = VNE_more_factories
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1245,9 +970,7 @@
         cost = 3
 		relative_position_id = VNE_more_factories
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1279,9 +1002,7 @@
         cost = 3
 		relative_position_id = VNE_more_factories
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1315,9 +1036,7 @@
         cost = 3
 		relative_position_id = VNE_work_harder
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1351,9 +1070,7 @@
 		cost = 3
 		relative_position_id = VNE_a_turn_to_the_left
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = {
         }
@@ -1382,9 +1099,7 @@
         cost = 3
 		relative_position_id = VNE_a_venetian_meeting
 
-        ai_will_do = {
-            factor = 10
-        }
+
 
         available = { always = no }
 		#allow_branch = { has_country_flag = VNE_deadlock_flag }
@@ -1411,8 +1126,7 @@
         icon = GFX_goal_generic_construction
         prerequisite = { }
         mutually_exclusive = { }
-        x = 13
-        y = 1
+        x = 18
         cost = 3
 		available = {
 			has_country_flag = can_start_reunification
