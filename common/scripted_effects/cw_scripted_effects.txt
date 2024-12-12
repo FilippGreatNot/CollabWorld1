@@ -209,3 +209,36 @@ increase_state_category_by_two_levels = {
 		custom_effect_tooltip = increase_state_category_by_two_levels_tt
 	}
 }
+
+PLA_change_name_of_state_or_vp = {
+	IF = { 
+		limit = {
+			FROM.FROM = {
+				state = 63 #Westprussen
+			}
+		}
+		IF = { #POLAND CONTROLLER
+			limit = {
+				OR = {
+					ROOT = { original_tag = PLA }
+				}
+			}
+			set_province_name = { id = 6334 name = VICTORY_POINTS_6334_PLA }
+		}
+		ELSE_IF = { #OTHER CONTROLLER
+			limit = {
+				OR = {
+					FROM = { original_tag = PLA }
+				}
+				ROOT = {
+					NOT = {
+						OR = {
+							original_tag = PLA
+						}
+					}
+				}
+			}
+			reset_province_name = 6334
+		}
+}
+}
