@@ -105,6 +105,7 @@ focus_tree = {
         completion_reward = {
             log = "[GetDateText]: [ROOT.GetTag]: Focus YUG_the_ethnic_situation"
             country_event = yugo.3
+            set_country_flag = military_tree_unlocked
         }
     }
 ### POLITICAL TREE 
@@ -229,6 +230,20 @@ focus_tree = {
             add_political_power = -25
         }
     }
+#POST 1925 ELECTIONS 
+    focus = {
+        id = YUG_pasic_wins_reelection
+        icon = GFX_focus_introduce_veteran_pensions
+        cost = 0
+        x = 11
+        y = 13
+        allow_branch = { has_country_flag = reelection_pasic }
+        prerequisite = { focus = YUG_fighting_separatists }
+        prerequisite = { focus = YUG_controlling_the_parliament }
+        completion_reward = {
+            custom_effect_tooltip = pasic2_tt
+        }
+    }
 #PASIC CONQUEST TREE 
     focus = {
         id = YUG_reviving_greater_ideas
@@ -238,6 +253,7 @@ focus_tree = {
         y = 9
         allow_branch = { has_country_flag = pasic_tree_unlocked }
         prerequisite = { focus = YUG_pasic_wins }
+        available = { has_army_manpower = 399999 }
         completion_reward = {
             add_war_support = 0.05
             add_stability = 0.05
@@ -316,6 +332,20 @@ focus_tree = {
         add_state_claim = 902
         add_state_claim = 184
         add_state_claim = 341
+        }
+    }
+    focus = { 
+        id = YUG_plan_intergracija
+        icon = GFX_focus_introduce_veteran_pensions 
+        cost = 5
+        x = 8
+        y = 12
+        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        prerequisite = { focus = YUG_pressure_greece }
+        prerequisite = { focus = YUG_retaking_carinthia }
+        
+        completion_reward = {
+            
         }
     }
 ##RADIC/COALITION TREE
@@ -948,6 +978,19 @@ focus_tree = {
             add_political_power = 65
         }
     }
+##Military Focus Tree 
+    focus = { 
+    id = YUG_the_royal_army
+    icon = GFX_focus_introduce_veteran_pensions
+    x = 28
+    available = { has_completed_focus = YUG_the_ethnic_situation has_country_flag = military_tree_unlocked }
+    cost = 10
+
+    completion_reward = {
+
+    }
+}
+
 }
 
 
