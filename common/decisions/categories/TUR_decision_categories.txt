@@ -1,25 +1,12 @@
 TUR_states_coring_category = {
-
 	icon = GFX_decision_category_generic_political_actions
 	picture = GFX_decision_category_industry
 	priority = 90
-
 	allowed = {
-	OR = {
-			original_tag = TUR
-			original_tag = URT
-			original_tag = OTO
-			original_tag = GAR
-			original_tag = EAR
-			original_tag = TWR
-			}
+		is_turkish_tag = yes
 	}
 	visible = {
-		any_owned_state = {
-			NOT	= {
-				is_core_of = ROOT
-			}
-		}
+		always = yes
 	}
 	on_map_area = {
 		target_array = owned_states

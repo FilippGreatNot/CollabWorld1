@@ -3,51 +3,50 @@ leader_traits = {
 	uvsbund_officer = {
 		type = all
 		trait_type = personality_trait
-		gain_xp = {
-			always = no # not gainable
-		}
+		gain_xp = { always = no }
 		allowed = {
 			FROM = {
 				tag = UVS
 			}
 		}
-		modifier = {
-		
-		planning_speed = 0.10
-
-		}
-
-		ai_will_do = {
-			factor = 1
-		}
-		new_commander_weight = {
-			factor = 0
-		}
-		
+		modifier = { planning_speed = 0.10 }
+		ai_will_do = { factor = 1 }
+		new_commander_weight = { factor = 0 }
 	}
+
 	fgb_paramilitarist = {
 		type = all
 		trait_type = personality_trait
-		gain_xp = {
-			always = no 
+		gain_xp = { always = no }
+		allowed = {
+			FROM = {
+				tag = FGB
+			}
 		}
+		attack_skill_factor = 1
+		modifier = {
+			planning_speed = 0.1
+			army_attack_factor = 0.1
+		}
+		ai_will_do = { factor = 1 }
+		new_commander_weight = { factor = 0 }
+	}
+
+	fgb_royal = {
+		type = all
+		trait_type = personality_trait
+		gain_xp = { always = no }
 		allowed = {
 			FROM = {
 				tag = FGB
 			}
 		}
 		modifier = {
-			planning_speed = 0.1
-			army_attack_factor = 0.1
+			experience_gain_factor = 0.05
+			reassignment_duration_factor = 0.1
 		}
-		ai_will_do = {
-			factor = 1
-		}
-		new_commander_weight = {
-			factor = 0
-		}
-		
+		ai_will_do = { factor = 1 }
+		new_commander_weight = { factor = 0 }
 	}
-
 }
 

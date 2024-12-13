@@ -211,9 +211,9 @@ increase_state_category_by_two_levels = {
 }
 
 PLA_change_name_of_state_or_vp = {
-	IF = { 
+	IF = { #Cammin to Kamień Pomorski and vice versa
 		limit = {
-			FROM.FROM = {
+			FROM.FROM = { 
 				state = 63 #Westprussen
 			}
 		}
@@ -241,4 +241,190 @@ PLA_change_name_of_state_or_vp = {
 			reset_province_name = 6334
 		}
 }
+
+	IF = { 
+			limit = {
+				FROM.FROM = {
+					state = 66 #Lower Silesia
+				}
+			}
+			IF = { #POLAND CONTROLLER
+				limit = {
+					OR = {
+						ROOT = { original_tag = PLA }
+					}
+				}
+				set_province_name = { id = 9570 name = VICTORY_POINTS_9570_PLA }
+			}
+			ELSE_IF = { #OTHER CONTROLLER
+				limit = {
+					OR = {
+						FROM = { original_tag = PLA }
+					}
+					ROOT = {
+						NOT = {
+							OR = {
+								original_tag = PLA
+							}
+						}
+					}
+				}
+				reset_province_name = 6334
+			}
+	}
+
+	IF = { 
+			limit = {
+				FROM.FROM = {
+					state = 928 #Bunzlau
+				}
+			}
+			IF = { #POLAND CONTROLLER
+				limit = {
+					OR = {
+						ROOT = { original_tag = PLA }
+					}
+				}
+				set_province_name = { id = 6595 name = VICTORY_POINTS_6595_PLA }
+			}
+			ELSE_IF = { #OTHER CONTROLLER
+				limit = {
+					OR = {
+						FROM = { original_tag = PLA }
+					}
+					ROOT = {
+						NOT = {
+							OR = {
+								original_tag = PLA
+							}
+						}
+					}
+				}
+				reset_province_name = 6595
+			}
+	}
+
+	IF = { 
+			limit = {
+				FROM.FROM = {
+					state = 62 #Hinterpommen
+				}
+			}
+			IF = { #POLAND CONTROLLER
+				limit = {
+					OR = {
+						ROOT = { original_tag = PLA }
+					}
+				}
+				set_province_name = { id = 6282 name = VICTORY_POINTS_6282_PLA }
+			}
+			ELSE_IF = { #OTHER CONTROLLER
+				limit = {
+					OR = {
+						FROM = { original_tag = PLA }
+					}
+					ROOT = {
+						NOT = {
+							OR = {
+								original_tag = PLA
+							}
+						}
+					}
+				}
+				reset_province_name = 6282
+			}
+	}
+
+	IF = { 
+			limit = {
+				FROM.FROM = {
+					state = 763 #Konigsberg
+				}
+			}
+			IF = { #POLAND CONTROLLER
+				limit = {
+					OR = {
+						ROOT = { original_tag = PLA }
+					}
+				}
+				set_province_name = { id = 6332 name = VICTORY_POINTS_6332_PLA }
+			}
+			ELSE_IF = { #OTHER CONTROLLER
+				limit = {
+					OR = {
+						FROM = { original_tag = PLA }
+					}
+					ROOT = {
+						NOT = {
+							OR = {
+								original_tag = PLA
+							}
+						}
+					}
+				}
+				reset_province_name = 6332
+			}
+	}
+
+	IF = { 
+			limit = {
+				FROM.FROM = {
+					state = 67 #Opolskie
+				}
+			}
+			IF = { #POLAND CONTROLLER
+				limit = {
+					OR = {
+						ROOT = { original_tag = PLA }
+					}
+				}
+				set_province_name = { id = 11467 name = VICTORY_POINTS_11467_PLA }
+			}
+			ELSE_IF = { #OTHER CONTROLLER
+				limit = {
+					OR = {
+						FROM = { original_tag = PLA }
+					}
+					ROOT = {
+						NOT = {
+							OR = {
+								original_tag = PLA
+							}
+						}
+					}
+				}
+				reset_province_name = 11467
+			}
+	}
+
+	IF = { 
+			limit = {
+				FROM.FROM = {
+					state = 67 #Opolskie
+				}
+			}
+			IF = { #POLAND CONTROLLER
+				limit = {
+					OR = {
+						ROOT = { original_tag = PLA }
+					}
+				}
+				set_province_name = { id = 9511 name = VICTORY_POINTS_9511_PLA }
+			}
+			ELSE_IF = { #OTHER CONTROLLER
+				limit = {
+					OR = {
+						FROM = { original_tag = PLA }
+					}
+					ROOT = {
+						NOT = {
+							OR = {
+								original_tag = PLA
+							}
+						}
+					}
+				}
+				reset_province_name = 9511
+			}
+	}
 }

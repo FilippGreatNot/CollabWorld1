@@ -72,8 +72,18 @@ recruit_character = FGB_paul_von_hindenburg
 recruit_character = FGB_hans_von_seeckt
 recruit_character = FGB_ferdinand_schorner
 
-country_event = { id = freikorps.1 days = 10 }
-country_event = { id = freikorps.2 days = 16 }
+country_event = { id = fgb.50 days = 1 } #Welcoming event
+country_event = { id = fgb.48 days = 10 } #formerly freikorps.1
+country_event = { id = fgb.49 days = 16 } #formerly freikorps.2
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
 
 if = {
 	limit = {

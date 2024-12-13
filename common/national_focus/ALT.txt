@@ -1,4 +1,5 @@
 #!gfx:interface/country/asia/ALT/ALT.gfx
+#!localisation:localisation/english/country/asia/ALT_l_english.yml
 focus_tree = {
 	id = ALT
 	default=no
@@ -1204,7 +1205,7 @@ focus_tree = {
 		prerequisite = { focus = ALT_take_out_the_khan }
 		completion_reward = {
 			760 = {
-				set_state_owner_to = KUM
+				transfer_state_to = KUM
 				set_state_name = "Hami"
 			}
 			puppet = KUM
@@ -1647,28 +1648,6 @@ focus_tree = {
 			add_war_support = -0.1
 			add_command_power = 50
 			army_experience = -40
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = { 
-					NOT = { has_state_category = wasteland } 
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
 			add_popularity = {
 				ideology = bolshevism
 				popularity = 0.1
@@ -1721,6 +1700,9 @@ focus_tree = {
 		y = 1
 		ai_will_do = {
 			factor = 85
+		}
+		available = {
+			has_full_control_of_state = 945
 		}
 		cost = 5
 		relative_position_id = ALT_nationalisation_of_industry
@@ -2820,6 +2802,7 @@ focus_tree = {
 		cost = 5.714
 		relative_position_id = ALT_the_new_altay_military
 		prerequisite = { focus = ALT_the_new_altay_military }
+		prerequisite = { focus = ALT_foreign_education }
 		completion_reward = {
 			add_tech_bonus = {
 				name = infantry_artillery_bonus
@@ -3238,6 +3221,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		available = { has_completed_focus = ALT_urumqi_public_library }
 		cost = 5
 		relative_position_id = ALT_purchase_kyrgyz_guns
 		prerequisite = { focus = ALT_better_than_the_best focus = ALT_invest_in_improved_weaponry focus = ALT_best_of_both_worlds focus = ALT_reorganising_the_mass_forces }
@@ -3259,7 +3243,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		cost = 7
+		cost = 6
 		mutually_exclusive = { focus = ALT_military_academy_of_urumqi }
 		relative_position_id = ALT_improving_military_education
 		prerequisite = { focus = ALT_improving_military_education }
@@ -3649,9 +3633,7 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_war = no
-			any_country = {
-				is_subject_of = ALT
-			}
+			is_subject = no
 		}
 		relative_position_id = ALT_to_unite_a_state
 		prerequisite = { focus = ALT_expand_administrative_capabilities }
@@ -3691,6 +3673,34 @@ focus_tree = {
 							target = PREV
 							transfer_troops = yes
 						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_a_new_era_for_china
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_republic_of_northwestern_chinese_soviet_republics
+		prerequisite = { focus = ALT_republic_of_northwestern_chinese_soviet_republics }
+		completion_reward = {
+			custom_effect_tooltip = ALT_we_will_claim_china_tt
+			effect_tooltip = {
+				every_other_country = {
+					limit = { is_chinese_tag = yes }
+					every_owned_state = {
+						add_claim_by = ALT
 					}
 				}
 			}
