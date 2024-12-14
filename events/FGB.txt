@@ -1407,6 +1407,8 @@ country_event = {
 
 	option = {
 		name = fgb.57.a
+		add_political_power = 20
+		DOA = { country_event = { id = fgb.58 days = 2 } }
 	}
 }
 
@@ -1419,6 +1421,142 @@ country_event = {
 
 	option = {
 		name = fgb.58.a
+		ai_chance = { base = 20 }
+		FGB = { 
+			country_event = { id = fgb.59 days = 1 } 
+			add_political_power = 20 
+		}
+		add_stability = -0.1
+	}
+	option = {
+		name = fgb.58.b
+		ai_chance = { base = 15 }
+		FGB = { 
+			country_event = { id = fgb.60 days = 1 } 
+			add_political_power = -20 
+		}
+		add_stability = 0.1
+	}
+}
+
+country_event = {
+	id = fgb.59
+	title = fgb.59.t
+	desc = fgb.59.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.59.a
+		add_stability = 0.02
+		puppet = { target = DOA end_wars = yes }
+	}
+}
+
+country_event = {
+	id = fgb.60
+	title = fgb.60.t
+	desc = fgb.60.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.60.a
+		ai_chance = { base = 200 }
+		add_war_support = 0.02
+		declare_war_on = { target = DOA type = puppet_wargoal_focus }
+	}
+	option = {
+		name = fgb.60.b
+		ai_chance = { base = 200 }
+		add_stability = 0.02
+		add_war_support = -0.02
+	}
+}
+
+country_event = {
+	id = fgb.61
+	title = fgb.61.t
+	desc = fgb.61.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.61.a
+		ai_chance = { base = 200 }
+		add_stability = 0.05
+		add_timed_ideaa = { idea = FGB_german_funding days = 60 }
+		851 = { add_core_of = FGB }
+		FGB = { 
+			transfer_state = 851 
+			country_event = { 
+				id = fgb.policy.3
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = fgb.61.b
+		ai_chance = { base = 100 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb.policy.4 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.62
+	title = fgb.62.t
+	desc = fgb.62.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.62.a
+		ai_chance = { base = 200 }
+		add_stability = -0.05
+		841 = { add_core_of = FGB }
+		FGB = { 
+			transfer_state = 841 
+			country_event = { 
+				id = fgb.policy.1
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = fgb.62.b
+		ai_chance = { base = 190 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb.policy.2 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.63
+	title = fgb.63.t
+	desc = fgb.63.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.63.a
+		ai_chance = { base = 200 }
+		add_stability = 0.05
+		add_timed_ideaa = { idea = FGB_german_funding days = 60 }
+		841 = { add_core_of = FGB }
+		FGB = { 
+			transfer_state = 841 
+			country_event = { 
+				id = fgb.policy.3
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = fgb.63.b
+		ai_chance = { base = 100 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb.policy.4 days = 2 } }
 	}
 }
 		
@@ -1447,6 +1585,7 @@ country_event = {
 	option = {
 		name = fgb_policy.2.a
 		add_war_support = -0.05
+		declare_war_on = { target = PREV type = annex_everything }
 	}
 }
 
