@@ -301,6 +301,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc.8.a
+		ai_chance = { base = 1 }
 		hidden_effect = {
 			release = UKW
 			declare_war_on = {
@@ -311,14 +312,17 @@ country_event = {
 			199 = { transfer_state_to = UKW } 
 			198 = { transfer_state_to = UKW } 
 			UKW = { load_oob = UKW }
+			news_event = ukr_soc.9
 		}
 		UKW = { change_tag_from = UKR }
 		remove_ideas = {
 			UKR_west_resistance
 		}
 	}
+
 	option = {
 		name = ukr_soc.8.b
+		ai_chance = { base = 1 }
 		hidden_effect = {
 			release = UKW
 			declare_war_on = {
@@ -329,9 +333,22 @@ country_event = {
 			199 = { transfer_state_to = UKW } 
 			198 = { transfer_state_to = UKW } 
 			UKW = { load_oob = UKW }
+			news_event = ukr_soc.9
 		}
 		remove_ideas = {
 			UKR_west_resistance
 		}
+	}
+}
+
+news_event = {
+	id = ukr_soc.9
+	major = yes
+	title = ukr_soc.9.t
+	desc = ukr_soc.9.d
+	picture = GFX_news_event_ukrainian_west_rebels
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.9.a
 	}
 }
