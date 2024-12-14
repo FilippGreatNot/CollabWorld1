@@ -10,6 +10,8 @@ country_event = {
 	option = {
 		name = bavaria.1.a
 		
+		custom_effect_tooltip = BAV_goebbels_victory_tt
+		
 		hidden_effect = {
 			set_party_name = { 
 				ideology = bolshevism 
@@ -17,7 +19,13 @@ country_event = {
 				name = BAV_GOEBBELS_PARTY_SHORT
 			}
 			
-			kill_country_leader = yes				
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			
+			kill_country_leader = yes
+
+            add_stability = -0.05			
 			
 			add_popularity = {
 				ideology = bolshevism
@@ -30,6 +38,14 @@ country_event = {
 			
 			promote_character = BAV_joseph_goebbels
 		}
+	}
+	
+	option = {
+		name = bavaria.1.b
+		
+		add_stability = 0.05
+		add_political_power = -75
+		
 	}
 }
 
@@ -114,5 +130,18 @@ country_event = {
 			country_event = fgb.11
 		}
 	}
+}
+
+news_event = {
+    id = bavaria.4
+    title = bavaria.4.t
+    desc = bavaria.4.d
+    picture = GFX_news_event_goebbels
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.4.a
+    }
 }
 
