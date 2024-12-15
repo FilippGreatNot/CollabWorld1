@@ -1,0 +1,87 @@
+capital = 51
+add_to_german_tags = yes
+set_country_flag = germany
+oob = "WRD"
+
+set_research_slots = 3 
+
+add_1922_modern_tech = yes
+
+set_politics = {
+	ruling_party = despotism 
+}
+
+set_popularities = {
+	despotism = 31
+	authoritarian_democrat = 16
+	reactionism = 19
+	conservatism = 8
+	national_syndicalism = 4
+	esotericism = 14
+	social_democrat = 5
+	liberalism = 3
+}
+
+add_ideas = {
+	extensive_conscription
+	closed_economy
+	
+	WRD_mackensen_regency
+	WRD_the_december_mutiny
+	WRD_low_public_trust
+	WRD_die_schutzstaffel
+	WRD_catastrophe_of_the_weltkrieg
+	economically_isolated
+}
+add_lotgw = yes
+
+### Character recruitments ###
+recruit_character = WRD_august_mackensen
+recruit_character = WRD_paul_von_hindenburg
+recruit_character = WRD_hans_von_seeckt
+recruit_character = WRD_ferdinand_schorner
+recruit_character = WRD_max_wallraf
+recruit_character = WRD_alfred_hugenberg
+recruit_character = WRD_herbert_windt
+recruit_character = WRD_erich_ludendorff
+recruit_character = WRD_wilhelm_ii
+recruit_character = WRD_wilhelm_iii
+recruit_character = WRD_heinrich_himmler
+
+### Advisor activations ###
+activate_advisor = WRD_hans_von_seeckt_hog
+activate_advisor = WRD_alfred_hugenberg_ec
+activate_advisor = WRD_max_wallraf_sec
+activate_advisor = WRD_herbert_windt_pro
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Leichttraktor"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+		icon = "GFX_GER_gwtank_medium"
+	}
+}

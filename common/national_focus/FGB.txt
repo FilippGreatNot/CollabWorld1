@@ -1199,7 +1199,7 @@ focus_tree = {
 		y = 2
 		cost = 2
 		available = {
-			owns_state = 846
+			owns_state = 836
 		}
 		relative_position_id = FGB_noske_back_to_berlin
 		prerequisite = { focus = FGB_noske_arrest_liebknecht_and_luxemburg }
@@ -1207,6 +1207,193 @@ focus_tree = {
 			add_popularity = { ideology = marxism popularity = -0.05 }
 			836 = {
 				add_manpower = -1400
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_deradicalise_the_people
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 2
+		relative_position_id = FGB_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		completion_reward = {
+			add_popularity = { ideology = marxism popularity = -0.05 }
+			every_owned_state = {
+				limit = { is_core_of = UVS }
+				add_dynamic_modifier = { modifier = FGB_deradicalising_state }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_fund_pomeranian_reconstruction
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 2
+		relative_position_id = FGB_noske_deradicalise_the_people
+		prerequisite = { focus = FGB_noske_deradicalise_the_people }
+		completion_reward = {
+			63 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+			1063 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_memories_of_the_kiel_mutiny
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 2
+		relative_position_id = FGB_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		completion_reward = {
+			add_popularity = { ideology = marxism popularity = -0.05 }
+			58 = {
+				add_extra_state_shared_building_slots = 1
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_the_dockyards
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 3
+		relative_position_id = FGB_noske_memories_of_the_kiel_mutiny
+		prerequisite = { focus = FGB_noske_memories_of_the_kiel_mutiny }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 200
+				producer = FGB
+			}
+			58 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+			61 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+			62 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_support_provincial_parties
+		icon = GFX_focus_FGB_noske_default
+		x = 5
+		y = 1
+		cost = 2
+		relative_position_id = FGB_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = conservatism popularity = 0.02 }
+			add_popularity = { ideology = liberalism popularity = 0.02 }
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.02 }
+			59 = { increase_state_category_by_one_level = yes }
+			60 = { increase_state_category_by_one_level = yes }
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reestablish_the_hanoverian_parliament
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = FGB_noske_support_provincial_parties
+		prerequisite = { focus = FGB_noske_support_provincial_parties }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -50
+			59 = {
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_the_thuringian_industry
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 3
+		relative_position_id = FGB_noske_support_provincial_parties
+		prerequisite = { focus = FGB_noske_support_provincial_parties }
+		completion_reward = {
+			add_stability = 0.05
+			60 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_raise_the_support_of_the_brandenburgers
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = FGB_noske_reestablish_the_hanoverian_parliament
+		prerequisite = { focus = FGB_noske_develop_the_dockyards }
+		prerequisite = { focus = FGB_noske_reestablish_the_hanoverian_parliament }
+		prerequisite = { focus = FGB_noske_develop_the_thuringian_industry }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			64 = {
+				add_extra_state_shared_building_slots = 1
+				add_core_of = FGB
+			}
+			1056 = {
+				add_extra_state_shared_building_slots = 1
 				add_core_of = FGB
 			}
 		}
@@ -1297,6 +1484,12 @@ focus_tree = {
 				add_core_of = FGB
 			}
 			928 = {
+				add_core_of = FGB
+			}
+			1079 = {
+				add_core_of = FGB
+			}
+			1080 = {
 				add_core_of = FGB
 			}
 		}
@@ -1592,7 +1785,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = FGB_if_they_refuse_tt
 			effect_tooltip = { FGB = { country_event = { id = fgb.policy.4 days = 2 } } }
-			any_other_country = {
+			every_other_country = {
 				limit = { has_full_control_of_state = 851 }
 				country_event = fgb.61
 			}
@@ -1625,7 +1818,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = FGB_if_they_refuse_tt
 			effect_tooltip = { FGB = { country_event = { id = fgb.policy.4 days = 2 } } }
-			any_other_country = {
+			every_other_country = {
 				limit = { has_full_control_of_state = 841 }
 				country_event = fgb.63
 			}
