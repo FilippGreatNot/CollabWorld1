@@ -9,6 +9,7 @@ focus_tree = {
 		}
 	}
 	default = no
+	
 	focus = {
 		id = UKR_soc_kyiv_on_fire
 		icon = GFX_focus_UKR_soc_kyiv_on_fire
@@ -19,6 +20,7 @@ focus_tree = {
 			remove_ideas = { UKR_disunited_nation }
 		}
 	}
+
 	focus = {
 		id = UKR_soc_fix_ind
 		icon = GFX_focus_UKR_soc_fix_ind
@@ -26,9 +28,10 @@ focus_tree = {
 		x = 19
 		y = 0
 		completion_reward = {
-			
+			country_event = ukr_soc.6
 		}
 	}
+
 	focus = {
 		id = UKR_soc_fix_army
 		icon = GFX_focus_UKR_soc_fix_army
@@ -369,12 +372,16 @@ focus_tree = {
 			add_political_power = -150
 			add_stability = 0.05
 			remove_ideas = { UKR_weak_electrification }
+			add_timed_idea = { 
+				UKR_soc_building_electricity 
+				days = 180
+			}
 		}
 	}
 	focus = {
 		id = UKR_soc_build_more_factories
 		icon = GFX_focus_UKR_soc_build_more_factories
-		cost = 5
+		cost = 10
 		prerequisite = { focus = UKR_soc_expand_industrialisation }
 		x = 18
 		y = 4
@@ -469,6 +476,7 @@ focus_tree = {
 		x = 20
 		y = 2
 		completion_reward = {
+			add_political_power = -50
 			remove_ideas = { UKR_weak_electrification }
 		}
 	}
