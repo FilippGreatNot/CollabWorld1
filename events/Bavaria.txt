@@ -6,10 +6,17 @@ country_event = {
 	title = bavaria.1.t
 	desc = bavaria.1.d
 	is_triggered_only = yes
+	picture = GFX_report_event_goebbels
 
 	option = {
 		name = bavaria.1.a
 		
+		custom_effect_tooltip = BAV_goebbels_victory_tt
+		
+		ai_chance = { base = 2 }
+			
+		kill_country_leader = yes
+
 		hidden_effect = {
 			set_party_name = { 
 				ideology = bolshevism 
@@ -17,7 +24,11 @@ country_event = {
 				name = BAV_GOEBBELS_PARTY_SHORT
 			}
 			
-			kill_country_leader = yes				
+			set_politics = {
+				ruling_party = bolshevism
+			}
+
+            add_stability = -0.05			
 			
 			add_popularity = {
 				ideology = bolshevism
@@ -31,6 +42,15 @@ country_event = {
 			promote_character = BAV_joseph_goebbels
 		}
 	}
+	
+	option = {
+		name = bavaria.1.b
+		
+		add_stability = 0.05
+		add_political_power = -25
+		ai_chance = { base = 8 }
+		
+	}
 }
 
 country_event = {
@@ -43,14 +63,17 @@ country_event = {
 	option = {
 		name = bavaria.2.a
 		
+		
+		kill_country_leader = yes		
+		
+		
 		hidden_effect = {
 			set_party_name = { 
 				ideology = bolshevism 
 				long_name = BAV_LECH_PARTY
 				name = BAV_LECH_PARTY_SHORT
 			}
-			
-			kill_country_leader = yes				
+						
 				
 			add_popularity = {
 				ideology = bolshevism
@@ -116,3 +139,259 @@ country_event = {
 	}
 }
 
+news_event = {
+    id = bavaria.4
+    title = bavaria.4.t
+    desc = bavaria.4.d
+    picture = GFX_news_event_goebbels
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.4.a
+    }
+}
+
+country_event = {
+	id = bavaria.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.1" }
+	title = bavaria.5.t
+	desc = bavaria.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = bavaria.5.a
+		
+		custom_effect_tooltip = BAV_conservative_overthrow_tt
+		
+		hidden_effect = {
+			
+			set_politics = {
+				ruling_party = despotism
+			}
+
+            add_stability = -0.05			
+			
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.1
+			}
+			
+			set_cosmetic_tag = BAV_monarchist
+			
+			remove_ideas = {
+				BAV_high_conservative_opposition
+			}
+			
+			set_country_flag = BAV_opposition_ended
+		}
+	}
+}
+
+country_event = {
+	id = bavaria.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.6.t
+	desc = bavaria.6.d
+	is_triggered_only = yes
+	picture = GFX_report_event_bavaria
+
+	option = {
+		name = bavaria.6.a
+		
+		custom_effect_tooltip = BAV_thanks_for_playing_tt
+		
+		add_political_power = 35
+	}
+}
+
+country_event = {
+	id = bavaria.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.7.t
+	desc = bavaria.7.d
+	is_triggered_only = yes
+	picture = GFX_report_event_bavaria
+
+	option = {
+		name = bavaria.7.a
+		
+		add_political_power = 20
+		
+		UVS = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = faction_traitor
+				}
+			}
+	}
+}
+
+country_event = {
+	id = bavaria.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.8.t
+	desc = bavaria.8.d
+	is_triggered_only = yes
+	picture = GFX_report_event_landauer
+
+	option = {
+		name = bavaria.8.a
+		
+		add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.03
+			}
+	}
+}
+
+country_event = {
+	id = bavaria.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.9.t
+	desc = bavaria.9.d
+	is_triggered_only = yes
+	picture = GFX_report_event_toller
+
+	option = {
+		name = bavaria.9.a
+		
+		add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+	}
+}
+
+country_event = {
+	id = bavaria.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.10.t
+	desc = bavaria.10.d
+	is_triggered_only = yes
+	picture = GFX_report_event_goebbels
+
+	option = {
+		name = bavaria.10.a
+		
+		add_war_support = 0.03
+		add_stability = -0.02
+		custom_effect_tooltip = BAV_goebbels_threat_tt
+	}
+}
+
+country_event = {
+	id = bavaria.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.1" }
+	title = bavaria.11.t
+	desc = bavaria.11.d
+	is_triggered_only = yes
+	picture = GFX_report_event_bavaria_army
+
+	option = {
+		name = bavaria.11.a
+		ai_chance = { base = 5 }
+		    add_political_power = 25
+		
+            add_stability = 0.05			
+			
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+	}
+	}
+	
+	option = {
+		name = bavaria.11.b
+		
+		ai_chance = { base = 5 }
+		
+		custom_effect_tooltip = BAV_max_levien_tt
+		
+			set_politics = {
+				ruling_party = marxism
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+			add_stability = -0.05	
+			add_political_power = 25
+	}
+}
+
+country_event = {
+	id = bavaria.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.12.t
+	desc = bavaria.12.d
+	is_triggered_only = yes
+	picture = GFX_report_event_bavaria_army
+
+	option = {
+		name = bavaria.12.a
+		ai_chance = { base = 5 }
+		country_event = { id = bavaria.13 days = 10 }
+	}
+	option = {
+		name = bavaria.12.b
+		ai_chance = { base = 5 }
+		add_political_power = 25
+	}
+}
+
+country_event = {
+	id = bavaria.13
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.13" }
+	title = bavaria.13.t
+	desc = bavaria.13.d
+	is_triggered_only = yes
+	picture = GFX_report_event_bavaria_army
+
+	option = {
+		name = bavaria.13.a
+		ai_chance = { base = 5 }
+		
+            set_politics = {
+				ruling_party = social_democrat
+			}	
+			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+	        }
+	        add_political_power = 25
+	}
+	
+	option = {
+		name = bavaria.13.b
+		
+		ai_chance = { base = 5 }
+		
+			set_politics = {
+				ruling_party = libertarian_socialism
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.1
+			}
+			add_political_power = 25
+			set_cosmetic_tag = BAV_anarchist
+	}
+}
+
+country_event = {
+	id = bavaria.14
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.6" }
+	title = bavaria.14.t
+	desc = bavaria.14.d
+	is_triggered_only = yes
+	picture = GFX_report_event_bavaria
+
+	option = {
+		name = bavaria.14.a
+		
+		add_political_power = 25
+		complete_national_focus = BAV_a_new_day_in_regensburg
+	}
+}
