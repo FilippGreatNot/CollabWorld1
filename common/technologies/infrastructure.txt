@@ -1,17 +1,112 @@
+#!gfx:interface/technologies/infrastructure.gfx
 technologies = {
-	test_tech = {
+	industrial_age_roads = {
 		path = {
-			leads_to_tech = test_tech_2
+			leads_to_tech = road_making_systems
 		}
 		folder = {
 			name = infrastructure_folder
 			position = { x = 0 y = 0 }
 		}
+		
+		start_year = 1900
+		
+		enable_building = {
+			building = infrastructure
+			level = 4
+		}
 	}
-	test_tech_2 = {
+	road_making_systems = {
+		path = {
+			leads_to_tech = controlled_access_highways
+		}
 		folder = {
 			name = infrastructure_folder
-			position = { x = 0 y = 3 }
+			position = { x = 0 y = 2 }
+		}
+		
+		start_year = 1920
+		
+		enable_building = {
+			building = infrastructure
+			level = 5
+		}
+	}
+	controlled_access_highways = {
+		path = {
+			leads_to_tech = bulldozers
+		}
+		folder = {
+			name = infrastructure_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		start_year = 1924
+		
+		enable_building = {
+			building = infrastructure
+			level = 6
+		}
+	}
+	bulldozers = {
+		path = {
+			leads_to_tech = dual_carriageway_roads
+		}
+		folder = {
+			name = infrastructure_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		start_year = 1928
+		
+		enable_building = {
+			building = infrastructure
+			level = 7
+		}
+	}
+	dual_carriageway_roads = {
+		path = {
+			leads_to_tech = autobahn_construction_techniques
+		}
+		folder = {
+			name = infrastructure_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		start_year = 1932
+		
+		enable_building = {
+			building = infrastructure
+			level = 8
+		}
+	}
+	autobahn_construction_techniques = {
+		path = {
+			leads_to_tech = asphalt_concrete_improvements
+		}
+		folder = {
+			name = infrastructure_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		start_year = 1936
+		
+		enable_building = {
+			building = infrastructure
+			level = 9
+		}
+	}
+	asphalt_concrete_improvements = {
+		folder = {
+			name = infrastructure_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		start_year = 1942
+		
+		enable_building = {
+			building = infrastructure
+			level = 10
 		}
 	}
 }
