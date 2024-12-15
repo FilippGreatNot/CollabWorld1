@@ -13,7 +13,7 @@ BAV_red_terror = {
 		}
 		
 		is_good = no
-		days_remove = 180
+		days_remove = 30
 		days_mission_timeout = 180
 		fire_only_once = yes
 
@@ -22,6 +22,117 @@ BAV_red_terror = {
 		}
 		timeout_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision timeout UVS_ribentrop_is_going_insane"
+			country_event = bavaria.5
+		}
+	}
+	BAV_end_the_conservative_opposition = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_opposition_ended }
+		}
+        
+		available = {
+		    has_idea = BAV_high_conservative_opposition
+			has_country_flag = BAV_arrested_politicians
+			has_country_flag = BAV_raided_hideouts
+            has_country_flag = BAV_raised_marxist_sentiment
+				}
+		
+		complete_effect = {
+			remove_ideas = {
+				BAV_high_conservative_opposition
+			}
+			set_country_flag = BAV_opposition_ended
+            add_popularity = {
+				ideology = despotism
+				popularity = -0.05
+			}
+			}
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_arrest_their_politicians = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_opposition_ended }
+		}
+		
+		cost = 25
+        
+		available = {
+		    has_idea = BAV_high_conservative_opposition
+				}
+		
+		complete_effect = {
+			set_country_flag = BAV_arrested_politicians
+            add_stability = -0.02
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.05
+			}
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_raid_their_hideouts = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_opposition_ended }
+		}
+		
+		cost = 25
+        
+		available = {
+		    has_idea = BAV_high_conservative_opposition
+				}
+		
+		complete_effect = {
+			set_country_flag = BAV_raided_hideouts
+            add_political_power = -25
+			add_war_support = 0.03
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_raise_marxist_sentiment = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_opposition_ended }
+		}
+		
+		cost = 25
+        
+		available = {
+		    has_idea = BAV_high_conservative_opposition
+				}
+		
+		complete_effect = {
+			set_country_flag = BAV_raised_marxist_sentiment
+			
+			add_stability = 0.04
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+			}
+		
+		ai_will_do = {
+			factor = 5000
 		}
 	}
 	}
