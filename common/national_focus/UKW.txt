@@ -4,9 +4,82 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
+			add = 11
 			tag = UKW
 		}
 	}
 	default = no
+	focus = {
+		id = UKW_start_any_production
+		icon = GFX_focus_UKW_start_any_production
+		cost = 2
+		x = 5
+		y = 0
+		completion_reward = {
+				add_offsite_building = {
+					type = arms_factory
+					level = 2
+				}
+			add_ideas = { UKW_low_quality_production }
+		}
+	}
+	focus = {
+		id = UKW_gain_production
+		icon = GFX_focus_UKW_gain_production
+		cost = 1
+		x = 6
+		y = 1
+		prerequisite = {
+			focus = UKW_start_any_production
+		}
+		available = {
+			controls_state = 202
+		}
+		completion_reward = {
+			remove_ideas = { UKW_low_quality_production }
+			add_equipment_to_stockpile = {
+    			type = infantry_equipment
+    			amount = 1000
+    			producer = UKW
+			}
+			add_war_support = 0.05
+			202 = { add_core_of = UKW }
+		}
+	}
+	focus = {
+		id = UKW_rise_more_opolchennia
+		icon = GFX_focus_UKW_rise_more_opolchennia
+		cost = 1
+		x  = 4
+		y = 1
+	prerequisite = {
+			focus = UKW_start_any_production
+	}
+	completion_reward = {
+		201 = { 
+			create_unit = {
+    			division = "name = \"Narodne opolchennia\" division_template = \"Narodne opolchennia\""
+    			owner = UKW
+				prioritize_location = 6593
+				count = 3
+			} 
+		}
+	}
+	}
+	focus = {
+		id = UKW_for_the_victory
+		icon = GFX_focus_UKW_for_the_victory
+		cost = 1
+		x = 5
+		y = 2
+		available = {
+			always = no
+		}
+		prerequisite = {
+			focus = UKW_rise_more_opolchennia
+		}
+		prerequisite = {
+			focus = UKW_gain_production
+		}
+	}
 }

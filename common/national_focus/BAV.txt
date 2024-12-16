@@ -1,0 +1,104 @@
+focus_tree = {
+    id = BAV_first
+
+    country = {
+        base = 0
+        modifier = {
+            add = 10
+            tag = BAV
+        }
+    }
+    
+    focus = {
+        id = BAV_continue_the_red_terror
+        icon = GFX_focus_BAV_red_terror
+        x = 10
+        y = 0
+        cost = 5
+        completion_reward = {
+		     add_stability = -0.05
+			 add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+        }        
+    }
+    focus = {
+        id = BAV_arrest_freikorps_agents
+        icon = GFX_focus_BAV_arrest_freikorps_agents
+        relative_position_id = BAV_continue_the_red_terror
+        x = -2
+        y = 1
+        cost = 6
+        prerequisite = {
+            focus = BAV_continue_the_red_terror
+        }
+		completion_reward = {
+		     add_stability = 0.03
+			 add_political_power = 25
+			 add_popularity = {
+				ideology = reactionism
+				popularity = -0.03
+			}
+        }   
+        }
+	 focus = {
+        id = BAV_force_the_militias_into_obedience
+        icon = GFX_focus_BAV_force_the_militias_into_obedience
+        relative_position_id = BAV_continue_the_red_terror
+        x = 0
+        y = 1
+        cost = 8
+        prerequisite = {
+            focus = BAV_continue_the_red_terror
+        }
+		completion_reward = {
+		    swap_ideas = {
+				remove_idea = BAV_extremely_disorganized_army
+				add_idea = BAV_very_disorganized_army
+			}
+        }   
+        }
+	 focus = {
+        id = BAV_stop_the_bavarian_hyperinflation
+        icon = GFX_focus_BAV_stop_the_bavarian_hyperinflation
+        relative_position_id = BAV_continue_the_red_terror
+        x = 2
+        y = 1
+        cost = 7
+        prerequisite = {
+            focus = BAV_continue_the_red_terror
+        }
+		completion_reward = {
+		     swap_ideas = {
+				remove_idea = BAV_the_effects_of_the_economic_crisis
+				add_idea = BAV_the_effects_of_the_economic_crisis2
+			}
+        }   
+        }
+	 focus = {
+        id = BAV_a_new_day_in_regensburg
+        icon = GFX_focus_BAV_a_new_day_in_regensburg
+        relative_position_id = BAV_stop_the_bavarian_hyperinflation
+        x = -2
+        y = 1
+        cost = 5
+		available = {
+			always = no
+		}
+        prerequisite = {
+            focus = BAV_stop_the_bavarian_hyperinflation
+        }
+		prerequisite = {
+            focus = BAV_force_the_militias_into_obedience
+        }
+		prerequisite = {
+            focus = BAV_arrest_freikorps_agents
+        }
+		completion_reward = {
+		     custom_effect_tooltip = BAV_new_day_tt
+			 add_stability = 0.1
+        }   
+        }
+   
+}
