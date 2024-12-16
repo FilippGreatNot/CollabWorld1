@@ -100,5 +100,161 @@ focus_tree = {
 			 add_stability = 0.1
         }   
         }
+	focus = {
+        id = BAV_victory_of_bkp_m
+        icon = GFX_focus_BAV_bkp_m
+        relative_position_id = BAV_a_new_day_in_regensburg
+        x = 0
+        y = 1
+        cost = 5
+		available = {
+		has_country_leader = {
+                    name = "Max Levien"
+                    ruling_only = yes
+                }
+				 }
+        prerequisite = {
+            focus = BAV_a_new_day_in_regensburg
+        }
+		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+			 add_political_power = 50
+        }   
+        }
+	focus = {
+        id = BAV_weaken_the_jacobin_wing_of_the_party
+        icon = GFX_focus_BAV_weaken_jacobin
+        relative_position_id = BAV_victory_of_bkp_m
+        x = -1
+        y = 1
+        cost = 3
+        prerequisite = {
+            focus = BAV_victory_of_bkp_m
+        }
+		completion_reward = {
+		     add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+			 add_stability = 0.05
+			 country_event = bavaria.15
+        }   
+        }
+	focus = {
+        id = BAV_repair_relationships_with_the_spartakusbund
+        icon = GFX_focus_BAV_repair_sparta
+        relative_position_id = BAV_victory_of_bkp_m
+        x = 1
+        y = 1
+        cost = 4
+        prerequisite = {
+            focus = BAV_victory_of_bkp_m
+        }
+		completion_reward = {
+		     UVS = {
+				remove_opinion_modifier = {
+					target = BAV
+					modifier = faction_traitor
+				}
+			}
+			 UVS = { country_event = bavaria.16 }
+        }   
+        }
+	focus = {
+        id = BAV_exile_further_wittelsbach_family_members
+        icon = GFX_focus_BAV_exile_wittelsbach
+        relative_position_id = BAV_repair_relationships_with_the_spartakusbund
+        x = 1
+        y = 1
+        cost = 3
+        prerequisite = {
+            focus = BAV_repair_relationships_with_the_spartakusbund
+        }
+		completion_reward = {
+		      add_popularity = {
+				ideology = despotism
+				popularity = -0.05
+			  }
+			  country_event = bavaria.17
+        }   
+        }
+	focus = {
+        id = BAV_stir_revolutionary_sentiment
+        icon = GFX_focus_BAV_stir_sentiment
+        relative_position_id = BAV_repair_relationships_with_the_spartakusbund
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_repair_relationships_with_the_spartakusbund
+        }
+		prerequisite = {
+            focus = BAV_weaken_the_jacobin_wing_of_the_party
+        }
+		completion_reward = {
+		      add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			  }
+			  add_war_support = 0.1
+        }   
+        }
+	focus = {
+        id = BAV_move_the_capital_to_munich
+        icon = GFX_focus_BAV_munich
+        relative_position_id = BAV_repair_relationships_with_the_spartakusbund
+        x = -3
+        y = 1
+        cost = 4
+		prerequisite = {
+            focus = BAV_weaken_the_jacobin_wing_of_the_party
+        }
+		completion_reward = {
+			  add_political_power = 50
+			  set_capital = { state = 52 remember_old_capital = no }
+        }   
+        }
+	focus = {
+        id = BAV_infiltrate_nurnberg
+        icon = GFX_focus_BAV_infiltrate_nurnberg
+        relative_position_id = BAV_exile_further_wittelsbach_family_members
+        x = -2
+        y = 1
+        cost = 4
+		prerequisite = {
+            focus = BAV_move_the_capital_to_munich
+        }
+		prerequisite = {
+            focus = BAV_stir_revolutionary_sentiment
+        }
+		prerequisite = {
+            focus = BAV_exile_further_wittelsbach_family_members
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = FGB
+		}
+		bypass = {
+			NOT = {
+				country_exists = FGB
+			}
+		}
+		completion_reward = {
+			  FGB = {
+			    add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			  }
+			  add_war_support = -0.05
+			  add_timed_idea = { 
+				idea = BAV_bavarian_infiltration
+				days = 180
+			   }
+			  }
+        }   
+        }
    
 }
