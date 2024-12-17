@@ -11,6 +11,16 @@ on_actions = {
 				}
 				country_event = deutschlandmain.1
 			}
+			if = { 
+				limit = {
+					original_tag = FGB
+					836 = { is_owned_and_controlled_by = PREV } #Berlin
+					NOT = {
+						capital_scope = { state = 836 }
+					}
+				}
+				news_event = fgb.25
+			}
 		}
 	}
 	on_capitulation = {
@@ -39,24 +49,6 @@ on_actions = {
 					}
 				}
 				news_event = fgb.4 
-			}
-		}
-	}
-	on_state_control_changed = {
-		effect = {
-			if = { 
-				limit = {
-					FROM.FROM = {
-						state = 836
-					}
-					ROOT = {
-						has_war = yes
-					}
-					FROM = {
-						original_tag = FGB
-					}
-				}
-				news_event = fgb.25
 			}
 		}
 	}
