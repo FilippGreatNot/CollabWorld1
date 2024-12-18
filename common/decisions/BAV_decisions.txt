@@ -136,5 +136,66 @@ BAV_red_terror = {
 		}
 	}
 	}
+
+	monarchy_bav_namechange = { # Someone get this to work eventually pls
+
+        icon = decision_generic_monarchy
+
+        allowed = {
+            OR = {
+                original_tag = BAV
+            }
+        }
+
+        visible = {
+			has_government = despotism
+		}
+
+        fire_only_once = yes
+
+        available = {
+            BAV = { NOT = { has_government = communism } }
+			BAV = { NOT = { has_government = marxism } }
+        }
+            modifier = {
+                set_province_name = {
+                    id = 692 #Munich to Minga
+                    name = BAY_VICTORY_POINTS_692
+                }
+                set_province_name = {
+                    id = 11544 #Munich to Minga
+                    name = BAY_VICTORY_POINTS_11544
+                }
+                set_province_name = {
+                    id = 11544 #Nuremberg to Nämberch
+                    name = BAY_VICTORY_POINTS_11544
+                }
+                set_province_name = {
+                    id = 11666 #Vienna to Wienn
+                    name = BAY_VICTORY_POINTS_11666
+                }
+                set_province_name = {
+                    id = 708 #Augsburg to Augschbuag
+                    name = BAY_VICTORY_POINTS_708
+                }
+                set_province_name = {
+                    id = 9515 #Regensburg to Rengschburch
+                    name = BAY_VICTORY_POINTS_9515
+                }
+                set_province_name = {
+                    id = 9681 #Passau to Båssa
+                    name = BAY_VICTORY_POINTS_9681
+                }
+                set_province_name = {
+                    id = 3700 #Eisenstadt to Eisnstod
+                    name = BAY_VICTORY_POINTS_3700
+                }
+                set_province_name = {
+                    id = 6540 #Ingolstadt to Rengschburg
+                    name = BAY_VICTORY_POINTS_6540
+                }
+            }
+    
+    }
 	
 
