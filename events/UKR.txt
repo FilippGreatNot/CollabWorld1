@@ -296,6 +296,11 @@ country_event = {
 	option = {
 		name = ukr_soc.7.a
 		add_ideas = { UKR_west_resistance }
+		hidden_effect = {
+			201 = { set_demilitarized_zone = yes }
+			199 = { set_demilitarized_zone = yes }
+			198 = { set_demilitarized_zone = yes }
+		}
 	}
 }
 
@@ -313,9 +318,18 @@ country_event = {
 				target = UKW
 				type = annex_everything
 			}
-			201 = { transfer_state_to = UKW } 
-			199 = { transfer_state_to = UKW } 
-			198 = { transfer_state_to = UKW } 
+			201 = {
+				transfer_state_to = UKW
+				set_demilitarized_zone = no
+			}
+			199 = {
+				 transfer_state_to = UKW
+				 set_demilitarized_zone = no
+			}
+			198 = {
+				transfer_state_to = UKW 
+				set_demilitarized_zone = no
+			}
 			UKW = { load_oob = UKW }
 			news_event = ukr_soc.9
 		}
@@ -323,6 +337,7 @@ country_event = {
 		remove_ideas = {
 			UKR_west_resistance
 		}
+
 	}
 
 	option = {
@@ -334,11 +349,21 @@ country_event = {
 				target = UKW
 				type = annex_everything
 			}
-			201 = { transfer_state_to = UKW } 
-			199 = { transfer_state_to = UKW } 
-			198 = { transfer_state_to = UKW } 
+			201 = {
+				transfer_state_to = UKW
+				set_demilitarized_zone = no
+			}
+			199 = {
+				 transfer_state_to = UKW
+				 set_demilitarized_zone = no
+			}
+			198 = {
+				transfer_state_to = UKW 
+				set_demilitarized_zone = no
+			}
 			UKW = { load_oob = UKW }
 			news_event = ukr_soc.9
+			set_country_flag = UKR_civil_war_flag
 		}
 		remove_ideas = {
 			UKR_west_resistance
