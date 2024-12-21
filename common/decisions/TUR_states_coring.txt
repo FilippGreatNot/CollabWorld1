@@ -1,421 +1,53 @@
 TUR_states_coring_category = {
-	TUR_coring_twr = {
-
+	TUR_integrate_state = {
 		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 354
-		}
-
-		visible = {
-			NOT = { tag = TWR }
-			owns_state = 354
-			NOT = {
-				354 = {
-					is_core_of = ROOT
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				OR = {
+					any_country_with_core = { is_turkish_tag = yes }
+					is_core_of = KUR
+					is_core_of = CIL
 				}
 			}
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 354
-				state = 909
-			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
+		target_root_trigger = {}
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 35
+		ai_will_do = { factor = 100 }
+		days_remove = 60
 		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 354
-			add_state_core = 909
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 354
-				remove_state_core = 909
+		complete_effect = {
+			FROM = { set_state_flag = TUR_integration }
+		}
+		remove_effect = { 
+			add_state_core = FROM 
+			FROM = { clr_state_flag = TUR_integration }
+			if = { limit = { FROM = { is_core_of = CIL } }
+				FROM = { remove_core_of = CIL }
 			}
-		}
-	}
-	TUR_coring_ear = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 353
-		}
-
-		visible = {
-			NOT = { tag = EAR }
-			owns_state = 353
-			NOT = {
-				353 = {
-					is_core_of = ROOT
-				}
+			if = { limit = { FROM = { is_core_of = EAR } }
+				FROM = { remove_core_of = EAR }
 			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 353
-				state = 800
-				state = 344
+			if = { limit = { FROM = { is_core_of = GAR } }
+				FROM = { remove_core_of = GAR }
 			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 353
-			add_state_core = 800
-			add_state_core = 344
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 353
-				remove_state_core = 800
-				remove_state_core = 344
+			if = { limit = { FROM = { is_core_of = KUR } }
+				FROM = { remove_core_of = KUR }
 			}
-		}
-	}
-	TUR_coring_tur = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 49
-		}
-
-		visible = {
-			NOT = { tag = TUR }
-			owns_state = 49
-			NOT = {
-				49 = {
-					is_core_of = ROOT
-				}
+			if = { limit = { FROM = { is_core_of = OTO } }
+				FROM = { remove_core_of = OTO }
 			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 49
-				state = 347
-				state = 346
-				state = 798
-				state = 356
-				state = 348
-				state = 355
-				state = 349
+			if = { limit = { FROM = { is_core_of = TUR } }
+				FROM = { remove_core_of = TUR }
 			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 49
-			add_state_core = 347
-			add_state_core = 346
-			add_state_core = 798
-			add_state_core = 356
-			add_state_core = 348
-			add_state_core = 355
-			add_state_core = 349
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 49
-				remove_state_core= 347
-				remove_state_core = 346
-				remove_state_core = 798
-				remove_state_core = 356
-				remove_state_core = 348
-				remove_state_core = 355
-				remove_state_core = 349
+			if = { limit = { FROM = { is_core_of = TWR } }
+				FROM = { remove_core_of = TWR }
 			}
-		}
-	}
-	TUR_coring_urt = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 343
-		}
-
-		visible = {
-			NOT = { tag = URT }
-			owns_state = 343
-			NOT = {
-				343 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 343
-				state = 342
-				state = 923
-				state = 345
-				state = 926
-			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 343
-			add_state_core = 342
-			add_state_core = 923
-			add_state_core = 345
-			add_state_core = 926
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 343
-				remove_state_core = 342
-				remove_state_core = 923
-				remove_state_core = 345
-				remove_state_core = 926
-			}
-		}
-	}
-	TUR_coring_gar = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 1076
-		}
-
-		visible = {
-			NOT = { tag = GAR }
-			owns_state = 1076
-			NOT = {
-				1076 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 1076
-			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 1076
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 1076
-			}
-		}
-	}
-	TUR_coring_oto = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 797
-		}
-
-		visible = {
-			NOT = { tag = OTO }
-			owns_state = 797
-			NOT = {
-				797 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 797
-				state = 340
-				state = 1042
-			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 797
-			add_state_core = 340
-			add_state_core = 1042
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 797
-				remove_state_core = 340
-				remove_state_core = 1042
-			}
-		}
-	}
-	TUR_coring_kur = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 350
-		}
-
-		visible = {
-			owns_state = 350
-			NOT = {
-				350 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 350
-				state = 352
-				state = 976
-			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 350
-			add_state_core = 352
-			add_state_core = 976
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 350
-				remove_state_core = 352
-				remove_state_core = 976
-			}
-		}
-	}
-	TUR_coring_cil = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 924
-		}
-
-		visible = {
-			owns_state = 924
-			NOT = {
-				924 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 924
-			}
-		}
-		
-
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 25
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 30
-		fire_only_once = yes
-
-		remove_effect	= {
-			add_state_core = 924
-			every_other_country = {
-				limit = { is_turkish_tag = yes }
-				remove_state_core = 924
+			if = { limit = { FROM = { is_core_of = URT } }
+				FROM = { remove_core_of = URT }
 			}
 		}
 	}

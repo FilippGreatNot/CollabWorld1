@@ -4,7 +4,7 @@ news_event = {
 	id = kalat.1
 	title = kalat.1.t
 	desc = kalat.1.d 
-	picture = GFX_news_event_039
+	picture = GFX_news_event_generic_war2
 	major = yes
 	is_triggered_only = yes
 
@@ -13,10 +13,12 @@ news_event = {
 		add_threat = 2
 		
 		hidden_effect = {
-			AFG = {
-				declare_war_on = {
-					target = KAL
-					type = annex_everything
+			if = { limit = { AFG = { has_war = no } } 
+				AFG = {
+					declare_war_on = {
+						target = KAL
+						type = annex_everything
+					}
 				}
 			}
 		}

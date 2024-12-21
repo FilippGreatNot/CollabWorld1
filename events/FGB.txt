@@ -902,7 +902,6 @@ country_event = {
 		FGB = {
 			puppet = {
 				target = PLA
-				end_wars = no
 			}
 		}
 	}
@@ -1409,6 +1408,10 @@ country_event = {
 		name = fgb.57.a
 		add_political_power = 20
 		DOA = { country_event = { id = fgb.58 days = 2 } }
+		custom_effect_tooltip = FGB_we_will_send_a_similar_letter_tt
+		hidden_effect = {
+			FRA = { country_event = { id = fgb.65 days = 9 } }
+		}
 	}
 }
 
@@ -1450,6 +1453,7 @@ country_event = {
 		name = fgb.59.a
 		add_stability = 0.02
 		puppet = { target = DOA end_wars = yes }
+		complete_national_focus = FGB_noske_ostafrika_is_ours
 	}
 }
 
@@ -1572,6 +1576,97 @@ country_event = {
 		ai_chance = { base = 200 }
 		add_stability = 0.1
 		add_political_power = 120
+	}
+}
+
+country_event = {
+	id = fgb.65
+	title = fgb.65.t
+	desc = fgb.65.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.65.a 
+		ai_chance = { base = 10 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb_policy.4 days = 2 } }
+	}
+	option = {
+		name = fgb.65.b
+		ai_chance = { base = 20 }
+		add_stability = 0.05
+		add_timed_idea = { idea = FGB_german_funding days = 90 }
+		FGB = {
+			puppet = {
+				target = CMR
+			}
+		}
+		CMR = { set_cosmetic_tag = KAMERUN }
+		FGB = {
+			country_event = { 
+				id = fgb.67
+				days = 2
+			}
+		}
+		hidden_effect = {
+			ENG = { country_event = { id = fgb.66 days = 3 } }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.66
+	title = fgb.66.t
+	desc = fgb.66.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.66.a 
+		ai_chance = { base = 10 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb_policy.4 days = 2 } }
+	}
+	option = {
+		name = fgb.66.b
+		ai_chance = { base = 15 }
+		add_stability = 0.05
+		add_timed_idea = { idea = FGB_german_funding days = 60 }
+		CMR = { transfer_state = 1022 }
+		FGB = {
+			country_event = { 
+				id = fgb.68
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.67
+	title = fgb.67.t
+	desc = fgb.67.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.67.a 
+		add_stability = 0.05
+		complete_national_focus = FGB_noske_kamerun_is_ours
+	}
+}
+
+country_event = {
+	id = fgb.68
+	title = fgb.68.t
+	desc = fgb.68.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.68.a 
+		add_political_power = 40
 	}
 }
 		
