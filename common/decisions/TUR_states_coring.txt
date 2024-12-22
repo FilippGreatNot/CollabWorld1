@@ -65,10 +65,14 @@ TUR_states_coring_category = {
 			}
 		}
 		complete_effect = {
-			set_cosmetic_tag = UNITUR
 			if = {
 				limit = { tag = URT }
 				set_cosmetic_tag = UNIURT
+			}else = {
+				set_cosmetic_tag = UNITUR
+			}
+			remove_ideas = {
+				TUR_unstable_regimen
 			}
 			set_country_flag = TUR_unified
 		}
@@ -111,6 +115,7 @@ TUR_states_coring_category = {
 	TUR_ask_greece = {
 		icon = GFX_decision_generic_form_nation
 		fire_only_once = yes
+		days_remove = 35
 		ai_will_do = { factor = 100 }
 		visible = {
 			has_country_flag = TUR_unified
@@ -118,7 +123,7 @@ TUR_states_coring_category = {
 		available = {
 			has_country_flag = TUR_unified		
 		}
-		complete_effect = {
+		remove_effect = {
 			GRE = { country_event = tur_land.1 }
 			add_state_claim = 339
 			add_state_claim = 341
