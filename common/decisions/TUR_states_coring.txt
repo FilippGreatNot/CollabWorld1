@@ -1,82 +1,4 @@
 TUR_states_coring_category = {
-	TUR_unification = {
-		icon = GFX_decision_generic_form_nation
-		on_map_mode = decision_view_only
-		fire_only_once = yes
-		ai_will_do = { factor = 100 }
-		highlight_states = {
-			highlight_state_targets = {
-				state = 1042
-				state = 340
-				state = 797
-				state = 1076
-				state = 923
-				state = 343
-				state = 342
-				state = 345
-				state = 343
-				state = 926
-				state = 346
-				state = 49
-				state = 356
-				state = 924
-				state = 347
-				state = 348
-				state = 798
-				state = 354 
-				state = 800
-				state = 353
-				state = 355
-				state = 349
-				state = 344
-				state = 976
-				state = 352
-				state = 350
-			}
-		}
-		available = {
-			hidden_trigger = {
-				1042 = { is_core_of = ROOT }
-				340 = { is_core_of = ROOT }
-				797 = { is_core_of = ROOT }
-				1076 = { is_core_of = ROOT }
-				923 = { is_core_of = ROOT }
-				343 = { is_core_of = ROOT }
-				342 = { is_core_of = ROOT }
-				345 = { is_core_of = ROOT }
-				343 = { is_core_of = ROOT }
-				926 = { is_core_of = ROOT }
-				346 = { is_core_of = ROOT }
-				49 = { is_core_of = ROOT }
-				356 = { is_core_of = ROOT }
-				924 = { is_core_of = ROOT }
-				347 = { is_core_of = ROOT }
-				348 = { is_core_of = ROOT }
-				798 = { is_core_of = ROOT }
-				354 = {  is_core_of = ROOT }
-				800 = { is_core_of = ROOT }
-				353 = { is_core_of = ROOT }
-				355 = { is_core_of = ROOT }
-				349 = { is_core_of = ROOT }
-				344 = { is_core_of = ROOT }
-				976 = { is_core_of = ROOT }
-				352 = { is_core_of = ROOT }
-				350 = {	 is_core_of = ROOT }
-			}
-		}
-		complete_effect = {
-			if = {
-				limit = { tag = URT }
-				set_cosmetic_tag = UNIURT
-			}else = {
-				set_cosmetic_tag = UNITUR
-			}
-			remove_ideas = {
-				TUR_unstable_regimen
-			}
-			set_country_flag = TUR_unified
-		}
-	}
 	TUR_integrate_state = {
 		icon = GFX_decision_generic_form_nation
 		state_target = any_owned_state
@@ -110,23 +32,6 @@ TUR_states_coring_category = {
 					remove_core_of = PREV
 				}
 			}
-		}
-	}
-	TUR_ask_greece = {
-		icon = GFX_decision_generic_form_nation
-		fire_only_once = yes
-		days_remove = 35
-		ai_will_do = { factor = 100 }
-		visible = {
-			has_country_flag = TUR_unified
-		}
-		available = {
-			has_country_flag = TUR_unified		
-		}
-		remove_effect = {
-			GRE = { country_event = tur_land.1 }
-			add_state_claim = 339
-			add_state_claim = 341
 		}
 	}
 }
