@@ -23,13 +23,16 @@ TUR_states_coring_category = {
 		remove_effect = { 
 			add_state_core = FROM 
 			hidden_effect = {
-				remove_core_of = CIL
-				remove_core_of = KUR
-				every_other_country = {
-					limit = {
-						is_turkish_tag = yes 
+				FROM = {
+					remove_core_of = CIL
+					remove_core_of = KUR
+					every_possible_country = {
+						limit = {
+							is_turkish_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
 					}
-					remove_core_of = PREV
 				}
 			}
 		}
