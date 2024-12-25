@@ -41,38 +41,64 @@ ITA_states_coring_category = {
 			}
 		}
 	}
-	ITA_integrate_state = {
+	ITA_integrate_state_S = {
 		icon = GFX_decision_generic_form_nation
+		name = ITA_integrate_state
 		state_target = any_owned_state
 		target_trigger = {
 			FROM = {
 				NOT = { is_core_of = PREV }
 				OR = {
+					state = 859
 					state = 930
+					state = 931
+					state = 857
+					state = 934
+					state = 869	
+					state = 932
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 35
+		ai_will_do = { factor = 100 }
+		days_remove = 20
+		fire_only_once = yes
+		remove_effect = { 
+			add_state_core = FROM 
+			hidden_effect = {
+				FROM = {
+					every_possible_country = {
+						limit = {
+							is_italian_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+	ITA_integrate_state_M = {
+		icon = GFX_decision_generic_form_nation
+		name = ITA_integrate_state
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				OR = {
 					state = 736
 					state = 873
 					state = 991
 					state = 892
 					state = 1062
-					state = 158
-					state = 875
-					state = 869
-					state = 159
-					state = 161
-					state = 162
+					state = 875	
 					state = 893
 					state = 884
-					state = 857
-					state = 2
 					state = 157
-					state = 117
-					state = 931
-					state = 932
 					state = 933
-					state = 934
 					state = 156
-					state = 115
-					state = 114
 					state = 860
 					state = 160
 					state = 39
@@ -81,9 +107,49 @@ ITA_states_coring_category = {
 		}
 		on_map_mode = map_and_decisions_view
 		modifier = { political_power_gain = -0.15 }
-		cost = 35
+		cost = 50
 		ai_will_do = { factor = 100 }
-		days_remove = 60
+		days_remove = 40
+		fire_only_once = yes
+		remove_effect = { 
+			add_state_core = FROM 
+			hidden_effect = {
+				FROM = {
+					every_possible_country = {
+						limit = {
+							is_italian_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+	ITA_integrate_state_L = {
+		icon = GFX_decision_generic_form_nation
+		name = ITA_integrate_state
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				OR = {
+					state = 114
+					state = 2
+					state = 115
+					state = 162
+					state = 161
+					state = 159
+					state = 158
+					state = 117
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 100
+		ai_will_do = { factor = 100 }
+		days_remove = 70
 		fire_only_once = yes
 		remove_effect = { 
 			add_state_core = FROM 
