@@ -359,15 +359,20 @@ country_event = {
 	title = sov.ukr.3.t
 	desc = sov.ukr.3.d
 	is_triggered_only = yes
-	trigger = {
-		is_in_faction = no
-	}
 	option = {
 		name = sov.ukr.3.a
-		create_faction = revolutionary_alliance
-		add_to_faction = UKR
 		add_war_support = 0.05
+		add_political_power = 50
 		UKR = { complete_national_focus = UKR_soc_accept }
+		give_guarantee = UKR
+		give_military_access = UKR
+		UKR = { give_guarantee = SOV }
+		UKR = { give_military_access = SOV }
+	}
+	option = {
+		name = sov.ukr.3.b
+		add_stability = 0.05
+		UKR = { complete_national_focus = UKR_soc_decline }
 	}
 }
 
@@ -383,5 +388,24 @@ country_event = {
 		name = sov.ukr.4.a
 		add_to_faction = UKR
 		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = sov.ukr.5
+	title = sov.ukr.5.t
+	desc = sov.ukr.5.d
+	is_triggered_only = yes
+	option = {
+		name = sov.ukr.5.a
+		annex_country = {
+			target = UKR
+			transfer_troops = yes
+		}
+		add_war_support = 0.05
+		UKR = {
+			every_core_state = {
+				add_core_of = PREV.PREV } 
+		}
 	}
 }

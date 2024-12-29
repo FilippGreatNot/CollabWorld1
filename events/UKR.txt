@@ -195,11 +195,21 @@ country_event = {
 		complete_national_focus = UKR_soc_reject
 		add_war_support = 0.1
 		add_political_power = 100
+		ai_chance = { base = 1 }
 	}
 	option = {
 		name = ukr_soc.1.b
 		#SOV = {country_event = SOV.ukr.3}
 		add_stability = 0.05
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = ukr_soc.1.c
+		trigger = {
+			UKR = { has_war = no }
+		}
+		ai_chance = { base = 8 }
+		SOV = {country_event = SOV.ukr.5}
 	}
 }
 
@@ -213,7 +223,6 @@ country_event = {
 		add_war_support = 0.1
 		hidden_effect = { 
         	137 = { transfer_state_to = UKR }
-			add_state_core = 137
 		}
 	}
 }
@@ -232,9 +241,6 @@ country_event = {
 			}
 		}
 		add_war_support = 0.1
-		hidden_effect = {
-			add_state_core = 137
-		}
 	}
 }
 
@@ -296,11 +302,6 @@ country_event = {
 	option = {
 		name = ukr_soc.7.a
 		add_ideas = { UKR_west_resistance }
-		hidden_effect = {
-			201 = { set_demilitarized_zone = yes }
-			199 = { set_demilitarized_zone = yes }
-			198 = { set_demilitarized_zone = yes }
-		}
 	}
 }
 
@@ -392,7 +393,7 @@ news_event = {
 country_event = {
 	id = ukr_soc.10
 	title = ukr_soc.10.t
-	desc = ukr_soc.9.d
+	desc = ukr_soc.10.d
 	is_triggered_only = yes 
 	option = {
 		name = ukr_soc.10.a
@@ -401,5 +402,178 @@ country_event = {
 	option = {
 		name = ukr_soc.10.b 
 		complete_national_focus = UKR_soc_kill_wrong
+	}
+}
+
+country_event = {
+	id = ukr_soc.11
+	title = ukr_soc.11.t
+	desc = ukr_soc.11.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.11.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	137 = { transfer_state_to = UKR }
+        	234 = { transfer_state_to = UKR }
+
+		}
+	}
+}
+
+country_event = {
+	id = ukr.12
+	title = ukr.12.t
+	desc = ukr.12.d
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			add_state_core = 137
+			add_state_core = 234
+		}
+	}
+	option = {
+		name = ukr.12.a
+		SRF = 
+			{ country_event = {
+				id = SRF.1
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.12.b
+		SRF = 
+			{ country_event = {
+				id = SRF.2
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.12.c
+		create_wargoal = {
+			type = annex_everything
+			target = SRF
+		}
+	}
+}
+
+country_event = {
+	id = ukr.13
+	title = ukr.13.t
+	desc = ukr.13.d
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			add_state_core = 766
+			add_state_core = 78
+		}
+	}
+	option = {
+		name = ukr.13.a
+		ROM = 
+			{ country_event = {
+				id = ROM.1
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.13.b
+		ROM = 
+			{ country_event = {
+				id = ROM.2
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.13.c
+		create_wargoal = {
+			type = annex_everything
+			target = ROM
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.14
+	title = ukr_soc.14.t
+	desc = ukr_soc.14.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.14.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	766 = { transfer_state_to = UKR }
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.15
+	title = ukr_soc.15.t
+	desc = ukr_soc.15.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.15.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	766 = { transfer_state_to = UKR }
+        	78 = { transfer_state_to = UKR }
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.16
+	title = ukr_soc.16.t
+	desc = ukr_soc.16.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.16.a
+		add_war_support = 0.1
+		PREV = {
+			create_wargoal = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.17
+	title = ukr_soc.17.t
+	desc = ukr_soc.17.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.17.a
+		add_stability = 0.05
+		add_war_support = 0.05
+		annex_country = {
+			target = BLR
+			transfer_troops = yes
+		}
+		BLR = {
+			every_core_state = {
+				add_core_of = UKR } 
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.18
+	title = ukr_soc.18.t
+	desc = ukr_soc.18.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.18.a
+		add_war_support = 0.05
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
 	}
 }

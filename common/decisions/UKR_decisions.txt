@@ -1,6 +1,6 @@
 UKR_demand_decisions = {
 	UKR_demand_crimea = {
-		cost = 0
+		cost = 50
 		icon = decision_generic_civil_support.dds
 		visible = {
 			has_country_flag = UKR_can_demand_crimea
@@ -11,10 +11,22 @@ UKR_demand_decisions = {
 			}
 		}
 		complete_effect = {
-			SRF = { country_event = {
-					id = srf.1
-					days = 2
-				}
+			UKR = { country_event = UKR.12 }
+		}
+	}
+	UKR_demand_southern_bessarabia = {
+		cost = 50
+		icon = decision_generic_civil_support.dds
+		visible = {
+			has_country_flag = UKR_can_demand_bessarabia
+		}
+		available = {
+			has_army_manpower = {
+				size > 200000
+			}
+		}
+		complete_effect = {
+			UKR = { country_event = UKR.13 }
 			}
 		}
 	}
