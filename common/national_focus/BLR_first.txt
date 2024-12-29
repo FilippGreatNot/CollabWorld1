@@ -16,6 +16,7 @@ focus_tree = {
 		cost = 5
 		x = 2
 		y = 0
+		ai_will_do = { base = 9999 }
 		available = {
 					always = no
 				}
@@ -93,6 +94,7 @@ focus_tree = {
 		id = BLR_smuggle_guns_through_silesia
 		icon = GFX_focus_BLR_smuggle_guns_through_silesia
 		cost = 5
+		ai_will_do = { base = 9999 }
 		prerequisite = {
 			focus = BLR_tukhachevskys_regime_must_fall
 		}
@@ -106,6 +108,7 @@ focus_tree = {
 		id = BLR_sabotage_the_belarussian_industry
 		icon = GFX_focus_BLR_sabotage_the_belarussian_industry
 		cost = 5
+		ai_will_do = { base = 9999 }
 		prerequisite = {
 			focus = BLR_tukhachevskys_regime_must_fall
 		}
@@ -119,6 +122,7 @@ focus_tree = {
 		id = BLR_throw_the_muscovites_out_now
 		icon = GFX_focus_BLR_throw_the_muscovites_out_now
 		cost = 5
+		ai_will_do = { base = 9999 }
 		prerequisite = {
 			focus = BLR_smuggle_guns_through_silesia
 		}
@@ -183,7 +187,7 @@ focus_tree = {
 		x = 3
 		y = 3
 		completion_reward = {
-		
+		     country_event = tukha.6
 		}
 	}
 	focus = {
@@ -192,6 +196,9 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = BLR_the_question_of_the_land_reforms
+		}
+		available = {
+			has_country_flag = land_reforms_no
 		}
 		mutually_exclusive = {
 			focus = BLR_to_finish_what_we_started
@@ -212,6 +219,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = BLR_the_plan_was_a_mistake
 		}
+		available = {
+			has_country_flag = land_reforms_yes
+		}
 		x = 4
 		y = 4
 		completion_reward = {
@@ -228,7 +238,7 @@ focus_tree = {
 		x = 7
 		y = 3
 		completion_reward = {
-		
+		     country_event = tukha.7
 		}
 	}
 	focus = {
@@ -240,6 +250,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = BLR_strike_fear_into_their_hearts
+		}
+		available = {
+			has_country_flag = good_tukha
 		}
 		x = 6
 		y = 4
@@ -269,6 +282,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = BLR_teach_them_the_way_of_the_revolution
+		}
+		available = {
+			has_country_flag = evil_tukha
 		}
 		x = 8
 		y = 4
@@ -313,7 +329,7 @@ focus_tree = {
 		x = 11
 		y = 3
 		completion_reward = {
-		
+		     country_event = tukha.5
 		}
 	}
 	focus = {
@@ -325,6 +341,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = BLR_loyalty_to_moscow
+		}
+		available = {
+			has_country_flag = loyal_to_tukha
 		}
 		x = 10
 		y = 4
@@ -355,10 +374,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = BLR_loyalty_to_the_red_napoleon
 		}
+		available = {
+			has_country_flag = loyal_to_lenin
+		}
 		x = 12
 		y = 4
 		completion_reward = {
-		
+		     
 		}
 	}
 	focus = {
