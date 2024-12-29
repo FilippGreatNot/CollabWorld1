@@ -422,5 +422,182 @@ focus_tree = {
 					   custom_effect_tooltip = BAV_economic_decisions_tt
                }
 	}
+	
+	focus = {
+        id = BAV_continue_the_jacobin_plan
+        icon = GFX_focus_BAV_jacplan
+        relative_position_id = BAV_provide_jobs_for_the_workers
+        x = 0
+        y = 1
+        cost = 5
+		available = {
+			OR = {
+				has_government = bolshevism
+                has_government = marxism
+			}
+		}
+		prerequisite = {
+            focus = BAV_provide_jobs_for_the_workers
+        }
+		mutually_exclusive = {
+			focus = BAV_scrap_the_jacobin_economic_reforms
+		}
+		mutually_exclusive = {
+			focus = BAV_appoint_gregor_strasser
+		}
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_rapid_weapons_production
+        icon = GFX_focus_BAV_rapid
+        relative_position_id = BAV_continue_the_jacobin_plan
+        x = -1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_continue_the_jacobin_plan
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_commence_emergency_industrialization
+        icon = GFX_focus_BAV_emergency
+        relative_position_id = BAV_continue_the_jacobin_plan
+        x = 1
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = BAV_continue_the_jacobin_plan
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_appoint_gregor_strasser
+        icon = GFX_focus_BAV_gregor
+        relative_position_id = BAV_provide_jobs_for_the_workers
+        x = 4
+        y = 1
+        cost = 5
+		available = {
+		has_country_leader = {
+                    name = "Joseph Goebbels"
+                    ruling_only = yes
+                }
+				}
+		mutually_exclusive = {
+			focus = BAV_continue_the_jacobin_plan
+		}
+		mutually_exclusive = {
+			focus = BAV_scrap_the_jacobin_economic_reforms
+		}
+		prerequisite = {
+            focus = BAV_provide_jobs_for_the_workers
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_increase_worker_control_of_key_industries
+        icon = GFX_focus_BAV_control
+        relative_position_id = BAV_appoint_gregor_strasser
+        x = -1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_appoint_gregor_strasser
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_achieve_bavarian_economic_autarky
+        icon = GFX_focus_BAV_autarky
+        relative_position_id = BAV_appoint_gregor_strasser
+        x = 1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_appoint_gregor_strasser
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_scrap_the_jacobin_economic_reforms
+        icon = GFX_focus_BAV_scrap
+        relative_position_id = BAV_provide_jobs_for_the_workers
+        x = -4
+        y = 1
+        cost = 5
+		available = {
+			NOT = {
+				has_government = bolshevism
+			}
+		}
+		mutually_exclusive = {
+			focus = BAV_appoint_gregor_strasser
+		}
+		mutually_exclusive = {
+			focus = BAV_continue_the_jacobin_plan
+		}
+		prerequisite = {
+            focus = BAV_provide_jobs_for_the_workers
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_increase_worker_soviets_control
+        icon = GFX_focus_BAV_worker_soviet
+        relative_position_id = BAV_scrap_the_jacobin_economic_reforms
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_scrap_the_jacobin_economic_reforms
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_fight_poverty_in_bavarian_cities
+        icon = GFX_focus_BAV_slums
+        relative_position_id = BAV_scrap_the_jacobin_economic_reforms
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_scrap_the_jacobin_economic_reforms
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = BAV_rebuild_the_lmu
+        icon = GFX_focus_BAV_university
+        relative_position_id = BAV_rapid_weapons_production
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_fight_poverty_in_bavarian_cities focus = BAV_increase_worker_soviets_control focus = BAV_achieve_bavarian_economic_autarky focus = BAV_rapid_weapons_production focus = BAV_commence_emergency_industrialization focus = BAV_increase_worker_control_of_key_industries
+        }
+		completion_reward = {
+		       add_research_slot = 1
+			   add_political_power = 25
+               }
+	}
    
 }
