@@ -57,6 +57,7 @@ focus_tree = {
 				remove_idea = BAV_extremely_disorganized_army
 				add_idea = BAV_very_disorganized_army
 			}
+			add_political_power = 25
         }   
         }
 	 focus = {
@@ -74,6 +75,7 @@ focus_tree = {
 				remove_idea = BAV_the_effects_of_the_economic_crisis
 				add_idea = BAV_the_effects_of_the_economic_crisis2
 			}
+			add_political_power = 25
         }   
         }
 	 focus = {
@@ -164,6 +166,30 @@ focus_tree = {
         }   
         }
 	focus = {
+        id = BAV_establish_communist_cells_in_austria
+        icon = GFX_focus_BAV_cells
+        relative_position_id = BAV_victory_of_bkp_m
+        x = 3
+        y = 1
+        cost = 3
+        prerequisite = {
+            focus = BAV_victory_of_bkp_m
+        }
+		completion_reward = {
+		     add_political_power = 25
+			 AUS = { 
+			     add_popularity = {
+					ideology = bolshevism
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.05
+				}
+				}
+        }   
+        }
+	focus = {
         id = BAV_exile_further_wittelsbach_family_members
         icon = GFX_focus_BAV_exile
         relative_position_id = BAV_repair_relationships_with_the_spartakusbund
@@ -171,7 +197,7 @@ focus_tree = {
         y = 1
         cost = 3
         prerequisite = {
-            focus = BAV_repair_relationships_with_the_spartakusbund
+            focus = BAV_repair_relationships_with_the_spartakusbund focus = BAV_establish_communist_cells_in_austria
         }
 		completion_reward = {
 		      add_popularity = {
@@ -361,6 +387,7 @@ focus_tree = {
 					   instant_build = yes
 				    }
 				 }
+				 set_country_flag = repair_damaged_roads_flag
         }   
     }
 	focus = {
@@ -420,6 +447,250 @@ focus_tree = {
 				          add_idea = BAV_the_effects_of_the_economic_crisis3
 			          }
 					   custom_effect_tooltip = BAV_economic_decisions_tt
+               }
+	}
+	
+	focus = {
+        id = BAV_continue_the_jacobin_plan
+        icon = GFX_focus_BAV_jacplan
+        relative_position_id = BAV_provide_jobs_for_the_workers
+        x = 0
+        y = 1
+        cost = 5
+		available = {
+			OR = {
+				has_government = bolshevism
+                has_government = marxism
+			}
+		}
+		prerequisite = {
+            focus = BAV_provide_jobs_for_the_workers
+        }
+		mutually_exclusive = {
+			focus = BAV_scrap_the_jacobin_economic_reforms
+		}
+		mutually_exclusive = {
+			focus = BAV_appoint_gregor_strasser
+		}
+		completion_reward = {
+		       add_political_power = 150
+			    random_owned_controlled_state = {
+			   add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.05
+               }
+	}
+	
+	focus = {
+        id = BAV_rapid_weapons_production
+        icon = GFX_focus_BAV_rapid
+        relative_position_id = BAV_continue_the_jacobin_plan
+        x = -1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_continue_the_jacobin_plan
+        }
+		completion_reward = {
+		       random_owned_controlled_state = {
+			   add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = BAV
+			}
+			add_stability = -0.05
+            }
+	}
+	
+	focus = {
+        id = BAV_commence_emergency_industrialization
+        icon = GFX_focus_BAV_emergency
+        relative_position_id = BAV_continue_the_jacobin_plan
+        x = 1
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = BAV_continue_the_jacobin_plan
+        }
+		completion_reward = {
+		        random_owned_controlled_state = {
+			   add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			    }
+				 random_owned_controlled_state = {
+			   add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = -0.1
+               }
+	}
+	
+	focus = {
+        id = BAV_appoint_gregor_strasser
+        icon = GFX_focus_BAV_gregor
+        relative_position_id = BAV_provide_jobs_for_the_workers
+        x = 4
+        y = 1
+        cost = 5
+		available = {
+		has_country_leader = {
+                    name = "Joseph Goebbels"
+                    ruling_only = yes
+                }
+				}
+		mutually_exclusive = {
+			focus = BAV_continue_the_jacobin_plan
+		}
+		mutually_exclusive = {
+			focus = BAV_scrap_the_jacobin_economic_reforms
+		}
+		prerequisite = {
+            focus = BAV_provide_jobs_for_the_workers
+        }
+		completion_reward = {
+		       activate_advisor = BAV_gregor_strasser_ec
+			   
+               }
+	}
+	
+	focus = {
+        id = BAV_increase_worker_control_of_key_industries
+        icon = GFX_focus_BAV_control
+        relative_position_id = BAV_appoint_gregor_strasser
+        x = -1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_appoint_gregor_strasser
+        }
+		completion_reward = {
+		       random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			    }
+				add_ideas = BAV_increased_worker_control_in_key_industries
+               }
+	}
+	
+	focus = {
+        id = BAV_achieve_bavarian_economic_autarky
+        icon = GFX_focus_BAV_autarky
+        relative_position_id = BAV_appoint_gregor_strasser
+        x = 1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_appoint_gregor_strasser
+        }
+		completion_reward = {
+		       add_ideas = BAV_economic_autarky
+               }
+	}
+	
+	focus = {
+        id = BAV_scrap_the_jacobin_economic_reforms
+        icon = GFX_focus_BAV_scrap
+        relative_position_id = BAV_provide_jobs_for_the_workers
+        x = -4
+        y = 1
+        cost = 5
+		available = {
+			NOT = {
+				has_government = bolshevism
+			}
+		}
+		mutually_exclusive = {
+			focus = BAV_appoint_gregor_strasser
+		}
+		mutually_exclusive = {
+			focus = BAV_continue_the_jacobin_plan
+		}
+		prerequisite = {
+            focus = BAV_provide_jobs_for_the_workers
+        }
+		completion_reward = {
+		         random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			    }
+				add_political_power = -50
+				add_stability = 0.05
+               }
+	}
+	
+	focus = {
+        id = BAV_increase_worker_soviets_control
+        icon = GFX_focus_BAV_worker_soviet
+        relative_position_id = BAV_scrap_the_jacobin_economic_reforms
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_scrap_the_jacobin_economic_reforms
+        }
+		completion_reward = {
+		       add_ideas = {
+				UVS_worker_democracy
+			}
+			   add_ideas = mixed_economy
+               }
+	}
+	
+	focus = {
+        id = BAV_fight_poverty_in_bavarian_cities
+        icon = GFX_focus_BAV_slums
+        relative_position_id = BAV_scrap_the_jacobin_economic_reforms
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_scrap_the_jacobin_economic_reforms
+        }
+		completion_reward = {
+		        random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
+			    }
+				add_political_power = -100
+				add_stability = 0.1
+               }
+	}
+	
+	focus = {
+        id = BAV_rebuild_the_lmu
+        icon = GFX_focus_BAV_university
+        relative_position_id = BAV_rapid_weapons_production
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_fight_poverty_in_bavarian_cities focus = BAV_increase_worker_soviets_control focus = BAV_achieve_bavarian_economic_autarky focus = BAV_rapid_weapons_production focus = BAV_commence_emergency_industrialization focus = BAV_increase_worker_control_of_key_industries
+        }
+		completion_reward = {
+		       add_research_slot = 1
+			   add_political_power = 25
                }
 	}
    
