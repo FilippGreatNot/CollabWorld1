@@ -103,6 +103,30 @@ focus_tree = {
         }   
         }
 	focus = {
+        id = BAV_the_jacobin_regime_holds
+        icon = GFX_focus_BAV_regime
+        relative_position_id = BAV_a_new_day_in_regensburg
+        x = 6
+        y = 1
+        cost = 5
+		available = {
+		has_country_leader = {
+                    name = "Eugen Leviné"
+                    ruling_only = yes
+                }
+				 }
+        prerequisite = {
+            focus = BAV_a_new_day_in_regensburg
+        }
+		completion_reward = {
+		     add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			 add_war_support = 0.05
+        }   
+    }
+	focus = {
         id = BAV_victory_of_bkp_m
         icon = GFX_focus_BAV_bkp_m
         relative_position_id = BAV_a_new_day_in_regensburg
@@ -173,7 +197,7 @@ focus_tree = {
         y = 1
         cost = 3
         prerequisite = {
-            focus = BAV_victory_of_bkp_m
+            focus = BAV_victory_of_bkp_m focus = BAV_the_jacobin_regime_holds
         }
 		completion_reward = {
 		     add_political_power = 25
