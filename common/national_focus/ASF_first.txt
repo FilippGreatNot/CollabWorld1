@@ -1,0 +1,1059 @@
+focus_tree = {
+	id = ASF_first_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ASF
+		}
+	}
+	default = no
+	
+	focus = {
+		id = ASF_first_the_second_american_revolution
+		icon = GFX_focus_ASF_first_the_second_american_revolution
+		cost = 10
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_haywoods_chairmanhood
+		icon = GFX_focus_ASF_first_haywoods_chairmanhood
+		cost = 10
+		
+		relative_position_id = ASF_first_the_second_american_revolution
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_second_american_revolution
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_organize_eastern_strikes
+		icon = GFX_focus_ASF_first_organize_eastern_strikes
+		cost = 10
+		
+		relative_position_id = ASF_first_operation_fordfall
+		x = -2
+		offset = {
+			x = 2
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_organize_eastern_strikes
+					has_completed_focus = ASF_first_operation_fordfall
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_operation_fordfall
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_operation_fordfall }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_operation_fordfall
+		icon = GFX_focus_ASF_first_operation_fordfall
+		cost = 10
+		
+		relative_position_id = ASF_first_loyalty_to_the_revolution_guide
+		x = -1
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_organize_eastern_strikes
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_organize_eastern_strikes }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_loyalty_to_the_revolution_guide
+		
+		relative_position_id = ASF_first_favor_norman_thomas
+		x = -1
+		
+		allow_branch = { has_country_flag = do_bad_things }
+	}
+	focus = {
+		id = ASF_first_contact_the_black_front
+		icon = GFX_focus_ASF_first_contact_the_black_front
+		cost = 10
+		
+		relative_position_id = ASF_first_organize_eastern_strikes
+		x = 1
+		y = 1
+		offset = {
+			x = -1
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_organize_eastern_strikes
+					has_completed_focus = ASF_first_operation_fordfall
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_organize_eastern_strikes
+			focus = ASF_first_operation_fordfall
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_favor_norman_thomas
+		icon = GFX_focus_ASF_first_favor_norman_thomas
+		cost = 10
+		
+		relative_position_id = ASF_first_support_the_ruthenberg_clique
+		x = -2
+		offset = {
+			x = 2
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_favor_norman_thomas
+					has_completed_focus = ASF_first_support_the_ruthenberg_clique
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_support_the_ruthenberg_clique
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_support_the_ruthenberg_clique }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_support_the_ruthenberg_clique
+		icon = GFX_focus_ASF_first_support_the_ruthenberg_clique
+		cost = 10
+		
+		relative_position_id = ASF_first_haywoods_chairmanhood
+		y = 1
+		x = -1
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_favor_norman_thomas
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_favor_norman_thomas }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_strenghthen_the_socialist_coalition
+		icon = GFX_focus_ASF_first_strenghthen_the_socialist_coalition
+		cost = 10
+		
+		relative_position_id = ASF_first_favor_norman_thomas
+		x = 1
+		y = 1
+		offset = {
+			x = -1
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_favor_norman_thomas
+					has_completed_focus = ASF_first_support_the_ruthenberg_clique
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_favor_norman_thomas
+			focus = ASF_first_support_the_ruthenberg_clique
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_loyalty_to_the_revolution
+		icon = GFX_focus_ASF_first_loyalty_to_the_revolution
+		cost = 10
+		
+		relative_position_id = ASF_first_loyalty_to_the_revolution_guide
+
+		y = 2
+		
+		prerequisite = {
+			focus = ASF_first_contact_the_black_front
+		}
+		prerequisite = {
+			focus = ASF_first_strenghthen_the_socialist_coalition
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_clean_up_the_streets
+		icon = GFX_focus_ASF_first_clean_up_the_streets
+		cost = 10
+		
+		relative_position_id = ASF_first_haywoods_chairmanhood
+		y = 1
+		x = 1
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_utilize_our_black_market_connections
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_utilize_our_black_market_connections }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_utilize_our_black_market_connections
+		icon = GFX_focus_ASF_first_utilize_our_black_market_connections
+		cost = 10
+		
+		relative_position_id = ASF_first_clean_up_the_streets
+		x = 2
+		offset = {
+			x = -2
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_clean_up_the_streets
+					has_completed_focus = ASF_first_utilize_our_black_market_connections
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_clean_up_the_streets
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_clean_up_the_streets }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_invite_soviet_experts_guide
+		
+		relative_position_id = ASF_first_utilize_our_black_market_connections
+		x = 1
+		
+		allow_branch = { has_country_flag = do_bad_things }
+	}
+	focus = {
+		id = ASF_first_gun_smuggling_operations
+		icon = GFX_focus_ASF_first_gun_smuggling_operations
+		cost = 10
+		
+		relative_position_id = ASF_first_clean_up_the_streets
+		x = 1
+		y = 1
+		offset = {
+			x = -1
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_clean_up_the_streets
+					has_completed_focus = ASF_first_utilize_our_black_market_connections
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_clean_up_the_streets
+			focus = ASF_first_utilize_our_black_market_connections
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_establish_the_peoples_congress
+		icon = GFX_focus_ASF_first_establish_the_peoples_congress
+		cost = 10
+		
+		relative_position_id = ASF_first_haywoods_chairmanhood
+		y = 3
+		
+		prerequisite = {
+			focus = ASF_first_strenghthen_the_socialist_coalition
+			focus = ASF_first_gun_smuggling_operations
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_rapid_collectivization
+		icon = GFX_focus_ASF_first_rapid_collectivization
+		cost = 10
+		
+		relative_position_id = ASF_first_invite_soviet_experts_guide
+		x = 1
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_seize_the_means_of_warfare
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_seize_the_means_of_warfare }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_seize_the_means_of_warfare
+		icon = GFX_focus_ASF_first_seize_the_means_of_warfare
+		cost = 10
+		
+		relative_position_id = ASF_first_rapid_collectivization
+		x = 2
+		offset = {
+			x = -2
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_rapid_collectivization
+					has_completed_focus = ASF_first_seize_the_means_of_warfare
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_haywoods_chairmanhood
+		}
+		mutually_exclusive = {
+			focus = ASF_first_rapid_collectivization
+		}
+		
+		allow_branch = {
+			NOT = { has_completed_focus = ASF_first_rapid_collectivization }
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_contact_the_soviets
+		icon = GFX_focus_ASF_first_contact_the_soviets
+		cost = 10
+		
+		relative_position_id = ASF_first_rapid_collectivization
+		x = 1
+		y = 1
+		offset = {
+			x = -1
+			trigger = {
+				OR = {
+					has_completed_focus = ASF_first_rapid_collectivization
+					has_completed_focus = ASF_first_seize_the_means_of_warfare
+				}
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_rapid_collectivization
+			focus = ASF_first_seize_the_means_of_warfare
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_invite_soviet_experts
+		icon = GFX_focus_ASF_first_invite_soviet_experts
+		cost = 10
+		
+		relative_position_id = ASF_first_invite_soviet_experts_guide
+		y = 2
+		
+		prerequisite = {
+			focus = ASF_first_gun_smuggling_operations
+		}
+		prerequisite = {
+			focus = ASF_first_contact_the_soviets
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_second_power_struggle_begins
+		icon = GFX_focus_ASF_first_the_second_power_struggle_begins
+		cost = 10
+		
+		relative_position_id = ASF_first_establish_the_peoples_congress
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_loyalty_to_the_revolution
+		}
+		prerequisite = {
+			focus = ASF_first_establish_the_peoples_congress
+		}
+		prerequisite = {
+			focus = ASF_first_invite_soviet_experts
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_chairmanhood_of_norman_thomas
+		icon = GFX_focus_ASF_first_the_chairmanhood_of_norman_thomas
+		cost = 10
+		
+		relative_position_id = ASF_first_the_second_power_struggle_begins
+		x = -7
+		y = 1
+		offset = {
+			x = 7
+			trigger = {
+				has_completed_focus = ASF_first_the_chairmanhood_of_norman_thomas
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_the_second_power_struggle_begins
+		}
+		
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ASF_first_the_chairman_holds_strong
+				has_completed_focus = ASF_first_the_rise_of_ruthenberg
+			}
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_democracy_above_all_else
+		icon = GFX_focus_ASF_first_democracy_above_all_else
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairmanhood_of_norman_thomas
+		x = -2
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairmanhood_of_norman_thomas
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_defend_free_speech
+		icon = GFX_focus_ASF_first_defend_free_speech
+		cost = 10
+		
+		relative_position_id = ASF_first_democracy_above_all_else
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_democracy_above_all_else
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_establish_social_security_programs
+		icon = GFX_focus_ASF_first_establish_social_security_programs
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairmanhood_of_norman_thomas
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairmanhood_of_norman_thomas
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_support_market_socialism
+		icon = GFX_focus_ASF_first_support_market_socialism
+		cost = 10
+		
+		relative_position_id = ASF_first_establish_social_security_programs
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_establish_social_security_programs
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_a_true_healthcare_system
+		icon = GFX_focus_ASF_first_a_true_healthcare_system
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairmanhood_of_norman_thomas
+		x = 2
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairmanhood_of_norman_thomas
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_liberate_the_american_woman
+		icon = GFX_focus_ASF_first_liberate_the_american_woman
+		cost = 10
+		
+		relative_position_id = ASF_first_a_true_healthcare_system
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_a_true_healthcare_system
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_a_true_worker_democracy
+		icon = GFX_focus_ASF_first_a_true_worker_democracy
+		cost = 10
+		
+		relative_position_id = ASF_first_support_market_socialism
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_defend_free_speech
+		}
+		prerequisite = {
+			focus = ASF_first_support_market_socialism
+		}
+		prerequisite = {
+			focus = ASF_first_liberate_the_american_woman
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_criticize_the_soviet_dictatorship
+		icon = GFX_focus_ASF_first_criticize_the_soviet_dictatorship
+		cost = 10
+		
+		relative_position_id = ASF_first_a_true_worker_democracy
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_a_true_worker_democracy
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_international_pacifism
+		icon = GFX_focus_ASF_first_international_pacifism
+		cost = 10
+		
+		relative_position_id = ASF_first_a_true_worker_democracy
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_a_true_worker_democracy
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_harmony_and_friendship
+		icon = GFX_focus_ASF_first_harmony_and_friendship
+		cost = 10
+		
+		relative_position_id = ASF_first_a_true_worker_democracy
+		y = 2
+		
+		prerequisite = {
+			focus = ASF_first_criticize_the_soviet_dictatorship
+		}
+		prerequisite = {
+			focus = ASF_first_international_pacifism
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_chairman_holds_strong
+		icon = GFX_focus_ASF_first_the_chairman_holds_strong
+		cost = 10
+		
+		relative_position_id = ASF_first_the_second_power_struggle_begins
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_second_power_struggle_begins
+		}
+		
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ASF_first_the_chairmanhood_of_norman_thomas
+				has_completed_focus = ASF_first_the_rise_of_ruthenberg
+			}
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_education_for_all_workers
+		icon = GFX_focus_ASF_first_education_for_all_workers
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairman_holds_strong
+		x = -3
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairman_holds_strong
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_we_are_all_one_big_union
+		icon = GFX_focus_ASF_first_we_are_all_one_big_union
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairman_holds_strong
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairman_holds_strong
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_focus_on_international_solidarity
+		icon = GFX_focus_ASF_first_focus_on_international_solidarity
+		cost = 10
+		
+		relative_position_id = ASF_first_education_for_all_workers
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_education_for_all_workers
+		}
+		prerequisite = {
+			focus = ASF_first_we_are_all_one_big_union
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_theres_a_gun_for_every_worker
+		icon = GFX_focus_ASF_first_theres_a_gun_for_every_worker
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairman_holds_strong
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairman_holds_strong
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_expand_the_means_of_production
+		icon = GFX_focus_ASF_first_expand_the_means_of_production
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairman_holds_strong
+		x = 3
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_chairman_holds_strong
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_infiltrate_charleston
+		icon = GFX_focus_ASF_first_infiltrate_charleston
+		cost = 10
+		
+		relative_position_id = ASF_first_expand_the_means_of_production
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_theres_a_gun_for_every_worker
+		}
+		prerequisite = {
+			focus = ASF_first_expand_the_means_of_production
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_revolution_spreads_like_thunder
+		icon = GFX_focus_ASF_first_the_revolution_spreads_like_thunder
+		cost = 10
+		
+		relative_position_id = ASF_first_the_chairman_holds_strong
+		y = 3
+		
+		prerequisite = {
+			focus = ASF_first_focus_on_international_solidarity
+		}
+		prerequisite = {
+			focus = ASF_first_infiltrate_charleston
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_sabotage_the_capitalists
+		icon = GFX_focus_ASF_first_sabotage_the_capitalists
+		cost = 10
+		
+		relative_position_id = ASF_first_the_revolution_spreads_like_thunder
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_revolution_spreads_like_thunder
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_question_of_the_radicals
+		icon = GFX_focus_ASF_first_the_question_of_the_radicals
+		cost = 10
+		
+		relative_position_id = ASF_first_the_revolution_spreads_like_thunder
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_revolution_spreads_like_thunder
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_big_bill_shall_lead_us_to_victory
+		icon = GFX_focus_ASF_first_big_bill_shall_lead_us_to_victory
+		cost = 10
+		
+		relative_position_id = ASF_first_the_revolution_spreads_like_thunder
+		y = 2
+		
+		prerequisite = {
+			focus = ASF_first_sabotage_the_capitalists
+		}
+		prerequisite = {
+			focus = ASF_first_the_question_of_the_radicals
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_rise_of_ruthenberg
+		icon = GFX_focus_ASF_first_the_rise_of_ruthenberg
+		cost = 10
+		
+		relative_position_id = ASF_first_the_second_power_struggle_begins
+		x = 7
+		y = 1
+		offset = {
+			x = -7
+			trigger = {
+				has_completed_focus = ASF_first_the_rise_of_ruthenberg
+			}
+		}
+		
+		prerequisite = {
+			focus = ASF_first_the_second_power_struggle_begins
+		}
+		
+		allow_branch = {
+			NOT = {
+				has_completed_focus = ASF_first_the_chairmanhood_of_norman_thomas
+				has_completed_focus = ASF_first_the_chairman_holds_strong
+			}
+		}
+		
+		completion_reward = {
+			update_focus_tree = yes
+		}
+	}
+	focus = {
+		id = ASF_first_strenghten_the_vanguard_party
+		icon = GFX_focus_ASF_first_strenghten_the_vanguard_party
+		cost = 10
+		
+		relative_position_id = ASF_first_the_rise_of_ruthenberg
+		x = -2
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_rise_of_ruthenberg
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_marxist_leninist_principles
+		icon = GFX_focus_ASF_first_marxist_leninist_principles
+		cost = 10
+		
+		relative_position_id = ASF_first_the_rise_of_ruthenberg
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_rise_of_ruthenberg
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_strenghten_the_military_industry
+		icon = GFX_focus_ASF_first_strenghten_the_military_industry
+		cost = 10
+		
+		relative_position_id = ASF_first_the_rise_of_ruthenberg
+		x = 2
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_rise_of_ruthenberg
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_establish_a_dictatorship_of_the_proletariat
+		icon = GFX_focus_ASF_first_establish_a_dictatorship_of_the_proletariat
+		cost = 10
+		
+		relative_position_id = ASF_first_strenghten_the_vanguard_party
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_strenghten_the_vanguard_party
+		}
+		prerequisite = {
+			focus = ASF_first_marxist_leninist_principles
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_a_true_planned_economy
+		icon = GFX_focus_ASF_first_a_true_planned_economy
+		cost = 10
+		
+		relative_position_id = ASF_first_strenghten_the_military_industry
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_marxist_leninist_principles
+		}
+		prerequisite = {
+			focus = ASF_first_strenghten_the_military_industry
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_red_terror_begins
+		icon = GFX_focus_ASF_first_the_red_terror_begins
+		cost = 10
+		
+		relative_position_id = ASF_first_marxist_leninist_principles
+		y = 2
+		
+		prerequisite = {
+			focus = ASF_first_establish_a_dictatorship_of_the_proletariat
+		}
+		prerequisite = {
+			focus = ASF_first_a_true_planned_economy
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_purge_norman_thomas
+		icon = GFX_focus_ASF_first_purge_norman_thomas
+		cost = 10
+		
+		relative_position_id = ASF_first_the_red_terror_begins
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_red_terror_begins
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_ensure_total_cpusa_dominance
+		icon = GFX_focus_ASF_first_ensure_total_cpusa_dominance
+		cost = 10
+		
+		relative_position_id = ASF_first_the_red_terror_begins
+		x = 1
+		y = 1
+		
+		prerequisite = {
+			focus = ASF_first_the_red_terror_begins
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = ASF_first_the_bolshevik_revolution
+		icon = GFX_focus_ASF_first_the_bolshevik_revolution
+		cost = 10
+		
+		relative_position_id = ASF_first_the_red_terror_begins
+		y = 2
+		
+		prerequisite = {
+			focus = ASF_first_purge_norman_thomas
+		}
+		prerequisite = {
+			focus = ASF_first_ensure_total_cpusa_dominance
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+}
