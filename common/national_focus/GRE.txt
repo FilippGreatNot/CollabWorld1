@@ -1,0 +1,122 @@
+focus_tree = {
+	id = GRE_first
+        continuous_focus_position = {
+        focus_id = GRE_continuous_focus
+        x = 20
+        y = 10
+    }
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GRE
+		}
+    }
+    focus={
+        id=GRE_after_math_of_war
+        x=10
+        y=0
+        cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        completion_reward={
+            country_event={gre.1}
+        }
+    }
+    focus={
+        id=GRE_national_schism_continues
+        x=10
+        y=2
+        cost=4
+        available_if_capitulated = yes
+		ai_will_do = {
+		    factor = 10
+		}
+        prerequisite={
+            focus=GRE_after_math_of_war
+        }
+        completion_reward={
+            add_political_power = -5
+            add_stability = -0.05
+        }
+    }
+    focus={
+        id=GRE_violence_streets
+        x=10
+        y=4
+        cost=4
+        available_if_capitulated = yes
+		ai_will_do = {
+		    factor = 10
+		}
+        prerequisite={
+            focus=GRE_national_schism_continues
+        }
+        completion_reward={
+            country_event={gre.2}
+        }
+    }
+    focus={
+        id=GRE_chaos_parliment
+        x=10
+        y=6
+        cost=4
+        available_if_capitulated=yes
+        ai_will_do={
+            factor=10
+        }
+        prerequisite={
+            focus=GRE_violence_streets
+        }
+        completion_reward={
+            country_event={gre.3}
+        }
+    }
+    focus={
+        id=GRE_protestor_negodiations
+        x=10
+        y=8
+        cost=2
+        available_if_capitulated=yes
+        ai_will_do={
+            factor=10
+        }
+        prerequisite={
+            focus={GRE_chaos_parliment}
+        }
+        completion_reward={
+            country_event={gre.4}
+        }
+    }
+    focus={
+        id=GRE_negodiations_break
+        x=3
+        y=9
+        cost=1
+        available_if_capitulated=yes
+         mutually_exclusive={
+            focus=GRE_protestors_back_down
+        }
+        ai_will_do={
+            factor=10
+        }
+        prerequisite={
+            focus=GRE_protestor_negodiations
+        }
+    }
+    focus={
+        id=GRE_protestors_back_down
+        x=17
+        y=9
+        cost=1
+        mutually_exclusive={
+            focus=GRE_negodiations_break
+        }
+        prerequisite={
+            focus=GRE_protestor_negodiations
+        }
+    }
+    
+}
