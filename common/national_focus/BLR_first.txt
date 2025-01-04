@@ -16,6 +16,7 @@ focus_tree = {
 		cost = 5
 		x = 2
 		y = 0
+		ai_will_do = { base = 9999 }
 		available = {
 					always = no
 				}
@@ -93,6 +94,7 @@ focus_tree = {
 		id = BLR_smuggle_guns_through_silesia
 		icon = GFX_focus_BLR_smuggle_guns_through_silesia
 		cost = 5
+		ai_will_do = { base = 9999 }
 		prerequisite = {
 			focus = BLR_tukhachevskys_regime_must_fall
 		}
@@ -106,6 +108,7 @@ focus_tree = {
 		id = BLR_sabotage_the_belarussian_industry
 		icon = GFX_focus_BLR_sabotage_the_belarussian_industry
 		cost = 5
+		ai_will_do = { base = 9999 }
 		prerequisite = {
 			focus = BLR_tukhachevskys_regime_must_fall
 		}
@@ -119,6 +122,7 @@ focus_tree = {
 		id = BLR_throw_the_muscovites_out_now
 		icon = GFX_focus_BLR_throw_the_muscovites_out_now
 		cost = 5
+		ai_will_do = { base = 9999 }
 		prerequisite = {
 			focus = BLR_smuggle_guns_through_silesia
 		}
@@ -170,7 +174,7 @@ focus_tree = {
 		x = 7
 		y = 2
 		completion_reward = {
-		
+		    country_event = tukha.9
 		}
 	}
 	focus = {
@@ -183,7 +187,7 @@ focus_tree = {
 		x = 3
 		y = 3
 		completion_reward = {
-		
+		     country_event = tukha.6
 		}
 	}
 	focus = {
@@ -192,6 +196,9 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = BLR_the_question_of_the_land_reforms
+		}
+		available = {
+			has_country_flag = land_reforms_no
 		}
 		mutually_exclusive = {
 			focus = BLR_to_finish_what_we_started
@@ -212,6 +219,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = BLR_the_plan_was_a_mistake
 		}
+		available = {
+			has_country_flag = land_reforms_yes
+		}
 		x = 4
 		y = 4
 		completion_reward = {
@@ -228,7 +238,7 @@ focus_tree = {
 		x = 7
 		y = 3
 		completion_reward = {
-		
+		     country_event = tukha.7
 		}
 	}
 	focus = {
@@ -240,6 +250,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = BLR_strike_fear_into_their_hearts
+		}
+		available = {
+			has_country_flag = good_tukha
 		}
 		x = 6
 		y = 4
@@ -269,6 +282,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = BLR_teach_them_the_way_of_the_revolution
+		}
+		available = {
+			has_country_flag = evil_tukha
 		}
 		x = 8
 		y = 4
@@ -313,7 +329,7 @@ focus_tree = {
 		x = 11
 		y = 3
 		completion_reward = {
-		
+		     country_event = tukha.5
 		}
 	}
 	focus = {
@@ -325,6 +341,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = BLR_loyalty_to_moscow
+		}
+		available = {
+			has_country_flag = loyal_to_tukha
 		}
 		x = 10
 		y = 4
@@ -355,10 +374,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = BLR_loyalty_to_the_red_napoleon
 		}
+		available = {
+			has_country_flag = loyal_to_lenin
+		}
 		x = 12
 		y = 4
 		completion_reward = {
-		
+		     
 		}
 	}
 	focus = {
@@ -416,8 +438,21 @@ focus_tree = {
 		}
 		x = 16
 		y = 1
+		bypass = {
+			NOT = {
+				country_exists = UKR
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = UKR
+		}
 		completion_reward = {
-		
+		     declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			UKR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -429,8 +464,21 @@ focus_tree = {
 		}
 		x = 18
 		y = 1
+		bypass = {
+			NOT = {
+				country_exists = LAT
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = LAT
+		}
 		completion_reward = {
-		
+		      declare_war_on = {
+				target = LAT
+				type = annex_everything
+			}
+			LAT = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -445,8 +493,22 @@ focus_tree = {
 		}
 		x = 17
 		y = 2
+		bypass = {
+			NOT = {
+				country_exists = SOV
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = SOV
+		}
 		completion_reward = {
-		
+		     declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+			SOV = { make_every_core_national_for_PREV = yes }
+		    set_cosmetic_tag = BLR_military_government
 		}
 	}
 	focus = {
@@ -458,8 +520,21 @@ focus_tree = {
 		}
 		x = 15
 		y = 3
+			bypass = {
+			NOT = {
+				country_exists = OCG
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = OCG
+		}
 		completion_reward = {
-		
+		      declare_war_on = {
+				target = OCG
+				type = annex_everything
+			}
+			OCG = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -471,7 +546,30 @@ focus_tree = {
 		}
 		x = 17
 		y = 3
+		available = {
+			has_war = no
+		}
 		completion_reward = {
+		      declare_war_on = {
+				target = SRF
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ARM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GEO
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = AZR
+				type = annex_everything
+			}
+			SRF = { make_every_core_national_for_PREV = yes }
+			AZR = { make_every_core_national_for_PREV = yes }
+			GEO = { make_every_core_national_for_PREV = yes }
+			ARM = { make_every_core_national_for_PREV = yes }
 		
 		}
 	}
@@ -484,8 +582,17 @@ focus_tree = {
 		}
 		x = 17
 		y = 4
+		available = {
+			has_war = no
+		}
 		completion_reward = {
-		
+		     908 = {
+				add_resource = {
+					type = oil
+					amount = 48
+				}
+			}
+			add_political_power = 25
 		}
 	}
 	focus = {
@@ -511,8 +618,25 @@ focus_tree = {
 		x = 17
 		y = 8
 		completion_reward = {
-		
-		}
+		     set_country_flag = can_industrialise_russia
+			 unlock_decision_category_tooltip = russia_industrialisation
+			 204 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			96 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 	}
 	focus = {
 		id = BLR_retake_the_siberian_wastes
@@ -523,20 +647,20 @@ focus_tree = {
 		}
 		x = 19
 		y = 3
+		available = {
+            has_war = no
+        }
 		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = BLR_ultimatum_to_the_far_east
-		icon = GFX_focus_BLR_ultimatum_to_the_far_east
-		cost = 5
-		prerequisite = {
-			focus = BLR_retake_the_siberian_wastes
-		}
-		x = 19
-		y = 4
-		completion_reward = {
+		    declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+            RUS = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = FSR
+                type = annex_everything
+            }
+            FSR = { make_every_core_national_for_PREV = yes }
 		
 		}
 	}
@@ -586,9 +710,33 @@ focus_tree = {
 		prerequisite = {
 			focus = BLR_retake_the_siberian_wastes
 		}
-		x = 21
+		x = 19
 		y = 4
+		 available = {
+            has_war = no
+			OR = {
+            is_neighbor_of = KMP
+			is_neighbor_of = FER
+			}
+        }
+		bypass = {
+			NOT = {
+				country_exists = KMP
+				country_exists = FER
+			}
+		}
 		completion_reward = {
+		     
+            declare_war_on = {
+                target = FER
+                type = annex_everything
+            }
+            FER = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+            KMP = { make_every_core_national_for_PREV = yes }
 		
 		}
 	}
@@ -963,7 +1111,45 @@ focus_tree = {
 		}
 		x = 15
 		y = 4
+		available = {
+			has_war = no
+		}
 		completion_reward = {
+		     declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KAZ
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KYR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = MNS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BSM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BUK
+				type = annex_everything
+			}
+			TMS = { make_every_core_national_for_PREV = yes }
+			KYR = { make_every_core_national_for_PREV = yes }
+			KAZ = { make_every_core_national_for_PREV = yes }
+			BUK = { make_every_core_national_for_PREV = yes }
+			KHI = { make_every_core_national_for_PREV = yes }
+			BSM = { make_every_core_national_for_PREV = yes }
+			MNS = { make_every_core_national_for_PREV = yes }
 		
 		}
 	}
@@ -1023,6 +1209,51 @@ focus_tree = {
 		y = 9
 		completion_reward = {
 		
+		}
+	}
+	focus = {
+		id = BLR_the_triumph_of_war_socialism
+		icon = GFX_focus_BLR_triumph
+		cost = 5
+		prerequisite = {
+			focus = BLR_expand_the_baku_oil_refineries
+		}
+		prerequisite = {
+			focus = BLR_the_easternmost_point
+		}
+		prerequisite = {
+			focus = BLR_clean_the_steppes
+		}
+		x = 17
+		y = 5
+		available = {
+		   has_war = no
+			NOT = {
+				country_exists = SOV
+				country_exists = RUS
+				country_exists = LAT
+				country_exists = UKR
+				country_exists = ARM
+				country_exists = AZR
+				country_exists = GEO
+				country_exists = SRF
+				country_exists = OCG
+				country_exists = TMS
+				country_exists = KAZ
+				country_exists = KYR
+				country_exists = BSM
+				country_exists = MNS
+				country_exists = BUK
+				country_exists = KHI
+				country_exists = FER
+				country_exists = FSR
+				country_exists = KMP
+			}
+		}
+		completion_reward = {
+		    add_stability = 0.1
+			set_cosmetic_tag = BLR_united
+			news_event = tukha.8
 		}
 	}
 }

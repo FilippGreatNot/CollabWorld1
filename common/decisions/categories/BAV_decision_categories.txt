@@ -2,23 +2,24 @@ BAV_red_terror = {
     icon = GFX_decision_category_generic_political_actions
     picture = GFX_decision_category_BAV_red_terror_picture
 	priority = 5000
-	allowed = {
-		original_tag = BAV
-	}
+	allowed = { original_tag = BAV }
+	visible = { original_tag = BAV }
+}
+
+BAV_economic_recovery = {
+    icon = GFX_decision_category_generic_political_actions
+    picture = GFX_decision_category_BAV_economic_recovery_picture
+	priority = 4900
+	allowed = { original_tag = BAV }
 	visible = {
        original_tag = BAV
+	   has_completed_focus = BAV_provide_jobs_for_the_workers
 	}
 }
-monarchy_bav_namechange = {
-	icon = GFX_decision_category_generic_political_actions
-	priority = 5000
-	allowed = {
-		original_tag = BAV
-		NOT = { has_government = bolshevism }
-		NOT = { has_government = marxism }
-	}
-	visible = {
-		original_tag = BAV 
-		has_government = despotism
-	}
+
+BAV_the_end_of_communism = {
+    icon = GFX_decision_category_generic_political_actions
+	priority = 4800
+	allowed = { original_tag = BAV }
+	visible = { has_government = despotism }
 }

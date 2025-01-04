@@ -103,13 +103,13 @@ focus_tree = {
 			add_manpower = -52488
 			add_stability = 0.1
 			hidden_effect = {
-				country_event = {
-					id = ukr_soc.7
-					days = 2
-				}
+				country_event = ukr_soc.7 
+				201 = { set_demilitarized_zone = yes }
+				199 = { set_demilitarized_zone = yes }
+				198 = { set_demilitarized_zone = yes }
+			}
 			}
 		}
-	}
 
 	focus = {
 		id = UKR_soc_kill_monarch
@@ -132,7 +132,7 @@ focus_tree = {
 				}
 				country_event = {
 					id = ukr_soc.8
-					days = 3
+					days = 1
 				}
 			}
 		}
@@ -203,7 +203,7 @@ focus_tree = {
 		x = 7
 		y = 4
 		completion_reward = {
-			
+			set_country_flag = UKR_can_demand
 		}
 	}
 
@@ -227,7 +227,7 @@ focus_tree = {
 		x = 4
 		y = 6
 		completion_reward = {
-			
+			BLR = { country_event = BLR_ukr.1}
 		}
 	}
 
@@ -252,7 +252,7 @@ focus_tree = {
 		x = 6
 		y = 6
 		completion_reward = {
-			
+			set_country_flag = UKR_can_demand_bessarabia
 		}
 	}
 
@@ -635,6 +635,11 @@ focus_tree = {
 		icon = GFX_focus_UKR_soc_demand_crimea
 		cost = 5
 		prerequisite = { focus = UKR_soc_reject }
+		bypass = {
+			NOT = {
+				country_exists = SRF
+			}
+		}
 		x = 10
 		y = 7
 		completion_reward = {
@@ -658,6 +663,11 @@ focus_tree = {
 		id = UKR_soc_quick_military_operation
 		icon = GFX_focus_UKR_soc_quick_military_operation
 		cost = 5
+		bypass = {
+			NOT = {
+				country_exists = SRF
+			}
+		}
 		prerequisite = { 
 			focus = UKR_soc_demand_crimea
 		}
