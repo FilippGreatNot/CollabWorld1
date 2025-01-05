@@ -84,7 +84,7 @@ focus_tree = {
             factor=10
         }
         prerequisite={
-            focus={GRE_chaos_parliment}
+            focus=GRE_chaos_parliment
         }
         completion_reward={
             country_event={gre.4}
@@ -117,6 +117,67 @@ focus_tree = {
         prerequisite={
             focus=GRE_protestor_negodiations
         }
+    }
+    focus={
+        id=GRE_greece_last_straw
+        x=3
+        y=11
+        cost=1
+        available_if_capitulated=yes
+        ai_will_do={
+            factor=10
+        }
+        prerequisite={
+            focus=GRE_negodiations_break
+        }
+        completion_reward={
+            country_event={gre.6}
+        }
+    }
+    focus={
+        id=GRE_martial_law
+        x=3
+        y=13
+        cost=2
+        available_if_capitulated=yes
+        ai_will_do={
+            factor=10
+        }
+        prerequisite={
+            focus=GRE_greece_last_straw
+        }
+        completion_reward={
+            country_event={gre.8}
+        }
+    }
+    focus={
+        id=GRE_total_colapse
+        x=-7
+        y=14
+        cost=1
+        prerequisite={
+            focus=GRE_martial_law
+        }
+        ai_will_do={
+            factor=10
+        }
+        available_if_capitulated=yes
+        completion_reward={
+            custom_effect_tooltip = greece_01_tt
+        }
+    }
+    focus={
+        id=GRE_undone_focus
+        x=3
+        y=17
+        cost=1
+        prerequisite={
+            focus=GRE_martial_law
+        }
+        ai_will_do={
+            factor=10
+        }
+        available_if_capitulated=yes
     }
     
 }
