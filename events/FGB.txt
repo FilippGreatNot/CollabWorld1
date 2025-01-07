@@ -1805,7 +1805,7 @@ country_event = {
 	option = {
 		name = fgb.75.a
 		ai_chance = { base = 50 }
-		any_country = {
+		every_other_country = {
 			limit = { 
 				AND = {
 					has_full_control_of_state = 158
@@ -1823,6 +1823,7 @@ country_event = {
 		name = fgb.75.b 
 		ai_chance = { base = 10 }
 		add_stability = -0.05
+		custom_effect_tooltip = FGB_this_is_heavily_discouraged_tt
 	}
 }
 
@@ -1853,7 +1854,109 @@ country_event = {
 		}
 	}
 }
-		
+
+country_event = {
+	id = fgb.77
+	title = fgb.77.t
+	desc = fgb.77.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.77.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = {
+	id = fgb.78
+	title = fgb.78.t
+	desc = fgb.78.d
+	picture = GFX_report_event_anti_british_propaganda
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.78.a
+		add_political_power = -20
+	}
+}
+
+country_event = {
+	id = fgb.79
+	title = fgb.79.t
+	desc = fgb.79.d
+	picture = GFX_report_event_war_propaganda
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.79.a
+		add_stability = -0.05
+		add_manpower = -15000
+	}
+}
+
+country_event = {
+	id = fgb.80
+	title = fgb.80.t
+	desc = fgb.80.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.80.a
+		air_experience = 15
+	}
+}
+
+country_event = {
+	id = fgb.81
+	title = fgb.81.t
+	desc = fgb.81.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.81.a
+		add_war_support = 0.04
+		set_temp_variable = { ideology_change_var = 0.02 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			country_event = { id = fgb.81 days = 365 }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.82
+	title = fgb.82.t
+	desc = fgb.82.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.82.a
+		add_political_power = 30
+		add_popularity = { ideology = social_democrat popularity = 0.02 }
+	}
+}
+
+country_event = {
+	id = fgb.83
+	title = fgb.83.t
+	desc = fgb.83.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.83.a
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.04 }
+	}
+}
+
 country_event = {
 	id = fgb_policy.1
 	title = fgb_policy.1.t
