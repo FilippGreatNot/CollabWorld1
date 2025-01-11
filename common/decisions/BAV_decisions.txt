@@ -9,7 +9,7 @@ BAV_red_terror = {
 			tag = BAV
 		}
 		available = {
-		     NOT = { has_idea = BAV_high_conservative_opposition }
+		    NOT = { has_idea = BAV_high_conservative_opposition }
 		}
 		
 		is_good = no
@@ -107,97 +107,78 @@ BAV_red_terror = {
 		}
 	}
 	BAV_raise_marxist_sentiment = {
-			
 		fire_only_once = yes
-		
 		visible = {
 			NOT = { has_country_flag = BAV_opposition_ended }
 		}
-		
 		cost = 25
-        
 		available = {
 		    has_idea = BAV_high_conservative_opposition
-				}
-		
+		}
 		complete_effect = {
 			set_country_flag = BAV_raised_marxist_sentiment
-			
 			add_stability = 0.04
 			add_popularity = {
 				ideology = marxism
 				popularity = 0.05
 			}
-			}
-		
+		}
 		ai_will_do = {
 			factor = 5000
 		}
 	}
-	}
-
-BAV_the_end_of_communism = {
-	monarchy_bav_namechange = { # Someone get this to work eventually pls
-
-        icon = decision_generic_monarchy
-
-        allowed = {
-            OR = {
-                original_tag = BAV
-            }
-        }
-
-        visible = {
-			has_government = despotism
+}
+BAV_the_end_of_communism = { 
+	monarchy_bav_namechange = {
+    	icon = decision_generic_monarchy
+    	allowed = { 
+			OR = { original_tag = BAV } 
 		}
-
-        fire_only_once = yes
-
-        available = {
-            BAV = { NOT = { has_government = communism } }
+    	visible = { has_government = despotism }
+    	fire_only_once = yes
+    	available = {
+        	BAV = { NOT = { has_government = bolshevism } }
 			BAV = { NOT = { has_government = marxism } }
-        }
-        remove_effect = {
-                set_province_name = {
-                    id = 692 #Munich to Minga
-                    name = BAY_VICTORY_POINTS_692
-                }
-                set_province_name = {
-                    id = 11544 #Munich to Minga
-                    name = BAY_VICTORY_POINTS_11544
-                }
-                set_province_name = {
-                    id = 11544 #Nuremberg to Nämberch
-                    name = BAY_VICTORY_POINTS_11544
-                }
-                set_province_name = {
-                    id = 11666 #Vienna to Wienn
-                    name = BAY_VICTORY_POINTS_11666
-                }
-                set_province_name = {
-                    id = 708 #Augsburg to Augschbuag
-                    name = BAY_VICTORY_POINTS_708
-                }
-                set_province_name = {
-                    id = 9515 #Regensburg to Rengschburch
-                    name = BAY_VICTORY_POINTS_9515
-                }
-                set_province_name = {
-                    id = 9681 #Passau to Båssa
-                    name = BAY_VICTORY_POINTS_9681
-                }
-                set_province_name = {
-                    id = 3700 #Eisenstadt to Eisnstod
-                    name = BAY_VICTORY_POINTS_3700
-                }
-                set_province_name = {
-                    id = 6540 #Ingolstadt to Rengschburg
-                    name = BAY_VICTORY_POINTS_6540
-                }
-            }
-    
-    }
-	
+    	}
+    	remove_effect = {
+    	    set_province_name = {
+        	    id = 692 #Munich to Minga
+        	    name = BAY_VICTORY_POINTS_692
+        	}
+    	   	set_province_name = {
+        	    id = 11544 #Munich to Minga
+        	    name = BAY_VICTORY_POINTS_11544
+        	}
+        	set_province_name = {
+        	    id = 11544 #Nuremberg to Nämberch
+        	    name = BAY_VICTORY_POINTS_11544
+        	}
+        	set_province_name = {
+        	    id = 11666 #Vienna to Wienn
+        	    name = BAY_VICTORY_POINTS_11666
+        	}
+        	set_province_name = {
+        	    id = 708 #Augsburg to Augschbuag
+        	    name = BAY_VICTORY_POINTS_708
+        	}
+        	set_province_name = {
+        		id = 9515 #Regensburg to Rengschburch
+        	    name = BAY_VICTORY_POINTS_9515
+        	}
+        	set_province_name = {
+        	    id = 9681 #Passau to Båssa
+        	    name = BAY_VICTORY_POINTS_9681
+        	}
+       		set_province_name = {
+            	id = 3700 #Eisenstadt to Eisnstod
+            	name = BAY_VICTORY_POINTS_3700
+        	}
+        	set_province_name = {
+            	id = 6540 #Ingolstadt to Rengschburg
+            	name = BAY_VICTORY_POINTS_6540
+        	}
+	    }
+	}
 }
 	
 BAV_economic_recovery = {
