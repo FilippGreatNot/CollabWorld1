@@ -332,6 +332,9 @@ country_event = {
 			ideology = conservatism
 			popularity = 0.02
 		}
+		hidden_effect = {
+			country_event = { id = fgb.85 days = 3 }
+		}
 	}
 	option = {
 		name = fgb.12.b
@@ -339,6 +342,9 @@ country_event = {
 		add_popularity = {
 			ideology = social_democrat
 			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = { id = fgb.85 days = 3 }
 		}
 	}
 }
@@ -1181,13 +1187,13 @@ country_event = {
 	
 	option = {
 		name = fgb.44.a
-		remove_advisor_role = { character = FGB_kurt_schumacher slot = security_minister }
+		remove_advisor_role = { character = FGB_eugen_schiffer slot = economy_minister }
 		add_country_leader_role = {
-    			character = FGB_kurt_schumacher
+    			character = FGB_eugen_schiffer
     			promote_leader = yes
     			country_leader = {
-        			ideology = classical_liberalism
-        			expire = "1965.1.1.1"
+        		ideology = libertarian
+        		expire = "1965.1.1.1"
 			}
 		}
 		add_popularity = { ideology = liberalism popularity = 0.05 }
@@ -1679,7 +1685,7 @@ country_event = {
 
 	option = {
 		name = fgb.69.a 
-		add_political_power = 5
+		add_political_power = 10
 		add_popularity = { ideology = social_democrat popularity = 0.01 }
 	}
 }
@@ -1744,7 +1750,8 @@ country_event = {
 
 	option = {
 		name = fgb.72.a
-		add_war_support = 0.05
+		add_stability = 0.02
+		add_war_support = 0.03
 		army_experience = 10
 		add_popularity = {
 			ideology = despotism
@@ -1921,7 +1928,7 @@ country_event = {
 
 	option = {
 		name = fgb.81.a
-		add_war_support = 0.04
+		add_war_support = 0.03
 		set_temp_variable = { ideology_change_var = 0.02 }
 		change_ruling_party_popularity = yes
 		hidden_effect = {
@@ -1954,6 +1961,36 @@ country_event = {
 	option = {
 		name = fgb.83.a
 		add_popularity = { ideology = authoritarian_democrat popularity = 0.04 }
+	}
+}
+
+country_event = {
+	id = fgb.84
+	title = fgb.84.t
+	desc = fgb.84.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.84.a
+		add_ideas = { FGB_the_german_industrial_revolution }
+	}
+}
+
+country_event = {
+	id = fgb.85
+	title = fgb.85.t
+	desc = fgb.85.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.85.a
+		add_political_power = 20
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
 	}
 }
 
