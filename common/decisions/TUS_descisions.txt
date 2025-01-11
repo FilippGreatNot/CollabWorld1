@@ -146,44 +146,6 @@ TUS_jump_itas = {
 }
 
 TUS_core_yug_cat = {
-	TUS_core_trieste = {		
-		allowed = {
-			tag = TUS
-		}
-		fire_only_once = yes
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 736
-				state = 873
-				state = 892
-				state = 991
-			}
-		}
-		
-		available = {
-			owns_state = 736
-			owns_state = 873
-			owns_state = 892
-			owns_state = 991
-		}
-		visible = {
-			owns_state = 736
-			owns_state = 873
-			owns_state = 892
-			owns_state = 991
-		}
-				
-		days_remove = 21
-		cost = 21
-		
-		remove_effect = {
-			736 = {add_core_of = TUS}
-			873 = {add_core_of = TUS}
-			892 = {add_core_of = TUS}
-			991 = {add_core_of = TUS}
-		}
-	}
 	TUS_core_slovenia = {		
 		allowed = {
 			tag = TUS
@@ -194,14 +156,19 @@ TUS_core_yug_cat = {
 			highlight_state_targets = {
 				state = 102
 				state = 880
+				state = 992
 			}
 		}
 		
 		available = {
 			owns_state = 102
+			owns_state = 880
+			owns_state = 992
 		}
 		visible = {
 			owns_state = 102
+			owns_state = 880
+			owns_state = 992
 		}
 			
 		days_remove = 30
@@ -210,6 +177,7 @@ TUS_core_yug_cat = {
 		remove_effect = {
 			102 = {add_core_of = TUS}
 			880 = {add_core_of = TUS}
+			992 = {add_core_of = TUS}
 		}
 	}
 	TUS_core_croatia = {		
@@ -225,6 +193,7 @@ TUS_core_yug_cat = {
 				state = 103
 				state = 163
 				state = 964
+				state = 861
 			}
 		}
 		
@@ -252,6 +221,7 @@ TUS_core_yug_cat = {
 			103 = {add_core_of = TUS}
 			163 = {add_core_of = TUS}
 			964 = {add_core_of = TUS}
+			861 = {add_core_of = TUS}
 		}
 	}
 	TUS_core_bos_her = {		
@@ -264,16 +234,25 @@ TUS_core_yug_cat = {
 			highlight_state_targets = {
 				state = 104
 				state = 804
+				state = 1017
+				state = 1018
+				state = 1036
 			}
 		}
 		
 		available = {
 			owns_state = 104
 			owns_state = 804
+			owns_state = 1017
+			owns_state = 1018
+			owns_state = 1036
 		}
 		visible = {
 			owns_state = 104
 			owns_state = 804
+			owns_state = 1017
+			owns_state = 1018
+			owns_state = 1036
 		}
 			
 		days_remove = 60
@@ -282,6 +261,9 @@ TUS_core_yug_cat = {
 		remove_effect = {
 			104 = {add_core_of = TUS}
 			804 = {add_core_of = TUS}
+			1017 = {add_core_of = TUS}
+			1018 = {add_core_of = TUS}
+			1036 = {add_core_of = TUS}
 		}
 	}
 	TUS_core_mont = {		
@@ -341,15 +323,30 @@ TUS_state_management = {
 		cost = 0
 		
 		remove_effect = {
-			if = {
-				limit = {106 = {is_owned_by = ROOT}}
-				106 = {transfer_state_to = SER}
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 106
+						state = 872
+						state = 106
+						state = 872
+						state = 803
+						state = 802
+						state = 862
+						state = 1015
+						state = 913
+						state = 108
+						state = 107
+						state = 1031
+						state = 1037
+						state = 863
+						state = 45
+						state = 764
+					}
+				}		
+				transfer_state_to = SER
 			}
-			if = {
-				limit = {872 = {is_owned_by = ROOT}}
-				872 = {transfer_state_to = SER}
-			}
-			release_puppet_on_controlled = SER
+			puppet = SER
 		}
 	}
 	TUS_give_ser = {
