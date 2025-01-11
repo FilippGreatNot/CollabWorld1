@@ -103,6 +103,51 @@ focus_tree = {
         }   
         }
 	focus = {
+        id = BAV_the_rise_of_the_bnbap
+        icon = GFX_focus_BAV_bnbap
+        relative_position_id = BAV_a_new_day_in_regensburg
+        x = 12
+        y = 1
+        cost = 5
+		available = {
+		has_country_leader = {
+                    name = "Joseph Goebbels"
+                    ruling_only = yes
+                }
+				 }
+        prerequisite = {
+            focus = BAV_a_new_day_in_regensburg
+        }
+		completion_reward = {
+		     add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			 add_war_support = 0.05
+        }   
+    }
+	focus = {
+        id = BAV_order_a_raid_on_augsburg
+        icon = GFX_focus_BAV_augsburg
+        relative_position_id = BAV_the_jacobin_regime_holds
+        x = 3
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_the_jacobin_regime_holds
+			focus = BAV_the_rise_of_the_bnbap
+        }
+		completion_reward = {
+		     add_political_power = -25
+			 add_war_support = 0.02
+			 add_manpower = -500
+			  add_popularity = {
+				ideology = bolshevism
+				popularity = 0.04
+			}
+        }   
+    }
+	focus = {
         id = BAV_the_jacobin_regime_holds
         icon = GFX_focus_BAV_hold
         relative_position_id = BAV_a_new_day_in_regensburg
@@ -123,7 +168,7 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = 0.05
 			}
-			 add_war_support = 0.05
+			 add_stability = -0.05
         }   
     }
 	focus = {
