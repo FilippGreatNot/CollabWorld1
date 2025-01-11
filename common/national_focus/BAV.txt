@@ -104,7 +104,7 @@ focus_tree = {
         }
 	focus = {
         id = BAV_the_jacobin_regime_holds
-        icon = GFX_focus_BAV_regime
+        icon = GFX_focus_BAV_hold
         relative_position_id = BAV_a_new_day_in_regensburg
         x = 6
         y = 1
@@ -128,7 +128,7 @@ focus_tree = {
     }
 	focus = {
         id = BAV_execute_joseph_goebbels
-        icon = GFX_focus_BAV_arrest_goebbels
+        icon = GFX_focus_BAV_execute
         relative_position_id = BAV_the_jacobin_regime_holds
         x = -1
         y = 1
@@ -140,6 +140,41 @@ focus_tree = {
 		     add_political_power = -25
 			 add_stability = 0.05
 			 custom_effect_tooltip = BAV_goebbels_mass_unfollowing
+        }   
+    }
+	focus = {
+        id = BAV_maintain_the_red_terror
+        icon = GFX_focus_BAV_maintain
+        relative_position_id = BAV_the_jacobin_regime_holds
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_the_jacobin_regime_holds
+        }
+		completion_reward = {
+		     add_ideas = BAV_permanent_red_terror
+        }   
+    }
+	focus = {
+        id = BAV_purge_the_bavarian_militias
+        icon = GFX_focus_BAV_purge
+        relative_position_id = BAV_execute_joseph_goebbels
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_execute_joseph_goebbels 
+        }
+		prerequisite = {
+            focus = BAV_maintain_the_red_terror
+        }
+		completion_reward = {
+		     add_timed_idea = {
+				idea = BAV_bavarian_great_purge
+				days = 185
+			}
+			add_manpower = -2000
         }   
     }
 	focus = {
@@ -378,7 +413,7 @@ focus_tree = {
 	focus = {
         id = BAV_draft_an_economic_recovery_plan
         icon = GFX_focus_SOV_first_socialist_market
-        x = 25
+        x = 30
         y = 0
         cost = 5
 		available = {
@@ -720,7 +755,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_rebuild_the_lmu
-        icon = GFX_focus_BAV_university
+        icon = GFX_focus_BAV_lmu
         relative_position_id = BAV_rapid_weapons_production
         x = 1
         y = 1
