@@ -148,6 +148,194 @@ focus_tree = {
         }   
     }
 	focus = {
+        id = BAV_order_a_raid_on_augsburg
+        icon = GFX_focus_BAV_augsburg
+        relative_position_id = BAV_the_jacobin_regime_holds
+        x = 3
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_the_jacobin_regime_holds
+			focus = BAV_the_rise_of_the_bnbap
+        }
+		completion_reward = {
+		     add_political_power = -25
+			 add_war_support = 0.02
+			 add_manpower = -500
+			  add_popularity = {
+				ideology = bolshevism
+				popularity = 0.04
+			}
+        }   
+    }
+	focus = {
+        id = BAV_embrace_the_national_bolshevik_vision
+        icon = GFX_focus_BAV_vision
+        relative_position_id = BAV_the_rise_of_the_bnbap
+        x = -1
+        y = 1
+        cost = 7
+        prerequisite = {
+			focus = BAV_the_rise_of_the_bnbap
+        }
+		completion_reward = {
+			 add_war_support = 0.1
+			  add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+        }   
+    }
+	focus = {
+        id = BAV_mobilize_bavarias_heroes
+        icon = GFX_focus_BAV_vision
+        relative_position_id = BAV_the_rise_of_the_bnbap
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+			focus = BAV_the_rise_of_the_bnbap
+        }
+		completion_reward = {
+			add_political_power = -25
+			add_ideas = {
+				extensive_conscription
+			}
+        }   
+    }
+	focus = {
+        id = BAV_support_the_northern_fraction_of_the_bnbap
+        icon = GFX_focus_BAV_otto
+        relative_position_id = BAV_mobilize_bavarias_heroes
+        x = -1
+        y = 1
+        cost = 3
+        prerequisite = {
+			focus = BAV_mobilize_bavarias_heroes
+			focus = BAV_embrace_the_national_bolshevik_vision
+        }
+		completion_reward = {
+		    GER = {
+				add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			    }
+				add_stability = -0.05
+			}
+        }   
+    }
+	focus = {
+        id = BAV_racial_hygiene_policies
+        icon = GFX_focus_BAV_hygiene
+        relative_position_id = BAV_embrace_the_national_bolshevik_vision
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+			focus = BAV_embrace_the_national_bolshevik_vision
+        }
+		completion_reward = {
+		    add_stability = 0.05
+			add_ideas = BAV_extraordinary_hygiene_levels
+        }   
+    }
+	focus = {
+        id = BAV_choose_a_national_haircut
+        icon = GFX_focus_BAV_otto
+        relative_position_id = BAV_mobilize_bavarias_heroes
+        x = 1
+        y = 1
+        cost = 4
+        prerequisite = {
+			focus = BAV_mobilize_bavarias_heroes
+        }
+		completion_reward = {
+		    country_event = bavaria.20
+        }   
+    }
+	focus = {
+        id = BAV_the_german_lenin_shall_lead_us_to_victory
+        icon = GFX_focus_BAV_lenin
+        relative_position_id = BAV_choose_a_national_haircut
+        x = -2
+        y = 1
+        cost = 5
+        prerequisite = {
+			focus = BAV_choose_a_national_haircut
+        }
+		 prerequisite = {
+			focus = BAV_racial_hygiene_policies
+        }
+		completion_reward = {
+		    add_country_leader_trait = {
+				ideology = bolshevism
+				trait = german_lenin
+			}
+        }   
+    }
+	focus = {
+        id = BAV_meet_with_benito_mussolini
+        icon = GFX_focus_BAV_lenin
+        relative_position_id = BAV_the_german_lenin_shall_lead_us_to_victory
+        x = 1
+        y = 1
+        cost = 4
+        prerequisite = {
+			focus = BAV_the_german_lenin_shall_lead_us_to_victory
+        }
+		completion_reward = {
+		     ITS = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = FRA_leftist_rhetoric_communism
+				}
+			}
+			add_war_support = 0.05
+			add_political_power = 25
+        }   
+    }
+	focus = {
+        id = BAV_reintroduce_firearm_classes
+        icon = GFX_focus_BAV_class
+        relative_position_id = BAV_the_german_lenin_shall_lead_us_to_victory
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+			focus = BAV_the_german_lenin_shall_lead_us_to_victory
+        }
+		completion_reward = {
+		   army_experience = 50
+		   add_manpower = 2000
+		   add_war_support = 0.05
+		   add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = BAV
+			
+		   }
+		   add_political_power = -50
+		   
+        }   
+    }
+	focus = {
+        id = BAV_bavaria_is_the_new_prussia
+        icon = GFX_focus_BAV_new
+        relative_position_id = BAV_the_german_lenin_shall_lead_us_to_victory
+        x = 0
+        y = 2
+        cost = 6
+        prerequisite = {
+			focus = BAV_reintroduce_firearm_classes
+        }
+		prerequisite = {
+			focus = BAV_meet_with_benito_mussolini
+        }
+		completion_reward = {
+		   add_ideas = BAV_new_prussia
+        }   
+    }
+	focus = {
         id = BAV_the_jacobin_regime_holds
         icon = GFX_focus_BAV_hold
         relative_position_id = BAV_a_new_day_in_regensburg
