@@ -86,6 +86,7 @@ focus_tree = {
 					has_country_flag = initial_ideology_nationalist
 				}
 				NOT = { has_completed_focus = generic_tree_for_the_proletariat }
+				NOT = { has_country_flag = show_hidden_focus_branches }
 			}
 		}
 		
@@ -101,7 +102,10 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_nation
 			}
 			NOT = { has_completed_focus = generic_tree_continue_the_course }
-			NOT = { has_country_flag = initial_ideology_socialist }
+			OR = {
+				has_country_flag = show_hidden_focus_branches
+				NOT = { has_country_flag = initial_ideology_socialist }
+			}
 		}
 		
 		completion_reward = {
@@ -323,6 +327,7 @@ focus_tree = {
 			trigger = {
 				has_country_flag = initial_ideology_nationalist
 				NOT = { has_completed_focus = generic_tree_for_the_freedom }
+				NOT = { has_country_flag = show_hidden_focus_branches }
 			}
 		}
 		offset = {
@@ -344,7 +349,10 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_nation
 			}
 			NOT = { has_completed_focus = generic_tree_continue_the_course }
-			NOT = { has_country_flag = initial_ideology_liberal }
+			OR = {
+				NOT = { has_country_flag = initial_ideology_liberal }
+				has_country_flag = show_hidden_focus_branches
+			}
 		}
 		
 		completion_reward = {
@@ -415,7 +423,7 @@ focus_tree = {
 	}
 	focus = {
 		id = generic_tree_primacy_of_the_market
-		icon = GFX_focus_generic_tree_primacy_of_the_society
+		icon = GFX_focus_generic_tree_primacy_of_the_market
 		cost = 6
 		
 		relative_position_id = generic_tree_for_the_freedom
@@ -464,7 +472,7 @@ focus_tree = {
 	}
 	focus = {
 		id = generic_tree_primacy_of_the_traditions
-		icon = GFX_focus_eneric_tree_primacy_of_the_traditions
+		icon = GFX_focus_generic_tree_primacy_of_the_traditions
 		cost = 6
 		
 		relative_position_id = generic_tree_for_the_freedom
@@ -585,6 +593,7 @@ focus_tree = {
 					has_country_flag = initial_ideology_socialist
 				}
 				NOT = { has_completed_focus = generic_tree_for_the_nation }
+				NOT = { has_country_flag = show_hidden_focus_branches }
 			}
 		}
 		
@@ -600,7 +609,10 @@ focus_tree = {
 				has_completed_focus = generic_tree_for_the_freedom
 			}
 			NOT = { has_completed_focus = generic_tree_continue_the_course }
-			NOT = { has_country_flag = initial_ideology_nationalist }
+			OR = {
+				has_country_flag = show_hidden_focus_branches
+				NOT = { has_country_flag = initial_ideology_nationalist }
+			}
 		}
 		
 		completion_reward = {
@@ -719,7 +731,7 @@ focus_tree = {
 	}
 	focus = {
 		id = generic_tree_buy_out_large_business
-		icon = GFX_focus_generic_tree_blackmail_unloyal_media
+		icon = GFX_focus_generic_tree_buy_out_large_business
 		cost = 6
 		
 		relative_position_id = generic_tree_blackmail_unloyal_media
