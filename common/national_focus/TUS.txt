@@ -26,19 +26,6 @@
 				
 		completion_reward = {
 		    add_stability = 0.05
-			custom_effect_tooltip = TUS_will_activate_balbo_cult
-			set_variable = {
-				var = TUS_Balbo_Pop_gc
-				value = 60
-			}
-			set_variable = {
-				var = TUS_Balbo_Pop_mil
-				value = 50
-			}
-			set_variable = {
-				var = TUS_Balbo_Pop_ppl
-				value = 30
-			}
 			country_event = tus.1
 		}
 
@@ -193,22 +180,7 @@
 				remove_idea = TUS_collapsing_economy
 				add_idea = TUS_stagnant_economy
 			}
-			custom_effect_tooltip = TUS_modify_ppl_subtract_5
-			custom_effect_tooltip = TUS_modify_mil_subtract_5
-			custom_effect_tooltip = TUS_modify_gc_add_5
-			subtract_from_variable = {
-				var = TUS_Balbo_Pop_ppl
-				value = 5
-			}
-			subtract_from_variable = {
-				var = TUS_Balbo_Pop_mil
-				value = 5
-			}
-			add_to_variable = {
-				var = TUS_Balbo_Pop_gc
-				value = 5
-			}
-			add_stability = -0.02
+			country_event = tus.21
 		}
 	}
 	
@@ -1876,7 +1848,8 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		
 		completion_reward = {
-			add_state_core = 39
+			add_state_claim = 39
+			add_state_claim = 1062
 			create_wargoal = {
 				type = puppet_wargoal_focus
 				target = AUS
@@ -1989,15 +1962,6 @@
 		icon = GFX_focus_TUS_take_hungary
 		
 		available = {
-			HUN = {
-				NOT = {
-					OR = {
-						has_government = despotism
-						has_government = reactionism
-						has_government = national_syndicalism
-					}
-				}
-			}
 		}
 		
 		prerequisite = {
@@ -2074,15 +2038,6 @@
 		icon = GFX_focus_TUS_take_bulgaria
 		
 		available = {
-			BUL = {
-				NOT = {
-					OR = {
-						has_government = despotism
-						has_government = reactionism
-						has_government = national_syndicalism
-					}
-				}
-			}
 		}
 		
 		bypass = {NOT = { country_exists = BUL } }
@@ -2162,15 +2117,6 @@
 		icon = GFX_goal_generic_construction
 		
 		available = {
-			GRE = {
-				NOT = {
-					OR = {
-						has_government = despotism
-						has_government = reactionism
-						has_government = national_syndicalism
-					}
-				}
-			}
 		}
 		
 		mutually_exclusive = {focus = TUS_team_greece}

@@ -2,6 +2,33 @@ on_actions = {
 	on_startup = {
 		effect = {
 			TUS = {
+				set_variable = {
+					var = TUS_Balbo_Pop_gc
+					value = 60
+				}
+				set_variable = {
+					var = TUS_Balbo_Pop_mil
+					value = 70
+				}
+				set_variable = {
+					var = TUS_Balbo_Pop_ppl
+					value = 30
+				}
+				clamp_variable = {
+					var = TUS_Balbo_Pop_gc
+					min = 0
+					max = 100
+				}
+				clamp_variable = {
+					var = TUS_Balbo_Pop_mil
+					min = 0
+					max = 100
+				}
+				clamp_variable = {
+					var = TUS_Balbo_Pop_ppl
+					min = 0
+					max = 100
+				}
 				random_list = {
 					2 = {
 						set_country_flag = TUS_ai_set_path_1
@@ -46,6 +73,267 @@ on_actions = {
 					every_owned_state = {
 						limit = {is_claimed_by = TUS}
 						transfer_state_to = TUS
+					}
+				}
+			}
+		}
+	}
+	on_weekly_TUS = {
+		effect = {
+			TUS = {
+				#GC OP
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_gc < 35
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_gc_hate
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_hate
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_love
+					}					
+				}
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_gc > 35
+						}
+						check_variable = {
+							TUS_Balbo_Pop_gc < 65
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_gc_like
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_hate
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_love
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_gc > 65
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_gc_love
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_love
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_gc_hate
+					}
+				}
+				#MIL OP
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_mil < 35
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_mil_hate
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_hate
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_love
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_mil > 35
+						}
+						check_variable = {
+							TUS_Balbo_Pop_mil < 65
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_mil_like
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_love
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_love
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_mil > 65
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_mil_love
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_love
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_mil_hate
+					}
+				}
+				#PP OP
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_pp < 35
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_mil_hate
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_hate
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_love
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_pp > 35
+						}
+						check_variable = {
+							TUS_Balbo_Pop_pp < 65
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_pp_like
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_hate
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_love
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							TUS_Balbo_Pop_pp > 65
+						}
+						NOT = {
+							TUS_italo_balbo = {
+								has_trait = tus_pp_love
+							}
+						}
+					}
+					add_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_love
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_like
+					}
+					remove_trait = {
+						 character = TUS_italo_balbo
+						 ideology = revolutionary_nationalism
+						 trait = tus_pp_hate
 					}
 				}
 			}
