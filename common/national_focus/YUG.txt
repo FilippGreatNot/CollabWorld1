@@ -113,10 +113,15 @@ focus_tree = {
     focus = {
         id = YUG_pasic_wins
         icon = GFX_focus_introduce_veteran_pensions
-        cost = 0
+		available = {
+			always = no
+		}
+		available = {
+			has_government = conservatism
+		}
+        cost = 5
         x = 11
-        y = 8
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 6
         completion_reward = {
             add_political_power = 15
         }
@@ -126,9 +131,11 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 10 
         x = 11 
-        y = 9
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 7
         prerequisite = { focus = YUG_pasic_wins }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             activate_advisor = YUG_milan_srskic_hog
             activate_advisor = YUG_nikola_uzunovic_hog
@@ -140,9 +147,11 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 10
         x = 11
-        y = 10
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 8
         prerequisite = { focus = YUG_inserting_friendly_ministers }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             add_political_power = 100
             add_stability = 0.05
@@ -153,9 +162,11 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 10
         x = 11
-        y = 11
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 9
         prerequisite = { focus = YUG_consolidating_the_government }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             add_ideas = YUG_New_Democracy
             add_popularity = {
@@ -171,11 +182,17 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 5
         x = 12
-        y = 12
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 10
         prerequisite = { focus = YUG_New_Democracy }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
-            
+            add_political_power = 75
+			add_popularity = {
+                ideology = conservatism
+                popularity = 0.05
+            }
         }
     }
     focus = { 
@@ -183,9 +200,11 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 5
         x = 10
-        y = 12
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 10
         prerequisite = { focus = YUG_New_Democracy }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             set_country_flag = fight_against_separatists
             unlock_decision_tooltip = YUG_attacking_bosniak_nationalism
@@ -206,9 +225,11 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 13
-        y = 9
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 7
         prerequisite = { focus = YUG_pasic_wins }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             add_ideas = YUG_centralisation_of_economy
             add_political_power = 15
@@ -219,9 +240,11 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 13
-        y = 10
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 8
         prerequisite = { focus = YUG_centralisation_of_the_economy }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             swap_ideas = {
                 remove_idea = YUG_centralisation_of_economy
@@ -230,30 +253,18 @@ focus_tree = {
             add_political_power = -25
         }
     }
-#POST 1925 ELECTIONS 
-    focus = {
-        id = YUG_pasic_wins_reelection
-        icon = GFX_focus_introduce_veteran_pensions
-        cost = 0
-        x = 11
-        y = 13
-        allow_branch = { has_country_flag = reelection_pasic }
-        prerequisite = { focus = YUG_fighting_separatists }
-        prerequisite = { focus = YUG_controlling_the_parliament }
-        completion_reward = {
-            custom_effect_tooltip = pasic2_tt
-        }
-    }
 #PASIC CONQUEST TREE 
     focus = {
         id = YUG_reviving_greater_ideas
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 8
-        y = 9
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 7
         prerequisite = { focus = YUG_pasic_wins }
         available = { has_army_manpower = { size > 399999 } } 
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             add_war_support = 0.05
             add_stability = 0.05
@@ -265,11 +276,13 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 8
-        y = 10
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 8
         prerequisite = { focus = YUG_reviving_greater_ideas }
 		available = {
 			is_neighbor_of = BUL
+		}
+		available = {
+			has_government = conservatism
 		}
         completion_reward = {
 			create_wargoal = {
@@ -283,12 +296,14 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 8
-        y = 11
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 9
         prerequisite = { focus = YUG_crossing_stara_planina }
         available = {
             is_neighbor_of = AUS
         }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             add_state_claim = 1058
             create_wargoal = {
@@ -302,12 +317,14 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 6
-        y = 10
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 8
         prerequisite = { focus = YUG_reviving_greater_ideas }
         available = {
             is_neighbor_of = ALB
         }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             ALB = {
                 country_event = yugo.19
@@ -319,12 +336,14 @@ focus_tree = {
         icon = GFX_focus_introduce_veteran_pensions
         cost = 7
         x = 6
-        y = 11
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 9
         prerequisite = { focus = YUG_ultimatum_to_albania }
         available = {
             is_neighbor_of = GRE 
         }
+		available = {
+			has_government = conservatism
+		}
         completion_reward = {
             GRE = {
                 country_event = yugo.21
@@ -337,29 +356,160 @@ focus_tree = {
     focus = { 
         id = YUG_plan_intergracija
         icon = GFX_focus_introduce_veteran_pensions 
-        cost = 5
+        cost = 20
         x = 8
-        y = 12
-        allow_branch = { has_country_flag = pasic_tree_unlocked }
+        y = 10
         prerequisite = { focus = YUG_pressure_greece }
         prerequisite = { focus = YUG_retaking_carinthia }
+		available = {
+			has_government = conservatism
+		}
         
         completion_reward = {
-            
+            BUL = { make_every_core_national_for_PREV = yes }
         }
     }
 ##RADIC/COALITION TREE
     focus = {
         id = YUG_the_federal_bloc_wins
         icon = GFX_focus_introduce_veteran_pensions
-        cost = 0
+        cost = 5
         x = 19
-        y = 8
-        allow_branch = { has_country_flag = radic_tree_unlocked }
+        y = 6
+		available = {
+			always = no
+		}
+		available = {
+			has_government = liberalism
+		}
         completion_reward = {
             add_political_power = 15
         }
     }
+	focus = {
+        id = YUG_liberalize_the_economy
+        icon = GFX_focus_YUG_liberalize
+        relative_position_id = YUG_the_federal_bloc_wins
+        x = -2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = YUG_the_federal_bloc_wins
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+		    add_ideas = free_market_economy
+			add_political_power = 25
+            }
+	}
+	focus = {
+        id = YUG_establish_a_croatian_banate
+        icon = GFX_focus_YUG_croatia
+        relative_position_id = YUG_liberalize_the_economy
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = YUG_liberalize_the_economy
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+		    add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = -50
+            }
+	}
+	focus = {
+        id = YUG_root_out_government_corruption
+        icon = GFX_focus_YUG_root
+        relative_position_id = YUG_the_federal_bloc_wins
+        x = 0
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = YUG_the_federal_bloc_wins
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+		    add_political_power = -25
+			add_stability = 0.03
+			 add_popularity = {
+				ideology = conservatism
+				popularity = -0.03
+			}
+            }
+	}
+	focus = {
+        id = YUG_limit_the_kings_powers
+        icon = GFX_focus_YUG_limit
+        relative_position_id = YUG_root_out_government_corruption
+        x = 0
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = YUG_root_out_government_corruption
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+			add_stability = 0.04
+			 add_popularity = {
+				ideology = despotism
+				popularity = -0.05
+			}
+            }
+	}
+	focus = {
+        id = YUG_cooperate_with_the_ymo
+        icon = GFX_focus_YUG_ymo
+        relative_position_id = YUG_the_federal_bloc_wins
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = YUG_the_federal_bloc_wins
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+		     add_popularity = {
+				ideology = liberalism
+				popularity = 0.03
+			}
+			 add_popularity = {
+				ideology = reactionism
+				popularity = 0.02
+			}
+			add_stability = 0.04
+            }
+	}
+	focus = {
+        id = YUG_establish_a_bosnian_banate
+        icon = GFX_focus_YUG_bosnia
+        relative_position_id = YUG_cooperate_with_the_ymo
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = YUG_cooperate_with_the_ymo
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+		    add_stability = 0.05
+			add_political_power = -75
+			country_event = yugo.100
+            }
+	}
 ###INDUSTRY TREE 
 ##BEGINNING FOCUSES
     focus = {
@@ -981,15 +1131,122 @@ focus_tree = {
 ##Military Focus Tree 
     focus = { 
     id = YUG_the_royal_army
-    icon = GFX_focus_introduce_veteran_pensions
-    x = 35
-    available = { has_completed_focus = YUG_the_ethnic_situation has_country_flag = military_tree_unlocked }
-    cost = 10
+    icon = GFX_focus_YUG_royal_army
+    x = 17
+    available = { has_completed_focus = YUG_the_ethnic_situation }
+    cost = 5
 
     completion_reward = {
-
+         army_experience = 35
+		 air_experience = 5
+		 add_command_power = 25
     }
 }
+focus = {
+        id = YUG_embrace_a_multi_ethnic_structure
+        icon = GFX_focus_YUG_multi_ethnic
+        relative_position_id = YUG_the_royal_army
+        x = 1
+        y = 1
+        cost = 8
+		prerequisite = {
+            focus = YUG_the_royal_army
+        }
+		mutually_exclusive = {
+			focus = YUG_a_serb_dominated_general_staff
+		}
+		completion_reward = {
+		     add_popularity = {
+				ideology = liberalism
+				popularity = 0.04
+			}
+			add_ideas = YUG_multi_ethnic_army
+            }
+	}
+focus = {
+        id = YUG_a_serb_dominated_general_staff
+        icon = GFX_focus_YUG_serb
+        relative_position_id = YUG_the_royal_army
+        x = -1
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = YUG_the_royal_army
+        }
+		mutually_exclusive = {
+			focus = YUG_embrace_a_multi_ethnic_structure
+		}
+		completion_reward = {
+			add_ideas = YUG_serb_dominated_army
+            }
+	}
+	
+
+focus = {
+        id = YUG_fortify_the_hungarian_border
+        icon = GFX_focus_YUG_fort
+        relative_position_id = YUG_a_serb_dominated_general_staff
+        x = 1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = YUG_a_serb_dominated_general_staff focus = YUG_embrace_a_multi_ethnic_structure
+        }
+		completion_reward = {
+			army_experience = 20
+			add_political_power = 20
+			885 = {
+				add_building_construction = { type = bunker province = 3627 level = 1 instant_build = yes }
+			}
+			880 = {
+				add_building_construction = { type = bunker province = 6672 level = 1 instant_build = yes }
+			}
+			109 = {
+				add_building_construction = { type = bunker province = 13256 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 9611 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 11594 level = 1 instant_build = yes }
+			}
+			861 = {
+				add_building_construction = { type = bunker province = 9608 level = 1 instant_build = yes }
+			}
+			45 = {
+				add_building_construction = { type = bunker province = 3623 level = 1 instant_build = yes }
+				add_building_construction = { type = bunker province = 9621 level = 1 instant_build = yes }
+			}
+		    764 = {
+				add_building_construction = { type = bunker province = 6643 level = 1 instant_build = yes }
+			}
+            }
+	}
+	
+	focus = {
+        id = YUG_purchase_foreign_planes
+        icon = GFX_focus_YUG_foreign
+        relative_position_id = YUG_the_royal_army
+        x = 0
+        y = 3
+        cost = 5
+		prerequisite = {
+            focus = YUG_fortify_the_hungarian_border
+        }
+		completion_reward = {
+			add_political_power = -50
+			air_experience = 25
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 50
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 50
+				}
+			}
+            }
+	}
 
 }
 
