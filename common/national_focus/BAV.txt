@@ -390,6 +390,27 @@ focus_tree = {
         }   
     }
 	focus = {
+        id = BAV_honor_the_french_revolution
+        icon = GFX_focus_BAV_france
+        relative_position_id = BAV_purge_the_bavarian_militias
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_purge_the_bavarian_militias
+        }
+		completion_reward = {
+		     add_war_support = 0.05
+			 add_political_power = 50
+			   FRA = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = BAV_honored_french_revolution
+				}
+			}
+        }   
+    }
+	focus = {
         id = BAV_victory_of_bkp_m
         icon = GFX_focus_BAV_bkp_m
         relative_position_id = BAV_a_new_day_in_regensburg
@@ -625,7 +646,7 @@ focus_tree = {
 	focus = {
         id = BAV_draft_an_economic_recovery_plan
         icon = GFX_focus_SOV_first_socialist_market
-        x = 30
+        x = 32
         y = 0
         cost = 5
 		available = {
