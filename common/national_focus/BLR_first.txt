@@ -482,7 +482,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BLR_end_the_cossack_threat
-		icon = GFX_focus_BLR_end_the_cossack_threat
+		icon = GFX_focus_BLR_threat
 		cost = 5
 		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
 		x = 15
@@ -504,7 +504,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BLR_the_southernmost_frontier
-		icon = GFX_focus_BLR_the_southernmost_frontier
+		icon = GFX_focus_BLR_cossack
 		cost = 5
 		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
 		x = 17
@@ -599,7 +599,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BLR_retake_the_siberian_wastes
-		icon = GFX_focus_BLR_retake_the_siberian_wastes
+		icon = GFX_focus_BLR_kolchak
 		cost = 5
 		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
 		x = 19
@@ -611,11 +611,6 @@ focus_tree = {
                 type = annex_everything
             }
             RUS = { make_every_core_national_for_PREV = yes }
-			declare_war_on = {
-                target = FSR
-                type = annex_everything
-            }
-            FSR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -654,7 +649,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BLR_the_easternmost_point
-		icon = GFX_focus_BLR_the_easternmost_point
+		icon = GFX_focus_BLR_east
 		cost = 5
 		prerequisite = { focus = BLR_retake_the_siberian_wastes }
 		x = 19
@@ -664,12 +659,14 @@ focus_tree = {
 			OR = {
            		is_neighbor_of = KMP
 				is_neighbor_of = FER
+				is_neighbor_of = FSR
 			}
         }
 		bypass = {
 			NOT = {
 				country_exists = KMP
 				country_exists = FER
+				country_exists = FSR
 			}
 		}
 		completion_reward = {
@@ -683,6 +680,11 @@ focus_tree = {
                 type = annex_everything
             }
             KMP = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = FSR
+                type = annex_everything
+            }
+            FSR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -734,6 +736,7 @@ focus_tree = {
 		mutually_exclusive = { focus = BLR_depoliticize_the_army_structure }
 		x = 23
 		y = 2
+		available = { has_country_flag = political_doctrine }
 		completion_reward = {
 		     add_ideas = BLR_politicized_army_academia
 		}
@@ -761,6 +764,7 @@ focus_tree = {
 		mutually_exclusive = { focus = BLR_a_political_approach }
 		x = 25
 		y = 2
+		available = { has_country_flag = apolitical_doctrine }
 		completion_reward = {
 		     add_ideas =  BLR_apolitical_army_doctrine
 		}
@@ -825,6 +829,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = BLR_the_method_of_warfare }
 		mutually_exclusive = { focus = BLR_mass_assault_tactics }
+		available = { has_country_flag = modern_approach }
 		x = 27
 		y = 2
 		completion_reward = {
@@ -879,6 +884,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = BLR_the_method_of_warfare }
 		mutually_exclusive = { focus = BLR_a_modern_approach }
+		available = { has_country_flag = mass_assault_approach }
 		x = 29
 		y = 2
 		completion_reward = {
