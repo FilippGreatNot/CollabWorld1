@@ -224,7 +224,7 @@ focus_tree = {
         id = YUG_centralisation_of_the_economy
         icon = GFX_focus_YUG_central
         cost = 7
-        x = 13
+        x = 9
         y = 7
         prerequisite = { focus = YUG_pasic_wins }
 		available = {
@@ -239,7 +239,7 @@ focus_tree = {
         id = YUG_tripartite_economic_council
         icon = GFX_focus_YUG_tripartite
         cost = 7
-        x = 13
+        x = 9
         y = 8
         prerequisite = { focus = YUG_centralisation_of_the_economy }
 		available = {
@@ -258,13 +258,10 @@ focus_tree = {
         id = YUG_reviving_greater_ideas
         icon = GFX_focus_YUG_expansion
         cost = 7
-        x = 8
+        x = 14
         y = 7
-        prerequisite = { focus = YUG_pasic_wins }
+        prerequisite = { focus = YUG_pasic_wins focus = YUG_the_federal_bloc_wins }
         available = { has_army_manpower = { size > 399999 } } 
-		available = {
-			has_government = conservatism
-		}
         completion_reward = {
             add_war_support = 0.05
             add_stability = 0.05
@@ -275,14 +272,11 @@ focus_tree = {
         id = YUG_crossing_stara_planina
         icon = GFX_focus_YUG_planina
         cost = 7
-        x = 8
+        x = 15
         y = 8
         prerequisite = { focus = YUG_reviving_greater_ideas }
 		available = {
 			is_neighbor_of = BUL
-		}
-		available = {
-			has_government = conservatism
 		}
         completion_reward = {
 			create_wargoal = {
@@ -295,15 +289,12 @@ focus_tree = {
         id = YUG_retaking_carinthia
         icon = GFX_focus_YUG_austria
         cost = 7
-        x = 8
+        x = 15
         y = 9
         prerequisite = { focus = YUG_crossing_stara_planina }
         available = {
             is_neighbor_of = AUS
         }
-		available = {
-			has_government = conservatism
-		}
         completion_reward = {
             add_state_claim = 1058
             create_wargoal = {
@@ -316,15 +307,12 @@ focus_tree = {
         id = YUG_ultimatum_to_albania
         icon = GFX_focus_YUG_albania
         cost = 7
-        x = 6
+        x = 13
         y = 8
         prerequisite = { focus = YUG_reviving_greater_ideas }
         available = {
             is_neighbor_of = ALB
         }
-		available = {
-			has_government = conservatism
-		}
         completion_reward = {
             ALB = {
                 country_event = yugo.19
@@ -335,15 +323,12 @@ focus_tree = {
         id = YUG_pressure_greece
         icon = GFX_focus_YUG_greece
         cost = 7
-        x = 6
+        x = 13
         y = 9
         prerequisite = { focus = YUG_ultimatum_to_albania }
         available = {
             is_neighbor_of = GRE 
         }
-		available = {
-			has_government = conservatism
-		}
         completion_reward = {
             GRE = {
                 country_event = yugo.21
@@ -357,13 +342,10 @@ focus_tree = {
         id = YUG_plan_intergracija
         icon = GFX_focus_YUG_integrate
         cost = 20
-        x = 8
+        x = 14
         y = 10
         prerequisite = { focus = YUG_pressure_greece }
         prerequisite = { focus = YUG_retaking_carinthia }
-		available = {
-			has_government = conservatism
-		}
         
         completion_reward = {
             BUL = { make_every_core_national_for_PREV = yes }
@@ -512,6 +494,30 @@ focus_tree = {
 		    add_stability = 0.05
 			add_political_power = -75
 			country_event = yugo.100
+            }
+	}
+	focus = {
+        id = YUG_a_union_of_equal_peoples
+        icon = GFX_focus_YUG_union
+        relative_position_id = YUG_limit_the_kings_powers
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = YUG_establish_a_croatian_banate
+        }
+		prerequisite = {
+            focus = YUG_establish_a_bosnian_banate
+        }
+		prerequisite = {
+            focus = YUG_limit_the_kings_powers
+        }
+		available = {
+			has_government = liberalism
+		}
+		completion_reward = {
+		    add_stability = 0.1
+			add_war_support = 0.05
+			add_manpower = 20000
             }
 	}
 ###INDUSTRY TREE 
