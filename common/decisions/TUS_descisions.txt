@@ -379,7 +379,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}								
 		}
 	}
 	TUS_propaganda_2 = {
@@ -409,6 +414,11 @@ TUS_propaganda = {
 				var = TUS_propaganda_amount
 				value = 1
 			}	
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}	
 		}
 	}
 	TUS_propaganda_3 = {
@@ -437,7 +447,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}				
 		}
 	}
 	TUS_propaganda_4 = {
@@ -467,6 +482,11 @@ TUS_propaganda = {
 				var = TUS_propaganda_amount
 				value = 1
 			}	
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}	
 		}
 	}
 	TUS_propaganda_5 = {
@@ -495,7 +515,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}			
 		}
 	}
 	TUS_propaganda_6 = {
@@ -524,7 +549,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}				
 		}
 	}
 }
@@ -551,6 +581,89 @@ cw_debug_category = {
 		available = { original_tag = TUS }		
 		complete_effect = {
 			load_focus_tree = { tree = tus_alt.focus keep_completed = yes }		
+		}
+	}
+}
+
+TUS_cult_of_personality = {
+	conscription_protesting = {
+		activation = {
+			has_completed_focus = TUS_stabilize_economy
+			OR = {
+				AND = {
+					has_idea = extensive_conscription
+					TUS_italo_balbo = {
+						has_trait = tus_gc_hate
+					}
+				}
+				AND = {
+					has_idea = service_by_requirement
+					NOT = {
+						TUS_italo_balbo = {
+							has_trait = tus_gc_love
+						}
+					}
+				}
+				has_idea = all_adults_serve
+				has_idea = scraping_the_barrel
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUS_need_to_fix_protesting
+				NOT = {
+					OR = {
+						AND = {
+							has_idea = extensive_conscription
+							TUS_italo_balbo = {
+								has_trait = tus_gc_hate
+							}
+						}
+						AND = {
+							has_idea = service_by_requirement
+							NOT = {
+								TUS_italo_balbo = {
+									has_trait = tus_gc_love
+								}
+							}
+						}
+						has_idea = all_adults_serve
+						has_idea = scraping_the_barrel
+					}
+				}
+			}
+		}
+		is_good = no
+		days_mission_timeout = 45
+		selectable_mission = no
+		complete_effect = {
+		}
+		timeout_effect = {
+			custom_effect_tooltip = TUS_modify_ppl_subtract_3
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = -3
+			}			
+		}
+	}
+	strikes_decsc = {
+		activation = {
+			has_idea = TUS_worker_strikes
+		}
+		available = {
+			NOT = { has_idea = TUS_worker_strikes }
+		}
+		is_good = no
+		days_mission_timeout = 25
+		selectable_mission = no
+		complete_effect = {
+		}
+		timeout_effect = {
+			custom_effect_tooltip = TUS_modify_ppl_subtract_3
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = -3
+			}
 		}
 	}
 }
