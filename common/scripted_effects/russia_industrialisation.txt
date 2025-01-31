@@ -14,6 +14,9 @@ russia_remove_backward_region = {
 }
 russia_backward_region_increase_industrialisation_level_1 = {
 	if = {
+		limit = { has_russia_backward_region = no } #We shouldn't do anything in this case
+	}
+	else_if = {
 		limit = { #Max level reached, remove the debuff
 			check_variable = { #Default compare is greater_than_or_equals
 				var = russia_backward_region_industrialisation
