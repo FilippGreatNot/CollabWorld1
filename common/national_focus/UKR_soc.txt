@@ -24,7 +24,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_fix_ind
 		icon = GFX_focus_UKR_fix_ind
-		cost = 3
+		cost = 4
 		x = 19
 		y = 0
 		completion_reward = {
@@ -302,12 +302,12 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_establish
 		icon = GFX_focus_UKR_soc_establish
-		cost = 5
+		cost = 6
 		prerequisite = { focus = UKR_soc_sit_stabilize }
 		x = 15
 		y = 4
 		completion_reward = {
-			
+			add_ideas = UKR_ministry_of_propaganda
 		}
 	}
 
@@ -319,6 +319,22 @@ focus_tree = {
 		x = 15
 		y = 5
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = UKR_ministry_of_propaganda
+				add_idea = UKR_ministry_of_propaganda2
+			}
+			ROM = { 
+			     add_popularity = {
+					ideology = bolshevism
+					popularity = 0.05
+				}
+				}
+		    SRF = { 
+			     add_popularity = {
+					ideology = bolshevism
+					popularity = 0.05
+				}
+				}
 			
 		}
 	}
@@ -326,12 +342,17 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_whip
 		icon = GFX_focus_UKR_soc_whip
-		cost = 5
+		cost = 4
 		prerequisite = { focus = UKR_soc_propoganda }
 		x = 14
 		y = 6
 		completion_reward = {
-			
+			     add_popularity = {
+					ideology = marxism
+					popularity = -0.05
+				}
+				add_political_power = 25
+				add_stability = -0.05
 		}
 	}
 
@@ -343,7 +364,8 @@ focus_tree = {
 		x = 16
 		y = 6
 		completion_reward = {
-			
+			 add_stability = 0.06
+			 add_political_power = -75
 		}
 	}
 
