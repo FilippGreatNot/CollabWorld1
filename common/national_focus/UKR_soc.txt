@@ -46,7 +46,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_expand_industrialisation
 		icon = GFX_focus_UKR_expand_ind
-		cost = 3
+		cost = 8
 		x = 19
 		y = 3
 		prerequisite = { 
@@ -368,7 +368,10 @@ focus_tree = {
 		x = 18
 		y = 1
 		completion_reward = {
-		add_stability = -0.10
+		add_stability = -0.15
+		add_political_power = -100
+		add_manpower = -40000
+
 		remove_ideas = { UKR_non_industrial_country }
 		}
 	}
@@ -388,67 +391,24 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_build_more_factories
 		icon = GFX_focus_UKR_new_factories
-		cost = 10
+		cost = 5
 		prerequisite = { focus = UKR_soc_expand_industrialisation }
 		x = 18
 		y = 4
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 2
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 2
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 3
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				}
+			unlock_decision_category_tooltip = UKR_soc_build_factories_decisions
+			set_country_flag = UKR_can_build_factories
 		}
 	}
 	focus = {  
 		id = UKR_soc_rapid_growth
 		icon = GFX_focus_UKR_rapid_growth
-		cost = 5
+		cost = 10
 		prerequisite = { focus = UKR_soc_build_more_factories }
 		x = 18
 		y = 5
 		completion_reward = {
-		#add_ideas = {  }
+		add_ideas = { UKR_soc_rapid_growth }
 		}
 	}
 	#we will sell bread to build electricity infrastructure
@@ -487,17 +447,19 @@ focus_tree = {
 			remove_ideas = { UKR_weak_electrification }
 		}
 	}
+
 	focus = {
 		id = UKR_soc_industrialise_farming
 		icon = GFX_focus_UKR_ind_argi
-		cost = 5
+		cost = 10
 		prerequisite = { focus = UKR_soc_expand_industrialisation }
 		x = 20 
 		y = 4
 		completion_reward = {
-			
+			add_ideas = { UKR_idea_industrialised_farming }
 		}
 	}
+
 	focus = {
 		id = UKR_soc_new_roads
 		icon = GFX_focus_UKR_new_roads
@@ -506,7 +468,51 @@ focus_tree = {
 		x = 20
 		y = 5
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				}
 		}
 	}
 	focus = {
