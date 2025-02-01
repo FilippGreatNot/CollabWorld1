@@ -279,6 +279,57 @@ focus_tree = {
 		    add_war_support = 0.1
         }   
         }
+	 focus = {
+        id = BAV_analyze_the_scandinavian_model
+        icon = GFX_focus_BAV_scandinavia
+        relative_position_id = BAV_guns_for_the_bavarian_people
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_guns_for_the_bavarian_people
+        }
+		completion_reward = {
+		      HUN = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = BAV_simmilar_ideals
+				}
+				}
+			add_political_power = 25
+			add_ideas = BAV_the_scandinavian_model
+        }   
+		}
+	 focus = {
+        id = BAV_increase_healthcare_standards
+        icon = GFX_focus_BAV_healthcare
+        relative_position_id = BAV_remember_kurt_eisner
+        x = 1
+        y = 1
+        cost = 8
+        prerequisite = {
+            focus = BAV_remember_kurt_eisner focus = BAV_analyze_the_scandinavian_model
+        }
+		completion_reward = {
+		    add_stability = 0.05
+			add_political_power = 50
+			add_manpower = 3500
+        }   
+		}
+	 focus = {
+        id = BAV_the_peoples_victory_awaits
+        icon = GFX_focus_BAV_await
+        relative_position_id = BAV_increase_healthcare_standards
+        y = 1
+        cost = 8
+        prerequisite = {
+            focus = BAV_increase_healthcare_standards
+        }
+		completion_reward = {
+		    add_war_support = 0.1
+			army_experience = 25
+        }   
+		}
 	focus = {
         id = BAV_the_rise_of_the_bnbap
         icon = GFX_focus_BAV_bnbap
