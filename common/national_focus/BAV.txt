@@ -437,6 +437,71 @@ focus_tree = {
         }   
     }
 	focus = {
+        id = BAV_leash_the_moderates
+        icon = GFX_focus_BAV_france
+        relative_position_id = BAV_purge_the_bavarian_militias
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_purge_the_bavarian_militias
+        }
+		completion_reward = {
+			 add_political_power = 50
+				 add_popularity = {
+				ideology = marxism
+				popularity = -0.06
+			}
+        }   
+    }
+	focus = {
+        id = BAV_operation_guillotine
+        icon = GFX_focus_BAV_guillotine
+        relative_position_id = BAV_leash_the_moderates
+        y = 1
+        cost = 6
+        prerequisite = {
+            focus = BAV_leash_the_moderates
+        }
+		completion_reward = {
+			 add_political_power = 200
+			 add_stability = -0.1
+			 add_war_support = 0.1
+				 add_popularity = {
+				ideology = conservatism
+				popularity = -0.1
+			}
+			 add_popularity = {
+				ideology = despotism
+				popularity = -0.1
+			}
+			 add_popularity = {
+				ideology = reactionism
+				popularity = -0.1
+			}
+        }   
+    }
+	focus = {
+        id = BAV_the_german_robespierre
+        icon = GFX_focus_BAV_robespierre
+        relative_position_id = BAV_a_meeting_in_budapest
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_operation_guillotine
+        }
+		 prerequisite = {
+            focus = BAV_a_meeting_in_budapest
+        }
+		completion_reward = {
+			add_country_leader_trait = {
+				ideology = bolshevism
+				trait = BAV_german_robespierre
+			}
+        }   
+    }
+	focus = {
         id = BAV_victory_of_bkp_m
         icon = GFX_focus_BAV_bkp_m
         relative_position_id = BAV_a_new_day_in_regensburg

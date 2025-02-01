@@ -195,3 +195,32 @@ SOV_comintern_decisions = {
 		}
 	}
 }
+SOV_annex_communist_decisions = {
+	SOV_puppet_UKR = {
+		priority = 1000
+		cost = 50
+		complete_effect = {
+			UKR = { country_event = UKR_soc_sov.1 }
+		}
+	}
+	SOV_annex_UKR = {
+		visible = { UKR = { is_puppet_of = SOV } }
+		priority = 1000
+		cost = 75
+		days_remove = 50
+		remove_effect = { 
+			SOV = {
+				UKR = { 
+					every_core_state = {
+					add_core_of = SOV
+					}
+				}
+				annex_country = {
+					target = UKR
+					transfer_troops = yes
+				}
+			}
+
+		}
+	}
+}
