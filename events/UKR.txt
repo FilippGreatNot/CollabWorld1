@@ -610,6 +610,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc_sov.1.a
+		SOV = { puppet = UKR }
 	}
 }
 
@@ -620,5 +621,16 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc_sov.2.a
+		SOV = {
+			UKR = { 
+				every_core_state = {
+				add_core_of = SOV
+				}
+			}
+			annex_country = {
+				target = UKR
+				transfer_troops = yes
+			}
+		}
 	}
 }
