@@ -281,7 +281,7 @@ focus_tree = {
 		completion_reward = {
 		     add_stability = -0.05
 			 add_political_power = 50
-		     
+		     add_manpower = -5000
 		}
 	}
 	focus = {
@@ -373,6 +373,12 @@ focus_tree = {
 					modifier = BLR_loyal_to_moscow
 				}
 			}
+			BLR = {
+				add_opinion_modifier = {
+					target = SOV
+					modifier = BLR_loyal_to_moscow
+				}
+			}
 		}
 	}
 	focus = {
@@ -413,6 +419,7 @@ focus_tree = {
 		completion_reward = {
 		     add_war_support = 0.1
 			 add_political_power = 100
+			 add_research_slot = 1
 		}
 	}
 	focus = {
@@ -467,12 +474,8 @@ focus_tree = {
 		prerequisite = { focus = BLR_revenge_against_the_makhnovists }
 		x = 17
 		y = 2
-		bypass = {
-			NOT = { country_exists = SOV }
-		}
 		available = {
 			has_war = no
-			is_neighbor_of = SOV
 		}
 		completion_reward = {
 		    declare_war_on = {
@@ -883,7 +886,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BLR_mass_assault_tactics
-		icon = GFX_focus_BLR_mass_assault_tactics
+		icon = GFX_focus_BLR_utilize_the_weapons_of_the_old_front
 		cost = 5
 		prerequisite = { focus = BLR_the_method_of_warfare }
 		mutually_exclusive = { focus = BLR_a_modern_approach }
@@ -896,7 +899,7 @@ focus_tree = {
 	}
 	focus = {
 		id = BLR_utilize_the_weapons_of_the_old_front
-		icon = GFX_focus_BLR_utilize_the_weapons_of_the_old_front
+		icon = GFX_focus_BLR_mass_assault_tactics
 		cost = 6
 		prerequisite = {
 			focus = BLR_mass_assault_tactics
@@ -979,13 +982,13 @@ focus_tree = {
 				limit = { has_dlc = "By Blood Alone" }
 				add_equipment_to_stockpile = {
 					type = small_plane_airframe_0
-					amount = 25
+					amount = 50
 				}
 			}
 			else = {
 				add_equipment_to_stockpile = {
 					type = fighter_equipment_0
-					amount = 25
+					amount = 50
 				}
 			}
 		}

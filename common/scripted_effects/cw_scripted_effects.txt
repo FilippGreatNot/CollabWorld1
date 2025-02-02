@@ -1,60 +1,3 @@
-next_state_category = {
-	if = {
-		limit = {
-			OR = {
-				has_state_category = wasteland
-				has_state_category = enclave
-				has_state_category = tiny_island
-			}
-		}
-		set_state_category = pastoral
-	}
-	else_if = {
-		limit = {
-			OR = {
-				has_state_category = pastoral
-				has_state_category = small_island
-			}
-		}
-		set_state_category = rural
-	}
-	else_if = {
-		limit = {
-			has_state_category = rural
-		}
-		set_state_category = town
-	}
-	else_if = {
-		limit = {
-			has_state_category = town
-		}
-		set_state_category = large_town
-	}
-	else_if = {
-		limit = {
-			has_state_category = large_town
-		}
-		set_state_category = city
-	}
-	else_if = {
-		limit = {
-			has_state_category = city
-		}
-		set_state_category = large_city
-	}
-	else_if = {
-		limit = {
-			has_state_category = large_city
-		}
-		set_state_category = metropolis
-	}
-	else_if = {
-		limit = {
-			has_state_category = metropolis
-		}
-		set_state_category = megalopolis
-	}
-}
 kill_the_entire_state = {
 	add_manpower = -9999999
 	transfer_state_to = UNT
@@ -72,7 +15,7 @@ make_every_core_national_for_PREV = {
 		add_core_of = PREV.PREV
 	}
 }
-force_capitulate = {
+force_capitulate = { #Works not very well so please use something else if possible
 	every_country_division = { destroy_unit = yes } #Otherwise the country can have garrisons on VPs and not capitulate
 	every_controlled_state = {
 		tooltip = every_controlled_state_tt
