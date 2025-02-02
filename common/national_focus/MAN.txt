@@ -184,8 +184,8 @@ focus_tree = {
 	focus = {
 		id = MAN_attack_the_traitors
 		icon = GFX_focus_generic_china1
-		x = 0
-		y = 2
+		x = -3
+		y = 1
 		cost = 5
 		ai_will_do = {
 			factor = 100
@@ -198,39 +198,25 @@ focus_tree = {
 				target = JIL
 				type = annex_everything
 			}
-			random_owned_state = {
-				limit = { PREV = { has_full_control_of_state = PREV } }
-				create_unit = {
-					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
-					owner = PREV
-				}
-			}
 		}
 	}
 
 	focus = {
 		id = MAN_invade_the_zheltorossiyans
 		icon = GFX_focus_generic_china1
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
-		relative_position_id = MAN_attack_the_traitors
-		prerequisite = { focus = MAN_attack_the_traitors }
+		relative_position_id = MAN_unification_propaganda
+		prerequisite = { focus = MAN_unification_propaganda }
 		completion_reward = {
 			ZHL = { every_core_state = { add_core_of = MAN }}
 			declare_war_on = {
 				target = ZHL
 				type = annex_everything
-			}
-			random_owned_state = {
-				limit = { PREV = { has_full_control_of_state = PREV } }
-				create_unit = {
-					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
-					owner = PREV
-				}
 			}
 		}
 	}
@@ -238,13 +224,14 @@ focus_tree = {
 	focus = {
 		id = MAN_recapture_hunchun
 		icon = GFX_focus_generic_china1
+		x = 1
 		y = 1
 		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
-		relative_position_id = MAN_invade_the_zheltorossiyans
-		prerequisite = { focus = MAN_invade_the_zheltorossiyans }
+		relative_position_id = MAN_unification_propaganda
+		prerequisite = { focus = MAN_unification_propaganda }
 		completion_reward = {
 			937 = {
 				add_core_of = MAN
@@ -253,38 +240,25 @@ focus_tree = {
 				target = KOR
 				type = annex_everything
 			}
-			random_owned_state = {
-				limit = { PREV = { has_full_control_of_state = PREV } }
-				create_unit = {
-					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
-					owner = PREV
-				}
-			}
 		}
 	}
 
 	focus = {
 		id = MAN_bring_down_the_qing
 		icon = GFX_focus_generic_china1
+		x = 3
 		y = 1
 		cost = 5
 		ai_will_do = {
 			factor = 100
 		}
-		relative_position_id = MAN_recapture_hunchun
-		prerequisite = { focus = MAN_recapture_hunchun }
+		relative_position_id = MAN_unification_propaganda
+		prerequisite = { focus = MAN_unification_propaganda }
 		completion_reward = {
 			HVN = { every_core_state = { add_core_of = MAN }}
 			declare_war_on = {
 				target = HVN
 				type = annex_everything
-			}
-			random_owned_state = {
-				limit = { PREV = { has_full_control_of_state = PREV } }
-				create_unit = {
-					division = "name = \"Manchurian Mares\" division_template = \"Manchurian Mares\" start_experience_factor = 0.3" 
-					owner = PREV
-				}
 			}
 		}
 	}
@@ -294,10 +268,14 @@ focus_tree = {
 		icon = GFX_focus_generic_china1
 		y = 2
 		cost = 5
+		available = { has_war = no }
 		ai_will_do = {
 			factor = 100
 		}
-		relative_position_id = MAN_bring_down_the_qing
+		relative_position_id = MAN_unification_propaganda
+		prerequisite = { focus = MAN_attack_the_traitors }
+		prerequisite = { focus = MAN_invade_the_zheltorossiyans }
+		prerequisite = { focus = MAN_recapture_hunchun }
 		prerequisite = { focus = MAN_bring_down_the_qing }
 		completion_reward = {
 			add_stability = 0.1

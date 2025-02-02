@@ -1,0 +1,273 @@
+focus_tree = {
+	id = DSH
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = DSH
+		}
+	}
+	default = no
+	
+	focus = {
+		id = DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 15
+		y = 0
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+			add_stability = 0.1
+		}
+	}
+    focus = {
+		id = DSH_repurpose_unused_workshops
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_new_era_for_the_bund
+        prerequisite = { focus = DSH_a_new_era_for_the_bund }
+		completion_reward = {	
+			852 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = -1
+                    instant_build  = yes
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+		}
+	}
+    focus = {
+		id = DSH_alemannic_infrastructure
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_repurpose_unused_workshops
+        prerequisite = { focus = DSH_repurpose_unused_workshops }
+		completion_reward = {	
+			852 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build  = yes
+                }
+                remove_dynamic_modifier = { modifier = germany_damaged_roads }
+            }
+		}
+	}
+    focus = {
+		id = DSH_break_up_worker_revolts
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_alemannic_infrastructure
+        prerequisite = { focus = DSH_alemannic_infrastructure }
+		completion_reward = {	
+			add_stability = -0.05
+            add_political_power = 50
+            remove_ideas = { DSH_a_clenched_up_economy }
+		}
+	}
+    focus = {
+		id = DSH_field_new_commanders
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 2
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_new_era_for_the_bund
+        prerequisite = { focus = DSH_a_new_era_for_the_bund }
+		completion_reward = {	
+			add_field_marshal_role = {
+                character = DSH_max_von_bahrfeldt
+                skill = 4
+                attack_skill = 4
+                defense_skill = 3
+                planning_skill = 3
+                logistics_skill = 2
+            }
+            add_field_marshal_role = {
+                character = DSH_theodor_duesterberg
+                skill = 2
+                attack_skill = 2
+                defense_skill = 3
+                planning_skill = 2
+                logistics_skill = 3
+            }
+            add_corps_commander_role = {
+                character = DSH_eduard_ausfeld
+                skill = 2
+                attack_skill = 3
+                defense_skill = 3
+                planning_skill = 2
+                logistics_skill = 2
+            }
+            add_corps_commander_role = {
+                character = DSH_achim_arnim
+                skill = 2
+                attack_skill = 2
+                defense_skill = 2
+                planning_skill = 3
+                logistics_skill = 2
+            }
+		}
+	}
+    focus = {
+		id = DSH_begin_propaganda_efforts
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_new_era_for_the_bund
+        prerequisite = { focus = DSH_a_new_era_for_the_bund }
+		completion_reward = {	
+			add_war_support = 0.1
+            add_political_power = 20
+		}
+	}
+    focus = {
+		id = DSH_ask_the_wehrkommando_for_assistance
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_begin_propaganda_efforts
+        prerequisite = { focus = DSH_begin_propaganda_efforts }
+		completion_reward = {	
+			WRD = { country_event = { id = dsh.2 days = 1 } }
+		}
+	}
+    focus = {
+		id = DSH_increase_mandatory_service_quotas
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_ask_the_wehrkommando_for_assistance
+        prerequisite = { focus = DSH_ask_the_wehrkommando_for_assistance }
+		completion_reward = {	
+			add_ideas = { service_by_requirement }
+            army_experience = 30
+            division_template = {
+				name = "Conscripted Riflemen"
+				priority = 1
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Conscripted Riflemen\" division_template = \"Conscripted Riflemen\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+            random_owned_state = {
+				create_unit = {
+					division = "name = \"Conscripted Riflemen\" division_template = \"Conscripted Riflemen\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+            random_owned_state = {
+				create_unit = {
+					division = "name = \"Conscripted Riflemen\" division_template = \"Conscripted Riflemen\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+            random_owned_state = {
+				create_unit = {
+					division = "name = \"Conscripted Riflemen\" division_template = \"Conscripted Riflemen\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+		}
+	}
+    focus = {
+		id = DSH_end_the_political_violence
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 4
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_new_era_for_the_bund
+        prerequisite = { focus = DSH_break_up_worker_revolts }
+        prerequisite = { focus = DSH_field_new_commanders }
+        prerequisite = { focus = DSH_increase_mandatory_service_quotas }
+		completion_reward = {
+            add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+            remove_ideas = { DSH_ongoing_socialist_unrest }
+		}
+	}
+    focus = {
+		id = DSH_the_freikorps_final_road
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+        available = { has_war = no NOT = { country_exists = FGB } }
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_end_the_political_violence
+        prerequisite = { focus = DSH_end_the_political_violence }
+		completion_reward = {
+            add_war_support = 0.15
+            every_owned_state = {
+                limit = { is_core_of = FGB }
+                remove_core_of = FGB 
+            }
+		}
+	}
+}
