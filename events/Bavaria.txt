@@ -608,4 +608,80 @@ country_event = {
 			}
 		
 	}
+	}
+	country_event = {
+	id = bavaria.23
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = bavaria.23.t
+	desc = bavaria.23.d
+	is_triggered_only = yes
+
+	option = {
+		name = bavaria.23.a
+		ai_chance = {
+			base = 9
+		}
+		BAV = {
+			annex_country = { 
+				target = FWG
+				transfer_troops = yes 
+			}
+		}
+		FWG = {
+			every_unit_leader = {
+				set_nationality = BAV
+			}
+		}
+	}
+	option = {
+		name = bavaria.23.b
+		ai_chance = {
+			base = 1
+		}
+	    	BAV = {
+			declare_war_on = {
+				target = FWG
+				type = annex_everything
+			}
+		}
+	}
+	}
+	country_event = {
+	id = bavaria.24
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.24" }
+	title = bavaria.24.t
+	desc = bavaria.24.d
+	is_triggered_only = yes
+
+	option = {
+		name = bavaria.24.a
+		ai_chance = {
+			base = 6
+		}
+		BAV = {
+			annex_country = { 
+				target = UVS
+				transfer_troops = yes 
+			}
+		}
+		UVS = {
+			every_unit_leader = {
+				set_nationality = BAV
+			}
+		}
+	}
+	option = {
+		name = bavaria.24.b
+		ai_chance = {
+			base = 4
+		}
+	    	BAV = {
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+		}
+	}
+	}
+	
 }
