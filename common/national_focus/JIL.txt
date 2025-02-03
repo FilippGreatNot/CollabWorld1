@@ -86,7 +86,7 @@ focus_tree = {
     focus = {
 		id = JIL_friends_from_the_shadows
 		icon = GFX_focus_BRA_reach_out_to_military_dem
-		x = -3
+		x = -4
 		y = 1
 		cost = 5
         available = {
@@ -98,6 +98,56 @@ focus_tree = {
 		completion_reward = {
 			create_faction = "The Mukden Accords"
             JIL = { add_to_faction = HVN }
+		}
+	}
+	focus = {
+		id = JIL_break_the_alliance
+		icon = GFX_focus_generic_conspiracy
+		x = -1
+		y = 1
+		cost = 5
+        available = {
+			NOT = { country_exists = MAN }
+        }
+        relative_position_id = JIL_friends_from_the_shadows
+        prerequisite = { focus = JIL_friends_from_the_shadows }
+		completion_reward = {
+			remove_from_faction = JIL
+		}
+	}
+	focus = {
+		id = JIL_end_the_korean_rebellion
+		icon = GFX_focus_generic_annex_country_2
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = { base = 300 }
+        relative_position_id = JIL_friends_from_the_shadows
+        prerequisite = { focus = JIL_friends_from_the_shadows }
+		completion_reward = {
+			declare_war_on = {
+				target = KOR
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = JIL_declare_manchuria_unified
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 1
+		y = 1
+		cost = 5
+		available = { has_war = no }
+        relative_position_id = JIL_break_the_alliance
+        prerequisite = { focus = JIL_break_the_alliance }
+		prerequisite = { focus = JIL_end_the_korean_rebellion }
+		completion_reward = {
+			add_stability = 0.1
+			JIL = { make_every_core_national_for_PREV = yes }
+			add_timed_idea = { 
+				idea = UVS_recent_victory 
+				months = 2
+			}
 		}
 	}
     focus = {

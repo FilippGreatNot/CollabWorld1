@@ -1734,11 +1734,18 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.1
 			if = { 
-				limit = { has_dlc = "no step back" } 
+				limit = { has_dlc = "By Blood Alone" } 
 				add_equipment_to_stockpile = {
-					type = airplane 
+					type = small_plane_airframe_0 
 					amount = 400
 					producer = ALT 
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 400
+					producer = ALT
 				}
 			}
 			add_ideas = { ALT_cheap_airplanes }
