@@ -1846,7 +1846,7 @@ focus_tree = {
 	}
 	focus = {
         id = BAV_prepare_for_the_inevitable
-        icon = GFX_focus_UVS_prepare
+        icon = GFX_focus_BAV_prepare
         relative_position_id = BAV_prepare_the_men_for_war
         x = 1
         y = 1
@@ -2236,6 +2236,253 @@ focus_tree = {
 				add_ideas = UVS_recent_victory
 				add_political_power = 25
 				
+               }
+	}
+	
+	focus = {
+        id = BAV_the_victory_of_the_national_revolution
+        icon = GFX_focus_BAV_gobi
+        x = 22
+        y = 10
+        cost = 5
+		available = {
+			has_completed_focus = BAV_german_reunification_manifested
+		}
+		available = {
+			has_completed_focus = BAV_bavaria_is_the_new_prussia
+		}
+        completion_reward = {
+			 add_war_support = 0.05
+			 add_political_power = 50
+        }        
+    }
+	
+	focus = {
+        id = BAV_begin_a_rearmament_programme
+        icon = GFX_focus_BAV_begin
+        relative_position_id = BAV_the_victory_of_the_national_revolution
+        x = -1
+        y = 1
+        cost = 10
+		prerequisite = {
+            focus = BAV_the_victory_of_the_national_revolution
+        }
+		completion_reward = {
+		       random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				army_experience = 15
+               }
+	}
+	
+	focus = {
+        id = BAV_strenghten_economic_control
+        icon = GFX_focus_UVS_tighten_economic_control
+        relative_position_id = BAV_begin_a_rearmament_programme
+        x = 0
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = BAV_begin_a_rearmament_programme
+        }
+		completion_reward = {
+		    add_command_power = 50
+			add_ideas = {
+				UVS_control_eco
+			}
+	}
+	}
+	
+	focus = {
+        id = BAV_the_question_of_the_church
+        icon = GFX_focus_BAV_church
+        relative_position_id = BAV_the_victory_of_the_national_revolution
+        x = 1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_the_victory_of_the_national_revolution
+        }
+		completion_reward = {
+		       country_event = bavaria.25
+               }
+	}
+	
+	focus = {
+        id = BAV_enforce_party_doctrine
+        icon = GFX_focus_BAV_enforce
+        relative_position_id = BAV_the_question_of_the_church
+        x = 0
+        y = 1
+        cost = 8
+		prerequisite = {
+            focus = BAV_the_question_of_the_church
+        }
+		completion_reward = {
+		       add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			   }
+			   add_political_power = -25
+               }
+	}
+	
+	focus = {
+        id = BAV_strenghten_the_agricultural_sector
+        icon = GFX_focus_BAV_agri
+        relative_position_id = BAV_the_victory_of_the_national_revolution
+        x = 3
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = BAV_the_victory_of_the_national_revolution
+        }
+		completion_reward = {
+		       add_ideas = BAV_strong_german_agriculture
+               }
+	}
+	
+	focus = {
+        id = BAV_establish_the_goebbelsjugend
+        icon = GFX_focus_BAV_jugend
+        relative_position_id = BAV_strenghten_the_agricultural_sector
+        x = 0
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_strenghten_the_agricultural_sector
+        }
+		completion_reward = {
+		       add_ideas = BAV_die_goebbelsjugend
+               }
+	}
+	
+	focus = {
+        id = BAV_focus_on_resource_excavation
+        icon = GFX_focus_BAV_resource
+        relative_position_id = BAV_the_victory_of_the_national_revolution
+        x = -3
+        y = 1
+        cost = 8
+		prerequisite = {
+            focus = BAV_the_victory_of_the_national_revolution
+        }
+		completion_reward = {
+		       67 = {
+				add_resource = {
+					type = aluminium
+					amount = 34
+				}
+			   }
+			    59 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+				}
+				975 = {
+				add_resource = {
+					type = tungsten
+					amount = 14
+				}
+				}
+				1085 = {
+				add_resource = {
+					type = steel
+					amount = 25
+				}
+			   }
+			   add_political_power = 25
+               }
+	}
+	
+	focus = {
+        id = BAV_focus_on_resource_excavation
+        icon = GFX_focus_BAV_resource
+        relative_position_id = BAV_the_victory_of_the_national_revolution
+        x = -3
+        y = 1
+        cost = 8
+		prerequisite = {
+            focus = BAV_the_victory_of_the_national_revolution
+        }
+		completion_reward = {
+		       67 = {
+				add_resource = {
+					type = aluminium
+					amount = 34
+				}
+			   }
+			    59 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+				}
+				975 = {
+				add_resource = {
+					type = tungsten
+					amount = 14
+				}
+				}
+				1085 = {
+				add_resource = {
+					type = steel
+					amount = 25
+				}
+			   }
+			   add_political_power = 25
+               }
+	}
+	
+	focus = {
+        id = BAV_establish_the_workers_bureaucracy
+        icon = GFX_focus_BAV_bur
+        relative_position_id = BAV_focus_on_resource_excavation
+        x = 0
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = BAV_focus_on_resource_excavation
+        }
+		completion_reward = {
+		       add_ideas = BAV_workers_bureaucracy
+               }
+	}
+	
+	focus = {
+        id = BAV_towards_a_greater_lebensraum
+        icon = GFX_focus_BAV_raum
+        relative_position_id = BAV_the_victory_of_the_national_revolution
+        x = 0
+        y = 3
+        cost = 6
+		prerequisite = {
+            focus = BAV_establish_the_workers_bureaucracy focus = BAV_strenghten_economic_control focus = BAV_enforce_party_doctrine focus = BAV_establish_the_goebbelsjugend
+        }
+		completion_reward = {
+		       add_ideas = BAV_aggresive_foreign_policy
                }
 	}
    
