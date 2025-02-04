@@ -1,3 +1,4 @@
+#!gfx:interface/country/germany/BAV/BAV_focus.gfx
 focus_tree = {
     id = BAV_first
 
@@ -100,11 +101,12 @@ focus_tree = {
 		completion_reward = {
 		     custom_effect_tooltip = BAV_new_day_tt
 			 add_stability = 0.1
+			 add_political_power = 50
         }   
         }
 	 focus = {
         id = BAV_mother_anarchy_has_arrived
-        icon = GFX_focus_BAV_uspd
+        icon = GFX_focus_BAV_mother
         relative_position_id = BAV_a_new_day_in_regensburg
         x = -14
         y = 1
@@ -126,6 +128,200 @@ focus_tree = {
 			add_political_power = 30
         }   
         }
+	 focus = {
+        id = BAV_a_pacifist_approach
+        icon = GFX_focus_BAV_pacifism
+        relative_position_id = BAV_mother_anarchy_has_arrived
+        x = 1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_mother_anarchy_has_arrived
+        }
+		completion_reward = {
+		    add_war_support = -0.05
+			add_stability = 0.1
+			add_political_power = 25
+        }   
+        }
+	 focus = {
+        id = BAV_spread_the_anarchist_vision
+        icon = GFX_focus_BAV_anarchy
+        relative_position_id = BAV_mother_anarchy_has_arrived
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_mother_anarchy_has_arrived
+        }
+		completion_reward = {
+			add_political_power = 25
+			 add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			FGB = {
+			 add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			}
+			CZE = {
+			 add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			}
+			AUS = {
+			 add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			FRA = {
+			 add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			}
+
+        }   
+        }
+        }
+		
+	focus = {
+        id = BAV_increase_local_council_power
+        icon = GFX_focus_BAV_local
+        relative_position_id = BAV_a_pacifist_approach
+        x = -1
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_spread_the_anarchist_vision focus = BAV_a_pacifist_approach
+        }
+		completion_reward = {
+		    add_stability = 0.05
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			add_political_power = -50
+        }   
+        }
+		
+	focus = {
+        id = BAV_trust_in_the_german_makhno
+        icon = GFX_focus_BAV_trust
+        relative_position_id = BAV_increase_local_council_power
+        x = 0
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = BAV_increase_local_council_power
+        }
+		completion_reward = {
+		    add_country_leader_trait = {
+				ideology = libertarian_socialism
+				trait = BAV_german_makhno
+			}
+        }   
+        }
+		
+	focus = {
+        id = BAV_build_affordable_housing
+        icon = GFX_focus_BAV_affordable
+        relative_position_id = BAV_increase_local_council_power
+        x = 2
+        y = 1
+        cost = 6
+        prerequisite = {
+            focus = BAV_increase_local_council_power
+        }
+		completion_reward = {
+		    random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.05
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+        }   
+        }
+		
+	focus = {
+        id = BAV_establish_local_defense_batallions
+        icon = GFX_focus_BAV_batallions
+        relative_position_id = BAV_increase_local_council_power
+        x = -2
+        y = 1
+        cost = 6
+        prerequisite = {
+            focus = BAV_increase_local_council_power
+        }
+		completion_reward = {
+		    add_war_support = 0.05
+			army_experience = 30
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 800
+				producer = BAV
+			}
+			add_manpower = 5000
+        }   
+        }
+		
+	focus = {
+        id = BAV_encourage_local_innovation
+        icon = GFX_focus_BAV_innovation
+        relative_position_id = BAV_trust_in_the_german_makhno
+        x = 0
+        y = 1
+        cost = 6
+		available = {
+			has_completed_focus = BAV_strenghten_the_ministry_of_education
+		}
+        prerequisite = {
+            focus = BAV_trust_in_the_german_makhno
+        }
+		prerequisite = {
+            focus = BAV_establish_local_defense_batallions
+        }
+		prerequisite = {
+            focus = BAV_build_affordable_housing
+        }
+		completion_reward = {
+		    add_political_power = 25
+			swap_ideas = {
+				remove_idea = BAV_strenghtened_education_system
+				add_idea = BAV_strenghtened_education_system2
+			}
+        }   
+        }
+		
+	focus = {
+        id = BAV_mother_anarchy_loves_bavaria
+        icon = GFX_focus_BAV_love
+        relative_position_id = BAV_encourage_local_innovation
+        x = 0
+        y = 1
+        cost = 10
+        prerequisite = {
+            focus = BAV_encourage_local_innovation
+        }
+		completion_reward = {
+		    add_war_support = 0.1
+			add_stability = 0.1
+			add_political_power = 100
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.1
+			}
+        }   
+        }
+		
     focus = {
         id = BAV_the_return_of_the_uspd
         icon = GFX_focus_BAV_uspd
@@ -370,6 +566,7 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = 0.1
 			}
+			add_political_power = 50
         }   
     }
 	focus = {
@@ -619,7 +816,7 @@ focus_tree = {
     }
 	focus = {
         id = BAV_honor_the_french_revolution
-        icon = GFX_focus_BAV_france
+        icon = GFX_focus_BAV_honor
         relative_position_id = BAV_purge_the_bavarian_militias
         x = -1
         y = 1
@@ -640,7 +837,7 @@ focus_tree = {
     }
 	focus = {
 	id = BAV_a_meeting_in_budapest
-        icon = GFX_focus_BAV_budapest
+        icon = GFX_focus_BAV_hungary
         relative_position_id = BAV_honor_the_french_revolution
         x = 0
         y = 1
@@ -666,7 +863,7 @@ focus_tree = {
     }
 	focus = {
         id = BAV_leash_the_moderates
-        icon = GFX_focus_BAV_france
+        icon = GFX_focus_BAV_leash
         relative_position_id = BAV_purge_the_bavarian_militias
         x = 1
         y = 1
@@ -711,7 +908,7 @@ focus_tree = {
     }
 	focus = {
         id = BAV_the_german_robespierre
-        icon = GFX_focus_BAV_robespierre
+        icon = GFX_focus_BAV_robe
         relative_position_id = BAV_a_meeting_in_budapest
         x = 1
         y = 1
@@ -978,9 +1175,248 @@ focus_tree = {
         }   
         }
 	focus = {
+        id = BAV_analyze_the_military_situation
+        icon = GFX_focus_BAV_analyze
+        x = 46
+        y = 0
+        cost = 5
+		available = {
+			has_completed_focus = BAV_force_the_militias_into_obedience
+		}
+        completion_reward = {
+			 army_experience = 25
+			 custom_effect_tooltip = BAV_military_unlock
+        }        
+    }
+	focus = {
+        id = BAV_keep_the_militia_system
+        icon = GFX_focus_BAV_keep
+		relative_position_id = BAV_analyze_the_military_situation
+        x = -1
+        y = 1
+        cost = 6
+		mutually_exclusive = {
+			focus = BAV_establish_the_bavarian_volksarmee
+		}
+		prerequisite = {
+            focus = BAV_analyze_the_military_situation
+        }
+        completion_reward = {
+		     add_ideas = BAV_bavarian_militia_system
+        }        
+    }
+	focus = {
+        id = BAV_establish_the_bavarian_volksarmee
+        icon = GFX_focus_BAV_army
+		relative_position_id = BAV_analyze_the_military_situation
+        x = 1
+        y = 1
+        cost = 7
+		mutually_exclusive = {
+			focus = BAV_keep_the_militia_system
+		}
+		prerequisite = {
+            focus = BAV_analyze_the_military_situation
+        }
+        completion_reward = {
+		     add_ideas = BAV_bayerische_volksarmee
+			 add_stability = -0.05
+        }        
+    }
+	focus = {
+        id = BAV_recruit_foreign_volunteers
+        icon = GFX_focus_BAV_foreign
+		relative_position_id = BAV_analyze_the_military_situation
+        x = 3
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_analyze_the_military_situation
+        }
+        completion_reward = {
+		     add_manpower = 20000
+			 army_experience = 20
+        }        
+    }
+	focus = {
+        id = BAV_focus_on_fortification_efforts
+        icon = GFX_focus_BAV_fort
+		relative_position_id = BAV_analyze_the_military_situation
+        x = -3
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_analyze_the_military_situation
+        }
+        completion_reward = {
+		     country_event = bavaria.22
+			 army_experience = 15
+        }        
+    }
+	focus = {
+        id = BAV_strenghten_communication_systems
+        icon = GFX_focus_BAV_comms
+		relative_position_id = BAV_keep_the_militia_system
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_keep_the_militia_system
+        }
+        completion_reward = {
+		      swap_ideas = {
+				          remove_idea = BAV_bavarian_militia_system
+				          add_idea = BAV_bavarian_militia_system2
+			          }
+        }        
+    }
+	focus = {
+        id = BAV_form_a_chain_of_command
+        icon = GFX_focus_BAV_chain
+		relative_position_id = BAV_establish_the_bavarian_volksarmee
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_the_bavarian_volksarmee
+        }
+        completion_reward = {
+		      swap_ideas = {
+				          remove_idea = BAV_bayerische_volksarmee
+				          add_idea = BAV_bayerische_volksarmee2
+			          }
+        }        
+    }
+	focus = {
+        id = BAV_build_a_local_arms_production
+        icon = GFX_focus_BAV_arms
+		relative_position_id = BAV_strenghten_communication_systems
+        x = 1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_form_a_chain_of_command focus = BAV_strenghten_communication_systems
+        }
+        completion_reward = {
+		       52 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				army_experience = 10
+				add_war_support = 0.02
+		
+        }        
+    }
+	focus = {
+        id = BAV_import_soviet_warplanes
+        icon = GFX_focus_BAV_plane
+		relative_position_id = BAV_build_a_local_arms_production
+        x = -3
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_build_a_local_arms_production
+        }
+        completion_reward = {
+		    if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 75
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_0
+					amount = 75
+				}
+			}
+			air_experience = 25
+        }        
+    }
+	focus = {
+        id = BAV_manufacture_new_bavarian_artillery
+        icon = GFX_focus_BAV_arty
+		relative_position_id = BAV_build_a_local_arms_production
+        x = -1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = BAV_build_a_local_arms_production
+        }
+        completion_reward = {
+		     add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 200
+			}
+        }        
+    }
+	focus = {
+        id = BAV_develop_bavarian_guerilla_defense_tactics
+        icon = GFX_focus_BAV_tactic
+		relative_position_id = BAV_build_a_local_arms_production
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_build_a_local_arms_production
+        }
+        completion_reward = {
+		     add_ideas = BAV_bavarian_guerilla_tactics
+        }        
+    }
+	focus = {
+        id = BAV_bavarian_armor_innovations
+        icon = GFX_focus_BAV_armor
+		relative_position_id = BAV_build_a_local_arms_production
+        x = 3
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_build_a_local_arms_production
+        }
+        completion_reward = {
+		     add_tech_bonus = {
+				name = BAV_tank_innovations
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.15
+			}
+        }        
+    }
+	focus = {
+        id = BAV_establish_the_kriegsschule_regensburg
+        icon = GFX_focus_BAV_krieg
+		relative_position_id = BAV_bavarian_armor_innovations
+        x = -3
+        y = 1
+        cost = 9
+		prerequisite = {
+            focus = BAV_bavarian_armor_innovations focus = BAV_develop_bavarian_guerilla_defense_tactics focus = BAV_import_soviet_warplanes focus = BAV_manufacture_new_bavarian_artillery
+        }
+        completion_reward = {
+		     add_research_slot = 1
+			 army_experience = 20
+			 add_political_power = 25
+        }        
+    }
+	focus = {
         id = BAV_draft_an_economic_recovery_plan
         icon = GFX_focus_SOV_first_socialist_market
-        x = 32
+        x = 36
         y = 0
         cost = 5
 		available = {
@@ -1326,13 +1762,480 @@ focus_tree = {
         relative_position_id = BAV_rapid_weapons_production
         x = 1
         y = 1
-        cost = 5
+        cost = 10
 		prerequisite = {
             focus = BAV_fight_poverty_in_bavarian_cities focus = BAV_increase_worker_soviets_control focus = BAV_achieve_bavarian_economic_autarky focus = BAV_rapid_weapons_production focus = BAV_commence_emergency_industrialization focus = BAV_increase_worker_control_of_key_industries
         }
 		completion_reward = {
 		       add_research_slot = 1
 			   add_political_power = 25
+               }
+	}
+	focus = {
+		id = BAV_path_to_reunification
+		icon = GFX_focus_UVS_path_to_reunification
+		x = 28
+		y = 0
+		cost = 5
+		search_filters = {FOCUS_FILTER_ANNEXATION}	
+		available = { 
+			date > 1923.1.30
+		}
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus BAV_path_to_reunification_log"
+			
+			add_political_power = 50
+			
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+        id = BAV_prepare_the_men_for_war
+        icon = GFX_focus_SOV_stalin_army_reorganization
+        relative_position_id = BAV_path_to_reunification
+        x = 0
+        y = 1
+        cost = 4
+		prerequisite = {
+            focus = BAV_path_to_reunification
+        }
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+		       add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 750
+				producer = BAV
+			   }
+			   add_manpower = 5000
+	
+               }
+	}
+	focus = {
+        id = BAV_deal_the_first_blow
+        icon = GFX_focus_UVS_destroy_nationalists
+        relative_position_id = BAV_prepare_the_men_for_war
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_prepare_the_men_for_war
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = FGB
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = FGB
+			}
+		}
+		mutually_exclusive = {
+			focus = BAV_prepare_for_the_inevitable
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				add_political_power = -50
+				add_stability = -0.05
+				declare_war_on = {
+				target = FGB
+				type = civil_war
+			    }
+			    add_civil_war_target = FGB
+               }
+	}
+	focus = {
+        id = BAV_prepare_for_the_inevitable
+        icon = GFX_focus_UVS_prepare
+        relative_position_id = BAV_prepare_the_men_for_war
+        x = 1
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = BAV_prepare_the_men_for_war
+        }
+		search_filters = {FOCUS_FILTER_ANNEXATION}	
+		available = {
+			has_war = no
+			is_neighbor_of = FGB
+		}
+		mutually_exclusive = {
+			focus = BAV_deal_the_first_blow
+		}
+		bypass = {
+			NOT = {
+				country_exists = FGB
+			}
+		}
+		completion_reward = {
+				add_war_support = 0.05
+				army_experience = 25
+				53 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 3299
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 571
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 586
+					instant_build = yes
+				}
+			}
+		52 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11638
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 9666
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 708
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6540
+					instant_build = yes
+				}
+			}
+	}
+	}
+	
+	focus = {
+        id = BAV_execute_freikorps_leaders
+        icon = GFX_focus_UVS_finish_off_the_german_bourgeois
+        relative_position_id = BAV_prepare_for_the_inevitable
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_prepare_for_the_inevitable focus = BAV_deal_the_first_blow
+        }
+        available = {
+			NOT = {
+				country_exists = FGB
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+			   add_political_power = 75
+			   add_stability = 0.04
+			
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.05
+			}
+            }
+			}
+	
+	
+	focus = {
+        id = BAV_establish_the_south_german_red_front
+        icon = GFX_focus_BAV_south
+        relative_position_id = BAV_execute_freikorps_leaders
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_execute_freikorps_leaders
+        }
+        
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+			   add_political_power = 75
+			   add_war_support = 0.05
+			   set_cosmetic_tag = BAV_southern_german_red_front
+               }
+	}
+	
+	focus = {
+        id = BAV_the_lion_strikes_the_eagle
+        icon = GFX_focus_BAV_eagle
+        relative_position_id = BAV_establish_the_south_german_red_front
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_the_south_german_red_front
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = WRD
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = WRD
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = WRD
+				type = civil_war
+			    }
+			    add_civil_war_target = WRD
+               }
+	}
+	
+	focus = {
+        id = BAV_take_down_the_syndicates
+        icon = GFX_focus_UVS_destroy_anarchists
+        relative_position_id = BAV_the_lion_strikes_the_eagle
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_lion_strikes_the_eagle
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = FWG
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+	    available = {
+		NOT =  {
+		has_country_leader = {
+                    name = "Gustav Landauer"
+                    ruling_only = yes
+                }
+				 }
+				  }
+		mutually_exclusive = {
+			focus = BAV_integrate_the_syndicalist_mutineers
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = FWG
+				type = civil_war
+			    }
+			    add_civil_war_target = FWG
+				
+               }
+	}
+	
+	focus = {
+        id = BAV_integrate_the_syndicalist_mutineers
+        icon = GFX_focus_BAV_mutiny
+        relative_position_id = BAV_the_lion_strikes_the_eagle
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_lion_strikes_the_eagle
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = FWG
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+	    available = {
+		has_country_leader = {
+                    name = "Gustav Landauer"
+                    ruling_only = yes
+                }
+				}
+		mutually_exclusive = {
+			focus = BAV_take_down_the_syndicates
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				FWG = {
+				   country_event = bavaria.23
+			    }
+				
+               }
+	}
+	
+	focus = {
+        id = BAV_destroy_the_capitalist_republic
+        icon = GFX_focus_BAV_capitalist
+        relative_position_id = BAV_integrate_the_syndicalist_mutineers
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_integrate_the_syndicalist_mutineers focus = BAV_take_down_the_syndicates
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = GER
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = GER
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = GER
+				type = civil_war
+			    }
+			    add_civil_war_target = GER
+				
+               }
+	}
+	
+	focus = {
+        id = BAV_end_the_false_revolution
+        icon = GFX_focus_BAV_false
+        relative_position_id = BAV_destroy_the_capitalist_republic
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_destroy_the_capitalist_republic
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = UVS
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+	    available = {
+		NOT =  {
+		has_country_leader = {
+                    name = "Max Levien"
+                    ruling_only = yes
+                }
+				 }
+				  }
+		mutually_exclusive = {
+			focus = BAV_southern_lead_reunification
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = UVS
+				type = civil_war
+			    }
+			    add_civil_war_target = UVS
+				
+               }
+	}
+	
+	focus = {
+        id = BAV_southern_lead_reunification
+        icon = GFX_focus_BAV_lead
+        relative_position_id = BAV_destroy_the_capitalist_republic
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_destroy_the_capitalist_republic
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = UVS
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+	    available = {
+		has_country_leader = {
+                    name = "Max Levien"
+                    ruling_only = yes
+                }
+				}
+		mutually_exclusive = {
+			focus = BAV_end_the_false_revolution
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				UVS = {
+				   country_event = bavaria.24
+			    }
+				
+               }
+	}
+	
+	focus = {
+        id = BAV_end_the_polish_army
+        icon = GFX_focus_BAV_end
+        relative_position_id = BAV_southern_lead_reunification
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_end_the_false_revolution focus = BAV_southern_lead_reunification
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = PLA
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = PLA
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = PLA
+				type = civil_war
+			    }
+			    add_civil_war_target = PLA
+				
+               }
+	}
+	
+	focus = {
+        id = BAV_german_reunification_manifested
+        icon = GFX_focus_BAV_manifest
+        relative_position_id = BAV_end_the_polish_army
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_end_the_polish_army
+        }
+		available = {
+			has_war = no
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				add_ideas = UVS_recent_victory
+				add_political_power = 25
+				
                }
 	}
    

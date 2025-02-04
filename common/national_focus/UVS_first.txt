@@ -280,7 +280,7 @@ focus_tree = {
 			
 			SOV = {
 				add_opinion_modifier = {
-					target = GER
+					target = UVS
 					modifier = faction_traitor
 				}
 			}
@@ -2356,22 +2356,36 @@ focus_tree = {
 		
 		available = {
 			has_war = no
-			is_neighbor_of = FGB
+			OR = {
+				is_neighbor_of = FGB 
+				is_neighbor_of = DSH
+			}
 		}
 		
 		bypass = {
 			NOT = {
 				country_exists = FGB
 			}
+			NOT = {
+				country_exists = DSH
+			}
 		}
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_destroy_nationalists_log"
-			
-			declare_war_on = {
-				target = FGB
-				type = civil_war
+			if = { 
+				limit = { country_exists = FGB } 
+				declare_war_on = {
+					target = FGB
+					type = civil_war
+				}
 			}
-			add_civil_war_target = FGB
+			else_if = { 
+				limit = { country_exists = DSH } 
+				declare_war_on = {
+					target = DSH
+					type = civil_war
+				}
+			}
 		}
 	}
 
@@ -3372,9 +3386,19 @@ focus_tree = {
 					}
 				}
 			}
-			declare_war_on = {
-				target = BLR
-				type = take_state_focus
+			if = { 
+				limit = { country_exists = BLR } 
+				declare_war_on = {
+					target = BLR
+					type = take_state_focus
+				}
+			}
+			else_if = {
+				limit = { NOT = { country_exists = BLR LAT = { owns_state = 206 } } }
+				declare_war_on = {
+					target = LAT
+					type = take_state_focus
+				}
 			}
 		}
 	}
@@ -3530,6 +3554,7 @@ focus_tree = {
 				type = puppet_wargoal_focus
 				target = BEL
 			}
+			851 = { add_core_of = UVS }
 			create_wargoal = {
 				type = puppet_wargoal_focus
 				target = HOL
@@ -3557,6 +3582,10 @@ focus_tree = {
 			create_wargoal = {
 				type = puppet_wargoal_focus
 				target = SWI
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LIE
 			}
 		}
 	}

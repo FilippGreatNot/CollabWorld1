@@ -10,6 +10,7 @@ characters = {
 		country_leader = {
 			ideology = military_junta
 			desc = "POLITICS_KAPP_DESC"
+			traits = { iron_fist_rule }
 		}
 	}
 	FGB_gustav_noske = {
@@ -105,10 +106,6 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = military_junta
-			desc = "POLITICS_WALDEMAR_PABST_DESC"
-		}
-		country_leader = {
 			ideology = reactionary_socialism
 			desc = "POLITICS_WALDEMAR_PABST_DESC"
 		}
@@ -120,6 +117,18 @@ characters = {
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 1
+		}
+	}
+	FGB_waldemar_pabst2 = {
+		name = "Waldemar Pabst"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_waldemar_pabst.tga"
+			}
+		}
+		country_leader = {
+			ideology = military_junta
+			desc = "POLITICS_WALDEMAR_PABST_DESC"
 		}
 	}
 	FGB_konrad_adenauer = {
@@ -152,7 +161,7 @@ characters = {
 	}
 	FGB_hans_vogel = {
 		name = "Hans Vogel"
-		potraits = { 
+		portraits = { 
 			civilian = {
 				large = "gfx/leaders/FGB/FGB_hans_vogel.tga"
 			}
@@ -179,25 +188,38 @@ characters = {
 			can_be_fired = no
 		}
 	}
-	## Security Minister ##
-	FGB_kurt_schumacher = {
-		name = FGB_kurt_schumacher
+	FGB_reichstag = {
+		name = "The Reichstag"
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/FGB/FGB_kurt_schumacher.tga"
-				small = "GFX_idea_FGB_kurt_schumacher"
+				small = "GFX_idea_FGB_reichstag"
 			}
 		}
 		advisor = {
-			slot = security_minister
-			idea_token = FGB_kurt_schumacher_sec
+			slot = head_of_government
+			idea_token = FGB_reichstag_hog
+			traits = { the_reichstag }
+			can_be_fired = no
+		}
+	}
+	## Security Minister ##
+	FGB_otto_gessler = {
+		name = FGB_otto_gessler
+		portraits = {
+			civilian = {
+				small = "GFX_idea_FGB_otto_gessler"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = FGB_otto_gessler_sec
 			visible = {
 				has_completed_focus = FGB_noske_september_coalition
 			}
 			allowed = {
 				tag = FGB
 			}
-			traits = { spd_journalist }
+			traits = { intricate_bureaucrat }
 			cost = 100
 			can_be_fired = no
 		}
@@ -226,6 +248,28 @@ characters = {
 		}
 	}
 	## Propaganda Minister ##
+	FGB_kurt_schumacher = {
+		name = FGB_kurt_schumacher
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_kurt_schumacher.tga"
+				small = "GFX_idea_FGB_kurt_schumacher"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = FGB_kurt_schumacher_prop
+			visible = {
+				has_completed_focus = FGB_noske_september_coalition
+			}
+			allowed = {
+				tag = FGB
+			}
+			traits = { spd_journalist }
+			cost = 100
+			can_be_fired = no
+		}
+	}
 	FGB_adolf_hiedler = {
 		name = FGB_adolf_hiedler
 		portraits = {

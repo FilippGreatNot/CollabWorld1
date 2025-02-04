@@ -1,0 +1,275 @@
+focus_tree = {
+	id = JIL
+	default=no
+	country = {
+		factor = 0
+		modifier = {
+			add = 50
+			tag = JIL
+		}
+	} 
+
+    focus = {
+		id = JIL_a_new_regime_for_manchuria
+		icon = GFX_focus_generic_china1
+		x = 7
+		y = 0
+		cost = 5
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+    focus = {
+		id = JIL_take_out_the_socialist_resistance
+		icon = GFX_goal_generic_demand_territory
+		x = -2
+		y = 1
+		cost = 5
+        relative_position_id = JIL_a_new_regime_for_manchuria
+        prerequisite = { focus = JIL_a_new_regime_for_manchuria }
+		completion_reward = {
+			add_stability = 0.05
+            add_popularity = {
+                ideology = marxism
+                popularity = -0.1
+            }
+            add_popularity = {
+                ideology = bolshevism
+                popularity = -0.1
+            }
+		}
+	}
+    focus = {
+		id = JIL_rally_the_armed_forces
+		icon = GFX_goal_demand_sudetenland
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = JIL_a_new_regime_for_manchuria
+        prerequisite = { focus = JIL_a_new_regime_for_manchuria }
+		completion_reward = {
+			army_experience = 10
+            add_war_support = 0.1
+            add_manpower = 45000
+		}
+	}
+    focus = {
+		id = JIL_mend_our_wounds
+		icon = GFX_focus_generic_concessions
+		x = 2
+		y = 1
+		cost = 5
+        relative_position_id = JIL_a_new_regime_for_manchuria
+        prerequisite = { focus = JIL_a_new_regime_for_manchuria }
+		completion_reward = {
+			add_stability = 0.05
+            swap_ideas = {
+                remove_idea = JIL_a_dire_situation
+                add_idea = JIL_a_dire_situation2
+            }
+		}
+	}
+    focus = {
+		id = JIL_shis_speech
+		icon = GFX_focus_POL_complete_april_constitution
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = JIL_rally_the_armed_forces
+        prerequisite = { focus = JIL_take_out_the_socialist_resistance }
+        prerequisite = { focus = JIL_rally_the_armed_forces }
+        prerequisite = { focus = JIL_mend_our_wounds }
+		completion_reward = {
+			country_event = jil.1
+		}
+	}
+    focus = {
+		id = JIL_friends_from_the_shadows
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		x = -4
+		y = 1
+		cost = 5
+        available = {
+            has_war = yes
+            HVN = { has_war = yes }
+        }
+        relative_position_id = JIL_shis_speech
+        prerequisite = { focus = JIL_shis_speech }
+		completion_reward = {
+			create_faction = "The Mukden Accords"
+            JIL = { add_to_faction = HVN }
+		}
+	}
+	focus = {
+		id = JIL_break_the_alliance
+		icon = GFX_focus_generic_conspiracy
+		x = -1
+		y = 1
+		cost = 5
+        available = {
+			NOT = { country_exists = MAN }
+        }
+        relative_position_id = JIL_friends_from_the_shadows
+        prerequisite = { focus = JIL_friends_from_the_shadows }
+		completion_reward = {
+			remove_from_faction = JIL
+		}
+	}
+	focus = {
+		id = JIL_end_the_korean_rebellion
+		icon = GFX_focus_generic_annex_country_2
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = { base = 300 }
+        relative_position_id = JIL_friends_from_the_shadows
+        prerequisite = { focus = JIL_friends_from_the_shadows }
+		completion_reward = {
+			declare_war_on = {
+				target = KOR
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = JIL_declare_manchuria_unified
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 1
+		y = 1
+		cost = 5
+		available = { has_war = no }
+        relative_position_id = JIL_break_the_alliance
+        prerequisite = { focus = JIL_break_the_alliance }
+		prerequisite = { focus = JIL_end_the_korean_rebellion }
+		completion_reward = {
+			add_stability = 0.1
+			JIL = { make_every_core_national_for_PREV = yes }
+			add_timed_idea = { 
+				idea = UVS_recent_victory 
+				months = 2
+			}
+		}
+	}
+    focus = {
+		id = JIL_build_up_the_mukden_arsenal
+		icon = GFX_focus_generic_modernize_industry
+		x = -1
+		y = 1
+		cost = 5
+        relative_position_id = JIL_shis_speech
+        prerequisite = { focus = JIL_shis_speech }
+		completion_reward = {
+			328 = {
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build  = yes
+                }
+            }
+		}
+	}
+    focus = {
+		id = JIL_mukden_military_academy
+		icon = GFX_focus_chi_army_reform
+		x = 0
+		y = 1
+		cost = 5
+        relative_position_id = JIL_build_up_the_mukden_arsenal
+        prerequisite = { focus = JIL_build_up_the_mukden_arsenal }
+		completion_reward = {
+            army_experience = 50
+			add_research_slot = 1
+		}
+	}
+    focus = {
+		id = JIL_repair_our_roads
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = JIL_shis_speech
+        prerequisite = { focus = JIL_shis_speech }
+		completion_reward = {
+			every_owned_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+		}
+	}
+    focus = {
+		id = JIL_build_up_the_harbin_city_center
+		icon = GFX_focus_DEN_civilian_preparations
+		x = 3
+		y = 1
+		cost = 5
+        relative_position_id = JIL_shis_speech
+        prerequisite = { focus = JIL_shis_speech }
+		completion_reward = {
+			950 = {
+                increase_state_category_by_one_Level = yes 
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+		}
+	}
+    focus = {
+		id = JIL_import_medical_equipment
+		icon = GFX_focus_generic_field_hostpital
+		x = 1
+		y = 1
+		cost = 5
+        relative_position_id = JIL_repair_our_roads
+        prerequisite = { focus = JIL_repair_our_roads }
+        prerequisite = { focus = JIL_build_up_the_harbin_city_center }
+		completion_reward = {
+			add_stability = 0.05
+            swap_ideas = {
+                remove_idea = JIL_a_dire_situation2
+                add_idea = JIL_a_dire_situation3
+            }
+		}
+	}
+	focus = {
+		id = JIL_manchurian_steel
+		icon = GFX_focus_generic_steel
+		x = 0
+		y = 2
+		cost = 5
+        relative_position_id = JIL_build_up_the_harbin_city_center
+        prerequisite = { focus = JIL_build_up_the_harbin_city_center }
+		completion_reward = {
+			328 = {
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+			717 = {
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build  = yes
+                }
+            }
+		}
+	}
+}

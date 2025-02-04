@@ -1,4 +1,3 @@
-
 focus_tree = {
 	id = KEN_first
 	country = {
@@ -9,60 +8,188 @@ focus_tree = {
 		}
 	}
 	default = no
-	
-	
-	
+
+	focus = {
+		id = KEN_an_african_revolution
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 5
+		y = 0
+		cost = 5
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = KEN_depose_local_chieftains
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_an_african_revolution
+		prerequisite = { focus = KEN_an_african_revolution }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = despotism
+				popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = KEN_socialist_education
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_an_african_revolution
+		prerequisite = { focus = KEN_an_african_revolution }
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = marxism 
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = KEN_command_and_conquer
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_depose_local_chieftains
+		prerequisite = { focus = KEN_depose_local_chieftains }
+		prerequisite = { focus = KEN_socialist_education }
+		completion_reward = {
+			add_war_support = 0.05
+			add_command_power = 20
+			army_experience = 10
+		}
+	}
+	focus = {
+		id = KEN_begin_developing_our_countryside
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = -3
+		y = 1
+		cost = 5
+		relative_position_id = KEN_command_and_conquer
+		prerequisite = { focus = KEN_command_and_conquer }
+		completion_reward = {
+			random_owned_controlled_state = {
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+	focus = {
+		id = KEN_increase_our_industrial_yield
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_begin_developing_our_countryside
+		prerequisite = { focus = KEN_begin_developing_our_countryside }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = KEN_fund_domestic_arms_manufacturers
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_begin_developing_our_countryside
+		prerequisite = { focus = KEN_begin_developing_our_countryside }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = KEN_faith_in_our_military
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 3
+		y = 1
+		cost = 5
+		relative_position_id = KEN_command_and_conquer
+		prerequisite = { focus = KEN_command_and_conquer }
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	focus = {
+		id = KEN_advancing_our_doctrine
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_faith_in_our_military
+		prerequisite = { focus = KEN_faith_in_our_military }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.75
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = KEN_invest_in_better_guns
+		icon = GFX_focus_FRA_calm_down_the_republic
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = KEN_faith_in_our_military
+		prerequisite = { focus = KEN_faith_in_our_military }
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
 	focus = {
 		id = KEN_spread_revolution_to_uganda
 		icon = GFX_focus_FRA_calm_down_the_republic
 		x = 5
-		y = 0
-		cost = 50
-		
-	
-		
-		#bypass = {
-		#	NOT = {
-		#		country_exists = UGA
-		#	}
-		#}
+		y = 5
+		cost = 5
 		available = {
 			has_war = no
 			is_neighbor_of = UGA
 		}
+		prerequisite = { focus = KEN_increase_our_industrial_yield }
+		prerequisite = { focus = KEN_fund_domestic_arms_manufacturers }
+		prerequisite = { focus = KEN_advancing_our_doctrine }
+		prerequisite = { focus = KEN_invest_in_better_guns }
 		completion_reward = {
+			add_war_support = 0.05
 			declare_war_on = {
 				target = UGA
 				type = annex_everything
 			}
-		}
-	}
-	
-	focus = {
-		id = KEN_remove_germans
-		icon = GFX_focus_FRA_calm_down_the_republic
-		x = 0
-		y = 1
-		cost = 10
-		relative_position_id = KEN_spread_revolution_to_uganda
-		prerequisite = { focus = KEN_spread_revolution_to_uganda }
-		
-		#bypass = {
-		#	NOT = {
-		#		country_exists = DOA
-		#	}
-		#}
-		available = {
-			has_war = no
-			is_neighbor_of = DOA
-			#for now
-			always = no
-		}
-		completion_reward = {
-			declare_war_on = {
-				target = DOA
-				type = annex_everything
-			}
+			UGA = { make_every_core_national_for_PREV = yes }
 		}
 	}
 }

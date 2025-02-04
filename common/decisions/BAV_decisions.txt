@@ -276,4 +276,93 @@ BAV_economic_recovery = {
 	}
 	}
 	
+BAV_military_recovery = {
+	BAV_solve_the_army_issue = {
+			
+		fire_only_once = yes
+        
+		available = {
+		    has_idea = BAV_very_disorganized_army
+			has_country_flag = BAV_armed_the_people
+			has_country_flag = BAV_motivated_the_army
+            has_country_flag = BAV_reorganized_the_structure
+				}
+		
+		complete_effect = {
+			remove_ideas = {
+				BAV_very_disorganized_army
+			}
+			set_country_flag = BAV_military_healed
+            add_war_support = 0.05
+			}
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_reorganize_the_structure = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_military_healed }
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			set_country_flag = BAV_reorganized_the_structure
+			army_experience = 20
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_motivate_the_army = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_military_healed }
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			set_country_flag = BAV_motivated_the_army
+			add_war_support = 0.05
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_arm_the_people = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_military_healed }
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			set_country_flag = BAV_armed_the_people
+			add_manpower = 2000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -500
+				producer = BAV
+			}
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	}
+	
 

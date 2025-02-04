@@ -1,0 +1,60 @@
+capital = 57
+add_to_german_tags = yes
+set_country_flag = germany
+oob = "empty"
+
+set_research_slots = 3 
+add_1922_modern_tech = yes
+
+set_politics = {
+	ruling_party = conservatism
+}
+
+set_popularities = {
+	despotism = 15
+	authoritarian_democrat = 12
+	reactionism = 20
+	conservatism = 35
+	liberalism = 13
+	social_democrat = 5
+}
+
+add_ideas = {
+	extensive_conscription
+	closed_economy
+	rationing
+	economically_isolated
+}
+add_lotgw = yes
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Leichttraktor"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+		icon = "GFX_GER_gwtank_medium"
+	}
+}
