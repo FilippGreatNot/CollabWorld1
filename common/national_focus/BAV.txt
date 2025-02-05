@@ -2418,45 +2418,6 @@ focus_tree = {
 	}
 	
 	focus = {
-        id = BAV_focus_on_resource_excavation
-        icon = GFX_focus_BAV_resource
-        relative_position_id = BAV_the_victory_of_the_national_revolution
-        x = -3
-        y = 1
-        cost = 8
-		prerequisite = {
-            focus = BAV_the_victory_of_the_national_revolution
-        }
-		completion_reward = {
-		       67 = {
-				add_resource = {
-					type = aluminium
-					amount = 34
-				}
-			   }
-			    59 = {
-				add_resource = {
-					type = oil
-					amount = 4
-				}
-				}
-				975 = {
-				add_resource = {
-					type = tungsten
-					amount = 14
-				}
-				}
-				1085 = {
-				add_resource = {
-					type = steel
-					amount = 25
-				}
-			   }
-			   add_political_power = 25
-               }
-	}
-	
-	focus = {
         id = BAV_establish_the_workers_bureaucracy
         icon = GFX_focus_BAV_bur
         relative_position_id = BAV_focus_on_resource_excavation
@@ -2483,6 +2444,331 @@ focus_tree = {
         }
 		completion_reward = {
 		       add_ideas = BAV_aggresive_foreign_policy
+			   create_faction = faction_BAV_national_bolshevik_revolutionary_front
+			   custom_effect_tooltip = BAV_reichkommisariats
+               }
+	}
+	
+	focus = {
+        id = BAV_march_into_osterreich
+        icon = GFX_focus_BAV_austria
+        relative_position_id = BAV_towards_a_greater_lebensraum
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_towards_a_greater_lebensraum
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			     AUS = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = AUS
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_free_the_sudeten_germans
+        icon = GFX_focus_BAV_sudetenland
+        relative_position_id = BAV_march_into_osterreich
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_march_into_osterreich
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			    887 = { add_core_of = BAV }
+				69 = { add_core_of = BAV }
+				74 = { add_core_of = BAV }
+			    create_wargoal = {
+				type = annex_everything
+				target = CZE
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_take_out_the_fake_state
+        icon = GFX_focus_BAV_sudetenland
+        relative_position_id = BAV_free_the_sudeten_germans
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_free_the_sudeten_germans
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			   SWI = { make_every_core_national_for_PREV = yes }
+			   LIE = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = SWI
+			     }
+				create_wargoal = {
+				type = annex_everything
+				target = LIE
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_take_back_eastern_prussia
+        icon = GFX_focus_BAV_east
+        relative_position_id = BAV_towards_a_greater_lebensraum
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_towards_a_greater_lebensraum
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		        
+				847 = { add_core_of = BAV }
+				807 = { add_core_of = BAV }
+				86 = { add_core_of = BAV }
+			    EPR = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = EPR
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = BLR
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = POL
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_into_eastern_europe
+        icon = GFX_focus_BAV_ukraine
+        relative_position_id = BAV_take_back_eastern_prussia
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_take_back_eastern_prussia
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			    create_wargoal = {
+				type = annex_everything
+				target = UKR
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = LAT
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_march_to_the_urals
+        icon = GFX_focus_BAV_ural
+        relative_position_id = BAV_into_eastern_europe
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_into_eastern_europe
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			    create_wargoal = {
+				type = annex_everything
+				target = SOV
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = SRF
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = OCG
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_take_over_the_caucasus
+        icon = GFX_focus_BAV_ural
+        relative_position_id = BAV_march_to_the_urals
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_march_to_the_urals
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			    create_wargoal = {
+				type = annex_everything
+				target = ARM
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = AZR
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = GEO
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_through_the_benelux
+        icon = GFX_focus_BAV_east
+        relative_position_id = BAV_towards_a_greater_lebensraum
+        x = -2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_towards_a_greater_lebensraum
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+				851 = { add_core_of = BAV }
+				8 = { add_core_of = BAV }
+			    create_wargoal = {
+				type = annex_everything
+				target = LUX
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = HOL
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = BEL
+			     }
+               }
+	}
+	
+		focus = {
+        id = BAV_take_down_the_heart_of_evil
+        icon = GFX_focus_BAV_east
+        relative_position_id = BAV_through_the_benelux
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_through_the_benelux
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+				28 = { add_core_of = BAV }
+			    create_wargoal = {
+				type = annex_everything
+				target = FRA
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_reunite_the_germanic_peoples
+        icon = GFX_focus_BAV_east
+        relative_position_id = BAV_take_down_the_heart_of_evil
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_take_down_the_heart_of_evil
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+				841 = { add_core_of = BAV }
+			    create_wargoal = {
+				type = annex_everything
+				target = DEN
+			     }
+				create_wargoal = {
+				type = annex_everything
+				target = NOR
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = SWE
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_embargo_the_british
+        icon = GFX_focus_BAV_britain
+        relative_position_id = BAV_reunite_the_germanic_peoples
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_reunite_the_germanic_peoples
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			    ENG = {
+				add_ideas = BAV_continental_embargo
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_the_rise_of_german_hegemony
+        icon = GFX_focus_BAV_britain
+        relative_position_id = BAV_take_out_the_fake_state
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_take_out_the_fake_state
+        }
+		prerequisite = {
+            focus = BAV_reunite_the_germanic_peoples
+        }
+		prerequisite = {
+            focus = BAV_march_to_the_urals
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			   swap_ideas = {
+				remove_idea = BAV_new_prussia
+				add_idea = BAV_new_prussia2
+			}
                }
 	}
    
