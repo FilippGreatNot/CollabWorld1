@@ -539,9 +539,72 @@ BAV_military_recovery = {
 	             traits = {
 	             }
             }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
 			}
 			puppet = {
                 target = FRA
+                end_wars = no
+            }
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+	BAV_establish_polen = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 87
+			owns_state = 90
+			owns_state = 88
+			owns_state = 849
+			owns_state = 10
+			owns_state = 98
+			owns_state = 97
+			owns_state = 92
+			owns_state = 846
+			owns_state = 91
+			owns_state = 89
+			owns_state = 845
+			owns_state = 1092
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    POL = {
+		    set_state_owner = 87
+			set_state_owner = 90
+			set_state_owner = 88
+			set_state_owner = 849
+			set_state_owner = 10
+			set_state_owner = 98
+			set_state_owner = 97
+			set_state_owner = 92
+			set_state_owner = 846
+			set_state_owner = 91
+			set_state_owner = 89
+			set_state_owner = 845
+			set_state_owner = 1092
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			set_cosmetic_tag = BAV_polen
+			create_country_leader = {
+	             name = "Jan Kwapiński"
+                 picture = "gfx/leaders/BAV/JanKwapinski.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = POL
                 end_wars = no
             }
 			}
