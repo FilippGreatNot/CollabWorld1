@@ -36,7 +36,7 @@ focus_tree = {
         }
 		completion_reward = {
 		     add_stability = 0.03
-			 add_political_power = 25
+			 add_political_power = 50
 			 add_popularity = {
 				ideology = reactionism
 				popularity = -0.03
@@ -698,7 +698,7 @@ focus_tree = {
 				producer = BAV
 			
 		   }
-		   add_political_power = -50
+		   add_political_power = 25
 		   
         }   
     }
@@ -755,7 +755,7 @@ focus_tree = {
 			focus = BAV_the_rise_of_the_bnbap
         }
 		completion_reward = {
-		     add_political_power = -25
+		     add_political_power = 25
 			 add_war_support = 0.02
 			 add_manpower = -500
 			  add_popularity = {
@@ -2269,6 +2269,291 @@ focus_tree = {
 	}
 	
 	focus = {
+        id = BAV_the_anarchist_revolution_triumphant
+        icon = GFX_focus_BAV_revolution
+        x = -4
+        y = 10
+        cost = 5
+		available = {
+			has_completed_focus = BAV_german_reunification_manifested
+		}
+		available = {
+			has_completed_focus = BAV_mother_anarchy_loves_bavaria
+		}
+        completion_reward = {
+			 add_stability = 0.05
+			 add_political_power = 25
+        }        
+    }
+	
+	focus = {
+        id = BAV_transform_the_german_language
+        icon = GFX_focus_BAV_language
+        relative_position_id = BAV_the_anarchist_revolution_triumphant
+        x = -2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_anarchist_revolution_triumphant
+        }
+		completion_reward = {
+			add_ideas = {
+				BAV_a_poetic_language
+			}
+	}
+	}
+	
+	focus = {
+        id = BAV_reconnect_with_nature
+        icon = GFX_focus_BAV_nature
+        relative_position_id = BAV_transform_the_german_language
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_transform_the_german_language
+        }
+		completion_reward = {
+			add_ideas = {
+				BAV_connection_with_nature
+			}
+	}
+	}
+	
+	focus = {
+        id = BAV_establish_a_true_council_democracy
+        icon = GFX_focus_BAV_language
+        relative_position_id = BAV_the_anarchist_revolution_triumphant
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_anarchist_revolution_triumphant
+        }
+		completion_reward = {
+			add_ideas = {
+				BAV_a_true_council_democracy
+			}
+	}
+	}
+	
+	focus = {
+        id = BAV_total_freedom_of_thought
+        icon = GFX_focus_BAV_language
+        relative_position_id = BAV_establish_a_true_council_democracy
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_a_true_council_democracy
+        }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+				add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.05
+			}
+			add_ideas = free_press
+	}
+	}
+	
+	focus = {
+        id = BAV_decentralized_economic_development
+        icon = GFX_focus_BAV_decentralized
+        relative_position_id = BAV_the_anarchist_revolution_triumphant
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_anarchist_revolution_triumphant
+        }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			add_political_power = 25
+	}
+	}
+	
+	focus = {
+        id = BAV_the_home_of_the_anarchist_revolution
+        icon = GFX_focus_BAV_decentralized
+        relative_position_id = BAV_decentralized_economic_development
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_decentralized_economic_development
+        }
+		completion_reward = {
+			add_manpower = 200000
+			add_war_support = 0.05
+	}
+	}
+	
+	focus = {
+        id = BAV_the_end_of_tyranny_approaches
+        icon = GFX_focus_BAV_decentralized
+        relative_position_id = BAV_total_freedom_of_thought
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_total_freedom_of_thought
+        }
+		prerequisite = {
+            focus = BAV_the_home_of_the_anarchist_revolution
+        }
+		prerequisite = {
+            focus = BAV_reconnect_with_nature
+        }
+		completion_reward = {
+			add_war_support = 0.1
+	}
+	}
+	
+	focus = {
+        id = BAV_die_anarchisten_von_wien
+        icon = GFX_focus_BAV_wien
+        relative_position_id = BAV_the_end_of_tyranny_approaches
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_end_of_tyranny_approaches
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			    AUS = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = AUS
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_spread_anarchism_to_the_benelux
+        icon = GFX_focus_BAV_wien
+        relative_position_id = BAV_the_end_of_tyranny_approaches
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_end_of_tyranny_approaches
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			    LUX = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = LUX
+			     }
+				 BEL = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = BEL
+			     }
+				 HOL = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = HOL
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_take_down_the_home_of_tyranny
+        icon = GFX_focus_BAV_wien
+        relative_position_id = BAV_die_anarchisten_von_wien
+        x = 1
+        y = 1
+        cost = 8
+		prerequisite = {
+            focus = BAV_die_anarchisten_von_wien
+        }
+		prerequisite = {
+            focus = BAV_spread_anarchism_to_the_benelux
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			    FRA = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = FRA
+			     }
+               }
+	}
+	
+	focus = {
+        id = BAV_establish_the_european_free_territory
+        icon = GFX_focus_BAV_wien
+        relative_position_id = BAV_take_down_the_home_of_tyranny
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_take_down_the_home_of_tyranny
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		       
+			   set_cosmetic_tag = BAV_european_anarchy
+			    DEN = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = DEN
+			     }
+				  SWI = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = SWI
+			     }
+				  LIE = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = LIE
+			     }
+               }
+	}
+	
+	focus = {
         id = BAV_the_victory_of_the_national_revolution
         icon = GFX_focus_BAV_gobi
         x = 22
@@ -2746,6 +3031,10 @@ focus_tree = {
 				 create_wargoal = {
 				type = annex_everything
 				target = SWE
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = FIN
 			     }
                }
 	}
