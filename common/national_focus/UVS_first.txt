@@ -48,7 +48,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_well_organized_revolution_log"
 			
 			add_command_power = 15
-			army_experience = 10
+			army_experience = 20
 		}
 	}
 	
@@ -83,7 +83,7 @@ focus_tree = {
 					instant_build = yes
 				}
 				}
-			army_experience = 10
+			army_experience = 25
 		}
 	}
 	
@@ -3266,6 +3266,125 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = UVS_an_infrastructure_system_for_the_modern_age
+		icon = GFX_focus_SOV_stalin_country_infrastructure
+		x = 0
+		y = 1
+		cost = 10
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_a_civilian_orientated_four_year_plan
+			
+		prerequisite = {
+		    focus = UVS_a_civilian_orientated_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+             random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = UVS_strenghten_the_production_of_arms
+		icon = GFX_focus_SOV_stalin_estabilish_the_planning_councils
+		x = 0
+		y = 1
+		cost = 10
+		search_filters = {FOCUS_FILTER_POLITICAL}		
+		relative_position_id = UVS_a_military_orientated_four_year_plan
+			
+		prerequisite = {
+		    focus = UVS_a_military_orientated_four_year_plan
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_crush_the_invaders_log"
+           	random_owned_state = {
+				add_extra_state_shared_building_slots = 3
+		
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_ideas = UVS_military_production_planning_councils
+		}
+		}
+		
+	focus = {
+		id = UVS_establish_new_public_universities
+		icon = GFX_focus_BAV_lmu
+		x = 0
+		y = 2
+		cost = 10
+		relative_position_id = UVS_plan_a_second_four_year_plan
+		prerequisite = { focus = UVS_a_military_orientated_four_year_plan focus = UVS_a_civilian_orientated_four_year_plan }
+		completion_reward = {
+			add_research_slot = 1
+			add_political_power= 25
+		}
+	}
+	
 
 	### Imperialism (how supper socialist of them) ###
 	focus = {
@@ -3274,8 +3393,8 @@ focus_tree = {
 		cost = 5
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		
-		x = 20
-		y = 9
+		x = 29
+		y = 10
 
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
@@ -3296,12 +3415,12 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		
 		prerequisite = {
-			focus = UVS_first_estabilish_the_european_revolutionary_front
-			focus = UVS_first_membership_in_the_comintern
+			focus = UVS_first_red_germany_on_the_world_stage
 		}
 
 		relative_position_id = UVS_first_red_germany_on_the_world_stage
-		y = 2
+		y = 1
+		x = 7
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_bring_the_revolution_to_austria"
@@ -3323,6 +3442,7 @@ focus_tree = {
 
 		relative_position_id = UVS_first_bring_the_revolution_to_austria
 		y = 1
+		x = -1
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_the_czechoslovak_question"
@@ -3521,14 +3641,11 @@ focus_tree = {
 		cost = 5
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		
-		prerequisite = { focus = UVS_first_the_czechoslovak_question }
-		prerequisite = {
-			focus = UVS_first_cooperation_with_the_swedish_revolution
-			focus = UVS_first_comintern_technological_sharing
-		}
+		prerequisite = { focus = UVS_first_red_germany_on_the_world_stage }
 		
-		relative_position_id = UVS_first_the_czechoslovak_question
+		relative_position_id = UVS_first_red_germany_on_the_world_stage
 		y = 1
+		x = -7
 
 		completion_reward = {
 			country_event = uvs.diplomacy.5
