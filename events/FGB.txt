@@ -2680,3 +2680,72 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = dsh.15
+	title = dsh.15.t
+	desc = dsh.15.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.15.a
+		add_war_support = 0.05
+		add_political_power = 80
+	}
+}
+
+country_event = {
+	id = dsh.16
+	title = dsh.16.t
+	desc = dsh.16.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.16.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = dsh.17
+	title = dsh.17.t
+	desc = dsh.17.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.17.a
+		ai_chance = { base = 15 }
+		every_unit_leader = { set_nationality = DSH }
+		DSH = { 
+			annex_country = { 
+				target = PLA
+				transfer_troops = yes 
+			} 
+		}
+	}
+	option = {
+		name = dsh.17.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = PLA
+			} 
+		}
+	}
+}
+
+news_event = {
+	id = dsh.18
+	title = dsh.18.t 
+	desc = dsh.18.d 
+	picture = GFX_news_event_stahlhelm_unification
+	is_triggered_only = yes 
+
+	option = {
+		name = dsh.18.a
+	}
+}
