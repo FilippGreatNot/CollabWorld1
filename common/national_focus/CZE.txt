@@ -1,0 +1,156 @@
+focus_tree = {
+    id = CZE_starting
+	
+    country = {
+        base = 0
+        modifier = {
+            add = 10
+            tag = CZE
+        }
+    }
+	
+	focus = {
+	    id = CZE_convene_the_legionary_council
+		x = 5
+		y = 0
+		cost = 3
+	}
+	focus = {
+	    id = CZE_question_of_military
+		relative_position_id = CZE_convene_the_legionary_council
+		prerequisite = {
+		    focus = CZE_convene_the_legionary_council
+		}
+		x = -2
+		y = 1
+		cost = 3
+	}
+	focus = {
+	    id = CZE_question_of_identity
+		relative_position_id = CZE_convene_the_legionary_council
+		prerequisite = {
+		    focus = CZE_convene_the_legionary_council
+		}
+		x = 2
+		y = 1
+		cost = 3
+	}
+	focus = {
+	    id = CZE_legionary_traditions
+		relative_position_id = CZE_question_of_military
+		prerequisite = {
+		    focus = CZE_question_of_military
+		}
+		mutually_exclusive = { focus = CZE_new_czechoslovak_army }
+		x = -1
+		y = 1
+		cost = 5
+	}
+	focus = {
+	    id = CZE_new_czechoslovak_army
+		relative_position_id = CZE_question_of_military
+		prerequisite = {
+		    focus = CZE_question_of_military
+		}
+		mutually_exclusive = { focus = CZE_legionary_traditions }
+		x = 1
+		y = 1
+		cost = 5
+	}
+	focus = {
+	    id = CZE_status_of_russian_legion
+		relative_position_id = CZE_legionary_traditions
+		prerequisite = {
+		    focus = CZE_legionary_traditions
+		}
+		x = 0
+		y = 1
+		cost = 5
+	}
+	focus = {
+	    id = CZE_repatriate_imperial_soldiers
+		relative_position_id = CZE_new_czechoslovak_army
+		prerequisite = {
+		    focus = CZE_new_czechoslovak_army
+		}
+		x = 0
+		y = 1
+		cost = 5
+	}
+	focus = {
+	    id = CZE_parade_of_army
+		relative_position_id = CZE_repatriate_imperial_soldiers
+        prerequisite = {
+		   focus = CZE_repatriate_imperial_soldiers
+		   focus = CZE_status_of_russian_legion
+		}
+		x = -1
+		y = 1
+		cost = 3
+	}
+    focus = { 
+	    id = CZE_union_of_two_nations
+		relative_position_id = CZE_question_of_identity
+		prerequisite = {
+		    focus = CZE_question_of_identity
+		}
+		mutually_exclusive = { focus = CZE_federative_republic }
+		x = -1
+		y = 1
+		cost = 5
+	}
+    focus = { 
+	    id = CZE_federative_republic
+		relative_position_id = CZE_question_of_identity
+		prerequisite = {
+		    focus = CZE_question_of_identity
+		}
+		mutually_exclusive = { focus = CZE_union_of_two_nations }
+		x = 1
+		y = 1
+		cost = 5
+	}
+	    focus = { 
+	    id = CZE_multilingual_state
+		relative_position_id = CZE_federative_republic
+		prerequisite = {
+		    focus = CZE_federative_republic
+		}
+		x = 0
+		y = 1
+		cost = 5
+	}
+    focus = { 
+	    id = CZE_embrace_czechoslovak_superiority
+		relative_position_id = CZE_question_of_identity
+		prerequisite = {
+		    focus = CZE_union_of_two_nations
+		}
+		x = -1
+		y = 2
+		cost = 5
+	}
+    focus = { 
+	    id = CZE_birth_of_a_new_identity
+		relative_position_id = CZE_embrace_czechoslovak_superiority
+		prerequisite = {
+		    focus = CZE_multilingual_state
+			focus = CZE_embrace_czechoslovak_superiority
+		}
+		x = 1
+		y = 1
+		cost = 3
+	}
+    focus = { 
+	    id = CZE_return_of_the_russian_legion
+		relative_position_id = CZE_parade_of_army
+		prerequisite = {
+		    focus = CZE_parade_of_army
+		}
+		prerequisite = {
+		    focus = CZE_birth_of_a_new_identity
+		}
+		x = 2
+		y = 1
+		cost = 3
+	}
