@@ -193,7 +193,7 @@ focus_tree = {
 		x = 11
 		y = 3
 		completion_reward = {
-			
+			remove_ideas = UKR_banditism
 		}
 	}
 
@@ -206,6 +206,8 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			set_country_flag = UKR_can_demand
+			add_war_support = 0.05
+			add_political_power = 30
 		}
 	}
 
@@ -217,7 +219,7 @@ focus_tree = {
 		x = 5
 		y = 5
 		completion_reward = {
-			
+			custom_effect_tooltip = UKR_soc_look_west_tooltip
 		}
 	}
 
@@ -226,6 +228,11 @@ focus_tree = {
 		icon = GFX_focus_UKR_soc_tukha_problem
 		cost = 5
 		prerequisite = { focus = UKR_soc_look_on_west }
+		bypass = {
+			NOT = {
+				country_exists = BLR
+			}
+		}
 		x = 4
 		y = 6
 		completion_reward = {
@@ -264,12 +271,24 @@ focus_tree = {
 	}
 
 	focus = {
+		id = UKR_soc_loot_on_east
+		icon = GFX_focus_UKR_soc_look_on_east
+		cost = 5
+		prerequisite = { focus = UKR_soc_expand }
+		x = 9
+		y = 5
+		completion_reward = {
+			custom_effect_tooltip = UKR_soc_look_east_tooltip
+		}
+	}
+
+	focus = {
 		id = UKR_soc_call_from_moscow
 		icon = GFX_focus_UKR_soc_call_from_moscow
 		cost = 5
 		prerequisite = { focus = UKR_soc_expand }
 		x = 9
-		y = 5
+		y = 6
 		completion_reward = {
 			country_event = ukr_soc.1
 		}
@@ -282,7 +301,7 @@ focus_tree = {
 		prerequisite = { focus = UKR_soc_call_from_moscow }
 		mutually_exclusive = { focus = UKR_soc_reject }
 		x = 8
-		y = 6
+		y = 7
 		completion_reward = {
 			
 		}
@@ -295,7 +314,7 @@ focus_tree = {
 		prerequisite = { focus = UKR_soc_call_from_moscow }
 		mutually_exclusive = { focus = UKR_soc_accept }
 		x = 10
-		y = 6
+		y = 7
 		completion_reward = {
 			
 		}
@@ -497,7 +516,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 2
-						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 2
@@ -512,7 +530,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 1
-						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 1
@@ -527,7 +544,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 1
-						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 1
@@ -659,7 +675,7 @@ focus_tree = {
 			}
 		}
 		x = 10
-		y = 7
+		y = 8
 		completion_reward = {
 			set_country_flag = UKR_can_demand_crimea
 			}
@@ -672,9 +688,9 @@ focus_tree = {
 			focus = UKR_soc_accept
 		}
 		x = 8
-		y = 7
+		y = 8
 		completion_reward = {
-			
+			activate_advisor = UKR_
 		}
 	}
 	focus = {
@@ -690,7 +706,7 @@ focus_tree = {
 			focus = UKR_soc_demand_crimea
 		}
 		x = 10
-		y = 8
+		y = 9
 		completion_reward = {
 			
 		}
@@ -699,6 +715,11 @@ focus_tree = {
 		id = UKR_soc_invade
 		icon = GFX_focus_UKR_soc_invade
 		cost = 5
+		bypass = {
+			NOT = {
+				country_exists = SRF
+			}
+		}
 		prerequisite = { focus = UKR_soc_tukha_problem }
 		mutually_exclusive = { focus = UKR_soc_unite }
 		x = 5
@@ -707,6 +728,27 @@ focus_tree = {
 			
 		}
 	}
+
+	focus = {
+		id = UKR_soc_lith
+		icon = GFX_focus_UKR_soc_lith
+		cost = 5
+		bypass = {
+			NOT = {
+				country_exists = LAT
+			}
+		}
+		prerequisite = { focus = UKR_soc_invade focus = UKR_soc_unite }
+		x = 4
+		y = 8
+		completion_reward = {
+			create_wargoal = {
+				target = LAT
+				type = annex_everything
+			}
+		}
+	}
+
 	focus = {
 		id = UKR_soc_modern_tanks
 		icon = GFX_focus_UKR_soc_modern_tanks
