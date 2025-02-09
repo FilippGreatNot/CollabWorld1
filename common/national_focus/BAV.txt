@@ -1822,12 +1822,18 @@ focus_tree = {
         }
 		available = {
 			has_war = no
-			is_neighbor_of = FGB
+			OR = {
+				is_neighbor_of = FGB
+				is_neighbor_of = DSH
+			}
 		}
 		
 		bypass = {
 			NOT = {
 				country_exists = FGB
+			}
+			NOT = {
+				country_exists = DSH
 			}
 		}
 		mutually_exclusive = {
@@ -1835,14 +1841,25 @@ focus_tree = {
 		}
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		completion_reward = {
-				add_political_power = -50
-				add_stability = -0.05
+			add_political_power = -50
+			add_stability = -0.05
+			if = { 
+				limit = { is_neighbor_of = FGB } 
 				declare_war_on = {
-				target = FGB
-				type = civil_war
-			    }
-			    add_civil_war_target = FGB
-               }
+					target = FGB
+					type = civil_war
+				}	
+				add_civil_war_target = FGB
+			}
+			if = { 
+				limit = { is_neighbor_of = DSH } 
+				declare_war_on = {
+					target = DSH
+					type = civil_war
+				}	
+				add_civil_war_target = DSH
+			}
+        }
 	}
 	focus = {
         id = BAV_prepare_for_the_inevitable
@@ -1857,7 +1874,10 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}	
 		available = {
 			has_war = no
-			is_neighbor_of = FGB
+			OR = {
+				is_neighbor_of = FGB
+				is_neighbor_of = DSH
+			}
 		}
 		mutually_exclusive = {
 			focus = BAV_deal_the_first_blow
@@ -1865,6 +1885,9 @@ focus_tree = {
 		bypass = {
 			NOT = {
 				country_exists = FGB
+			}
+			NOT = {
+				country_exists = DSH
 			}
 		}
 		completion_reward = {
@@ -1932,6 +1955,9 @@ focus_tree = {
         available = {
 			NOT = {
 				country_exists = FGB
+			}
+			NOT = {
+				country_exists = DSH
 			}
 		}
 		search_filters = {FOCUS_FILTER_ANNEXATION}

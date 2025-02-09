@@ -1,3 +1,4 @@
+#!gfx:interface/country/germany/FGB/DSH_focus.gfx
 focus_tree = {
 	id = DSH
 	country = {
@@ -12,7 +13,7 @@ focus_tree = {
 	focus = {
 		id = DSH_a_new_era_for_the_bund
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 15
+		x = 10
 		y = 0
 		cost = 4
 		available_if_capitulated = yes
@@ -25,7 +26,7 @@ focus_tree = {
 	}
     focus = {
 		id = DSH_repurpose_unused_workshops
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_repurpose_unused_workshops
 		x = -1
 		y = 1
 		cost = 4
@@ -95,7 +96,7 @@ focus_tree = {
 	}
     focus = {
 		id = DSH_field_new_commanders
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_field_new_commanders
 		x = 0
 		y = 2
 		cost = 4
@@ -142,7 +143,7 @@ focus_tree = {
 	}
     focus = {
 		id = DSH_begin_propaganda_efforts
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_begin_propaganda_efforts
 		x = 1
 		y = 1
 		cost = 4
@@ -268,6 +269,1141 @@ focus_tree = {
                 limit = { is_core_of = FGB }
                 remove_core_of = FGB 
             }
+			set_capital = { state = 50 remember_old_capital = no }
+		}
+	}
+	focus = {
+		id = DSH_onto_our_next_path
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_the_freikorps_final_road
+        prerequisite = { focus = DSH_the_freikorps_final_road }
+		completion_reward = {
+            add_political_power = 50
+			country_event = dsh.5
+		}
+	}
+	focus = {
+		id = DSH_appoint_a_regency_council
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 5
+		y = 1
+		offset = {
+			x = -5
+			trigger = {
+				has_completed_focus = DSH_appoint_a_regency_council
+			}
+		}
+		cost = 4
+		available_if_capitulated = yes
+		allow_branch = {
+			NOT = { has_completed_focus = DSH_duesterbergs_ascension } 
+		}
+		mutually_exclusive = { focus = DSH_duesterbergs_ascension }
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_onto_our_next_path
+        prerequisite = { focus = DSH_onto_our_next_path }
+		completion_reward = {
+			set_politics = {
+				ruling_party = despotism 
+			}
+            add_country_leader_role = {
+    			character = DSH_regency_council
+    			promote_leader = yes
+    			country_leader = {
+        			ideology = absolute_monarchy
+        			traits = { provisional_body }
+    			}
+			}
+			country_event = { id = fgb.7 days = 2 }
+		}
+	}
+	focus = {
+		id = DSH_duesterbergs_ascension
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -5
+		y = 1
+		offset = {
+			x = 5
+			trigger = {
+				has_completed_focus = DSH_duesterbergs_ascension
+			}
+		}
+		cost = 4
+		available_if_capitulated = yes
+		allow_branch = {
+			NOT = { has_completed_focus = DSH_appoint_a_regency_council } 
+		}
+		mutually_exclusive = { focus = DSH_appoint_a_regency_council }
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_onto_our_next_path
+        prerequisite = { focus = DSH_onto_our_next_path }
+		completion_reward = {
+            add_country_leader_role = {
+    			character = DSH_theodor_duesterberg
+    			promote_leader = yes
+    			country_leader = {
+        			ideology = stratocracy
+        			traits = { war_industrialist }
+    			}
+			}
+		}
+	}
+	focus = {
+		id = DSH_a_strong_stahlhelm
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -3
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_duesterbergs_ascension
+        prerequisite = { focus = DSH_duesterbergs_ascension }
+		completion_reward = {
+			add_war_support = 0.05
+			remove_ideas = DSH_divided_militias
+			add_Ideas = { DSH_a_strong_stahlhelm_idea }
+		}
+	}
+	focus = {
+		id = DSH_send_our_generals_out
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_strong_stahlhelm
+        prerequisite = { focus = DSH_a_strong_stahlhelm }
+		completion_reward = {
+			custom_effect_tooltip = DSH_we_will_send_our_generals_out_tt
+			add_timed_idea = {
+				idea = DSH_training_our_officers_abroad
+				days = 100
+			}
+			country_event = { id = dsh.11 days = 100 }
+		}
+	}
+	focus = {
+		id = DSH_disarm_and_depolitisise_the_militias
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_strong_stahlhelm
+        prerequisite = { focus = DSH_a_strong_stahlhelm }
+		prerequisite = { focus = DSH_the_army_before_democracy }
+		completion_reward = {
+			army_experience = -50
+			add_stability = 0.1
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = DSH_plug_the_gaps
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_send_our_generals_out
+        prerequisite = { focus = DSH_send_our_generals_out }
+		prerequisite = { focus = DSH_disarm_and_depolitisise_the_militias }
+		completion_reward = {
+			add_manpower = 15000
+			add_timed_idea = {
+				idea = DSH_all_hands_on_deck
+				days = 120
+			}
+		}
+	}
+	focus = {
+		id = DSH_a_worthy_successor_to_the_prussian_reich
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_plug_the_gaps
+        prerequisite = { focus = DSH_plug_the_gaps }
+		completion_reward = {
+			add_war_support = 0.1
+			add_ideas = { DSH_preussens_gloria }
+		}
+	}
+	focus = {
+		id = DSH_the_army_before_democracy
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_duesterbergs_ascension
+        prerequisite = { focus = DSH_duesterbergs_ascension }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = liberalism 
+				popularity = -0.05
+			}
+			army_experience = 30
+		}
+	}
+	focus = {
+		id = DSH_order_above_all
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_the_army_before_democracy
+		prerequisite = { focus = DSH_the_army_before_democracy }
+		completion_reward = {
+			add_ideas = {
+				DSH_order_above_all_idea
+			}
+		}
+	}
+	focus = {
+		id = DSH_the_only_red_in_the_room_should_be_blood
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_duesterbergs_ascension
+        prerequisite = { focus = DSH_duesterbergs_ascension }
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_manpower = -140000
+			add_timed_idea = {
+				idea = DSH_the_purge_of_all_that_is_red
+				months = 3
+			}
+		}
+	}
+	focus = {
+		id = DSH_a_new_flag_for_germany
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_the_army_before_democracy
+        prerequisite = { focus = DSH_the_army_before_democracy }
+		prerequisite = { focus = DSH_the_only_red_in_the_room_should_be_blood }
+		completion_reward = {
+			add_war_support = 0.05
+			set_cosmetic_tag = DSH_duesterberg 
+		}
+	}
+	focus = {
+		id = DSH_demolish_slum_housing_for_factories
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_duesterbergs_ascension
+        prerequisite = { focus = DSH_duesterbergs_ascension }
+		completion_reward = {
+			add_stability = -0.1
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_secure_the_support_of_militaristic_industrialists
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_demolish_slum_housing_for_factories
+        prerequisite = { focus = DSH_demolish_slum_housing_for_factories }
+		completion_reward = {
+			add_war_support = 0.05
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_kings_investments
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_appoint_a_regency_council
+        prerequisite = { focus = DSH_appoint_a_regency_council }
+		completion_reward = {
+			add_political_power = -100
+			852 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_bribe_monarchist_junkers
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_kings_investments
+        prerequisite = { focus = DSH_kings_investments }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = despotism 
+				popularity = 0.05
+			}
+			add_political_power = -50
+			852 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			50 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_investments_into_stuttgart_proper
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		offset = {
+			x = 5
+			trigger = {
+				has_completed_focus = DSH_duesterbergs_ascension
+			}
+		}
+		offset = {
+			x = -5
+			trigger = {
+				has_completed_focus = DSH_appoint_a_regency_council
+			}
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_bribe_monarchist_junkers
+        prerequisite = { focus = DSH_seize_socialist_property focus = DSH_bribe_monarchist_junkers }
+		completion_reward = {
+			add_research_slot = 1
+			50 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_seize_socialist_property
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_demolish_slum_housing_for_factories
+        prerequisite = { focus = DSH_demolish_slum_housing_for_factories }
+		completion_reward = {
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_political_power = 100
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_build_a_new_military_school
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no 
+		}
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_investments_into_stuttgart_proper
+        prerequisite = { focus = DSH_investments_into_stuttgart_proper }
+		completion_reward = {
+			add_war_support = 0.1
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = DSH_reconstruct_the_highways
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_secure_the_support_of_militaristic_industrialists
+        prerequisite = { focus = DSH_secure_the_support_of_militaristic_industrialists }
+		prerequisite = { focus = DSH_seize_socialist_property }
+		completion_reward = {
+			852 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			54 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_mark_1924_red
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_the_only_red_in_the_room_should_be_blood
+        prerequisite = { focus = DSH_the_only_red_in_the_room_should_be_blood }
+		completion_reward = {
+			add_stability = -0.1
+			add_war_support = 0.15
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.15
+			}
+			add_manpower = -4000
+		}
+	}
+	focus = {
+		id = DSH_end_the_reconstruction_period
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 15
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_mark_1924_red
+        prerequisite = { focus = DSH_mark_1924_red }
+		prerequisite = { focus = DSH_reconstruct_the_highways }
+		completion_reward = {
+			add_stability = 0.15
+			add_war_support = 0.05
+			add_political_power = 50
+			add_timed_idea = {
+				idea = DSH_a_new_hope
+				days = 60
+			}
+			custom_effect_tooltip = FGB_repairing_damaged_roads_decisions_unlocked_tt
+			set_country_flag = repair_damaged_roads_flag
+		}
+	}
+	focus = {
+		id = DSH_increase_steel_imports
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_kings_investments
+        prerequisite = { focus = DSH_kings_investments }
+		completion_reward = {
+			add_political_power = -50
+			every_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+			852 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_biannual_industrial_investments
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_bribe_monarchist_junkers
+        prerequisite = { focus = DSH_bribe_monarchist_junkers }
+		prerequisite = { focus = DSH_increase_steel_imports }
+		completion_reward = {
+			custom_effect_tooltip = DSH_we_will_receive_a_free_factory_once_every_six_months_tt
+			effect_tooltip = {
+				country_event = dsh.6
+			}
+		}
+	}
+	focus = {
+		id = DSH_bust_the_roadblocks
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_biannual_industrial_investments
+        prerequisite = { focus = DSH_biannual_industrial_investments }
+		completion_reward = {
+			add_stability = -0.1
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_the_return_of_the_king
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		allow_branch = {
+			NOT = { has_completed_focus = DSH_the_compromise } 
+			NOT = { has_completed_focus = DSH_power_to_the_duke } 
+			NOT = { has_completed_focus = DSH_the_mad_monarchist } 
+		}
+		mutually_exclusive = { focus = DSH_the_compromise }
+		mutually_exclusive = { focus = DSH_power_to_the_duke }
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_appoint_a_regency_council
+        prerequisite = { focus = DSH_appoint_a_regency_council }
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = DSH_the_compromise
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 5
+		y = 1
+		offset = {
+			x = -3
+			trigger = {
+				has_completed_focus = DSH_the_compromise
+			}
+		}
+		cost = 5
+		available_if_capitulated = yes
+		allow_branch = {
+			NOT = { has_completed_focus = DSH_the_return_of_the_king } 
+			NOT = { has_completed_focus = DSH_power_to_the_duke } 
+			NOT = { has_completed_focus = DSH_the_mad_monarchist } 
+		}
+		mutually_exclusive = { focus = DSH_the_return_of_the_king }
+		mutually_exclusive = { focus = DSH_power_to_the_duke }
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_appoint_a_regency_council
+        prerequisite = { focus = DSH_appoint_a_regency_council }
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = DSH_power_to_the_duke
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 8
+		y = 1
+		offset = {
+			x = -6
+			trigger = {
+				has_completed_focus = DSH_power_to_the_duke
+			}
+		}
+		cost = 5
+		available_if_capitulated = yes
+		allow_branch = {
+			NOT = { has_completed_focus = DSH_the_return_of_the_king } 
+			NOT = { has_completed_focus = DSH_the_compromise } 
+			NOT = { has_completed_focus = DSH_the_mad_monarchist } 
+		}
+		mutually_exclusive = { focus = DSH_the_return_of_the_king }
+		mutually_exclusive = { focus = DSH_the_compromise }
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_appoint_a_regency_council
+        prerequisite = { focus = DSH_appoint_a_regency_council }
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = DSH_the_mad_monarchist
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 10
+		y = 1
+		offset = {
+			x = -8
+			trigger = {
+				has_completed_focus = DSH_the_mad_monarchist
+			}
+		}
+		cost = 5
+		available_if_capitulated = yes
+		allow_branch = {
+			has_country_flag = DSH_willy
+		}
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_appoint_a_regency_council
+        prerequisite = { focus = DSH_appoint_a_regency_council }
+		completion_reward = {
+			add_country_leader_role = {
+				character = DSH_august_wilhelm
+				promote_leader = yes
+				country_leader = {
+					ideology = absolute_monarchy
+					expire = "1965.1.1.1"
+					traits = { iron_fist_rule }
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_there_was_a_dream_called_germany
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 25
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+			date > 1923.1.30
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = DSH_a_patriots_vow
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -4
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		available = {
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_there_was_a_dream_called_germany
+		prerequisite = { focus = DSH_there_was_a_dream_called_germany }
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = DSH_cross_the_rhine
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+			has_government = authoritarian_democrat
+		}
+		mutually_exclusive = { focus = DSH_offer_a_peaceful_unification_to_the_wehrkommando }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_a_patriots_vow
+		prerequisite = { focus = DSH_a_patriots_vow }
+		completion_reward = {
+			WRD = {
+				every_owned_state = {
+					add_claim_by = DSH
+				}
+			}
+			declare_war_on = {
+				target = WRD
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = DSH_offer_a_peaceful_unification_to_the_wehrkommando
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+			has_government = authoritarian_democrat
+		}
+		mutually_exclusive = { focus = DSH_cross_the_rhine }
+		ai_will_do = {
+			factor = 20
+		}
+		relative_position_id = DSH_a_patriots_vow
+		prerequisite = { focus = DSH_a_patriots_vow }
+		completion_reward = {
+			add_stability = 0.05
+			WRD = { country_event = { id = dsh.13 days = 2 } }
+		}
+	}
+	focus = {
+		id = DSH_rehabilitate_former_officers
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = WRD }
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_cross_the_rhine
+		prerequisite = { focus = DSH_cross_the_rhine focus = DSH_offer_a_peaceful_unification_to_the_wehrkommando }
+		completion_reward = {
+			add_stability = 0.05
+			add_manpower = 10000
+			army_experience = 20
+			WRD = {
+				every_core_state = {
+					add_resistance = -10
+					add_compliance = 10
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_the_industry_from_the_rhineland
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = WRD }
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_offer_a_peaceful_unification_to_the_wehrkommando
+		prerequisite = { focus = DSH_cross_the_rhine focus = DSH_offer_a_peaceful_unification_to_the_wehrkommando }
+		completion_reward = {
+			add_political_power = -50
+			1085 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+			51 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+			WRD = {
+				every_core_state = {
+					add_resistance = -10
+					add_compliance = 10
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_brothers_in_arms_brothers_in_blood
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = WRD }
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_rehabilitate_former_officers
+		prerequisite = { focus = DSH_rehabilitate_former_officers }
+		prerequisite = { focus = DSH_the_industry_from_the_rhineland }
+		completion_reward = {
+			add_war_support = 0.1
+			add_stability = 0.05
+			WRD = {
+				every_core_state = {
+					add_core_of = DSH 
+					remove_core_of = WRD
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_demand_the_end_of_the_bavarian_republic
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_a_patriots_vow
+		prerequisite = { focus = DSH_a_patriots_vow }
+		completion_reward = {
+			add_war_support = 0.05
+			BAV = { country_event = { id = dsh.12 days = 2 } }
+		}
+	}
+	focus = {
+		id = DSH_discredit_the_communist_regime
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = BAV }
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_demand_the_end_of_the_bavarian_republic
+		prerequisite = { focus = DSH_demand_the_end_of_the_bavarian_republic }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			BAV = {
+				every_core_state = {
+					add_resistance = -10
+					add_compliance = 10
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_force_the_workers_back_into_the_factories
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = BAV }
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_demand_the_end_of_the_bavarian_republic
+		prerequisite = { focus = DSH_demand_the_end_of_the_bavarian_republic }
+		completion_reward = {
+			add_stability = -0.1
+			BAV = {
+				every_core_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build  = yes
+					}
+					add_resistance = -10
+					add_compliance = 10
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_finish_off_the_last_reaches_of_the_revolt
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = BAV }
+			has_government = authoritarian_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_discredit_the_communist_regime
+		prerequisite = { focus = DSH_discredit_the_communist_regime }
+		prerequisite = { focus = DSH_force_the_workers_back_into_the_factories }
+		completion_reward = {
+			add_stability = -0.1
+			BAV = {
+				every_core_state = {
+					add_core_of = DSH 
+					remove_core_of = BAV 
+				}
+			}
+			54 = { remove_claim_by = BAV }
+			1084 = { remove_claim_by = BAV }
+		}
+	}
+	focus = {
+		id = DSH_who_wants_strudel
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = WRD }
+			NOT = { country_exists = BAV }
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_brothers_in_arms_brothers_in_blood
+		prerequisite = { focus = DSH_brothers_in_arms_brothers_in_blood }
+		prerequisite = { focus = DSH_finish_off_the_last_reaches_of_the_revolt }
+		completion_reward = {
+			add_timed_idea = { 
+				idea = UVS_recent_victory 
+				months = 2
+			}
+			country_event = dsh.14
+		}
+	}
+	focus = {
+		id = DSH_prepare_for_war
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_there_was_a_dream_called_germany
+		prerequisite = { focus = DSH_there_was_a_dream_called_germany }
+		completion_reward = {
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = DSH 
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = DSH 
+			}
+		}
+	}
+	focus = {
+		id = DSH_form_the_german_military_government
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_prepare_for_war
+		prerequisite = { focus = DSH_prepare_for_war }
+		completion_reward = {
+			add_war_support = 0.05
+			set_cosmetic_tag = DSH_gmg 
+		}
+	}
+	focus = {
+		id = DSH_a_sovereigns_dues
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 4
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		available = {
+			has_government = despotism
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_there_was_a_dream_called_germany
+		prerequisite = { focus = DSH_there_was_a_dream_called_germany }
+		completion_reward = {
+			add_stability = 0.05
 		}
 	}
 }
