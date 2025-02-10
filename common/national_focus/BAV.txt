@@ -2760,6 +2760,7 @@ focus_tree = {
 		       add_ideas = BAV_aggresive_foreign_policy
 			   create_faction = faction_BAV_national_bolshevik_revolutionary_front
 			   custom_effect_tooltip = BAV_reichkommisariats
+			   country_event = bavaria.30
                }
 	}
 	
@@ -3084,6 +3085,30 @@ focus_tree = {
 				add_idea = BAV_new_prussia2
 			}
                }
+	}
+	focus = {
+        id = BAV_a_walk_in_berlin
+        icon = GFX_focus_BAV_britain
+        relative_position_id = BAV_the_rise_of_german_hegemony
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_rise_of_german_hegemony
+			
+        }
+		prerequisite = {
+            focus = BAV_embargo_the_british
+        }
+		prerequisite = {
+            focus = BAV_take_over_the_caucasus
+        }
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		country_event = bavaria.32
+		}
 	}
    
 }

@@ -41,6 +41,7 @@ country_event = {
 			
 			promote_character = BAV_joseph_goebbels
 			set_cosmetic_tag = BAV_gobi
+			news_event = bavaria.28
 		}
 	}
 	
@@ -51,7 +52,7 @@ country_event = {
 		add_political_power = -25
 		ai_chance = { base = 8 }
 		
-	}
+		}
 }
 
 country_event = {
@@ -279,6 +280,9 @@ country_event = {
 		add_war_support = 0.03
 		add_stability = -0.02
 		custom_effect_tooltip = BAV_goebbels_threat_tt
+	hidden_effect = {
+	news_event = bavaria.29
+		}
 	}
 }
 
@@ -697,7 +701,6 @@ country_event = {
 		name = bavaria.25.a
 		add_stability = -0.1
 		add_ideas = BAV_worshipping_german_heroes
-		
 	}
 	
 	option = {
@@ -744,4 +747,82 @@ news_event = {
 		show_superevent_toller_GER_unification = yes
     }
 }
-	
+news_event = {
+    id = bavaria.28
+    title = bavaria.28.t
+    desc = bavaria.28.d
+    picture = GFX_news_event_goebbels_2
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.28.a
+    }
+}
+
+news_event = {
+    id = bavaria.29
+    title = bavaria.29.t
+    desc = bavaria.29.d
+    picture = GFX_news_event_goebbels_3
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.29.a
+    }
+}
+
+country_event = {
+	id = bavaria.30
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.30" }
+	title = bavaria.30.t
+	desc = bavaria.30.d
+	is_triggered_only = yes
+	picture = GFX_report_event_goebbels_4
+
+	option = {
+		name = bavaria.30.a
+		add_stability = 0.1
+		add_war_support = 0.1
+		add_ideas = BAV_total_war
+		custom_effect_tooltip = BAV_total_war_tt
+		hidden_effect = {
+		news_event = bavaria.31
+		}
+	}
+}
+
+news_event = {
+	id = bavaria.31
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.31" }
+	title = bavaria.31.t
+	desc = bavaria.31.d
+	is_triggered_only = yes
+	picture = GFX_news_event_goebbels_5
+
+	option = {
+		name = bavaria.31.a
+		custom_effect_tooltip = BAV_total_war_tt
+		hidden_effect = {
+		show_superevent_BAV_total_war = yes
+		}
+	}
+}
+
+country_event = {
+	id = bavaria.32
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.32" }
+	title = bavaria.32.t
+	desc = bavaria.32.d
+	is_triggered_only = yes
+	picture = GFX_report_event_goebbels_6
+
+	option = {
+		name = bavaria.32.a
+		set_province_name = { id = 6521 name = "Weltarbeiterstadt Germania" }
+		custom_effect_tooltip = BAV_thanks_for_playing_end_tt
+	}
+}
+
+

@@ -481,5 +481,40 @@ GER_states_coring_category = {
 				}
 			}
 		}
-	}	
-}
+	}
+	
+		GER_coring_integrate_bohemia = {
+		icon = GFX_decision_generic_form_nation
+		available = { controls_state = 9 }
+		visible = {
+			owns_state = 9
+			NOT = { 807 = { is_core_of = ROOT } }
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 9
+				state = 1080
+				state = 75
+				state = 72
+			}
+		}
+		modifier = { political_power_gain = -0.15 }
+		cost = 50
+		ai_will_do = { factor = 100 }
+		days_remove = 120
+		fire_only_once = yes
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_berlin remove"
+			add_state_core = 9
+			add_state_core = 1080
+			add_state_core = 75
+			add_state_core = 72
+			hidden_effect = {
+			set_province_name = { id = 115425 name = "Prag" }
+			set_province_name = { id = 9575 name = "Pilsen" }
+			set_province_name = { id = 3569 name = "Brünn" }
+			set_province_name = { id = 6562 name = "Olmütz" }
+		
+			}
+		}	
+	}
