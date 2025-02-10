@@ -13,7 +13,7 @@ focus_tree = {
 	    id = CZE_convene_the_legionary_council
 		x = 5
 		y = 0
-		cost = 3
+		cost = 4
 	}
 	focus = {
 	    id = CZE_question_of_military
@@ -23,7 +23,7 @@ focus_tree = {
 		}
 		x = -2
 		y = 1
-		cost = 3
+		cost = 4
 	}
 	focus = {
 	    id = CZE_question_of_identity
@@ -33,7 +33,7 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
-		cost = 3
+		cost = 4
 	}
 	focus = {
 	    id = CZE_legionary_traditions
@@ -44,7 +44,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_new_czechoslovak_army }
 		x = -1
 		y = 1
-		cost = 5
+		cost = 6
 	}
 	focus = {
 	    id = CZE_new_czechoslovak_army
@@ -55,7 +55,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_legionary_traditions }
 		x = 1
 		y = 1
-		cost = 5
+		cost = 6
 	}
 	focus = {
 	    id = CZE_status_of_russian_legion
@@ -65,7 +65,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 5
+		cost = 6
 	}
 	focus = {
 	    id = CZE_repatriate_imperial_soldiers
@@ -75,7 +75,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 5
+		cost = 6
 	}
 	focus = {
 	    id = CZE_parade_of_army
@@ -86,7 +86,7 @@ focus_tree = {
 		}
 		x = -1
 		y = 1
-		cost = 3
+		cost = 4
 	}
     focus = { 
 	    id = CZE_union_of_two_nations
@@ -97,7 +97,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_federative_republic }
 		x = -1
 		y = 1
-		cost = 5
+		cost = 6
 	}
     focus = { 
 	    id = CZE_federative_republic
@@ -108,7 +108,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_union_of_two_nations }
 		x = 1
 		y = 1
-		cost = 5
+		cost = 6
 	}
 	    focus = { 
 	    id = CZE_multilingual_state
@@ -118,7 +118,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 5
+		cost = 6
 	}
     focus = { 
 	    id = CZE_embrace_czechoslovak_superiority
@@ -128,7 +128,7 @@ focus_tree = {
 		}
 		x = -1
 		y = 2
-		cost = 5
+		cost = 6
 	}
     focus = { 
 	    id = CZE_birth_of_a_new_identity
@@ -139,7 +139,7 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		cost = 3
+		cost = 4
 	}
     focus = { 
 	    id = CZE_return_of_the_russian_legion
@@ -152,5 +152,66 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
-		cost = 3
+		cost = 4
 	}
+    focus = { 
+	    id = CZE_meeting_at_the_prague_castle
+		relative_position_id = CZE_return_of_the_russian_legion
+		prerequisite = {
+		    focus = CZE_return_of_the_russian_legion
+		}
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_death_of_stefanik
+		relative_position_id = CZE_meeting_at_the_prague_castle
+		prerequisite = { 
+		    focus = CZE_meeting_at_the_prague_castle
+		}
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_assure_the_public
+		relative_position_id = CZE_death_of_stefanik
+		prerequisite = { 
+		    focus = CZE_death_of_stefanik
+		}
+		x = 1
+		y = 1
+		cost = 6
+	}
+    focus = { 
+	    id = CZE_assemble_the_provisional_council
+		relative_position_id = CZE_death_of_stefanik
+		prerequisite = { 
+		    focus = CZE_death_of_stefanik
+		}
+		x = -1
+		y = 1
+		cost = 10
+	}
+    focus = { 
+	    id = CZE_begin_the_investigation
+		relative_position_id = CZE_assemble_the_provisional_council
+		prerequisite = { 
+		    focus = CZE_assemble_the_provisional_council
+		}
+		prerequisite = { 
+		    focus = CZE_assure_the_public
+		}
+		x = 1
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_better_keep_quiet
+		relative_position_id = CZE_convene_the_legionary_council
+		available = { has_completed_focus = CZE_begin_the_investigation }
+		x = 9
+		y = 0
+	}
+}
