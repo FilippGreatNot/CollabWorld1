@@ -705,7 +705,15 @@ country_event = {
 		name = fgb.26.a
 		ai_chance = { base = 5 }
 		FGB = {
-			complete_national_focus = FGB_question_the_kleindeutsche_idea
+			AUS = {
+				every_owned_state = {
+					add_core_of = FGB
+				}
+			}
+			annex_country = {
+				target = AUS
+				transfer_troops = yes
+			}
 		}
 	}
 
@@ -719,14 +727,12 @@ country_event = {
 				}
 				complete_national_focus = FGB_noske_establish_the_europakt
 				add_to_faction = AUS
-				unlock_national_focus = FGB_question_the_kleindeutsche_idea
 				country_event = fgb.27
 			}
 			else = {
 				FGB = {
 					add_to_faction = AUS
 				}
-				unlock_national_focus = FGB_question_the_kleindeutsche_idea
 				country_event = fgb.27
 			}
 		}
@@ -2744,6 +2750,7 @@ news_event = {
 	desc = dsh.18.d 
 	picture = GFX_news_event_stahlhelm_unification
 	is_triggered_only = yes 
+	major = yes
 
 	option = {
 		name = dsh.18.a

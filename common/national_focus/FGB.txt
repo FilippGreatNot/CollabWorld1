@@ -388,9 +388,9 @@ focus_tree = {
 				ruling_party = social_democrat
 			}
 			custom_effect_tooltip = FGB_we_will_enlist_ministers_tt
-			activate_advisor = FGB_kurt_schumacher_prop
 			activate_advisor = FGB_otto_gessler_sec
 			activate_advisor = FGB_eugen_schiffer_ec
+			activate_advisor = FGB_kurt_schumacher_prop
 			hidden_effect = {
 				country_event = { id = fgb.82 days = 1 }
 				country_event = { id = fgb.83 days = 3 }
@@ -1492,42 +1492,9 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_to_the_east }
 		completion_reward = {
 			add_war_support = 0.05
-			if = {
-				limit = { 
-					GER = { owns_state = 836 } 
-					NOT = { country_exists = UVS }
-				}
-				custom_effect_tooltip = FGB_noske_we_will_ask_them_to_reunify_tt
-				GER = {
-					country_event = fgb.20
-				}
-			}
-			else_if = {
-				limit = { 
-					UVS = { owns_state = 936 }
-					NOT = { country_exists = GER } 
-				}
-				add_war_support = 0.05
-				create_wargoal = {
-					target = UVS
-					type = annex_everything
-				}
-			}
-			else_if = {
-				limit = {
-					AND = {
-						country_exists = GER
-						country_exists = UVS
-					}
-				}
-				create_wargoal = {
-					target = GER
-					type = take_claimed_state
-				}
-				create_wargoal = {
-					target = UVS
-					type = take_claimed_state
-				}
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
 			}
 		}
 	}
@@ -2111,18 +2078,29 @@ focus_tree = {
 		relative_position_id = FGB_noske_strike_at_the_syndicates
 		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
 		completion_reward = {
-			57 = {
+			1087 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = arms_factory
 					level = 1
 					instant_build  = yes
 				}
-				add_extra_state_shared_building_slots = 4
+			}
+			1086 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			57 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
 			}
 		}
 	}
@@ -2166,12 +2144,15 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_reurbanise_westfalen }
 		prerequisite = { focus = FGB_noske_put_strikers_back_into_dockyards }
 		completion_reward = {
-			add_stability = -0.05
-			56 = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+			1091 = {
 				add_resistance = -10
 				add_compliance = 5
 			}
-			57 = {
+			56 = {
 				add_resistance = -10
 				add_compliance = 5
 			}
@@ -2191,8 +2172,8 @@ focus_tree = {
 		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
 		prerequisite = { focus = FGB_noske_bring_down_the_bremen_soviet }
 		completion_reward = {
+			add_political_power = 20
 			add_stability = -0.05
-			add_war_support = -0.05
 			56 = {
 				add_manpower = -2300
 				add_resistance = -10
@@ -4550,24 +4531,16 @@ focus_tree = {
 		icon = GFX_goal_anschluss
 		x = -1
 		y = 1
-		cost = 5
+		cost = 4
 		available = {
 			NOT = { has_completed_focus = FGB_hitlers_coup }
-		}
-		select_effect = {
-			country_event = fgb.24
 		}
 		prerequisite = { focus = FGB_noske_into_the_spotlight }
 		relative_position_id = FGB_noske_into_the_spotlight
 		completion_reward = {
-			AUS = {
-				every_owned_state = {
-					add_core_of = FGB
-				}
-			}
-			annex_country = {
-				target = AUS
-				transfer_troops = yes
+			country_event = { id = fgb.24 days = 1 }
+			effect_tooltip = {
+				AUS = { country_event = { id = fgb.26 days = 2 } }
 			}
 		}
 	}
@@ -5964,7 +5937,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_study_tactics }
 		x = -1
 		y = 2
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_freikorps_legacy
 		ai_will_do = {
 			factor = 10
@@ -5988,7 +5961,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_repurpose_airfields
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_analyse_mistakes
 		prerequisite = { focus = FGB_analyse_mistakes }
 		ai_will_do = {
@@ -5997,21 +5970,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			air_experience = 20
-			852 = {
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
-			50 = {
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
-			54 = {
+			every_owned_state = {
 				add_building_construction = {
 					type = air_base
 					level = 1
@@ -6026,7 +5985,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_imperial_stockpiles
 		x = -1
 		y = 1
-		cost = 5
+		cost = 6
 		relative_position_id = FGB_repair_factories
 		prerequisite = { focus = FGB_repair_factories }
 		available = {
@@ -6056,7 +6015,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_protect_the_skies
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_repair_airbases
 		prerequisite = { focus = FGB_repair_airbases }
 		available = { has_tech = antiair1 }
@@ -6067,24 +6026,10 @@ focus_tree = {
 				uses = 1
 				category = light_fighter
 			}
-			852 = {
+			every_owned_state = {
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			}
-			50 = {
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			}
-			54 = {
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -6155,7 +6100,7 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-		cost = 5
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -6199,7 +6144,7 @@ focus_tree = {
 			add_political_power = -10
 			add_stability = -0.05
 			add_war_support = 0.05
-			add_manpower = 10000
+			add_manpower = 15000
 			if = {
 				limit = {
 					NOT = { has_government = bolshevism }
@@ -6289,7 +6234,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_swift
 		x = -1
 		y = 1
-		cost = 6
+		cost = 8
 		relative_position_id = FGB_army_reform
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
@@ -6310,7 +6255,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_coordinated
 		x = 1
 		y = 1
-		cost = 6
+		cost = 8
 		relative_position_id = FGB_army_reform
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
@@ -6378,9 +6323,7 @@ focus_tree = {
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			army_experience = 100
-			air_experience = 100
-			navy_experience = 100
+			army_experience = 50
 			add_research_slot = 1
 		}
 	}
@@ -6807,7 +6750,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_begin_reconstruction
 		x = 16
 		y = 0
-		cost = 5
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			has_completed_focus = FGB_death_of_kapp
@@ -6823,15 +6766,7 @@ focus_tree = {
 				remove_idea = FGB_consequences
 				add_idea = FGB_recovering_industry
 			}
-			852 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			50 = {
+			every_owned_state = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -6847,7 +6782,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_resource_smuggling
 		x = -2
 		y = 1
-		cost = 5
+		cost = 3
 		relative_position_id = FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -6861,7 +6796,7 @@ focus_tree = {
 			50 = {
 				add_resource = { 
 					type = steel
-					amount = 2
+					amount = 3
 				}
 			}
 			add_stability = -0.05
@@ -6873,7 +6808,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_repair_the_countryside
 		x = 2
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
