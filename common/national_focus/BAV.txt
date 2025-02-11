@@ -2967,8 +2967,10 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {
-				851 = { add_core_of = BAV }
-				8 = { add_core_of = BAV }
+				add_state_claim = 851
+				add_state_claim = 8
+				add_state_claim = 28
+				add_state_claim = 1093
 			    create_wargoal = {
 				type = annex_everything
 				target = LUX
@@ -2998,7 +3000,7 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {
-				28 = { add_core_of = BAV }
+				add_state_claim = 28
 			    create_wargoal = {
 				type = annex_everything
 				target = FRA
@@ -3088,20 +3090,22 @@ focus_tree = {
 	}
 	focus = {
         id = BAV_a_walk_in_berlin
-        icon = GFX_focus_BAV_britain
+        icon = GFX_focus_BAV_greater_germany
         relative_position_id = BAV_the_rise_of_german_hegemony
         x = 0
         y = 1
-        cost = 5
+        cost = 1
+		prerequisite = {
+            focus = BAV_take_out_the_fake_state
+        }
 		prerequisite = {
             focus = BAV_the_rise_of_german_hegemony
-			
         }
 		prerequisite = {
-            focus = BAV_embargo_the_british
+            focus = BAV_reunite_the_germanic_peoples
         }
 		prerequisite = {
-            focus = BAV_take_over_the_caucasus
+            focus = BAV_march_to_the_urals
         }
 		available = {
 		    has_war = no
@@ -3110,5 +3114,3 @@ focus_tree = {
 		country_event = bavaria.32
 		}
 	}
-   
-}
