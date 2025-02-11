@@ -10,11 +10,11 @@ GER_states_coring_category = {
 		}
 		highlight_states = {
 			highlight_state_targets = {
-				state = 61
-				state = 62
-				state = 64
-				state = 836
-				state = 1056
+					state = 61
+					state = 62
+					state = 64
+					state = 836
+					state = 1056
 			}
 		}
 		modifier = { political_power_gain = -0.15 }
@@ -574,10 +574,10 @@ GER_states_coring_category = {
 		fire_only_once = yes
 		remove_effect	= {
 			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_old_deutschland remove"
-			add_state_core = 9
-			add_state_core = 1080
-			add_state_core = 75
-			add_state_core = 72
+			add_state_core = 28
+			add_state_core = 8
+			add_state_core = 1093
+			add_state_core = 851
 			28 = { set_state_name = "Elsaß-Lothringen" }
 		}	
 	}
@@ -664,3 +664,31 @@ GER_states_coring_category = {
 			add_state_core = 841
 		}	
 	}
+	GER_coring_integrate_switzerland {
+		icon = GFX_decision_generic_form_nation
+		available = { controls_state = 151 
+		controls_state = 3
+		controls_state = 939 }
+		visible = {
+			owns_state = 151
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 151
+				state = 3
+				state = 939
+			}
+		}
+		modifier = { political_power_gain = -0.15 }
+		cost = 20
+		ai_will_do = { factor = 100 }
+		days_remove = 50
+		fire_only_once = yes
+		remove_effect	= {
+			log = "[GetDateText]: [Root.GetName]: Decision GER_coring_integrate_northern_schlewsig remove"
+			add_state_core = 151
+			add_state_core = 3
+			add_state_core = 939
+		}
+	}
+}
