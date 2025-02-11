@@ -1,0 +1,58 @@
+﻿capital = 808
+oob = "empty"
+set_research_slots = 3
+set_convoys = 10
+set_politics = {
+	ruling_party = despotism
+}
+add_ideas = {
+	limited_conscription
+}
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_trucks = 1
+	gw_artillery = 1
+	tech_support = 1
+	basic_train = 1
+}
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_submarine = 1
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_torpedo = 1
+		submarine_mine_laying = 1
+		early_ship_hull_submarine = 1
+	}
+}
+set_popularities = {
+	liberalism = 20
+	conservatism = 10
+	reactionism = 15
+	social_democrat = 15
+	despotism = 30
+	authoritarian_democrat = 5
+	national_syndicalism = 5
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Submarines #
+	create_equipment_variant = {
+		name = "Ronis Class"								
+		type = ship_hull_submarine_1
+		name_group = LAT_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+	}
+}
