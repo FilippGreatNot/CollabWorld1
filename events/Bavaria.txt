@@ -824,5 +824,62 @@ country_event = {
 		custom_effect_tooltip = BAV_thanks_for_playing_end_tt
 	}
 }
+news_event = {
+    id = bavaria.33
+    title = bavaria.33.t
+    desc = bavaria.33.d
+    picture = GFX_news_event_greater_state_gobi
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.33.a
+		hidden_effect = {
+		show_superevent_BAV_greater_germany_gobi = yes
+		}
+    }
+}
+
+country_event = {
+	id = bavaria.34
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bavaria.32" }
+	title = bavaria.34.t
+	desc = bavaria.34.d
+	is_triggered_only = yes
+	picture = GFX_report_event_goebbels_4
+
+	option = {
+		name = bavaria.34.a
+		create_wargoal = {
+				type = annex_everything
+				target = YUG
+		}
+		news_event = bavaria.35
+	}
+	option = {
+		name = bavaria.34.b
+		add_stability = -0.15
+		add_war_support = -0.15
+		add_popularity = {
+				ideology = bolshevism
+				popularity = -0.15
+			}
+		add_political_power = -25
+	}
+}
+
+news_event = {
+    id = bavaria.35
+    title = bavaria.35.t
+    desc = bavaria.35.d
+    picture = GFX_news_event_maribor_bav_crisis
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.35.a
+    }
+}
+
 
 
