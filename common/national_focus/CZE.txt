@@ -214,4 +214,43 @@ focus_tree = {
 		x = 9
 		y = 0
 	}
-}
+    focus = {
+	    id = CZE_announce_czechoslovak_future
+		relative_position_id = CZE_better_keep_quiet
+		prerequisite = { focus = CZE_better_keep_quiet }
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_introduce_curfew
+		relative_position_id = CZE_announce_czechoslovak_future
+		prerequisite = { focus = CZE_announce_czechoslovak_future }
+		x = -1
+		y = 1
+		cost = 6
+	}
+    focus = {
+	    id = CZE_call_for_security
+		relative_position_id = CZE_introduce_curfew
+		prerequisite = { focus = CZE_introduce_curfew }
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_call_in_economic_advisors
+		relative_position_id = CZE_announce_czechoslovak_future
+		prerequisite = { focus = CZE_announce_czechoslovak_future }
+		x = 1
+		y = 1
+		cost = 6
+	}
+    focus = {
+	    id = CZE_occupy_factories
+		relative_position_id = CZE_call_in_economic_advisors
+		prerequisite = { focus = CZE_call_in_economic_advisors }
+		x = 0
+		y = 1
+		cost = 4
+	}
