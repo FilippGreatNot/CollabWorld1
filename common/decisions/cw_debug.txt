@@ -15,12 +15,14 @@ cw_debug_category = {
 				set_country_flag = FGB_noske_flag
 				set_country_flag = FGB_noske_reform_complete
 				set_country_flag = FGB_noske_policy_flag
-				set_country_flag = FGB_noske_victory_over_bavaria 
+				set_country_flag = FGB_noske_victory_over_bavaria_flag 
 				set_country_flag = FGB_bavaria_integrated_flag
 				set_country_flag = FGB_noske_victory_over_wehrkommando_flag
 				set_country_flag = FGB_noske_unification_nearly_complete_flag
+				set_country_flag = FGB_noske_african_expansion
 				set_country_flag = FGB_noske_ger_unified_flag
 				set_country_flag = FGB_noske_revolution_of_1848_flag
+				set_country_flag = FGB_hitler_coups_false
 				mark_focus_tree_layout_dirty = yes
 			}
 		}
@@ -67,6 +69,72 @@ cw_debug_category = {
 						has_completed_focus = FGB_noske
 					}
 					complete_national_focus = FGB_noske_the_second_revolution_of_1848
+				}
+			}
+		}
+	}
+	cw_debug_unite_china_bro = {
+		visible = {
+			is_chinese_tag = yes 
+		}
+		complete_effect = {
+			every_other_country = {
+				limit = { is_chinese_tag = yes }
+				ROOT = {
+					PREV = { every_core_state = { add_core_of = ROOT } }
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+				every_unit_leader = {
+					set_nationality = ROOT
+				}
+			}
+			set_cosmetic_tag = chinese_republic
+			set_capital = {
+				state = 749
+				remember_old_capital = no
+			}
+			hidden_effect = {
+				transfer_state = 326
+				transfer_state = 329
+				transfer_state = 524
+				transfer_state = 728
+				transfer_state = 729
+				transfer_state = 743
+				transfer_state = 745
+				add_state_core = 326
+				add_state_core = 329
+				add_state_core = 524
+				add_state_core = 728
+				add_state_core = 729
+				add_state_core = 743
+				add_state_core = 745
+				every_owned_state = {
+					limit = { is_demilitarized_zone = yes }
+					set_demilitarized_zone = no
+				}
+			}
+		}
+	}
+	cw_debug_billions_must_die = {
+		visible = {
+			is_chinese_tag = yes 
+		}
+		complete_effect = {
+			every_country = {
+				limit = { AND = { is_chinese_tag = yes is_subject = yes } }
+				end_puppet = PREV
+			}
+			every_country = {
+				limit = { is_chinese_tag = yes }
+				every_country = {
+					limit = { is_chinese_tag = yes }
+					declare_war_on = {
+               			target = PREV
+            			type = annex_everything
+        			}
 				}
 			}
 		}

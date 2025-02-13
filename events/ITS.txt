@@ -1,43 +1,8 @@
 ## SETUP ##
 add_namespace = its
-add_namespace = its_coverup
+add_namespace = its_kill_mus
 
 ## Main ##
-
-country_event = {
-	id = its.1
-	title = its.1.t
-	desc = its.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		focus_progress = {
-			focus = ITS_assure_ppl
-			progress > 0.5
-		}	
-		NOT = { has_country_flag = ITS_inward_security}
-	}
-	
-	immediate = {
-		hidden_effect = {
-			set_country_flag = ITS_assassination_attempt
-			unlock_national_focus = ITS_assure_ppl
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	
-	option = {
-		name = its.1.a
-		complete_national_focus = ITS_he_lives
-		add_stability = -0.05
-	}
-	option = {
-		name = its.1.b
-		complete_national_focus = ITS_he_died
-		add_stability = -0.1
-	}
-}
 
 country_event = {
 	id = its.2
@@ -81,149 +46,60 @@ country_event = {
 	desc = its.4.d
 	is_triggered_only = yes
 	
-	immediate = {
-		hidden_effect = {
-			set_party_name = {
-				ideology = social_democrat
-				long_name = ITS_political_coalition_long
-				name = ITS_political_coalition
-			}
-			set_party_name = {
-				ideology = libertarian_socialism
-				long_name = ITS_political_coalition_long
-				name = ITS_political_coalition
-			}
-			set_party_name = {
-				ideology = marxism
-				long_name = ITS_political_coalition_long
-				name = ITS_political_coalition
-			}
-		}
-	}
-	
 	option = {
 		name = its.4.a
 	}
 }
 
+## change ideology ##
+
 country_event = {
-	id = its.5
-	title = its.5.t
-	desc = its.5.d
+	id = its_kill_mus.1
+	title = its_kill_mus.1.t
+	desc = its_kill_mus.1.d
 	is_triggered_only = yes
 	
+	immediate = {
+		ROOT = {
+			set_variable = {
+				var = kill_mus_points
+				value = 0	
+			}
+		}
+	}
 	option = {
-		name = its.5.a
+		name = its_kill_mus.1.a
 	}
 }
 
-## Coverup ##
+country_event = {
+	id = its_kill_mus.2
+	title = its_kill_mus.2.t
+	desc = its_kill_mus.2.d
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ITS_assassination_attempt
+			unlock_national_focus = ITS_assure_ppl
+			mark_focus_tree_layout_dirty = yes
+			kill_country_leader = yes
+			promote_character = ITS_emergency_council		
+		}
+	}
+	
+	option = {
+		name = its_kill_mus.2.a
+	}
+}
 
-#country_event = {
-#	id = its_coverup.1
-#	title = its_coverup.1.t
-#	desc = its_coverup.1.d
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		focus_progress = {
-#			focus = ITS_investigate
-#			progress > 0
-#		}	
-#	}
-#	
-#	immediate = {
-#		hidden_effect = {
-#			country_event = {
-#				id = its_coverup.2
-#				days = 20
-#			}			
-#		}
-#		set_variable = {
-#			var = ITS_coverup_points
-#			value = 0
-#		}
-#	}
-#	
-#	option = {
-#		#kill assassin
-#		name = its_coverup.1.a
-#	}
-#	option = {
-#		#let the assassin live
-#		name = its_coverup.1.b
-#		add_to_variable = {
-#			var = ITS_coverup_points
-#			value = 1
-#		}
-#	}
-#}
-#
-#country_event = {
-#	id = its_coverup.2
-#	title = its_coverup.2.t
-#	desc = its_coverup.2.d
-#	is_triggered_only = yes
-#	
-#	immediate = {
-#		hidden_effect = {
-#			country_event = {
-#				id = its_coverup.3
-#				days = 20
-#			}	
-#		}
-#	}
-#
-#	option = {
-#		#plant evidence at assassin's home
-#		name = its_coverup.2.a
-#		add_to_variable = {
-#			var = ITS_coverup_points
-#			value = 1
-#		}
-#	}
-#	option = {
-#		#dont
-#		name = its_coverup.2.b
-#	}
-#}
-#
-#country_event = {
-#	id = its_coverup.3
-#	title = its_coverup.3.t
-#	desc = its_coverup.3.d
-#	is_triggered_only = yes
-#
-#	option = {
-#		#kill untrustworthy party members
-#		name = its_coverup.3.a
-#	}
-#	option = {
-#		#dont
-#		name = its_coverup.3.b
-#		add_to_variable = {
-#			var = ITS_coverup_points
-#			value = 1
-#		}
-#	}
-#}
-#
-#country_event = {
-#	id = its_coverup.4
-#	title = its_coverup.4.t
-#	desc = its_coverup.4.d
-#	is_triggered_only = yes
-#
-#	option = {
-#		name = its_coverup.4.a
-#		start_civil_war = {
-#			ruling_party = libertarian_socialism
-#			ideology = national_syndicalism
-#			size = 0.4
-#			states = {
-#				859 158 875
-#			}
-#			keep_all_characters = yes
-#		}
-#	}
-#}
+country_event = {
+	id = its_kill_mus.3
+	title = its_kill_mus.3.t
+	desc = its_kill_mus.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = its_kill_mus.3.a
+	}
+}

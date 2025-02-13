@@ -5,6 +5,7 @@ country_event = {
     id = yugo.1
     title = yugo.1.t 
     desc = yugo.1.d 
+    picture = GFX_report_event_a_broken_nation
     is_triggered_only = yes
 
     option = {
@@ -15,7 +16,7 @@ country_event = {
     id = yugo.2
     title = yugo.2.t 
     desc = yugo.2.d 
-    picture = GFX_event_red_partisans
+    picture = GFX_report_event_the_red_uprising
     is_triggered_only = yes
 
     option = {
@@ -26,6 +27,7 @@ country_event = {
     id = yugo.3
     title = yugo.3.t
     desc = yugo.3.d 
+    picture = GFX_report_event_the_ethnic_situation
     is_triggered_only = yes 
 
     option = {
@@ -57,9 +59,7 @@ country_event = {
 			popularity = 0.15
 		}
 		add_stability = -0.05
-		set_country_flag = pasic_tree_unlocked
 		complete_national_focus = YUG_pasic_wins
-		mark_focus_tree_layout_dirty = yes
 		deactivate_advisor = YUG_nikola_pasic_hog
 	}
 	option = {
@@ -73,9 +73,7 @@ country_event = {
 			popularity = 0.15
 		}
 		add_stability = 0.05
-		set_country_flag = radic_tree_unlocked
 		complete_national_focus = YUG_the_federal_bloc_wins
-		mark_focus_tree_layout_dirty = yes
 	}
 	option = {
 		name = yugo.eventresults.3
@@ -464,13 +462,6 @@ country_event = {
 	title = yugo.17.t 
 	desc = yugo.17.d
 	is_triggered_only = yes 
-	mean_time_to_happen = {
-		days = 95
-		modifier = {
-			factor = 0.2
-			tag = YUG
-		}
-	}
 	option = {
 		name = yugo.17.a 
 		add_political_power = -25
@@ -504,5 +495,41 @@ country_event = {
 		add_political_power = -25
 		add_stability = -0.02
 		add_manpower = -2
+	}
+}
+
+country_event = {
+	id = yugo.100
+	title = yugo.100.t
+	desc = yugo.100.d 
+        picture = GFX_report_event_the_serbian_backlask
+	is_triggered_only = yes 
+	option = {
+		name = yugo.100.a 
+		add_stability = 0.02
+		add_political_power = -50
+	}
+	option = {
+		name = yugo.100.b
+		add_political_power = 25
+		add_stability = -0.03
+	}
+}
+country_event = {
+	id = yugo.120
+	title = yugo.120.t
+	desc = yugo.120.d 
+	is_triggered_only = yes 
+	option = {
+		name = yugo.120.a
+		BAV = {
+		    set_state_owner = 102
+			set_state_owner = 880
+		}
+	}
+	option = {
+		name = yugo.120.b
+		country_event = bavaria.34
+		
 	}
 }

@@ -142,8 +142,7 @@ FGB_political_category = {
 		}
 		icon = FGB_unrest_mission
 		available = {
-			NOT = { has_government = bolshevism }
-			NOT = { has_government = marxism }
+			
 		}
 
 		days_mission_timeout = 344
@@ -205,15 +204,124 @@ FGB_recruitment_category = {
         }
 		remove_effect = {
 			army_experience = 20
-			create_corps_commander = {
-				name = "Max von Baden"
-				picture = "gfx/leaders/FGB/FGB_max_von_baden"
+			add_corps_commander_role = {
+				character = FGB_max_von_baden
+				traits = { fgb_royal }
 				skill = 2
 				attack_skill = 3
 				defense_skill = 2
 				planning_skill = 2
 				logistics_skill = 2
-				traits = { fgb_royal }
+			}
+		}
+	}
+}
+
+FGB_industrial_category = {
+	FGB_subsidise_merck_darmstadt = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 1082
+			has_completed_focus = FGB_develop_the_rhine
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 50
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			1082 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	FGB_fund_vereinigte_stahlwerke = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 51
+			has_completed_focus = FGB_develop_the_rhine
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 100
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			51 = {
+				add_resource = {
+					type = steel
+					amount = 15
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	FGB_invest_in_krupp = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 51
+			has_completed_focus = FGB_develop_the_rhine
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 50
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			51 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.05
 			}
 		}
 	}

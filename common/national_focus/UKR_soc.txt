@@ -9,6 +9,7 @@ focus_tree = {
 		}
 	}
 	default = no
+	
 	focus = {
 		id = UKR_soc_kyiv_on_fire
 		icon = GFX_focus_UKR_soc_kyiv_on_fire
@@ -19,16 +20,18 @@ focus_tree = {
 			remove_ideas = { UKR_disunited_nation }
 		}
 	}
+
 	focus = {
 		id = UKR_soc_fix_ind
-		icon = GFX_focus_UKR_soc_fix_ind
-		cost = 3
+		icon = GFX_focus_UKR_fix_ind
+		cost = 4
 		x = 19
 		y = 0
 		completion_reward = {
-			
+			country_event = ukr_soc.6
 		}
 	}
+
 	focus = {
 		id = UKR_soc_fix_army
 		icon = GFX_focus_UKR_soc_fix_army
@@ -39,10 +42,11 @@ focus_tree = {
 			
 		}
 	}
+
 	focus = {
 		id = UKR_soc_expand_industrialisation
-		icon = GFX_focus_UKR_soc_expand_industrialisation
-		cost = 3
+		icon = GFX_focus_UKR_expand_ind
+		cost = 8
 		x = 19
 		y = 3
 		prerequisite = { 
@@ -52,33 +56,36 @@ focus_tree = {
 		prerequisite = {  }
 		completion_reward = {
 			202 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build  = yes
 				}
-				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build  = yes
 				}
+				russia_backward_region_increase_industrialisation_level_1 = yes
 			}
 			221 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 2
 					instant_build  = yes
-		    }
+		   		}
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build  = yes
 				}
-				add_extra_state_shared_building_slots = 2
+				russia_backward_region_increase_industrialisation_level_1 = yes
 			}
 		}
 	}
+
 	focus = {
 		id = UKR_soc_kill_opposition
 		icon = GFX_focus_UKR_soc_kill_opposition
@@ -98,13 +105,14 @@ focus_tree = {
 			add_manpower = -52488
 			add_stability = 0.1
 			hidden_effect = {
-				country_event = {
-					id = ukr_soc.7
-					days = 2
-				}
+				country_event = ukr_soc.7 
+				201 = { set_demilitarized_zone = yes }
+				199 = { set_demilitarized_zone = yes }
+				198 = { set_demilitarized_zone = yes }
+			}
 			}
 		}
-	}
+
 	focus = {
 		id = UKR_soc_kill_monarch
 		icon = GFX_focus_UKR_soc_kill_monarch
@@ -126,11 +134,12 @@ focus_tree = {
 				}
 				country_event = {
 					id = ukr_soc.8
-					days = 3
+					days = 1
 				}
+			}
 		}
 	}
-	}
+
 	focus = {
 		id = UKR_soc_germ_garrison
 		icon = GFX_focus_UKR_soc_germ_garrison
@@ -168,6 +177,7 @@ focus_tree = {
 			
 		}
 	}
+
 	focus = {
 		id = UKR_soc_sit_stabilize
 		icon = GFX_focus_UKR_soc_sit_stabilize
@@ -183,9 +193,10 @@ focus_tree = {
 		x = 11
 		y = 3
 		completion_reward = {
-			
+			remove_ideas = UKR_banditism
 		}
 	}
+
 	focus = {
 		id = UKR_soc_expand
 		icon = GFX_focus_UKR_soc_expand
@@ -194,9 +205,12 @@ focus_tree = {
 		x = 7
 		y = 4
 		completion_reward = {
-			
+			set_country_flag = UKR_can_demand
+			add_war_support = 0.05
+			add_political_power = 30
 		}
 	}
+
 	focus = {
 		id = UKR_soc_look_on_west
 		icon = GFX_focus_UKR_soc_look_on_west
@@ -205,20 +219,32 @@ focus_tree = {
 		x = 5
 		y = 5
 		completion_reward = {
-			
+			custom_effect_tooltip = UKR_soc_look_west_tooltip
 		}
 	}
+
 	focus = {
 		id = UKR_soc_tukha_problem
 		icon = GFX_focus_UKR_soc_tukha_problem
 		cost = 5
 		prerequisite = { focus = UKR_soc_look_on_west }
+		bypass = {
+			NOT = {
+				country_exists = BLR
+			}
+		}
 		x = 4
 		y = 6
 		completion_reward = {
-			
+			BLR = { 
+				country_event = {
+					id = BLR_ukr.1
+					days = 2 
+				}
+			}
 		}
 	}
+
 	focus = {
 		id = UKR_soc_unite
 		icon = GFX_focus_UKR_soc_unite
@@ -231,6 +257,7 @@ focus_tree = {
 			
 		}
 	}
+
 	focus = {
 		id = UKR_soc_demand_bessarab
 		icon = GFX_focus_UKR_soc_demand_bessarab
@@ -239,20 +266,34 @@ focus_tree = {
 		x = 6
 		y = 6
 		completion_reward = {
-			
+			set_country_flag = UKR_can_demand_bessarabia
 		}
 	}
+
+	focus = {
+		id = UKR_soc_loot_on_east
+		icon = GFX_focus_UKR_soc_look_on_east
+		cost = 5
+		prerequisite = { focus = UKR_soc_expand }
+		x = 9
+		y = 5
+		completion_reward = {
+			custom_effect_tooltip = UKR_soc_look_east_tooltip
+		}
+	}
+
 	focus = {
 		id = UKR_soc_call_from_moscow
 		icon = GFX_focus_UKR_soc_call_from_moscow
 		cost = 5
 		prerequisite = { focus = UKR_soc_expand }
 		x = 9
-		y = 5
+		y = 6
 		completion_reward = {
 			country_event = ukr_soc.1
 		}
 	}
+
 	focus = {
 		id = UKR_soc_accept
 		icon = GFX_focus_UKR_soc_accept
@@ -260,11 +301,12 @@ focus_tree = {
 		prerequisite = { focus = UKR_soc_call_from_moscow }
 		mutually_exclusive = { focus = UKR_soc_reject }
 		x = 8
-		y = 6
+		y = 7
 		completion_reward = {
 			
 		}
 	}
+
 	focus = {
 		id = UKR_soc_reject
 		icon = GFX_focus_UKR_soc_reject
@@ -272,70 +314,85 @@ focus_tree = {
 		prerequisite = { focus = UKR_soc_call_from_moscow }
 		mutually_exclusive = { focus = UKR_soc_accept }
 		x = 10
-		y = 6
-		completion_reward = {
-			
-		}
-	}
-	focus = {
-		id = UKR_soc_call_from_berlin
-		icon = GFX_focus_UKR_soc_call_from_berlin
-		cost = 5
-		prerequisite = { focus = UKR_soc_reject }
-		available = { country_exists = UVS }
-		x = 12
 		y = 7
 		completion_reward = {
 			
 		}
 	}
+
 	focus = {
 		id = UKR_soc_establish
-		icon = GFX_focus_UKR_soc_establish
-		cost = 5
+		icon = GFX_focus_ukr_spread_ideals
+		cost = 6
 		prerequisite = { focus = UKR_soc_sit_stabilize }
 		x = 15
 		y = 4
 		completion_reward = {
-			
+			add_ideas = UKR_ministry_of_propaganda
 		}
 	}
+
 	focus = {
-		id = UKR_soc_propoganda
-		icon = GFX_focus_UKR_soc_propoganda
+		id = UKR_soc_propaganda
+		icon = GFX_focus_ukr_propaganda
 		cost = 5
 		prerequisite = { focus = UKR_soc_establish }
 		x = 15
 		y = 5
 		completion_reward = {
+		     swap_ideas = {
+				remove_idea = UKR_ministry_of_propaganda
+				add_idea = UKR_ministry_of_propaganda2
+			}
+			ROM = { 
+			     add_popularity = {
+					ideology = bolshevism
+					popularity = 0.05
+				}
+				}
+		    SRF = { 
+			     add_popularity = {
+					ideology = bolshevism
+					popularity = 0.05
+				}
+				}
 			
 		}
 	}
+
 	focus = {
 		id = UKR_soc_whip
-		icon = GFX_focus_UKR_soc_whip
-		cost = 5
-		prerequisite = { focus = UKR_soc_propoganda }
+		icon = GFX_focus_ukr_reformists
+		cost = 4
+		prerequisite = { focus = UKR_soc_propaganda }
 		x = 14
 		y = 6
 		completion_reward = {
-			
+			     add_popularity = {
+					ideology = marxism
+					popularity = -0.05
+				}
+				add_political_power = 25
+				add_stability = -0.05
 		}
 	}
+
 	focus = {
 		id = UKR_soc_cookie
-		icon = GFX_focus_UKR_soc_cookie
+		icon = GFX_focus_ukr_reward_worker
 		cost = 5
-		prerequisite = { focus = UKR_soc_propoganda }
+		prerequisite = { focus = UKR_soc_propaganda }
 		x = 16
 		y = 6
 		completion_reward = {
-			
+			 add_stability = 0.06
+			 add_political_power = -75
 		}
 	}
+
 	focus = {
 		id = UKR_soc_together_to_victory
-		icon = GFX_focus_UKR_soc_together_to_victory
+		icon = GFX_focus_ukr_together_for_victory
 		cost = 5
 		prerequisite = { focus = UKR_soc_whip }
 		prerequisite = { focus = UKR_soc_cookie }
@@ -347,20 +404,23 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_soc_forced_industrialisation
-		icon = GFX_focus_UKR_soc_forced_industrialisation
+		icon = GFX_focus_UKR_forced_ind
 		cost = 5
 		prerequisite = { focus = UKR_soc_fix_ind }
 		mutually_exclusive = { focus = UKR_soc_agrarian_economy }
 		x = 18
 		y = 1
 		completion_reward = {
-		add_stability = -0.10
+		add_stability = -0.15
+		add_political_power = -100
+		add_manpower = -40000
+
 		remove_ideas = { UKR_non_industrial_country }
 		}
 	}
 	focus = {
 		id = UKR_soc_expand_energy
-		icon = GFX_focus_UKR_soc_expand_energy
+		icon = GFX_focus_UKR_expand_energy
 		cost = 5
 		prerequisite = { focus = UKR_soc_forced_industrialisation }
 		x = 18
@@ -373,74 +433,31 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_soc_build_more_factories
-		icon = GFX_focus_UKR_soc_build_more_factories
+		icon = GFX_focus_UKR_new_factories
 		cost = 5
 		prerequisite = { focus = UKR_soc_expand_industrialisation }
 		x = 18
 		y = 4
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 2
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 2
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 3
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-				}
+			unlock_decision_category_tooltip = UKR_soc_build_factories_decisions
+			set_country_flag = UKR_can_build_factories
 		}
 	}
 	focus = {  
 		id = UKR_soc_rapid_growth
-		icon = GFX_focus_UKR_soc_rapid_growth
-		cost = 5
+		icon = GFX_focus_UKR_rapid_growth
+		cost = 10
 		prerequisite = { focus = UKR_soc_build_more_factories }
 		x = 18
 		y = 5
 		completion_reward = {
-		#add_ideas = {  }
+		add_ideas = { UKR_soc_rapid_growth }
 		}
 	}
 	#we will sell bread to build electricity infrastructure
 	focus = {
 		id = UKR_soc_agrarian_economy
-		icon = GFX_focus_UKR_soc_agrarian_economy
+		icon = GFX_focus_UKR_agriculture_eco
 		cost = 5
 		prerequisite = { focus = UKR_soc_fix_ind }
 		mutually_exclusive = { focus = UKR_soc_forced_industrialisation }
@@ -463,35 +480,79 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_soc_bread_for_electricty
-		icon = GFX_focus_UKR_soc_bread_for_electricty
+		icon = GFX_focus_UKR_bread_energy
 		cost = 5
 		prerequisite = { focus = UKR_soc_agrarian_economy }
 		x = 20
 		y = 2
 		completion_reward = {
+			add_political_power = -50
 			remove_ideas = { UKR_weak_electrification }
 		}
 	}
+
 	focus = {
 		id = UKR_soc_industrialise_farming
-		icon = GFX_focus_UKR_soc_industrialise_farming
-		cost = 5
+		icon = GFX_focus_UKR_ind_argi
+		cost = 10
 		prerequisite = { focus = UKR_soc_expand_industrialisation }
-		x = 20
+		x = 20 
 		y = 4
 		completion_reward = {
-			
+			add_ideas = { UKR_idea_industrialised_farming }
 		}
 	}
+
 	focus = {
 		id = UKR_soc_new_roads
-		icon = GFX_focus_UKR_soc_new_roads
+		icon = GFX_focus_UKR_new_roads
 		cost = 5
 		prerequisite = { focus = UKR_soc_industrialise_farming }
 		x = 20
 		y = 5
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				}
 		}
 	}
 	focus = {
@@ -608,8 +669,13 @@ focus_tree = {
 		icon = GFX_focus_UKR_soc_demand_crimea
 		cost = 5
 		prerequisite = { focus = UKR_soc_reject }
+		bypass = {
+			NOT = {
+				country_exists = SRF
+			}
+		}
 		x = 10
-		y = 7
+		y = 8
 		completion_reward = {
 			set_country_flag = UKR_can_demand_crimea
 			}
@@ -622,20 +688,25 @@ focus_tree = {
 			focus = UKR_soc_accept
 		}
 		x = 8
-		y = 7
+		y = 8
 		completion_reward = {
-			
+			activate_advisor = UKR_
 		}
 	}
 	focus = {
 		id = UKR_soc_quick_military_operation
 		icon = GFX_focus_UKR_soc_quick_military_operation
 		cost = 5
+		bypass = {
+			NOT = {
+				country_exists = SRF
+			}
+		}
 		prerequisite = { 
 			focus = UKR_soc_demand_crimea
 		}
 		x = 10
-		y = 8
+		y = 9
 		completion_reward = {
 			
 		}
@@ -644,6 +715,11 @@ focus_tree = {
 		id = UKR_soc_invade
 		icon = GFX_focus_UKR_soc_invade
 		cost = 5
+		bypass = {
+			NOT = {
+				country_exists = SRF
+			}
+		}
 		prerequisite = { focus = UKR_soc_tukha_problem }
 		mutually_exclusive = { focus = UKR_soc_unite }
 		x = 5
@@ -652,6 +728,27 @@ focus_tree = {
 			
 		}
 	}
+
+	focus = {
+		id = UKR_soc_lith
+		icon = GFX_focus_UKR_soc_lith
+		cost = 5
+		bypass = {
+			NOT = {
+				country_exists = LAT
+			}
+		}
+		prerequisite = { focus = UKR_soc_invade focus = UKR_soc_unite }
+		x = 4
+		y = 8
+		completion_reward = {
+			create_wargoal = {
+				target = LAT
+				type = annex_everything
+			}
+		}
+	}
+
 	focus = {
 		id = UKR_soc_modern_tanks
 		icon = GFX_focus_UKR_soc_modern_tanks

@@ -12,8 +12,6 @@ focus_tree = {
 
 		cost = 4
 		completion_reward = {	
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_faithful_leninist_in_power"
-			
 			add_stability = 0.05	
 		}
 	}
@@ -30,8 +28,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_estimate_the_ulyanovs_work"
-			
 			add_political_power = 100
 			remove_ideas = SOV_prodnalog
 		}
@@ -50,8 +46,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_army_reorganization"
-			
 			army_experience = 50
 		}
 	}
@@ -71,8 +65,6 @@ focus_tree = {
 		available = { is_subject = no }
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_question_of_the_north"
-			
 			KAR = { make_every_core_national_for_PREV = yes }
 			annex_country = { 
 				target = KAR
@@ -93,8 +85,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_crush_the_resistance_of_the_counter_revolutionaries"
-			
 			remove_ideas = SOV_kronstadt_legacy
 			add_stability = -0.025
 			add_political_power = -75
@@ -113,7 +103,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_army_reorganization"
 			country_event = sov.stalin.2
 		}
 	}
@@ -138,7 +127,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_serve_the_cause_of_the_revolution_by_deed"
 			capital_scope = {
 				add_resource = {
 					type = steel
@@ -160,8 +148,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_make_them_work"
-		
 			add_manpower = 70000
 			
 			capital_scope = {
@@ -193,8 +179,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_be_useful_by_skills"
-			
 			add_political_power = 100
 		}
 	}
@@ -211,7 +195,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_knights_of_the_revolution"
 			add_ideas = SOV_knights_of_the_revolution
 		}
 	}
@@ -246,8 +229,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_expand_industry"
-		
 			random_owned_state = {
 				limit = {
 					free_building_slots = {
@@ -285,8 +266,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_country_infrastructure"
-			
 			every_core_state = {
 				tooltip = every_owned_core_with_less_than_4_infrastructure_tt
 				limit = {
@@ -322,8 +301,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_step_towards_unity"
-			
 			add_war_support = 0.05
 			add_stability = 0.05
 		}
@@ -341,8 +318,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_unification_plan"
-			
 			every_other_country = {
 				limit = {
 					is_russian_tag = yes
@@ -365,18 +340,19 @@ focus_tree = {
 		icon = GFX_focus_SOV_stalin_dash_to_the_west
 		x = -3
 		y = 1
-		cost = 4
+		cost = 3
 		
 		relative_position_id = SOV_stalin_unification_plan
-		
-		available = { is_subject = no }
 		
 		prerequisite = {
 			focus = SOV_stalin_unification_plan
 		}
 		
+		available = {
+			has_war = no
+		}
+		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_dash_to_the_west"
 			LAT = { make_every_core_national_for_PREV = yes }
 			BLR = { make_every_core_national_for_PREV = yes }
 		}
@@ -399,15 +375,12 @@ focus_tree = {
 		prerequisite = {
 			focus = SOV_stalin_dash_to_the_west
 		}
+		
 		available = {
 			has_war = no
-			is_neighbor_of = LAT
-			is_subject = no
 		}
 		
-		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_end_the_white_menace_in_the_baltic_states"	
 			declare_war_on = {
 				target = LAT
 				type = annex_everything
@@ -428,15 +401,18 @@ focus_tree = {
 		}
 		available = {
 			has_war = no
-			OR = {
-				is_neighbor_of = BLR
-				NOT = { country_exists = BLR }
+			
+			if = {
+				limit = { is_subject = yes }
+				
+				OR = {
+					BLR = { is_subject = no }
+					overlord = { has_subject = BLR }
+				}
 			}
-			is_subject = no
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_a_call_to_tukhachevsky"
 			BLR = {	country_event = sov.unification.1 }
 		}
 	}
@@ -459,10 +435,6 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		
-		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_peaceful_integration"
-		}
 	}
 	focus = {
 		id = SOV_stalin_congratulations_on_the_promotion
@@ -475,7 +447,6 @@ focus_tree = {
 			focus = SOV_stalin_peaceful_integration
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_congratulations_on_the_promotion"
 			if = {
 				limit = {
 					has_character = BLR_mikhail_tukhachevsky
@@ -519,10 +490,6 @@ focus_tree = {
 		available = {
 			always = no
 		}
-		
-		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_teach_the_impudent_marshal_a_lesson"	
-		}
 	}
 	focus = {
 		id = SOV_stalin_tukhachevskys_case
@@ -537,8 +504,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_tukhachevsky_case"
-			
 			retire_character = BLR_mikhail_tukhachevsky
 			add_timed_idea = {
 				idea = SOV_tukhachevsky_case
@@ -559,11 +524,7 @@ focus_tree = {
 			focus = SOV_stalin_unification_plan
 		}
 		
-		available = { is_subject = no }
-		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_southern_threat_assessment"
-			
 			SRF = { make_every_core_national_for_PREV = yes }
 			GEO = { make_every_core_national_for_PREV = yes }
 			ARM = { make_every_core_national_for_PREV = yes }
@@ -591,13 +552,9 @@ focus_tree = {
 		}
 		available = {
 			has_war = no
-			is_neighbor_of = UKR
-			is_subject = no
 		}
 				
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_end_the_free_territory"
-			
 			declare_war_on = {
 				target = UKR
 				type = annex_everything
@@ -625,30 +582,26 @@ focus_tree = {
 		
 		available = {
 			has_war = no
-			is_neighbor_of = SRF
-			is_subject = no
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_cut_off_the_second_head_of_the_hydra"
-		
-		declare_war_on = {
-			target = SRF
+			declare_war_on = {
+				target = SRF
 				type = annex_everything
 			}
-		declare_war_on = {
-			target = GEO
+			declare_war_on = {
+				target = GEO
 				type = annex_everything
 			}
-		declare_war_on = {
-			target = ARM
+			declare_war_on = {
+				target = ARM
 				type = annex_everything
 			}
-		declare_war_on = {
-			target = AZR
+			declare_war_on = {
+				target = AZR
 				type = annex_everything
 			}
-	}
+		}
 	}
 	
 	focus = {
@@ -664,11 +617,7 @@ focus_tree = {
 			focus = SOV_stalin_unification_plan
 		}
 		
-		available = { is_subject = no }
-		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_look_to_the_east"
-			
 			add_war_support = 0.05
 		}
 	}
@@ -685,11 +634,7 @@ focus_tree = {
 			focus = SOV_stalin_look_to_the_east
 		}
 		
-		available = { is_subject = no }
-		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_everything_that_lies_beyond_the_ural"
-			
 			RUS = { make_every_core_national_for_PREV = yes } 
 			FER = { make_every_core_national_for_PREV = yes }
 			FSR = { make_every_core_national_for_PREV = yes }
@@ -718,36 +663,15 @@ focus_tree = {
 		available = {
 			has_war = no
 			is_neighbor_of = RUS
-			is_subject = no
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_destroy_the_main_head_of_the_hydra"
-			
 			declare_war_on = {
 				target = RUS
 				type = annex_everything
 			}
 		}
 	}
-	
-	#focus = {
-	#	id = SOV_stalin_the_abandoned_admiral
-	#	icon = GFX_focus_SOV_stalin_the_abandoned_admiral
-	#	x = 1
-	#	y = 1
-	#	cost = 5
-	#	
-	#	relative_position_id = SOV_stalin_the_main_head_of_the_hydra
-	#	
-	#	prerequisite = {
-	#		focus = SOV_stalin_the_main_head_of_the_hydra
-	#	}
-	#	
-	#	completion_reward = {
-	#		log = "[GetDateText]: [THIS.GetTag]: Focus SOV_abandoned_admiral"
-	#	}
-	#}
 	
 	focus = {
 		id = SOV_stalin_the_last_push_to_vladivostok
@@ -769,13 +693,9 @@ focus_tree = {
 		}
 		available = {
 			has_war = no
-			is_neighbor_of = FER
-			is_subject = no
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_last_push_to_vladivostok"
-			
 			declare_war_on = {
 				target = FER
 				type = annex_everything
@@ -806,13 +726,9 @@ focus_tree = {
 		}
 		available = {
 			has_war = no
-			is_neighbor_of = KMP
-			is_subject = no
 		}
 				
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_drive_the_japanese_back"
-			
 			declare_war_on = {
 				target = KMP
 				type = annex_everything
@@ -839,13 +755,9 @@ focus_tree = {
 		}
 		available = {
 			has_war = no
-			is_neighbor_of = OCG
-			is_subject = no
 		}
 				
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_destroy_the_cossack_republic"
-			
 			declare_war_on = {
 				target = OCG
 				type = annex_everything
@@ -861,11 +773,6 @@ focus_tree = {
 		cost = 5
 		will_lead_to_war_with = KAZ
 		
-		bypass = {
-			KAZ = {
-				exists = no
-			}
-		}
 		relative_position_id = SOV_stalin_destroy_the_cossack_republic
 		
 		prerequisite = {
@@ -873,13 +780,9 @@ focus_tree = {
 		}
 		available = {
 			has_war = no
-			is_neighbor_of = KAZ
-			is_subject = no
 		}
 				
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_burn_steppe_autonomy"
-			
 			declare_war_on = {
 				target = KAZ
 				type = annex_everything
@@ -904,6 +807,7 @@ focus_tree = {
 				target = BSM
 				type = annex_everything
 			}
+			
 			KAZ = { make_every_core_national_for_PREV = yes }
 		    BSM = { make_every_core_national_for_PREV = yes }
 			TMS = { make_every_core_national_for_PREV = yes }
@@ -926,7 +830,14 @@ focus_tree = {
 		relative_position_id = SOV_stalin_burn_the_steppe_autonomy
 		
 		available = {
-			is_subject = no
+			if = {
+				limit = { is_subject = yes }
+				
+				OR = {
+					KYR = { is_subject = no }
+					overlord = { has_subject = KYR }
+				}
+			}
 		}
 		
 		prerequisite = {
@@ -934,8 +845,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_old_comrade"
-			
 			annex_country = { 
 				target = KYR
 				transfer_troops = yes 
@@ -953,7 +862,6 @@ focus_tree = {
 		
 		cost = 4
 		completion_reward = {	
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_reformation_of_the_ogpu"
 			create_intelligence_agency = {
 				name = "OGPU"
 				icon = GFX_intelligence_agency_logo_agency
@@ -980,7 +888,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_dzerzhinskys_resignation"
 			hidden_effect = {
 				SOV_nikolai_bukharin = {
 					set_character_flag = retired
@@ -1013,8 +920,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_beria_leader"
-			
 			activate_advisor = SOV_lavrentiy_beria_sec
 		}
 	}
@@ -1035,8 +940,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_power_expansion"
-			
 			add_political_power = -50
 			add_tech_bonus = {
 				bonus = 1
@@ -1068,8 +971,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_yezhov_leader"
-			
 			activate_advisor = SOV_nikolai_yezhov_sec
 		}
 	}
@@ -1090,8 +991,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_reliable_mechanism"
-			
 			add_political_power = -25
 			add_stability = 0.2
 		}
@@ -1120,8 +1019,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_yezhov_leader"
-			
 			activate_advisor = SOV_gleb_bokii_sec
 		}
 	}
@@ -1142,8 +1039,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_extraordinary_work"
-			
 			add_political_power = -100
 			add_stability = -0.025
 			
@@ -1176,7 +1071,6 @@ focus_tree = {
 		x = -8
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_the_first_five_year_plan"
 			add_timed_idea = {
 				idea = SOV_five_year_plan
 				years = 5
@@ -1199,7 +1093,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_increase_mic_funding"
 			add_ideas = SOV_extensive_mic_funding
 		}
 	}
@@ -1214,7 +1107,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_economy_modernisation"
 			219 = { #Moscow
 				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
@@ -1258,8 +1150,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_requisition_peasant_grain_suprlus"
-			
 			651 = {
 				add_resource = {
 					type = aluminium
@@ -1288,8 +1178,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_forced_industrialisation"
-			
 			add_manpower = -10000
 			add_stability = -0.05
 			
@@ -1331,8 +1219,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_artel_self_governance"
-			
 			add_ideas = SOV_autonomous_cooperatives
 		}
 	}
@@ -1348,8 +1234,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_attract_village_resources_to_cities"
-			
 			add_stability = -0.1
 			every_owned_state = {
 				random_select_amount = 12
@@ -1377,7 +1261,6 @@ focus_tree = {
 		y = 2
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_create_the_social_security_system"
 			add_stability = 0.2
 			add_popularity = {
 				ideology = bolshevism
@@ -1396,7 +1279,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_estabilish_the_planning_councils"
 			add_ideas = SOV_soviet_economy_1
 		}
 	}
@@ -1411,8 +1293,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_estabilish_the_gulags"
-			
 			swap_ideas = {
 				remove_idea = SOV_soviet_economy_1
 				add_idea = SOV_soviet_economy_2
@@ -1430,8 +1310,6 @@ focus_tree = {
 		y = 3
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_use_gulag_prisoners_in_the_construction"
-			
 			214 = { #Arkhangelsk
 				add_manpower = -15000
 				add_resource = {
@@ -1460,8 +1338,6 @@ focus_tree = {
 		y = 5
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_workforce_is_everything"
-			
 			swap_ideas = {
 				remove_idea = SOV_soviet_economy_2
 				add_idea = SOV_soviet_economy_3
@@ -1479,8 +1355,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_economical_autakry"
-			
 			swap_ideas = {
 				remove_idea = SOV_soviet_economy_3
 				add_idea = SOV_soviet_economy_4
@@ -1498,8 +1372,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_army_modernisation"
-			
 			army_experience = 50
 			navy_experience = 50
 			air_experience = 50
@@ -1517,8 +1389,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_rkka"
-			
 			army_experience = 200
 		}
 	}
@@ -1534,8 +1404,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_new_methods_of_war"
-			
 			add_tech_bonus = {
 				bonus = 0.5
 				uses = 3
@@ -1556,8 +1424,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_open_the_tsarist_stockpiles"
-			
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
 				amount = 10000
@@ -1592,8 +1458,6 @@ focus_tree = {
 		y = 2
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_newest_weapons"
-			
 			add_tech_bonus = {
 				bonus = 1
 				uses = 3
@@ -1628,8 +1492,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_ussr_navy"
-			
 			navy_experience = 100
 		}
 	}
@@ -1644,7 +1506,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_resurrection_of_the_russian_fleet"
 			add_tech_bonus = {
 				bonus = 1
 				uses = 2
@@ -1691,8 +1552,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_return_to_the_sky"
-			
 			air_experience = 100
 		}
 	}
@@ -1707,8 +1566,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_stalins_falcons"
-			
 			if = {
 				limit = {
 					has_dlc = "By Blood Alone"
@@ -1757,8 +1614,6 @@ focus_tree = {
 			always = no
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_purges_of_the_unloyal_in_the_party"
-			
 			add_political_power = -100
 			add_power_balance_value = {
 				id = SOV_stalin_support
@@ -1784,7 +1639,6 @@ focus_tree = {
 			has_completed_focus = SOV_stalin_estimate_the_ulyanovs_work
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_arrest_bukharin"
 			add_political_power = -50
 			retire_character = SOV_nikolai_bukharin
 			add_power_balance_value = {
@@ -1811,7 +1665,6 @@ focus_tree = {
 			has_completed_focus = SOV_stalin_estimate_the_ulyanovs_work
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_negotations_with_bukharinists"
 			add_political_power = -100
 			hidden_effect = {
 				SOV_nikolai_bukharin = {
@@ -1841,7 +1694,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_discredit_the_trotskyism"
+			
 		}
 	}
 	focus = {
@@ -1859,8 +1712,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_compromise_with_the_trotskyists"
-			
 			SOV_leon_trotsky = {
 				add_field_marshal_role = {
 					skill = 3
@@ -1892,7 +1743,7 @@ focus_tree = {
 			has_completed_focus = SOV_stalin_arrest_bukharin
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_stalins_constitution"
+			
 		}
 	}
 	focus = {
@@ -1925,7 +1776,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_molotovs_constitution"
+			
 		}
 	}
 	focus = {
@@ -1949,7 +1800,7 @@ focus_tree = {
 			has_completed_focus = SOV_stalin_negotations_with_bukharinists
 		}
 		completion_reward = {
-			log = "[GetDateText]: [THIS.GetTag]: Focus SOV_stalin_molotovs_constitution"
+			
 		}
 	}
 }

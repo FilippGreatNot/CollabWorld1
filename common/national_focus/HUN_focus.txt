@@ -131,7 +131,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_fate_of_the_korona }
 		available_if_capitulated = yes
 		completion_reward = {
-			add_war_support = 0.05
+			add_war_support = 0.04
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -178,7 +178,7 @@ focus_tree = {
 		icon = GFX_goal_generic_soviet_construction
 		x = 1
 		y = 2
-		cost = 5
+		cost = 10
 		relative_position_id = HUN_fate_of_the_korona
 		mutually_exclusive = { focus = HUN_faith_in_agriculture }
 		prerequisite = { focus = HUN_rapid_militarisation }
@@ -208,7 +208,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_military
 		x = 4
 		y = 1
-		cost = 3
+		cost = 5
 		relative_position_id = HUN_a_nation_of_magyars
 		prerequisite = { focus = HUN_a_nation_of_magyars }
 		available_if_capitulated = yes
@@ -260,7 +260,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_fortify_budapest }
 		available_if_capitulated = no
 		completion_reward = {
-			army_experience = 40
+			army_experience = 15
 			division_template = {
 				name = "Veteran Militias"
 				priority = 1
@@ -272,23 +272,12 @@ focus_tree = {
 					cavalry = { x = 2 y = 0 }
 					cavalry = { x = 2 y = 1 }
 				}
-				support = {
-					artillery = { x = 0 y = 0 }
-				}
 			}
 			random_owned_controlled_state = {
 				prioritize = { 43 }
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
-					division = "name = \"1st Infantry Brigade\" division_template = \"Veteran Militias\" start_experience_factor = 0.6" 
-					owner = PREV
-				}
-			}
-			random_owned_controlled_state = {
-				prioritize = { 935 }
-				limit = { PREV = { has_full_control_of_state = PREV } }
-				create_unit = {
-					division = "name = \"2nd Infantry Brigade\" division_template = \"Veteran Militias\" start_experience_factor = 0.6" 
+					division = "name = \"1st Infantry Brigade\" division_template = \"Veteran Militias\" start_experience_factor = 0.3" 
 					owner = PREV
 				}
 			}

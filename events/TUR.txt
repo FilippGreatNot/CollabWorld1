@@ -1,0 +1,27 @@
+add_namespace = tur_land
+
+country_event = { 
+    id = tur_land.1
+    title = tur_land.1.t 
+    desc = tur_land.1.d 
+    is_triggered_only = yes
+
+    option = {
+        name = tur_land.1.a
+		every_country = {
+			limit = { is_turkish_tag = yes }
+			create_wargoal = {
+				target = GRE
+				type = take_claimed_state
+			}
+		}
+    }
+    option = {
+        name = tur_land.1.b
+		every_country = {
+			limit = { is_turkish_tag = yes }
+			transfer_state = 339
+			transfer_state = 341
+		}		
+    }
+}

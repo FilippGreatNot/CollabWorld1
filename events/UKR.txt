@@ -4,6 +4,7 @@ add_namespace = ukr.white
 add_namespace = ukr.ger
 add_namespace = ukr_soc
 add_namespace = ukr
+add_namespace = ukr_soc_sov
 
 ########################
 #   starting branch    #
@@ -14,7 +15,7 @@ country_event = {
 	id = ukr.startbranch.1
 	title = ukr.startbranch.1.t
 	desc = ukr.startbranch.1.d
-	#picture = GFX_report_event_makhno
+	picture = GFX_report_event_makhno_2
 	
 	is_triggered_only = yes
 	
@@ -28,7 +29,7 @@ country_event = {
 	id = ukr.startbranch.2
 	title = ukr.startbranch.2.t
 	desc = ukr.startbranch.2.d
-	#picture = GFX_report_event_makhno
+	picture = GFX_report_event_makhno_1
 	
 	is_triggered_only = yes
 	
@@ -42,7 +43,7 @@ country_event = {
 	id = ukr.startbranch.3
 	title = ukr.startbranch.3.t
 	desc = ukr.startbranch.3.d
-	#picture = GFX_report_event_makhno
+	picture = GFX_report_event_makhno_3
 	
 	is_triggered_only = yes
 	
@@ -78,14 +79,14 @@ country_event = {
 		ai_chance = { base = 1 }
 		name = ukr.sb.5.a #Makhno survives.
 		complete_national_focus = UKR_he_is_alive
-		
+		load_focus_tree = UKR_makhno_tree
 	}
 	
 	option = {
 		ai_chance = { base = 1 }
 		name = ukr.sb.5.b #Makhno dies. Soviets now rule
 		add_manpower = -1
-		complete_national_focus = UKR_or
+		complete_national_focus = UKR_com
 		add_ideas = UKR_into_the_new_age_idea
 
 		set_politics = {
@@ -195,11 +196,21 @@ country_event = {
 		complete_national_focus = UKR_soc_reject
 		add_war_support = 0.1
 		add_political_power = 100
+		ai_chance = { base = 1 }
 	}
 	option = {
 		name = ukr_soc.1.b
 		SOV = {country_event = SOV.ukr.3}
 		add_stability = 0.05
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = ukr_soc.1.c
+		trigger = {
+			UKR = { has_war = no }
+		}
+		ai_chance = { base = 8 }
+		SOV = {country_event = SOV.ukr.5}
 	}
 }
 
@@ -213,7 +224,6 @@ country_event = {
 		add_war_support = 0.1
 		hidden_effect = { 
         	137 = { transfer_state_to = UKR }
-			add_state_core = 137
 		}
 	}
 }
@@ -232,9 +242,6 @@ country_event = {
 			}
 		}
 		add_war_support = 0.1
-		hidden_effect = {
-			add_state_core = 137
-		}
 	}
 }
 
@@ -279,7 +286,11 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc.6.a
-		remove_ideas = { UKR_non_industrial_country }
+		complete_national_focus = UKR_soc_forced_industrialisation
+	}
+	option = {
+		name = ukr_soc.6.b
+		complete_national_focus = UKR_soc_agrarian_economy
 	}
 }
 
@@ -294,6 +305,7 @@ country_event = {
 		add_ideas = { UKR_west_resistance }
 	}
 }
+
 country_event = {
 	id = ukr_soc.8
 	title = ukr_soc.8.t
@@ -303,21 +315,33 @@ country_event = {
 		name = ukr_soc.8.a
 		ai_chance = { base = 1 }
 		hidden_effect = {
-			release = UKW
+			201 = {
+				transfer_state_to = UKW
+				add_core_of = UKW
+				set_demilitarized_zone = no
+			}
+			199 = {
+				 transfer_state_to = UKW
+				 add_core_of = UKW
+				 set_demilitarized_zone = no
+			}
+			198 = {
+				transfer_state_to = UKW 
+				add_core_of = UKW
+				set_demilitarized_zone = no
+			}
+			UKW = { load_oob = UKW }
 			declare_war_on = {
 				target = UKW
 				type = annex_everything
 			}
-			201 = { transfer_state_to = UKW } 
-			199 = { transfer_state_to = UKW } 
-			198 = { transfer_state_to = UKW } 
-			UKW = { load_oob = UKW }
 			news_event = ukr_soc.9
 		}
 		UKW = { change_tag_from = UKR }
 		remove_ideas = {
 			UKR_west_resistance
 		}
+
 	}
 
 	option = {
@@ -325,15 +349,28 @@ country_event = {
 		ai_chance = { base = 1 }
 		hidden_effect = {
 			release = UKW
+			201 = {
+				transfer_state_to = UKW
+				add_core_of = UKW
+				set_demilitarized_zone = no
+			}
+			199 = {
+				 transfer_state_to = UKW
+				 add_core_of = UKW
+				 set_demilitarized_zone = no
+			}
+			198 = {
+				transfer_state_to = UKW
+				add_core_of = UKW
+				set_demilitarized_zone = no
+			}
+			UKW = { load_oob = UKW }
 			declare_war_on = {
 				target = UKW
 				type = annex_everything
 			}
-			201 = { transfer_state_to = UKW } 
-			199 = { transfer_state_to = UKW } 
-			198 = { transfer_state_to = UKW } 
-			UKW = { load_oob = UKW }
 			news_event = ukr_soc.9
+			set_country_flag = UKR_civil_war_flag
 		}
 		remove_ideas = {
 			UKR_west_resistance
@@ -350,5 +387,254 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc.9.a
+	}
+}
+
+country_event = {
+	id = ukr_soc.10
+	title = ukr_soc.10.t
+	desc = ukr_soc.10.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.10.a
+		complete_national_focus = UKR_soc_int_anarchy
+	}
+	option = {
+		name = ukr_soc.10.b 
+		complete_national_focus = UKR_soc_kill_wrong
+	}
+}
+
+country_event = {
+	id = ukr_soc.11
+	title = ukr_soc.11.t
+	desc = ukr_soc.11.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.11.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	137 = { transfer_state_to = UKR }
+        	234 = { transfer_state_to = UKR }
+
+		}
+	}
+}
+
+country_event = {
+	id = ukr.12
+	title = ukr.12.t
+	desc = ukr.12.d
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			add_state_core = 137
+			add_state_core = 234
+		}
+	}
+	option = {
+		name = ukr.12.a
+		SRF = 
+			{ country_event = {
+				id = SRF.1
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.12.b
+		SRF = 
+			{ country_event = {
+				id = SRF.2
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.12.c
+		create_wargoal = {
+			type = annex_everything
+			target = SRF
+		}
+	}
+}
+
+country_event = {
+	id = ukr.13
+	title = ukr.13.t
+	desc = ukr.13.d
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			add_state_core = 766
+			add_state_core = 78
+		}
+	}
+	option = {
+		name = ukr.13.a
+		ROM = 
+			{ country_event = {
+				id = ROM.1
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.13.b
+		ROM = 
+			{ country_event = {
+				id = ROM.2
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = ukr.13.c
+		create_wargoal = {
+			type = annex_everything
+			target = ROM
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.14
+	title = ukr_soc.14.t
+	desc = ukr_soc.14.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.14.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	766 = { transfer_state_to = UKR }
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.15
+	title = ukr_soc.15.t
+	desc = ukr_soc.15.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.15.a
+		add_war_support = 0.1
+		hidden_effect = { 
+        	766 = { transfer_state_to = UKR }
+        	78 = { transfer_state_to = UKR }
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.16
+	title = ukr_soc.16.t
+	desc = ukr_soc.16.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.16.a
+		add_war_support = 0.1
+		PREV = {
+			create_wargoal = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.17
+	title = ukr_soc.17.t
+	desc = ukr_soc.17.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.17.a
+		add_stability = 0.05
+		add_war_support = 0.05
+		annex_country = {
+			target = BLR
+			transfer_troops = yes
+		}
+		BLR = {
+			every_core_state = {
+				add_core_of = UKR } 
+		}
+		hidden_effect = {
+			news_event = ukr_soc.20
+			complete_national_focus = UKR_soc_unite
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.18
+	title = ukr_soc.18.t
+	desc = ukr_soc.18.d
+	is_triggered_only = yes 
+	option = {
+		name = ukr_soc.18.a
+		add_war_support = 0.05
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+		hidden_effect = {
+			complete_national_focus = UKR_soc_invade
+		}
+	}
+}
+
+country_event = {
+	id = ukr_soc.19
+	title = ukr_soc.19.t
+	desc = ukr_soc.19.d
+	is_triggered_only = yes
+	option = { 
+		name = ukr_soc.19.a
+		complete_national_focus = UKR_soc_reject 
+	}
+}
+
+news_event = {
+	id = ukr_soc.20
+	picture = GFX_news_event_tukha_with_generals
+	title = ukr_soc.20.t
+	desc = ukr_soc.20.d 
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.20.a
+	}
+}
+
+country_event = {
+	id = ukr_soc_sov.1
+	title = ukr_soc_sov.1.t
+	desc = ukr_soc_sov.1.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc_sov.1.a
+		SOV = { puppet = UKR }
+	}
+}
+
+country_event = {
+	id = ukr_soc_sov.2
+	title = ukr_soc_sov.2.t
+	desc = ukr_soc_sov.2.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc_sov.2.a
+		SOV = {
+			UKR = { 
+				every_core_state = {
+				add_core_of = SOV
+				}
+			}
+			annex_country = {
+				target = UKR
+				transfer_troops = yes
+			}
+		}
 	}
 }

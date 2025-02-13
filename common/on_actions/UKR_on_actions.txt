@@ -17,4 +17,39 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation_immediate = { 
+        effect = { 
+	        if = { 
+				limit = {
+					ROOT = {
+						original_tag = UKR
+					}
+					country_exists = UKW
+				}
+				every_state = {
+					limit = { is_core_of = UKR }
+					remove_core_of = UKR
+				}
+				every_state = {
+					limit = { is_claimed_by = UKR }
+					add_claim_by = UKW
+					remove_claim_by = UKR
+				}
+			}
+		}
+        effect = { 
+	        if = { 
+				limit = {
+					ROOT = {
+						original_tag = UKW
+					}
+					country_exists = UKR
+				}
+				every_state = {
+					limit = { is_core_of = UKW }
+					remove_core_of = UKW
+				}
+			}
+		}
+	}
 }

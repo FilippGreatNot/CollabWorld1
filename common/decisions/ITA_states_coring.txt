@@ -1,417 +1,169 @@
-ITA_reunification = {
-	ITA_coring_tus = {
-
+ITA_states_coring_category = {
+	ITA_all_possible_cores = {
 		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 162
-		}
-
-		visible = {
-			owns_state = 162
-			NOT = {
-				162 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
+		on_map_mode = decision_view_only
+		ai_will_do = { factor = 0 }
 		highlight_states = {
 			highlight_state_targets = {
-				state = 162
-				state = 884
-			}
-		}
-		
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 15
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 35
-		fire_only_once = yes
-
-		remove_effect	= {
-			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_tus remove"
-			add_state_core = 162
-			add_state_core = 884
-			every_other_country = {
-				limit = { is_italian_tag = yes }
-				remove_state_core = 162
-				remove_state_core = 884		
-			}
-			set_country_flag = ITAS_has_cored_tus
-		}
-	}
-	ITA_coring_its2 = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 159
-		}
-
-		visible = {
-			owns_state = 159
-			NOT = {
-				159 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 159
+				state = 930
+				state = 736
+				state = 873
+				state = 991
+				state = 892
+				state = 1062
 				state = 158
-				state = 161
-				state = 869
 				state = 875
-				state = 859
-			}
-		}
-		
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 30
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 70
-		fire_only_once = yes
-
-		remove_effect	= {
-			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_its remove"
-			add_state_core = 159
-			add_state_core = 158
-			add_state_core = 161
-			add_state_core = 869
-			add_state_core = 875
-			add_state_core = 859
-			every_other_country = {
-				limit = { is_italian_tag = yes }
-				remove_state_core = 159
-				remove_state_core = 158
-				remove_state_core = 161
-				remove_state_core = 869
-				remove_state_core = 875
-				remove_state_core = 859
-			}
-			set_country_flag = ITAS_has_cored_its
-			if = {
-				limit = {tag = TUS}
-				custom_effect_tooltip = TUS_modify_ppl_subtract_10
-				subtract_from_variable = {
-					var = TUS_Balbo_Pop_ppl
-					value = 10
-				}				
-			}
-		}
-	}
-	ITA_coring_vne = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 160
-		}
-
-		visible = {
-			owns_state = 160
-			NOT = {
-				160 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 160
-				state = 860
-			}
-		}
-		
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 15
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 35
-		fire_only_once = yes
-
-		remove_effect	= {
-			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_vne remove"
-			add_state_core = 160
-			add_state_core = 860
-			every_other_country = {
-				limit = { is_italian_tag = yes }
-				remove_state_core = 160
-				remove_state_core = 860
-			}
-			set_country_flag = ITAS_has_cored_vne
-			if = {
-				limit = {tag = TUS}
-				custom_effect_tooltip = TUS_modify_ppl_subtract_5
-				subtract_from_variable = {
-					var = TUS_Balbo_Pop_ppl
-					value = 5
-				}				
-			}
-		}
-	}
-	ITA_coring_ita = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 2
-		}
-
-		visible = {
-			owns_state = 2
-			NOT = {
-				2 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
+				state = 869
+				state = 159
+				state = 161
+				state = 162
+				state = 893
+				state = 884
+				state = 857
 				state = 2
 				state = 157
 				state = 117
-				state = 893
-				state = 857
 				state = 931
+				state = 932
+				state = 933
+				state = 934
+				state = 156
+				state = 115
+				state = 114
+				state = 860
+				state = 160
+				state = 39
+				state = 859
 			}
 		}
-		
-		modifier = {
-			political_power_gain = -0.15
+		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
-
-		cost = 30
-
-		ai_will_do = {
-			factor = 100
+	}
+	ITA_integrate_state_S = {
+		icon = GFX_decision_generic_form_nation
+		name = ITA_integrate_state
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				OR = {
+					state = 859
+					state = 930
+					state = 931
+					state = 857
+					state = 934
+					state = 869	
+					state = 932
+				}
+			}
 		}
-
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 35
+		ai_will_do = { factor = 100 }
+		days_remove = 20
+		fire_only_once = yes
+		remove_effect = { 
+			add_state_core = FROM 
+			hidden_effect = {
+				FROM = {
+					every_possible_country = {
+						limit = {
+							is_italian_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+	ITA_integrate_state_M = {
+		icon = GFX_decision_generic_form_nation
+		name = ITA_integrate_state
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				OR = {
+					state = 736
+					state = 873
+					state = 991
+					state = 892
+					state = 1062
+					state = 875	
+					state = 893
+					state = 884
+					state = 157
+					state = 933
+					state = 156
+					state = 860
+					state = 160
+					state = 39
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 50
+		ai_will_do = { factor = 100 }
+		days_remove = 40
+		fire_only_once = yes
+		remove_effect = { 
+			add_state_core = FROM 
+			hidden_effect = {
+				FROM = {
+					every_possible_country = {
+						limit = {
+							is_italian_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+	ITA_integrate_state_L = {
+		icon = GFX_decision_generic_form_nation
+		name = ITA_integrate_state
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				OR = {
+					state = 114
+					state = 2
+					state = 115
+					state = 162
+					state = 161
+					state = 159
+					state = 158
+					state = 117
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 100
+		ai_will_do = { factor = 100 }
 		days_remove = 70
 		fire_only_once = yes
-
-		remove_effect	= {
-			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_ita remove"
-			add_state_core = 2
-			add_state_core = 157
-			add_state_core = 117
-			add_state_core = 893
-			add_state_core = 857
-			add_state_core = 931
-			every_other_country = {
-				limit = { is_italian_tag = yes }
-				remove_state_core = 2
-				remove_state_core = 157
-				remove_state_core = 117
-				remove_state_core = 893
-				remove_state_core = 857
-				remove_state_core = 931
-			}
-			set_country_flag = ITAS_has_cored_ita
-			if = {
-				limit = {tag = TUS}
-				custom_effect_tooltip = TUS_modify_ppl_subtract_10
-				subtract_from_variable = {
-					var = TUS_Balbo_Pop_ppl
-					value = 10
-				}				
-			}
-		}
-	}
-	ITA_coring_mss = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 115
-		}
-
-		visible = {
-			owns_state = 115
-			NOT = {
-				115 = {
-					is_core_of = ROOT
+		remove_effect = { 
+			add_state_core = FROM 
+			hidden_effect = {
+				FROM = {
+					every_possible_country = {
+						limit = {
+							is_italian_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
+					}
 				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 115
-				state = 156
-				state = 932
-				state = 934
-				state = 933
-			}
-		}
-		
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 15
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 35
-		fire_only_once = yes
-
-		remove_effect	= {
-			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_mss remove"
-			add_state_core = 115
-			add_state_core = 156
-			add_state_core  = 932
-			add_state_core  = 934
-			add_state_core  = 933
-			every_other_country = {
-				limit = { is_italian_tag = yes }
-				remove_state_core = 115
-				remove_state_core = 156
-				remove_state_core = 932
-				remove_state_core = 934
-				remove_state_core = 933
-			}
-			set_country_flag = ITAS_has_cored_mss
-			if = {
-				limit = {tag = TUS}
-				custom_effect_tooltip = TUS_modify_ppl_subtract_5
-				subtract_from_variable = {
-					var = TUS_Balbo_Pop_ppl
-					value = 5
-				}				
-			}
-		}
-	}
-	ITA_coring_sar = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 114
-		}
-
-		visible = {
-			owns_state = 114
-			NOT = {
-				114 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 114
-			}
-		}
-		
-		modifier = {
-			political_power_gain = -0.15
-		}
-
-		cost = 15
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		days_remove = 35
-		fire_only_once = yes
-
-		remove_effect	= {
-			log = "[GetDateText]: [Root.GetName]: Decision ITA_coring_integrate_sar remove"
-			add_state_core = 114
-			every_other_country = {
-				limit = { is_italian_tag = yes }
-				add_state_core = 114
-			}
-			set_country_flag = ITAS_has_cored_sar
-			if = {
-				limit = {tag = TUS}
-				custom_effect_tooltip = TUS_modify_ppl_subtract_5
-				subtract_from_variable = {
-					var = TUS_Balbo_Pop_ppl
-					value = 5
-				}				
-			}
-		}
-	}
-	ITA_core_san_1 = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 930
-		}
-
-		visible = {
-			owns_state = 930
-			NOT = {
-				930 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-		
-		days_remove = 5
-		cost = 5
-
-		remove_effect = {
-			930 = {
-				add_core_of = ROOT
-			}
-		}
-	}
-	ITA_core_san_2 = {
-
-		icon = GFX_decision_generic_form_nation
-
-		available = {
-			controls_state = 907
-		}
-
-		visible = {
-			owns_state = 907
-			NOT = {
-				907 = {
-					is_core_of = ROOT
-				}
-			}
-		}
-		
-		days_remove = 21
-		cost = 21
-
-		remove_effect = {
-			907 = {
-				add_core_of = ROOT
 			}
 		}
 	}

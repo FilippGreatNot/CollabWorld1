@@ -1,5 +1,6 @@
 add_namespace = fgb
 add_namespace = fgb_policy
+add_namespace = dsh 
 
 country_event = {
 	id = fgb.1
@@ -50,29 +51,33 @@ country_event = {
 	
 	option = {
 		name = fgb.2.a
+		ai_chance = { base = 50 }
 		custom_effect_tooltip = FGB_noske_content_tt
 		set_country_flag = FGB_noske_flag
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = FGB_noske
 	}
-	#option = {
-	#	name = fgb.2.b
-	#	set_country_flag = FGB_pabst_flag
-	#	mark_focus_tree_layout_dirty = yes
-	#	complete_national_focus = FGB_pabst
-	#}
-	#option = {
-	#	name = fgb.2.c
-	#	set_country_flag = FGB_rohm_flag
-	#	mark_focus_tree_layout_dirty = yes
-	# 	complete_national_focus = FGB_rohm
-	#}
-	#option = {
-	#	name = fgb.2.e
-	#	set_country_flag = FGB_other_flag
-	#	mark_focus_tree_layout_dirty = yes
-	# 	complete_national_focus = FGB_other
-	#}
+	option = {
+		name = fgb.2.b
+		ai_chance = { base = 10 }
+		set_country_flag = FGB_pabst_flag
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = FGB_pabst
+	}
+	option = {
+		name = fgb.2.c
+		ai_chance = { base = 1 }
+		set_country_flag = FGB_rohm_flag
+		mark_focus_tree_layout_dirty = yes
+	 	complete_national_focus = FGB_rohm
+	}
+	option = {
+		name = fgb.2.e
+		ai_chance = { base = 1 }
+		set_country_flag = FGB_other_flag
+		mark_focus_tree_layout_dirty = yes
+	 	complete_national_focus = FGB_other
+	}
 }
 
 country_event = {
@@ -274,7 +279,7 @@ news_event = { #Noske unites germany
 	id = fgb.10
 	title = fgb.10.t
 	desc = fgb.10.d
-	picture = GFX_news_event_freikorps_berlin
+	picture = GFX_news_event_freikorps_unite_germany
 	is_triggered_only = yes
 	major = yes
 
@@ -332,6 +337,9 @@ country_event = {
 			ideology = conservatism
 			popularity = 0.02
 		}
+		hidden_effect = {
+			country_event = { id = fgb.85 days = 3 }
+		}
 	}
 	option = {
 		name = fgb.12.b
@@ -339,6 +347,9 @@ country_event = {
 		add_popularity = {
 			ideology = social_democrat
 			popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = { id = fgb.85 days = 3 }
 		}
 	}
 }
@@ -672,7 +683,7 @@ news_event = {
 	desc = fgb.25.d
 	picture = GFX_news_event_freikorps_berlin
 	is_triggered_only = yes
-	fire_only_once = yes
+	major = yes
 
 	option = {
 		name = fgb.25.a
@@ -694,7 +705,15 @@ country_event = {
 		name = fgb.26.a
 		ai_chance = { base = 5 }
 		FGB = {
-			complete_national_focus = FGB_question_the_kleindeutsche_idea
+			AUS = {
+				every_owned_state = {
+					add_core_of = FGB
+				}
+			}
+			annex_country = {
+				target = AUS
+				transfer_troops = yes
+			}
 		}
 	}
 
@@ -708,14 +727,12 @@ country_event = {
 				}
 				complete_national_focus = FGB_noske_establish_the_europakt
 				add_to_faction = AUS
-				unlock_national_focus = FGB_question_the_kleindeutsche_idea
 				country_event = fgb.27
 			}
 			else = {
 				FGB = {
 					add_to_faction = AUS
 				}
-				unlock_national_focus = FGB_question_the_kleindeutsche_idea
 				country_event = fgb.27
 			}
 		}
@@ -902,7 +919,6 @@ country_event = {
 		FGB = {
 			puppet = {
 				target = PLA
-				end_wars = no
 			}
 		}
 	}
@@ -1182,13 +1198,13 @@ country_event = {
 	
 	option = {
 		name = fgb.44.a
-		remove_advisor_role = { character = FGB_kurt_schumacher slot = security_minister }
+		remove_advisor_role = { character = FGB_eugen_schiffer slot = economy_minister }
 		add_country_leader_role = {
-    			character = FGB_kurt_schumacher
+    			character = FGB_eugen_schiffer
     			promote_leader = yes
     			country_leader = {
-        			ideology = classical_liberalism
-        			expire = "1965.1.1.1"
+        		ideology = libertarian
+        		expire = "1965.1.1.1"
 			}
 		}
 		add_popularity = { ideology = liberalism popularity = 0.05 }
@@ -1407,6 +1423,12 @@ country_event = {
 
 	option = {
 		name = fgb.57.a
+		add_political_power = 20
+		DOA = { country_event = { id = fgb.58 days = 2 } }
+		custom_effect_tooltip = FGB_we_will_send_a_similar_letter_tt
+		hidden_effect = {
+			FRA = { country_event = { id = fgb.65 days = 9 } }
+		}
 	}
 }
 
@@ -1419,9 +1441,871 @@ country_event = {
 
 	option = {
 		name = fgb.58.a
+		ai_chance = { base = 20 }
+		FGB = { 
+			country_event = { id = fgb.59 days = 1 } 
+			add_political_power = 20 
+		}
+		add_stability = -0.1
+	}
+	option = {
+		name = fgb.58.b
+		ai_chance = { base = 15 }
+		FGB = { 
+			country_event = { id = fgb.60 days = 1 } 
+			add_political_power = -20 
+		}
+		add_stability = 0.1
 	}
 }
-		
+
+country_event = {
+	id = fgb.59
+	title = fgb.59.t
+	desc = fgb.59.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.59.a
+		add_stability = 0.02
+		puppet = { target = DOA end_wars = yes }
+		complete_national_focus = FGB_noske_ostafrika_is_ours
+	}
+}
+
+country_event = {
+	id = fgb.60
+	title = fgb.60.t
+	desc = fgb.60.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.60.a
+		ai_chance = { base = 200 }
+		add_war_support = 0.02
+		declare_war_on = { target = DOA type = puppet_wargoal_focus }
+	}
+	option = {
+		name = fgb.60.b
+		ai_chance = { base = 200 }
+		add_stability = 0.02
+		add_war_support = -0.02
+	}
+}
+
+country_event = {
+	id = fgb.61
+	title = fgb.61.t
+	desc = fgb.61.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.61.a
+		ai_chance = { base = 200 }
+		add_stability = 0.05
+		add_timed_idea = { idea = FGB_german_funding days = 60 }
+		851 = { add_core_of = FGB }
+		FGB = { 
+			transfer_state = 851 
+			country_event = { 
+				id = fgb.policy.3
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = fgb.61.b
+		ai_chance = { base = 100 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb.policy.4 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.62
+	title = fgb.62.t
+	desc = fgb.62.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.62.a
+		ai_chance = { base = 200 }
+		add_stability = -0.05
+		841 = { add_core_of = FGB }
+		FGB = { 
+			transfer_state = 841 
+			country_event = { 
+				id = fgb.policy.1
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = fgb.62.b
+		ai_chance = { base = 190 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb.policy.2 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.63
+	title = fgb.63.t
+	desc = fgb.63.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.63.a
+		ai_chance = { base = 200 }
+		add_stability = 0.05
+		add_timed_idea = { idea = FGB_german_funding days = 60 }
+		841 = { add_core_of = FGB }
+		FGB = { 
+			transfer_state = 841 
+			country_event = { 
+				id = fgb.policy.3
+				days = 2
+			}
+		}
+	}
+	option = {
+		name = fgb.63.b
+		ai_chance = { base = 100 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb.policy.4 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.64
+	title = fgb.64.t
+	desc = fgb.64.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.64.a
+		ai_chance = { base = 200 }
+		add_stability = 0.1
+		add_political_power = 120
+	}
+}
+
+country_event = {
+	id = fgb.65
+	title = fgb.65.t
+	desc = fgb.65.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.65.a 
+		ai_chance = { base = 10 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb_policy.4 days = 2 } }
+	}
+	option = {
+		name = fgb.65.b
+		ai_chance = { base = 20 }
+		add_stability = 0.05
+		add_timed_idea = { idea = FGB_german_funding days = 90 }
+		FGB = {
+			puppet = {
+				target = CMR
+			}
+		}
+		CMR = { set_cosmetic_tag = KAMERUN }
+		FGB = {
+			country_event = { 
+				id = fgb.67
+				days = 2
+			}
+		}
+		hidden_effect = {
+			ENG = { country_event = { id = fgb.66 days = 3 } }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.66
+	title = fgb.66.t
+	desc = fgb.66.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.66.a 
+		ai_chance = { base = 10 }
+		add_war_support = 0.05
+		FGB = { country_event = { id = fgb_policy.4 days = 2 } }
+	}
+	option = {
+		name = fgb.66.b
+		ai_chance = { base = 15 }
+		add_stability = 0.05
+		add_timed_idea = { idea = FGB_german_funding days = 60 }
+		CMR = { transfer_state = 1022 }
+		FGB = {
+			country_event = { 
+				id = fgb.68
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.67
+	title = fgb.67.t
+	desc = fgb.67.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.67.a 
+		add_stability = 0.05
+		complete_national_focus = FGB_noske_kamerun_is_ours
+	}
+}
+
+country_event = {
+	id = fgb.68
+	title = fgb.68.t
+	desc = fgb.68.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.68.a 
+		add_political_power = 40
+	}
+}
+
+country_event = {
+	id = fgb.69
+	title = fgb.69.t
+	desc = fgb.69.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.69.a 
+		add_political_power = 10
+		add_popularity = { ideology = social_democrat popularity = 0.01 }
+	}
+}
+
+country_event = {
+	id = fgb.70
+	title = fgb.70.t
+	desc = fgb.70.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.70.a 
+		add_stability = -0.1
+		add_war_support = -0.1
+		add_popularity = { ideology = despotism popularity = -0.03 }
+		country_event = { id = fgb.71 days = 7 }
+	}
+}
+
+country_event = {
+	id = fgb.71
+	title = fgb.71.t
+	desc = fgb.71.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.71.a
+		ai_chance = { base = 10 }
+		add_political_power = 10
+		add_popularity = { ideology = despotism popularity = -0.05 }
+		set_party_name = { 
+			ideology = despotism
+			long_name = "Deutschnationale Volkspartei"
+			name = "DNVP"
+		}
+		country_event = { id = fgb.72 days = 6 }
+	}
+	option = {
+		name = fgb.71.b
+		ai_chance = { base = 5 }
+		add_popularity = { ideology = reactionism popularity = 0.02 }
+		promote_character = FGB_waldemar_pabst2
+		country_event = { id = fgb.72 days = 6 }
+	}
+	option = {
+		name = fgb.71.c
+		ai_chance = { base = 10 }
+		add_stability = -0.05
+		add_popularity = { ideology = social_democrat popularity = 0.03 }
+		country_event = { id = fgb.72 days = 6 }
+	}
+}
+
+country_event = {
+	id = fgb.72
+	title = fgb.72.t
+	desc = fgb.72.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.72.a
+		add_stability = 0.02
+		add_war_support = 0.03
+		army_experience = 10
+		add_popularity = {
+			ideology = despotism
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = {
+	id = fgb.73
+	title = fgb.73.t
+	desc = fgb.73.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.73.a
+		add_war_support = 0.05
+		if = { 
+			limit = { DOA = { is_subject_of = FGB } } 
+			DOA = { add_war_support = 0.05 }
+		}
+		set_country_flag = FGB_noske_african_expansion
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = {
+	id = fgb.74
+	title = fgb.74.t
+	desc = fgb.74.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.74.a
+		add_political_power = 30
+		773 = {
+			set_state_name = "Kamerun"
+			set_province_name = {
+				id = 2080
+				name = "Duala"
+			}
+		}
+		1022 = {
+			set_state_name = "Nord-Kamerun"
+		}
+	}
+}
+
+country_event = {
+	id = fgb.75
+	title = fgb.75.t
+	desc = fgb.75.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.75.a
+		ai_chance = { base = 50 }
+		every_other_country = {
+			limit = { 
+				AND = {
+					has_full_control_of_state = 158
+					has_full_control_of_state = 159
+					has_full_control_of_state = 160
+					has_full_control_of_state = 161
+					has_full_control_of_state = 162
+					is_italian_tag = yes 
+				}
+			}
+			country_event = fgb.76
+		}		
+	}
+	option = {
+		name = fgb.75.b 
+		ai_chance = { base = 10 }
+		add_stability = -0.05
+		custom_effect_tooltip = FGB_this_is_heavily_discouraged_tt
+	}
+}
+
+country_event = {
+	id = fgb.76
+	title = fgb.76.t
+	desc = fgb.76.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.76.a
+		ai_chance = { base = 10 }
+		give_military_access = FGB
+		FGB = {
+			set_country_flag = FGB_italian_collaboration_true
+			give_military_access = ROOT
+			country_event = { id = fgb_policy.3 days = 1 }
+		}
+	}
+	option = {
+		name = fgb.76.b 
+		ai_chance = { base = 90 }
+		add_war_support = 0.075
+		FGB = {
+			set_country_flag = FGB_italian_collaboration_false
+			country_event = { id = fgb_policy.4 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.77
+	title = fgb.77.t
+	desc = fgb.77.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.77.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = social_democrat
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = {
+	id = fgb.78
+	title = fgb.78.t
+	desc = fgb.78.d
+	picture = GFX_report_event_anti_british_propaganda
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.78.a
+		add_political_power = -20
+		hidden_effect = { country_event = { id = fgb.86 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.79
+	title = fgb.79.t
+	desc = fgb.79.d
+	picture = GFX_report_event_war_propaganda
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.79.a
+		add_stability = -0.05
+		add_manpower = -15000
+	}
+}
+
+country_event = {
+	id = fgb.80
+	title = fgb.80.t
+	desc = fgb.80.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.80.a
+		air_experience = 15
+	}
+}
+
+country_event = {
+	id = fgb.81
+	title = fgb.81.t
+	desc = fgb.81.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.81.a
+		add_war_support = 0.03
+		set_temp_variable = { ideology_change_var = 0.02 }
+		change_ruling_party_popularity = yes
+		hidden_effect = {
+			country_event = { id = fgb.81 days = 365 }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.82
+	title = fgb.82.t
+	desc = fgb.82.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.82.a
+		add_political_power = 30
+		add_popularity = { ideology = social_democrat popularity = 0.02 }
+	}
+}
+
+country_event = {
+	id = fgb.83
+	title = fgb.83.t
+	desc = fgb.83.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.83.a
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.04 }
+	}
+}
+
+country_event = {
+	id = fgb.84
+	title = fgb.84.t
+	desc = fgb.84.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.84.a
+		add_ideas = { FGB_the_german_industrial_revolution }
+	}
+}
+
+country_event = {
+	id = fgb.85
+	title = fgb.85.t
+	desc = fgb.85.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.85.a
+		add_political_power = 20
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = {
+	id = fgb.86
+	title = fgb.86.t
+	desc = fgb.86.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.86.a
+		add_war_support = 0.02
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 440
+			producer = FGB 
+		}
+		country_event = { id = fgb.87 days = 2 }
+	}
+}
+
+country_event = {
+	id = fgb.87
+	title = fgb.87.t
+	desc = fgb.87.d
+	picture = GFX_report_event_luttwitz
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.87.a
+		add_stability = -0.04
+		add_popularity = { ideology = despotism popularity = 0.03 }
+		hidden_effect = { country_event = { id = fgb.88 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.88
+	title = fgb.88.t
+	desc = fgb.88.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.88.a
+		ai_chance = { base = 10 }
+		add_war_support = 0.05
+		add_popularity = { ideology = social_democrat popularity = -0.1 }
+		add_country_leader_role = {
+			character = FGB_walther_von_luttwitz
+    		promote_leader = yes
+    		country_leader = {
+        		ideology = military_junta
+        		expire = "1965.1.1.1"
+        		traits = { iron_fist_rule }
+    		}
+		}
+		clr_country_flag = FGB_noske_flag 
+		set_country_flag = FGB_luttwitz_flag
+		complete_national_focus = FGB_luttwitzs_coup
+		mark_focus_tree_layout_dirty = yes 
+		set_cosmetic_tag = FGB_luttwitz
+		country_event = { id = fgb.89 days = 1 }
+		hidden_effect = {
+			FGB = {
+				country_event = {
+					id = fgb.90
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = fgb.88.b 
+		ai_chance = { base = 40 }
+		add_war_support = -0.05
+		add_popularity = { ideology = despotism popularity = -0.05 }
+		add_manpower = -130
+	}
+}
+
+news_event = {
+	id = fgb.89
+	title = fgb.89.t
+	desc = fgb.89.d
+	picture = GFX_news_event_freikorps_coup
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = fgb.89.a
+	}
+}
+
+country_event = {
+	id = fgb.90
+	title = fgb.90.t
+	desc = fgb.90.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.90.a
+		ai_chance = { base = 10 }
+		add_stability = 0.04
+		retire_character = FGB_gustav_noske
+		custom_effect_tooltip = FGB_gustav_noske_will_spend_his_last_days_tt
+		hidden_effect = { country_event = { id = fgb.91 days = 2 } }
+	}
+}
+
+country_event = {
+	id = fgb.91
+	title = fgb.91.t
+	desc = fgb.91.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.91.a
+		ai_chance = { base = 10 }
+		add_stability = -0.04
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.03 }
+		54 = {
+			set_demilitarized_zone = yes
+		}
+		hidden_effect = { country_event = { id = fgb.92 days = 1 } }
+	}
+}
+
+country_event = {
+	id = fgb.92
+	title = fgb.92.t
+	desc = fgb.92.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.92.a
+		ai_chance = { base = 40 }
+		54 = {
+			set_demilitarized_zone = no 
+		}
+		retire_character = FGB_hans_vogel
+		add_manpower = -120
+		add_popularity = { ideology = social_democrat popularity = -0.04 }
+		hidden_effect = { country_event = { id = fgb.94 days = 2 } }
+	}
+	option = {
+		name = fgb.92.b 
+		ai_chance = { base = 10 }
+		54 = {
+			set_demilitarized_zone = no
+		}
+		add_country_leader_role = {
+			character = FGB_hans_vogel
+    		promote_leader = yes
+    		country_leader = {
+        		ideology = development_dictatorship
+        		expire = "1965.1.1.1"
+        		traits = { radio_operator journeyman }
+    		}
+		}
+		add_popularity = { ideology = social_democrat popularity = 0.15 }
+		add_popularity = { ideology = despotism popularity = -0.1 }
+		set_country_flag = FGB_noske_flag 
+		clr_country_flag = FGB_luttwitz_flag
+		unlock_national_focus = FGB_noske 
+		mark_focus_tree_layout_dirty = yes
+		country_event = fgb.93 
+		hidden_effect = { country_event = { id = fgb.97 days = 3 } }
+	}
+}
+
+news_event = {
+	id = fgb.93
+	title = fgb.93.t
+	desc = fgb.93.d
+	picture = GFX_news_event_freikorps_countercoup
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = fgb.93.a
+	}
+}
+
+country_event = {
+	id = fgb.94
+	title = fgb.94.t
+	desc = fgb.94.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.94.a
+		ai_chance = { base = 40 }
+		add_war_support = 0.04
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.11
+		}
+		country_event = { id = fgb.95 days = 4 }
+	}
+}
+
+country_event = {
+	id = fgb.95
+	title = fgb.95.t
+	desc = fgb.95.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			FGB = {
+				every_core_state = {
+					add_core_of = DSH 
+				}
+			}
+			852 = {
+				transfer_state_to = DSH
+			}
+			DSH = {
+				load_oob = "DSH"
+           		declare_war_on = {
+                	target = FGB
+                	type = annex_everything
+            	}
+				country_event = { id = dsh.1 days = 2 }
+        	}
+		}
+	}
+
+	option = {
+		name = fgb.95.a
+		ai_chance = { base = 40 }
+		add_war_support = 0.05
+	}
+	option = {
+		name = fgb.95.b
+		ai_chance = { base = 20 }
+		DSH = { change_tag_from = FGB }
+	}
+}
+
+country_event = {
+	id = fgb.96
+	title = fgb.96.t
+	desc = fgb.96.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.96.a
+		ai_chance = { base = 40 }
+		add_war_support = 0.1
+		army_experience = -150
+		add_manpower = -200000
+		add_ideas = { FGB_a_loyal_army }
+	}
+}
+
+country_event = {
+	id = fgb.97
+	title = fgb.97.t
+	desc = fgb.97.d
+	picture = GFX_report_event_luttwitz
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.97.a
+		ai_chance = { base = 40 }
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = despotism 
+			popularity = -0.05
+		}
+		retire_character = FGB_walther_von_luttwitz
+		add_manpower = -1
+		hidden_effect = {
+			set_cosmetic_tag = FGB_freikorps_normal_tag
+		}
+	}
+}
+
+country_event = {
+	id = fgb.98
+	title = fgb.98.t
+	desc = fgb.98.d
+	picture = GFX_report_event_luttwitz
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.98.a
+		add_stability = -0.02
+		add_timed_idea = {
+			idea = FGB_student_protests
+			months = 1
+		}
+	}
+}
+
 country_event = {
 	id = fgb_policy.1
 	title = fgb_policy.1.t
@@ -1447,6 +2331,7 @@ country_event = {
 	option = {
 		name = fgb_policy.2.a
 		add_war_support = -0.05
+		declare_war_on = { target = PREV type = annex_everything }
 	}
 }
 
@@ -1482,3 +2367,392 @@ country_event = {
 	}
 }
 
+################################
+################################
+########## STAHLHELM ###########
+################################
+################################
+
+country_event = {
+	id = dsh.1
+	title = dsh.1.t
+	desc = dsh.1.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.1.a
+		complete_national_focus = { focus = DSH_a_new_era_for_the_bund }
+	}
+}
+
+country_event = {
+	id = dsh.2
+	title = dsh.2.t
+	desc = dsh.2.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.2.a
+		DSH = { country_event = dsh.3 }
+		add_stability = 0.05
+		add_equipment_to_stockpile = {
+    		type = infantry_equipment_0
+    		amount = -1000
+		}
+		ai_chance = { base = 15 }
+	}
+	option = {
+		name = dsh.2.b
+		add_war_support = 0.05
+		DSH = { country_event = dsh.4 }
+		ai_chance = { base = 5 }
+	}
+}
+
+country_event = {
+	id = dsh.3
+	title = dsh.3.t
+	desc = dsh.3.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.3.a
+		add_equipment_to_stockpile = {
+    		type = infantry_equipment_0
+    		amount = 1000
+			producer = WRD
+		}
+		army_experience = 40
+	}
+}
+
+country_event = {
+	id = dsh.4
+	title = dsh.4.t
+	desc = dsh.4.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.4.a
+		add_political_power = -30
+	}
+}
+
+country_event = {
+	id = dsh.5
+	title = dsh.5.t
+	desc = dsh.5.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.5.a
+		complete_national_focus = DSH_duesterbergs_ascension
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = dsh.5.b 
+		complete_national_focus = DSH_appoint_a_regency_council
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = {
+	id = dsh.6
+	title = dsh.6.t
+	desc = dsh.6.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.6.a
+		add_political_power = -75
+		random_list = {
+			40 = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+			40 = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+			20 = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+		}
+		country_event = {
+			id = dsh.6
+			months = 6
+		}
+	}
+	option = {
+		name = dsh.6.b 
+		add_political_power = 20
+		country_event = {
+			id = dsh.6
+			months = 6
+		}
+	}
+	option = {
+		name = dsh.6.c
+		custom_effect_tooltip = DSH_you_will_stop_receiving_these_events
+	}
+}
+
+country_event = {
+	id = dsh.7
+	title = dsh.7.t
+	desc = dsh.7.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.7.a
+		complete_national_focus = DSH_the_return_of_the_king
+	}
+	option = {
+		name = dsh.7.b 
+		country_event = { id = dsh.8 days = 2 }
+	}
+}
+
+country_event = {
+	id = dsh.8
+	title = dsh.8.t
+	desc = dsh.8.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.8.a
+		complete_national_focus = DSH_power_to_the_duke
+	}
+	option = {
+		name = dsh.8.b 
+		country_event = { id = dsh.9 days = 2 }
+	}
+}
+
+country_event = {
+	id = dsh.9
+	title = dsh.9.t
+	desc = dsh.9.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.9.a
+		complete_national_focus = DSH_the_compromise
+	}
+	option = {
+		name = dsh.9.b 
+		add_stability = -0.05
+		country_event = { id = dsh.10 days = 2 }
+	}
+}
+
+country_event = {
+	id = dsh.10
+	title = dsh.10.t
+	desc = dsh.10.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.10.a
+		set_country_flag = DSH_willy
+		complete_national_focus = DSH_the_mad_monarchist
+		mark_focus_tree_layout_dirty = yes
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
+		custom_effect_tooltip = DSH_are_you_sure_you_wanna_do_this_tt
+	}
+}
+
+country_event = {
+	id = dsh.11
+	title = dsh.11.t
+	desc = dsh.11.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.11.a
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+		}
+		swap_ideas = {
+			remove_idea = DSH_a_strong_stahlhelm_idea
+			add_idea = DSH_an_experienced_stahlhelm
+		}
+	}
+}
+
+country_event = {
+	id = dsh.12
+	title = dsh.12.t
+	desc = dsh.12.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.12.a
+		ai_chance = { base = 10 }
+		DSH = { annex_country = { target = BAV } }
+	}
+	option = {
+		name = dsh.12.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.13
+	title = dsh.13.t
+	desc = dsh.13.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.13.a
+		ai_chance = { base = 15 }
+		every_unit_leader = { set_nationality = DSH }
+		DSH = { 
+			annex_country = { 
+				target = WRD 
+				transfer_troops = yes 
+			} 
+		}
+	}
+	option = {
+		name = dsh.13.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.14
+	title = dsh.14.t
+	desc = dsh.14.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.14.a
+		add_political_power = 10
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+	}
+}
+
+country_event = {
+	id = dsh.15
+	title = dsh.15.t
+	desc = dsh.15.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.15.a
+		add_war_support = 0.05
+		add_political_power = 80
+	}
+}
+
+country_event = {
+	id = dsh.16
+	title = dsh.16.t
+	desc = dsh.16.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.16.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = dsh.17
+	title = dsh.17.t
+	desc = dsh.17.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.17.a
+		ai_chance = { base = 15 }
+		every_unit_leader = { set_nationality = DSH }
+		DSH = { 
+			annex_country = { 
+				target = PLA
+				transfer_troops = yes 
+			} 
+		}
+	}
+	option = {
+		name = dsh.17.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = PLA
+			} 
+		}
+	}
+}
+
+news_event = {
+	id = dsh.18
+	title = dsh.18.t 
+	desc = dsh.18.d 
+	picture = GFX_news_event_stahlhelm_unification
+	is_triggered_only = yes 
+	major = yes
+
+	option = {
+		name = dsh.18.a
+	}
+}

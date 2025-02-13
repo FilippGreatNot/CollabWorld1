@@ -1,0 +1,71 @@
+capital = 852
+add_to_german_tags = yes
+set_country_flag = germany
+oob = "DSH"
+set_research_slots = 3
+add_1922_modern_tech = yes
+
+set_stability = 0.64
+
+set_politics = {
+	ruling_party = authoritarian_democrat 
+}
+
+add_ideas = {
+	extensive_conscription
+	closed_economy
+	mild_rationing
+	economically_isolated
+
+	DSH_a_clenched_up_economy
+	DSH_ongoing_socialist_unrest
+	DSH_divided_militias
+}
+add_lotgw = yes
+
+recruit_character = DSH_franz_seldte
+recruit_character = DSH_achim_arnim
+recruit_character = DSH_eduard_ausfeld
+recruit_character = DSH_max_von_bahrfeldt
+recruit_character = DSH_theodor_duesterberg
+recruit_character = DSH_regency_council
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "Leichttraktor"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+		icon = "GFX_GER_gwtank_medium"
+	}
+}
+
+set_popularities = {
+	authoritarian_democrat = 40
+	despotism = 21
+	social_democrat = 11
+	conservatism = 6
+	reactionism = 22
+}

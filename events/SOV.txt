@@ -228,9 +228,9 @@ country_event = {
 			long_name = SOV_kpss_long
 		}
 		load_focus_tree = SOV_stalin_united_tree
-		  every_country = {
-				       show_superevent_stalin_soviet_reunification = yes
-				  }
+		every_country = {
+			show_superevent_stalin_soviet_reunification = yes
+		}
 	}
 }
 
@@ -359,29 +359,40 @@ country_event = {
 	title = sov.ukr.3.t
 	desc = sov.ukr.3.d
 	is_triggered_only = yes
-	trigger = {
-		is_in_faction = no
-	}
 	option = {
 		name = sov.ukr.3.a
-		create_faction = revolutionary_alliance
-		add_to_faction = UKR
+		ai_chance = { base = 2 }
 		add_war_support = 0.05
+		add_political_power = 50
 		UKR = { complete_national_focus = UKR_soc_accept }
+		give_guarantee = UKR
+		give_military_access = UKR
+		UKR = { give_guarantee = SOV }
+		UKR = { give_military_access = SOV }
+	}
+	option = {
+		name = sov.ukr.3.b
+		ai_chance = { base = 1 }
+		add_stability = 0.05
+		UKR = { country_event = ukr_soc.19 }
 	}
 }
 
 country_event = {
-	id = sov.ukr.4
-	title = sov.ukr.4.t
-	desc = sov.ukr.4.d
+	id = sov.ukr.5
+	title = sov.ukr.5.t
+	desc = sov.ukr.5.d
 	is_triggered_only = yes
-	trigger = {
-		is_in_faction = yes
-	}
 	option = {
-		name = sov.ukr.4.a
-		add_to_faction = UKR
+		name = sov.ukr.5.a
+		annex_country = {
+			target = UKR
+			transfer_troops = yes
+		}
 		add_war_support = 0.05
+		UKR = {
+			every_core_state = {
+				add_core_of = PREV.PREV } 
+		}
 	}
 }

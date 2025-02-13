@@ -5,18 +5,35 @@ country_event = {
 	desc = ukw.1.d
 	is_triggered_only = yes
 	trigger = {
-        UKW = { has_war = no }
+        has_war = no
     }
 	option = {
 		name = ukw.1.a
+        complete_national_focus = UKW_for_the_victory
         hidden_effect = {
+            random_owned_controlled_state = { transfer_state_to = UKR }
             UKR = {
+                set_politics = {
+                    ruling_party = national_syndicalism
+                }
+                set_popularities = {
+            	    authoritarian_democrat = 10
+	                social_democrat = 0
+	                liberalism = 5
+	                national_syndicalism = 70
+	                despotism = 15
+                }
+                load_focus_tree = UKR_fas
                 annex_country = {
                     target = UKW
                     transfer_troops = yes
                 }
-                load_focus_tree = UKR_fas   
+                198 = { add_core_of = UKR }
+                199 = { add_core_of = UKR }
+                201 = { add_core_of = UKR }
+                set_cosmetic_tag = UKR_fascist
+                change_tag_from = UKW
             }
-        }
-	}
-}
+	    }
+    }
+} 

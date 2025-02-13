@@ -10,12 +10,19 @@ division_template = {
 		cavalry = { x = 1 y = 1 }
 		
 	}
-	
 	support = {
-		field_hospital = { x = 0 y = 0 }
+		engineer = { x = 0 y = 0 }
 	}
 }
-
+division_template = {
+	name = "Armed Peasantry"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }	
+	}
+}
 division_template = {
 	name = "Motorisierte Brigade"
 	division_names_group = UVS_MOT_01
@@ -26,12 +33,10 @@ division_template = {
 		motorized = { x = 0 y = 3 }
 		motorized = { x = 1 y = 0 }
 	}
-	
 	support = {
 		engineer = { x = 0 y = 0 }
 	}
 }
-
 division_template = {
 	name = "Gepanzerte Formationen"
 	division_names_group = UVS_ARM_01
@@ -42,14 +47,11 @@ division_template = {
 		motorized = { x = 1 y = 0 }
 		infantry = { x = 2 y = 0 }
 	}
- 
 	support = {
 		military_police = { x = 0 y = 0 }
 		engineer = { x = 0 y = 1 }
 	}
 }
-
-
 
 units = {
 	division = {
@@ -62,11 +64,20 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.8
 	}
-	
 	division = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 2
+		}
+		location = 3473
+		division_template = "Volksschützen-Brigaden"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
 		}
 		location = 3473
 		division_template = "Volksschützen-Brigaden"
@@ -89,6 +100,17 @@ units = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 4
+		}
+		location = 6282
+		division_template = "Volksschützen-Brigaden"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
 		}
 		location = 6282
 		division_template = "Volksschützen-Brigaden"
@@ -128,4 +150,38 @@ units = {
 		start_experience_factor = 0.3
 		start_equipment_factor = 1.0
 	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 12849
+		division_template = "Armed Peasantry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13477
+		division_template = "Armed Peasantry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 13486
+		division_template = "Motorisierte Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1.0
+	}
+
 }

@@ -29,15 +29,17 @@ division_template = {
 	}
 }
 
-
 division_template = {
 	name = "Motorisierte Brigade"
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
 		motorized = { x = 1 y = 0 }
 		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
 	}
 }
 
@@ -59,7 +61,6 @@ division_template = {
 	}
 }
 
-
 ## STARTING UNITS ##
 units = {
 	division = {
@@ -71,8 +72,7 @@ units = {
 		division_template = "Freiwilligenkorps"
 		start_experience_factor = 0.2
 		start_equipment_factor = 1.0
-	}
-	
+	}	
 
 	division = {
 		division_name = {
@@ -83,9 +83,7 @@ units = {
 		division_template = "Freiwilligenkorps"
 		start_experience_factor = 0.2
 		start_equipment_factor = 1.0
-	}	
-	
-	
+	}		
 	
 	division = {
 		division_name = {
@@ -172,15 +170,6 @@ instant_effect = {
 		progress = 0.50
 		efficiency = 100
 	}
-	#add_equipment_production = {
-	#	equipment = {
-	#		type = gw_tank_equipment
-	#		creator = "FGB"
-	#	}
-	#	requested_factories = 1
-	#	progress = 0.50
-	#	efficiency = 100
-	#}
 	add_equipment_production = {
 		equipment = {
 			type = motorized_equipment_0

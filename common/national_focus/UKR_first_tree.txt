@@ -1,3 +1,4 @@
+#!gfx:interface/country/ukraine/ukr_soc/UKR_soc_focus.gfx
 focus_tree = {
 
 
@@ -19,11 +20,10 @@ focus_tree = {
 
 	focus = {
 		id = UKR_flimsy_stability
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_UKR_flimsy_stability
 		cost = 1
 		x = 12
 		y = 0
-		
 		completion_reward = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_flimsy_stability"
 		country_event = ukr.startbranch.1
@@ -32,14 +32,13 @@ focus_tree = {
 	
 	focus = {
 		id = UKR_weak_rule_of_batka
-		icon = GFX_goal_generic_demand_territory
+		icon = GFX_focus_UKR_weak_rule_of_batka
 		cost = 1
 		prerequisite = {
 			focus = UKR_flimsy_stability
 		}
 		x = 12
 		y = 1
-		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_weak_rule_of_batka"
 			country_event = ukr.startbranch.2
@@ -47,7 +46,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_our_way
-		icon = GFX_goal_generic_neutrality_focus
+		icon = GFX_focus_UKR_our_way
 		cost = 1
 		prerequisite = {
 			focus = UKR_weak_rule_of_batka
@@ -71,7 +70,7 @@ focus_tree = {
 ###################################################
 	focus = {
 		id = UKR_everything_started_alright_when
-		icon = GFX_goal_generic_attack_allies
+		icon = GFX_focus_UKR_everything_started_alright_when
 		cost = 1
 		prerequisite = {
 			focus = UKR_our_way	
@@ -83,13 +82,13 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_incident_in_chernigov"
 			
 			add_political_power = 50
-			add_stability = -0.05
+			add_stability = 0.05
 			country_event = ukr.startbranch.4
 		}
 	}
 	focus = {
 		id = UKR_incident_in_chernigov
-		icon = GFX_goal_generic_attack_allies	
+		icon = GFX_focus_UKR_incident_in_chernigov
 		cost = 1
 		prerequisite = {
 			focus = UKR_everything_started_alright_when
@@ -100,7 +99,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_incident_in_chernigov"
 			
-			add_political_power = -50
+			add_political_power = -150
 			country_event = ukr.startbranch.5
 		}
 	}
@@ -111,11 +110,11 @@ focus_tree = {
 #                                                 #
 ###################################################
 	focus = {
-		id = UKR_or
-		icon = GFX_goal_generic_demand_territory
+		id = UKR_com
+		icon = GFX_focus_UKR_com
 		cost = 1
-		x = 12
-		y = 6
+		x = 14
+		y = 7
 		
 	available = {
 			always = no
@@ -126,11 +125,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = UKR_white_victory
-		icon = GFX_goal_generic_demand_territory
+		id = UKR_white
+		icon = GFX_focus_UKR_white
 		cost = 1
-		x = 14
-		y = 6
+		x = 10
+		y = 7
 		
 	available = {
 			always = no
@@ -142,10 +141,10 @@ focus_tree = {
 	
 	focus = {
 		id = UKR_he_is_alive
-		icon = GFX_goal_generic_demand_territory
+		icon = GFX_focus_UKR_he_is_alive
 		cost = 1
-		x = 10
-		y = 6
+		x = 12
+		y = 7
 		
 	available = {
 			always = no
@@ -154,80 +153,7 @@ focus_tree = {
 		log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_he_is_alive"
 		}
 	}
-	
-	focus = {
-		id = UKR_kill_left_renegades
-		icon = GFX_goal_generic_political_pressure
-		cost = 1
-		prerequisite = {
-			focus = UKR_white_victory
-		}
-		x = 14
-		y = 7
-		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: UKR_kill_left_renegades"
-		country_event = ukr.startbranch.6
-					}
-	}
-		
 
-
-	focus = {
-		id = UKR_left_and_right_traitors
-		icon = GFX_goal_anti_comintern_pact
-		cost = 1
-		prerequisite = {
-			focus = UKR_he_is_alive
-		}
-		x = 10
-		y = 7
-	completion_reward = { 
-		log = "[GetDateText]: [ROOT.GetTag]: UKR_left_and_right_traitors"
-		country_event = ukr.startbranch.4
-
-				hidden_effect = {
-					if = {
-						limit = { tag = FROM }
-					
-						UKR_alexander_shumsky = { retire = yes }
-						UKR_victor_belash = { retire = yes }
-						add_manpower = -4500
-					}
-				}
-			}
-		}
-
-
-	focus = {
-		id = UKR_for_the_true_anarchy
-		icon = GFX_goal_generic_neutrality_focus
-		cost = 1
-		prerequisite = {
-			focus = UKR_left_and_right_traitors
-		}
-		x = 10
-		y = 8
-		
-		completion_reward = {
-		load_focus_tree = UKR_makhno_tree
-		}
-
-	}
-	
-	focus = {
-		id = UKR_za_trasya_i_otechestvo
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		cost = 1
-		prerequisite = {
-			focus = UKR_kill_left_renegades
-		}
-		x = 14
-		y = 8
-	completion_reward = {
-		add_ideas = UKR_za_trasya_i_otechestvo_idea
-		load_focus_tree = UKR_white_tree
-		}
-	}
 }
 	
 

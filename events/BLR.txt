@@ -1,11 +1,12 @@
 add_namespace = tukha
-
+add_namespace = BLR_ukr
 
 country_event = {
 	id = tukha.1
 	title = tukha.1.t
 	desc = tukha.1.d
 	is_triggered_only = yes
+	picture = GFX_report_event_tukha
 	
 	
 	option = {
@@ -39,6 +40,7 @@ country_event = {
 	title = tukha.2.t
 	desc = tukha.2.d
 	is_triggered_only = yes
+	picture = GFX_report_event_tukha
 	
 	
 	option = {
@@ -63,6 +65,7 @@ country_event = {
 	title = tukha.3.t
 	desc = tukha.3.d
 	is_triggered_only = yes
+	picture = GFX_report_event_tukha
 	
 	
 	option = {
@@ -83,6 +86,7 @@ country_event = {
 	title = tukha.4.t
 	desc = tukha.4.d
 	is_triggered_only = yes
+	picture = GFX_report_event_tukha
 	
 	
 	option = {
@@ -92,6 +96,191 @@ country_event = {
 		add_political_power = 100
 		}
 	}
- 
- 
- 
+	
+country_event = {
+	id = tukha.5
+	title = tukha.5.t
+	desc = tukha.5.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.5.a
+		set_country_flag = loyal_to_tukha
+		}
+	
+		option = {
+		name = tukha.5.b
+		set_country_flag = loyal_to_lenin
+		}
+}
+
+country_event = {
+	id = tukha.6
+	title = tukha.6.t
+	desc = tukha.6.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.6.a
+		set_country_flag = land_reforms_no
+		}
+	
+		option = {
+		name = tukha.6.b
+		set_country_flag = land_reforms_yes
+		}
+}
+
+country_event = {
+	id = tukha.7
+	title = tukha.7.t
+	desc = tukha.7.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.7.a
+		set_country_flag = good_tukha
+		}
+	
+		option = {
+		name = tukha.7.b
+		set_country_flag = evil_tukha
+		}
+		
+		option = {
+		name = tukha.7.c
+		complete_national_focus = BLR_tukhachevskys_regime_must_fall
+		}
+}
+
+news_event = {
+    id = tukha.8
+    title = tukha.8.t
+    desc = tukha.8.d
+    picture = GFX_news_event_tukha
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = tukha.8.a
+	    show_superevent_tukha_soviet_reunification = yes
+		set_portraits = {
+                 character = BLR_mikhail_tukhachevsky
+                 army = { large = "gfx/leaders/BLR/BLR_newtukha.tga" }
+                 civilian = { large ="gfx/leaders/BLR/BLR_newtukha.tga" }
+            }
+    }
+}
+
+country_event = {
+	id = tukha.9
+	title = tukha.9.t
+	desc = tukha.9.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.9.a
+		add_stability = 0.05
+		add_political_power = 50
+		}
+	}
+	
+country_event = {
+	id = tukha.10
+	title = tukha.10.t
+	desc = tukha.10.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.10.a
+		add_war_support = 0.05
+		}
+	}
+	
+country_event = {
+	id = tukha.11
+	title = tukha.11.t
+	desc = tukha.11.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.11.a
+		add_war_support = 0.05
+		set_portraits = {
+                 character = BLR_mikhail_tukhachevsky
+                 army = { large = "gfx/leaders/BLR/BLR_pagantukha.tga" }
+                 civilian = { large ="gfx/leaders/BLR/BLR_pagantukha.tga" }
+            }
+		}
+	option = {
+		name = tukha.11.b
+		add_stability = 0.05
+		}
+	}
+	
+country_event = {
+	id = tukha.12
+	title = tukha.12.t
+	desc = tukha.12.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.12.a
+		set_country_flag = political_doctrine
+		}
+	
+		option = {
+		name = tukha.12.b
+		set_country_flag = apolitical_doctrine
+		}
+}
+
+country_event = {
+	id = tukha.13
+	title = tukha.13.t
+	desc = tukha.13.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.13.a
+		set_country_flag = modern_approach
+		}
+	
+		option = {
+		name = tukha.13.b
+		set_country_flag = mass_assault_approach
+		}
+}
+
+country_event = {
+	id = BLR_ukr.1
+	title = BLR_ukr.1.t
+	desc = BLR_ukr.1.d
+	is_triggered_only = yes
+	option = {
+		name = BLR_ukr.1.a
+		ai_chance = { base = 9 }
+		UKR = { country_event = ukr_soc.18 }
+	}
+	option = {
+		name = BLR_ukr.1.b
+		ai_chance = { base = 1 }
+		UKR = { country_event = ukr_soc.17 }
+	}
+}

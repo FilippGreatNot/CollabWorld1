@@ -1,11 +1,59 @@
 BAV_red_terror = {
     icon = GFX_decision_category_generic_political_actions
-    picture = GFX_decision_category_BAV_red_terror
-	priority = 5000
-	allowed = {
-		original_tag = BAV
-	}
+    picture = GFX_decision_category_BAV_red_terror_picture
+	priority = 6000
+	allowed = { original_tag = BAV }
+	visible = { original_tag = BAV }
+}
+
+BAV_economic_recovery = {
+    icon = GFX_decision_category_generic_political_actions
+    picture = GFX_decision_category_BAV_economic_recovery_picture
+	priority = 4900
+	allowed = { original_tag = BAV }
 	visible = {
        original_tag = BAV
+	   has_completed_focus = BAV_provide_jobs_for_the_workers
 	}
+}
+
+BAV_military_recovery = {
+    icon = GFX_decision_category_generic_political_actions
+	priority = 5100
+	allowed = { original_tag = BAV }
+	visible = {
+       original_tag = BAV
+	   has_completed_focus = BAV_analyze_the_military_situation
+	}
+}
+
+BAV_volkskommisariats = {
+    icon = GFX_decision_category_AKs_gobi
+	picture = GFX_decision_category_BAV_establish_AKs_gobi
+	priority = 6500
+	allowed = { original_tag = BAV }
+	visible = {
+       original_tag = BAV
+	   has_completed_focus = BAV_towards_a_greater_lebensraum
+	}
+}
+
+BAV_lebensraum = {
+    icon = GFX_decision_category_BAV_lebensraum_gobi
+	picture = GFX_decision_category_lebensraum_gobi
+	priority = 6000
+	allowed = { original_tag = BAV }
+	visible_when_empty = yes
+	visible = {
+       original_tag = BAV
+	   has_completed_focus = BAV_towards_a_greater_lebensraum
+	}
+}
+
+
+BAV_the_end_of_communism = {
+    icon = GFX_decision_category_generic_political_actions
+	priority = 6000
+	allowed = { original_tag = BAV }
+	visible = { has_government = despotism }
 }

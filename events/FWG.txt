@@ -1,0 +1,52 @@
+add_namespace = fwg
+
+country_event = {
+	id = fwg.1
+	title = fwg.1.t
+	desc = fwg.1.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.1.a
+		ai_chance = { base=50 }
+        swap_ideas = {
+            remove_idea = FWG_the_exploitative_junkers
+            add_idea = FWG_the_weakened_junkers
+        }
+        custom_effect_tooltip = FWG_our_public_opinion_will_start_to_improve_tt
+       	add_political_power = 20
+	}
+}
+country_event = {
+	id = fwg.2
+	title = fwg.2.t
+	desc = fwg.2.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.2.a
+		ai_chance = { base=50 }
+		set_country_flag = FWG_merges_flag
+		complete_national_focus = { focus = FWG_merges }
+	}
+	option = {
+		name = fwg.2.b
+		ai_chance = { base=50 }
+		set_country_flag = FWG_ruhle_flag
+		complete_national_focus = { focus = FWG_ruhle }
+	}
+	option = {
+		name = fwg.2.c
+		ai_chance = { base=50 }
+		set_country_flag = FWG_rocker_flag
+		complete_national_focus = { focus = FWG_rocker }
+	}
+	option = {
+		name = fwg.2.e
+		ai_chance = { base=50 }
+		set_country_flag = FWG_kosch_flag
+		complete_national_focus = { focus = FWG_kosch }
+	}
+}
