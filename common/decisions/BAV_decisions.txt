@@ -186,6 +186,7 @@ BAV_lebensraum = {
 		fire_only_once = yes
 		
 		visible = {
+		has_country_flag = ger_reunificated
 		has_completed_focus =  BAV_towards_a_greater_lebensraum
 		has_country_leader = {
 					character = BAV_joseph_goebbels
@@ -217,7 +218,6 @@ BAV_lebensraum = {
 		1058 = { is_core_of = BAV }
 		1059 = { is_core_of = BAV }
 		1062 = { is_core_of = BAV }
-		39 = { is_core_of = BAV }
 		3 = { is_core_of = BAV }
 		151 = { is_core_of = BAV }
 		939 = { is_core_of = BAV }
@@ -279,6 +279,7 @@ BAV_lebensraum = {
 			set_cosmetic_tag = BAV_greater_workers_state
 			hidden_effect = {
 				news_event = bavaria.33
+				show_superevent_BAV_total_war = yes
 			}
 			set_portraits = {
                  character = BAV_joseph_goebbels
@@ -312,7 +313,6 @@ BAV_lebensraum = {
 				state = 1058
 				state = 1059
 				state = 1062
-				state = 39
 				state = 3
 				state = 151
 				state = 939
@@ -376,7 +376,80 @@ BAV_lebensraum = {
 			factor = 5000
 			}
 		}
+	BAV_burgenland_trade = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 71
+			owns_state = 70
+			HUN = {
+			    owns_state = 864
+			}
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    HUN = {
+		    set_state_owner = 71
+			set_state_owner = 70
+
+			}
+			set_state_owner = 864
+			add_state_core = 864
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
 	}
+	BAV_demand_slovenia = {
+			
+		fire_only_once = yes
+		available = {
+			owns_state = 1060
+			owns_state = 1058
+			YUG = {
+			    owns_state = 102
+				owns_state = 880
+			}
+		}	
+		
+		cost = 25
+		
+		complete_effect = {
+			YUG = {
+					country_event = {
+						id = yugo.120
+						hours = 12
+					}
+				}
+			}
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	BAV_operation_sealion = {
+		days_remove = 45
+		fire_only_once = yes
+		visible = {
+		has_country_flag = ger_reunificated
+		has_completed_focus = BAV_embargo_the_british
+		}
+		available = {
+			controls_state = 16
+			has_completed_focus = BAV_embargo_the_british
+			}
+		remove_effect = {
+		create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}
+		}
+	}
+}
 BAV_economic_recovery = {
 	BAV_save_the_bavarian_economy = {
 			
@@ -563,7 +636,6 @@ BAV_military_recovery = {
 	
 	BAV_volkskommisariats = {
 	BAV_establish_volkskommisariat_niederlande = {
-			
 		fire_only_once = yes
 		
 		available = {
@@ -617,7 +689,6 @@ BAV_military_recovery = {
 		}
 	}
 	BAV_establish_volkskommisariat_belgien_nordfrankreich = {
-			
 		fire_only_once = yes
 		
 		available = {
@@ -1314,34 +1385,6 @@ BAV_military_recovery = {
 			factor = 4000
 		}
 	}
-		BAV_burgenland_trade = {
-			
-		fire_only_once = yes
-		
-		available = {
-			owns_state = 71
-			owns_state = 70
-			HUN = {
-			    owns_state = 864
-			}
-		}
-		
-		cost = 25
-		
-		complete_effect = {
-		    
-		    HUN = {
-		    set_state_owner = 71
-			set_state_owner = 70
-
-			}
-			set_state_owner = 864
-			}
-		
-		ai_will_do = {
-			factor = 4000
-		}
-	}
-	}
+}
 	
 

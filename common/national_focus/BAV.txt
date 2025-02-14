@@ -22,6 +22,7 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = 0.1
 			}
+			add_political_power = 25
         }        
     }
     focus = {
@@ -1180,7 +1181,7 @@ focus_tree = {
 	focus = {
         id = BAV_analyze_the_military_situation
         icon = GFX_focus_BAV_analyze
-        x = 46
+        x = 47
         y = 0
         cost = 5
 		available = {
@@ -1189,6 +1190,7 @@ focus_tree = {
         completion_reward = {
 			 army_experience = 25
 			 custom_effect_tooltip = BAV_military_unlock
+			 add_political_power = 25
         }        
     }
 	focus = {
@@ -1311,6 +1313,7 @@ focus_tree = {
 				}
 				army_experience = 10
 				add_war_support = 0.02
+				add_political_power = 25
 		
         }        
     }
@@ -1427,6 +1430,7 @@ focus_tree = {
 		}
         completion_reward = {
 		     country_event = bavaria.18
+			 add_political_power = 25
         }        
     }
 	focus = {
@@ -1461,10 +1465,10 @@ focus_tree = {
             focus = BAV_draft_an_economic_recovery_plan
         }
 		completion_reward = {
-		        53 = { add_extra_state_shared_building_slots = 1
+		        53 = { add_extra_state_shared_building_slots = 2
 				       add_building_construction = {
 					   type = infrastructure
-					   level = 1
+					   level = 2
 					   instant_build = yes
 				    }
 				 }
@@ -1491,7 +1495,7 @@ focus_tree = {
 			    53 = {
 				add_resource = {
 					type = steel
-					amount = 2
+					amount = 3
 				}
                }
         add_stability = -0.05		
@@ -1645,7 +1649,7 @@ focus_tree = {
         }
 		completion_reward = {
 		       activate_advisor = BAV_gregor_strasser_ec
-			   
+			   add_political_power = 50
                }
 	}
 	
@@ -2269,6 +2273,339 @@ focus_tree = {
 	}
 	
 	focus = {
+        id = BAV_the_triumph_of_democratic_socialism
+        icon = GFX_focus_BAV_demsoc
+        x = 3
+        y = 10
+        cost = 5
+		available = {
+			has_completed_focus = BAV_german_reunification_manifested
+		}
+		available = {
+			has_completed_focus = BAV_the_peoples_victory_awaits
+		}
+        completion_reward = {
+			 add_stability = 0.05
+			 add_political_power = 25
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+        }        
+    }
+	
+	focus = {
+        id = BAV_trial_nationalist_scum
+        icon = GFX_focus_BAV_trial
+        relative_position_id = BAV_the_triumph_of_democratic_socialism
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_triumph_of_democratic_socialism
+        }
+		completion_reward = {
+		     add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+	}
+	}
+	
+	focus = {
+        id = BAV_auferstanden_aus_ruinen
+        icon = GFX_focus_BAV_auf
+        relative_position_id = BAV_the_triumph_of_democratic_socialism
+        x = -2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_triumph_of_democratic_socialism
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_support_the_german_worker
+        icon = GFX_focus_BAV_worker
+        relative_position_id = BAV_auferstanden_aus_ruinen
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_auferstanden_aus_ruinen
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_embrace_womens_equality
+        icon = GFX_focus_BAV_woman
+        relative_position_id = BAV_support_the_german_worker
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_support_the_german_worker
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_modernize_german_agriculture
+        icon = GFX_focus_BAV_agriculture
+        relative_position_id = BAV_auferstanden_aus_ruinen
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_auferstanden_aus_ruinen
+        }
+		completion_reward = {
+	}
+	}
+	
+	
+	focus = {
+        id = BAV_build_a_pluralistic_society
+        icon = GFX_focus_BAV_plural
+        relative_position_id = BAV_modernize_german_agriculture
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_modernize_german_agriculture
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_and_so_the_sun_shines_once_again
+        icon = GFX_focus_BAV_sun
+        relative_position_id = BAV_build_a_pluralistic_society
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_build_a_pluralistic_society
+        }
+		prerequisite = {
+            focus = BAV_embrace_womens_equality
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_establish_a_european_confederation
+        icon = GFX_focus_BAV_trial
+        relative_position_id = BAV_the_triumph_of_democratic_socialism
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_triumph_of_democratic_socialism
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_protect_an_independent_ireland
+        icon = GFX_focus_BAV_ireland
+        relative_position_id = BAV_establish_a_european_confederation
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_a_european_confederation
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_open_cracks_in_the_fuller_regime
+        icon = GFX_focus_BAV_crack
+        relative_position_id = BAV_protect_an_independent_ireland
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_protect_an_independent_ireland
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_send_delegations_to_mexico_and_canada
+        icon = GFX_focus_BAV_delegation
+        relative_position_id = BAV_open_cracks_in_the_fuller_regime
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_open_cracks_in_the_fuller_regime
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_invite_the_scandinavian_states
+        icon = GFX_focus_BAV_scandi
+        relative_position_id = BAV_establish_a_european_confederation
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_a_european_confederation
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_invite_the_benelux_states
+        icon = GFX_focus_BAV_benelux
+        relative_position_id = BAV_establish_a_european_confederation
+        x = 3
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_a_european_confederation
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_liberate_france_from_reactionism
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_invite_the_benelux_states
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_invite_the_benelux_states
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_foster_a_french_german_friendship
+        icon = GFX_focus_BAV_foster
+        relative_position_id = BAV_liberate_france_from_reactionism
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_liberate_france_from_reactionism
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_take_down_the_tukhachevsky_regime
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_invite_the_benelux_states
+        x = -2
+        y = 1
+        cost = 5
+		mutually_exclusive = {
+			focus = BAV_integrate_east_prussia
+		}
+		prerequisite = {
+            focus = BAV_invite_the_benelux_states focus = BAV_invite_the_scandinavian_states
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_the_tukhachevsky_trials
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_take_down_the_tukhachevsky_regime
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_take_down_the_tukhachevsky_regime
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_the_tyrants_of_the_east_must_fall
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_the_tukhachevsky_trials
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_tukhachevsky_trials focus = BAV_ally_the_new_polish_republic
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_integrate_east_prussia
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_invite_the_benelux_states
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_invite_the_benelux_states focus = BAV_invite_the_scandinavian_states
+        }
+		mutually_exclusive = {
+			focus = BAV_take_down_the_tukhachevsky_regime
+		}
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_ally_the_new_polish_republic
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_integrate_east_prussia
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_integrate_east_prussia
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_solve_the_austrian_question
+        icon = GFX_focus_BAV_question
+        relative_position_id = BAV_establish_a_european_confederation
+        x = 5
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_a_european_confederation
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
         id = BAV_the_anarchist_revolution_triumphant
         icon = GFX_focus_BAV_revolution
         x = -4
@@ -2322,7 +2659,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_establish_a_true_council_democracy
-        icon = GFX_focus_BAV_language
+        icon = GFX_focus_BAV_true
         relative_position_id = BAV_the_anarchist_revolution_triumphant
         x = 0
         y = 1
@@ -2339,7 +2676,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_total_freedom_of_thought
-        icon = GFX_focus_BAV_language
+        icon = GFX_focus_BAV_think
         relative_position_id = BAV_establish_a_true_council_democracy
         x = 0
         y = 1
@@ -2402,7 +2739,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_the_home_of_the_anarchist_revolution
-        icon = GFX_focus_BAV_decentralized
+        icon = GFX_focus_BAV_home
         relative_position_id = BAV_decentralized_economic_development
         x = 0
         y = 1
@@ -2418,7 +2755,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_the_end_of_tyranny_approaches
-        icon = GFX_focus_BAV_decentralized
+        icon = GFX_focus_BAV_approach
         relative_position_id = BAV_total_freedom_of_thought
         x = 0
         y = 1
@@ -2462,7 +2799,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_spread_anarchism_to_the_benelux
-        icon = GFX_focus_BAV_wien
+        icon = GFX_focus_BAV_low
         relative_position_id = BAV_the_end_of_tyranny_approaches
         x = 1
         y = 1
@@ -2495,7 +2832,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_take_down_the_home_of_tyranny
-        icon = GFX_focus_BAV_wien
+        icon = GFX_focus_BAV_take
         relative_position_id = BAV_die_anarchisten_von_wien
         x = 1
         y = 1
@@ -2521,7 +2858,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_establish_the_european_free_territory
-        icon = GFX_focus_BAV_wien
+        icon = GFX_focus_BAV_euro
         relative_position_id = BAV_take_down_the_home_of_tyranny
         x = 0
         y = 1
@@ -2770,7 +3107,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_march_into_osterreich
-        icon = GFX_focus_BAV_austria
+        icon = GFX_focus_BAV_gobi_austria
         relative_position_id = BAV_towards_a_greater_lebensraum
         x = 0
         y = 1
@@ -2793,7 +3130,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_free_the_sudeten_germans
-        icon = GFX_focus_BAV_sudetenland
+        icon = GFX_focus_BAV_gobi_czech
         relative_position_id = BAV_march_into_osterreich
         x = 0
         y = 1
@@ -2818,7 +3155,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_take_out_the_fake_state
-        icon = GFX_focus_BAV_sudetenland
+        icon = GFX_focus_BAV_gobi_swiss
         relative_position_id = BAV_free_the_sudeten_germans
         x = 0
         y = 1
@@ -2846,7 +3183,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_take_back_eastern_prussia
-        icon = GFX_focus_BAV_east
+        icon = GFX_focus_BAV_gobi_poland
         relative_position_id = BAV_towards_a_greater_lebensraum
         x = 2
         y = 1
@@ -2876,7 +3213,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_into_eastern_europe
-        icon = GFX_focus_BAV_ukraine
+        icon = GFX_focus_BAV_gobi_ruthenia
         relative_position_id = BAV_take_back_eastern_prussia
         x = 0
         y = 1
@@ -2901,7 +3238,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_march_to_the_urals
-        icon = GFX_focus_BAV_ural
+        icon = GFX_focus_BAV_gobi_russia
         relative_position_id = BAV_into_eastern_europe
         x = 0
         y = 1
@@ -2930,7 +3267,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_take_over_the_caucasus
-        icon = GFX_focus_BAV_ural
+        icon = GFX_focus_BAV_gobi_armenia
         relative_position_id = BAV_march_to_the_urals
         x = 0
         y = 1
@@ -2959,7 +3296,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_through_the_benelux
-        icon = GFX_focus_BAV_east
+        icon = GFX_focus_BAV_gobi_benalux
         relative_position_id = BAV_towards_a_greater_lebensraum
         x = -2
         y = 1
@@ -2992,7 +3329,7 @@ focus_tree = {
 	
 		focus = {
         id = BAV_take_down_the_heart_of_evil
-        icon = GFX_focus_BAV_east
+        icon = GFX_focus_BAV_gobi_france
         relative_position_id = BAV_through_the_benelux
         x = 0
         y = 1
@@ -3014,7 +3351,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_reunite_the_germanic_peoples
-        icon = GFX_focus_BAV_east
+        icon = GFX_focus_BAV_gobi_nordic
         relative_position_id = BAV_take_down_the_heart_of_evil
         x = 0
         y = 1
@@ -3048,7 +3385,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_embargo_the_british
-        icon = GFX_focus_BAV_britain
+        icon = GFX_focus_BAV_gobi_embargo_uk
         relative_position_id = BAV_reunite_the_germanic_peoples
         x = 0
         y = 1
@@ -3068,7 +3405,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_the_rise_of_german_hegemony
-        icon = GFX_focus_BAV_britain
+        icon = GFX_focus_BAV_gobi_hegemony
         relative_position_id = BAV_take_out_the_fake_state
         x = 0
         y = 1
@@ -3094,7 +3431,7 @@ focus_tree = {
 	}
 	focus = {
         id = BAV_a_walk_in_berlin
-        icon = GFX_focus_BAV_greater_germany
+        icon = GFX_focus_BAV_gobi_neu_berlin
         relative_position_id = BAV_the_rise_of_german_hegemony
         x = 0
         y = 1
@@ -3118,3 +3455,4 @@ focus_tree = {
 		country_event = bavaria.32
 		}
 	}
+}
