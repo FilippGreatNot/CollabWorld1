@@ -1,0 +1,35 @@
+#Important to put HIGHEST first
+DSH_dynastic_conflict_level_down = {
+	if = {
+		limit = { has_idea = DSH_dynastic_conflict5 }
+		remove_ideas = { DSH_dynastic_conflict5 }
+	}
+	else_if = {
+		limit = { has_idea = DSH_dynastic_conflict4 }
+		swap_ideas = {
+			remove_idea = DSH_dynastic_conflict4
+			add_idea = DSH_dynastic_conflict5
+		}
+	}
+	else_if = {
+		limit = { has_idea = DSH_dynastic_conflict3 }
+		swap_ideas = {
+			remove_idea = DSH_dynastic_conflict3
+			add_idea = DSH_dynastic_conflict4
+		}
+	}
+	else_if = {
+		limit = { has_idea = DSH_dynastic_conflict2 }
+		swap_ideas = {
+			remove_idea = DSH_dynastic_conflict2
+			add_idea = DSH_dynastic_conflict3
+		}		
+	}
+    else_if = {
+		limit = { has_idea = DSH_dynastic_conflict }
+		swap_ideas = {
+			remove_idea = DSH_dynastic_conflict
+			add_idea = DSH_dynastic_conflict2
+		}		
+	}
+}
