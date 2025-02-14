@@ -14,8 +14,13 @@ focus_tree = {
 		id = GER_first_the_end_of_the_spartacist_uprising
 		icon = GFX_focus_GER_first_end_of_spartacist_uprising
 		cost = 5
+		available = { always = no }
 		
 		completion_reward = {
+		
+		     add_stability = 0.05
+			 add_political_power = 25
+			 add_manpower = -2500
 			
 		}
 	}
@@ -23,7 +28,7 @@ focus_tree = {
 	focus = {
 		id = GER_first_supply_humanitarian_aid_in_berlin
 		icon = GFX_focus_GER_first_supply_humanitarian_aid_in_berlin
-		cost = 5
+		cost = 4
 		
 		prerequisite = {
 			focus = GER_first_the_end_of_the_spartacist_uprising
@@ -34,13 +39,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_stability = 0.04
+			add_political_power = -20
+			836 = {
+				add_manpower = 5000
+			}
 		}
 	}
 	focus = {
 		id = GER_first_the_spds_impending_doom
 		icon = GFX_focus_GER_first_the_spds_impending_doom
-		cost = 5
+		cost = 3
 		
 		prerequisite = {
 			focus = GER_first_the_end_of_the_spartacist_uprising
@@ -50,13 +59,18 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		     add_popularity = {
+				ideology = social_democrat
+				popularity = -0.04
+			}
+			add_political_power = 20
 			
 		}
 	}
 	focus = {
 		id = GER_first_arrest_the_spartacist_agents
 		icon = GFX_focus_GER_first_arrest_the_spartacist_agents
-		cost = 5
+		cost = 4
 		
 		prerequisite = {
 			focus = GER_first_the_end_of_the_spartacist_uprising
@@ -67,6 +81,12 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_political_power = 25
+			add_stability = 0.05
 			
 		}
 	}
@@ -89,7 +109,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.2
+			add_stability = -0.05
 		}
 	}
 	focus = {
@@ -105,7 +126,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.3
 		}
 	}
 	
@@ -113,7 +134,7 @@ focus_tree = {
 		id = GER_first_the_spd_holds_against_all_odds
 		icon = GFX_focus_GER_first_the_spd_holds_against_all_odds
 		cost = 5
-		
+		available = { always = no }
 		prerequisite = {
 			focus = GER_first_hold_a_new_reichstagswahl
 		}
@@ -123,6 +144,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = social_democrat
+			}
 			
 		}
 	}
@@ -327,12 +355,19 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_first_hold_a_new_reichstagswahl
 		}
+		available = { always = no }
 		
 		relative_position_id = GER_first_hold_a_new_reichstagswahl
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = conservatism
+			}
 		}
 	}
 	focus = {
@@ -349,6 +384,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		      add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_political_power = 100
 			
 		}
 	}
@@ -366,7 +406,6 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
 		}
 	}
 	focus = {
@@ -416,7 +455,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_war_support = 0.05
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -530,6 +570,7 @@ focus_tree = {
 		id = GER_first_the_rise_of_the_dnvp
 		icon = GFX_focus_GER_dnvp
 		cost = 5
+		available = { always = no }
 		
 		prerequisite = {
 			focus = GER_first_hold_a_new_reichstagswahl
@@ -540,7 +581,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
 		}
 	}
 	focus = {
