@@ -41,11 +41,11 @@ focus_tree = {
 
 		id = UKR_soc_fix_army
 		icon = GFX_focus_UKR_soc_fix_army
-		cost = 4
+		cost = 6
 		x = 25
 		y = 0
 		completion_reward = {
-			
+			country_event = ukr_soc.21
 		}
 	}
 
@@ -596,33 +596,41 @@ focus_tree = {
 		allow_branch = { always = yes }
 		id = UKR_soc_int_anarchy
 		icon = GFX_focus_UKR_soc_int_anarchy
-		cost = 5
+		cost = 1
 		prerequisite = { focus = UKR_soc_fix_army }
 		mutually_exclusive = { focus = UKR_soc_kill_wrong }
 		x = 24
 		y = 1
 		completion_reward = {
-			
+			add_stability = -0.1
+			add_political_power = -50
+			swap_ideas = {
+				remove_idea = UKR_army_in_chaos
+				add_idea = UKR_army_in_chaos2
+			}
 		}
 	}
 	focus = {
 		allow_branch = { always = yes }
 		id = UKR_soc_kill_wrong
 		icon = GFX_focus_UKR_soc_kill_wrong
-		cost = 5
+		cost = 1
 		prerequisite = { focus = UKR_soc_fix_army }
 		mutually_exclusive = { focus = UKR_soc_int_anarchy }
 		x = 26
 		y = 1
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = UKR_army_in_chaos
+				add_idea = UKR_army_in_chaos3
+			}
 		}
 	}
 	focus = {
 		allow_branch = { always = yes }
 		id = UKR_soc_centralised_command
 		icon = GFX_focus_UKR_soc_centralised_command
-		cost = 5
+		cost = 10
 		prerequisite = {
 			focus = UKR_soc_int_anarchy
 			focus = UKR_soc_kill_wrong
