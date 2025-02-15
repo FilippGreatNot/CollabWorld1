@@ -407,6 +407,12 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		       add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			add_stability = 0.03
+			add_political_power = -20
 		}
 	}
 	focus = {
@@ -423,7 +429,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_political_power = 35
 		}
 	}
 	focus = {
@@ -439,7 +449,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_anti_bolshevik_doctrine
 		}
 	}
 	focus = {
@@ -474,7 +484,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_agrarian_subsidies
+			59 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			62 = {
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 	focus = {
@@ -491,13 +507,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_active_foreign_policy
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.02
+			}
 		}
 	}
 	focus = {
 		id = GER_first_apologise_to_belgium
 		icon = GFX_focus_GER_first_apologise_to_belgium
-		cost = 5
+		cost = 4
 		
 		prerequisite = {
 			focus = GER_first_cooperate_with_stresseman
@@ -507,7 +527,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			BEL = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_apologized_for_the_great_war
+				}
+			}
+			add_political_power = 25
 		}
 	}
 	focus = {
@@ -526,7 +552,7 @@ focus_tree = {
 		y = 5
 		
 		completion_reward = {
-			
+			add_ideas = GER_christian_democratic_values
 		}
 	}
 	focus = {
@@ -564,7 +590,10 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_timed_idea = { 
+				idea = GER_public_kitchens
+				days = 365
+			}
 		}
 	}
 	
@@ -607,7 +636,10 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_timed_idea = { 
+				idea = GER_increased_military_spending
+				days = 365
+			}
 		}
 	}
 	focus = {
@@ -665,7 +697,18 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			FGB = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_betrayal
+				}
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = GER_freikorps_unfriendly
 		}
 	}
 	focus = {
@@ -686,7 +729,18 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			FGB = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
+			add_stability = -0.05
+			custom_effect_tooltip = GER_freikorps_friendly
 		}
 	}
 	focus = {
@@ -703,7 +757,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -719,6 +777,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_war_support = 0.05
 			
 		}
 	}
@@ -759,7 +822,7 @@ focus_tree = {
 	focus = {
 		id = GER_first_support_the_heavy_industry
 		icon = GFX_focus_GER_heavy
-		cost = 5
+		cost = 8
 		
 		prerequisite = {
 			focus = GER_first_a_detente_with_france
@@ -769,7 +832,23 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			1056 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+			}
+			64 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					}
+					army_experience = 25
 		}
 	}
 	focus = {
@@ -820,13 +899,19 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_first_support_the_heavy_industry
 		}
+		available = {
+		has_country_leader = {
+                    name = "Alfred Hughenberg"
+                    ruling_only = yes
+                }
+				 }
 		
 		relative_position_id = GER_first_support_the_heavy_industry
 		x = -1
 		y = 1
 		
 		completion_reward = {
-			
+			add_political_power = 150
 		}
 	}
 	focus = {
@@ -844,7 +929,11 @@ focus_tree = {
 		y = 4
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+			add_war_support = 0.1
 		}
 	}
 }
