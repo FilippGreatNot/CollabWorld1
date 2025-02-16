@@ -288,12 +288,6 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 5
 		y = 1
-		offset = {
-			x = -5
-			trigger = {
-				has_completed_focus = DSH_appoint_a_regency_council
-			}
-		}
 		cost = 4
 		available_if_capitulated = yes
 		allow_branch = {
@@ -325,17 +319,8 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -5
 		y = 1
-		offset = {
-			x = 5
-			trigger = {
-				has_completed_focus = DSH_duesterbergs_ascension
-			}
-		}
 		cost = 4
 		available_if_capitulated = yes
-		allow_branch = {
-			NOT = { has_completed_focus = DSH_appoint_a_regency_council } 
-		}
 		mutually_exclusive = { focus = DSH_appoint_a_regency_council }
 		ai_will_do = {
 			factor = 10
@@ -901,19 +886,23 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-		allow_branch = {
-			NOT = { has_completed_focus = DSH_duesterbergs_ascension } 
-			NOT = { has_completed_focus = DSH_the_mad_monarchist } 
-		}
-		mutually_exclusive = { focus = DSH_the_compromise }
-		mutually_exclusive = { focus = DSH_power_to_the_duke }
+		available = { has_country_flag = DSH_albert }
 		ai_will_do = {
 			factor = 10
 		}
         relative_position_id = DSH_appoint_a_regency_council
         prerequisite = { focus = DSH_appoint_a_regency_council }
 		completion_reward = {
-			
+			set_cosmetic_tag = DSH_kingdom_of_wurttemberg
+			add_country_leader_role = {
+				character = DSH_albrecht_wurttemberg
+				promote_leader = yes
+				country_leader = {
+					ideology = absolute_monarchy
+					expire = "1965.1.1.1"
+					traits = { iron_fist_rule }
+				}
+			}
 		}
 	}
 	focus = {
@@ -977,7 +966,38 @@ focus_tree = {
 			add_ideas = {
 				DSH_army_heritage
 			}
-			#create unit leader stuff
+			add_field_marshal_role = {
+                character = DSH_albrecht_wurttemberg
+                skill = 4
+                attack_skill = 4
+                defense_skill = 3
+                planning_skill = 3
+                logistics_skill = 3
+            }
+			add_corps_commander_role = {
+				character = DSH_robert_wurttemberg
+				skill = 3
+                attack_skill = 3
+                defense_skill = 3
+                planning_skill = 2
+                logistics_skill = 3
+			}
+			add_corps_commander_role = {
+                character = DSH_albrecht_the_younger
+                skill = 2
+                attack_skill = 2
+                defense_skill = 3
+                planning_skill = 2
+                logistics_skill = 2
+            }
+			add_corps_commander_role = {
+                character = DSH_carl_wurttemberg
+                skill = 2
+                attack_skill = 2
+                defense_skill = 2
+                planning_skill = 2
+                logistics_skill = 2
+            }
 		}
 	}
 	focus = {
@@ -1071,20 +1091,9 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 5
 		y = 1
-		offset = {
-			x = -2
-			trigger = {
-				has_completed_focus = DSH_the_compromise
-			}
-		}
 		cost = 5
 		available_if_capitulated = yes
-		allow_branch = {
-			NOT = { has_completed_focus = DSH_duesterbergs_ascension }
-			NOT = { has_completed_focus = DSH_the_mad_monarchist } 
-		}
-		mutually_exclusive = { focus = DSH_the_return_of_the_king }
-		mutually_exclusive = { focus = DSH_power_to_the_duke }
+		available = { has_country_flag = DSH_dummy }
 		ai_will_do = {
 			factor = 10
 		}
@@ -1201,12 +1210,8 @@ focus_tree = {
         prerequisite = { focus = DSH_find_common_hatred }
 		completion_reward = {
 			DSH_dynastic_conflict_level_down = yes
-			add_stability = 0.05
-			add_popularity = {
-				ideology = despotism
-				popularity = 0.1
-			}
-			add_political_power = 20
+			add_war_support = 0.1
+			
 		}
 	}
 	focus = {
@@ -1224,48 +1229,257 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_political_power = 50
-			#event to choose between the king or the grand duke
+			retire_character = DSH_regency_council
+			country_event = dsh.27
 		}
 	}
 	focus = {
 		id = DSH_power_to_the_duke
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 8
+		x = 9
 		y = 1
-		offset = {
-			x = -4
-			trigger = {
-				has_completed_focus = DSH_power_to_the_duke
-			}
-		}
 		cost = 5
 		available_if_capitulated = yes
-		allow_branch = {
-			NOT = { has_completed_focus = DSH_duesterbergs_ascension }
-			NOT = { has_completed_focus = DSH_the_mad_monarchist } 
-		}
-		mutually_exclusive = { focus = DSH_the_return_of_the_king }
-		mutually_exclusive = { focus = DSH_the_compromise }
+		available = { has_country_flag = DSH_freddy }
 		ai_will_do = {
 			factor = 10
 		}
         relative_position_id = DSH_appoint_a_regency_council
         prerequisite = { focus = DSH_appoint_a_regency_council }
 		completion_reward = {
-			
+			set_cosmetic_tag = DSH_grand_duchy_of_baden
+			add_country_leader_role = {
+				character = DSH_frederick_baden
+				promote_leader = yes
+				country_leader = {
+					ideology = absolute_monarchy
+					expire = "1965.1.1.1"
+					traits = { iron_fist_rule }
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_develop_the_industry_on_the_rhine
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_power_to_the_duke
+        prerequisite = { focus = DSH_power_to_the_duke }
+		completion_reward = {
+			852 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_for_kaiser_and_for_vaterland
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_develop_the_industry_on_the_rhine
+        prerequisite = { focus = DSH_develop_the_industry_on_the_rhine }
+		completion_reward = {
+			add_war_support = 0.05
+			remove_ideas = { DSH_divided_militias }
+			add_ideas = { DSH_fur_kaiser_und_fur_vaterland }
+		}
+	}
+	focus = {
+		id = DSH_strengthen_francophobia
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_power_to_the_duke
+        prerequisite = { focus = DSH_power_to_the_duke }
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 50
+			add_opinion_modifier = {
+    			target = FRA
+    			modifier = DSH_francophobe
+			}
+		}
+	}
+	focus = {
+		id = DSH_arrest_spartakist_sympathisers
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_strengthen_francophobia
+        prerequisite = { focus = DSH_strengthen_francophobia }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = DSH_choose_a_new_successor
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_for_kaiser_and_for_vaterland
+        prerequisite = { focus = DSH_for_kaiser_and_for_vaterland }
+		prerequisite = { focus = DSH_arrest_spartakist_sympathisers }
+		completion_reward = {
+			country_event = dsh.28
+		}
+	}
+	focus = {
+		id = DSH_max_von_baden
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = { focus = DSH_the_young_berthold }
+        relative_position_id = DSH_choose_a_new_successor
+        prerequisite = { focus = DSH_choose_a_new_successor }
+		completion_reward = {
+			add_country_leader_role = {
+				character = DSH_max_von_baden
+				promote_leader = yes
+				country_leader = {
+					ideology = absolute_monarchy
+					expire = "1965.1.1.1"
+					traits = { iron_fist_rule }
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_increase_military_funding
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_max_von_baden
+        prerequisite = { focus = DSH_max_von_baden }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 20
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = DSH
+			}
+		}
+	}
+	focus = {
+		id = DSH_the_young_berthold
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = { focus = DSH_max_von_baden }
+        relative_position_id = DSH_choose_a_new_successor
+        prerequisite = { focus = DSH_choose_a_new_successor }
+		completion_reward = {
+			add_country_leader_role = {
+				character = DSH_berthold_baden
+				promote_leader = yes
+				country_leader = {
+					ideology = absolute_monarchy
+					expire = "1965.1.1.1"
+					traits = { iron_fist_rule }
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_look_to_the_needs_of_the_civilians
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_the_young_berthold
+        prerequisite = { focus = DSH_the_young_berthold }
+		completion_reward = {
+			add_stability = 0.05
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
 		}
 	}
 	focus = {
 		id = DSH_the_mad_monarchist
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 11
+		x = 13
 		y = 1
-		offset = {
-			x = -7
-			trigger = {
-				has_completed_focus = DSH_the_mad_monarchist
-			}
-		}
 		cost = 5
 		available_if_capitulated = yes
 		allow_branch = {
@@ -1277,6 +1491,7 @@ focus_tree = {
         relative_position_id = DSH_appoint_a_regency_council
         prerequisite = { focus = DSH_appoint_a_regency_council }
 		completion_reward = {
+			set_cosmetic_tag = DSH_imperial_command
 			add_country_leader_role = {
 				character = DSH_august_wilhelm
 				promote_leader = yes
@@ -1412,7 +1627,7 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_country_leader_role = {
-    			character = GER_character_token
+    			character = DSH_august_wilhelm
     			promote_leader = yes
     			country_leader = {
         			ideology = national_monarchism
@@ -1550,16 +1765,11 @@ focus_tree = {
 	focus = {
 		id = DSH_there_was_a_dream_called_germany
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 37
+		x = 39
 		y = 0
-		offset = {
-			x = -5
-			trigger = { has_completed_focus = DSH_onto_our_next_path }
-		}
 		cost = 5
 		available_if_capitulated = yes
 		available = {
-			has_war = no
 			date > 1923.1.30
 		}
 		ai_will_do = {
@@ -1580,6 +1790,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1603,6 +1814,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		mutually_exclusive = { focus = DSH_offer_a_peaceful_unification_to_the_wehrkommando }
@@ -1635,6 +1847,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		mutually_exclusive = { focus = DSH_cross_the_rhine }
@@ -1660,6 +1873,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1691,6 +1905,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1736,6 +1951,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1767,6 +1983,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1794,6 +2011,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1827,6 +2045,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1863,6 +2082,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1920,6 +2140,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1959,6 +2180,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -1993,6 +2215,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2029,6 +2252,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2060,6 +2284,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2097,6 +2322,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2130,6 +2356,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2177,6 +2404,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2233,6 +2461,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2271,6 +2500,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2304,6 +2534,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2351,6 +2582,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2394,6 +2626,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2427,6 +2660,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2459,6 +2693,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2511,6 +2746,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2550,6 +2786,7 @@ focus_tree = {
 			OR = {
 				has_government = authoritarian_democrat
 				has_government = despotism
+				has_government = national_syndicalism
 			}
 		}
 		ai_will_do = {
@@ -2602,6 +2839,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+		bypass = { has_completed_focus = DSH_appoint_a_regency_council }
 		relative_position_id = DSH_there_was_a_dream_called_germany
 		prerequisite = { focus = DSH_there_was_a_dream_called_germany }
 		completion_reward = {
@@ -2623,8 +2861,7 @@ focus_tree = {
 		cost = 4
 		available_if_capitulated = yes
 		available = {
-			has_war = no
-			date > 1927.1.1
+			date > 1926.1.1
 		}
 		ai_will_do = {
 			factor = 10
@@ -2633,6 +2870,7 @@ focus_tree = {
 		prerequisite = { focus = DSH_there_was_a_dream_called_germany }
 		completion_reward = {
 			add_stability = 0.05
+			add_ideas = DSH_economic_dominance1
 		}
 	}
 	focus = {
@@ -2670,7 +2908,7 @@ focus_tree = {
 		relative_position_id = DSH_the_time_for_the_german_age_is_nigh
 		prerequisite = { focus = DSH_the_time_for_the_german_age_is_nigh }
 		completion_reward = {
-			841 = { add_core_of = DEN }
+			841 = { add_core_of = DSH }
 			DEN = { country_event = { id = dsh.21 days = 2 } }
 		}
 	}
@@ -2792,10 +3030,11 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -2
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
+			NOT = { has_idea = DSH_plan_weiss_idea }
 		}
 		ai_will_do = {
 			factor = 10
@@ -2844,7 +3083,15 @@ focus_tree = {
 		relative_position_id = DSH_into_the_cantons_of_the_swiss
 		prerequisite = { focus = DSH_into_the_cantons_of_the_swiss }
 		completion_reward = {
-
+			3 = { add_core_of = DSH }
+			151 = { add_core_of = DSH }
+			870 = { add_core_of = DSH }
+			894 = { add_core_of = DSH }
+			FRA = { country_event = { id = dsh.32 days = 1 } }
+			every_other_country = {
+				limit = { has_full_control_of_state = 159 }
+				country_event = { id = dsh.33 days = 1 }
+			}
 		}
 	}
 	focus = {
@@ -2863,7 +3110,8 @@ focus_tree = {
 		relative_position_id = DSH_plan_rot
 		prerequisite = { focus = DSH_plan_rot }
 		completion_reward = {
-
+			939 = { add_core_of = DSH }
+			LIE = { country_event = { id = dsh.25 days = 1 } }
 		}
 	}
 	focus = {
@@ -2883,6 +3131,15 @@ focus_tree = {
 		prerequisite = { focus = DSH_offer_a_peaceful_end_to_the_miserable_liechtensteiners }
 		completion_reward = {
 			add_stability = 0.05
+			939 = { 
+				add_manpower = 3500
+				increase_state_category_by_one_level = yes 
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -2890,7 +3147,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -2904,6 +3161,7 @@ focus_tree = {
 		completion_reward = {
 			add_war_support = 0.05
 			remove_ideas = { DSH_plan_rot_idea }
+			DSH_economic_dominance_level_up = yes
 			#eco buffs to eventually link up to a greater economic buff bc war economy
 		}
 	}
@@ -2923,6 +3181,10 @@ focus_tree = {
 		relative_position_id = DSH_under_the_german_thumb
 		prerequisite = { focus = DSH_under_the_german_thumb }
 		completion_reward = {
+			AUS = { 
+				make_every_core_national_for_PREV = yes
+				country_event = { id = dsh.30 days = 1 } 
+			}
 		}
 	}
 	focus = {
@@ -2930,10 +3192,11 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 2
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
+			NOT = { has_idea = DSH_plan_rot_idea }
 		}
 		ai_will_do = {
 			factor = 10
@@ -2941,7 +3204,7 @@ focus_tree = {
 		relative_position_id = DSH_under_the_german_thumb
 		prerequisite = { focus = DSH_under_the_german_thumb }
 		completion_reward = {
-			
+			add_ideas = { DSH_plan_weiss_idea }
 		}
 	}
 	focus = {
@@ -2982,7 +3245,7 @@ focus_tree = {
 		relative_position_id = DSH_across_the_lowlands
 		prerequisite = { focus = DSH_across_the_lowlands }
 		completion_reward = {
-			
+			HOL = { make_every_core_national_for_PREV = yes }
 		}
 	}
 	focus = {
@@ -3012,7 +3275,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 1
-		cost = 5
+		cost = 8
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -3023,7 +3286,11 @@ focus_tree = {
 		relative_position_id = DSH_yodels_of_the_sudets
 		prerequisite = { focus = DSH_yodels_of_the_sudets }
 		completion_reward = {
-			
+			release_puppet = SLO 
+			every_owned_state = { 
+				limit = { is_core_of = CZE } 
+				add_core_of = DSH
+			}
 		}
 	}
 	focus = {
@@ -3031,7 +3298,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -3043,6 +3310,9 @@ focus_tree = {
 		prerequisite = { focus = DSH_contact_dutch_low_saxon_collaborators }
 		prerequisite = { focus = DSH_fold_bohemia_back_into_the_reich }
 		completion_reward = {
+			add_war_support = 0.05
+			remove_ideas = { DSH_plan_weiss_idea }
+			DSH_economic_dominance_level_up = yes
 			#eco buffs to eventually link up to a greater economic buff bc war economy
 		}
 	}
@@ -3087,7 +3357,7 @@ focus_tree = {
 				idea = UVS_recent_victory
 				months = 6
 			}
-			#Budweiser beer shortage ahh
+			country_event = dsh.31
 		}
 	}
 }

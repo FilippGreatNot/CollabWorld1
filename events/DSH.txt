@@ -10,6 +10,7 @@ country_event = {
 	option = {
 		name = dsh.1.a
 		complete_national_focus = { focus = DSH_a_new_era_for_the_bund }
+		add_command_power = 30
 	}
 }
 
@@ -158,6 +159,7 @@ country_event = {
 
 	option = {
 		name = dsh.7.a
+		set_country_flag = DSH_albert
 		complete_national_focus = DSH_the_return_of_the_king
 	}
 	option = {
@@ -175,6 +177,7 @@ country_event = {
 
 	option = {
 		name = dsh.8.a
+		set_country_flag = DSH_freddy
 		complete_national_focus = DSH_power_to_the_duke
 	}
 	option = {
@@ -192,6 +195,7 @@ country_event = {
 
 	option = {
 		name = dsh.9.a
+		set_country_flag = DSH_dummy
 		complete_national_focus = DSH_the_compromise
 	}
 	option = {
@@ -253,7 +257,9 @@ country_event = {
 	option = {
 		name = dsh.12.a
 		ai_chance = { base = 10 }
-		DSH = { annex_country = { target = BAV } }
+		DSH = { 
+			annex_country = { target = BAV } 
+		}
 	}
 	option = {
 		name = dsh.12.a
@@ -456,6 +462,7 @@ country_event = {
 				target = LUX
 				transfer_troops = yes
 			}
+			country_event = dsh.29
 		}
 	}
 	option = {
@@ -491,6 +498,7 @@ country_event = {
 			limit = { has_full_control_of_state = 1093 }
 			1093 = { transfer_state_to = DSH }
 		}
+		DSH = { country_event = dsh.29 }
 	}
 	option = {
 		name = dsh.23.b
@@ -527,5 +535,165 @@ country_event = {
 				target = BEL
 			} 
 		}
+	}
+}
+
+country_event = {
+	id = dsh.25
+	title = dsh.25.t
+	desc = dsh.25.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.25.a
+		DSH = { 
+			annex_country = {
+				target = LIE
+				transfer_troops = yes
+			}
+			country_event = dsh.29
+		}
+	}
+	option = {
+		name = dsh.25.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = LIE
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.26
+	title = dsh.26.t
+	desc = dsh.26.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.26.a
+		retire_character = DSH_frederick_baden
+		add_manpower = -1
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = {
+	id = dsh.27
+	title = dsh.27.t
+	desc = dsh.27.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.27.a
+		set_country_flag = DSH_albert
+		complete_national_focus = DSH_the_return_of_the_king
+	}
+	option = {
+		name = dsh.27.b 
+		set_country_flag = DSH_freddy
+		complete_national_focus = DSH_power_to_the_duke
+	}
+}
+
+country_event = {
+	id = dsh.28
+	title = dsh.28.t
+	desc = dsh.28.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.28.a
+		complete_national_focus = DSH_max_von_baden
+		custom_effect_tooltip = DSH_if_max_dies_tt
+	}
+	option = {
+		name = dsh.28.b
+		complete_national_focus = DSH_the_young_berthold
+	}
+}
+
+country_event = {
+	id = dsh.29
+	title = dsh.29.t
+	desc = dsh.29.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.29.a
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.30
+	title = dsh.30.t
+	desc = dsh.30.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.30.a
+		DSH = { 
+			annex_country = {
+				target = AUS
+				transfer_troops = yes
+			}
+			country_event = dsh.29
+		}
+	}
+	option = {
+		name = dsh.30.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = AUS
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.31
+	title = dsh.31.t
+	desc = dsh.31.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.31.a
+		add_political_power = -50
+	}
+}
+
+country_event = {
+	id = dsh.32
+	title = dsh.32.t
+	desc = dsh.32.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.32.a
+		add_political_power = -50
+	}
+	option = {
+		name = dsh.32.b
+		882 = {
+			transfer_state_to = FRA 
+			add_core_of = FRA
+		}
+		give_non_aggression_pact
 	}
 }
