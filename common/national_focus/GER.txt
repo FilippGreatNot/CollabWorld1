@@ -14,8 +14,13 @@ focus_tree = {
 		id = GER_first_the_end_of_the_spartacist_uprising
 		icon = GFX_focus_GER_first_end_of_spartacist_uprising
 		cost = 5
+		available = { always = no }
 		
 		completion_reward = {
+		
+		     add_stability = 0.05
+			 add_political_power = 25
+			 add_manpower = -2500
 			
 		}
 	}
@@ -23,7 +28,7 @@ focus_tree = {
 	focus = {
 		id = GER_first_supply_humanitarian_aid_in_berlin
 		icon = GFX_focus_GER_first_supply_humanitarian_aid_in_berlin
-		cost = 5
+		cost = 4
 		
 		prerequisite = {
 			focus = GER_first_the_end_of_the_spartacist_uprising
@@ -34,13 +39,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_stability = 0.04
+			add_political_power = -20
+			836 = {
+				add_manpower = 5000
+			}
 		}
 	}
 	focus = {
 		id = GER_first_the_spds_impending_doom
 		icon = GFX_focus_GER_first_the_spds_impending_doom
-		cost = 5
+		cost = 3
 		
 		prerequisite = {
 			focus = GER_first_the_end_of_the_spartacist_uprising
@@ -50,13 +59,18 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		     add_popularity = {
+				ideology = social_democrat
+				popularity = -0.04
+			}
+			add_political_power = 20
 			
 		}
 	}
 	focus = {
 		id = GER_first_arrest_the_spartacist_agents
 		icon = GFX_focus_GER_first_arrest_the_spartacist_agents
-		cost = 5
+		cost = 4
 		
 		prerequisite = {
 			focus = GER_first_the_end_of_the_spartacist_uprising
@@ -67,7 +81,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_political_power = 25
+			add_stability = 0.05
+			add_manpower = -500
 		}
 	}
 	focus = {
@@ -89,7 +109,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.2
+			add_stability = -0.05
 		}
 	}
 	focus = {
@@ -105,7 +126,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.3
 		}
 	}
 	
@@ -113,7 +134,7 @@ focus_tree = {
 		id = GER_first_the_spd_holds_against_all_odds
 		icon = GFX_focus_GER_first_the_spd_holds_against_all_odds
 		cost = 5
-		
+		available = { always = no }
 		prerequisite = {
 			focus = GER_first_hold_a_new_reichstagswahl
 		}
@@ -123,6 +144,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = social_democrat
+			}
 			
 		}
 	}
@@ -140,7 +168,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_political_power = -50
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -156,7 +185,15 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.04
+			}
+			add_political_power = 35
 		}
 	}
 	focus = {
@@ -172,7 +209,10 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_timed_idea = { 
+				idea = GER_relief_package
+				days = 720
+			}
 		}
 	}
 	focus = {
@@ -188,7 +228,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_modern_healthcare_system
 		}
 	}
 	focus = {
@@ -205,7 +245,15 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+				add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+				add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.05
+			}
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -221,7 +269,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.7
 		}
 	}
 	focus = {
@@ -243,7 +291,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			FRA = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_grave_insult
+				}
+			}
+			add_political_power = 50
 		}
 	}
 	focus = {
@@ -260,7 +314,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			SWE = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_political_power = 30
 		}
 	}
 	focus = {
@@ -276,13 +340,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
 		id = GER_first_establish_new_universities
 		icon = GFX_focus_GER_first_establish_new_universities
-		cost = 5
+		cost = 8
 		
 		prerequisite = {
 			focus = GER_first_criticise_francois_coty
@@ -293,7 +361,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_research_slot = 1
+			add_political_power = 25
 		}
 	}
 	focus = {
@@ -315,7 +384,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_german_social_democracy
 		}
 	}
 	
@@ -327,12 +396,19 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_first_hold_a_new_reichstagswahl
 		}
+		available = { always = no }
 		
 		relative_position_id = GER_first_hold_a_new_reichstagswahl
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = conservatism
+			}
 		}
 	}
 	focus = {
@@ -349,6 +425,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		      add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_political_power = 100
 			
 		}
 	}
@@ -366,7 +447,12 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+		       add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			add_stability = 0.03
+			add_political_power = -20
 		}
 	}
 	focus = {
@@ -383,7 +469,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_political_power = 35
 		}
 	}
 	focus = {
@@ -399,7 +489,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_anti_bolshevik_doctrine
 		}
 	}
 	focus = {
@@ -416,7 +506,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_war_support = 0.05
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -433,7 +524,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_agrarian_subsidies
+			59 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			62 = {
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 	focus = {
@@ -450,13 +547,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_active_foreign_policy
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.02
+			}
 		}
 	}
 	focus = {
 		id = GER_first_apologise_to_belgium
 		icon = GFX_focus_GER_first_apologise_to_belgium
-		cost = 5
+		cost = 4
 		
 		prerequisite = {
 			focus = GER_first_cooperate_with_stresseman
@@ -466,7 +567,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			BEL = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_apologized_for_the_great_war
+				}
+			}
+			add_political_power = 25
 		}
 	}
 	focus = {
@@ -485,13 +592,13 @@ focus_tree = {
 		y = 5
 		
 		completion_reward = {
-			
+			add_ideas = GER_christian_democratic_values
 		}
 	}
 	focus = {
 		id = GER_first_implement_the_republican_research_initiative
 		icon = GFX_focus_GER_first_implement_the_republican_research_initiative
-		cost = 5
+		cost = 10
 		
 		prerequisite = {
 			focus = GER_first_a_tower_above_all_others
@@ -504,7 +611,8 @@ focus_tree = {
 		y = 2
 		
 		completion_reward = {
-			
+			add_research_slot = 1
+			add_political_power = 25
 		}
 	}
 	focus = {
@@ -522,14 +630,18 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_timed_idea = { 
+				idea = GER_public_kitchens
+				days = 365
+			}
 		}
 	}
 	
 	focus = {
 		id = GER_first_the_rise_of_the_dnvp
-		icon = GFX_focus_GER_first_the_rise_of_the_dnvp
+		icon = GFX_focus_GER_dnvp
 		cost = 5
+		available = { always = no }
 		
 		prerequisite = {
 			focus = GER_first_hold_a_new_reichstagswahl
@@ -540,7 +652,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
 		}
 	}
 	focus = {
@@ -558,12 +676,15 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_timed_idea = { 
+				idea = GER_increased_military_spending
+				days = 365
+			}
 		}
 	}
 	focus = {
 		id = GER_first_the_memories_of_the_dolchstos
-		icon = GFX_focus_GER_first_the_memories_of_the_dolchstos
+		icon = GFX_focus_GER_dolch
 		cost = 5
 		
 		prerequisite = {
@@ -575,12 +696,16 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_war_support = 0.05
 		}
 	}
 	focus = {
 		id = GER_first_embrace_german_nationalism
-		icon = GFX_focus_GER_first_embrace_german_nationalism
+		icon = GFX_focus_GER_german_nationalism
 		cost = 5
 		
 		prerequisite = {
@@ -591,12 +716,12 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_german_nationalist_sentiment
 		}
 	}
 	focus = {
 		id = GER_first_purge_wilhelm_henning
-		icon = GFX_focus_GER_first_purge_wilhelm_henning
+		icon = GFX_focus_GER_purge
 		cost = 5
 		
 		prerequisite = {
@@ -612,12 +737,23 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			FGB = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_betrayal
+				}
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = GER_freikorps_unfriendly
 		}
 	}
 	focus = {
 		id = GER_first_hold_a_meeting_with_the_freikorps
-		icon = GFX_focus_GER_first_hold_a_meeting_with_the_freikorps
+		icon = GFX_focus_GER_meet
 		cost = 5
 		
 		prerequisite = {
@@ -633,12 +769,23 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			FGB = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
+			add_stability = -0.05
+			custom_effect_tooltip = GER_freikorps_friendly
 		}
 	}
 	focus = {
 		id = GER_first_weaken_eberts_corrupting_grip
-		icon = GFX_focus_GER_first_weaken_eberts_corrupting_grip
+		icon = GFX_focus_GER_weaken
 		cost = 5
 		
 		prerequisite = {
@@ -650,12 +797,16 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
 		id = GER_first_fight_against_the_anti_german_spirit
-		icon = GFX_focus_GER_first_fight_against_the_anti_german_spirit
+		icon = GFX_focus_GER_spirit
 		cost = 5
 		
 		prerequisite = {
@@ -666,12 +817,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_war_support = 0.05
 			
 		}
 	}
 	focus = {
 		id = GER_first_a_detente_with_france
-		icon = GFX_focus_GER_first_a_detente_with_france
+		icon = GFX_focus_GER_detente
 		cost = 5
 		
 		prerequisite = {
@@ -683,7 +839,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+		     country_event = ger.6
 		}
 	}
 	focus = {
@@ -700,13 +856,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.5
 		}
 	}
 	focus = {
 		id = GER_first_support_the_heavy_industry
-		icon = GFX_focus_GER_first_support_the_heavy_industry
-		cost = 5
+		icon = GFX_focus_GER_heavy
+		cost = 8
 		
 		prerequisite = {
 			focus = GER_first_a_detente_with_france
@@ -716,30 +872,56 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			1056 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+			}
+			64 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					}
+					army_experience = 25
 		}
 	}
 	focus = {
 		id = GER_first_seek_french_military_support
-		icon = GFX_focus_GER_first_seek_french_military_support
+		icon = GFX_focus_GER_seek
 		cost = 5
 		
 		prerequisite = {
 			focus = GER_first_a_detente_with_france
 		}
-		
+		available = { has_country_flag = french_support }
 		relative_position_id = GER_first_a_detente_with_france
 		x = 2
 		y = 1
 		
 		completion_reward = {
-			
+		      add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = FRA
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
 		}
 	}
 	focus = {
 		id = GER_first_die_volksdeutsche_wissenschaftsgesellschaft
-		icon = GFX_focus_GER_first_die_volksdeutsche_wissenschaftsgesellschaft
-		cost = 5
+		icon = GFX_focus_GER_wissen
+		cost = 10
 		
 		prerequisite = {
 			focus = GER_first_a_detente_with_france
@@ -751,12 +933,14 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
+		     add_research_slot = 1
+			 add_political_power = 25
 			
 		}
 	}
 	focus = {
 		id = GER_first_a_reichsprasident_of_our_own
-		icon = GFX_focus_GER_first_a_reichsprasident_of_our_own
+		icon = GFX_focus_GER_own
 		cost = 5
 		
 		prerequisite = {
@@ -765,18 +949,24 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_first_support_the_heavy_industry
 		}
+		available = {
+		has_country_leader = {
+                    name = "Alfred Hughenberg"
+                    ruling_only = yes
+                }
+				 }
 		
 		relative_position_id = GER_first_support_the_heavy_industry
 		x = -1
 		y = 1
 		
 		completion_reward = {
-			
+			add_political_power = 150
 		}
 	}
 	focus = {
 		id = GER_first_a_victory_for_the_german_nation
-		icon = GFX_focus_GER_first_a_victory_for_the_german_nation
+		icon = GFX_focus_GER_victory
 		cost = 5
 		
 		prerequisite = {
@@ -789,7 +979,11 @@ focus_tree = {
 		y = 4
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+			add_war_support = 0.1
 		}
 	}
 }
