@@ -266,6 +266,11 @@ on_actions = {
                         transfer_state_to = NFR
                         add_core_of = NFR
                     }
+                    28 = {
+                        transfer_state_to = DSH 
+                        add_core_of = DSH
+                        remove_core_of = FRA
+                    }
                     29 = {
                         transfer_state_to = BEL
                         add_claim_by = BEL
@@ -288,6 +293,14 @@ on_actions = {
                         add_core_of = BEL
                         add_core_of = NFR
                     }
+                    927 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                        add_core_of = NFR
+                        remove_core_of = FRA
+                        set_resistance = 20
+                        set_compliance = 40
+                    }
                     set_autonomy = {
                         target = NFR
                         autonomous_state = autonomy_integrated_puppet
@@ -297,17 +310,6 @@ on_actions = {
                     annex_country = {
                         target = FRA
                         transfer_troops = no
-                    }
-                    28 = {
-                        transfer_state_to = DSH 
-                        add_core_of = DSH
-                    }
-                    927 = {
-                        transfer_state_to = DSH
-                        add_claim_by = DSH
-                        add_core_of = NFR
-                        set_resistance = 20
-                        set_compliance = 40
                     }
                     release_autonomy = {
                         target = FRA
@@ -513,7 +515,7 @@ on_actions = {
                         transfer_state_to = LAT
                     }
                     every_owned_state = {
-                        limit = { is_core_of = LIT NOT = { is_core_of = DSH } }
+                        limit = { is_core_of = LIT NOT = { is_core_of = EPR } }
                         transfer_state_to = LIT
                     }
                 }
@@ -522,9 +524,21 @@ on_actions = {
                     transfer_state_to = EST 
                     add_core_of = EST
                 }
+                188 = {
+                    transfer_state_to = DSH 
+                    add_core_of = DSH
+                }
                 810 = {
                     transfer_state_to = EST 
                     add_core_of = EST
+                }
+                963 = {
+                    transfer_state_to = DSH 
+                    add_core_of = DSH
+                }
+                1094 = {
+                    transfer_state_to = DSH 
+                    add_claim_by = DSH
                 }
                 EST = { 
                     load_focus_tree = { tree = DSH_occupational keep_completed = yes }
