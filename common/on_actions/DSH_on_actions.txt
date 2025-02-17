@@ -1,0 +1,704 @@
+on_actions = {
+	on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = BEL
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = BEL
+                        message = "The Belgian State Has Schlieffened Their Last Moltke."
+                    }
+                    set_autonomy = {
+                        target = BEL
+                        autonomous_state = autonomy_puppet
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = COG
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    country_event = dsh.34
+                }
+                840 = {
+                    add_claim_by = DSH
+                    transfer_state_to = DSH
+                    set_resistance = 30
+                    set_compliance = 50
+                }
+                851 = {
+                    add_core_of = DSH
+                    transfer_state_to = DSH
+                }
+                1093 = {
+                    add_claim_by = DSH
+                    transfer_state_to = DSH
+                    set_resistance = 10
+                    set_compliance = 70
+                }
+                BEL = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_BEL 
+                }
+                COG = { set_cosmetic_tag = DSH_COG }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = LUX
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+                8 = { add_core_of = DSH }
+				DSH = { 
+                    white_peace = {
+                        tag = LUX
+                        message = "Flahaut's Legacy Has Been Avenged With The Death Of The Luxembergish State."
+                    }
+                    annex_country = {
+                        target = LUX
+                        transfer_troops = yes
+                    }
+                    country_event = dsh.36
+                }
+                LUX = { every_unit_leader = { set_nationality = DSH } }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = HOL
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = HOL
+                        message = "The Dutch Will Have To Eat Their Prime Minister For A Second Time"
+                    }
+                    set_autonomy = {
+                        target = HOL
+                        autonomous_state = autonomy_puppet
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = INS
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    country_event = dsh.38
+                }
+                HOL = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_HOL
+                }
+                INS = { set_cosmetic_tag = DSH_INS }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = CZE
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = CZE
+                        message = "The Czech Nation Has Regressed To A State Of Mutilated Self-Rule."
+                    }
+                    69 = { add_core_of = DSH }
+                    72 = { add_core_of = DSH }
+                    74 = { add_core_of = DSH }
+                    887 = { add_core_of = DSH }
+                    CZE = {
+                        every_owned_state = { 
+                            limit = { is_core_of = SLO } 
+                            transfer_state_to = SLO
+                        }
+                    }
+                    set_autonomy = {
+                        target = SLO
+                        autonomous_state = autonomy_puppet
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    annex_country = {
+                        target = CZE
+                    }
+                    country_event = dsh.37
+                }
+                SLO = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_SLO
+                }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = POL
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = POL
+                        message = "Polish Independece Could Only Last So Long"
+                    }
+                    5 = {
+                        transfer_state_to = DSH
+                        add_core_of = DSH
+                    }
+                    86 = {
+                        transfer_state_to = DSH
+                        add_core_of = DSH
+                    }
+                    87 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                    }
+                    97 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                    }
+                    98 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                    }
+                    807 = {
+                        transfer_state_to = DSH
+                        add_core_of = DSH
+                    }
+                    847 = {
+                        transfer_state_to = DSH
+                        add_core_of = DSH
+                    }
+                    850 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                    }
+                    1094 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                    }
+                    set_autonomy = {
+                        target = POL
+                        autonomous_state = autonomy_puppet
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    country_event = dsh.39
+                }
+                POL = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_POL
+                }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = FRA
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+                every_state = {
+                    limit = { is_core_of = ALG }
+                    transfer_state_to = ALG
+                }
+				DSH = { 
+                    white_peace = {
+                        tag = FRA
+                        message = "The Collapse Of The German State Has Been Avenged With The Fall Of France."
+                    }
+                    15 = {
+                        transfer_state_to = NFR
+                        add_core_of = NFR
+                    }
+                    16 = {
+                        transfer_state_to = NFR
+                        add_core_of = NFR
+                        set_demilitarized_zone = yes
+                    }
+                    17 = {
+                        transfer_state_to = NFR
+                        add_core_of = NFR
+                    }
+                    18 = {
+                        transfer_state_to = NFR
+                        add_core_of = NFR
+                    }
+                    29 = {
+                        transfer_state_to = BEL
+                        add_claim_by = BEL
+                        add_core_of = NFR
+                    }
+                    539 = {
+                        transfer_state_to = COG
+                        add_core_of = COG
+                    }
+                    772 = {
+                        transfer_state_to = COG
+                        add_core_of = COG
+                    }
+                    785 = {
+                        transfer_state_to = NFR
+                        add_core_of = NFR
+                    }
+                    895 = {
+                        transfer_state_to = BEL
+                        add_core_of = BEL
+                        add_core_of = NFR
+                    }
+                    set_autonomy = {
+                        target = NFR
+                        autonomous_state = autonomy_integrated_puppet
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    annex_country = {
+                        target = FRA
+                        transfer_troops = no
+                    }
+                    28 = {
+                        transfer_state_to = DSH 
+                        add_core_of = DSH
+                    }
+                    927 = {
+                        transfer_state_to = DSH
+                        add_claim_by = DSH
+                        add_core_of = NFR
+                        set_resistance = 20
+                        set_compliance = 40
+                    }
+                    release_autonomy = {
+                        target = FRA
+                        autonomy_state = autonomy_dominion
+                        freedom_level = 0.1
+                    }
+                    set_autonomy = {
+                        target = FEA
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = CMR
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = MOR
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = TUN
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = FNA
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    set_autonomy = {
+                        target = ALG
+                        autonomous_state = autonomy_colony
+                        end_wars = yes
+                        end_civil_wars = yes
+                    }
+                    country_event = dsh.40
+                }
+                NFR = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_NFR
+                }
+                FEA = { set_cosmetic_tag = DSH_FEA }
+                CMR = { set_cosmetic_tag = DSH_CMR }
+                MOR = { set_cosmetic_tag = DSH_MOR }
+                TUN = { set_cosmetic_tag = DSH_TUN }
+                FNA = { set_cosmetic_tag = DSH_FNA }
+                ALG = { set_cosmetic_tag = DSH_ALG }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = AUS
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+                AUS = { make_every_core_national_for_PREV = yes }
+                39 = { add_claim_by = DSH }
+				DSH = { 
+                    white_peace = {
+                        tag = AUS
+                        message = "The Grossdeutschland Concept Has Succeeded After All."
+                    }
+                    annex_country = {
+                        target = AUS
+                        transfer_troops = yes
+                    }
+                    country_event = dsh.41
+                }
+                AUS = { every_unit_leader = { set_nationality = DSH } }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = SWI
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = SWI
+                        message = "A Century Of Neutrality Has Ended With German Flags Raised In Geneva."
+                    }
+                    annex_country = {
+                        target = SWI
+                        transfer_troops = yes
+                    }
+                    country_event = dsh.42
+                }
+                SWI = { every_unit_leader = { set_nationality = DSH } }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = LIE
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = LIE
+                        message = "The Last Remaining Traces Of The Holy Roman Empire Are Waiting To Be Found."
+                    }
+                    annex_country = {
+                        target = LIE
+                        transfer_troops = yes
+                    }
+                    country_event = dsh.43
+                }
+                LIE = { every_unit_leader = { set_nationality = DSH } }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = EPR
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = EPR
+                        message = "The Homeland Of The German Nation Is In Their Hands Once Again."
+                    }
+                    annex_country = {
+                        target = EPR
+                        transfer_troops = yes
+                    }
+                    country_event = dsh.44
+                }
+                EPR = { every_unit_leader = { set_nationality = DSH } }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = WVA
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = WVA
+                        message = "The Cossack Prince Has Been Dethroned; Now A New Monarch Sits In His Place."
+                    }
+                    annex_country = {
+                        target = WVA
+                        transfer_troops = yes
+                    }
+                    country_event = dsh.45
+                    puppet = {
+                        target = EST
+                        end_wars = yes
+                    }
+                    puppet = {
+                        target = LAT
+                        end_wars = yes
+                    }
+                    puppet = {
+                        target = LIT
+                        end_wars = yes
+                    }
+                    every_owned_state = {
+                        limit = { is_core_of = EST }
+                        transfer_state_to = EST
+                    }
+                    every_owned_state = {
+                        limit = { is_core_of = LAT }
+                        transfer_state_to = LAT
+                    }
+                    every_owned_state = {
+                        limit = { is_core_of = LIT NOT = { is_core_of = DSH } }
+                        transfer_state_to = LIT
+                    }
+                }
+                WVA = { every_unit_leader = { set_nationality = DSH } }
+                12 = {
+                    transfer_state_to = EST 
+                    add_core_of = EST
+                }
+                810 = {
+                    transfer_state_to = EST 
+                    add_core_of = EST
+                }
+                EST = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_EST 
+                }
+                LAT = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_LAT
+                }
+                LIT = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_LIT
+                }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = BLR
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+                DSH = {
+                    white_peace = {
+                        tag = BLR
+                        message = "The Prussians defeated Napoleon this time"
+                    }
+                    country_event = dsh.46
+                }
+				if = {
+                    limit = {
+                        BLR = { has_full_control_of_state = 10 }
+                    }
+                    BLR = { 
+                        every_owned_state = { 
+                            limit = { is_core_of = EPR } 
+                            add_core_of = DSH
+                            transfer_state_to = DSH
+                        } 
+                    }
+                    86 = {
+                        transfer_state_to = DSH 
+                        add_core_of = DSH
+                    }
+                    87 = {
+                        transfer_state_to = DSH 
+                        add_claim_by = DSH
+                    }
+                    97 = {
+                        transfer_state_to = DSH 
+                        add_claim_by = DSH
+                    }
+                    98 = {
+                        transfer_state_to = DSH 
+                        add_claim_by = DSH
+                    }
+                    807 = {
+                        transfer_state_to = DSH 
+                        add_core_of = DSH
+                    }
+                    847 = {
+                        transfer_state_to = DSH 
+                        add_core_of = DSH
+                    }
+                    850 = {
+                        transfer_state_to = DSH 
+                        add_claim_by = DSH
+                    }
+                    1094 = {
+                        transfer_state_to = DSH 
+                        add_claim_by = DSH
+                    }
+                    BLR = { 
+                        every_owned_state = { 
+                            limit = { is_core_of = POL }
+                            transfer_state_to = POL
+                        } 
+                    }
+                    DSH = {
+                        set_autonomy = {
+                            target = POL
+                            autonomous_state = autonomy_puppet
+                            end_wars = yes
+                            end_civil_wars = yes
+                        }
+                    }
+                    POL = { 
+                        load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                        set_cosmetic_tag = DSH_POL
+                    }
+                    89 = {
+                        transfer_state_to = POL 
+                        add_core_of = POL
+                    }
+                    91 = {
+                        transfer_state_to = POL 
+                        add_core_of = POL
+                    }
+                    93 = { transfer_state_to = UKR }
+                    94 = { transfer_state_to = UKR }
+                    194 = { transfer_state_to = UKR }
+                    784 = { transfer_state_to = LIT }
+                    DSH = {
+                        set_autonomy = {
+                            target = BLR
+                            autonomous_state = autonomy_puppet
+                            end_wars = yes
+                            end_civil_wars = yes
+                        }
+                    }
+                    BLR = { 
+                        load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                        set_cosmetic_tag = DSH_BLR
+                    }
+                }
+                else_if = {
+                    limit = { 
+                        BLR = { 
+                            NOT = { has_full_control_of_state = 10 }
+                        } 
+                    }
+                    94 = { transfer_state_to = UKR }
+                    194 = { transfer_state_to = UKR }
+                    784 = { transfer_state_to = LIT }
+                    DSH = {
+                        set_autonomy = {
+                            target = BLR
+                            autonomous_state = autonomy_puppet
+                            end_wars = yes
+                            end_civil_wars = yes
+                        }
+                    }
+                    BLR = { 
+                        load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                        set_cosmetic_tag = DSH_BLR
+                    }
+                }
+			}
+		}
+	}
+    on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = UKR
+					}
+					FROM = {
+						original_tag = DSH
+					}
+				}
+				DSH = { 
+                    white_peace = {
+                        tag = UKR
+                        message = "The Flames of the Ukrainian Revolution have finally been extinguished."
+                    }
+                    country_event = dsh.47
+                }
+                set_autonomy = {
+                    target = UKR
+                    autonomous_state = autonomy_puppet
+                    end_wars = yes
+                    end_civil_wars = yes
+                }
+                UKR = { 
+                    load_focus_tree = { tree = DSH_occupational keep_completed = yes }
+                    set_cosmetic_tag = DSH_UKR
+                }
+			}
+		}
+	}
+}

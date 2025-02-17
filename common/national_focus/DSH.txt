@@ -1,4 +1,5 @@
 #!gfx:interface/country/germany/FGB/DSH_focus.gfx
+#!gfx:interface/KR_goals.gfx
 focus_tree = {
 	id = DSH
 	country = {
@@ -290,9 +291,6 @@ focus_tree = {
 		y = 1
 		cost = 4
 		available_if_capitulated = yes
-		allow_branch = {
-			NOT = { has_completed_focus = DSH_duesterbergs_ascension } 
-		}
 		mutually_exclusive = { focus = DSH_duesterbergs_ascension }
 		ai_will_do = {
 			factor = 10
@@ -1032,7 +1030,7 @@ focus_tree = {
         relative_position_id = DSH_the_return_of_the_king
         prerequisite = { focus = DSH_the_return_of_the_king }
 		completion_reward = {
-
+			set_cosmetic_tag = DSH_wurttemberg
 		}
 	}
 	focus = {
@@ -1049,7 +1047,7 @@ focus_tree = {
         prerequisite = { focus = DSH_spread_pro_monarchist_propaganda }
 		prerequisite = { focus = DSH_display_the_royal_banner }
 		completion_reward = {
-			
+			add_ideas = { DSH_all_under_our_eye_idea }
 		}
 	}
 	focus = {
@@ -1066,7 +1064,7 @@ focus_tree = {
         prerequisite = { focus = DSH_swabian_royal_army_corps }
 		prerequisite = { focus = DSH_display_the_royal_banner }
 		completion_reward = {
-			
+			add_ideas = { DSH_all_under_our_army_idea }
 		}
 	}
 	focus = {
@@ -1083,7 +1081,11 @@ focus_tree = {
         prerequisite = { focus = DSH_all_under_our_eye }
 		prerequisite = { focus = DSH_all_under_our_army }
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = DSH_all_under_our_eye_idea
+				remove_Idea = DSH_all_under_our_army_idea
+				add_idea = DSH_all_under_our_king_idea
+			}
 		}
 	}
 	focus = {
@@ -1301,8 +1303,10 @@ focus_tree = {
         prerequisite = { focus = DSH_develop_the_industry_on_the_rhine }
 		completion_reward = {
 			add_war_support = 0.05
-			remove_ideas = { DSH_divided_militias }
-			add_ideas = { DSH_fur_kaiser_und_fur_vaterland }
+			swap_ideas = {
+				remove_idea = DSH_divided_militias
+				add_idea = DSH_fur_kaiser_und_fur_vaterland
+			}
 		}
 	}
 	focus = {
@@ -1347,7 +1351,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = DSH_choose_a_new_successor
+		id = DSH_change_the_flag
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
@@ -1359,6 +1363,22 @@ focus_tree = {
         relative_position_id = DSH_for_kaiser_and_for_vaterland
         prerequisite = { focus = DSH_for_kaiser_and_for_vaterland }
 		prerequisite = { focus = DSH_arrest_spartakist_sympathisers }
+		completion_reward = {
+			set_cosmetic_tag = DSH_baden
+		}
+	}
+	focus = {
+		id = DSH_choose_a_new_successor
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_change_the_flag
+        prerequisite = { focus = DSH_change_the_flag }
 		completion_reward = {
 			country_event = dsh.28
 		}
@@ -1781,7 +1801,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_a_patriots_vow
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_a_patriots_vow
 		x = -4
 		y = 1
 		cost = 1
@@ -1804,7 +1824,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_cross_the_rhine
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_cross_the_rhine
 		x = -3
 		y = 1
 		cost = 5
@@ -1837,7 +1857,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_offer_a_peaceful_unification_to_the_wehrkommando
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_offer_a_peaceful_unification_to_the_wehrkommando
 		x = -1
 		y = 1
 		cost = 5
@@ -1863,7 +1883,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_rehabilitate_former_officers
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_rehabilitate_former_officers
 		x = 0
 		y = 1
 		cost = 4
@@ -1895,7 +1915,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_the_industry_from_the_rhineland
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_the_industry_from_the_rhineland
 		x = 0
 		y = 1
 		cost = 6
@@ -1973,7 +1993,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_demand_the_end_of_the_bavarian_republic
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_demand_the_end_of_the_bavarian_republic
 		x = 2
 		y = 1
 		cost = 5
@@ -2001,7 +2021,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_discredit_the_communist_regime
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_discredit_the_communist_regime
 		x = -1
 		y = 1
 		cost = 4
@@ -2035,7 +2055,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_force_the_workers_back_into_the_factories
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_force_the_workers_back_into_the_factories
 		x = 1
 		y = 1
 		cost = 6
@@ -2105,7 +2125,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_who_wants_strudel
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_who_wants_strudel
 		x = 2
 		y = 1
 		cost = 5
@@ -2130,7 +2150,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_depose_the_rival_government
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_depose_the_rival_government
 		x = -2
 		y = 1
 		cost = 5
@@ -2312,7 +2332,7 @@ focus_tree = {
 	}
 	focus = {
 		id = DSH_raid_the_homes_of_activists
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		icon = GFX_focus_DSH_raid_the_homes_of_activists
 		x = -1
 		y = 1
 		cost = 4
@@ -2871,6 +2891,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_ideas = DSH_economic_dominance1
+			custom_effect_tooltip = DSH_capitulating_tt
 		}
 	}
 	focus = {
@@ -3086,8 +3107,11 @@ focus_tree = {
 			3 = { add_core_of = DSH }
 			151 = { add_core_of = DSH }
 			870 = { add_core_of = DSH }
+			882 = {
+				add_core_of = NFR 
+				transfer_state_to = NFR
+			}
 			894 = { add_core_of = DSH }
-			FRA = { country_event = { id = dsh.32 days = 1 } }
 			every_other_country = {
 				limit = { has_full_control_of_state = 159 }
 				country_event = { id = dsh.33 days = 1 }
@@ -3286,11 +3310,9 @@ focus_tree = {
 		relative_position_id = DSH_yodels_of_the_sudets
 		prerequisite = { focus = DSH_yodels_of_the_sudets }
 		completion_reward = {
-			release_puppet = SLO 
-			every_owned_state = { 
-				limit = { is_core_of = CZE } 
-				add_core_of = DSH
-			}
+			custom_effect_tooltip = DSH_the_inner_czech_territories_tt
+			9 = { add_core_of = DSH }
+			75 = { add_core_of = DSH }
 		}
 	}
 	focus = {
@@ -3333,8 +3355,11 @@ focus_tree = {
 		prerequisite = { focus = DSH_plan_rot_fulfilled }
 		prerequisite = { focus = DSH_plan_weiss_fulfilled }
 		completion_reward = {
-			#super giga mega good buffs 
-			#unify the german volk ahh
+			add_stability = 0.05
+			add_ideas = {
+				DSH_benefits_from_mitteleuropa
+			}
+			custom_effect_tooltip = DSH_the_german_volk_has_been_unified_tt
 		}
 	}
 	focus = {
