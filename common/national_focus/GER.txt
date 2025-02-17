@@ -168,7 +168,8 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_political_power = -50
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -184,7 +185,15 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.04
+			}
+			add_political_power = 35
 		}
 	}
 	focus = {
@@ -200,7 +209,10 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_timed_idea = { 
+				idea = GER_relief_package
+				days = 720
+			}
 		}
 	}
 	focus = {
@@ -216,7 +228,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_modern_healthcare_system
 		}
 	}
 	focus = {
@@ -233,7 +245,15 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+				add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+				add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.05
+			}
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -249,7 +269,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.7
 		}
 	}
 	focus = {
@@ -271,7 +291,13 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			FRA = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_grave_insult
+				}
+			}
+			add_political_power = 50
 		}
 	}
 	focus = {
@@ -288,7 +314,17 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			SWE = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_political_power = 30
 		}
 	}
 	focus = {
@@ -304,7 +340,11 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -344,7 +384,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_german_social_democracy
 		}
 	}
 	
@@ -676,7 +716,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			add_ideas = GER_german_nationalist_sentiment
 		}
 	}
 	focus = {
@@ -799,7 +839,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+		     country_event = ger.6
 		}
 	}
 	focus = {
@@ -816,7 +856,7 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = {
-			
+			country_event = ger.5
 		}
 	}
 	focus = {
@@ -859,13 +899,23 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_first_a_detente_with_france
 		}
-		
+		available = { has_country_flag = french_support }
 		relative_position_id = GER_first_a_detente_with_france
 		x = 2
 		y = 1
 		
 		completion_reward = {
-			
+		      add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = FRA
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
 		}
 	}
 	focus = {
