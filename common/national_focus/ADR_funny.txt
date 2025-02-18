@@ -1,0 +1,41 @@
+focus_tree = {
+	id = ADR_funny
+	country = { factor = 0 }
+	default = no
+	focus = {
+		id = ADR_democracy
+		x = 0
+		y = 0
+		cost = 1
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {	
+			add_stability = 1
+            add_war_support = 1
+            add_political_power = 2000
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 1
+			}
+			set_politics = { ruling_party = social_democrat }
+			hidden_effect = {
+				log = "[GetDateText]: [ROOT.GetTag]: Focus ADR_democracy"
+				FRA = { make_every_core_national_for_PREV = yes }
+				SPR = { make_every_core_national_for_PREV = yes }
+				annex_country = {
+					target = FRA
+                    transfer_troops = yes
+				}
+				annex_country = {
+					target = SPR
+                    transfer_troops = yes
+				}
+                FRA = { every_unit_leader = { set_nationality = ADR } }
+                SPR = { every_unit_leader = { set_nationality = ADR } }
+                set_cosmetic_tag = ADR_peoples_republic
+			}
+		}
+	}
+}
