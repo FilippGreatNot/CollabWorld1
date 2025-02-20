@@ -1,0 +1,71 @@
+add_namespace = wva
+
+country_event = {
+	id = wva.1
+	title = wva.1.t
+	desc = wva.1.d
+	is_triggered_only = yes
+	
+	option = {
+		name = wva.1.a
+		add_political_power = 50
+	}
+	
+}
+
+country_event = {
+	id = wva.2
+	title = wva.2.t
+	desc = wva.2.d
+	is_triggered_only = yes
+	
+	option = {
+		name = wva.2.a
+        complete_national_focus = WVA_pavels_doctorine
+	}
+	
+	option = {
+		name = wva.2.b
+        complete_national_focus = WVA_rudigers_doctorine
+	}
+	
+}
+
+country_event = {
+	id = wva.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event bloodandsoil.1" }
+	title = wva.3.t
+	desc = wva.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = wva.3.a
+		FROM = {
+			annex_country = { 
+				target = PREV
+				transfer_troops = yes 
+			}
+		}
+		
+		PREV = {
+			every_unit_leader = {
+				set_nationality = FROM
+			}
+		}
+	}
+	
+	option = {
+		name = wva.3.b
+	    FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+		
+	}
+}
+
+
+
+

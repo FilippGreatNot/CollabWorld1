@@ -1485,9 +1485,11 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_back_to_berlin
 		icon = GFX_focus_FGB_noske_default
-		x = -2
+		x = -3
 		y = 1
 		cost = 5
+		available = { has_war = no }
+		bypass = { NOT = { country_exists = UVS } }
 		relative_position_id = FGB_noske_to_the_east
 		prerequisite = { focus = FGB_noske_to_the_east }
 		completion_reward = {
@@ -1500,9 +1502,26 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_noske_offer_the_republicans_peaceful_reunification
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = { NOT = { country_exists = GER } }
+		relative_position_id = FGB_noske_to_the_east
+		prerequisite = { focus = FGB_noske_to_the_east }
+		completion_reward = {
+			add_stability = 0.05
+			custom_effect_tooltip = FGB_noske_we_will_ask_them_to_reunify_tt
+			country_event = { id = fgb.20 days = 2 }
+		}
+	}
+
+	focus = {
 		id = FGB_noske_arrest_liebknecht_and_luxemburg
 		icon = GFX_focus_FGB_noske_default
-		x = 0
+		x = 1
 		y = 1
 		cost = 1
 		available = {
@@ -1510,6 +1529,7 @@ focus_tree = {
 		}
 		relative_position_id = FGB_noske_back_to_berlin
 		prerequisite = { focus = FGB_noske_back_to_berlin }
+		prerequisite = { focus = FGB_noske_offer_the_republicans_peaceful_reunification }
 		completion_reward = {
 			add_popularity = {
 				ideology = marxism
@@ -1523,7 +1543,7 @@ focus_tree = {
 	focus = {
 		id = FGB_a_clean_sweep_through_berlin
 		icon = GFX_focus_FGB_noske_default
-		x = 0
+		x = 1
 		y = 2
 		cost = 2
 		available = {
@@ -1675,10 +1695,6 @@ focus_tree = {
 			835 = {
 				increase_state_category_by_one_level = yes
 				add_manpower = -400
-				set_province_name = {
-					id = 13263
-					name = "Friedrichshain-Kreuzburg"
-				}
 			}
 			68 = {
 				increase_state_category_by_one_level = yes
@@ -1850,6 +1866,8 @@ focus_tree = {
 			59 = {
 				add_core_of = FGB
 			}
+			add_popularity = { ideology = conservatism popularity = 0.02 }
+			add_popularity = { ideology = liberalism popularity = 0.02 }
 		}
 	}
 
@@ -1910,6 +1928,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
+		available = { has_war = no }
 		bypass = {
 			NOT = { country_exists = PLA }
 		}
@@ -1959,6 +1978,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		cost = 5
+		available = { has_war = no }
 		bypass = {
 			NOT = { country_exists = PLA }
 		}
@@ -2042,6 +2062,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		cost = 4
+		available = { has_war = no }
 		bypass = {
 			OR = {
 				NOT = { country_exists = FWG }
@@ -2741,7 +2762,7 @@ focus_tree = {
 		id = FGB_noske_the_second_revolution_of_1848
 		icon = GFX_focus_FGB_revolution
 		x = 5
-		y = 32
+		y = 33
 		cost = 0
 		allow_branch = { has_country_flag = FGB_noske_ger_unified_flag }
 		completion_reward = {
@@ -4715,7 +4736,7 @@ focus_tree = {
 		relative_position_id = FGB_noske_offer_protection_to_the_balkan_states
 		completion_reward = {
 			custom_effect_tooltip = FGB_we_will_demand_his_submission
-			LAT = {
+			WVA = {
 				country_event = { id = fgb.39 days = 3 }
 			}
 		}
@@ -5878,7 +5899,7 @@ focus_tree = {
 			army_experience = 20
             add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				cost_reduction = 0.75
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -6581,7 +6602,7 @@ focus_tree = {
 			add_doctrine_cost_reduction = {
 				name = air_doc_bonus
 				cost_reduction = 0.5
-				uses = 2
+				uses = 1
 				category = air_doctrine
 			}
 			activate_advisor = FGB_robert_greim_air
