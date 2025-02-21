@@ -32,7 +32,7 @@ BAV_red_terror = {
 		visible = {
 			NOT = { has_country_flag = BAV_opposition_ended }
 		}
-        
+        days_remove = 20
 		available = {
 		    has_idea = BAV_high_conservative_opposition
 			has_country_flag = BAV_arrested_politicians
@@ -40,7 +40,7 @@ BAV_red_terror = {
             has_country_flag = BAV_raised_marxist_sentiment
 				}
 		
-		complete_effect = {
+		remove_effect = {
 			remove_ideas = {
 				BAV_high_conservative_opposition
 			}
@@ -59,18 +59,18 @@ BAV_red_terror = {
 	BAV_arrest_their_politicians = {
 			
 		fire_only_once = yes
-		
+		days_remove = 30
 		visible = {
 			NOT = { has_country_flag = BAV_opposition_ended }
 		}
 		
-		cost = 25
+		cost = 10
         
 		available = {
 		    has_idea = BAV_high_conservative_opposition
 				}
 		
-		complete_effect = {
+		remove_effect = {
 			set_country_flag = BAV_arrested_politicians
             add_stability = -0.02
 			add_popularity = {
@@ -86,7 +86,7 @@ BAV_red_terror = {
 	BAV_raid_their_hideouts = {
 			
 		fire_only_once = yes
-		
+		days_remove = 30
 		visible = {
 			NOT = { has_country_flag = BAV_opposition_ended }
 		}
@@ -97,7 +97,7 @@ BAV_red_terror = {
 		    has_idea = BAV_high_conservative_opposition
 				}
 		
-		complete_effect = {
+		remove_effect = {
 			set_country_flag = BAV_raided_hideouts
 			add_war_support = 0.03
 			}
@@ -108,6 +108,7 @@ BAV_red_terror = {
 	}
 	BAV_raise_marxist_sentiment = {
 		fire_only_once = yes
+		days_remove = 30
 		visible = {
 			NOT = { has_country_flag = BAV_opposition_ended }
 		}
@@ -115,7 +116,7 @@ BAV_red_terror = {
 		available = {
 		    has_idea = BAV_high_conservative_opposition
 		}
-		complete_effect = {
+		remove_effect = {
 			set_country_flag = BAV_raised_marxist_sentiment
 			add_stability = 0.04
 			add_popularity = {
