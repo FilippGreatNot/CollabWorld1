@@ -419,7 +419,9 @@ focus_tree = {
 		
 		prerequisite = { focus = IRQ_first_support_the_army_of_hejaz }
 		
-
+        bypass = {
+			NOT = { country_exists = HEJ }
+		}
 		
 		available = {
 		has_country_leader = {
@@ -452,6 +454,14 @@ focus_tree = {
 			factor = 10
 		}
 		
+		available = {
+			has_war = no
+			is_neighbor_of = SAU
+		}
+		
+		bypass = {
+			NOT = { country_exists = SAU }
+		}
 		
 		prerequisite = { focus = IRQ_first_support_the_army_of_hejaz }
 		
@@ -524,6 +534,11 @@ focus_tree = {
 				}
 				
 		available = {
+			has_war = no
+			is_neighbor_of = YEM
+		}
+				
+		available = {
 		has_country_leader = {
                     name = "Faisal I"
                     ruling_only = yes
@@ -561,6 +576,15 @@ focus_tree = {
 		available = {
 		    has_idea = IRQ_pan_arab_spirit
 				}
+				
+		available = {
+			has_war = no
+			OR = {
+			is_neighbor_of = OMA
+			is_neighbor_of = UAE
+			is_neighbor_of = MSC
+			}
+		}
 		
 		prerequisite = { focus = IRQ_first_defend_the_arab_gulf }
 		
@@ -603,6 +627,9 @@ focus_tree = {
 		available = {
 		    has_idea = IRQ_pan_arab_spirit
 				}
+		available = {
+			has_war = no
+				}
 		
 		prerequisite = { focus = IRQ_first_offer_the_levant_peaceful_integration }
 		prerequisite = { focus = IRQ_first_exploit_syrias_weakness }
@@ -625,8 +652,8 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_the_egyptian_situation
 		icon = GFX_focus_IRQ_egypt
-		x = -1
-		y = 1
+		x = 0
+		y = 2
 		cost = 10
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_unite_the_arab_nation
@@ -634,7 +661,7 @@ focus_tree = {
 			factor = 10
 		}
 		
-		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
+		prerequisite = { focus = IRQ_first_the_king_of_the_arab_nation focus = IRQ_first_establish_the_hashemite_caliphate }
 		
 		available = {
 		has_country_leader = {
@@ -653,78 +680,6 @@ focus_tree = {
 		}
 	}
 	
-	focus = {
-		id = IRQ_first_demand_khuzestan
-		icon = GFX_focus_IRQ_demand_khuzestan
-		x = 1
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		relative_position_id = IRQ_first_unite_the_arab_nation
-		ai_will_do = {
-			factor = 10
-		}
-		
-		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
-		
-		mutually_exclusive = { focus = IRQ_first_strike_persia }
-		
-		available = {
-		has_country_leader = {
-                    name = "Faisal I"
-                    ruling_only = yes
-                }
-				}
-				
-		available = {
-		    has_idea = IRQ_the_prussia_of_arabia
-				}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			PER = {
-			country_event = irq.8
-			}
-			
-		}
-	}
-	
-	focus = {
-		id = IRQ_first_strike_persia
-		icon = GFX_focus_IRQ_strike_persia
-		x = 3
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		relative_position_id = IRQ_first_unite_the_arab_nation
-		ai_will_do = {
-			factor = 10
-		}
-		
-		mutually_exclusive = { focus = IRQ_first_demand_khuzestan }
-		
-		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
-		
-		available = {
-		has_country_leader = {
-                    name = "Faisal I"
-                    ruling_only = yes
-                }
-				}
-				
-		available = {
-		    has_idea = IRQ_the_prussia_of_arabia
-				}
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			create_wargoal = {
-				type = annex_everything
-				target = PER
-			}
-			
-		}
-	}
 	
 	
 	
@@ -891,17 +846,17 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_the_king_of_the_arab_nation
 		icon = GFX_focus_IRQ_king
-		x = 0
+		x = -1
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
-		relative_position_id = IRQ_first_introduce_western_court_systems
+		relative_position_id = IRQ_first_unite_the_arab_nation
 		ai_will_do = {
 			factor = 10
 		}
 		mutually_exclusive = { focus = IRQ_first_establish_the_hashemite_caliphate }
 		
-		prerequisite = { focus = IRQ_first_introduce_western_court_systems focus = IRQ_first_support_the_islamic_courts }
+		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
 		
 		available = {
 		has_country_leader = {
@@ -927,11 +882,11 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_establish_the_hashemite_caliphate
 		icon = GFX_focus_IRQ_caliphate
-		x = 2
+		x = 1
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
-		relative_position_id = IRQ_first_introduce_western_court_systems
+		relative_position_id = IRQ_first_unite_the_arab_nation
 		ai_will_do = {
 			factor = 10
 		}
@@ -957,7 +912,7 @@ focus_tree = {
         }
 		}
 		
-		prerequisite = { focus = IRQ_first_introduce_western_court_systems focus = IRQ_first_support_the_islamic_courts }
+		prerequisite = { focus = IRQ_first_unite_the_arab_nation }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -1713,6 +1668,76 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			WRD = { country_event = irq.5 }
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_demand_khuzestan
+		icon = GFX_focus_IRQ_demand_khuzestan
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_the_king_of_the_arab_nation
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_the_king_of_the_arab_nation }
+		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				}
+				
+		available = {
+		    has_idea = IRQ_the_prussia_of_arabia
+				}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			PER = {
+			country_event = irq.8
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = IRQ_first_strike_persia
+		icon = GFX_focus_IRQ_strike_persia
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_establish_the_hashemite_caliphate
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_establish_the_hashemite_caliphate }
+		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				}
+				
+		available = {
+		    has_idea = IRQ_the_prussia_of_arabia
+				}
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			create_wargoal = {
+				type = annex_everything
+				target = PER
+			}
+			PER = { make_every_core_national_for_PREV = yes }
 			
 		}
 	}

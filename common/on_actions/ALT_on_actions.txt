@@ -22,8 +22,13 @@ on_actions = {
 						original_tag = RMA
 					}
 					FROM = {
-						original_tag = ALT
-						ALT = { has_country_flag = ALT_puppets_rma_true }
+						AND = { 
+							ALT = { has_country_flag = ALT_puppets_rma_true }
+							OR = {
+								original_tag = ALT
+								is_in_faction_with = ALT
+							}
+						}
 					}
 				}
 				RUS = {
@@ -53,6 +58,8 @@ on_actions = {
 					remove_core_of = RUS
 					transfer_state_to = RMA
 				}
+				dismantle_faction = yes
+				create_faction = "League of the red sky"
 			}
 		}
 	}
@@ -63,13 +70,13 @@ on_actions = {
 					ROOT = {
 						original_tag = RMA
 					}
-					OR = {
-						FROM = {
-							original_tag = ALT
+					FROM = {
+						AND = { 
 							ALT = { has_country_flag = ALT_puppets_rma_false }
-						}
-						FROM = {
-							original_tag = MON
+							OR = {
+								original_tag = ALT
+								is_in_faction_with = ALT
+							}
 						}
 					}
 				}
@@ -93,6 +100,8 @@ on_actions = {
 					remove_core_of = RUS
 					transfer_state_to = MON
 				}
+				dismantle_faction = yes
+				create_faction = "League of the red sky"
 			}
 		}
 	}

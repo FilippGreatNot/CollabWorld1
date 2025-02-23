@@ -1,0 +1,959 @@
+#!gfx:interface/country/germany/FWG/FWG_focus.gfx
+focus_tree = {
+	id = FWG
+	default=no
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 50
+			tag = FWG
+		}
+	} 
+	focus = {
+		id = FWG_fate_of_the_junkers
+		icon = GFX_focus_FWG_fate_of_the_junkers
+		x = 10
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			country_event = { id = fwg.1 days = 1 }
+		}
+	}
+	focus = {
+		id = FWG_public_mining_works
+		icon = GFX_focus_FWG_public_mining_works
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_fate_of_the_junkers
+		prerequisite = { focus = FWG_fate_of_the_junkers }
+		completion_reward = {
+			add_ideas = {
+				FWG_public_mining_works_idea
+			}
+			1087 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_evict_imperial_loyalists
+		icon = GFX_focus_FWG_evict_imperial_loyalists
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_fate_of_the_junkers
+		prerequisite = { focus = FWG_fate_of_the_junkers }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = -50
+			add_popularity = {
+				ideology = despotism
+				popularity = -0.08
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.08
+			}
+			add_manpower = -15000
+		}
+	}
+	focus = {
+		id = FWG_recruit_more_militias
+		icon = GFX_focus_FWG_recruit_more_militias
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_fate_of_the_junkers
+		prerequisite = { focus = FWG_fate_of_the_junkers }
+		completion_reward = {
+			add_war_support = 0.05
+			swap_ideas = {
+				remove_idea = FWG_multiethnic_army
+				add_idea = FWG_multiethnic_army2
+			}
+			every_owned_state = {
+				create_unit = {
+					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.6" 
+					owner = FWG
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_backbone_of_a_nation
+		icon = GFX_focus_FWG_the_backbone_of_a_nation
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_evict_imperial_loyalists
+		prerequisite = { focus = FWG_public_mining_works }
+		prerequisite = { focus = FWG_fate_of_the_junkers }
+		completion_reward = {
+			add_stability = 0.05
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
+		id = FWG_our_swords_and_shields
+		icon = GFX_focus_FWG_our_swords_and_shields
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_evict_imperial_loyalists
+		prerequisite = { focus = FWG_fate_of_the_junkers }
+		prerequisite = { focus = FWG_recruit_more_militias }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = FWG
+			}
+			57 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_congress_of_1922
+		icon = GFX_focus_FWG_the_congress_of_1922
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_evict_imperial_loyalists
+		prerequisite = { focus = FWG_the_backbone_of_a_nation }
+		prerequisite = { focus = FWG_evict_imperial_loyalists }
+		prerequisite = { focus = FWG_our_swords_and_shields }
+		completion_reward = {
+			country_event = fwg.2
+		}
+	}
+	focus = {
+		id = FWG_merges
+		icon = GFX_focus_FWG_merges
+		x = -6
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		available = { 
+			custom_trigger_tooltip = {
+				has_country_flag = FWG_merges_flag
+				tooltip = FWG_will_be_completed_through_focus_tt
+			} 
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_congress_of_1922
+		prerequisite = { focus = FWG_the_congress_of_1922 }
+		completion_reward = {
+			promote_character = FWG_august_merges
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_ruhle
+		icon = GFX_focus_FWG_ruhle
+		x = -2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		available = { 
+			custom_trigger_tooltip = {
+				has_country_flag = FWG_ruhle_flag 
+				tooltip = FWG_will_be_completed_through_focus_tt
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_congress_of_1922
+		prerequisite = { focus = FWG_the_congress_of_1922 }
+		completion_reward = {
+			set_politics = { ruling_party = marxism }
+			promote_character = FWG_otto_ruhle
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+			set_party_name = { 
+				ideology = marxism
+				long_name = "Allgemeine Arbeiter-Union – Einheitsorganisation"
+				name = "AAU-E"
+			}
+		}
+	}
+	focus = {
+		id = FWG_rocker
+		icon = GFX_focus_FWG_rocker
+		x = 2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		available = { 
+			custom_trigger_tooltip = {
+				has_country_flag = FWG_rocker_flag
+				tooltip = FWG_will_be_completed_through_focus_tt
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_congress_of_1922
+		prerequisite = { focus = FWG_the_congress_of_1922 }
+		completion_reward = {
+			promote_character = FWG_rudolf_rocker
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.1
+			}
+			set_cosmetic_tag = FGB_rocker
+		}
+	}
+	focus = {
+		id = FWG_supress_nationalism
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_rocker
+		prerequisite = { focus = FWG_rocker }
+		completion_reward = {
+			add_popularity = {
+    			ideology = despotism
+    			popularity = -0.1
+			}
+			add_popularity = {
+    			ideology = reactionism
+    			popularity = -0.1
+			}
+			add_popularity = {
+    			ideology = national_syndicalism
+    			popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_new_revolution
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_rocker
+		prerequisite = { focus = FWG_rocker }
+		completion_reward = {
+			add_ideas = {
+				FWG_new_revolution
+			}
+		}
+	}
+	focus = {
+		id = FWG_increase_industrial_capabilities
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_supress_nationalism
+		prerequisite = { focus = FWG_supress_nationalism }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_establish_free_trade
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_supress_nationalism
+		prerequisite = { focus = FWG_supress_nationalism }
+		completion_reward = {
+			add_ideas = {
+				free_trade
+			}
+		}
+	}
+	focus = {
+		id = FWG_build_new_industries
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_new_revolution
+		prerequisite = { focus = FWG_the_new_revolution }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_stregthen_labour_unions
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_new_revolution
+		prerequisite = { focus = FWG_the_new_revolution }
+		completion_reward = {
+			add_political_power = 10
+			add_command_power = 5
+			add_popularity = {
+    			ideology = marxism
+    			popularity = 0.1
+			}
+			add_popularity = {
+    			ideology = bolshevism
+    			popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_establish_nestor_makhno
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_build_new_industries
+		prerequisite = { focus = FWG_increase_industrial_capabilities }
+		prerequisite = { focus = FWG_build_new_industries }
+		completion_reward = {
+			add_opinion_modifier = {
+    			target = UKR
+    			modifier = FWG_ideological_similarities
+			}
+		}
+	}
+	focus = {
+		id = FWG_spread_anarcho_syndicalist_teachings
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_establish_free_trade
+		prerequisite = { focus = FWG_establish_free_trade }
+		prerequisite = { focus = FWG_increase_industrial_capabilities }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.21
+			add_war_support = 0.01
+		}
+	}
+	focus = {
+		id = FWG_collaborate_with_communists
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_establish_free_trade
+		prerequisite = { focus = FWG_establish_free_trade }
+		prerequisite = { focus = FWG_increase_industrial_capabilities }
+		completion_reward = {
+			add_popularity = {
+    			ideology = marxism
+    			popularity = 0.1
+			}
+			add_popularity = {
+    			ideology = libertarian_socialism
+    			popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = FWG_pressure_democratic_socialists
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_collaborate_with_communists
+		prerequisite = { focus = FWG_spread_anarcho_syndicalist_teachings }
+		prerequisite = { focus = FWG_collaborate_with_communists }
+		completion_reward = {
+			add_popularity = {
+    			ideology = social_democrat
+    			popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = FWG_disorgonized_militias
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_stregthen_labour_unions
+		prerequisite = { focus = FWG_build_new_industries }
+		prerequisite = { focus = FWG_stregthen_labour_unions }
+		completion_reward = {
+			division_template = {
+    			name = "Anarchosyndikalist Militias"
+    			division_cap = 24
+				template_counter = 69
+    			regiments = {
+        			infantry = { x = 0 y = 0 }
+        			infantry = { x = 0 y = 1 }
+        			infantry = { x = 0 y = 2 }
+        			infantry = { x = 0 y = 3 }
+
+        			infantry = { x = 1 y = 0 }
+        			infantry = { x = 1 y = 1 }
+        			infantry = { x = 1 y = 2 }
+        			infantry = { x = 1 y = 3 }
+    			}
+    			support = {
+        			military_police = { x = 0 y = 0 }
+    			}
+			}
+			swap_ideas = {
+				remove_idea = FWG_multiethnic_army2
+    			add_idea = FWG_multiethnic_army3
+			}
+			custom_effect_tooltip = new_division_template
+		}
+	}
+	focus = {
+		id = FWG_home_of_anarcho_syndicalism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_stregthen_labour_unions
+		prerequisite = { focus = FWG_build_new_industries }
+		prerequisite = { focus = FWG_stregthen_labour_unions }
+		completion_reward = {
+			add_stability = 0.2
+			add_popularity = {
+    			ideology = libertarian_socialism
+    			popularity = 0.15
+			}
+		}
+	}
+	focus = {
+		id = FWG_bastion_of_anarcho_syndicalism
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_spread_anarcho_syndicalist_teachings
+		prerequisite = { focus = FWG_disorgonized_militias }
+		prerequisite = { focus = FWG_establish_nestor_makhno }
+		prerequisite = { focus = FWG_spread_anarcho_syndicalist_teachings }
+		completion_reward = {
+			add_country_leader_trait = FWG_anarcho_syndicalist_revolution
+		}
+	}
+	focus = {
+		id = FWG_reform_militias
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_home_of_anarcho_syndicalism
+		prerequisite = { focus = FWG_disorgonized_militias }
+		prerequisite = { focus = FWG_home_of_anarcho_syndicalism }
+		completion_reward = {
+			add_command_power = 25
+			army_experience = 5
+		}
+	}
+	focus = {
+		id = FWG_a_free_state
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_bastion_of_anarcho_syndicalism
+		prerequisite = { focus = FWG_bastion_of_anarcho_syndicalism }
+		prerequisite = { focus = FWG_pressure_democratic_socialists }
+		prerequisite = { focus = FWG_reform_militias }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FWG_new_revolution
+    			add_idea = FWG_new_revolution2
+			}
+		}
+	}
+	focus = {
+		id = FWG_kosch
+		icon = GFX_focus_FWG_kosch
+		x = 6
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		available = { 
+			custom_trigger_tooltip = {
+				has_country_flag = FWG_kosch_flag
+				tooltip = FWG_will_be_completed_through_focus_tt
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_congress_of_1922
+		prerequisite = { focus = FWG_the_congress_of_1922 }
+		completion_reward = {
+			set_politics = { ruling_party = marxism }
+			promote_character = FWG_karl_korsch
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_begin_early_industrial_expansion
+		icon = GFX_focus_generic_production
+		x = 20
+		y = 0
+		cost = 6
+		available_if_capitulated = yes
+		available = { has_completed_focus = FWG_the_congress_of_1922 }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			every_owned_state = { add_extra_state_shared_building_slots = 1 }
+		}
+	}
+	focus = {
+		id = FWG_develop_the_oldenburg_docks
+		icon = GFX_focus_generic_production
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_begin_early_industrial_expansion
+		prerequisite = { focus = FWG_begin_early_industrial_expansion }
+		completion_reward = {
+			1091 = {
+				add_extra_state_shared_building_slots = 2
+				increase_state_category_by_one_level = yes 
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_move_industry_away_from_the_vulnerable_ruhr
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		mutually_exclusive = { focus = FWG_exploit_the_riches_of_the_south }
+		relative_position_id = FWG_develop_the_oldenburg_docks
+		prerequisite = { focus = FWG_develop_the_oldenburg_docks }
+		completion_reward = {
+			57 = {
+				add_extra_state_shared_building_slots = -1
+				add_building_construction = {
+					type = industrial_complex
+					level = -1
+					instant_build  = yes
+				}
+			}
+			56 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_expand_the_local_mining_works
+		icon = GFX_focus_generic_production
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_begin_early_industrial_expansion
+		prerequisite = { focus = FWG_begin_early_industrial_expansion }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FWG_public_mining_works_idea
+				add_idea = FWG_public_mining_works_idea2
+			}
+			1087 = {
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_exploit_the_riches_of_the_south
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		mutually_exclusive = { focus = FWG_move_industry_away_from_the_vulnerable_ruhr }
+		relative_position_id = FWG_expand_the_local_mining_works
+		prerequisite = { focus = FWG_expand_the_local_mining_works }
+		completion_reward = {
+			add_political_power = -50
+			57 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+			57 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
+		id = FWG_crush_the_junker_threat
+		icon = GFX_focus_generic_production
+		x = 1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_move_industry_away_from_the_vulnerable_ruhr
+		prerequisite = { focus = FWG_move_industry_away_from_the_vulnerable_ruhr focus = FWG_exploit_the_riches_of_the_south }
+		completion_reward = {
+			add_stability = 0.1
+			remove_ideas = {
+				FWG_the_weakened_junkers
+			}
+		}
+	}
+	focus = {
+		id = FWG_modernise_our_agriculture
+		icon = GFX_focus_generic_production
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_crush_the_junker_threat
+		prerequisite = { focus = FWG_crush_the_junker_threat }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			random_owned_state = {
+				increase_state_category_by_one_level = yes 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_diversify_the_job_sector
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_modernise_our_agriculture
+		prerequisite = { focus = FWG_modernise_our_agriculture }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
+		id = FWG_open_a_new_university
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_crush_the_junker_threat
+		prerequisite = { focus = FWG_crush_the_junker_threat }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = FWG_the_bremen_centre_of_socialist_history
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_open_a_new_university
+		prerequisite = { focus = FWG_open_a_new_university }
+		completion_reward = {
+			add_ideas = {
+				FWG_bremen_centre_of_socialist_history
+			}
+		}
+	}
+	focus = {
+		id = FWG_streamline_weapons_manufacturing
+		icon = GFX_focus_generic_production
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_crush_the_junker_threat
+		prerequisite = { focus = FWG_crush_the_junker_threat }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				producer = FWG 
+				amount = 1000
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_fortify_the_southern_border
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_streamline_weapons_manufacturing
+		prerequisite = { focus = FWG_streamline_weapons_manufacturing }
+		completion_reward = {
+			1087 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13526
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13524
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13523
+					instant_build = yes
+				}
+			}
+			1086 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 4692
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6622
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13537
+					instant_build = yes
+				}
+			}
+			57 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9547
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13405
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13510
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13511
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13512
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13513
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13515
+					instant_build = yes
+				}
+			}
+		}
+	}
+}

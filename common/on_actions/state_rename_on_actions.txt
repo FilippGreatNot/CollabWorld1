@@ -387,43 +387,4 @@ on_actions = {
             }
         }
     }
-    on_state_control_changed = {
-        effect = {
-            if = {
-                limit = {
-                    FROM.FROM = { state = 10 } ##Warsaw
-                }
-                if = {
-                    limit = {
-                        OR = {
-                            original_tag = FWG
-				            original_tag = WRD
-				            original_tag = GER
-				            original_tag = FGB
-				            original_tag = UVS
-				            original_tag = BAV
-                        }
-                    }
-                    FROM.FROM = {
-                        set_state_name = "Warschau"
-                        set_province_name = {
-                            id = 3544
-                            name = "Warschau"
-                        }
-                        set_province_name = {
-                            id = 402
-                            name = "Scheidlitz"
-                        }
-                    }
-                }
-                else = { 
-                    FROM.FROM = {
-                        reset_state_name = yes
-                        reset_province_name = 3544
-                        reset_province_name = 402
-                    }
-                }
-            }
-        }
-    }
 }

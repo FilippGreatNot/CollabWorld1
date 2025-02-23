@@ -1,0 +1,922 @@
+add_namespace = dsh
+
+country_event = {
+	id = dsh.1
+	title = dsh.1.t
+	desc = dsh.1.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.1.a
+		complete_national_focus = { focus = DSH_a_new_era_for_the_bund }
+		add_command_power = 30
+	}
+}
+
+country_event = {
+	id = dsh.2
+	title = dsh.2.t
+	desc = dsh.2.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.2.a
+		DSH = { country_event = dsh.3 }
+		add_stability = 0.05
+		add_equipment_to_stockpile = {
+    		type = infantry_equipment_0
+    		amount = -1000
+		}
+		ai_chance = { base = 15 }
+	}
+	option = {
+		name = dsh.2.b
+		add_war_support = 0.05
+		DSH = { country_event = dsh.4 }
+		ai_chance = { base = 5 }
+	}
+}
+
+country_event = {
+	id = dsh.3
+	title = dsh.3.t
+	desc = dsh.3.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.3.a
+		add_equipment_to_stockpile = {
+    		type = infantry_equipment_0
+    		amount = 1000
+			producer = WRD
+		}
+		army_experience = 40
+	}
+}
+
+country_event = {
+	id = dsh.4
+	title = dsh.4.t
+	desc = dsh.4.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.4.a
+		add_political_power = -30
+	}
+}
+
+country_event = {
+	id = dsh.5
+	title = dsh.5.t
+	desc = dsh.5.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.5.a
+		complete_national_focus = DSH_duesterbergs_ascension
+		mark_focus_tree_layout_dirty = yes
+	}
+	option = {
+		name = dsh.5.b 
+		complete_national_focus = DSH_appoint_a_regency_council
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = {
+	id = dsh.6
+	title = dsh.6.t
+	desc = dsh.6.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.6.a
+		add_political_power = -75
+		random_list = {
+			40 = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+			40 = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+			20 = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+		}
+		country_event = {
+			id = dsh.6
+			months = 6
+		}
+	}
+	option = {
+		name = dsh.6.b 
+		add_political_power = 20
+		country_event = {
+			id = dsh.6
+			months = 6
+		}
+	}
+	option = {
+		name = dsh.6.c
+		custom_effect_tooltip = DSH_you_will_stop_receiving_these_events
+	}
+}
+
+country_event = {
+	id = dsh.7
+	title = dsh.7.t
+	desc = dsh.7.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.7.a
+		set_country_flag = DSH_albert
+		complete_national_focus = DSH_the_return_of_the_king
+	}
+	option = {
+		name = dsh.7.b 
+		country_event = { id = dsh.8 days = 2 }
+	}
+}
+
+country_event = {
+	id = dsh.8
+	title = dsh.8.t
+	desc = dsh.8.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.8.a
+		set_country_flag = DSH_freddy
+		complete_national_focus = DSH_power_to_the_duke
+	}
+	option = {
+		name = dsh.8.b 
+		country_event = { id = dsh.9 days = 2 }
+	}
+}
+
+country_event = {
+	id = dsh.9
+	title = dsh.9.t
+	desc = dsh.9.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.9.a
+		set_country_flag = DSH_dummy
+		complete_national_focus = DSH_the_compromise
+	}
+	option = {
+		name = dsh.9.b 
+		add_stability = -0.05
+		country_event = { id = dsh.10 days = 2 }
+	}
+}
+
+country_event = {
+	id = dsh.10
+	title = dsh.10.t
+	desc = dsh.10.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.10.a
+		set_country_flag = DSH_willy
+		complete_national_focus = DSH_the_mad_monarchist
+		mark_focus_tree_layout_dirty = yes
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = 0.05
+		}
+		custom_effect_tooltip = DSH_are_you_sure_you_wanna_do_this_tt
+	}
+}
+
+country_event = {
+	id = dsh.11
+	title = dsh.11.t
+	desc = dsh.11.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.11.a
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+		}
+		swap_ideas = {
+			remove_idea = DSH_a_strong_stahlhelm_idea
+			add_idea = DSH_an_experienced_stahlhelm
+		}
+	}
+}
+
+country_event = {
+	id = dsh.12
+	title = dsh.12.t
+	desc = dsh.12.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.12.a
+		ai_chance = { base = 10 }
+		DSH = { 
+			annex_country = { target = BAV } 
+		}
+	}
+	option = {
+		name = dsh.12.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.13
+	title = dsh.13.t
+	desc = dsh.13.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.13.a
+		ai_chance = { base = 15 }
+		every_unit_leader = { set_nationality = DSH }
+		DSH = { 
+			annex_country = { 
+				target = WRD 
+				transfer_troops = yes 
+			} 
+		}
+	}
+	option = {
+		name = dsh.13.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.14
+	title = dsh.14.t
+	desc = dsh.14.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.14.a
+		add_political_power = 10
+		set_temp_variable = { ideology_change_var = 0.02 }
+		change_ruling_party_popularity = yes
+	}
+}
+
+country_event = {
+	id = dsh.15
+	title = dsh.15.t
+	desc = dsh.15.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.15.a
+		add_war_support = 0.05
+		add_political_power = 80
+	}
+}
+
+country_event = {
+	id = dsh.16
+	title = dsh.16.t
+	desc = dsh.16.d
+	picture = GFX_report_event_german_army_marching
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.16.a
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = dsh.17
+	title = dsh.17.t
+	desc = dsh.17.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.17.a
+		ai_chance = { base = 15 }
+		every_unit_leader = { set_nationality = DSH }
+		DSH = { 
+			annex_country = { 
+				target = PLA
+				transfer_troops = yes 
+			} 
+		}
+	}
+	option = {
+		name = dsh.17.a
+		ai_chance = { base = 30 }
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = PLA
+			} 
+		}
+	}
+}
+
+news_event = {
+	id = dsh.18
+	title = dsh.18.t 
+	desc = dsh.18.d 
+	picture = GFX_news_event_stahlhelm_unification
+	is_triggered_only = yes 
+	major = yes
+
+	option = {
+		name = dsh.18.a
+	}
+}
+
+news_event = {
+	id = dsh.19
+	title = dsh.19.t 
+	desc = dsh.19.d 
+	picture = GFX_news_event_wilhelm_assassination
+	is_triggered_only = yes 
+	major = yes
+
+	option = {
+		name = dsh.19.a
+	}
+}
+
+country_event = {
+	id = dsh.20
+	title = dsh.20.t
+	desc = dsh.20.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.20.a
+		BEL = { country_event = { id = dsh.23 days = 1 } }
+	}
+	option = {
+		name = dsh.20.b
+		add_war_support = 0.05
+		BEL = { country_event = { id = dsh.24 days = 1 } }
+	}
+}
+
+country_event = {
+	id = dsh.21
+	title = dsh.21.t
+	desc = dsh.21.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.21.a
+		841 = {
+			remove_core_of = DEN 
+			add_claim_by = DEN 
+			transfer_state_to = DSH
+		}
+	}
+	option = {
+		name = dsh.21.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = take_state_focus
+				target = DEN
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.22
+	title = dsh.22.t
+	desc = dsh.22.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.22.a
+		DSH = { 
+			annex_country = {
+				target = LUX
+				transfer_troops = yes
+			}
+			country_event = dsh.29
+		}
+	}
+	option = {
+		name = dsh.22.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = LUX
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.23
+	title = dsh.23.t
+	desc = dsh.23.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.23.a
+		if = {
+			limit = { has_full_control_of_state = 840 }
+			840 = { transfer_state_to = DSH }
+		}
+		if = {
+			limit = { has_full_control_of_state = 851 }
+			851 = { transfer_state_to = DSH }
+		}
+		if = {
+			limit = { has_full_control_of_state = 1093 }
+			1093 = { transfer_state_to = DSH }
+		}
+		DSH = { country_event = dsh.29 }
+	}
+	option = {
+		name = dsh.23.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = take_state_focus
+				target = BEL
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.24
+	title = dsh.24.t
+	desc = dsh.24.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.24.a
+		if = {
+			limit = { has_full_control_of_state = 851 }
+			851 = { transfer_state_to = DSH }
+		}
+	}
+	option = {
+		name = dsh.24.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = take_state_focus
+				target = BEL
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.25
+	title = dsh.25.t
+	desc = dsh.25.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.25.a
+		DSH = { 
+			annex_country = {
+				target = LIE
+				transfer_troops = yes
+			}
+			country_event = dsh.29
+		}
+	}
+	option = {
+		name = dsh.25.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = LIE
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.26
+	title = dsh.26.t
+	desc = dsh.26.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.26.a
+		retire_character = DSH_frederick_baden
+		add_manpower = -1
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = {
+	id = dsh.27
+	title = dsh.27.t
+	desc = dsh.27.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.27.a
+		set_country_flag = DSH_albert
+		complete_national_focus = DSH_the_return_of_the_king
+	}
+	option = {
+		name = dsh.27.b 
+		set_country_flag = DSH_freddy
+		complete_national_focus = DSH_power_to_the_duke
+	}
+}
+
+country_event = {
+	id = dsh.28
+	title = dsh.28.t
+	desc = dsh.28.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.28.a
+		complete_national_focus = DSH_max_von_baden
+		custom_effect_tooltip = DSH_if_max_dies_tt
+	}
+	option = {
+		name = dsh.28.b
+		complete_national_focus = DSH_the_young_berthold
+	}
+}
+
+country_event = {
+	id = dsh.29
+	title = dsh.29.t
+	desc = dsh.29.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.29.a
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.30
+	title = dsh.30.t
+	desc = dsh.30.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.30.a
+		DSH = { 
+			annex_country = {
+				target = AUS
+				transfer_troops = yes
+			}
+			country_event = dsh.29
+		}
+	}
+	option = {
+		name = dsh.30.b
+		add_war_support = 0.05
+		DSH = { 
+			create_wargoal = {
+				type = annex_everything
+				target = AUS
+			} 
+		}
+	}
+}
+
+country_event = {
+	id = dsh.31
+	title = dsh.31.t
+	desc = dsh.31.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.31.a
+		add_political_power = -50
+	}
+}
+
+country_event = {
+	id = dsh.32
+	title = dsh.32.t
+	desc = dsh.32.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.32.a
+		add_political_power = -50
+	}
+	option = {
+		name = dsh.32.b
+		882 = {
+			transfer_state_to = FRA 
+			add_core_of = FRA
+		}
+		diplomatic_relation = {
+    		country = DSH
+    		relation = non_aggression_pact
+    		active = no
+		}
+	}
+}
+
+country_event = {
+	id = dsh.33
+	title = dsh.33.t
+	desc = dsh.33.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.33.a
+		add_political_power = -50
+	}
+	option = {
+		name = dsh.33.b
+		858 = {
+			transfer_state_to = PREV
+			add_core_of = PREV
+		}
+		diplomatic_relation = {
+    		country = DSH
+    		relation = non_aggression_pact
+    		active = no
+		}
+	}
+}
+
+country_event = {
+	id = dsh.34
+	title = dsh.34.t
+	desc = dsh.34.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.34.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.35
+	title = dsh.35.t
+	desc = dsh.35.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.35.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.36
+	title = dsh.36.t
+	desc = dsh.36.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.36.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.37
+	title = dsh.37.t
+	desc = dsh.37.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.37.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.38
+	title = dsh.38.t
+	desc = dsh.38.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.38.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.39
+	title = dsh.39.t
+	desc = dsh.39.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.39.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.40
+	title = dsh.40.t
+	desc = dsh.40.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.40.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.41
+	title = dsh.41.t
+	desc = dsh.41.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.41.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.42
+	title = dsh.42.t
+	desc = dsh.42.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.42.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.43
+	title = dsh.43.t
+	desc = dsh.43.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.43.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.44
+	title = dsh.44.t
+	desc = dsh.44.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.44.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.45
+	title = dsh.45.t
+	desc = dsh.45.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.45.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.46
+	title = dsh.46.t
+	desc = dsh.46.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.46.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}
+
+country_event = {
+	id = dsh.47
+	title = dsh.47.t
+	desc = dsh.47.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = dsh.47.a
+		add_war_support = 0.02
+		DSH_economic_dominance_level_up = yes
+	}
+}

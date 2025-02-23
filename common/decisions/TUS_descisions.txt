@@ -146,44 +146,6 @@ TUS_jump_itas = {
 }
 
 TUS_core_yug_cat = {
-	TUS_core_trieste = {		
-		allowed = {
-			tag = TUS
-		}
-		fire_only_once = yes
-		
-		highlight_states = {
-			highlight_state_targets = {
-				state = 736
-				state = 873
-				state = 892
-				state = 991
-			}
-		}
-		
-		available = {
-			owns_state = 736
-			owns_state = 873
-			owns_state = 892
-			owns_state = 991
-		}
-		visible = {
-			owns_state = 736
-			owns_state = 873
-			owns_state = 892
-			owns_state = 991
-		}
-				
-		days_remove = 21
-		cost = 21
-		
-		remove_effect = {
-			736 = {add_core_of = TUS}
-			873 = {add_core_of = TUS}
-			892 = {add_core_of = TUS}
-			991 = {add_core_of = TUS}
-		}
-	}
 	TUS_core_slovenia = {		
 		allowed = {
 			tag = TUS
@@ -194,14 +156,19 @@ TUS_core_yug_cat = {
 			highlight_state_targets = {
 				state = 102
 				state = 880
+				state = 992
 			}
 		}
 		
 		available = {
 			owns_state = 102
+			owns_state = 880
+			owns_state = 992
 		}
 		visible = {
 			owns_state = 102
+			owns_state = 880
+			owns_state = 992
 		}
 			
 		days_remove = 30
@@ -210,6 +177,7 @@ TUS_core_yug_cat = {
 		remove_effect = {
 			102 = {add_core_of = TUS}
 			880 = {add_core_of = TUS}
+			992 = {add_core_of = TUS}
 		}
 	}
 	TUS_core_croatia = {		
@@ -225,6 +193,7 @@ TUS_core_yug_cat = {
 				state = 103
 				state = 163
 				state = 964
+				state = 861
 			}
 		}
 		
@@ -252,6 +221,7 @@ TUS_core_yug_cat = {
 			103 = {add_core_of = TUS}
 			163 = {add_core_of = TUS}
 			964 = {add_core_of = TUS}
+			861 = {add_core_of = TUS}
 		}
 	}
 	TUS_core_bos_her = {		
@@ -264,16 +234,25 @@ TUS_core_yug_cat = {
 			highlight_state_targets = {
 				state = 104
 				state = 804
+				state = 1017
+				state = 1018
+				state = 1036
 			}
 		}
 		
 		available = {
 			owns_state = 104
 			owns_state = 804
+			owns_state = 1017
+			owns_state = 1018
+			owns_state = 1036
 		}
 		visible = {
 			owns_state = 104
 			owns_state = 804
+			owns_state = 1017
+			owns_state = 1018
+			owns_state = 1036
 		}
 			
 		days_remove = 60
@@ -282,6 +261,9 @@ TUS_core_yug_cat = {
 		remove_effect = {
 			104 = {add_core_of = TUS}
 			804 = {add_core_of = TUS}
+			1017 = {add_core_of = TUS}
+			1018 = {add_core_of = TUS}
+			1036 = {add_core_of = TUS}
 		}
 	}
 	TUS_core_mont = {		
@@ -341,109 +323,35 @@ TUS_state_management = {
 		cost = 0
 		
 		remove_effect = {
-			if = {
-				limit = {106 = {is_owned_by = ROOT}}
-				106 = {transfer_state_to = SER}
-			}
-			if = {
-				limit = {872 = {is_owned_by = ROOT}}
-				872 = {transfer_state_to = SER}
-			}
-			release_puppet_on_controlled = SER
-		}
-	}
-	TUS_give_ser = {
-		
-		allowed = {
-			tag = TUS
-		}
-		
-		available = {
-			country_exists = SER
-			SER = {is_puppet_of = ROOT}
-			OR = {
-				ROOT = {any_owned_state = {is_core_of = SER}}
-				owns_state = 106 
-				owns_state = 872
-			}
-		}
-		
-		visible = {
-			country_exists = SER
-			SER = {is_puppet_of = ROOT}
-			OR = {
-				ROOT = {any_owned_state = {is_core_of = SER}}
-				owns_state = 106 
-				owns_state = 872
-			}
-		}
-		
-		days_remove = 0
-		cost = 0
-		
-		remove_effect = {
-			106 = {transfer_state_to = SER}
-			872 = {transfer_state_to = SER}
-			every_state = {
-				limit = {is_core_of = SER}
-				transfer_state_to = SER
-			}
-		}
-	}
-	TUS_to_bul = {
-		
-		allowed = {
-			tag = TUS
-		}
-		
-		available = {
-			OR = {
-				ROOT = {any_owned_state = {is_core_of = BUL}}
-				GRE = {any_owned_state = {is_core_of = BUL}}
-				SER = {any_owned_state = {is_core_of = BUL}}
-			}
-			BUL = {
-				OR = {
-					is_puppet_of = ROOT
-					is_in_faction_with = ROOT
-				}
-			}
-		}
-		
-		visible = {
-			OR = {
-				ROOT = {any_owned_state = {is_core_of = BUL}}
-				GRE = {any_owned_state = {is_core_of = BUL}}
-				SER = {any_owned_state = {is_core_of = BUL}}
-			}
-			BUL = {
-				OR = {
-					is_puppet_of = ROOT
-					is_in_faction_with = ROOT
-				}
-			}
-		}
-		
-		days_remove = 0
-		cost = 0
-		
-		remove_effect = {
-			every_state = {
+			every_owned_state = {
 				limit = {
 					OR = {
-						is_core_of = BUL				
+						state = 106
+						state = 872
+						state = 106
+						state = 872
+						state = 803
+						state = 802
+						state = 862
+						state = 1015
+						state = 913
+						state = 108
+						state = 107
+						state = 1031
+						state = 1037
+						state = 863
+						state = 45
+						state = 764
+						state = 1005
 					}
-					OR = {
-						is_owned_by = ROOT
-						is_owned_by = GRE
-						is_owned_by = SER					
-					}
-				}
-				transfer_state_to = BUL
+				}		
+				transfer_state_to = SER
 			}
+			puppet = SER
 		}
 	}
 }
+
 TUS_propaganda = {
 	TUS_propaganda_1 = {
 		available = {
@@ -471,7 +379,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}								
 		}
 	}
 	TUS_propaganda_2 = {
@@ -501,6 +414,11 @@ TUS_propaganda = {
 				var = TUS_propaganda_amount
 				value = 1
 			}	
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}	
 		}
 	}
 	TUS_propaganda_3 = {
@@ -529,7 +447,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}				
 		}
 	}
 	TUS_propaganda_4 = {
@@ -559,6 +482,11 @@ TUS_propaganda = {
 				var = TUS_propaganda_amount
 				value = 1
 			}	
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}	
 		}
 	}
 	TUS_propaganda_5 = {
@@ -587,7 +515,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}			
 		}
 	}
 	TUS_propaganda_6 = {
@@ -616,7 +549,12 @@ TUS_propaganda = {
 			subtract_from_variable = {
 				var = TUS_propaganda_amount
 				value = 1
-			}	
+			}
+			custom_effect_tooltip = TUS_modify_ppl_add_5
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = 5
+			}				
 		}
 	}
 }
@@ -643,6 +581,89 @@ cw_debug_category = {
 		available = { original_tag = TUS }		
 		complete_effect = {
 			load_focus_tree = { tree = tus_alt.focus keep_completed = yes }		
+		}
+	}
+}
+
+TUS_cult_of_personality = {
+	conscription_protesting = {
+		activation = {
+			has_completed_focus = TUS_stabilize_economy
+			OR = {
+				AND = {
+					has_idea = extensive_conscription
+					TUS_italo_balbo = {
+						has_trait = tus_gc_hate
+					}
+				}
+				AND = {
+					has_idea = service_by_requirement
+					NOT = {
+						TUS_italo_balbo = {
+							has_trait = tus_gc_love
+						}
+					}
+				}
+				has_idea = all_adults_serve
+				has_idea = scraping_the_barrel
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUS_need_to_fix_protesting
+				NOT = {
+					OR = {
+						AND = {
+							has_idea = extensive_conscription
+							TUS_italo_balbo = {
+								has_trait = tus_gc_hate
+							}
+						}
+						AND = {
+							has_idea = service_by_requirement
+							NOT = {
+								TUS_italo_balbo = {
+									has_trait = tus_gc_love
+								}
+							}
+						}
+						has_idea = all_adults_serve
+						has_idea = scraping_the_barrel
+					}
+				}
+			}
+		}
+		is_good = no
+		days_mission_timeout = 45
+		selectable_mission = no
+		complete_effect = {
+		}
+		timeout_effect = {
+			custom_effect_tooltip = TUS_modify_ppl_subtract_3
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = -3
+			}			
+		}
+	}
+	strikes_decsc = {
+		activation = {
+			has_idea = TUS_worker_strikes
+		}
+		available = {
+			NOT = { has_idea = TUS_worker_strikes }
+		}
+		is_good = no
+		days_mission_timeout = 25
+		selectable_mission = no
+		complete_effect = {
+		}
+		timeout_effect = {
+			custom_effect_tooltip = TUS_modify_ppl_subtract_3
+			add_to_variable = {
+				var = TUS_Balbo_Pop_ppl
+				value = -3
+			}
 		}
 	}
 }

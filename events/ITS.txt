@@ -5,43 +5,6 @@ add_namespace = its_kill_mus
 ## Main ##
 
 country_event = {
-	id = its.1
-	title = its.1.t
-	desc = its.1.d
-	
-	fire_only_once = yes
-	
-	trigger = {
-		focus_progress = {
-			focus = ITS_assure_ppl
-			progress > 0.5
-		}	
-		check_variable = {
-			kill_mus_points > 2
-		}
-	}
-	
-	immediate = {
-		hidden_effect = {
-			set_country_flag = ITS_assassination_attempt
-			unlock_national_focus = ITS_assure_ppl
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-	
-	option = {
-		name = its.1.a
-		complete_national_focus = ITS_he_lives
-		add_stability = -0.05
-	}
-	option = {
-		name = its.1.b
-		complete_national_focus = ITS_he_died
-		add_stability = -0.1
-	}
-}
-
-country_event = {
 	id = its.2
 	title = its.2.t
 	desc = its.2.d
@@ -83,39 +46,8 @@ country_event = {
 	desc = its.4.d
 	is_triggered_only = yes
 	
-	immediate = {
-		hidden_effect = {
-			set_party_name = {
-				ideology = social_democrat
-				long_name = ITS_political_coalition_long
-				name = ITS_political_coalition
-			}
-			set_party_name = {
-				ideology = libertarian_socialism
-				long_name = ITS_political_coalition_long
-				name = ITS_political_coalition
-			}
-			set_party_name = {
-				ideology = marxism
-				long_name = ITS_political_coalition_long
-				name = ITS_political_coalition
-			}
-		}
-	}
-	
 	option = {
 		name = its.4.a
-	}
-}
-
-country_event = {
-	id = its.5
-	title = its.5.t
-	desc = its.5.d
-	is_triggered_only = yes
-	
-	option = {
-		name = its.5.a
 	}
 }
 
@@ -137,5 +69,37 @@ country_event = {
 	}
 	option = {
 		name = its_kill_mus.1.a
+	}
+}
+
+country_event = {
+	id = its_kill_mus.2
+	title = its_kill_mus.2.t
+	desc = its_kill_mus.2.d
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ITS_assassination_attempt
+			unlock_national_focus = ITS_assure_ppl
+			mark_focus_tree_layout_dirty = yes
+			kill_country_leader = yes
+			promote_character = ITS_emergency_council		
+		}
+	}
+	
+	option = {
+		name = its_kill_mus.2.a
+	}
+}
+
+country_event = {
+	id = its_kill_mus.3
+	title = its_kill_mus.3.t
+	desc = its_kill_mus.3.d
+	is_triggered_only = yes
+	
+	option = {
+		name = its_kill_mus.3.a
 	}
 }

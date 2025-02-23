@@ -1,0 +1,31 @@
+on_actions = {
+	on_weekly_ITS = {
+		effect = {
+			ITS = {
+				if = {
+					limit = {
+						focus_progress = {
+							focus = ITS_assure_ppl
+							progress > 0.5
+						}
+						has_country_flag = has_arrange_meeting_with_mus
+						NOT = {
+							has_country_flag = mus_kill_event_triggered
+						}
+					}
+					set_country_flag = mus_kill_event_triggered
+					set_temp_variable = { neg_kill_mus_point = 100 }
+					subtract_from_temp_variable = { neg_kill_mus_point = kill_mus_points }					
+					random_list = {
+						kill_mus_points = {
+							country_event = its_kill_mus.2
+						}
+						neg_kill_mus_point = {
+							country_event = its_kill_mus.3
+						}
+					}
+				}
+			}
+		}
+	}
+}

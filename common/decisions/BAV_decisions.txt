@@ -9,7 +9,7 @@ BAV_red_terror = {
 			tag = BAV
 		}
 		available = {
-		     NOT = { has_idea = BAV_high_conservative_opposition }
+		    NOT = { has_idea = BAV_high_conservative_opposition }
 		}
 		
 		is_good = no
@@ -107,99 +107,349 @@ BAV_red_terror = {
 		}
 	}
 	BAV_raise_marxist_sentiment = {
-			
 		fire_only_once = yes
-		
 		visible = {
 			NOT = { has_country_flag = BAV_opposition_ended }
 		}
-		
 		cost = 25
-        
 		available = {
 		    has_idea = BAV_high_conservative_opposition
-				}
-		
+		}
 		complete_effect = {
 			set_country_flag = BAV_raised_marxist_sentiment
-			
 			add_stability = 0.04
 			add_popularity = {
 				ideology = marxism
 				popularity = 0.05
 			}
-			}
-		
+		}
 		ai_will_do = {
 			factor = 5000
 		}
 	}
-	}
-
-BAV_the_end_of_communism = {
-	monarchy_bav_namechange = { # Someone get this to work eventually pls
-
-        icon = decision_generic_monarchy
-
-        allowed = {
-            OR = {
-                original_tag = BAV
-            }
-        }
-
-        visible = {
-			has_government = despotism
-		}
-
-        fire_only_once = yes
-
-        available = {
-            BAV = { NOT = { has_government = communism } }
-			BAV = { NOT = { has_government = marxism } }
-        }
-        remove_effect = {
-                set_province_name = {
-                    id = 692 #Munich to Minga
-                    name = BAY_VICTORY_POINTS_692
-                }
-                set_province_name = {
-                    id = 11544 #Munich to Minga
-                    name = BAY_VICTORY_POINTS_11544
-                }
-                set_province_name = {
-                    id = 11544 #Nuremberg to Nämberch
-                    name = BAY_VICTORY_POINTS_11544
-                }
-                set_province_name = {
-                    id = 11666 #Vienna to Wienn
-                    name = BAY_VICTORY_POINTS_11666
-                }
-                set_province_name = {
-                    id = 708 #Augsburg to Augschbuag
-                    name = BAY_VICTORY_POINTS_708
-                }
-                set_province_name = {
-                    id = 9515 #Regensburg to Rengschburch
-                    name = BAY_VICTORY_POINTS_9515
-                }
-                set_province_name = {
-                    id = 9681 #Passau to Båssa
-                    name = BAY_VICTORY_POINTS_9681
-                }
-                set_province_name = {
-                    id = 3700 #Eisenstadt to Eisnstod
-                    name = BAY_VICTORY_POINTS_3700
-                }
-                set_province_name = {
-                    id = 6540 #Ingolstadt to Rengschburg
-                    name = BAY_VICTORY_POINTS_6540
-                }
-            }
-    
-    }
-	
 }
-	
+BAV_the_end_of_communism = { 
+	monarchy_bav_namechange = {
+    	icon = decision_generic_monarchy
+    	allowed = { 
+			OR = { original_tag = BAV } 
+		}
+    	visible = { has_government = despotism }
+    	fire_only_once = yes
+    	available = {
+        	BAV = { NOT = { has_government = bolshevism } }
+			BAV = { NOT = { has_government = marxism } }
+    	}
+    	remove_effect = {
+    	    set_province_name = {
+        	    id = 692 #Munich to Minga
+        	    name = BAY_VICTORY_POINTS_692
+        	}
+    	   	set_province_name = {
+        	    id = 11544 #Munich to Minga
+        	    name = BAY_VICTORY_POINTS_11544
+        	}
+        	set_province_name = {
+        	    id = 11544 #Nuremberg to Nämberch
+        	    name = BAY_VICTORY_POINTS_11544
+        	}
+        	set_province_name = {
+        	    id = 11666 #Vienna to Wienn
+        	    name = BAY_VICTORY_POINTS_11666
+        	}
+        	set_province_name = {
+        	    id = 708 #Augsburg to Augschbuag
+        	    name = BAY_VICTORY_POINTS_708
+        	}
+        	set_province_name = {
+        		id = 9515 #Regensburg to Rengschburch
+        	    name = BAY_VICTORY_POINTS_9515
+        	}
+        	set_province_name = {
+        	    id = 9681 #Passau to Båssa
+        	    name = BAY_VICTORY_POINTS_9681
+        	}
+       		set_province_name = {
+            	id = 3700 #Eisenstadt to Eisnstod
+            	name = BAY_VICTORY_POINTS_3700
+        	}
+        	set_province_name = {
+            	id = 6540 #Ingolstadt to Rengschburg
+            	name = BAY_VICTORY_POINTS_6540
+        	}
+	    }
+	}
+}
+
+BAV_lebensraum = {
+		BAV_proclaim_greater_germany_gobi = {
+		fire_only_once = yes
+		
+		visible = {
+		has_country_flag = ger_reunificated
+		has_completed_focus =  BAV_towards_a_greater_lebensraum
+		has_country_leader = {
+					character = BAV_joseph_goebbels
+					ruling_only = yes
+        }
+		}
+		available = {
+		98 = { is_core_of = BAV }
+		188 = { is_core_of = BAV }
+		97 = { is_core_of = BAV }
+		9 = { is_core_of = BAV }
+		1080 = { is_core_of = BAV }
+		75 = { is_core_of = BAV }
+		72 = { is_core_of = BAV }
+		86 = { is_core_of = BAV }
+		87 = { is_core_of = BAV }
+		28 = { is_core_of = BAV }
+		8 = { is_core_of = BAV }
+		1093 = { is_core_of = BAV }
+		4 = { is_core_of = BAV }
+		1060 = { is_core_of = BAV }
+		851 = { is_core_of = BAV }
+		153 = { is_core_of = BAV }
+		1057 = { is_core_of = BAV }
+		152 = { is_core_of = BAV }
+		887 = { is_core_of = BAV }
+		69 = { is_core_of = BAV }
+		74 = { is_core_of = BAV }
+		1058 = { is_core_of = BAV }
+		1059 = { is_core_of = BAV }
+		1062 = { is_core_of = BAV }
+		3 = { is_core_of = BAV }
+		151 = { is_core_of = BAV }
+		939 = { is_core_of = BAV }
+		963 = { is_core_of = BAV }
+		807 = { is_core_of = BAV }
+		847 = { is_core_of = BAV }
+		763 = { is_core_of = BAV }
+		5 = { is_core_of = BAV }
+		85 = { is_core_of = BAV }
+		848 = { is_core_of = BAV }
+		63 = { is_core_of = BAV }
+		65 = { is_core_of = BAV }
+		68 = { is_core_of = BAV }
+		835 = { is_core_of = BAV }
+		928 = { is_core_of = BAV }
+		1063 = { is_core_of = BAV }
+		1078 = { is_core_of = BAV }
+		52 = { is_core_of = BAV }
+		53 = { is_core_of = BAV }
+		1088 = { is_core_of = BAV }
+		1089 = { is_core_of = BAV }
+		54 = { is_core_of = BAV }
+		50 = { is_core_of = BAV }
+		852 = { is_core_of = BAV }
+		42 = { is_core_of = BAV }
+		51 = { is_core_of = BAV }
+		55 = { is_core_of = BAV }
+		975 = { is_core_of = BAV }
+		1082 = { is_core_of = BAV }
+		1083 = { is_core_of = BAV }
+		1084 = { is_core_of = BAV }
+		1085 = { is_core_of = BAV }
+		1090 = { is_core_of = BAV }
+		56 = { is_core_of = BAV }
+		57 = { is_core_of = BAV }
+		1086 = { is_core_of = BAV }
+		1087 = { is_core_of = BAV }
+		1091 = { is_core_of = BAV }
+		67 = { is_core_of = BAV }
+		66 = { is_core_of = BAV }
+		762 = { is_core_of = BAV }
+		1079 = { is_core_of = BAV }
+		1080 = { is_core_of = BAV }
+		58 = { is_core_of = BAV }
+		59 = { is_core_of = BAV }
+		60 = { is_core_of = BAV }
+		61 = { is_core_of = BAV }
+		62 = { is_core_of = BAV }
+		64 = { is_core_of = BAV }
+		836 = { is_core_of = BAV }
+		1056 = { is_core_of = BAV }
+		1061 = { is_core_of = BAV }
+		864 = { is_core_of = BAV }
+		has_completed_focus =  BAV_towards_a_greater_lebensraum 
+		}
+		
+		complete_effect = {
+			set_country_flag = ger_reunificated
+			set_cosmetic_tag = BAV_greater_workers_state
+			hidden_effect = {
+				news_event = bavaria.33
+				show_superevent_BAV_total_war = yes
+			}
+			set_portraits = {
+                 character = BAV_joseph_goebbels
+                 army = { large = "gfx/leaders/BAV/BAV_joseph_goebbels_greater.tga" }
+                 civilian = { large ="gfx/leaders/BAV/BAV_joseph_goebbels_greater.tga" }
+            }
+		}
+			highlight_states = {
+			highlight_state_targets = {
+				state = 98
+				state = 5
+				state = 97
+				state = 841
+				state = 9
+				state = 1080
+				state = 75
+				state = 72
+				state = 87
+				state = 28
+				state = 8
+				state = 1093
+				state = 4
+				state = 1060
+				state = 851
+				state = 153
+				state = 1057
+				state = 152
+				state = 887
+				state = 69
+				state = 74
+				state = 1058
+				state = 1059
+				state = 1062
+				state = 3
+				state = 151
+				state = 939
+				state = 188
+				state = 963
+				state = 807
+				state = 847
+				state = 86
+				state = 763
+				state = 85
+				state = 848
+				state = 63
+				state = 65
+				state = 68
+				state = 835
+				state = 928
+				state = 1063
+				state = 1078
+				state = 52
+				state = 53
+				state = 1088
+				state = 1089
+				state = 54
+				state = 50
+				state = 852
+				state = 42
+				state = 51
+				state = 55
+				state = 975
+				state = 1082
+				state = 1083
+				state = 1084
+				state = 1085
+				state = 1090
+				state = 56
+				state = 57
+				state = 1086
+				state = 1087
+				state = 1091
+				state = 67
+				state = 66
+				state = 762
+				state = 1079
+				state = 1080
+				state = 58
+				state = 59
+				state = 60
+				state = 61
+				state = 62
+				state = 64
+				state = 836
+				state = 1056
+				state = 1061
+				state = 864
+				state = 102
+				state = 880
+				
+			}
+		}
+		ai_will_do = {
+			factor = 5000
+			}
+		}
+	BAV_burgenland_trade = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 71
+			owns_state = 70
+			HUN = {
+			    owns_state = 864
+			}
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    HUN = {
+		    set_state_owner = 71
+			set_state_owner = 70
+
+			}
+			set_state_owner = 864
+			add_state_core = 864
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	BAV_demand_slovenia = {
+			
+		fire_only_once = yes
+		available = {
+			owns_state = 1060
+			owns_state = 1058
+			YUG = {
+			    owns_state = 102
+				owns_state = 880
+			}
+		}	
+		
+		cost = 25
+		
+		complete_effect = {
+			YUG = {
+					country_event = {
+						id = yugo.120
+						hours = 12
+					}
+				}
+			}
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	BAV_operation_sealion = {
+		days_remove = 45
+		fire_only_once = yes
+		visible = {
+		has_country_flag = ger_reunificated
+		has_completed_focus = BAV_embargo_the_british
+		}
+		available = {
+			controls_state = 16
+			has_completed_focus = BAV_embargo_the_british
+			}
+		remove_effect = {
+		create_wargoal = {
+				type = annex_everything
+				target = ENG
+			}
+		}
+	}
+}
 BAV_economic_recovery = {
 	BAV_save_the_bavarian_economy = {
 			
@@ -234,10 +484,6 @@ BAV_economic_recovery = {
 		}
 		
 		cost = 50
-        
-		available = {
-		    has_idea = BAV_high_conservative_opposition
-				}
 		
 		complete_effect = {
 			set_country_flag = BAV_opened_new_factories
@@ -264,10 +510,6 @@ BAV_economic_recovery = {
 		}
 		
 		cost = 50
-        
-		available = {
-		    has_idea = BAV_high_conservative_opposition
-				}
 		
 		complete_effect = {
 			set_country_flag = BAV_established_public_kitchens
@@ -287,10 +529,6 @@ BAV_economic_recovery = {
 		}
 		
 		cost = 50
-        
-		available = {
-		    has_idea = BAV_high_conservative_opposition
-				}
 		
 		complete_effect = {
 			set_country_flag = BAV_organized_the_workers
@@ -306,5 +544,847 @@ BAV_economic_recovery = {
 		}
 	}
 	}
+	
+BAV_military_recovery = {
+	BAV_solve_the_army_issue = {
+			
+		fire_only_once = yes
+        
+		available = {
+		    has_idea = BAV_very_disorganized_army
+			has_country_flag = BAV_armed_the_people
+			has_country_flag = BAV_motivated_the_army
+            has_country_flag = BAV_reorganized_the_structure
+				}
+		
+		complete_effect = {
+			remove_ideas = {
+				BAV_very_disorganized_army
+			}
+			set_country_flag = BAV_military_healed
+            add_war_support = 0.05
+			}
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_reorganize_the_structure = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_military_healed }
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			set_country_flag = BAV_reorganized_the_structure
+			army_experience = 20
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_motivate_the_army = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_military_healed }
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			set_country_flag = BAV_motivated_the_army
+			add_war_support = 0.05
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	BAV_arm_the_people = {
+			
+		fire_only_once = yes
+		
+		visible = {
+			NOT = { has_country_flag = BAV_military_healed }
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			set_country_flag = BAV_armed_the_people
+			add_manpower = 2000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -500
+				producer = BAV
+			}
+			}
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	}
+	
+	BAV_volkskommisariats = {
+	BAV_establish_volkskommisariat_niederlande = {
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 866
+			owns_state = 871
+			owns_state = 876
+			owns_state = 35
+			owns_state = 897
+			owns_state = 898
+			owns_state = 7
+			owns_state = 36
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    HOL = {
+		    set_state_owner = 866
+			set_state_owner = 871
+			set_state_owner = 876
+			set_state_owner = 35
+			set_state_owner = 897
+			set_state_owner = 898
+			set_state_owner = 7
+			set_state_owner = 36
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			set_cosmetic_tag = BAV_niederlande
+			create_country_leader = {
+	             name = "Herman Gorter"
+                 picture = "gfx/leaders/BAV/HermanGorter.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = HOL
+                end_wars = no
+            }
+			hidden_effect = {
+			set_province_name = { id = 3211 name = "Den Haag" }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	BAV_establish_volkskommisariat_belgien_nordfrankreich = {
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 840
+			owns_state = 1093
+			owns_state = 34
+			owns_state = 6
+			owns_state = 903
+			owns_state = 886
+			owns_state = 895
+			owns_state = 29
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    BEL = {
+		    set_state_owner = 840
+			set_state_owner = 1093
+			set_state_owner = 34
+			set_state_owner = 6
+			set_state_owner = 903
+			set_state_owner = 886
+			set_state_owner = 895
+			set_state_owner = 29
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			set_cosmetic_tag = BAV_belgien
+			create_country_leader = {
+	             name = "Jules Destrée"
+                 picture = "gfx/leaders/BAV/JulesDestree.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = BEL
+                end_wars = no
+            }
+			hidden_effect = {
+			set_province_name = { id = 6560 name = "Gent" }
+			set_province_name = { id = 575 name = "Dunkirchen" }
+			set_province_name = { id = 11548 name = "Kalen" }
+			set_province_name = { id = 3576 name = "Tournou" }
+			set_province_name = { id = 516 name = "Brüssel" }
+			set_province_name = { id = 11519 name = "Lüttich" }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+	BAV_establish_frankreich = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 785
+			owns_state = 15
+			owns_state = 16
+			owns_state = 18
+			owns_state = 27
+			owns_state = 24
+			owns_state = 30
+			owns_state = 14
+			owns_state = 23
+			owns_state = 33
+			owns_state = 25
+			owns_state = 806
+			owns_state = 19
+			owns_state = 31
+			owns_state = 22
+			owns_state = 26
+			owns_state = 20
+			owns_state = 32
+			owns_state = 21
+			owns_state = 735
+			owns_state = 879
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    FRA = {
+		    set_state_owner = 785
+			set_state_owner = 15
+			set_state_owner = 16
+			set_state_owner = 18
+			set_state_owner = 27
+			set_state_owner = 24
+			set_state_owner = 30
+			set_state_owner = 14
+			set_state_owner = 23
+			set_state_owner = 33
+			set_state_owner = 25
+			set_state_owner = 806
+			set_state_owner = 19
+			set_state_owner = 31
+			set_state_owner = 22
+			set_state_owner = 26
+			set_state_owner = 20
+			set_state_owner = 32
+			set_state_owner = 21
+			set_state_owner = 735
+			set_state_owner = 879
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			set_cosmetic_tag = BAV_frankreich
+			create_country_leader = {
+	             name = "Paul Vaillant-Couturier"
+                 picture = "gfx/leaders/BAV/PaulVaillant.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			}
+			puppet = {
+                target = FRA
+                end_wars = no
+            }
+			hidden_effect = {
+			set_province_name = { id = 927 name = "Nanzig" }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 4000
+			}
+	}
+	
+	BAV_establish_polen = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 90
+			owns_state = 88
+			owns_state = 849
+			owns_state = 10
+			owns_state = 92
+			owns_state = 846
+			owns_state = 91
+			owns_state = 89
+			owns_state = 845
+			owns_state = 1092
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    POL = {
+			set_state_owner = 90
+			set_state_owner = 88
+			set_state_owner = 849
+			set_state_owner = 10
+			set_state_owner = 92
+			set_state_owner = 846
+			set_state_owner = 91
+			set_state_owner = 89
+			set_state_owner = 845
+			set_state_owner = 1092
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			set_cosmetic_tag = BAV_polen
+			create_country_leader = {
+	             name = "Jan Kwapiński"
+                 picture = "gfx/leaders/BAV/JanKwapinski.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			}
+			puppet = {
+                target = POL
+                end_wars = no
+            }
+			hidden_effect = {
+			set_province_name = { id = 3544 name = "Warschau" }
+			set_province_name = { id = 9427 name = "Krakau" }
+			set_province_name = { id = 562 name = "Ostrau" }
+			set_province_name = { id = 3458 name = "Radheim" }
+			set_province_name = { id = 11430 name = "Kielitz" }
+			set_province_name = { id = 11519 name = "Lüttich" }
+			set_province_name = { id = 11399 name = "Lubeln" }
+			set_province_name = { id = 442 name = "Tarnau" }
+			set_province_name = { id = 9494 name = "Bad Zamau" }
+			set_province_name = { id = 3434 name = "Premissel" }
+			set_province_name = { id = 9452 name = "Helm" }
+			set_province_name = { id = 11479 name = "Lemberg" }
+			set_province_name = { id = 6483 name = "Draugabach" }
+			set_province_name = { id = 11411 name = "Stanislau" }
+			}
+		}
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+	BAV_establish_ostland = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 189
+			owns_state = 814
+			owns_state = 11
+			owns_state = 815
+			owns_state = 190
+			owns_state = 809
+			owns_state = 808
+			owns_state = 810
+			owns_state = 12
+			owns_state = 13
+			owns_state = 191
+			owns_state = 813
+			owns_state = 812
+			owns_state = 811
+			owns_state = 784
+			owns_state = 850
+			owns_state = 95
+			owns_state = 844
+			owns_state = 843
+			owns_state = 94
+			owns_state = 194
+			owns_state = 842
+			owns_state = 204
+			owns_state = 206
+			owns_state = 96
+			owns_state = 1004
+			owns_state = 207
+			owns_state = 241
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    WVA = {
+		    set_state_owner = 189
+			set_state_owner = 814
+			set_state_owner = 11
+			set_state_owner = 815
+			set_state_owner = 190
+			set_state_owner = 809
+			set_state_owner = 808
+			set_state_owner = 810
+			set_state_owner = 12
+			set_state_owner = 13
+			set_state_owner = 191
+			set_state_owner = 813
+			set_state_owner = 812
+			set_state_owner = 811
+			set_state_owner = 784
+			set_state_owner = 850
+			set_state_owner = 95
+			set_state_owner = 844
+			set_state_owner = 843
+			set_state_owner = 94
+			set_state_owner = 194
+			set_state_owner = 842
+			set_state_owner = 204
+			set_state_owner = 206
+			set_state_owner = 96
+			set_state_owner = 1004
+			set_state_owner = 207
+			set_state_owner = 241
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			set_cosmetic_tag = BAV_ostland
+			create_country_leader = {
+	             name = "Alfred Rosenberg"
+                 picture = "gfx/leaders/WVA/AlfredRosenberg.tga"
+	             ideology = bolshevik_nationalism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = WVA
+                end_wars = no
+            }
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+	BAV_establish_ukraine = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 93
+			owns_state = 199
+			owns_state = 201
+			owns_state = 198
+			owns_state = 834
+			owns_state = 192
+			owns_state = 202
+			owns_state = 203
+			owns_state = 197
+			owns_state = 226
+			owns_state = 196
+			owns_state = 200
+			owns_state = 193
+			owns_state = 259
+			owns_state = 225
+			owns_state = 1046
+			owns_state = 227
+			owns_state = 221
+			owns_state = 240
+			owns_state = 228
+			owns_state = 218
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    UKR = {
+			set_state_owner = 93
+			set_state_owner = 199
+			set_state_owner = 201
+			set_state_owner = 198
+			set_state_owner = 834
+			set_state_owner = 192
+			set_state_owner = 202
+			set_state_owner = 203
+			set_state_owner = 197
+			set_state_owner = 226
+			set_state_owner = 196
+			set_state_owner = 200
+			set_state_owner = 193
+			set_state_owner = 225
+			set_state_owner = 259
+			set_state_owner = 1046
+			set_state_owner = 227
+			set_state_owner = 221
+			set_state_owner = 240
+			set_state_owner = 228
+			set_state_owner = 218
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			set_cosmetic_tag = BAV_ukraine
+			create_country_leader = {
+	             name = "Mykola Skrypnyk"
+                 picture = "gfx/leaders/BAV/Mykola.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = UKR
+                end_wars = no
+            }
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+	BAV_establish_kaukasien = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 921
+			owns_state = 912
+			owns_state = 230
+			owns_state = 917
+			owns_state = 922
+			owns_state = 229
+			owns_state = 911
+			owns_state = 916
+			owns_state = 919
+			owns_state = 920
+			owns_state = 231
+			owns_state = 910
+			owns_state = 918
+			owns_state = 915
+			owns_state = 826
+			owns_state = 908
+			owns_state = 914
+			owns_state = 232
+			owns_state = 821
+			owns_state = 828
+			owns_state = 827
+			owns_state = 235
+			owns_state = 237
+			owns_state = 234
+			owns_state = 238
+			owns_state = 233
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    GEO = {
+			set_state_owner = 921
+			set_state_owner = 912
+			set_state_owner = 230
+			set_state_owner = 917
+			set_state_owner = 922
+			set_state_owner = 229
+			set_state_owner = 911
+			set_state_owner = 916
+			set_state_owner = 919
+			set_state_owner = 920
+			set_state_owner = 231
+			set_state_owner = 910
+			set_state_owner = 918
+			set_state_owner = 915
+			set_state_owner = 826
+			set_state_owner = 908
+			set_state_owner = 914
+			set_state_owner = 232
+			set_state_owner = 821
+			set_state_owner = 828
+			set_state_owner = 827
+			set_state_owner = 235
+			set_state_owner = 237
+			set_state_owner = 234
+			set_state_owner = 238
+			set_state_owner = 233
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			set_cosmetic_tag = BAV_kaukasien
+			create_country_leader = {
+	             name = "Sergo Ordzhonikidze"
+                 picture = "gfx/leaders/BAV/Sergo.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = GEO
+                end_wars = no
+            }
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+	BAV_establish_moskowien = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 213
+			owns_state = 215
+			owns_state = 216
+			owns_state = 146
+			owns_state = 195
+			owns_state = 236
+			owns_state = 407
+			owns_state = 406
+			owns_state = 652
+			owns_state = 402
+			owns_state = 582
+			owns_state = 208
+			owns_state = 209
+			owns_state = 210
+			owns_state = 263
+			owns_state = 244
+			owns_state = 246
+			owns_state = 247
+			owns_state = 219
+			owns_state = 257
+			owns_state = 256
+			owns_state = 217
+			owns_state = 265
+			owns_state = 260
+			owns_state = 222
+			owns_state = 224
+			owns_state = 242
+			owns_state = 243
+			owns_state = 205
+			owns_state = 223
+			owns_state = 258
+			owns_state = 245
+			owns_state = 651
+			owns_state = 400
+			owns_state = 825
+			owns_state = 220
+			owns_state = 254
+			owns_state = 255
+			owns_state = 397
+			owns_state = 262
+			owns_state = 214
+			owns_state = 264
+			owns_state = 351
+			owns_state = 398
+			owns_state = 399
+			owns_state = 239
+			owns_state = 829
+			owns_state = 401
+			owns_state = 251
+			owns_state = 250
+			owns_state = 249
+			owns_state = 833
+			owns_state = 252
+			owns_state = 253
+			owns_state = 248
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    OCG = {
+			set_state_owner = 213
+			set_state_owner = 215
+			set_state_owner = 216
+			set_state_owner = 146
+			set_state_owner = 195
+			set_state_owner = 236
+			set_state_owner = 407
+			set_state_owner = 406
+			set_state_owner = 652
+			set_state_owner = 402
+			set_state_owner = 582
+			set_state_owner = 209
+			set_state_owner = 208
+			set_state_owner = 210
+			set_state_owner = 263
+			set_state_owner = 244
+			set_state_owner = 246
+			set_state_owner = 247
+			set_state_owner = 219
+			set_state_owner = 257
+			set_state_owner = 256
+			set_state_owner = 217
+			set_state_owner = 265
+			set_state_owner = 260
+			set_state_owner = 222
+			set_state_owner = 224
+			set_state_owner = 242
+			set_state_owner = 243
+			set_state_owner = 205
+			set_state_owner = 223
+			set_state_owner = 258
+			set_state_owner = 245
+			set_state_owner = 651
+			set_state_owner = 400
+			set_state_owner = 825
+			set_state_owner = 220
+			set_state_owner = 254
+			set_state_owner = 255
+			set_state_owner = 397
+			set_state_owner = 262
+			set_state_owner = 214
+			set_state_owner = 264
+			set_state_owner = 351
+			set_state_owner = 398
+			set_state_owner = 399
+			set_state_owner = 239
+			set_state_owner = 829
+			set_state_owner = 401
+			set_state_owner = 251
+			set_state_owner = 250
+			set_state_owner = 249
+			set_state_owner = 833
+			set_state_owner = 252
+			set_state_owner = 253
+			set_state_owner = 248
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			set_cosmetic_tag = BAV_moskowien
+			create_country_leader = {
+	             name = "Alexander Kazembek"
+                 picture = "gfx/leaders/SOV/SOV_alexander_kazembek.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = OCG
+                end_wars = no
+            }
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+	
+		BAV_establish_skandinavien = {
+			
+		fire_only_once = yes
+		
+		available = {
+			owns_state = 99
+			owns_state = 37
+			owns_state = 138
+			owns_state = 140
+			owns_state = 139
+			owns_state = 141
+			owns_state = 124
+			owns_state = 38
+			owns_state = 666
+			owns_state = 144
+			owns_state = 143
+			owns_state = 110
+			owns_state = 142
+			owns_state = 145
+			owns_state = 111
+			owns_state = 149
+			owns_state = 150
+			owns_state = 148
+			owns_state = 147
+			owns_state = 722
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+		    
+		    SWE = {
+			set_state_owner = 99
+			set_state_owner = 37
+			set_state_owner = 138
+			set_state_owner = 140
+			set_state_owner = 139
+			set_state_owner = 141
+			set_state_owner = 124
+			set_state_owner = 38
+			set_state_owner = 666
+			set_state_owner = 144
+			set_state_owner = 143
+			set_state_owner = 110
+			set_state_owner = 142
+			set_state_owner = 145
+			set_state_owner = 111
+			set_state_owner = 149
+			set_state_owner = 150
+			set_state_owner = 148
+			set_state_owner = 147
+			set_state_owner = 722
+			set_politics = {
+                ruling_party = bolshevism
+                elections_allowed = no
+                }
+			load_focus_tree = { tree = generic_tree keep_completed = no }
+			set_cosmetic_tag = BAV_skandinavien
+			create_country_leader = {
+	             name = "Martin Tranmæl"
+                 picture = "gfx/leaders/BAV/Martin.tga"
+	             ideology = national_marxism
+	             traits = {
+	             }
+            }
+			}
+			puppet = {
+                target = SWE
+                end_wars = no
+            }
+			}
+		
+		ai_will_do = {
+			factor = 4000
+		}
+	}
+}
 	
 

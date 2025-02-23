@@ -4,6 +4,7 @@ add_namespace = ukr.white
 add_namespace = ukr.ger
 add_namespace = ukr_soc
 add_namespace = ukr
+add_namespace = ukr_soc_sov
 
 ########################
 #   starting branch    #
@@ -14,7 +15,7 @@ country_event = {
 	id = ukr.startbranch.1
 	title = ukr.startbranch.1.t
 	desc = ukr.startbranch.1.d
-	#picture = GFX_report_event_makhno
+	picture = GFX_report_event_makhno_2
 	
 	is_triggered_only = yes
 	
@@ -28,7 +29,7 @@ country_event = {
 	id = ukr.startbranch.2
 	title = ukr.startbranch.2.t
 	desc = ukr.startbranch.2.d
-	#picture = GFX_report_event_makhno
+	picture = GFX_report_event_makhno_1
 	
 	is_triggered_only = yes
 	
@@ -42,7 +43,7 @@ country_event = {
 	id = ukr.startbranch.3
 	title = ukr.startbranch.3.t
 	desc = ukr.startbranch.3.d
-	#picture = GFX_report_event_makhno
+	picture = GFX_report_event_makhno_3
 	
 	is_triggered_only = yes
 	
@@ -561,6 +562,7 @@ country_event = {
 		}
 		hidden_effect = {
 			news_event = ukr_soc.20
+			complete_national_focus = UKR_soc_unite
 		}
 	}
 }
@@ -576,6 +578,9 @@ country_event = {
 		create_wargoal = {
 			target = FROM
 			type = annex_everything
+		}
+		hidden_effect = {
+			complete_national_focus = UKR_soc_invade
 		}
 	}
 }
@@ -599,5 +604,53 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = ukr_soc.20.a
+	}
+}
+
+country_event = {
+	id = ukr_soc.21
+	title = ukr_soc.21.t
+	desc = ukr_soc.21.d
+	is_triggered_only = yes
+	option = { 
+		name = ukr_soc.21.a
+		complete_national_focus = UKR_soc_int_anarchy
+	}
+	option = {
+		name = ukr_soc.21.b
+		complete_national_focus = UKR_soc_kill_wrong
+	}
+}
+
+country_event = {
+	id = ukr_soc_sov.1
+	title = ukr_soc_sov.1.t
+	desc = ukr_soc_sov.1.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc_sov.1.a
+		SOV = { puppet = UKR }
+		promote_character = UKR_soc_Mykyta_Khrushchev
+	}
+}
+
+country_event = {
+	id = ukr_soc_sov.2
+	title = ukr_soc_sov.2.t
+	desc = ukr_soc_sov.2.d
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc_sov.2.a
+		SOV = {
+			UKR = { 
+				every_core_state = {
+				add_core_of = SOV
+				}
+			}
+			annex_country = {
+				target = UKR
+				transfer_troops = yes
+			}
+		}
 	}
 }

@@ -1,0 +1,989 @@
+#!gfx:interface/country/germany/GER/GER_focus.gfx
+focus_tree = {
+	id = GER_first
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GER
+		}
+    }
+	default = no
+	
+	focus = {
+		id = GER_first_the_end_of_the_spartacist_uprising
+		icon = GFX_focus_GER_first_end_of_spartacist_uprising
+		cost = 5
+		available = { always = no }
+		
+		completion_reward = {
+		
+		     add_stability = 0.05
+			 add_political_power = 25
+			 add_manpower = -2500
+			
+		}
+	}
+	
+	focus = {
+		id = GER_first_supply_humanitarian_aid_in_berlin
+		icon = GFX_focus_GER_first_supply_humanitarian_aid_in_berlin
+		cost = 4
+		
+		prerequisite = {
+			focus = GER_first_the_end_of_the_spartacist_uprising
+		}
+		
+		relative_position_id = GER_first_the_end_of_the_spartacist_uprising
+		x = -2
+		y = 1
+		
+		completion_reward = {
+			add_stability = 0.04
+			add_political_power = -20
+			836 = {
+				add_manpower = 5000
+			}
+		}
+	}
+	focus = {
+		id = GER_first_the_spds_impending_doom
+		icon = GFX_focus_GER_first_the_spds_impending_doom
+		cost = 3
+		
+		prerequisite = {
+			focus = GER_first_the_end_of_the_spartacist_uprising
+		}
+		
+		relative_position_id = GER_first_the_end_of_the_spartacist_uprising
+		y = 1
+		
+		completion_reward = {
+		     add_popularity = {
+				ideology = social_democrat
+				popularity = -0.04
+			}
+			add_political_power = 20
+			
+		}
+	}
+	focus = {
+		id = GER_first_arrest_the_spartacist_agents
+		icon = GFX_focus_GER_first_arrest_the_spartacist_agents
+		cost = 4
+		
+		prerequisite = {
+			focus = GER_first_the_end_of_the_spartacist_uprising
+		}
+		
+		relative_position_id = GER_first_the_end_of_the_spartacist_uprising
+		x = 2
+		y = 1
+		
+		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_political_power = 25
+			add_stability = 0.05
+			add_manpower = -500
+		}
+	}
+	focus = {
+		id = GER_first_the_dissolution_of_the_reichstag
+		icon = GFX_focus_GER_first_the_dissolution_of_the_reichstag
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_supply_humanitarian_aid_in_berlin
+		}
+		prerequisite = {
+			focus = GER_first_the_spds_impending_doom
+		}
+		prerequisite = {
+			focus = GER_first_arrest_the_spartacist_agents
+		}
+		
+		relative_position_id = GER_first_the_spds_impending_doom
+		y = 1
+		
+		completion_reward = {
+			country_event = ger.2
+			add_stability = -0.05
+		}
+	}
+	focus = {
+		id = GER_first_hold_a_new_reichstagswahl
+		icon = GFX_focus_GER_hold_a_new_reichstagswahl
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_dissolution_of_the_reichstag
+		}
+		
+		relative_position_id = GER_first_the_dissolution_of_the_reichstag
+		y = 1
+		
+		completion_reward = {
+			country_event = ger.3
+		}
+	}
+	
+	focus = {
+		id = GER_first_the_spd_holds_against_all_odds
+		icon = GFX_focus_GER_first_the_spd_holds_against_all_odds
+		cost = 5
+		available = { always = no }
+		prerequisite = {
+			focus = GER_first_hold_a_new_reichstagswahl
+		}
+		
+		relative_position_id = GER_first_hold_a_new_reichstagswahl
+		x = -7
+		y = 1
+		
+		completion_reward = {
+		add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = social_democrat
+			}
+			
+		}
+	}
+	focus = {
+		id = GER_first_reward_the_german_worker
+		icon = GFX_focus_GER_first_reward_the_german_worker
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_spd_holds_against_all_odds
+		}
+		
+		relative_position_id = GER_first_the_spd_holds_against_all_odds
+		x = -2
+		y = 1
+		
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = GER_first_get_back_uspd_voters
+		icon = GFX_focus_GER_first_get_back_uspd_voters
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_reward_the_german_worker
+		}
+		
+		relative_position_id = GER_first_reward_the_german_worker
+		y = 1
+		
+		completion_reward = {
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.04
+			}
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = GER_first_implement_an_immediate_relief_package
+		icon = GFX_focus_GER_first_implement_an_immediate_relief_package
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_spd_holds_against_all_odds
+		}
+		
+		relative_position_id = GER_first_the_spd_holds_against_all_odds
+		y = 1
+		
+		completion_reward = {
+			add_timed_idea = { 
+				idea = GER_relief_package
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = GER_first_modernise_the_german_healthcare_system
+		icon = GFX_focus_GER_first_modernise_the_german_healthcare_system
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_implement_an_immediate_relief_package
+		}
+		
+		relative_position_id = GER_first_implement_an_immediate_relief_package
+		y = 1
+		
+		completion_reward = {
+			add_ideas = GER_modern_healthcare_system
+		}
+	}
+	focus = {
+		id = GER_first_protect_the_republic_from_radicalism
+		icon = GFX_focus_GER_first_protect_the_republic_from_radicalism
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_spd_holds_against_all_odds
+		}
+		
+		relative_position_id = GER_first_the_spd_holds_against_all_odds
+		x = 2
+		y = 1
+		
+		completion_reward = {
+				add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+				add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = GER_first_the_dog_who_barks
+		icon = GFX_focus_GER_first_the_dog_who_barks
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_protect_the_republic_from_radicalism
+		}
+		
+		relative_position_id = GER_first_protect_the_republic_from_radicalism
+		y = 1
+		
+		completion_reward = {
+			country_event = ger.7
+		}
+	}
+	focus = {
+		id = GER_first_criticise_francois_coty
+		icon = GFX_focus_GER_first_criticise_francois_coty
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_get_back_uspd_voters
+		}
+		prerequisite = {
+			focus = GER_first_modernise_the_german_healthcare_system
+		}
+		prerequisite = {
+			focus = GER_first_the_dog_who_barks
+		}
+		
+		relative_position_id = GER_first_modernise_the_german_healthcare_system
+		y = 1
+		
+		completion_reward = {
+			FRA = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_grave_insult
+				}
+			}
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = GER_first_cooperate_with_sweden
+		icon = GFX_focus_GER_first_cooperate_with_sweden
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_criticise_francois_coty
+		}
+		
+		relative_position_id = GER_first_criticise_francois_coty
+		x = -2
+		y = 1
+		
+		completion_reward = {
+			SWE = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_political_power = 30
+		}
+	}
+	focus = {
+		id = GER_first_strenghten_the_party_center
+		icon = GFX_focus_GER_first_strenghten_the_party_center
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_criticise_francois_coty
+		}
+		
+		relative_position_id = GER_first_criticise_francois_coty
+		y = 1
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = GER_first_establish_new_universities
+		icon = GFX_focus_GER_first_establish_new_universities
+		cost = 8
+		
+		prerequisite = {
+			focus = GER_first_criticise_francois_coty
+		}
+		
+		relative_position_id = GER_first_criticise_francois_coty
+		x = 2
+		y = 1
+		
+		completion_reward = {
+			add_research_slot = 1
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = GER_first_the_triumph_of_german_social_democracy
+		icon = GFX_focus_GER_first_the_triumph_of_german_social_democracy
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_cooperate_with_sweden
+		}
+		prerequisite = {
+			focus = GER_first_strenghten_the_party_center
+		}
+		prerequisite = {
+			focus = GER_first_establish_new_universities
+		}
+		
+		relative_position_id = GER_first_strenghten_the_party_center
+		y = 1
+		
+		completion_reward = {
+			add_ideas = GER_german_social_democracy
+		}
+	}
+	
+	focus = {
+		id = GER_first_a_zentrum_victory
+		icon = GFX_focus_GER_first_a_zentrum_victory
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_hold_a_new_reichstagswahl
+		}
+		available = { always = no }
+		
+		relative_position_id = GER_first_hold_a_new_reichstagswahl
+		y = 1
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = conservatism
+			}
+		}
+	}
+	focus = {
+		id = GER_first_a_tower_above_all_others
+		icon = GFX_focus_GER_first_a_tower_above_all_others
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_a_zentrum_victory
+		}
+		
+		relative_position_id = GER_first_a_zentrum_victory
+		x = -1
+		y = 1
+		
+		completion_reward = {
+		      add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_political_power = 100
+			
+		}
+	}
+	focus = {
+		id = GER_first_criticise_the_dnvp
+		icon = GFX_focus_GER_first_criticise_the_dnvp
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_a_tower_above_all_others
+		}
+		
+		relative_position_id = GER_first_a_tower_above_all_others
+		x = -1
+		y = 1
+		
+		completion_reward = {
+		       add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			add_stability = 0.03
+			add_political_power = -20
+		}
+	}
+	focus = {
+		id = GER_first_cooperate_with_the_ddp
+		icon = GFX_focus_GER_first_cooperate_with_the_ddp
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_criticise_the_dnvp
+		}
+		
+		relative_position_id = GER_first_criticise_the_dnvp
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = GER_first_the_shield_against_bolshevism
+		icon = GFX_focus_GER_first_the_shield_against_bolshevism
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_criticise_the_dnvp
+		}
+		
+		relative_position_id = GER_first_cooperate_with_the_ddp
+		y = 1
+		
+		completion_reward = {
+			add_ideas = GER_anti_bolshevik_doctrine
+		}
+	}
+	focus = {
+		id = GER_first_protect_germanys_cultural_legacy
+		icon = GFX_focus_GER_first_protect_germanys_cultural_legacy
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_a_zentrum_victory
+		}
+		
+		relative_position_id = GER_first_a_zentrum_victory
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = GER_first_support_the_german_farmers
+		icon = GFX_focus_GER_first_support_the_german_farmers
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_protect_germanys_cultural_legacy
+		}
+		
+		relative_position_id = GER_first_protect_germanys_cultural_legacy
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			add_ideas = GER_agrarian_subsidies
+			59 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			62 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = GER_first_cooperate_with_stresseman
+		icon = GFX_focus_GER_first_cooperate_with_stresseman
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_support_the_german_farmers
+		}
+		
+		relative_position_id = GER_first_support_the_german_farmers
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			add_ideas = GER_active_foreign_policy
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.02
+			}
+		}
+	}
+	focus = {
+		id = GER_first_apologise_to_belgium
+		icon = GFX_focus_GER_first_apologise_to_belgium
+		cost = 4
+		
+		prerequisite = {
+			focus = GER_first_cooperate_with_stresseman
+		}
+		
+		relative_position_id = GER_first_cooperate_with_stresseman
+		y = 1
+		
+		completion_reward = {
+			BEL = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_apologized_for_the_great_war
+				}
+			}
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = GER_first_a_true_christian_democracy
+		icon = GFX_focus_GER_first_a_true_christian_democracy
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_shield_against_bolshevism
+		}
+		prerequisite = {
+			focus = GER_first_apologise_to_belgium
+		}
+		
+		relative_position_id = GER_first_a_zentrum_victory
+		y = 5
+		
+		completion_reward = {
+			add_ideas = GER_christian_democratic_values
+		}
+	}
+	focus = {
+		id = GER_first_implement_the_republican_research_initiative
+		icon = GFX_focus_GER_first_implement_the_republican_research_initiative
+		cost = 10
+		
+		prerequisite = {
+			focus = GER_first_a_tower_above_all_others
+		}
+		prerequisite = {
+			focus = GER_first_protect_germanys_cultural_legacy
+		}
+		
+		relative_position_id = GER_first_a_zentrum_victory
+		y = 2
+		
+		completion_reward = {
+			add_research_slot = 1
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = GER_first_establish_public_kitchens
+		icon = GFX_focus_GER_first_establish_public_kitchens
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_spd_holds_against_all_odds
+			focus = GER_first_a_zentrum_victory
+		}
+		
+		relative_position_id = GER_first_a_zentrum_victory
+		x = -3
+		y = 1
+		
+		completion_reward = {
+			add_timed_idea = { 
+				idea = GER_public_kitchens
+				days = 365
+			}
+		}
+	}
+	
+	focus = {
+		id = GER_first_the_rise_of_the_dnvp
+		icon = GFX_focus_GER_dnvp
+		cost = 5
+		available = { always = no }
+		
+		prerequisite = {
+			focus = GER_first_hold_a_new_reichstagswahl
+		}
+		
+		relative_position_id = GER_first_hold_a_new_reichstagswahl
+		x = 6
+		y = 1
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+		}
+	}
+	focus = {
+		id = GER_first_promote_a_higher_military_spending
+		icon = GFX_focus_GER_first_promote_a_higher_military_spending
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_a_zentrum_victory
+			focus = GER_first_the_rise_of_the_dnvp
+		}
+		
+		relative_position_id = GER_first_a_zentrum_victory
+		x = 3
+		y = 1
+		
+		completion_reward = {
+			add_timed_idea = { 
+				idea = GER_increased_military_spending
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = GER_first_the_memories_of_the_dolchstos
+		icon = GFX_focus_GER_dolch
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_rise_of_the_dnvp
+		}
+		
+		relative_position_id = GER_first_the_rise_of_the_dnvp
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_war_support = 0.05
+		}
+	}
+	focus = {
+		id = GER_first_embrace_german_nationalism
+		icon = GFX_focus_GER_german_nationalism
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_memories_of_the_dolchstos
+		}
+		
+		relative_position_id = GER_first_the_memories_of_the_dolchstos
+		y = 1
+		
+		completion_reward = {
+			add_ideas = GER_german_nationalist_sentiment
+		}
+	}
+	focus = {
+		id = GER_first_purge_wilhelm_henning
+		icon = GFX_focus_GER_purge
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_embrace_german_nationalism
+		}
+		
+		mutually_exclusive = {
+			focus = GER_first_hold_a_meeting_with_the_freikorps
+		}
+		
+		relative_position_id = GER_first_embrace_german_nationalism
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			FGB = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_betrayal
+				}
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = GER_freikorps_unfriendly
+		}
+	}
+	focus = {
+		id = GER_first_hold_a_meeting_with_the_freikorps
+		icon = GFX_focus_GER_meet
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_embrace_german_nationalism
+		}
+		
+		mutually_exclusive = {
+			focus = GER_first_purge_wilhelm_henning
+		}
+		
+		relative_position_id = GER_first_embrace_german_nationalism
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			FGB = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.05
+			}
+			add_stability = -0.05
+			custom_effect_tooltip = GER_freikorps_friendly
+		}
+	}
+	focus = {
+		id = GER_first_weaken_eberts_corrupting_grip
+		icon = GFX_focus_GER_weaken
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_rise_of_the_dnvp
+		}
+		
+		relative_position_id = GER_first_the_rise_of_the_dnvp
+		x = 1
+		y = 1
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = GER_first_fight_against_the_anti_german_spirit
+		icon = GFX_focus_GER_spirit
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_weaken_eberts_corrupting_grip
+		}
+		
+		relative_position_id = GER_first_weaken_eberts_corrupting_grip
+		y = 1
+		
+		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_war_support = 0.05
+			
+		}
+	}
+	focus = {
+		id = GER_first_a_detente_with_france
+		icon = GFX_focus_GER_detente
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_rise_of_the_dnvp
+		}
+		
+		relative_position_id = GER_first_the_rise_of_the_dnvp
+		x = 3
+		y = 1
+		
+		completion_reward = {
+		     country_event = ger.6
+		}
+	}
+	focus = {
+		id = GER_first_behind_the_shadow_of_the_republic
+		icon = GFX_focus_GER_first_behind_the_shadow_of_the_republic
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_the_rise_of_the_dnvp
+		}
+		
+		relative_position_id = GER_first_the_rise_of_the_dnvp
+		x = 5
+		y = 1
+		
+		completion_reward = {
+			country_event = ger.5
+		}
+	}
+	focus = {
+		id = GER_first_support_the_heavy_industry
+		icon = GFX_focus_GER_heavy
+		cost = 8
+		
+		prerequisite = {
+			focus = GER_first_a_detente_with_france
+		}
+		
+		relative_position_id = GER_first_a_detente_with_france
+		y = 1
+		
+		completion_reward = {
+			1056 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+			}
+			64 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					}
+					army_experience = 25
+		}
+	}
+	focus = {
+		id = GER_first_seek_french_military_support
+		icon = GFX_focus_GER_seek
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_a_detente_with_france
+		}
+		available = { has_country_flag = french_support }
+		relative_position_id = GER_first_a_detente_with_france
+		x = 2
+		y = 1
+		
+		completion_reward = {
+		      add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = FRA
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = GER
+					modifier = GER_friendly_gesture
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_first_die_volksdeutsche_wissenschaftsgesellschaft
+		icon = GFX_focus_GER_wissen
+		cost = 10
+		
+		prerequisite = {
+			focus = GER_first_a_detente_with_france
+			focus = GER_first_seek_french_military_support
+		}
+		
+		relative_position_id = GER_first_support_the_heavy_industry
+		x = 1
+		y = 1
+		
+		completion_reward = {
+		     add_research_slot = 1
+			 add_political_power = 25
+			
+		}
+	}
+	focus = {
+		id = GER_first_a_reichsprasident_of_our_own
+		icon = GFX_focus_GER_own
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_fight_against_the_anti_german_spirit
+		}
+		prerequisite = {
+			focus = GER_first_support_the_heavy_industry
+		}
+		available = {
+		has_country_leader = {
+                    name = "Alfred Hughenberg"
+                    ruling_only = yes
+                }
+				 }
+		
+		relative_position_id = GER_first_support_the_heavy_industry
+		x = -1
+		y = 1
+		
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	focus = {
+		id = GER_first_a_victory_for_the_german_nation
+		icon = GFX_focus_GER_victory
+		cost = 5
+		
+		prerequisite = {
+			focus = GER_first_purge_wilhelm_henning
+			focus = GER_first_hold_a_meeting_with_the_freikorps
+			focus = GER_first_a_reichsprasident_of_our_own
+		}
+		
+		relative_position_id = GER_first_the_rise_of_the_dnvp
+		y = 4
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+			add_war_support = 0.1
+		}
+	}
+}

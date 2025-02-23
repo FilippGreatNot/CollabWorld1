@@ -1,14 +1,122 @@
-its_political = {
-	its_inward_security = {
-		cost = 20
-		days_remove = 35
+its_kill_mus_cat = {
+	ITS_kill_sway_generals = {
 		fire_only_once = yes
-		visible = { NOT = { has_completed_focus = ITS_assure_ppl } }
+		cost = 50
+		days_remove = 35
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = doing_kill_dec_tip
+				NOT = {has_country_flag = doing_kill_dec}
+			}
+		}
 		complete_effect = {
-			set_country_flag = ITS_inward_security
+			set_country_flag = doing_kill_dec
 		}
-		ai_will_do = {
-			base = 0
+        remove_effect = {
+			clr_country_flag = doing_kill_dec
+			set_country_flag = has_sway_generals
+			add_to_variable = { kill_mus_points = 15 }
+			custom_effect_tooltip = kill_suc_15
+        }
+	}
+	ITS_kill_pay_off_staff = {
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = doing_kill_dec_tip
+				NOT = {has_country_flag = doing_kill_dec}
+			}
 		}
+		complete_effect = {
+			set_country_flag = doing_kill_dec
+		}
+        remove_effect = {
+			clr_country_flag = doing_kill_dec		
+			set_country_flag = has_pay_off_staff
+			add_to_variable = { kill_mus_points = 15 }
+			custom_effect_tooltip = kill_suc_15
+        }
+	}
+	ITS_kill_find_a_fall_guy = {
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = doing_kill_dec_tip
+				NOT = {has_country_flag = doing_kill_dec}
+			}
+		}
+		complete_effect = {
+			set_country_flag = doing_kill_dec
+		}
+        remove_effect = {
+			clr_country_flag = doing_kill_dec		
+			set_country_flag = has_find_a_fall_guy
+			add_to_variable = { kill_mus_points = 20 }
+			custom_effect_tooltip = kill_suc_20
+        }
+	}
+	ITS_kill_agree_on_a_cover_story = {
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = doing_kill_dec_tip
+				NOT = {has_country_flag = doing_kill_dec}
+			}
+			has_country_flag = has_find_a_fall_guy
+			has_country_flag = has_sway_generals
+		}
+		complete_effect = {
+			set_country_flag = doing_kill_dec
+		}
+        remove_effect = {
+			clr_country_flag = doing_kill_dec
+			add_to_variable = { kill_mus_points = 25 }
+			custom_effect_tooltip = kill_suc_25
+        }
+	}
+	ITS_kill_swap_guards = {
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = doing_kill_dec_tip
+				NOT = {has_country_flag = doing_kill_dec}
+			}
+			has_country_flag = has_pay_off_staff
+			has_country_flag = has_sway_generals
+		}
+		complete_effect = {
+			set_country_flag = doing_kill_dec
+		}
+        remove_effect = {
+			clr_country_flag = doing_kill_dec
+			add_to_variable = { kill_mus_points = 25 }
+			custom_effect_tooltip = kill_suc_25
+        }
+	}
+	ITS_kill_arrange_meeting_with_mus = {
+		fire_only_once = yes
+		cost = 50
+		days_remove = 35
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = doing_kill_dec_tip
+				NOT = {has_country_flag = doing_kill_dec}
+			}
+		}
+		complete_effect = {
+			set_country_flag = doing_kill_dec
+		}
+        remove_effect = {
+			#clr_country_flag = doing_kill_dec
+			set_country_flag = has_arrange_meeting_with_mus
+        }
 	}
 }

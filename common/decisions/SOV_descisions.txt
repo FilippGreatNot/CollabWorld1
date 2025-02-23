@@ -23,7 +23,7 @@ SOV_unite_russia_decisions = {
 			#	KAR = { PREV_controls_all_cores = yes }
 			#	UKR = { PREV_controls_all_cores = yes }
 			#	SRF = { PREV_controls_all_cores = yes }
-			#	LAT = { PREV_controls_all_cores = yes }
+			#	WVA = { PREV_controls_all_cores = yes }
 			#	OCG = { PREV_controls_all_cores = yes }
 			#	KAZ = { PREV_controls_all_cores = yes }
 			#	KYR = { PREV_controls_all_cores = yes }
@@ -91,13 +91,17 @@ SOV_unite_russia_decisions = {
 	SOV_unification_note = {
 		available = {
 			hidden_trigger = { always = no }
-			owns_all_russian_states_for_tt = yes
 		}
 		visible = {
 			reunitied_russia = no
 			OR = {
 				has_completed_focus = SOV_stalin_unification_plan
 				has_completed_focus = SOV_bogdanov_a_march_to_the_unity_is_a_march_to_the_future
+			}
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_in_array = { global.states_mandatory_for_russia_unification = THIS }
 			}
 		}
 	}
@@ -188,6 +192,44 @@ SOV_comintern_decisions = {
 				factor = 0
 				FROM = { has_country_flag = rejected_invite_to_comintern }
 			}
+		}
+	}
+}
+SOV_annex_communist_decisions = {
+	SOV_puppet_UKR = {
+		priority = 1000
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+			UKR = { country_event = UKR_soc_sov.1 }
+		}
+	}
+	SOV_annex_UKR = {
+		visible = { UKR = { is_puppet_of = SOV } }
+		priority = 1000
+		cost = 75
+		days_remove = 50
+		remove_effect = { 
+			UKR = { country_event = UKR_soc_sov.2 }
+		}
+	}
+}
+SOV_annex_communist_decisions_second = {
+	SOV_puppet_UKR_second = {
+		fire_only_once = yes
+		priority = 1000
+		cost = 50
+		complete_effect = {
+			UKR = { country_event = UKR_soc_sov.1 }
+		}
+	}
+	SOV_annex_UKR_second = {
+		visible = { UKR = { is_puppet_of = SOV } }
+		priority = 1000
+		cost = 75
+		days_remove = 50
+		remove_effect = { 
+			UKR = { country_event = UKR_soc_sov.2 }
 		}
 	}
 }

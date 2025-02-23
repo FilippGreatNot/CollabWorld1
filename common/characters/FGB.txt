@@ -10,6 +10,7 @@ characters = {
 		country_leader = {
 			ideology = military_junta
 			desc = "POLITICS_KAPP_DESC"
+			traits = { iron_fist_rule }
 		}
 	}
 	FGB_gustav_noske = {
@@ -35,7 +36,7 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = liberal_socialism
+			ideology = social_stratocracy
 			desc = "POLITICS_NOSKE_DESC"
 			traits = {
 				businessman
@@ -105,10 +106,6 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = military_junta
-			desc = "POLITICS_WALDEMAR_PABST_DESC"
-		}
-		country_leader = {
 			ideology = reactionary_socialism
 			desc = "POLITICS_WALDEMAR_PABST_DESC"
 		}
@@ -120,6 +117,18 @@ characters = {
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 1
+		}
+	}
+	FGB_waldemar_pabst2 = {
+		name = "Waldemar Pabst"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_waldemar_pabst.tga"
+			}
+		}
+		country_leader = {
+			ideology = military_junta
+			desc = "POLITICS_WALDEMAR_PABST_DESC"
 		}
 	}
 	FGB_konrad_adenauer = {
@@ -150,10 +159,95 @@ characters = {
 			logistics_skill = 2
 		}
 	}
+	FGB_hans_vogel = {
+		name = "Hans Vogel"
+		portraits = { 
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_hans_vogel.tga"
+			}
+		}
+		country_leader = {
+			ideology = market_socialism 
+			desc = "POLITICS_HANS_VOGEL_DESC"
+			traits = { radio_operator journeyman }
+		}
+	}
 	### Ministers ###
 	## Head of Government ##
-	
+	FGB_freikorps_council = {
+		name = "Freikorps Council"
+		portraits = {
+			civilian = {
+				small = "GFX_idea_FGB_freikorps_council"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = FGB_freikorps_council_hog
+			traits = { provisional_body }
+			can_be_fired = no
+		}
+	}
+	FGB_reichstag = {
+		name = "The Reichstag"
+		portraits = {
+			civilian = {
+				small = "GFX_idea_FGB_reichstag"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = FGB_reichstag_hog
+			traits = { the_reichstag }
+			can_be_fired = no
+		}
+	}
 	## Security Minister ##
+	FGB_otto_gessler = {
+		name = FGB_otto_gessler
+		portraits = {
+			civilian = {
+				small = "GFX_idea_FGB_otto_gessler"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = FGB_otto_gessler_sec
+			visible = {
+				has_completed_focus = FGB_noske_september_coalition
+			}
+			allowed = {
+				tag = FGB
+			}
+			traits = { intricate_bureaucrat }
+			cost = 100
+			can_be_fired = no
+		}
+	}
+	## Economy Minister ##
+	FGB_eugen_schiffer = {
+		name = FGB_eugen_schiffer
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_eugen_schiffer.tga"
+				small = "GFX_idea_FGB_eugen_schiffer"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = FGB_eugen_schiffer_ec
+			visible = {
+				has_completed_focus = FGB_noske_september_coalition
+			}
+			allowed = {
+				tag = FGB
+			}
+			traits = { liberal_economist }
+			cost = 100
+			can_be_fired = no
+		}
+	}
+	## Propaganda Minister ##
 	FGB_kurt_schumacher = {
 		name = FGB_kurt_schumacher
 		portraits = {
@@ -163,8 +257,8 @@ characters = {
 			}
 		}
 		advisor = {
-			slot = security_minister
-			idea_token = FGB_kurt_schumacher_sec
+			slot = propaganda_minister
+			idea_token = FGB_kurt_schumacher_prop
 			visible = {
 				has_completed_focus = FGB_noske_september_coalition
 			}
@@ -176,8 +270,6 @@ characters = {
 			can_be_fired = no
 		}
 	}
-	## Economy Minister ##
-	## Propaganda Minister ##
 	FGB_adolf_hiedler = {
 		name = FGB_adolf_hiedler
 		portraits = {
@@ -229,7 +321,8 @@ characters = {
 				has_completed_focus = FGB_consult_aerial_experts
 			}
 			traits = {
-				air_chief_ground_support_2
+				air_chief_ground_support_3
+				air_chief_all_weather_1
 			}
 			cost = 100
 			ai_will_do = {
@@ -291,7 +384,7 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { armor_officer }
+			traits = { cavalry_expert }
 			skill = 2
 			
 			attack_skill = 2
@@ -341,6 +434,18 @@ characters = {
 		}
 	}
 	## GAINED ##
+	# Royals #
+	FGB_max_von_baden = {
+		name = "Maximillian Von Baden"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FGB/FGB_max_von_baden.tga"
+			}
+			army = {
+				large = "gfx/leaders/FGB/FGB_max_von_baden_army.tga"
+			}
+		}
+	}
 	# Bavarian Generals #
 	FGB_julius_schreck = {
 		name = FGB_julius_schreck

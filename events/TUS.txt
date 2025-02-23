@@ -62,6 +62,51 @@ country_event = {
 }
 
 country_event = {
+	#cut spend
+	id = tus.21
+	title = tus.21.t
+	desc = tus.21.d
+	is_triggered_only = yes
+	
+	option = {
+		#school
+		name = tus.21.a	
+		add_timed_idea = {
+			idea = TUS_cut_education
+			days = 150
+		}
+		custom_effect_tooltip = TUS_modify_ppl_subtract_10
+		custom_effect_tooltip = TUS_modify_mil_subtract_5
+		add_to_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = -10
+		}
+		add_to_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = -5
+		}
+	}
+	option = {
+		#health care
+		name = tus.21.b
+		add_timed_idea = {
+			idea = TUS_cut_healthcare
+			days = 150
+		}
+		custom_effect_tooltip = TUS_modify_ppl_subtract_5
+		custom_effect_tooltip = TUS_modify_mil_subtract_10
+		add_to_variable = {
+			var = TUS_Balbo_Pop_ppl
+			value = -5
+		}
+		add_to_variable = {
+			var = TUS_Balbo_Pop_mil
+			value = -10
+		}
+	}
+}
+
+country_event = {
 	id = tus.5
 	title = tus.5.t
 	desc = tus.5.d

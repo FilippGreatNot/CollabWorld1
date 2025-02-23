@@ -25,7 +25,7 @@ country_event = {
 				transfer_state = 91
 				transfer_state = 89
 			}
-		LAT = {
+		WVA = {
 				transfer_state = 784
 			}
 		release = EPR
@@ -170,6 +170,11 @@ news_event = {
     option = {
         name = tukha.8.a
 	    show_superevent_tukha_soviet_reunification = yes
+		set_portraits = {
+                 character = BLR_mikhail_tukhachevsky
+                 army = { large = "gfx/leaders/BLR/BLR_newtukha.tga" }
+                 civilian = { large ="gfx/leaders/BLR/BLR_newtukha.tga" }
+            }
     }
 }
 
@@ -187,6 +192,84 @@ country_event = {
 		add_political_power = 50
 		}
 	}
+	
+country_event = {
+	id = tukha.10
+	title = tukha.10.t
+	desc = tukha.10.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.10.a
+		add_war_support = 0.05
+		}
+	}
+	
+country_event = {
+	id = tukha.11
+	title = tukha.11.t
+	desc = tukha.11.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.11.a
+		promote_character = BLR_mikhail_tukhachevsky_pagan 
+		add_war_support = 0.05
+		add_stability = -0.10
+		set_cosmetic_tag = BLR_pagan
+		set_party_name = {
+			ideology = bolshevism
+			long_name = BLR_tukhachevsky_pagan
+			name = BLR_tukhachevsky_pagan
+		}
+	}
+	option = {
+		name = tukha.11.b
+		add_stability = 0.05
+		}
+	}
+	
+country_event = {
+	id = tukha.12
+	title = tukha.12.t
+	desc = tukha.12.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.12.a
+		set_country_flag = political_doctrine
+		}
+	
+		option = {
+		name = tukha.12.b
+		set_country_flag = apolitical_doctrine
+		}
+}
+
+country_event = {
+	id = tukha.13
+	title = tukha.13.t
+	desc = tukha.13.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.13.a
+		set_country_flag = modern_approach
+		}
+	
+		option = {
+		name = tukha.13.b
+		set_country_flag = mass_assault_approach
+		}
+}
 
 country_event = {
 	id = BLR_ukr.1
@@ -195,7 +278,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = BLR_ukr.1.a
-		ai_chance = { base = 999999999 }
+		ai_chance = { base = 9 }
 		UKR = { country_event = ukr_soc.18 }
 	}
 	option = {

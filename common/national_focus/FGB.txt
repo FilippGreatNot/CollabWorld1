@@ -28,8 +28,7 @@ focus_tree = {
 			custom_effect_tooltip = FGB_kapp_death_tt
 			hidden_effect = {
 				add_political_power = -50
-				add_stability = -0.1
-				add_war_support = -0.1
+				country_event = { id = fgb.69 days = 1 }
 			}
 		}
 	}
@@ -44,6 +43,7 @@ focus_tree = {
 			factor = 15
 		}
 		prerequisite = { focus = FGB_death_of_kapp }
+		select_effect = { country_event = fgb.70 }
 		completion_reward = {
 			add_stability = 0.02
 			add_political_power = 40
@@ -96,6 +96,7 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.05
 			}
+			country_event = { id = fgb.78 days = 5 }
 		}
 	}
 	
@@ -105,18 +106,45 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		available = {
+			OR = {
+				has_country_leader = { character = FGB_gustav_noske }
+				has_country_leader = { character = FGB_hans_vogel }
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
 		relative_position_id = FGB_noske
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
-			custom_effect_tooltip = FGB_choice_tt
+			add_political_power = -50
 			if = { 
 				limit = { has_idea = FGB_civil_unrest }
 				swap_ideas = {
 					remove_idea = FGB_civil_unrest
 					add_idea = FGB_civil_unrest2
+				}
+			}
+			if = {
+				limit = { has_idea = FGB_civil_unrest1 }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest1 
+					add_idea = FGB_civil_unrest1_a 
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest1_b }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest1_b
+					add_idea = FGB_civil_unrest_final
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest3 }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest3
+					add_idea = FGB_civil_unrest3_b 
 				}
 			}
 			add_stability = 0.05
@@ -129,18 +157,51 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 3
+		available = {
+			OR = {
+				has_country_leader = { character = FGB_gustav_noske }
+				has_country_leader = { character = FGB_hans_vogel }
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
 		relative_position_id = FGB_noske
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
-			custom_effect_tooltip = FGB_choice_tt
 			if = { 
 				limit = { has_idea = FGB_civil_unrest }
 				swap_ideas = {
 					remove_idea = FGB_civil_unrest
 					add_idea = FGB_civil_unrest1
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest2 }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest2
+					add_idea = FGB_civil_unrest2_a
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest2_b }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest2_b 
+					add_idea = FGB_civil_unrest_final
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest3 }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest3
+					add_idea = FGB_civil_unrest3_a 
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest3_b }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest3_b 
+					add_idea = FGB_civil_unrest_final
 				}
 			}
 			add_popularity = {
@@ -160,13 +221,18 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 3
+		available = {
+			OR = {
+				has_country_leader = { character = FGB_gustav_noske }
+				has_country_leader = { character = FGB_hans_vogel }
+			}
+		}
 		ai_will_do = {
 			factor = 15
 		}
 		relative_position_id = FGB_noske
 		prerequisite = { focus = FGB_noske }
 		completion_reward = {
-			custom_effect_tooltip = FGB_choice_tt
 			if = { 
 				limit = { has_idea = FGB_civil_unrest }
 				swap_ideas = {
@@ -174,13 +240,41 @@ focus_tree = {
 					add_idea = FGB_civil_unrest3
 				}
 			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest1_a }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest1_a
+					add_idea = FGB_civil_unrest_final
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest1 }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest1
+					add_idea = FGB_civil_unrest1_b
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest2 }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest2
+					add_idea = FGB_civil_unrest2_b
+				}
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest2_a }
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest2_a
+					add_idea = FGB_civil_unrest_final
+				}
+			}
 			add_popularity = {
 				ideology = social_democrat
 				popularity = 0.05
 			}
 			add_popularity = {
-				ideology = liberalism
-				popularity = 0.05
+				ideology = libertarian_socialism
+				popularity = 0.02
 			}
 		}
 	}
@@ -261,8 +355,8 @@ focus_tree = {
 			FGB_gustav_noske2 = {
 				add_country_leader_role = {
 					country_leader = {
-						expire = "1927.2.6"
-						ideology = social_democrat_subtype
+						expire = "1932.2.6"
+						ideology = social_stratocracy
 						traits = {
 							businessman
 						}
@@ -283,7 +377,7 @@ focus_tree = {
 			factor = 10
 		}
 		available = {
-			social_democrat > 0.5
+			social_democrat > 0.4
 			despotism < 0.2
 		}
 		relative_position_id = FGB_noske_freikorps_spd
@@ -293,7 +387,18 @@ focus_tree = {
 			set_politics = {
 				ruling_party = social_democrat
 			}
-			activate_advisor = FGB_kurt_schumacher_sec
+			custom_effect_tooltip = FGB_we_will_enlist_ministers_tt
+			activate_advisor = FGB_otto_gessler_sec
+			activate_advisor = FGB_eugen_schiffer_ec
+			activate_advisor = FGB_kurt_schumacher_prop
+			hidden_effect = {
+				country_event = { id = fgb.82 days = 1 }
+				country_event = { id = fgb.83 days = 3 }
+				promote_character = {
+					character = FGB_gustav_noske2 
+					ideology = social_stratocracy
+				}
+			}
 		}
 	}
 	
@@ -356,8 +461,8 @@ focus_tree = {
 						instant_build = yes 
 					}
 					add_victory_points = {
-						province = 11486
-						value = 3
+						province = 694
+						value = 2
 					}
 				}
 			}
@@ -385,7 +490,7 @@ focus_tree = {
 			custom_effect_tooltip = FGB_noske_allow_local_free_elections_tt
 			add_popularity = {
 				ideology = liberalism
-				popularity = 0.05
+				popularity = 0.02
 			}
 			add_popularity = {
 				ideology = social_democrat
@@ -497,7 +602,7 @@ focus_tree = {
 		id = FGB_noske_broker_a_peace_with_the_protestors
 		icon = GFX_focus_FGB_peace
 		x = 0
-		y = 2
+		y = 3
 		cost = 3
 		ai_will_do = {
 			factor = 10
@@ -517,9 +622,7 @@ focus_tree = {
 				set_country_flag = FGB_noske_reform_complete
 				mark_focus_tree_layout_dirty = yes
 				remove_ideas = {
-					FGB_civil_unrest1
-					FGB_civil_unrest2
-					FGB_civil_unrest3
+					FGB_civil_unrest_final
 				}
 			}
 		}
@@ -529,7 +632,7 @@ focus_tree = {
 		id = FGB_noske_new_day_new_germany
 		icon = GFX_focus_FGB_dawn
 		x = 0
-		y = 3
+		y = 4
 		cost = 2
 		ai_will_do = {
 			factor = 10
@@ -610,9 +713,8 @@ focus_tree = {
 			add_war_support = 0.05
 			declare_war_on = {
 				target = BAV
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = BAV
 		}
 	}
 
@@ -665,12 +767,12 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_raid_communist_barracks
 		x = -1
 		y = 1
-		cost = 5
+		cost = 3
 		relative_position_id = FGB_noske_victory_over_bavaria
 		prerequisite = { focus = FGB_noske_victory_over_bavaria }
 		completion_reward = {
 			add_war_support = 0.05
-			add_stability = -0.1
+			add_stability = -0.05
 			add_popularity = {
 				ideology = marxism
 				popularity = -0.05
@@ -743,56 +845,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_noske_recruit_new_staff
-		icon = GFX_focus_FGB_noske_recruit_new_staff
-		x = 4
-		y = 2.5
-		cost = 3
-		relative_position_id = FGB_noske_victory_over_bavaria
-		prerequisite = { focus = FGB_noske_victory_over_bavaria focus = FGB_noske_under_new_management }
-		completion_reward = {
-			add_war_support = 0.05
-			add_corps_commander_role = {
-				character = FGB_julius_schreck
-				traits = { fgb_paramilitarist }
-				skill = 2
-				attack_skill = 3
-				defense_skill = 2
-				planning_skill = 1
-				logistics_skill = 1
-			}
-			add_corps_commander_role = {
-				character = FGB_christian_berger
-				traits = { fgb_paramilitarist }
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
-			add_corps_commander_role = {
-				character = FGB_theodor_eicke
-				traits = { }
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-			}
-			hidden_effect = {
-				country_event = fgb.8
-			}
-		}
-	}
-
-	focus = {
 		id = FGB_noske_make_munich_capital
 		icon = GFX_focus_FGB_noske_make_munich_capital
-		x = -1
+		x = -2
 		y = 2
 		cost = 4
 		relative_position_id = FGB_noske_victory_over_bavaria
-		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		prerequisite = { focus = FGB_noske_deagrarianise_bavaria }
+		prerequisite = { focus = FGB_noske_raid_communist_barracks }
 		mutually_exclusive = { focus = FGB_noske_consolidate_bavaria }
 		completion_reward = {
 			country_event = fgb.7
@@ -816,11 +876,12 @@ focus_tree = {
 	focus = {
 		id = FGB_noske_consolidate_bavaria
 		icon = GFX_focus_FGB_noske_consolidate_bavaria
-		x = 1
+		x = 2
 		y = 2
 		cost = 4
 		relative_position_id = FGB_noske_victory_over_bavaria
-		prerequisite = { focus = FGB_noske_victory_over_bavaria }
+		prerequisite = { focus = FGB_noske_integrate_the_militias }
+		prerequisite = { focus = FGB_noske_fate_of_communist_leadership }
 		mutually_exclusive = { focus = FGB_noske_make_munich_capital }
 		completion_reward = {
 			add_stability = -0.05
@@ -839,10 +900,6 @@ focus_tree = {
 			add_victory_points = {
 				province = 6542
 				value = 3
-			}
-			add_victory_points = {
-				province = 9515
-				value = -2
 			}
 			add_victory_points = {
 				province = 708
@@ -883,8 +940,6 @@ focus_tree = {
 		y = 3
 		cost = 5
 		relative_position_id = FGB_noske_victory_over_bavaria
-		prerequisite = { focus = FGB_noske_deagrarianise_bavaria }
-		prerequisite = { focus = FGB_noske_fate_of_communist_leadership }
 		prerequisite = { focus = FGB_noske_make_munich_capital focus = FGB_noske_consolidate_bavaria }
 		completion_reward = {
 			BAV = { 
@@ -895,1192 +950,44 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_attack_wehrkommando
-		icon = GFX_focus_FGB_attack_wehrkommando
+		id = FGB_noske_recruit_new_staff
+		icon = GFX_focus_FGB_noske_recruit_new_staff
 		x = 4
-		y = 1
-		cost = 6
-		relative_position_id = FGB_noske_integrate_bavaria
-		prerequisite = { focus = FGB_noske_integrate_bavaria focus = FGB_noske_incorporate_bavaria }
-		allow_branch = { has_country_flag = FGB_bavaria_integrated_flag }
-		available = {
-			country_exists = WRD
-			WRD = { 
-				has_capitulated = no
-			}
-		}
-		bypass_if_unavailable = yes
+		y = 2.5
+		cost = 3
+		relative_position_id = FGB_noske_victory_over_bavaria
+		prerequisite = { focus = FGB_noske_victory_over_bavaria focus = FGB_noske_under_new_management }
 		completion_reward = {
-			add_state_core = 55
-			create_wargoal = {
-				type = civil_war
-				target = WRD
-			}
-			add_civil_war_target = WRD
-		}
-	}
-
-	focus = {
-		id = FGB_noske_envelop_local_spd
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_attack_wehrkommando
-		prerequisite = { focus = FGB_attack_wehrkommando }
-		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
-		completion_reward = {
-			add_stability = 0.05
-			add_popularity = {
-				ideology = social_democrat
-				popularity = 0.08
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_develop_the_rhine
-		icon = GFX_focus_FGB_noske_default
-		x = -2
-		y = 1
-		cost = 4
-		relative_position_id = FGB_attack_wehrkommando
-		prerequisite = { focus = FGB_attack_wehrkommando }
-		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
-		completion_reward = {
-			add_stability = 0.04
-			42 = {
-				add_compliance = 10
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_liberalise_the_people
-		icon = GFX_focus_FGB_noske_default
-		x = 2
-		y = 1
-		cost = 4
-		relative_position_id = FGB_attack_wehrkommando
-		prerequisite = { focus = FGB_attack_wehrkommando }
-		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = 80
-			add_popularity = {
-				ideology = liberalism
-				popularity = 0.06
-			}
-			51 = {
-				add_compliance = 10
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_power_to_political_minorities
-		icon = GFX_focus_FGB_noske_default
-		x = -1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_liberalise_the_people
-		prerequisite = { focus = FGB_noske_liberalise_the_people }
-		prerequisite = { focus = FGB_noske_envelop_local_spd }
-		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
-		completion_reward = {
-			add_stability = 0.04
-			add_popularity = {
-				ideology = liberalism
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = conservatism
-				popularity = 0.03
-			}
-			add_popularity = {
-				ideology = social_democrat
-				popularity = 0.03
-			}
-			add_popularity = {
-				ideology = reactionism
-				popularity = 0.02
-			}
-			add_popularity = {
-				ideology = national_syndicalism
-				popularity = 0.02
-			}
-			add_state_core = 51
-		}
-	}
-
-	focus = {
-		id = FGB_noske_pacify_local_militias
-		icon = GFX_focus_FGB_noske_default
-		x = -1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_envelop_local_spd
-		prerequisite = { focus = FGB_noske_envelop_local_spd }
-		prerequisite = { focus = FGB_noske_develop_the_rhine }
-		completion_reward = {
-			add_war_support = -0.04
-			add_stability = 0.02
-			add_political_power = 20
-			add_manpower = 90000
-			add_state_core = 42
-		}
-	}
-
-	focus = {
-		id = FGB_noske_amnesty_to_generals
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 2
-		cost = 5
-		relative_position_id = FGB_noske_envelop_local_spd
-		prerequisite = { focus = FGB_noske_envelop_local_spd }
-		prerequisite = { focus = FGB_noske_pacify_local_militias }
-		prerequisite = { focus = FGB_noske_power_to_political_minorities }
-		completion_reward = {
-			add_state_core = 975
-			country_event = fgb.14
-			add_war_support = 0.03
-			add_manpower = 1900
-			add_popularity = {
-				ideology = national_syndicalism
-				popularity = 0.06
-			}
+			add_war_support = 0.05
 			add_corps_commander_role = {
-				character = FGB_ferdinand_schorner
-				traits = { war_hero organizer harsh_leader infantry_leader }
+				character = FGB_julius_schreck
+				traits = { fgb_paramilitarist }
 				skill = 2
-				
 				attack_skill = 3
 				defense_skill = 2
-				planning_skill = 2
-				logistics_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
 			}
 			add_corps_commander_role = {
-				character = FGB_hans_von_seeckt
-				traits = { war_hero combined_arms_expert infantry_expert harsh_leader inflexible_strategist }
-				skill = 4
-				
-				attack_skill = 4
-				defense_skill = 2
-				planning_skill = 3
-				logistics_skill = 4
+				character = FGB_christian_berger
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
 			}
-			add_field_marshal_role = {
-				character = FGB_paul_von_hindenburg
-				skill = 4
-				attack_skill = 3
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 4
-				
-				traits = { war_hero }
+			add_corps_commander_role = {
+				character = FGB_theodor_eicke
+				traits = { }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
 			}
-			set_country_flag = FGB_noske_wehrkommando_integration_complete_flag
 			hidden_effect = {
-				country_event = {
-					id = fgb.15
-					random_days = 3
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_inwards_and_outwards
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 0
-		relative_position_id = FGB_noske_amnesty_to_generals
-		prerequisite = { focus = FGB_noske_amnesty_to_generals }
-		allow_branch = { has_country_flag = FGB_noske_unification_nearly_complete_flag }
-		completion_reward = {
-			add_war_support = 0.05
-		}
-	}
-
-	focus = {
-		id = FGB_noske_to_the_east
-		icon = GFX_focus_FGB_noske_default
-		x = -5
-		y = 1
-		cost = 1
-		relative_position_id = FGB_noske_inwards_and_outwards
-		prerequisite = { focus = FGB_noske_inwards_and_outwards }
-		completion_reward = {
-			add_political_power = 50
-		}
-	}
-
-	focus = {
-		id = FGB_noske_back_to_berlin
-		icon = GFX_focus_FGB_noske_default
-		x = -2
-		y = 1
-		cost = 5
-		relative_position_id = FGB_noske_to_the_east
-		prerequisite = { focus = FGB_noske_to_the_east }
-		completion_reward = {
-			add_war_support = 0.05
-			if = {
-				limit = { 
-					GER = { owns_state = 836 } 
-					NOT = { country_exists = UVS }
-				}
-				custom_effect_tooltip = FGB_noske_we_will_ask_them_to_reunify_tt
-				GER = {
-					country_event = fgb.20
-				}
-			}
-			else_if = {
-				limit = { 
-					UVS = { owns_state = 936 }
-					NOT = { country_exists = GER } 
-				}
-				add_war_support = 0.05
-				create_wargoal = {
-					target = UVS
-					type = civil_war
-				}
-				add_civil_war_target = UVS
-			}
-			else_if = {
-				limit = {
-					AND = {
-						country_exists = GER
-						country_exists = UVS
-					}
-				}
-				create_wargoal = {
-					target = GER
-					type = take_claimed_state
-				}
-				create_wargoal = {
-					target = UVS
-					type = take_claimed_state
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_arrest_liebknecht_and_luxemburg
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 1
-		available = {
-			NOT = { country_exists = UVS }
-		}
-		relative_position_id = FGB_noske_back_to_berlin
-		prerequisite = { focus = FGB_noske_back_to_berlin }
-		completion_reward = {
-			add_popularity = {
-				ideology = marxism
-				popularity = -0.1
-			}
-			add_stability = 0.1
-			country_event = fgb.36
-		}
-	}
-
-	focus = {
-		id = FGB_a_clean_sweep_through_berlin
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 2
-		cost = 2
-		available = {
-			owns_state = 836
-		}
-		relative_position_id = FGB_noske_back_to_berlin
-		prerequisite = { focus = FGB_noske_arrest_liebknecht_and_luxemburg }
-		completion_reward = {
-			add_popularity = { ideology = marxism popularity = -0.05 }
-			836 = {
-				add_manpower = -1400
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_deradicalise_the_people
-		icon = GFX_focus_FGB_noske_default
-		x = -2
-		y = 1
-		cost = 4
-		relative_position_id = FGB_a_clean_sweep_through_berlin
-		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_popularity = { ideology = marxism popularity = -0.05 }
-			every_owned_state = {
-				limit = { is_core_of = UVS }
-				add_dynamic_modifier = { modifier = FGB_deradicalising_state }
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_fund_pomeranian_reconstruction
-		icon = GFX_focus_FGB_noske_default
-		x = -2
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_deradicalise_the_people
-		prerequisite = { focus = FGB_noske_deradicalise_the_people }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			63 = {
-				increase_state_category_by_one_level = yes
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-			}
-			1063 = {
-				increase_state_category_by_one_level = yes
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build  = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_fold_in_prussian_nationalists
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_fund_pomeranian_reconstruction
-		prerequisite = { focus = FGB_noske_fund_pomeranian_reconstruction }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
-			63 = {
-				add_core_of = FGB
-			}
-			1063 = {
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_develop_saxon_steel_industry
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_deradicalise_the_people
-		prerequisite = { focus = FGB_noske_deradicalise_the_people }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			65 = {
-				increase_state_category_by_one_level = yes
-				add_resource = {
-					type = steel
-					amount = 12
-				}
-			}
-			1078 = {
-				increase_state_category_by_one_level = yes
-				add_resource = {
-					type = steel
-					amount = 5
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_free_states_of_saxony_and_lusatia
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_develop_saxon_steel_industry
-		prerequisite = { focus = FGB_noske_develop_saxon_steel_industry }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			65 = {
-				add_core_of = FGB
-				add_dynamic_modifier = { modifier = FGB_free_state }
-			}
-			1078 = {
-				add_core_of = FGB
-				add_dynamic_modifier = { modifier = FGB_free_state }
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_tear_down_marxist_monuments
-		icon = GFX_focus_FGB_noske_default
-		x = 2
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_deradicalise_the_people
-		prerequisite = { focus = FGB_noske_deradicalise_the_people }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_popularity = { ideology = marxism popularity = -0.02 }
-			835 = {
-				increase_state_category_by_one_level = yes
-				add_manpower = -400
-				set_province_name = {
-					id = 13263
-					name = "Friedrichshain-Kreuzburg"
-				}
-			}
-			68 = {
-				increase_state_category_by_one_level = yes
-				add_manpower = -225
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_bring_local_freikorps_into_power
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_tear_down_marxist_monuments
-		prerequisite = { focus = FGB_noske_tear_down_marxist_monuments }
-		completion_reward = {
-			add_political_power = -50
-			add_popularity = { ideology = despotism popularity = 0.05 }
-			835 = {
-				add_core_of = FGB
-			}
-			68 = {
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_end_of_the_red_scare
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 5
-		relative_position_id = FGB_noske_free_states_of_saxony_and_lusatia
-		prerequisite = { focus = FGB_noske_fold_in_prussian_nationalists }
-		prerequisite = { focus = FGB_noske_free_states_of_saxony_and_lusatia }
-		prerequisite = { focus = FGB_noske_bring_local_freikorps_into_power }
-		completion_reward = {
-			add_stability = 0.05
-			add_popularity = { ideology = despotism popularity = 0.05 }
-			every_owned_state = {
-				limit = { is_core_of = UVS }
-				remove_dynamic_modifier = { modifier = FGB_deradicalising_state }
-				remove_core_of = UVS
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_return_of_a_united_brandenburg
-		icon = GFX_focus_FGB_noske_default
-		x = 1
-		y = 1
-		cost = 5
-		relative_position_id = FGB_noske_bring_local_freikorps_into_power
-		prerequisite = { focus = FGB_noske_bring_local_freikorps_into_power }
-		prerequisite = { focus = FGB_noske_raise_the_support_of_the_brandenburgers }
-		completion_reward = {
-			add_stability = 0.05
-			every_owned_state = {
-				limit = { is_core_of = GER }
-				remove_core_of = GER
-			}
-			64 = {
-				set_state_name = "West Brandenburg"
-			}
-			835 = {
-				set_state_name = "Central Brandenburg"
-			}
-			68 = {
-				set_state_name = "East Brandenburg"
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_memories_of_the_kiel_mutiny
-		icon = GFX_focus_FGB_noske_default
-		x = 2
-		y = 1
-		cost = 4
-		relative_position_id = FGB_a_clean_sweep_through_berlin
-		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_popularity = { ideology = marxism popularity = -0.05 }
-			58 = {
-				add_extra_state_shared_building_slots = 1
-				increase_state_category_by_one_level = yes
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_develop_the_dockyards
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_memories_of_the_kiel_mutiny
-		prerequisite = { focus = FGB_noske_memories_of_the_kiel_mutiny }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_equipment_to_stockpile = {
-				type = convoy
-				amount = 200
-				producer = FGB
-			}
-			58 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-				add_core_of = FGB
-			}
-			61 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-				add_core_of = FGB
-			}
-			62 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_support_provincial_parties
-		icon = GFX_focus_FGB_noske_default
-		x = 5
-		y = 1
-		cost = 4
-		relative_position_id = FGB_a_clean_sweep_through_berlin
-		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_popularity = { ideology = conservatism popularity = 0.02 }
-			add_popularity = { ideology = liberalism popularity = 0.02 }
-			add_popularity = { ideology = authoritarian_democrat popularity = 0.02 }
-			59 = { increase_state_category_by_one_level = yes }
-			60 = { increase_state_category_by_one_level = yes }
-		}
-	}
-
-	focus = {
-		id = FGB_noske_reestablish_the_hanoverian_parliament
-		icon = GFX_focus_FGB_noske_default
-		x = -1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_support_provincial_parties
-		prerequisite = { focus = FGB_noske_support_provincial_parties }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			59 = {
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_develop_the_thuringian_industry
-		icon = GFX_focus_FGB_noske_default
-		x = 1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_support_provincial_parties
-		prerequisite = { focus = FGB_noske_support_provincial_parties }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			60 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build  = yes
-				}
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_raise_the_support_of_the_brandenburgers
-		icon = GFX_focus_FGB_noske_default
-		x = -1
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_reestablish_the_hanoverian_parliament
-		prerequisite = { focus = FGB_noske_develop_the_dockyards }
-		prerequisite = { focus = FGB_noske_reestablish_the_hanoverian_parliament }
-		prerequisite = { focus = FGB_noske_develop_the_thuringian_industry }
-		completion_reward = {
-			add_stability = 0.02
-			add_political_power = -20
-			add_popularity = {
-				ideology = social_democrat
-				popularity = 0.04
-			}
-			64 = {
-				add_extra_state_shared_building_slots = 1
-				add_core_of = FGB
-			}
-			1056 = {
-				add_extra_state_shared_building_slots = 1
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_offer_them_autonomy
-		icon = GFX_focus_FGB_noske_default
-		x = 2
-		y = 1
-		cost = 5
-		bypass = {
-			NOT = { country_exists = PLA }
-		}
-		mutually_exclusive = { focus = FGB_noske_reclaim_breslau }
-		relative_position_id = FGB_noske_to_the_east
-		prerequisite = { focus = FGB_noske_to_the_east }
-		completion_reward = {
-			add_stability = 0.05
-			PLA = {
-				country_event = fgb.35
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_discuss_with_the_poles
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 5
-		available = {
-			PLA = { is_subject_of = FGB }
-		}
-		bypass = {
-			NOT = { country_exists = PLA }
-		}
-		relative_position_id = FGB_noske_offer_them_autonomy
-		prerequisite = { focus = FGB_noske_offer_them_autonomy focus = FGB_noske_reclaim_breslau }
-		completion_reward = {
-			country_event = fgb.54
-			custom_effect_tooltip = FGB_noske_we_will_discuss_matters_of_integration_tt
-			custom_effect_tooltip = FGB_if_they_accept_tt
-			effect_tooltip = {
-				FGB = { country_event = fgb.55 }
-			}
-			custom_effect_tooltip = FGB_if_they_refuse_tt
-			effect_tooltip = {
-				FGB = { country_event = fgb.56 }
-			}
-			custom_effect_tooltip = FGB_if_they_refuse_they_may_revoult_tt
-		}
-	}
-
-	focus = {
-		id = FGB_noske_reclaim_breslau
-		icon = GFX_focus_FGB_noske_default
-		x = 4
-		y = 1
-		cost = 5
-		bypass = {
-			NOT = { country_exists = PLA }
-		}
-		mutually_exclusive = { focus = FGB_noske_offer_them_autonomy }
-		relative_position_id = FGB_noske_to_the_east
-		prerequisite = { focus = FGB_noske_to_the_east }
-		completion_reward = {
-			add_war_support = 0.05
-			declare_war_on = {
-				target = PLA
-				type = civil_war
-			}
-			add_civil_war_target = PLA
-		}
-	}
-
-	focus = {
-		id = FGB_noske_integrate_lower_silesia
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 5
-		available = { NOT = { country_exists = PLA } }
-		relative_position_id = FGB_noske_reclaim_breslau
-		prerequisite = { focus = FGB_noske_offer_them_autonomy focus = FGB_noske_reclaim_breslau }
-		completion_reward = {
-			add_stability = 0.05
-			66 = {
-				add_core_of = FGB
-			}
-			928 = {
-				add_core_of = FGB
-			}
-			1079 = {
-				add_core_of = FGB
-			}
-			1080 = {
-				add_core_of = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_oberschliesen_bundesrepublik
-		icon = GFX_focus_FGB_noske_default
-		x = 1
-		y = 1
-		cost = 8
-		available = { NOT = { country_exists = PLA } }
-		relative_position_id = FGB_noske_discuss_with_the_poles
-		prerequisite = { focus = FGB_noske_discuss_with_the_poles }
-		prerequisite = { focus = FGB_noske_integrate_lower_silesia }
-		completion_reward = {
-			add_political_power = -75
-			67 = {
-				add_core_of = FGB
-				add_dynamic_modifier = { modifier = FGB_autonomous_upper_silesia }
-			}
-			762 = {
-				add_core_of = FGB
-				add_dynamic_modifier = { modifier = FGB_autonomous_upper_silesia }
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_to_the_west
-		icon = GFX_focus_FGB_noske_default
-		x = 5
-		y = 1
-		cost = 1
-		relative_position_id = FGB_noske_inwards_and_outwards
-		prerequisite = { focus = FGB_noske_inwards_and_outwards }
-		completion_reward = {
-			add_political_power = 50
-		}
-	}
-
-	focus = {
-		id = FGB_noske_strike_at_the_syndicates
-		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
-		x = -3
-		y = 1
-		cost = 4
-		bypass = {
-			OR = {
-				NOT = { country_exists = FWG }
-				FWG = { 
-					any_core_state = { 
-						NOT = { is_core_of = FGB } 
-						is_owned_by = FGB
-					} 
-				}
-				FWG = {
-					has_war_with = FGB
-				}
-			}
-		}
-		relative_position_id = FGB_noske_to_the_west
-		prerequisite = { focus = FGB_noske_to_the_west }
-		completion_reward = {
-			declare_war_on = {
-				target = FWG
-				type = civil_war
-			}
-			add_civil_war_target = FWG
-		}
-	}
-
-	focus = {
-		id = FGB_noske_reurbanise_westfalen
-		icon = GFX_focus_FGB_noske_reurbanise_westfalen
-		x = -1
-		y = 1
-		cost = 4
-		available = {
-			has_full_control_of_state = 57
-		}
-		relative_position_id = FGB_noske_strike_at_the_syndicates
-		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
-		completion_reward = {
-			add_stability = -0.05
-			57 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build  = yes
-				}
-				add_extra_state_shared_building_slots = 4
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_put_strikers_back_into_dockyards
-		icon = GFX_focus_FGB_noske_put_strikers_back_into_dockyards
-		x = 1
-		y = 1
-		cost = 4
-		available = {
-			has_full_control_of_state = 56
-		}
-		relative_position_id = FGB_noske_strike_at_the_syndicates
-		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
-		completion_reward = {
-			add_stability = -0.05
-			56 = {
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build  = yes
-				}
-				add_extra_state_shared_building_slots = 4
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_bring_down_the_bremen_soviet
-		icon = GFX_focus_FGB_noske_bring_down_the_bremen_soviet
-		x = 0
-		y = 2
-		cost = 4
-		relative_position_id = FGB_noske_strike_at_the_syndicates
-		prerequisite = { focus = FGB_noske_reurbanise_westfalen }
-		prerequisite = { focus = FGB_noske_put_strikers_back_into_dockyards }
-		completion_reward = {
-			add_stability = -0.06
-			56 = {
-				add_resistance = -10
-				add_compliance = 5
-			}
-			57 = {
-				add_resistance = -10
-				add_compliance = 5
-			}
-			add_victory_points = {
-				province = 11388
-				value = -2
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_purge_members
-		icon = GFX_focus_FGB_noske_purge_members
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
-		prerequisite = { focus = FGB_noske_bring_down_the_bremen_soviet }
-		completion_reward = {
-			add_stability = -0.05
-			add_war_support = -0.05
-			56 = {
-				add_manpower = -2300
-				add_resistance = -10
-				add_compliance = 15
-			}
-			57 = {
-				add_manpower = -350
-				add_resistance = -10
-				add_compliance = 15
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_reintegrate_the_north
-		icon = GFX_focus_FGB_noske_reintegrate_the_north
-		x = 0
-		y = 2
-		cost = 4
-		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
-		prerequisite = { focus = FGB_noske_purge_members }
-		completion_reward = {
-			add_war_support = 0.05
-			add_political_power = 120
-			add_state_core = 56
-			add_state_core = 57
-		}
-	}
-
-	focus = {
-		id = FGB_noske_demand_eupen_malmedy
-		icon = GFX_focus_FGB_noske_default
-		x = 1
-		y = 1
-		cost = 4
-		available = {
-			has_completed_focus = FGB_noske_aggressive_policy 
-			has_war = no
-			any_owned_state = {
-				any_neighbor_state = {
-					state = 851
-				}
-			}
-		}
-		relative_position_id = FGB_noske_to_the_west
-		mutually_exclusive = { focus = FGB_noske_purchase_eupen_malmedy }
-		prerequisite = { focus = FGB_noske_to_the_west }
-		completion_reward = {
-			if = {
-				limit = { FRA = { has_full_control_of_state = 851 } }
-				FRA = {
-					country_event = fgb.18
-				}
-			}
-			else_if = {
-				limit = { BEL = { has_full_control_of_state = 851 } }
-				BEL = {
-					country_event = fgb.17
-				}
-			}
-			else = {
-				country_event = fgb.16
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_demand_northern_schleswig
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_demand_eupen_malmedy
-		prerequisite = { focus = FGB_noske_demand_eupen_malmedy }
-		completion_reward = {
-			custom_effect_tooltip = FGB_if_they_accept_tt
-			effect_tooltip = {
-				FGB = { 
-					transfer_state = 841 
-					country_event = { 
-						id = fgb_policy.1
-						days = 2
-					}
-				}
-			}
-			custom_effect_tooltip = FGB_if_they_refuse_tt
-			effect_tooltip = {
-				FGB = { country_event = { id = fgb_policy.2 days = 2 } }
-			}
-			DEN = { country_event = { id = fgb.62 days = 2 } }
-		}
-	}
-
-	focus = {
-		id = FGB_noske_purchase_eupen_malmedy
-		icon = GFX_focus_FGB_noske_default
-		x = 3
-		y = 1
-		cost = 4
-		available = {
-			has_completed_focus = FGB_noske_cooperative_policy 
-			has_war = no
-			any_owned_state = {
-				any_neighbor_state = {
-					state = 851
-				}
-			}
-		}
-		relative_position_id = FGB_noske_to_the_west
-		mutually_exclusive = { focus = FGB_noske_demand_eupen_malmedy }
-		prerequisite = { focus = FGB_noske_to_the_west }
-		completion_reward = {
-			custom_effect_tooltip = FGB_their_acceptance_will_mean_we_will_have_to_pay_tt
-			custom_effect_tooltip = FGB_if_they_accept_tt
-			effect_tooltip = {
-				FGB = { 
-					transfer_state = 851 
-					country_event = { 
-						id = fgb_policy.3
-						days = 2
-					}
-					add_timed_idea = {
-						idea = FGB_purchase_of_territory
-						days = 30
-					}
-				}
-			}
-			custom_effect_tooltip = FGB_if_they_refuse_tt
-			effect_tooltip = { FGB = { country_event = { id = fgb_policy.4 days = 2 } } }
-			every_other_country = {
-				limit = { has_full_control_of_state = 851 }
-				country_event = fgb.61
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_purchase_northern_schleswig
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 1
-		cost = 4
-		relative_position_id = FGB_noske_purchase_eupen_malmedy
-		prerequisite = { focus = FGB_noske_purchase_eupen_malmedy }
-		completion_reward = {
-			custom_effect_tooltip = FGB_their_acceptance_will_mean_we_will_have_to_pay_tt
-			custom_effect_tooltip = FGB_if_they_accept_tt
-			effect_tooltip = {
-				FGB = { 
-					transfer_state = 841 
-					country_event = { 
-						id = fgb_policy.3
-						days = 2
-					}
-					add_timed_idea = {
-						idea = FGB_purchase_of_territory
-						days = 30
-					}
-				}
-			}
-			custom_effect_tooltip = FGB_if_they_refuse_tt
-			effect_tooltip = { FGB = { country_event = { id = fgb_policy.4 days = 2 } } }
-			every_other_country = {
-				limit = { has_full_control_of_state = 841 }
-				country_event = fgb.63
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_noske_question_of_the_former_colonies
-		icon = GFX_focus_FGB_noske_default
-		x = 1
-		y = 1
-		cost = 5
-		relative_position_id = FGB_noske_demand_northern_schleswig
-		prerequisite = { focus = FGB_noske_demand_northern_schleswig focus = FGB_noske_purchase_northern_schleswig }
-		completion_reward = {
-			custom_effect_tooltip = FGB_we_will_ask_the_ostafrikan_government_to_concede_tt
-			add_political_power = 20
-			country_event = { id = fgb.57 days = 1 }
-			custom_effect_tooltip = FGB_the_event_will_trigger_another_deciding_the_fate_of_cameroon_tt
-		}
-	}
-
-	focus = {
-		id = FGB_noske_kamerun_is_ours
-		icon = GFX_focus_FGB_noske_default
-		x = -2
-		y = 1
-		available = {
-			always = no
-		}
-		cost = 0
-		relative_position_id = FGB_noske_question_of_the_former_colonies
-		prerequisite = { focus = FGB_noske_question_of_the_former_colonies }
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = FGB_noske_ostafrika_is_ours
-		icon = GFX_focus_FGB_noske_default
-		x = 2
-		y = 1
-		available = {
-			always = no
-		}
-		cost = 0
-		relative_position_id = FGB_noske_question_of_the_former_colonies
-		prerequisite = { focus = FGB_noske_question_of_the_former_colonies }
-		completion_reward = {
-			
-		}
-	}
-
-	focus = {
-		id = FGB_noske_end_of_the_warlord_era
-		icon = GFX_focus_FGB_noske_default
-		x = 0
-		y = 9
-		cost = 5
-		relative_position_id = FGB_noske_inwards_and_outwards
-		prerequisite = { focus = FGB_noske_end_of_the_red_scare }
-		prerequisite = { focus = FGB_noske_return_of_a_united_brandenburg }
-		prerequisite = { focus = FGB_noske_reintegrate_the_north }
-		completion_reward = {
-			country_event = { id = fgb.64 days = 1 }
-			every_owned_state = {
-				limit = { is_core_of = WRD }
-				remove_core_of = WRD 
-			}
-			every_owned_state = {
-				limit = { is_core_of = FWG }
-				remove_core_of = FWG 
-			}
-			every_owned_state = {
-				limit = { is_core_of = BAV }
-				remove_core_of = BAV 
-			}
-			every_owned_state = {
-				limit = { is_core_of = PLA }
-				remove_core_of = PLA
+				country_event = fgb.8
 			}
 		}
 	}
@@ -2327,8 +1234,7 @@ focus_tree = {
 			}
 		}
 		relative_position_id = FGB_noske_stir_nationalist_sentiment
-		prerequisite = { focus = FGB_noske_extinguish_the_last_flames }
-		prerequisite = { focus = FGB_noske_exile_the_communists }
+		prerequisite = { focus = FGB_noske_extinguish_the_last_flames focus = FGB_noske_exile_the_communists }
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
@@ -2344,10 +1250,1519 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_attack_wehrkommando
+		icon = GFX_focus_FGB_attack_wehrkommando
+		x = 4
+		y = 1
+		cost = 6
+		relative_position_id = FGB_noske_integrate_bavaria
+		prerequisite = { focus = FGB_noske_integrate_bavaria focus = FGB_noske_incorporate_bavaria }
+		allow_branch = { has_country_flag = FGB_bavaria_integrated_flag }
+		available = {
+			country_exists = WRD
+			WRD = { 
+				has_capitulated = no
+			}
+		}
+		bypass_if_unavailable = yes
+		completion_reward = {
+			add_state_core = 55
+			add_state_core = 1082
+			add_state_core = 1083
+			add_state_core = 1090
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_envelop_local_spd
+		icon = GFX_focus_FGB_noske_envelop_local_spd
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_attack_wehrkommando
+		prerequisite = { focus = FGB_attack_wehrkommando }
+		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.08
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_the_rhine
+		icon = GFX_focus_FGB_noske_develop_the_rhine
+		x = -2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_attack_wehrkommando
+		prerequisite = { focus = FGB_attack_wehrkommando }
+		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
+		completion_reward = {
+			add_stability = 0.04
+			42 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_liberalise_the_people
+		icon = GFX_focus_FGB_noske_liberalise_the_people
+		x = 2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_attack_wehrkommando
+		prerequisite = { focus = FGB_attack_wehrkommando }
+		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = 80
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.06
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_power_to_political_minorities
+		icon = GFX_focus_FGB_noske_power_to_political_minorities
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_liberalise_the_people
+		prerequisite = { focus = FGB_noske_liberalise_the_people }
+		prerequisite = { focus = FGB_noske_envelop_local_spd }
+		allow_branch = { has_country_flag = FGB_noske_victory_over_wehrkommando_flag }
+		completion_reward = {
+			add_stability = 0.04
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.02
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_pacify_local_militias
+		icon = GFX_focus_FGB_noske_pacify_local_militias
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_envelop_local_spd
+		prerequisite = { focus = FGB_noske_envelop_local_spd }
+		prerequisite = { focus = FGB_noske_develop_the_rhine }
+		completion_reward = {
+			add_war_support = -0.04
+			add_stability = 0.03
+			add_political_power = 20
+			add_manpower = 90000
+		}
+	}
+
+	focus = {
+		id = FGB_noske_amnesty_to_generals
+		icon = GFX_focus_FGB_noske_amnesty_to_generals
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = FGB_noske_envelop_local_spd
+		prerequisite = { focus = FGB_noske_pacify_local_militias focus = FGB_noske_power_to_political_minorities }
+		completion_reward = {
+			add_war_support = 0.03
+			add_manpower = 1900
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.06
+			}
+			add_corps_commander_role = {
+				character = FGB_ferdinand_schorner
+				traits = { war_hero organizer harsh_leader infantry_leader }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+				character = FGB_hans_von_seeckt
+				traits = { war_hero combined_arms_expert infantry_expert harsh_leader inflexible_strategist }
+				skill = 4
+				attack_skill = 4
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 4
+			}
+			add_field_marshal_role = {
+				character = FGB_paul_von_hindenburg
+				traits = { war_hero }
+				skill = 4
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 4
+			}
+			hidden_effect = {
+				country_event = {
+					id = fgb.15
+					days = 4
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_exile_the_kaiser
+		icon = GFX_focus_FGB_noske_exile_the_kaiser
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_amnesty_to_generals
+		prerequisite = { focus = FGB_noske_amnesty_to_generals }
+		completion_reward = {
+			add_stability = -0.075
+			add_political_power = 100
+			WRD = { make_every_core_national_for_PREV = yes }
+			set_country_flag = FGB_noske_wehrkommando_integration_complete_flag
+			country_event = fgb.14
+		}
+	}
+
+	focus = {
+		id = FGB_noske_inwards_and_outwards
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 0
+		relative_position_id = FGB_noske_exile_the_kaiser
+		prerequisite = { focus = FGB_noske_exile_the_kaiser }
+		allow_branch = { has_country_flag = FGB_noske_unification_nearly_complete_flag }
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = FGB_noske_to_the_east
+		icon = GFX_focus_FGB_noske_default
+		x = -5
+		y = 1
+		cost = 1
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = FGB_noske_back_to_berlin
+		icon = GFX_focus_FGB_noske_default
+		x = -3
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = { NOT = { country_exists = UVS } }
+		relative_position_id = FGB_noske_to_the_east
+		prerequisite = { focus = FGB_noske_to_the_east }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_offer_the_republicans_peaceful_reunification
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = { NOT = { country_exists = GER } }
+		relative_position_id = FGB_noske_to_the_east
+		prerequisite = { focus = FGB_noske_to_the_east }
+		completion_reward = {
+			add_stability = 0.05
+			custom_effect_tooltip = FGB_noske_we_will_ask_them_to_reunify_tt
+			country_event = { id = fgb.20 days = 2 }
+		}
+	}
+
+	focus = {
+		id = FGB_noske_arrest_liebknecht_and_luxemburg
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 1
+		available = {
+			NOT = { country_exists = UVS }
+		}
+		relative_position_id = FGB_noske_back_to_berlin
+		prerequisite = { focus = FGB_noske_back_to_berlin }
+		prerequisite = { focus = FGB_noske_offer_the_republicans_peaceful_reunification }
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_stability = 0.1
+			country_event = fgb.36
+		}
+	}
+
+	focus = {
+		id = FGB_a_clean_sweep_through_berlin
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 2
+		cost = 2
+		available = {
+			owns_state = 836
+		}
+		relative_position_id = FGB_noske_back_to_berlin
+		prerequisite = { focus = FGB_noske_arrest_liebknecht_and_luxemburg }
+		completion_reward = {
+			add_popularity = { ideology = marxism popularity = -0.05 }
+			836 = {
+				add_manpower = -1400
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_deradicalise_the_people
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_popularity = { ideology = marxism popularity = -0.05 }
+			every_owned_state = {
+				limit = { is_core_of = UVS }
+				add_dynamic_modifier = { modifier = FGB_deradicalising_state }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_fund_pomeranian_reconstruction
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_deradicalise_the_people
+		prerequisite = { focus = FGB_noske_deradicalise_the_people }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			63 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+			1063 = {
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_fold_in_prussian_nationalists
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_fund_pomeranian_reconstruction
+		prerequisite = { focus = FGB_noske_fund_pomeranian_reconstruction }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+			63 = {
+				add_core_of = FGB
+			}
+			1063 = {
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_saxon_steel_industry
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_deradicalise_the_people
+		prerequisite = { focus = FGB_noske_deradicalise_the_people }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			65 = {
+				increase_state_category_by_one_level = yes
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+			}
+			1078 = {
+				increase_state_category_by_one_level = yes
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_free_states_of_saxony_and_lusatia
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_develop_saxon_steel_industry
+		prerequisite = { focus = FGB_noske_develop_saxon_steel_industry }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			65 = {
+				add_core_of = FGB
+				add_dynamic_modifier = { modifier = FGB_free_state }
+			}
+			1078 = {
+				add_core_of = FGB
+				add_dynamic_modifier = { modifier = FGB_free_state }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_tear_down_marxist_monuments
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_deradicalise_the_people
+		prerequisite = { focus = FGB_noske_deradicalise_the_people }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_popularity = { ideology = marxism popularity = -0.02 }
+			835 = {
+				increase_state_category_by_one_level = yes
+				add_manpower = -400
+			}
+			68 = {
+				increase_state_category_by_one_level = yes
+				add_manpower = -225
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_bring_local_freikorps_into_power
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_tear_down_marxist_monuments
+		prerequisite = { focus = FGB_noske_tear_down_marxist_monuments }
+		completion_reward = {
+			add_political_power = -50
+			add_popularity = { ideology = despotism popularity = 0.05 }
+			835 = {
+				add_core_of = FGB
+			}
+			68 = {
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_end_of_the_red_scare
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_free_states_of_saxony_and_lusatia
+		prerequisite = { focus = FGB_noske_fold_in_prussian_nationalists }
+		prerequisite = { focus = FGB_noske_free_states_of_saxony_and_lusatia }
+		prerequisite = { focus = FGB_noske_bring_local_freikorps_into_power }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = { ideology = despotism popularity = 0.05 }
+			every_owned_state = {
+				limit = { is_core_of = UVS }
+				remove_dynamic_modifier = { modifier = FGB_deradicalising_state }
+				remove_core_of = UVS
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_return_of_a_united_brandenburg
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_bring_local_freikorps_into_power
+		prerequisite = { focus = FGB_noske_bring_local_freikorps_into_power }
+		prerequisite = { focus = FGB_noske_raise_the_support_of_the_brandenburgers }
+		completion_reward = {
+			add_stability = 0.05
+			every_owned_state = {
+				limit = { is_core_of = GER }
+				remove_core_of = GER
+			}
+			64 = {
+				set_state_name = "West Brandenburg"
+			}
+			835 = {
+				set_state_name = "Central Brandenburg"
+			}
+			68 = {
+				set_state_name = "East Brandenburg"
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_memories_of_the_kiel_mutiny
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 4
+		relative_position_id = FGB_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_popularity = { ideology = marxism popularity = -0.05 }
+			58 = {
+				add_extra_state_shared_building_slots = 1
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_the_dockyards
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_memories_of_the_kiel_mutiny
+		prerequisite = { focus = FGB_noske_memories_of_the_kiel_mutiny }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 200
+				producer = FGB
+			}
+			58 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+			61 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+			62 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_support_provincial_parties
+		icon = GFX_focus_FGB_noske_default
+		x = 5
+		y = 1
+		cost = 4
+		relative_position_id = FGB_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_popularity = { ideology = conservatism popularity = 0.02 }
+			add_popularity = { ideology = liberalism popularity = 0.02 }
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.02 }
+			59 = { increase_state_category_by_one_level = yes }
+			60 = { increase_state_category_by_one_level = yes }
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reestablish_the_hanoverian_parliament
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_support_provincial_parties
+		prerequisite = { focus = FGB_noske_support_provincial_parties }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			59 = {
+				add_core_of = FGB
+			}
+			add_popularity = { ideology = conservatism popularity = 0.02 }
+			add_popularity = { ideology = liberalism popularity = 0.02 }
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_the_thuringian_industry
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_support_provincial_parties
+		prerequisite = { focus = FGB_noske_support_provincial_parties }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			60 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_raise_the_support_of_the_brandenburgers
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_reestablish_the_hanoverian_parliament
+		prerequisite = { focus = FGB_noske_develop_the_dockyards }
+		prerequisite = { focus = FGB_noske_reestablish_the_hanoverian_parliament }
+		prerequisite = { focus = FGB_noske_develop_the_thuringian_industry }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -20
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			64 = {
+				add_extra_state_shared_building_slots = 1
+				add_core_of = FGB
+			}
+			1056 = {
+				add_extra_state_shared_building_slots = 1
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_offer_them_autonomy
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = {
+			NOT = { country_exists = PLA }
+		}
+		mutually_exclusive = { focus = FGB_noske_reclaim_breslau }
+		relative_position_id = FGB_noske_to_the_east
+		prerequisite = { focus = FGB_noske_to_the_east }
+		completion_reward = {
+			add_stability = 0.05
+			PLA = {
+				country_event = fgb.35
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_discuss_with_the_poles
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			PLA = { is_subject_of = FGB }
+		}
+		bypass = {
+			NOT = { country_exists = PLA }
+		}
+		relative_position_id = FGB_noske_offer_them_autonomy
+		prerequisite = { focus = FGB_noske_offer_them_autonomy focus = FGB_noske_reclaim_breslau }
+		completion_reward = {
+			country_event = fgb.54
+			custom_effect_tooltip = FGB_noske_we_will_discuss_matters_of_integration_tt
+			custom_effect_tooltip = FGB_if_they_accept_tt
+			effect_tooltip = {
+				FGB = { country_event = fgb.55 }
+			}
+			custom_effect_tooltip = FGB_if_they_refuse_tt
+			effect_tooltip = {
+				FGB = { country_event = fgb.56 }
+			}
+			custom_effect_tooltip = FGB_if_they_refuse_they_may_revoult_tt
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reclaim_breslau
+		icon = GFX_focus_FGB_noske_default
+		x = 4
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = {
+			NOT = { country_exists = PLA }
+		}
+		mutually_exclusive = { focus = FGB_noske_offer_them_autonomy }
+		relative_position_id = FGB_noske_to_the_east
+		prerequisite = { focus = FGB_noske_to_the_east }
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = PLA
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_integrate_lower_silesia
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		available = { NOT = { country_exists = PLA } }
+		relative_position_id = FGB_noske_reclaim_breslau
+		prerequisite = { focus = FGB_noske_offer_them_autonomy focus = FGB_noske_reclaim_breslau }
+		completion_reward = {
+			add_stability = 0.05
+			66 = {
+				add_core_of = FGB
+			}
+			928 = {
+				add_core_of = FGB
+			}
+			1079 = {
+				add_core_of = FGB
+			}
+			1080 = {
+				add_core_of = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_oberschliesen_bundesrepublik
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 8
+		available = { NOT = { country_exists = PLA } }
+		relative_position_id = FGB_noske_discuss_with_the_poles
+		prerequisite = { focus = FGB_noske_discuss_with_the_poles }
+		prerequisite = { focus = FGB_noske_integrate_lower_silesia }
+		completion_reward = {
+			add_political_power = -75
+			67 = {
+				add_core_of = FGB
+				add_dynamic_modifier = { modifier = FGB_autonomous_upper_silesia }
+			}
+			762 = {
+				add_core_of = FGB
+				add_dynamic_modifier = { modifier = FGB_autonomous_upper_silesia }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_to_the_west
+		icon = GFX_focus_FGB_noske_default
+		x = 5
+		y = 1
+		cost = 1
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_inwards_and_outwards }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = FGB_noske_strike_at_the_syndicates
+		icon = GFX_focus_FGB_noske_strike_at_the_syndicates
+		x = -3
+		y = 1
+		cost = 4
+		available = { has_war = no }
+		bypass = {
+			OR = {
+				NOT = { country_exists = FWG }
+				FWG = { 
+					any_core_state = { 
+						NOT = { is_core_of = FGB } 
+						is_owned_by = FGB
+					} 
+				}
+				FWG = {
+					has_war_with = FGB
+				}
+			}
+		}
+		relative_position_id = FGB_noske_to_the_west
+		prerequisite = { focus = FGB_noske_to_the_west }
+		completion_reward = {
+			declare_war_on = {
+				target = FWG
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reurbanise_westfalen
+		icon = GFX_focus_FGB_noske_reurbanise_westfalen
+		x = -1
+		y = 1
+		cost = 4
+		available = {
+			has_full_control_of_state = 57
+		}
+		relative_position_id = FGB_noske_strike_at_the_syndicates
+		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
+		completion_reward = {
+			1087 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			1086 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+			57 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_put_strikers_back_into_dockyards
+		icon = GFX_focus_FGB_noske_put_strikers_back_into_dockyards
+		x = 1
+		y = 1
+		cost = 4
+		available = {
+			has_full_control_of_state = 56
+		}
+		relative_position_id = FGB_noske_strike_at_the_syndicates
+		prerequisite = { focus = FGB_noske_strike_at_the_syndicates }
+		completion_reward = {
+			add_stability = -0.05
+			56 = {
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+				add_extra_state_shared_building_slots = 4
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_bring_down_the_bremen_soviet
+		icon = GFX_focus_FGB_noske_bring_down_the_bremen_soviet
+		x = 0
+		y = 2
+		cost = 4
+		relative_position_id = FGB_noske_strike_at_the_syndicates
+		prerequisite = { focus = FGB_noske_reurbanise_westfalen }
+		prerequisite = { focus = FGB_noske_put_strikers_back_into_dockyards }
+		completion_reward = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+			1091 = {
+				add_resistance = -10
+				add_compliance = 5
+			}
+			56 = {
+				add_resistance = -10
+				add_compliance = 5
+			}
+			add_victory_points = {
+				province = 3326
+				value = -2
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_purge_members
+		icon = GFX_focus_FGB_noske_purge_members
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
+		prerequisite = { focus = FGB_noske_bring_down_the_bremen_soviet }
+		completion_reward = {
+			add_political_power = 20
+			add_stability = -0.05
+			56 = {
+				add_manpower = -2300
+				add_resistance = -10
+				add_compliance = 15
+			}
+			57 = {
+				add_manpower = -350
+				add_resistance = -10
+				add_compliance = 15
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_reintegrate_the_north
+		icon = GFX_focus_FGB_noske_reintegrate_the_north
+		x = 0
+		y = 2
+		cost = 4
+		relative_position_id = FGB_noske_bring_down_the_bremen_soviet
+		prerequisite = { focus = FGB_noske_purge_members }
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.05
+			add_political_power = 120
+			FWG = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = FGB_noske_demand_eupen_malmedy
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 4
+		available = {
+			has_completed_focus = FGB_noske_aggressive_policy 
+			has_war = no
+			any_owned_state = {
+				any_neighbor_state = {
+					state = 851
+				}
+			}
+		}
+		relative_position_id = FGB_noske_to_the_west
+		mutually_exclusive = { focus = FGB_noske_purchase_eupen_malmedy }
+		prerequisite = { focus = FGB_noske_to_the_west }
+		completion_reward = {
+			if = {
+				limit = { FRA = { has_full_control_of_state = 851 } }
+				FRA = {
+					country_event = fgb.18
+				}
+			}
+			else_if = {
+				limit = { BEL = { has_full_control_of_state = 851 } }
+				BEL = {
+					country_event = fgb.17
+				}
+			}
+			else = {
+				country_event = fgb.16
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_demand_northern_schleswig
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_demand_eupen_malmedy
+		prerequisite = { focus = FGB_noske_demand_eupen_malmedy }
+		completion_reward = {
+			custom_effect_tooltip = FGB_if_they_accept_tt
+			effect_tooltip = {
+				FGB = { 
+					transfer_state = 841 
+					country_event = { 
+						id = fgb_policy.1
+						days = 2
+					}
+				}
+			}
+			custom_effect_tooltip = FGB_if_they_refuse_tt
+			effect_tooltip = {
+				FGB = { country_event = { id = fgb_policy.2 days = 2 } }
+			}
+			DEN = { country_event = { id = fgb.62 days = 2 } }
+		}
+	}
+
+	focus = {
+		id = FGB_noske_purchase_eupen_malmedy
+		icon = GFX_focus_FGB_noske_default
+		x = 3
+		y = 1
+		cost = 4
+		available = {
+			has_completed_focus = FGB_noske_cooperative_policy 
+			has_war = no
+			any_owned_state = {
+				any_neighbor_state = {
+					state = 851
+				}
+			}
+		}
+		relative_position_id = FGB_noske_to_the_west
+		mutually_exclusive = { focus = FGB_noske_demand_eupen_malmedy }
+		prerequisite = { focus = FGB_noske_to_the_west }
+		completion_reward = {
+			custom_effect_tooltip = FGB_their_acceptance_will_mean_we_will_have_to_pay_tt
+			custom_effect_tooltip = FGB_if_they_accept_tt
+			effect_tooltip = {
+				FGB = { 
+					transfer_state = 851 
+					country_event = { 
+						id = fgb_policy.3
+						days = 2
+					}
+					add_timed_idea = {
+						idea = FGB_purchase_of_territory
+						days = 30
+					}
+				}
+			}
+			custom_effect_tooltip = FGB_if_they_refuse_tt
+			effect_tooltip = { FGB = { country_event = { id = fgb_policy.4 days = 2 } } }
+			every_other_country = {
+				limit = { has_full_control_of_state = 851 }
+				country_event = fgb.61
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_purchase_northern_schleswig
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_noske_purchase_eupen_malmedy
+		prerequisite = { focus = FGB_noske_purchase_eupen_malmedy }
+		completion_reward = {
+			custom_effect_tooltip = FGB_their_acceptance_will_mean_we_will_have_to_pay_tt
+			custom_effect_tooltip = FGB_if_they_accept_tt
+			effect_tooltip = {
+				FGB = { 
+					transfer_state = 841 
+					country_event = { 
+						id = fgb_policy.3
+						days = 2
+					}
+					add_timed_idea = {
+						idea = FGB_purchase_of_territory
+						days = 30
+					}
+				}
+			}
+			custom_effect_tooltip = FGB_if_they_refuse_tt
+			effect_tooltip = { FGB = { country_event = { id = fgb_policy.4 days = 2 } } }
+			every_other_country = {
+				limit = { has_full_control_of_state = 841 }
+				country_event = fgb.63
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_question_of_the_former_colonies
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_demand_northern_schleswig
+		prerequisite = { focus = FGB_noske_demand_northern_schleswig focus = FGB_noske_purchase_northern_schleswig }
+		completion_reward = {
+			custom_effect_tooltip = FGB_we_will_ask_the_ostafrikan_government_to_concede_tt
+			add_political_power = 20
+			country_event = { id = fgb.57 days = 1 }
+			custom_effect_tooltip = FGB_the_event_will_trigger_another_deciding_the_fate_of_cameroon_tt
+		}
+	}
+
+	focus = {
+		id = FGB_noske_kamerun_is_ours
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		available = {
+			always = no
+		}
+		cost = 0
+		relative_position_id = FGB_noske_question_of_the_former_colonies
+		prerequisite = { focus = FGB_noske_question_of_the_former_colonies }
+		completion_reward = {
+			hidden_effect = {
+				country_event = { id = fgb.74 days = 2 }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_develop_local_logistics
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_kamerun_is_ours
+		prerequisite = { focus = FGB_noske_kamerun_is_ours }
+		completion_reward = {
+			773 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build  = yes
+					province = 2080
+				}
+			}
+			1022 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_support_the_lacking_kamerunian_industry
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_develop_local_logistics
+		prerequisite = { focus = FGB_noske_develop_local_logistics }
+		completion_reward = {
+			773 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
+			1022 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+				add_resource = {
+					type = oil
+					amount = 3
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_ostafrika_is_ours
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		available = {
+			always = no
+		}
+		cost = 0
+		relative_position_id = FGB_noske_question_of_the_former_colonies
+		prerequisite = { focus = FGB_noske_question_of_the_former_colonies }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_noske_pacify_the_wild
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_ostafrika_is_ours
+		prerequisite = { focus = FGB_noske_ostafrika_is_ours }
+		completion_reward = {
+			768 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			769 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			1052 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			1053 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_bolster_industry_in_tangayika
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_pacify_the_wild
+		prerequisite = { focus = FGB_noske_pacify_the_wild }
+		completion_reward = {
+			546 = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			1051 = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			1052 = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_inter_colonial_common_development_programme
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_bolster_industry_in_tangayika
+		prerequisite = { focus = FGB_noske_support_the_lacking_kamerunian_industry }
+		prerequisite = { focus = FGB_noske_bolster_industry_in_tangayika }
+		completion_reward = {
+			add_ideas = { FGB_inter_colonial_development_funding }
+			CMR = {
+				add_ideas = { FGB_inter_colonial_development }
+			}
+			DOA = {
+				add_ideas = { FGB_inter_colonial_development }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_the_matter_of_the_troublesome_neighbours
+		icon = GFX_focus_FGB_noske_default
+		x = 4
+		y = 1
+		cost = 3
+		relative_position_id = FGB_noske_question_of_the_former_colonies
+		prerequisite = { focus = FGB_noske_question_of_the_former_colonies }
+		completion_reward = {
+			country_event = fgb.73
+			custom_effect_tooltip = FGB_there_are_some_neighbours_near_our_former_colonies_tt
+		}
+	}
+
+	focus = {
+		id = FGB_noske_taking_out_the_socialist_north
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		allow_branch = {
+			has_country_flag = FGB_noske_african_expansion
+		}
+		cost = 5
+		relative_position_id = FGB_noske_the_matter_of_the_troublesome_neighbours
+		prerequisite = { focus = FGB_noske_ostafrika_is_ours }
+		prerequisite = { focus = FGB_noske_the_matter_of_the_troublesome_neighbours }
+		completion_reward = {
+			548 = {
+				add_claim_by = DOA
+			}
+			547 = {
+				add_claim_by = DOA
+			}
+			DOA = { 
+				declare_war_on = {
+					target = KEN
+					type = annex_everything
+				}
+			}
+			FGB = {
+    			add_to_war = {
+      				targeted_alliance = DOA
+      				enemy = KEN
+      				hostility_reason = asked_to_join 
+      				single_target_only = yes 
+  				}
+			}
+			hidden_effect = { 
+				country_event = { id = fgb.77 days = 5 }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_repression_of_the_afrosocialist_ideology
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		available = {
+			NOT = { country_exists = KEN }
+		}
+		cost = 5
+		relative_position_id = FGB_noske_taking_out_the_socialist_north
+		prerequisite = { focus = FGB_noske_taking_out_the_socialist_north }
+		completion_reward = {
+			add_stability = -0.05
+			548 = {
+				remove_core_of = UGA 
+				add_claim_by = UGA 
+				add_core_of = DOA
+			}
+			547 = {
+				remove_core_of = KEN
+				add_claim_by = KEN
+				add_core_of = DOA
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_what_about_the_italian_colonies
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		allow_branch = {
+			has_country_flag = FGB_noske_african_expansion
+		}
+		cost = 5
+		relative_position_id = FGB_noske_the_matter_of_the_troublesome_neighbours
+		prerequisite = { focus = FGB_noske_the_matter_of_the_troublesome_neighbours }
+		completion_reward = {
+			country_event = fgb.75
+			custom_effect_tooltip = FGB_they_will_likely_reject_and_if_they_do_we_will_conquer_their_colonies_tt
+		}
+	}
+
+	focus = {
+		id = FGB_noske_plan_blau
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_what_about_the_italian_colonies
+		prerequisite = { focus = FGB_noske_what_about_the_italian_colonies }
+		completion_reward = {
+			declare_war_on = {
+				target = SOM 
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_plan_grun
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_what_about_the_italian_colonies
+		prerequisite = { focus = FGB_noske_what_about_the_italian_colonies }
+		completion_reward = {
+			declare_war_on = {
+				target = ERI 
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_the_two_sovereigns
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_noske_plan_grun
+		prerequisite = { focus = FGB_noske_plan_blau }
+		prerequisite = { focus = FGB_noske_plan_grun }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_noske_end_of_the_warlord_era
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 9
+		cost = 5
+		relative_position_id = FGB_noske_inwards_and_outwards
+		prerequisite = { focus = FGB_noske_end_of_the_red_scare }
+		prerequisite = { focus = FGB_noske_return_of_a_united_brandenburg }
+		prerequisite = { focus = FGB_noske_reintegrate_the_north }
+		completion_reward = {
+			country_event = { id = fgb.64 days = 1 }
+			every_state = {
+				limit = { is_core_of = BAV }
+				remove_core_of = BAV 
+			}
+			every_state = {
+				limit = { is_core_of = FWG }
+				remove_core_of = FWG 
+			}
+			every_state = {
+				limit = { is_core_of = GER }
+				remove_core_of = GER 
+			}
+			every_state = {
+				limit = { is_core_of = PLA }
+				remove_core_of = PLA
+			}
+			every_state = {
+				limit = { is_core_of = UVS }
+				remove_core_of = UVS
+			}
+			every_state = {
+				limit = { is_core_of = WRD }
+				remove_core_of = WRD 
+			}
+		}
+	}
+
+	focus = {
 		id = FGB_noske_the_second_revolution_of_1848
 		icon = GFX_focus_FGB_revolution
-		x = 37
-		y = 8
+		x = 5
+		y = 33
 		cost = 0
 		allow_branch = { has_country_flag = FGB_noske_ger_unified_flag }
 		completion_reward = {
@@ -2640,7 +3055,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_hitler_die_fuhrerprinzip }
 		relative_position_id = FGB_hitler_die_fuhrerprinzip
 		completion_reward = {
-			
+			country_event = fgb.84
 		}
 	}
 
@@ -2707,7 +3122,18 @@ focus_tree = {
 		prerequisite = { focus = FGB_hitler_the_german_industrial_revolution }
 		relative_position_id = FGB_hitler_the_german_industrial_revolution
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
 		}
 	}
 
@@ -2774,7 +3200,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_hitler_die_fuhrerprinzip }
 		relative_position_id = FGB_hitler_die_fuhrerprinzip
 		completion_reward = {
-			
+			country_event = fgb.96
 		}
 	}
 
@@ -4126,24 +4552,16 @@ focus_tree = {
 		icon = GFX_goal_anschluss
 		x = -1
 		y = 1
-		cost = 5
+		cost = 4
 		available = {
 			NOT = { has_completed_focus = FGB_hitlers_coup }
-		}
-		select_effect = {
-			country_event = fgb.24
 		}
 		prerequisite = { focus = FGB_noske_into_the_spotlight }
 		relative_position_id = FGB_noske_into_the_spotlight
 		completion_reward = {
-			AUS = {
-				every_owned_state = {
-					add_core_of = FGB
-				}
-			}
-			annex_country = {
-				target = AUS
-				transfer_troops = yes
+			country_event = { id = fgb.24 days = 1 }
+			effect_tooltip = {
+				AUS = { country_event = { id = fgb.26 days = 2 } }
 			}
 		}
 	}
@@ -4318,7 +4736,7 @@ focus_tree = {
 		relative_position_id = FGB_noske_offer_protection_to_the_balkan_states
 		completion_reward = {
 			custom_effect_tooltip = FGB_we_will_demand_his_submission
-			LAT = {
+			WVA = {
 				country_event = { id = fgb.39 days = 3 }
 			}
 		}
@@ -4406,7 +4824,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_establish_the_euromark
-		icon = GFX_focus_DEN_civilian_preparations
+		icon = GFX_focus_FGB_noske_establish_the_euromark
 		x = -1
 		y = 1
 		cost = 5
@@ -4526,9 +4944,6 @@ focus_tree = {
 			add_popularity = {
 				ideology = reactionism
 				popularity = 0.05
-			}
-			hidden_effect = {
-				promote_character = FGB_waldemar_pabst
 			}
 		}
 	}
@@ -5011,9 +5426,8 @@ focus_tree = {
 			
 			declare_war_on = {
 				target = BAV
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = BAV
 		}
 	}
 	focus = {
@@ -5049,9 +5463,8 @@ focus_tree = {
 		
 			declare_war_on = {
 				target = WRD
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = WRD
 		}
 	}
 	focus = {
@@ -5087,9 +5500,8 @@ focus_tree = {
 		
 			declare_war_on = {
 				target = FWG
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = FWG
 		}
 	}
 	focus = {
@@ -5127,9 +5539,8 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus FGB_dressler_burn_the_debris_of_the_republic_log"
 			declare_war_on = {
 				target = GER
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = GER
 		}
 	}
 	focus = {
@@ -5165,9 +5576,8 @@ focus_tree = {
 		
 			declare_war_on = {
 				target = PLA
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = PLA
 		}
 	}
 	focus = {
@@ -5199,9 +5609,8 @@ focus_tree = {
 		
 			declare_war_on = {
 				target = UVS
-				type = civil_war
+				type = annex_everything
 			}
-			add_civil_war_target = PLA
 		}
 	}
 	focus = {
@@ -5402,6 +5811,23 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = FGB_luttwitzs_coup
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 0
+		relative_position_id = FGB_electing_new_leader
+		prerequisite = { focus = FGB_electing_new_leader }
+		allow_branch = { has_country_flag = FGB_luttwitz_flag }
+		completion_reward = {
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+		}
+	}
+
  #############################################################################  #########################
 ##                                                                           ## ##                      ##
 ##  ##     ## ###### ##     ###### ########     ###     ########   ##    ##  ## ##                        ##
@@ -5440,7 +5866,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_train_soldiers }
 		x = 24
 		y = 1
-		cost = 5
+		cost = 4
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			army_experience = 30
@@ -5463,7 +5889,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_study_past_tactics
 		x = -1
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_freikorps_legacy
 		prerequisite = { focus = FGB_freikorps_legacy }
 		ai_will_do = {
@@ -5473,8 +5899,8 @@ focus_tree = {
 			army_experience = 20
             add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				cost_reduction = 0.75
-				uses = 2
+				cost_reduction = 0.5
+				uses = 1
 				category = land_doctrine
 			}
 			IF = {
@@ -5532,7 +5958,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_study_tactics }
 		x = -1
 		y = 2
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_freikorps_legacy
 		ai_will_do = {
 			factor = 10
@@ -5540,26 +5966,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_stability = 0.05
-			852 = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
-				}
-			}
-			50 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
-				852 = {
-					add_extra_state_shared_building_slots = 2
-				}
-				50 = {
-					add_extra_state_shared_building_slots = 2
 				}
 			}
 		}
@@ -5570,7 +5982,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_repurpose_airfields
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_analyse_mistakes
 		prerequisite = { focus = FGB_analyse_mistakes }
 		ai_will_do = {
@@ -5579,21 +5991,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			air_experience = 20
-			852 = {
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
-			50 = {
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
-			54 = {
+			every_owned_state = {
 				add_building_construction = {
 					type = air_base
 					level = 1
@@ -5608,7 +6006,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_imperial_stockpiles
 		x = -1
 		y = 1
-		cost = 5
+		cost = 6
 		relative_position_id = FGB_repair_factories
 		prerequisite = { focus = FGB_repair_factories }
 		available = {
@@ -5638,7 +6036,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_protect_the_skies
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_repair_airbases
 		prerequisite = { focus = FGB_repair_airbases }
 		available = { has_tech = antiair1 }
@@ -5649,24 +6047,10 @@ focus_tree = {
 				uses = 1
 				category = light_fighter
 			}
-			852 = {
+			every_owned_state = {
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			}
-			50 = {
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
-					instant_build = yes
-				}
-			}
-			54 = {
-				add_building_construction = {
-					type = anti_air_building
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -5737,7 +6121,7 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
-		cost = 5
+		cost = 6
 		ai_will_do = {
 			factor = 10
 		}
@@ -5745,7 +6129,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_war_support = 0.05
 			swap_ideas = {
-				remove_idea = FGB_in_defense_of_the_vaterland
+				remove_idea = FGB_defense_of_vaterland
 				add_idea = FGB_prussian_model
 			}
 			IF = {
@@ -5781,7 +6165,7 @@ focus_tree = {
 			add_political_power = -10
 			add_stability = -0.05
 			add_war_support = 0.05
-			add_manpower = 10000
+			add_manpower = 15000
 			if = {
 				limit = {
 					NOT = { has_government = bolshevism }
@@ -5871,7 +6255,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_swift
 		x = -1
 		y = 1
-		cost = 6
+		cost = 8
 		relative_position_id = FGB_army_reform
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_prepared_offensive }
@@ -5892,7 +6276,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_coordinated
 		x = 1
 		y = 1
-		cost = 6
+		cost = 8
 		relative_position_id = FGB_army_reform
 		prerequisite = { focus = FGB_army_reform }
 		mutually_exclusive = { focus = FGB_definitive_attack }
@@ -5920,6 +6304,7 @@ focus_tree = {
 		cost = 6
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
+			country_event = { id = fgb.79 days = 2 }
 			custom_effect_tooltip = FGB_effects_of_expand_conscription_tt
 			add_ideas = {
 				extensive_conscription
@@ -5959,9 +6344,7 @@ focus_tree = {
 		cost = 6
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			army_experience = 100
-			air_experience = 100
-			navy_experience = 100
+			army_experience = 50
 			add_research_slot = 1
 		}
 	}
@@ -5969,7 +6352,7 @@ focus_tree = {
 	focus = {
 		id = FGB_the_will_to_unite_a_nation
 		icon = GFX_focus_FGB_will_to_unify
-		x = 30
+		x = 29
 		y = 0
 		cost = 4
 		completion_reward = {
@@ -6020,6 +6403,12 @@ focus_tree = {
 					type = bunker
 					level = 1
 					province = 6581
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13552
 					instant_build = yes
 				}
 			}
@@ -6183,12 +6572,12 @@ focus_tree = {
 	focus = {
 		id = FGB_found_a_new_militarluft
 		icon = GFX_focus_FGB_found_a_new_militarluft
-		x = 36
-		y = 0
+		x = 29
+		y = 6
 		cost = 4
 		search_filters = { FOCUS_FILTER_AIR_XP }
 		completion_reward = {
-			air_experience = 15
+			country_event = fgb.80
 			random_owned_controlled_state = {
 				add_building_construction = {
 					type = air_base
@@ -6213,7 +6602,7 @@ focus_tree = {
 			add_doctrine_cost_reduction = {
 				name = air_doc_bonus
 				cost_reduction = 0.5
-				uses = 2
+				uses = 1
 				category = air_doctrine
 			}
 			activate_advisor = FGB_robert_greim_air
@@ -6382,7 +6771,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_begin_reconstruction
 		x = 16
 		y = 0
-		cost = 5
+		cost = 6
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		available = {
 			has_completed_focus = FGB_death_of_kapp
@@ -6396,17 +6785,9 @@ focus_tree = {
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = FGB_consequences
-				add_idea = FGB_rebuilding_economy
+				add_idea = FGB_recovering_industry
 			}
-			852 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			50 = {
+			every_owned_state = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -6422,7 +6803,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_resource_smuggling
 		x = -2
 		y = 1
-		cost = 5
+		cost = 3
 		relative_position_id = FGB_reconstruction
 		prerequisite = { focus = FGB_reconstruction }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -6436,7 +6817,7 @@ focus_tree = {
 			50 = {
 				add_resource = { 
 					type = steel
-					amount = 2
+					amount = 3
 				}
 			}
 			add_stability = -0.05
@@ -6502,6 +6883,28 @@ focus_tree = {
 					}
 				}
 			}
+			IF = {
+				limit = { has_full_control_of_state = 1088 }
+				1088 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			IF = {
+				limit = { has_full_control_of_state = 1089 }
+				1089 = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 	}
 	
@@ -6523,10 +6926,6 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -50
 			add_stability = 0.05
-			swap_ideas = {
-				remove_idea = FGB_rebuilding_economy
-				add_idea = FGB_recovering_industry
-			}
 			swap_ideas = {
 				remove_idea = FGB_shellshocked_populace
 				add_idea = FGB_shellshocked_populace2
@@ -6911,102 +7310,18 @@ focus_tree = {
 			}
 		}
 	}
-	
+
 	focus = {
-		id = FGB_revitalise_southern_industry
-		icon = GFX_goal_reichsautobahn
-		available = {
-			NOT = { country_exists = BAV }
-			BAV = { 
-				any_core_state = {
-					is_owned_by = FGB
-				}
-			}
-		}
-		x = 2
+		id = FGB_invigorate_the_german_economy
+		icon = GFX_focus_FGB_invigorate_the_german_economy
+		x = 0
 		y = 1
-		cost = 10
-		relative_position_id = FGB_rebuild_schools
-		prerequisite = { focus = FGB_rebuild_schools focus = FGB_open_new_hospitals }
+		cost = 5
+		relative_position_id = FGB_complete_recovery
+		prerequisite = { focus = FGB_complete_recovery }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			852 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			50 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			52 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			53 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			54 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
-				852 = {
-					add_extra_state_shared_building_slots = 3
-				}
-				50 = {
-					add_extra_state_shared_building_slots = 3
-				}
-				52 = {
-					add_extra_state_shared_building_slots = 3
-				}
-				53 = { 
-					add_extra_state_shared_building_slots = 3
-				}
-				54 = {
-					add_extra_state_shared_building_slots = 3
-				}
-			}
+			custom_effect_tooltip = FGB_will_unlock_industrialisation_decisions_tt
 		}
 	}
 
@@ -7014,64 +7329,35 @@ focus_tree = {
 		id = FGB_develop_the_rhine
 		icon = GFX_focus_FGB_developing_the_rhineland
 		available = {
-			has_full_control_of_state = 42
-			has_full_control_of_state = 51
-			has_full_control_of_state = 55
+			NOT = { country_exists = WRD }
 		}
 		x = 0
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = FGB_rebuild_schools
-		prerequisite = { focus = FGB_rebuild_schools }
+		prerequisite = { focus = FGB_invigorate_the_german_economy }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			42 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			51 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			55 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
-				42 = {
-					add_extra_state_shared_building_slots = 3
-				}
-				51 = { 
-					add_extra_state_shared_building_slots = 3
-				}
-				55 = {
-					add_extra_state_shared_building_slots = 3
-				}
-			}
+			custom_effect_tooltip = FGB_subsidise_merck_darmstadt_tt
+ 			custom_effect_tooltip = FGB_fund_vereinigte_stahlwerke_tt
+ 			custom_effect_tooltip = FGB_invest_in_krupp_tt
+		}
+	}
+	
+	focus = {
+		id = FGB_revitalise_southern_industry
+		icon = GFX_focus_FGB_revitalise_southern_industry
+		available = {
+			NOT = { country_exists = BAV }
+		}
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_rebuild_schools
+		prerequisite = { focus = FGB_invigorate_the_german_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			
 		}
 	}
 
@@ -7079,234 +7365,35 @@ focus_tree = {
 		id = FGB_industrialising_lower_saxony
 		icon = GFX_focus_FGB_industrialising_lower_saxony
 		available = {
-			has_full_control_of_state = 56
-			has_full_control_of_state = 57
-			has_full_control_of_state = 58
-			has_full_control_of_state = 59
+			NOT = { country_exists = FWG }
 		}
 		x = 0
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = FGB_open_new_hospitals
-		prerequisite = { focus = FGB_open_new_hospitals }
+		prerequisite = { focus = FGB_invigorate_the_german_economy }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			56 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-			}
-			57 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			58 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-			}
-			59 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
-				56 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				57 = { 
-					add_extra_state_shared_building_slots = 3
-				}
-				58 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				59 = {
-					add_extra_state_shared_building_slots = 3
-				}
-			}
+			
 		}
 	}
 
 	focus = {
 		id = FGB_support_east_german_businesses
-		icon = GFX_focus_generic_industry_2
+		icon = GFX_focus_FGB_support_east_german_businesses
 		prerequisite = { focus = FGB_revitalise_southern_industry }
 		prerequisite = { focus = FGB_develop_the_rhine }
 		available = {
-			has_full_control_of_state = 61
-			has_full_control_of_state = 836
-			has_full_control_of_state = 835
-			has_full_control_of_state = 64
-			has_full_control_of_state = 65
-			has_full_control_of_state = 60
+			NOT = { country_exists = UVS }
+			NOT = { country_exists =   GER }
 		}
 		x = -1
 		y = 1
-		cost = 20
+		cost = 5
 		relative_position_id = FGB_revitalise_southern_industry
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			61 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			836 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			835 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			64 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			65 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 1
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			60 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 1
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
-				63 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				836 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				835 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				64 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				65 = { 
-					add_extra_state_shared_building_slots = 4
-				}
-				60 = {
-					add_extra_state_shared_building_slots = 4
-				}
-			}
+			
 		}
 	}
 
@@ -7316,160 +7403,16 @@ focus_tree = {
 		prerequisite = { focus = FGB_revitalise_southern_industry }
 		prerequisite = { focus = FGB_industrialising_lower_saxony }
 		available = {
-			has_full_control_of_state = 61
-			has_full_control_of_state = 62
-			has_full_control_of_state = 68
-			has_full_control_of_state = 66
-			has_full_control_of_state = 67
-			has_full_control_of_state = 762
+			NOT = { country_exists = PLA }
+			NOT = { country_exists = UVS }
 		}
 		x = 1
 		y = 1
-		cost = 20
+		cost = 5
 		relative_position_id = FGB_revitalise_southern_industry
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			63 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			62 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			68 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_resource = {
-					type = steel
-					amount = 13
-				}
-			}
-			66 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			67 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = synthetic_refinery
-					level = 1
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			762 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build  = yes
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
-				63 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				62 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				68 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				66 = {
-					add_extra_state_shared_building_slots = 4
-				}
-				67 = { 
-					add_extra_state_shared_building_slots = 4
-				}
-				762 = {
-					add_extra_state_shared_building_slots = 4
-				}
-			}
+			
 		}
 	}
 

@@ -2,27 +2,15 @@ capital = 50
 add_to_german_tags = yes
 set_country_flag = germany
 oob = "FGB"
-
+set_research_slots = 3 
 add_1922_modern_tech = yes
-
-set_politics = {
-	ruling_party = despotism
-}
-
-set_popularities = {
-	despotism = 31
-	bolshevism = 9
-	national_syndicalism = 21
-	conservatism = 11
-	authoritarian_democrat = 28
-}
 
 add_ideas = {
 	limited_conscription
 	closed_economy
 	rationing
 	
-	FGB_in_defense_of_the_vaterland
+	FGB_defense_of_vaterland
  	FGB_disorganised_militias
 	FGB_consequences
 	FGB_shellshocked_populace
@@ -44,9 +32,13 @@ recruit_character = FGB_adam_dressler
 recruit_character = FGB_anton_drexler
 recruit_character = FGB_konrad_adenauer
 recruit_character = FGB_walther_von_luttwitz
+recruit_character = FGB_hans_vogel
+recruit_character = FGB_waldemar_pabst2 #despotism leader role duplicate
 
 ## Advisors ##
 
+recruit_character = FGB_eugen_schiffer
+recruit_character = FGB_otto_gessler
 recruit_character = FGB_kurt_schumacher 
 recruit_character = FGB_adolf_hiedler
 recruit_character = FGB_robert_greim
@@ -73,18 +65,13 @@ recruit_character = FGB_paul_von_hindenburg
 recruit_character = FGB_hans_von_seeckt
 recruit_character = FGB_ferdinand_schorner
 
+recruit_character = FGB_max_von_baden
+
 country_event = { id = fgb.50 days = 1 } #Welcoming event
 country_event = { id = fgb.48 days = 10 } #formerly freikorps.1
 country_event = { id = fgb.49 days = 16 } #formerly freikorps.2
-
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-	}
-}
+country_event = { id = fgb.81 days = 27 } #Unification day 
+country_event = { id = fgb.98 days = 154 } #Student protests
 
 if = {
 	limit = {
@@ -123,12 +110,19 @@ if = {
 	}
 }
 
-create_country_leader = {
-	name = "Hans Vogel"
-	desc = "A Franconian"
-	picture = "gfx/leaders/FGB/FGB_hans_vogel.tga"
-	ideology = market_socialism
-	traits = {
-		the_chicken_farmer
-	}
+# Freikorps council 
+recruit_character = FGB_freikorps_council
+activate_advisor = FGB_freikorps_council_hog
+recruit_character = FGB_reichstag #if FGB ever unifies Germany
+
+set_politics = {
+	ruling_party = despotism
+}
+
+set_popularities = {
+	despotism = 31
+	bolshevism = 9
+	national_syndicalism = 21
+	conservatism = 11
+	authoritarian_democrat = 28
 }

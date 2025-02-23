@@ -230,15 +230,32 @@ country_event = {
 				}
 			}
 		}
-		WRD = {
-			annex_country = { 
-				target = FGB
-				transfer_troops = yes 
+		if = { 
+			limit = { country_exists = FGB } 
+			WRD = {
+				annex_country = { 
+					target = FGB
+					transfer_troops = yes 
+				}
+			}
+			FGB = {
+				every_unit_leader = {
+					set_nationality = WRD
+				}
 			}
 		}
-		FGB = {
-			every_unit_leader = {
-				set_nationality = WRD
+		if = { 
+			limit = { country_exists = DSH } 
+			WRD = {
+				annex_country = { 
+					target = DSH
+					transfer_troops = yes 
+				}
+			}
+			DSH = {
+				every_unit_leader = {
+					set_nationality = WRD
+				}
 			}
 		}
 	}
@@ -246,7 +263,7 @@ country_event = {
 	option = {
 		name = wrd.9.b
 		ai_chance = {
-			base = 10
+			base = 15
 			modifier = {
 				factor = 3
 				add = 2
@@ -255,20 +272,34 @@ country_event = {
 				}
 			}
 		}
-		FGB = {
-			if = {
-				limit = { has_completed_focus = FGB_government_of_national_salvation }
-				complete_national_focus = FGB_attack_wehrkommando
-				add_war_support = 0.05
+		if = { 
+			limit = { country_exists = FGB } 
+			FGB = {
+				if = {
+					limit = { has_completed_focus = FGB_government_of_national_salvation }
+					complete_national_focus = FGB_attack_wehrkommando
+					add_war_support = 0.05
+				}
+				else = { add_war_support = 0.05 }
 			}
-			else = {
-				add_war_support = 0.05
+	    	WRD = {
+				declare_war_on = {
+					target = FGB
+					type = annex_everything
+				}
 			}
 		}
+		if = { 
+			limit = { country_exists = DSH } 
+			DSH = {
+				complete_national_focus = DSH_cross_the_rhine
+				add_war_support = 0.05
+			}
 	    	WRD = {
-			declare_war_on = {
-				target = FGB
-				type = annex_everything
+				declare_war_on = {
+					target = DSH
+					type = annex_everything
+				}
 			}
 		}
 	}

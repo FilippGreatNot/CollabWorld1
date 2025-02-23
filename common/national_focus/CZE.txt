@@ -1,0 +1,389 @@
+focus_tree = {
+    id = CZE_starting
+	
+    country = {
+        base = 0
+        modifier = {
+            add = 10
+            tag = CZE
+        }
+    }
+	
+	focus = {
+	    id = CZE_convene_the_legionary_council
+		x = 5
+		y = 0
+		cost = 4
+	}
+	focus = {
+	    id = CZE_question_of_military
+		relative_position_id = CZE_convene_the_legionary_council
+		prerequisite = {
+		    focus = CZE_convene_the_legionary_council
+		}
+		x = -2
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_question_of_identity
+		relative_position_id = CZE_convene_the_legionary_council
+		prerequisite = {
+		    focus = CZE_convene_the_legionary_council
+		}
+		x = 2
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_legionary_traditions
+		relative_position_id = CZE_question_of_military
+		prerequisite = {
+		    focus = CZE_question_of_military
+		}
+		mutually_exclusive = { focus = CZE_new_czechoslovak_army }
+		x = -1
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_new_czechoslovak_army
+		relative_position_id = CZE_question_of_military
+		prerequisite = {
+		    focus = CZE_question_of_military
+		}
+		mutually_exclusive = { focus = CZE_legionary_traditions }
+		x = 1
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_status_of_russian_legion
+		relative_position_id = CZE_legionary_traditions
+		prerequisite = {
+		    focus = CZE_legionary_traditions
+		}
+		x = 0
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_repatriate_imperial_soldiers
+		relative_position_id = CZE_new_czechoslovak_army
+		prerequisite = {
+		    focus = CZE_new_czechoslovak_army
+		}
+		x = 0
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_parade_of_army
+		relative_position_id = CZE_repatriate_imperial_soldiers
+        prerequisite = {
+		   focus = CZE_repatriate_imperial_soldiers
+		   focus = CZE_status_of_russian_legion
+		}
+		x = -1
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_union_of_two_nations
+		relative_position_id = CZE_question_of_identity
+		prerequisite = {
+		    focus = CZE_question_of_identity
+		}
+		mutually_exclusive = { focus = CZE_federative_republic }
+		x = -1
+		y = 1
+		cost = 6
+	}
+    focus = { 
+	    id = CZE_federative_republic
+		relative_position_id = CZE_question_of_identity
+		prerequisite = {
+		    focus = CZE_question_of_identity
+		}
+		mutually_exclusive = { focus = CZE_union_of_two_nations }
+		x = 1
+		y = 1
+		cost = 6
+	}
+	    focus = { 
+	    id = CZE_multilingual_state
+		relative_position_id = CZE_federative_republic
+		prerequisite = {
+		    focus = CZE_federative_republic
+		}
+		x = 0
+		y = 1
+		cost = 6
+	}
+    focus = { 
+	    id = CZE_embrace_czechoslovak_superiority
+		relative_position_id = CZE_question_of_identity
+		prerequisite = {
+		    focus = CZE_union_of_two_nations
+		}
+		x = -1
+		y = 2
+		cost = 6
+	}
+    focus = { 
+	    id = CZE_birth_of_a_new_identity
+		relative_position_id = CZE_embrace_czechoslovak_superiority
+		prerequisite = {
+		    focus = CZE_multilingual_state
+			focus = CZE_embrace_czechoslovak_superiority
+		}
+		x = 1
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_return_of_the_russian_legion
+		relative_position_id = CZE_parade_of_army
+		prerequisite = {
+		    focus = CZE_parade_of_army
+		}
+		prerequisite = {
+		    focus = CZE_birth_of_a_new_identity
+		}
+		x = 2
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_meeting_at_the_prague_castle
+		relative_position_id = CZE_return_of_the_russian_legion
+		prerequisite = {
+		    focus = CZE_return_of_the_russian_legion
+		}
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_death_of_stefanik
+		relative_position_id = CZE_meeting_at_the_prague_castle
+		prerequisite = { 
+		    focus = CZE_meeting_at_the_prague_castle
+		}
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = { 
+	    id = CZE_assure_the_public
+		relative_position_id = CZE_death_of_stefanik
+		prerequisite = { 
+		    focus = CZE_death_of_stefanik
+		}
+		x = 1
+		y = 1
+		cost = 6
+	}
+    focus = { 
+	    id = CZE_assemble_the_provisional_council
+		relative_position_id = CZE_death_of_stefanik
+		prerequisite = { 
+		    focus = CZE_death_of_stefanik
+		}
+		x = -1
+		y = 1
+		cost = 10
+	}
+    focus = { 
+	    id = CZE_begin_the_investigation
+		relative_position_id = CZE_assemble_the_provisional_council
+		prerequisite = { 
+		    focus = CZE_assemble_the_provisional_council
+		}
+		prerequisite = { 
+		    focus = CZE_assure_the_public
+		}
+		x = 1
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_better_keep_quiet
+		relative_position_id = CZE_convene_the_legionary_council
+		available = { has_completed_focus = CZE_begin_the_investigation }
+		x = 9
+		y = 0
+	}
+    focus = {
+	    id = CZE_announce_czechoslovak_future
+		relative_position_id = CZE_better_keep_quiet
+		prerequisite = { focus = CZE_better_keep_quiet }
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_introduce_curfew
+		relative_position_id = CZE_announce_czechoslovak_future
+		prerequisite = { focus = CZE_announce_czechoslovak_future }
+		x = -1
+		y = 1
+		cost = 6
+	}
+    focus = {
+	    id = CZE_call_for_security
+		relative_position_id = CZE_introduce_curfew
+		prerequisite = { focus = CZE_introduce_curfew }
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_call_in_economic_advisors
+		relative_position_id = CZE_announce_czechoslovak_future
+		prerequisite = { focus = CZE_announce_czechoslovak_future }
+		x = 1
+		y = 1
+		cost = 6
+	}
+    focus = {
+	    id = CZE_occupy_factories
+		relative_position_id = CZE_call_in_economic_advisors
+		prerequisite = { focus = CZE_call_in_economic_advisors }
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_new_czechoslovak_commander
+		relative_position_id = CZE_occupy_factories
+		prerequisite = { focus = CZE_occupy_factories }
+		prerequisite = { focus = CZE_call_for_security }
+        x = -1 
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_two_seats_at_one_throne
+		relative_position_id = CZE_new_czechoslovak_commander
+		prerequisite = { focus = CZE_new_czechoslovak_commander }
+        x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_seek_support_amongst_democrats
+		relative_position_id = CZE_two_seats_at_one_throne
+		prerequisite = { focus = CZE_two_seats_at_one_throne }
+        x = -2
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_meet_with_masaryk
+		relative_position_id = CZE_seek_support_amongst_democrats
+		prerequisite = { focus = CZE_seek_support_amongst_democrats }
+        x = 0
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_streghten_military_influence
+		relative_position_id = CZE_two_seats_at_one_throne
+		prerequisite = { focus = CZE_two_seats_at_one_throne }
+        x = 0
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_battalions_of_industrial_help
+		relative_position_id = CZE_streghten_military_influence
+		prerequisite = { focus = CZE_streghten_military_influence }
+        x = 0
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_seek_support_amongst_nationalists
+		relative_position_id = CZE_two_seats_at_one_throne
+		prerequisite = { focus = CZE_two_seats_at_one_throne }
+		x = 2
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_purge_suspicious_officers
+		relative_position_id = CZE_seek_support_amongst_nationalists
+		prerequisite = { focus = CZE_seek_support_amongst_nationalists }
+		x = 0
+		y = 1
+		cost = 6
+	}
+	focus = {
+	    id = CZE_future_of_the_throne
+		relative_position_id = CZE_purge_suspicious_officers
+		prerequisite = { focus = CZE_purge_suspicious_officers }
+		prerequisite = { focus = CZE_battalions_of_industrial_help }
+		prerequisite = { focus = CZE_meet_with_masaryk }
+		x = -2
+		y = 1
+		cost = 10
+	}
+	focus = {
+	    id = CZE_syrovy_wins
+		relative_position_id = CZE_future_of_the_throne
+		prerequisite = { focus = CZE_future_of_the_throne }
+		mutually_exclusive = { focus = CZE_gajda_wins }
+		x = -4
+		y = 1
+		cost = 10
+	}
+	focus = {
+	    id = CZE_gajda_wins
+		relative_position_id = CZE_future_of_the_throne
+		prerequisite = { focus = CZE_future_of_the_throne }
+		mutually_exclusive = { focus = CZE_syrovy_wins_wins }
+		x = 4
+		y = 1
+		cost = 10
+	}
+	focus = {
+	    id = CZE_czechoslovak_economical_plan
+		available = { has_completed_focus = CZE_call_in_economic_advisors }
+		x = 24
+		y = 0
+		cost = 6
+	}
+	focus = {
+	    id = CZE_riches_in_the_ground
+		prerequisite = { focus = CZE_czechoslovak_economical_plan }
+		relative_position_id = CZE_czechoslovak_economical_plan
+		x = -5
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_kickstart_skoda
+		prerequisite = { focus = CZE_czechoslovak_economical_plan }
+		relative_position_id = CZE_czechoslovak_economical_plan
+		x = -2
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_fund_zbrojovka
+		prerequisite = { focus = CZE_czechoslovak_economical_plan }
+		relative_position_id = CZE_czechoslovak_economical_plan
+		x = 1
+		y = 1
+		cost = 4
+	}
+	focus = { 
+	    id = CZE_ministry_of_local_development
+		prerequisite = { focus = CZE_czechoslovak_economical_plan }
+		relative_position_id = CZE_czechoslovak_economical_plan
+		x = 5
+		y = 1
+		cost = 4
+	}
+} 
