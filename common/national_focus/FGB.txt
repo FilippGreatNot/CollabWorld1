@@ -2715,7 +2715,39 @@ focus_tree = {
 		prerequisite = { focus = FGB_noske_plan_blau }
 		prerequisite = { focus = FGB_noske_plan_grun }
 		completion_reward = {
-			
+			declare_war_on = {
+				target = ETH
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ASA
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_noske_establish_greater_ostafrika
+		icon = GFX_focus_FGB_noske_default
+		x = -3
+		y = 1
+		cost = 5
+		available = { 
+			has_war = no
+		}
+		relative_position_id = FGB_noske_the_two_sovereigns
+		prerequisite = { focus = FGB_noske_repression_of_the_afrosocialist_ideology }
+		prerequisite = { focus = FGB_noske_the_two_sovereigns }
+		completion_reward = {
+			every_owned_state = {
+				limit = { 
+					is_core_of = SOM 
+					is_core_of = ETH 
+					is_core_of = ASA 
+				}
+				transfer_state_to = DOA 
+				add_core_of = DOA
+			}
 		}
 	}
 
@@ -4737,7 +4769,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = FGB_we_will_demand_his_submission
 			WVA = {
-				country_event = { id = fgb.39 days = 3 }
+				country_event = { id = fgb.39 days = 2 }
 			}
 		}
 	}
@@ -5825,6 +5857,277 @@ focus_tree = {
 				ideology = despotism
 				popularity = 0.05
 			}
+		}
+	}
+
+	focus = {
+		id = FGB_luttwitz_dissolve_the_council
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitzs_coup
+		prerequisite = { focus = FGB_luttwitzs_coup }
+		completion_reward = {
+			retire_character = FGB_freikorps_council
+			activate_advisor = FGB_nuremberg_committee_hog
+			add_political_power = 50
+			add_stability = 0.05
+			set_capital = { state = 54 remember_old_capital = no }
+		}
+	}
+
+	focus = {
+		id = FGB_luttwitz_fighting_back
+		icon = GFX_focus_FGB_noske_default
+		x = -4
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_dissolve_the_council
+		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_timed_idea = {
+				idea = FGB_3_step_defense_plan
+				days = 120
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_luttwitz_exile_stahlhelm_loyalists
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_fighting_back
+		prerequisite = { focus = FGB_luttwitz_fighting_back }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_manpower = -1500
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			add_timed_idea = {
+				idea = FGB_exiling_the_stahlhelm
+				months = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = FGB_luttwitz_enlisting_more_militias
+		icon = GFX_focus_FGB_noske_default
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_dissolve_the_council
+		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
+		completion_reward = {
+			add_manpower = 20000
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.2" 
+					owner = FGB
+				}
+				create_unit = {
+					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.2" 
+					owner = FGB
+				}
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_militarisation_of_franconia
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_enlisting_more_militias
+		prerequisite = { focus = FGB_luttwitz_enlisting_more_militias }
+		completion_reward = {
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_crush_the_uprising
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		available = { NOT = { country_exists = DSH } }
+		relative_position_id = FGB_luttwitz_exile_stahlhelm_loyalists
+		prerequisite = { focus = FGB_luttwitz_exile_stahlhelm_loyalists }
+		prerequisite = { focus = FGB_luttwitz_militarisation_of_franconia }
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
+			every_owned_state = {
+				remove_core_of = DSH
+			}
+			set_capital = { state = 50 remember_old_capital = no }
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_align_the_generals
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_dissolve_the_council
+		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
+		completion_reward = {
+			set_party_name = {
+				ideology = despotism 
+				long_name = "Deutschnationale Volkspartei"
+				name = "DNVP (Lüttwitz Clique)"
+			}
+			add_war_support = 0.05
+			add_timed_idea = {
+				idea = FGB_align_the_generals
+				months = 2
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_assemble_a_loyal_cabinet
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_align_the_generals
+		prerequisite = { focus = FGB_luttwitz_align_the_generals }
+		completion_reward = {
+			add_political_power = 50
+			activate_advisor = FGB_franz_ritter_von_epp_prop
+			activate_advisor = FGB_traugott_jagow_sec
+			activate_advisor = FGB_ludwig_elster_ec
+			country_event = fgb.99
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_negotiations_with_the_dnvp
+		icon = GFX_focus_FGB_noske_default
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_dissolve_the_council
+		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = -20
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_the_grey_terror
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_negotiations_with_the_dnvp
+		prerequisite = { focus = FGB_luttwitz_negotiations_with_the_dnvp }
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = {
+				FGB_the_grey_terror
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_clamp_down_on_liberal_journalism
+		icon = GFX_focus_FGB_noske_default
+		x = 4
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_dissolve_the_council
+		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			retire_character = FGB_kurt_schumacher
+			retire_character = FGB_otto_gessler
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_forceful_seizure_of_spd_property
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_clamp_down_on_liberal_journalism
+		prerequisite = { focus = FGB_luttwitz_clamp_down_on_liberal_journalism }
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_spell_the_end_of_the_stuttgart_protests
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_the_grey_terror
+		prerequisite = { focus = FGB_luttwitz_the_grey_terror }
+		prerequisite = { focus = FGB_luttwitz_forceful_seizure_of_spd_property }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			remove_ideas = {
+				FGB_civil_unrest
+			}
+			clr_country_flag = FGB_unrest_flag
 		}
 	}
 
@@ -7194,19 +7497,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			852 = {
-				add_extra_state_shared_building_slots = 1
+			54 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			50 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}

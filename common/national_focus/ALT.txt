@@ -1811,7 +1811,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_nationalisation_of_industry
-		icon = GFX_focus_NORDIC_com_civilian
+		icon = GFX_focus_ALT_nationalisation_of_industry
 		x = 4
 		y = 1
 		ai_will_do = {
@@ -1821,17 +1821,19 @@ focus_tree = {
 		relative_position_id = ALT_form_a_bolshevik_government
 		prerequisite = { focus = ALT_form_a_bolshevik_government focus = ALT_form_the_peoples_council }
 		completion_reward = {
-			add_stability = -0.05
-			set_temp_variable = { ideology_change_var = 0.1 }
+			add_stability = 0.05
+			set_temp_variable = { ideology_change_var = 0.05 }
 			change_ruling_party_popularity = yes
-			add_offsite_building = { type = arms_factory level = 1 }
-			add_offsite_building = { type = industrial_complex level = 1 }
+			add_political_power = 50
+			remove_ideas = {
+				ALT_qing_era_landowners
+			}
 		}
 	}
 
 	focus = {
 		id = ALT_bayingolin_steel_plant
-		icon = GFX_focus_generic_steel
+		icon = GFX_focus_ALT_bayingolin_steel_plant
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -1856,7 +1858,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_incorporate_weapon_makers
-		icon = GFX_focus_CONGO_copper_cartridges
+		icon = GFX_focus_ALT_incorporate_weapon_makers
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -1873,7 +1875,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_create_an_airforce
-		icon = GFX_focus_generic_air_bases
+		icon = GFX_focus_ALT_create_an_airforce
 		x = 0
 		y = 2
 		ai_will_do = {
@@ -1930,7 +1932,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_council_authority
-		icon = GFX_focus_SWE_socialist_reforms
+		icon = GFX_focus_ALT_council_authority
 		x = -4
 		y = 1
 		ai_will_do = {
@@ -2205,7 +2207,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_print_more_copies_of_the_manifesto
-		icon = GFX_focus_eng_liberate_the_home_of_marx
+		icon = GFX_focus_ALT_print_more_copies_of_the_manifesto
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -2226,7 +2228,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_administrative_reorganisation
-		icon = GFX_focus_generic_improve_the_administration
+		icon = GFX_focus_ALT_administrative_reorganisation
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -2315,7 +2317,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_organise_raids
-		icon = GFX_focus_generic_manpower
+		icon = GFX_focus_ALT_organise_raids
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -2342,7 +2344,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_recruit_new_guards
-		icon = GFX_focus_SOV_restore_cossack_units
+		icon = GFX_focus_ALT_recruit_new_guards
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -2442,7 +2444,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_a_limited_purge
-		icon = GFX_focus_SOV_military_purge
+		icon = GFX_focus_ALT_a_limited_purge
 		x = 2
 		y = 1
 		ai_will_do = {
@@ -3970,8 +3972,23 @@ focus_tree = {
 		relative_position_id = ALT_invade_the_nationalists
 		prerequisite = { focus = ALT_invade_the_nationalists }
 		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = TIB
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = XIK
+			}
 			TIB = {
 				every_core_state = { add_core_of = ALT }
+			}
+			XIK = {
+				every_core_state = { add_core_of = ALT }
+				every_owned_state = {
+					limit = { is_demilitarized_zone = yes }
+					set_demilitarized_zone = no
+				}
 			}
 		}
 	}
@@ -4003,6 +4020,37 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_bury_sun_yat_sens_legacy
+		icon = GFX_focus_ALT_a_new_era_for_china
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+			any_owned_state = { is_core_of = TIB }
+		}
+		relative_position_id = ALT_integrate_the_tibetans
+		prerequisite = { focus = ALT_integrate_the_tibetans }
+		prerequisite = { focus = ALT_bring_down_sichuanese_fevor }
+		completion_reward = {
+			GUI = { make_every_core_national_for_PREV = yes }
+			HNN = { make_every_core_national_for_PREV = yes }
+			every_owned_state = {
+				limit = { is_core_of = GUI }
+				remove_core_of = GUI 
+			}
+			every_owned_state = {
+				limit = { is_core_of = HNN }
+				remove_core_of = HNN
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_make_deals_with_the_central_socialists
 		icon = GFX_focus_ALT_a_new_era_for_china
 		x = 0
@@ -4018,11 +4066,18 @@ focus_tree = {
 		relative_position_id = ALT_a_new_era_for_china
 		prerequisite = { focus = ALT_a_new_era_for_china }
 		completion_reward = {
-			remove_from_faction = MON 
+			if = { 
+				limit = { MON = { is_in_faction_with = ALT } } 
+				set_country_flag = MON_faction
+				remove_from_faction = MON
+			}
 			create_faction = "Association of Chinese Soviets"
-			add_to_faction = MON
 			add_to_faction = INM 
 			add_to_faction = PRC
+			if = { 
+				limit = { has_country_flag = MON_faction } 
+				add_to_faction = MON
+			}
 		}
 	}
 
@@ -4070,6 +4125,16 @@ focus_tree = {
 			declare_war_on = {
 				target = MEN
 				type = take_claimed_state
+			}
+			if = { 
+				limit = { 
+					country_exists = MON
+					MON = { NOT = { is_in_faction_with = ALT } } 
+				} 
+				declare_war_on = {
+					target = MON
+					type = annex_everything
+				}
 			}
 		}
 	}

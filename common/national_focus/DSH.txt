@@ -16,7 +16,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 10
 		y = 0
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -30,7 +30,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_repurpose_unused_workshops
 		x = -1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -58,7 +58,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -66,7 +66,7 @@ focus_tree = {
         relative_position_id = DSH_repurpose_unused_workshops
         prerequisite = { focus = DSH_repurpose_unused_workshops }
 		completion_reward = {	
-			852 = {
+			every_controlled_state = {
                 add_extra_state_shared_building_slots = 1
                 add_building_construction = {
                     type = infrastructure
@@ -84,7 +84,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -141,7 +141,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_begin_propaganda_efforts
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -158,7 +158,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -174,7 +174,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -1
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -182,7 +182,7 @@ focus_tree = {
         relative_position_id = DSH_ask_the_wehrkommando_for_assistance
         prerequisite = { focus = DSH_ask_the_wehrkommando_for_assistance }
 		completion_reward = {	
-			add_ideas = { service_by_requirement }
+			add_ideas = { extensive_conscription }
             army_experience = 30
             division_template = {
 				name = "Conscripted Riflemen"
@@ -228,7 +228,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 4
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -250,7 +250,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
         available = { has_war = no NOT = { country_exists = FGB } }
 		ai_will_do = {
@@ -272,7 +272,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -848,6 +848,7 @@ focus_tree = {
 			effect_tooltip = {
 				country_event = dsh.6
 			}
+			hidden_effect = { country_event = { id = dsh.6 days = 1 } }
 		}
 	}
 	focus = {
@@ -884,7 +885,12 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-		available = { has_country_flag = DSH_albert }
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = DSH_has_chosen_a_candidate_tt
+				has_country_flag = DSH_albert 
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -1095,7 +1101,12 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-		available = { has_country_flag = DSH_dummy }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DSH_has_chosen_a_candidate_tt
+				has_country_flag = DSH_dummy
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -1242,7 +1253,12 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-		available = { has_country_flag = DSH_freddy }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DSH_has_chosen_a_candidate_tt
+				has_country_flag = DSH_freddy
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -1503,7 +1519,10 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		allow_branch = {
-			has_country_flag = DSH_willy
+			custom_trigger_tooltip = {
+				tooltip = DSH_has_chosen_a_candidate_tt
+				has_country_flag = DSH_willy
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1652,7 +1671,7 @@ focus_tree = {
     			country_leader = {
         			ideology = national_monarchism
         			expire = "1965.1.1.1"
-        			traits = {  }
+        			traits = { DSH_august_the_bloody }
     			}
 			}
 		}
@@ -1677,6 +1696,22 @@ focus_tree = {
 			add_ideas = {
 				DSH_the_new_era_of_prussian_domination
 			}
+		}
+	}
+	focus = {
+		id = DSH_king_of_the_prussians
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_a_new_prussian_nation
+        prerequisite = { focus = DSH_a_new_prussian_nation }
+		completion_reward = {
+			add_country_leader_trait = DSH_king_of_the_prussians_trait
 		}
 	}
 	focus = {
@@ -1785,9 +1820,9 @@ focus_tree = {
 	focus = {
 		id = DSH_there_was_a_dream_called_germany
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 39
+		x = 36
 		y = 0
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			date > 1923.1.30
@@ -1802,7 +1837,7 @@ focus_tree = {
 	focus = {
 		id = DSH_a_patriots_vow
 		icon = GFX_focus_DSH_a_patriots_vow
-		x = -4
+		x = 0
 		y = 1
 		cost = 1
 		available_if_capitulated = yes
@@ -2151,7 +2186,7 @@ focus_tree = {
 	focus = {
 		id = DSH_depose_the_rival_government
 		icon = GFX_focus_DSH_depose_the_rival_government
-		x = -2
+		x = -3
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -2189,9 +2224,45 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = DSH_negotiations_with_the_DNVP
+		icon = GFX_focus_DSH_depose_the_rival_government
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+			OR = {
+				has_government = authoritarian_democrat
+				has_government = despotism
+				has_government = national_syndicalism
+			}
+			GER = {
+				has_completed_focus = GER_first_the_rise_of_the_dnvp
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		bypass = { 
+			OR = {
+				not = { country_exists = GER } 
+				has_war_with = GER 
+			}
+		}
+		relative_position_id = DSH_who_wants_strudel
+		prerequisite = { focus = DSH_who_wants_strudel }
+		completion_reward = {
+			custom_effect_tooltip = DSH_if_they_have_war_tt
+			GER = {
+				country_event = dsh.50
+			}
+		}
+	}
+	focus = {
 		id = DSH_imprison_journalists
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = -1
+		x = 0
 		y = 1
 		cost = 4
 		available_if_capitulated = yes
@@ -2207,7 +2278,7 @@ focus_tree = {
 			factor = 10
 		}
 		relative_position_id = DSH_depose_the_rival_government
-		prerequisite = { focus = DSH_depose_the_rival_government }
+		prerequisite = { focus = DSH_depose_the_rival_government focus = DSH_negotiations_with_the_DNVP }
 		completion_reward = {
 			add_political_power = 50
 			add_stability = -0.05
@@ -2226,7 +2297,7 @@ focus_tree = {
 	focus = {
 		id = DSH_reconnect_the_damaged_infrastructure
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 1
+		x = 0
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
@@ -2241,8 +2312,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = DSH_depose_the_rival_government
-		prerequisite = { focus = DSH_depose_the_rival_government }
+		relative_position_id = DSH_negotiations_with_the_DNVP
+		prerequisite = { focus = DSH_depose_the_rival_government focus = DSH_negotiations_with_the_DNVP }
 		completion_reward = {
 			add_political_power = -50
 			add_stability = 0.1
@@ -2821,12 +2892,15 @@ focus_tree = {
 				days = 200
 			}
 			custom_effect_tooltip = DSH_thank_you_tt
+			hidden_effect = {
+				country_event = { id = dsh.48 days = 30 }
+			}
 		}
 	}
 	focus = {
 		id = DSH_prepare_for_war
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = -1
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -2852,7 +2926,7 @@ focus_tree = {
 	focus = {
 		id = DSH_form_the_german_military_government
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 1
+		x = 2
 		y = 1
 		cost = 3
 		available_if_capitulated = yes
@@ -2876,9 +2950,9 @@ focus_tree = {
 	focus = {
 		id = DSH_the_time_for_the_german_age_is_nigh
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 4
-		y = 1
-		cost = 4
+		x = 45
+		y = 0
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			date > 1926.1.1
@@ -2886,8 +2960,6 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = DSH_there_was_a_dream_called_germany
-		prerequisite = { focus = DSH_there_was_a_dream_called_germany }
 		completion_reward = {
 			add_stability = 0.05
 			add_ideas = DSH_economic_dominance1
@@ -2899,7 +2971,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -3
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -2918,7 +2990,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -1
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -2938,7 +3010,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -2977,6 +3049,19 @@ focus_tree = {
 					type = take_state_focus
 				}
 			}
+			if = {
+				limit = { 
+					country_exists = POL
+					POL = { any_owned_state = { is_core_of = EPR } }
+				}
+				create_wargoal = {
+					target = POL
+					type = take_state_focus
+				}
+			}
+			86 = { add_claim_by = DSH }
+			807 = { add_claim_by = DSH }
+			847 = { add_claim_by = DSH }
 		}
 	}
 	focus = {
@@ -2984,7 +3069,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 3
 		y = 1
-		cost = 5
+		cost = 3
 		available_if_capitulated = yes
 		available = {
 			has_war = no
@@ -2996,7 +3081,13 @@ focus_tree = {
 		prerequisite = { focus = DSH_the_time_for_the_german_age_is_nigh }
 		completion_reward = {
 			8 = { add_core_of = DSH }
-			LUX = { country_event = { id = dsh.22 days = 1 } }
+			if = { limit = { country_exists = LUX } LUX = { country_event = { id = dsh.22 days = 1 } } }
+			else = {
+				every_other_country = {
+					limit = { owns_state = 8 }
+					country_event = dsh.49
+				}
+			}
 		}
 	}
 	focus = {
