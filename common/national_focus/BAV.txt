@@ -2899,7 +2899,7 @@ focus_tree = {
 	focus = {
         id = BAV_the_victory_of_the_national_revolution
         icon = GFX_focus_BAV_gobi
-        x = 22
+        x = 23
         y = 10
         cost = 5
 		available = {
@@ -3461,4 +3461,424 @@ focus_tree = {
 		country_event = bavaria.32
 		}
 	}
+	
+	focus = {
+        id = BAV_a_red_germany_achieved
+        icon = GFX_focus_BAV_achieved
+        x = 15
+        y = 10
+        cost = 5
+		available = {
+			has_completed_focus = BAV_german_reunification_manifested
+		}
+		available = {
+		    OR = {
+			has_completed_focus = BAV_following_the_footsteps_of_karl_marx
+			has_completed_focus = BAV_the_german_robespierre
+		}
+			
+		}
+        completion_reward = {
+			 add_stability = 0.05
+			 add_political_power = 25
+        }        
+    }
+	
+	focus = {
+        id = BAV_a_true_marxist_germany
+        icon = GFX_focus_BAV_marxist
+        relative_position_id = BAV_a_red_germany_achieved
+        x = -2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_a_red_germany_achieved
+        }
+		available = {
+			has_completed_focus = BAV_following_the_footsteps_of_karl_marx
+		}
+		completion_reward = {
+		     add_popularity = {
+				ideology = marxism
+				popularity = 0.08
+			}
+		}
+	}
+	
+	focus = {
+        id = BAV_develop_new_electronic_utilities
+        icon = GFX_focus_BAV_electronic
+        relative_position_id = BAV_a_true_marxist_germany
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_a_true_marxist_germany
+        }
+		completion_reward = {
+		     add_tech_bonus = {
+				name = BAV_new_electronic_utilities
+				bonus = 1
+				uses = 2
+				category = electronics
+			}
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+        id = BAV_support_communist_parties_in_scandinavia
+        icon = GFX_focus_BAV_scandinavia
+        relative_position_id = BAV_develop_new_electronic_utilities
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_develop_new_electronic_utilities
+        }
+		completion_reward = {
+		     DEN = {
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.05
+				}
+			}
+			 SWE = {
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.05
+				}
+			}
+			 NOR = {
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.05
+				}
+			}
+			 FIN = {
+				add_popularity = {
+					ideology = marxism
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	
+	focus = {
+        id = BAV_seize_additional_means_of_production
+        icon = GFX_focus_BAV_additional
+        relative_position_id = BAV_a_true_marxist_germany
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_a_true_marxist_germany
+        }
+		completion_reward = {
+		     random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+        id = BAV_reorganize_the_production_lines
+        icon = GFX_focus_BAV_reorganize
+        relative_position_id = BAV_seize_additional_means_of_production
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_seize_additional_means_of_production
+        }
+		completion_reward = {
+		     add_ideas = BAV_reorganized_production_lines
+		}
+	}
+	
+	focus = {
+        id = BAV_the_second_jacobin_revolution
+        icon = GFX_focus_BAV_jacobin
+        relative_position_id = BAV_a_red_germany_achieved
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_a_red_germany_achieved
+        }
+		available = {
+			has_completed_focus = BAV_the_german_robespierre
+		}
+		completion_reward = {
+		      add_popularity = {
+				ideology = bolshevism
+				popularity = 0.07
+			}
+		}
+	}
+	
+	focus = {
+        id = BAV_establish_a_nationwide_secret_police
+        icon = GFX_focus_UVS_german_chekists
+        relative_position_id = BAV_the_second_jacobin_revolution
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_second_jacobin_revolution
+        }
+		completion_reward = {
+		    add_ideas = UVS_volkspolizei2
+		}
+	}
+	
+	focus = {
+        id = BAV_take_down_the_vril_society
+        icon = GFX_focus_BAV_vril
+        relative_position_id = BAV_establish_a_nationwide_secret_police
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_a_nationwide_secret_police
+        }
+		completion_reward = {
+		     add_popularity = {
+				ideology = esotericism
+				popularity = -0.10
+			}
+			add_stability = 0.05
+			add_political_power = 75
+		}
+	}
+	
+	focus = {
+        id = BAV_establish_reeducation_camps
+        icon = GFX_focus_BAV_reeducation
+        relative_position_id = BAV_the_second_jacobin_revolution
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_second_jacobin_revolution
+        }
+		completion_reward = {
+		     add_ideas = BAV_reeducation_camps
+		}
+	}
+	
+	focus = {
+        id = BAV_fortify_the_western_border
+        icon = GFX_focus_BAV_western
+        relative_position_id = BAV_establish_reeducation_camps
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_establish_reeducation_camps
+        }
+		completion_reward = {
+		     	852 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6542
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13599
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6712
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 5011
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11640
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13536
+					instant_build = yes
+				}
+			}
+			1084 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13551
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 563
+					instant_build = yes
+				}
+			}
+			975 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11531
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13534
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13388
+					instant_build = yes
+				}
+			}
+			army_experience = 20
+		}
+	}
+	
+	focus = {
+        id = BAV_a_red_germany_on_the_world_stage
+        icon = GFX_focus_UVS_rise_germany
+        relative_position_id = BAV_a_red_germany_achieved
+        x = 0
+        y = 4
+        cost = 5
+		prerequisite = {
+            focus = BAV_fortify_the_western_border focus = BAV_take_down_the_vril_society focus = BAV_reorganize_the_production_lines focus = BAV_support_communist_parties_in_scandinavia
+        }
+		completion_reward = {
+		     add_war_support = 0.05
+			 add_political_power = 50
+		}
+	}
+	
+	focus =  {
+        id = BAV_unternehmen_rotes_wien
+        icon = GFX_focus_UVS_liberate_austria
+        relative_position_id = BAV_a_red_germany_on_the_world_stage
+		will_lead_to_war_with = AUS
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_a_red_germany_on_the_world_stage
+        }
+		completion_reward = {
+		     AUS = { make_every_core_national_for_PREV = yes }
+			create_wargoal = {
+				type = annex_everything
+				target = AUS
+			}
+		}
+	}
+	
+	focus =  {
+        id = BAV_solve_the_czechoslovak_question
+        icon = GFX_focus_UVS_czechoslovakia
+        relative_position_id = BAV_a_red_germany_on_the_world_stage
+		will_lead_to_war_with = CZE
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_a_red_germany_on_the_world_stage
+        }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CZE
+			}
+		}
+	}
+	
+	focus =  {
+        id = BAV_paint_the_benelux_red
+        icon = GFX_focus_UVS_first_paint_the_benelux_red
+        relative_position_id = BAV_a_red_germany_on_the_world_stage
+		will_lead_to_war_with = CZE
+        x = 0
+        y = 2
+        cost = 5
+		prerequisite = {
+            focus = BAV_solve_the_czechoslovak_question
+        }
+		prerequisite = {
+            focus = BAV_unternehmen_rotes_wien
+        }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BEL
+			}
+			851 = { add_core_of = BAV }
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HOL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LUX
+			}
+		}
+	}
+	
+	focus =  {
+        id = BAV_end_the_french_reactionary_state
+        icon = GFX_focus_FRA_condemn_the_traitors
+        relative_position_id = BAV_a_red_germany_on_the_world_stage
+		will_lead_to_war_with = CZE
+        x = 0
+        y = 3
+        cost = 5
+		prerequisite = {
+            focus = BAV_paint_the_benelux_red
+        }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			}
+		}
+	}
+	
 }

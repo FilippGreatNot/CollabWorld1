@@ -63,7 +63,6 @@ country_event = {
  
 country_event = {
 	id = ger.4
-	immediate = { log = "[GetDateText]: [Root.GetName]: event swe_sweden.1" }
 	title = ger.4.t
 	desc = ger.4.d
 	picture = GFX_report_event_ebert
@@ -233,7 +232,6 @@ country_event = {
  
 country_event = {
 	id = ger.5
-	immediate = { log = "[GetDateText]: [Root.GetName]: event swe_sweden.1" }
 	title = ger.5.t
 	desc = ger.5.d
 	is_triggered_only = yes
@@ -241,11 +239,17 @@ country_event = {
 	
 	option = {
 		name = ger.5.a
+		ai_chance = {
+			factor = 85
+		}
 		add_political_power = -75
 		add_stability = 0.05
 	}
 	option = {
 		name = ger.5.b
+		ai_chance = {
+			factor = 15
+		}
 		add_popularity = {
 				ideology = esotericism
 				popularity = 0.05
@@ -253,12 +257,14 @@ country_event = {
 		add_war_support = 0.05
 		add_stability = -0.1
 		custom_effect_tooltip = GER_vril_threat
+		hidden_effect = {
+		country_event = { id =  ger.69 days = 365 }
+			}
 	}
  }
  
 country_event = {
 	id = ger.6
-	immediate = { log = "[GetDateText]: [Root.GetName]: event swe_sweden.1" }
 	title = ger.6.t
 	desc = ger.6.d
 	is_triggered_only = yes
@@ -282,7 +288,6 @@ country_event = {
  
 country_event = {
 	id = ger.7
-	immediate = { log = "[GetDateText]: [Root.GetName]: event swe_sweden.1" }
 	title = ger.7.t
 	desc = ger.7.d
 	is_triggered_only = yes
@@ -301,9 +306,31 @@ country_event = {
 		add_war_support = -0.05
 	}
  }
+ 
+country_event = {
+	id = ger.69
+	title = ger.69.t
+	desc = ger.69.d
+	is_triggered_only = yes
+	picture = GFX_report_event_vril_coup
 	
-	
-	
-	
-	
-	
+	option = {
+		name = ger.69.a
+		add_political_power = -200
+		add_stability = -0.1
+		set_cosmetic_tag = GER_vrill
+		set_politics = { ruling_party = esotericism }
+		add_ideas = WRD_esoteric_german_supremacism
+		add_ideas = WRD_purple_regime
+		add_popularity = {
+			ideology = esotericism
+			popularity = 1
+			}
+			set_party_name = {
+			ideology = esotericism
+			name = GER_vril
+			long_name = GER_vril
+			}
+	}
+ }
+ 
