@@ -25,7 +25,9 @@ focus_tree = {
 
 	focus = {
 		allow_branch = { always = yes }
-
+		available = {
+       		has_completed_focus = UKR_soc_sit_stabilize
+    	}
 		id = UKR_soc_fix_ind
 		icon = GFX_focus_UKR_fix_ind
 		cost = 4
@@ -38,7 +40,9 @@ focus_tree = {
 
 	focus = {
 		allow_branch = { always = yes }
-
+		available = {
+       		has_completed_focus = UKR_soc_sit_stabilize
+    	}
 		id = UKR_soc_fix_army
 		icon = GFX_focus_UKR_soc_fix_army
 		cost = 6
@@ -685,18 +689,33 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		allow_branch = { always = yes }
 		id = UKR_soc_expand_army
 		icon = GFX_focus_UKR_soc_expand_army
 		cost = 5
 		prerequisite = { focus = UKR_soc_with_great_lenin }
-		x = 23
+		x = 22
 		y = 4
 		completion_reward = {
 			
 		}
 	}
+
+	focus = {
+		allow_branch = { always = yes }
+		id = UKR_soc_fix_research_sites
+		icon = GFX_focus_UKR_soc_expand_army
+		cost = 5
+		prerequisite = { focus = UKR_soc_with_great_lenin }
+		x = 24
+		y = 4
+		completion_reward = {
+			
+		}
+	}
+
 	focus = {
 		allow_branch = { always = yes }
 		id = UKR_soc_expand_air
@@ -879,8 +898,8 @@ focus_tree = {
 		id = UKR_soc_modern_tanks
 		icon = GFX_focus_UKR_soc_modern_tanks
 		cost = 5
-		prerequisite = { focus = UKR_soc_expand_army }
-		x = 23
+		prerequisite = { focus = UKR_soc_fix_research_sites }
+		x = 24
 		y = 5
 		completion_reward = {
 			
@@ -892,9 +911,9 @@ focus_tree = {
 		id = UKR_soc_united_spirit
 		icon = GFX_focus_UKR_soc_united_spirit
 		cost = 5
-		prerequisite = { focus = UKR_soc_modern_tanks }
-		x = 23
-		y = 6
+		prerequisite = { focus = UKR_soc_expand_army }
+		x = 22
+		y = 5
 		completion_reward = {
 			
 		}
