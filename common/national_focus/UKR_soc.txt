@@ -137,6 +137,10 @@ focus_tree = {
 				days = 270
 			}
 			add_stability = 0.05
+			delete_unit_template_and_units = {
+				division_template = "White Army Brigade"
+				disband = yes
+			}
 			hidden_effect = {
 				country_event = { 
 					id = ukr_soc.4
@@ -173,7 +177,19 @@ focus_tree = {
 		x = 13
 		y = 2
 		completion_reward = {
-			
+			set_division_template_lock = {
+				division_template = "Deutsche Garrison"
+				is_locked = no
+			}
+			delete_unit_template_and_units = {
+				division_template = "Deutsche Garrison"
+				disband = yes
+			}
+			remove_ideas = {
+				UKR_unhappy_german_garrison_idea
+			}
+			add_manpower = -1917
+			add_stability = 0.03
 		}
 	}
 
@@ -187,7 +203,11 @@ focus_tree = {
 		x = 15
 		y = 2
 		completion_reward = {
-			
+			remove_ideas = {
+				UKR_unhappy_german_garrison_idea
+			}
+			add_manpower = 300
+			add_stability = -0.06
 		}
 	}
 
@@ -638,7 +658,10 @@ focus_tree = {
 		x = 25
 		y = 2
 		completion_reward = {
-			
+			#promote_character
+			add_command_power = 30
+			add_political_power = 75
+			add_war_support = 0.03
 		}
 	}
 	focus = {
@@ -647,10 +670,19 @@ focus_tree = {
 		icon = GFX_focus_UKR_soc_with_great_lenin
 		cost = 5
 		prerequisite = { focus = UKR_soc_centralised_command }
+		available = {
+       		has_completed_focus = UKR_soc_propaganda
+    	}
 		x = 25
 		y = 3
 		completion_reward = {
-			
+			custom_override_tooltip = {
+				tooltip = UKR_army_fix_tooltip
+				remove_ideas = {
+					UKR_army_in_chaos2
+					UKR_army_in_chaos3
+				}
+			}
 		}
 	}
 	focus = {
