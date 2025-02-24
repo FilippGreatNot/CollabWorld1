@@ -93,7 +93,7 @@ UKR_symon_petlura = {
 			}
 		}
 		country_leader = {
-			ideology = authoritarian_democrat
+			ideology = despotism_subtype
 			traits = { hetman }
 			desc = "POLITICS_SYMON_PETLURA_DESC"
 		}
@@ -181,6 +181,9 @@ UKR_symon_petlura = {
     		}
     	}
     	advisor = {
+			visible = {
+				always = no
+			}
 			slot = head_of_government
 	    	can_be_fired = no
 			traits = { likes_the_soviets }
@@ -224,20 +227,13 @@ UKR_symon_petlura = {
 	
 		UKR_vladimir_antonov_ovseenko = {
 		name = UKR_Vladimir_Antonov_Ovseenko
-		
-		visible = {
-			OR = {
-			has_government = bolshevism
-			has_government = marxism
-			}
-		}
 			
 		portraits = {
 			army = {
 				large = gfx/leaders/UKR/UKR_antonov_ovseenko.dds
 			}
 			civilian = {
-				small = GFX_idea_UKR_antonov_ovseenko_min.dds
+				small = gfx/interface/ministers/UKR/UKR_anoton_ovseekno_min.dds
 			}
 		}
 		
@@ -247,7 +243,12 @@ UKR_symon_petlura = {
 			allowed = {
 				original_tag = UKR
 			}
-
+			visible = {
+				OR = {
+				has_government = bolshevism
+				has_government = marxism
+				}
+			}
 			traits = {
 				UKR_head_of_army
 			}
@@ -258,7 +259,12 @@ UKR_symon_petlura = {
 		}
 		
 		corps_commander = {
-		
+			visible = {
+				OR = {
+				has_government = bolshevism
+				has_government = marxism
+				}
+			}
 			skill = 3
 			attack_skill = 2
 			defense_skill = 3
