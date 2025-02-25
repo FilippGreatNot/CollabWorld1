@@ -466,6 +466,10 @@ focus_tree = {
 		y = 1
 		x = 0
 		
+		available = {
+			has_completed_focus = WRD_the_rebirth_of_the_vaterland
+		}
+		
 		prerequisite = {
 			focus = WRD_embrace_germanic_supremacy
 		}
@@ -477,6 +481,526 @@ focus_tree = {
 				ideology = esotericism
 				trait = the_chicken_farmer
 			}
+		}
+	}
+	
+	focus = {
+		id = WRD_the_beginnings_of_a_germanic_lebensraum
+		icon = GFX_focus_WRD_lebensraum
+		cost = 5
+		available = { has_government = esotericism }
+		relative_position_id = WRD_a_purple_germany
+		y = 1
+		x = 2
+		prerequisite = {
+			focus = WRD_a_purple_germany
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_war_support = 0.1
+			army_experience = 25
+			add_political_power = 70
+			create_faction = faction_WRD_neue_ordnung
+		}
+	}
+	
+	focus = {
+		id = WRD_the_doorstep_of_the_reich
+		icon = GFX_focus_WRD_doorstep
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
+		y = 1
+		x = -1
+		prerequisite = {
+			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    AUS = { make_every_core_national_for_PREV = yes }
+			    create_wargoal = {
+				type = annex_everything
+				target = AUS
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = CZE
+			    }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_retake_old_german_lands
+		icon = GFX_focus_WRD_land
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_doorstep_of_the_reich
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_the_doorstep_of_the_reich
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = EPR
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = POL
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = BLR
+			    }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_fall_rot
+		icon = GFX_focus_WRD_rot
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_avenge_the_battle_of_paris
+		y = 1
+		x = -1
+		prerequisite = {
+			focus = WRD_avenge_the_battle_of_paris
+		}
+		prerequisite = {
+			focus = WRD_retake_old_german_lands
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = WVA
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = UKR
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = SOV
+			    }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_the_germans_of_the_lowlands
+		icon = GFX_focus_WRD_lowlands
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
+		y = 1
+		x = 1
+		prerequisite = {
+			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_state_claim = 851
+				add_state_claim = 8
+				add_state_claim = 28
+				add_state_claim = 1093
+			    create_wargoal = {
+				type = annex_everything
+				target = LUX
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = HOL
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = BEL
+			     }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_avenge_the_battle_of_paris
+		icon = GFX_focus_WRD_paris
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_germans_of_the_lowlands
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_the_germans_of_the_lowlands
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_state_claim = 28
+			    create_wargoal = {
+				type = annex_everything
+				target = FRA
+			     }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_reunite_with_the_nordic_aryans
+		icon = GFX_focus_WRD_nordic
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
+		y = 1
+		x = 3
+		prerequisite = {
+			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			841 = { add_core_of = BAV }
+			    create_wargoal = {
+				type = annex_everything
+				target = DEN
+			     }
+				create_wargoal = {
+				type = annex_everything
+				target = NOR
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = SWE
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = FIN
+			     }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_liberate_germanias_westernmost_outpost
+		icon = GFX_focus_WRD_england
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_reunite_with_the_nordic_aryans
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_reunite_with_the_nordic_aryans
+		}
+		available = {
+		    has_war = no
+		}
+		available = {
+			has_completed_focus = WRD_avenge_the_battle_of_paris
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = ENG
+			     }
+				 add_war_support = 0.05
+				 random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+				prioritize = { 21 } #Bouches du Rhone
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+			}
+			navy_experience = 50
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_support_the_ku_klux_klan
+		icon = GFX_focus_WRD_klan
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_liberate_germanias_westernmost_outpost
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_liberate_germanias_westernmost_outpost
+		}
+		available = {
+		    has_war = no
+		}
+		available = {
+			has_completed_focus = WRD_avenge_the_battle_of_paris
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			KKK = {
+		    add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = WRD
+			}
+			}
+			add_political_power = 50
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_a_thousand_week_reich
+		icon = GFX_focus_WRD_lebensraum
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_fall_rot
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_fall_rot
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = WRD_deal_with_the_reichsbanner_rebellion
+		icon = GFX_focus_WRD_reichsbanner
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_a_purple_germany
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_a_purple_germany
+		}
+		available = {
+			country_exists = RBR
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_timed_idea = { 
+				idea = WRD_operation_verratervertreibung
+				months = 3
+			}
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_purge_the_unworthy_of_the_reich
+		icon = GFX_focus_WRD_purge
+		cost = 8
+		available = { has_government = esotericism }
+		relative_position_id = WRD_a_purple_germany
+		y = 1
+		x = -2
+		prerequisite = {
+			focus = WRD_a_purple_germany
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_timed_idea = { 
+				idea = WRD_purging_the_unworthy
+				months = 6
+			}
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_appoint_oskar_dirlewanger
+		icon = GFX_focus_WRD_oskar
+		cost = 5
+		available = { has_government = esotericism }
+		relative_position_id = WRD_purge_the_unworthy_of_the_reich
+		y = 1
+		x = -1
+		prerequisite = {
+			focus = WRD_purge_the_unworthy_of_the_reich
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_total_german_war_economy
+		icon = GFX_focus_WRD_war_economy
+		cost = 8
+		available = { has_government = esotericism }
+		relative_position_id = WRD_appoint_oskar_dirlewanger
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_appoint_oskar_dirlewanger
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			 add_war_support = 0.05
+			 add_stability = -0.05
+			random_owned_controlled_state = {
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+           random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}	
+           random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}	
+          random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}				
+		}
+	}
+	
+	focus = {
+		id = WRD_total_advancement_of_german_science
+		icon = GFX_focus_WRD_oskar
+		cost = 7
+		available = { has_government = esotericism }
+		relative_position_id = WRD_total_german_war_economy
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_total_german_war_economy
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_research_slot = 1
+            add_political_power = 25			
+		}
+	}
+	
+	focus = {
+		id = WRD_a_new_religion_for_the_german_people
+		icon = GFX_focus_WRD_oskar
+		cost = 7
+		available = { has_government = esotericism }
+		relative_position_id = WRD_total_advancement_of_german_science
+		y = 1
+		x = 1
+		prerequisite = {
+			focus = WRD_total_advancement_of_german_science focus = WRD_incorporate_the_vril_society
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			country_event = wrd.16			
+		}
+	}
+	
+	focus = {
+		id = WRD_return_to_the_aryan_way_of_life
+		icon = GFX_focus_WRD_aryan
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_purge_the_unworthy_of_the_reich
+		y = 1
+		x = 1
+		prerequisite = {
+			focus = WRD_purge_the_unworthy_of_the_reich
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			swap_ideas = {
+				remove_idea = WRD_agricultural_renewal
+				add_idea = WRD_agricultural_renewal2
+			}
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_produce_more_raw_milk
+		icon = GFX_focus_WRD_raw
+		cost = 8
+		available = { has_government = esotericism }
+		relative_position_id = WRD_return_to_the_aryan_way_of_life
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_return_to_the_aryan_way_of_life
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_ideas = WRD_the_power_of_raw_milk
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_incorporate_the_vril_society
+		icon = GFX_focus_WRD_vril
+		cost = 7
+		available = { has_government = esotericism }
+		relative_position_id = WRD_produce_more_raw_milk
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_produce_more_raw_milk
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.05
+			}
+			add_political_power = 150
+				
 		}
 	}
 	
@@ -1804,6 +2328,12 @@ focus_tree = {
 			has_completed_focus = WRD_the_rebirth_of_the_vaterland
 		}
 		
+		available = {
+			NOT = {
+			has_government = esotericism
+			}
+		}
+		
 		
 		
 		completion_reward = {	
@@ -2009,10 +2539,18 @@ focus_tree = {
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
-		    	declare_war_on = {
-				target = BLR
+		    	 create_wargoal = {
 				type = annex_everything
-			}
+				target = EPR
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = BLR
+			     }
+				  create_wargoal = {
+				type = annex_everything
+				target = POL
+			     }
 
 		}
 	}
