@@ -1,7 +1,24 @@
 add_namespace = tukha
 add_namespace = BLR_ukr
 
-country_event = {
+country_event = { #FOREIGN EVENTS
+	id = BLR_ukr.1
+	title = BLR_ukr.1.t
+	desc = BLR_ukr.1.d
+	is_triggered_only = yes
+	option = {
+		name = BLR_ukr.1.a
+		ai_chance = { base = 9 }
+		UKR = { country_event = ukr_soc.18 }
+	}
+	option = {
+		name = BLR_ukr.1.b
+		ai_chance = { base = 1 }
+		UKR = { country_event = ukr_soc.17 }
+	}
+}
+
+country_event = { #NATIONAL EVENTS
 	id = tukha.1
 	title = tukha.1.t
 	desc = tukha.1.d
@@ -298,18 +315,23 @@ country_event = {
 }
 
 country_event = {
-	id = BLR_ukr.1
-	title = BLR_ukr.1.t
-	desc = BLR_ukr.1.d
+	id = tukha.14
+	title = tukha.14.t
+	desc = tukha.14.d
 	is_triggered_only = yes
+	picture = GFX_report_event_makhno_2
+	
+	
 	option = {
-		name = BLR_ukr.1.a
-		ai_chance = { base = 9 }
-		UKR = { country_event = ukr_soc.18 }
-	}
-	option = {
-		name = BLR_ukr.1.b
-		ai_chance = { base = 1 }
-		UKR = { country_event = ukr_soc.17 }
-	}
+		name = tukha.14.a
+		add_stability = -0.2
+		add_war_support = -0.05
+		set_cosmetic_tag = BLR_libertarian_socialism
+		set_politics = { ruling_party = libertarian_socialism }
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.2
+			}
+
+		}
 }
