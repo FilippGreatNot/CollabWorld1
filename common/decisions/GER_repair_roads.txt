@@ -2225,4 +2225,57 @@ GER_repair_road = {
 			}
 		}
 	}
+	GER_repair_1096 = {
+		visible = {
+			controls_state = 1096
+			has_country_flag = repair_damaged_roads_flag
+			1096 = { 
+				has_dynamic_modifier = {
+					modifier = germany_damaged_roads 
+				}
+			}
+		}
+		ai_will_do = { base = 200 }
+		available = {
+			controls_state = 1096
+			1096 = { 
+				has_dynamic_modifier = {
+					modifier = germany_damaged_roads 
+				}
+			}
+		}
+		allowed = {
+			OR = {
+				original_tag = FWG
+				original_tag = WRD
+				original_tag = GER
+				original_tag = FGB
+				original_tag = UVS
+				original_tag = BAV
+				original_tag = DSH
+			}
+		}
+		cost = 30
+		icon = GFX_decision_generic_motorized
+		fire_only_once = no
+		days_remove = 30
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1096
+			}
+		}
+		complete_effect = {
+		}
+        modifier = {
+            political_power_cost = 0.1
+       	}
+		remove_effect = {
+			add_stability = 0.01
+			1096 = {
+				remove_dynamic_modifier = {
+					modifier = germany_damaged_roads
+				}
+			}
+		}
+	}
 }

@@ -1,0 +1,62 @@
+add_namespace = sik
+
+news_event = { 
+	id = sik.1
+	title = sik.1.t
+	desc = sik.1.d 
+	picture = GFX_news_event_sichuan_war
+	major = yes
+	is_triggered_only = yes
+    immediate = {
+        hidden_effect = {
+            add_threat = 1
+            SIK = { 
+                retire_character = SIK_yang_zengxin 
+                add_country_leader_role = {
+                    character = SIK_jin_shuren
+    			    promote_leader = yes
+                    country_leader = {
+                        ideology = paternal_autocrat
+                        traits = { iron_fist_rule }
+                    }
+                }
+            }
+            news_event = { id = sik.2 days = 3 }
+        }
+    }
+	option = {
+		name = sik.1.a
+	}
+}
+
+news_event = { 
+	id = sik.2
+	title = sik.2.t
+	desc = sik.2.d 
+	picture = GFX_news_event_sichuan_war
+	major = yes
+	is_triggered_only = yes
+    immediate = {
+        hidden_effect = {
+            add_threat = 2
+            SIK = { 
+                dismantle_faction = yes
+                end_puppet = ALT 
+                end_puppet = DZG 
+                end_puppet = TIA 
+                end_puppet = KUM
+            }
+            ALT = { drop_cosmetic_tag = yes }
+            DZG = { drop_cosmetic_tag = yes }
+            TIA = { drop_cosmetic_tag = yes }
+            ALT = { country_event = alt.5 }
+            1007 = {
+                transfer_state_to = XSM
+                add_claim_by = XSM
+            }
+        }
+    }
+	option = {
+		name = sik.2.a
+	}
+}

@@ -5865,7 +5865,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitzs_coup
 		prerequisite = { focus = FGB_luttwitzs_coup }
 		completion_reward = {
@@ -5882,7 +5882,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = -4
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_dissolve_the_council
 		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
 		completion_reward = {
@@ -5902,7 +5902,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_fighting_back
 		prerequisite = { focus = FGB_luttwitz_fighting_back }
 		completion_reward = {
@@ -5926,7 +5926,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = -2
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_dissolve_the_council
 		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
 		completion_reward = {
@@ -5949,7 +5949,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 6
 		relative_position_id = FGB_luttwitz_enlisting_more_militias
 		prerequisite = { focus = FGB_luttwitz_enlisting_more_militias }
 		completion_reward = {
@@ -5969,7 +5969,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 		available = { NOT = { country_exists = DSH } }
 		relative_position_id = FGB_luttwitz_exile_stahlhelm_loyalists
 		prerequisite = { focus = FGB_luttwitz_exile_stahlhelm_loyalists }
@@ -5992,7 +5992,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_dissolve_the_council
 		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
 		completion_reward = {
@@ -6014,7 +6014,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_align_the_generals
 		prerequisite = { focus = FGB_luttwitz_align_the_generals }
 		completion_reward = {
@@ -6027,11 +6027,27 @@ focus_tree = {
 	}
 
 	focus = { 
+		id = FGB_luttwitz_institute_austerity_policies
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 4
+		relative_position_id = FGB_luttwitz_assemble_a_loyal_cabinet
+		prerequisite = { focus = FGB_luttwitz_assemble_a_loyal_cabinet }
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = {
+				FGB_austerity_policies
+			}
+		}
+	}
+
+	focus = { 
 		id = FGB_luttwitz_negotiations_with_the_dnvp
 		icon = GFX_focus_FGB_noske_default
 		x = 2
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_dissolve_the_council
 		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
 		completion_reward = {
@@ -6053,7 +6069,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_negotiations_with_the_dnvp
 		prerequisite = { focus = FGB_luttwitz_negotiations_with_the_dnvp }
 		completion_reward = {
@@ -6069,7 +6085,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 4
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_dissolve_the_council
 		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
 		completion_reward = {
@@ -6092,7 +6108,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_clamp_down_on_liberal_journalism
 		prerequisite = { focus = FGB_luttwitz_clamp_down_on_liberal_journalism }
 		completion_reward = {
@@ -6117,7 +6133,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_noske_default
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_luttwitz_the_grey_terror
 		prerequisite = { focus = FGB_luttwitz_the_grey_terror }
 		prerequisite = { focus = FGB_luttwitz_forceful_seizure_of_spd_property }
@@ -6128,6 +6144,82 @@ focus_tree = {
 				FGB_civil_unrest
 			}
 			clr_country_flag = FGB_unrest_flag
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_dig_into_the_ground
+		icon = GFX_focus_FGB_noske_default
+		x = 6
+		y = 1
+		cost = 4
+		relative_position_id = FGB_luttwitz_dissolve_the_council
+		prerequisite = { focus = FGB_luttwitz_dissolve_the_council }
+		completion_reward = {
+			add_political_power = -40
+			54 = {
+				add_resource = {
+					type = steel 
+					amount = 3
+				}
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_fortress_franconia
+		icon = GFX_focus_FGB_noske_default
+		x = 0
+		y = 1
+		cost = 6
+		select_effect = {
+			add_timed_idea = {
+				idea = FGB_fortification_effort
+				days = 35
+			}
+		}
+		relative_position_id = FGB_luttwitz_dig_into_the_ground
+		prerequisite = { focus = FGB_luttwitz_dig_into_the_ground }
+		completion_reward = {
+			custom_effect_tooltip = FGB_forts_will_be_constructed_along_southern_franconia_tt
+			54 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 561
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6594
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9557
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11417
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11529
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13618
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -6261,7 +6353,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_study_tactics }
 		x = -1
 		y = 2
-		cost = 4
+		cost = 6
 		relative_position_id = FGB_freikorps_legacy
 		ai_will_do = {
 			factor = 10
@@ -6689,7 +6781,7 @@ focus_tree = {
 		relative_position_id = FGB_the_will_to_unite_a_nation
 		prerequisite = { focus = FGB_the_will_to_unite_a_nation }
 		completion_reward = {
-			852 = {
+			1096 = {
 				add_building_construction = {
 					type = bunker
 					level = 2
@@ -7140,6 +7232,14 @@ focus_tree = {
 			custom_effect_tooltip = FGB_repairing_damaged_roads_decisions_unlocked_tt
 			custom_effect_tooltip = FGB_repair_the_countryside_tt
 			set_country_flag = repair_damaged_roads_flag
+			1096 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes 
+				}
+			}
 			852 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -7419,15 +7519,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			852 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
 			}
-			50 = {
-				add_extra_state_shared_building_slots = 1
+			1096 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
 					level = 1

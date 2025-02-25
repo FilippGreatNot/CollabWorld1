@@ -86,8 +86,6 @@ country_event = {
 	picture = GFX_report_event_valknut
 	is_triggered_only = yes
 
-	immediate = { hidden_effect = { ALT = { annex_country = { target = DZG } } } }
-
 	option = {
 		name = alt.4.a
 		add_war_support = 0.05
@@ -104,6 +102,88 @@ country_event = {
 			if = { 
 				limit = { NOT = { has_completed_focus = ALT_the_secret_force } } 
 				complete_national_focus = ALT_the_secret_force
+			}
+		}
+	}
+}
+
+country_event = {
+	id = alt.5
+	title = alt.5.t
+	desc = alt.5.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.5.a
+		add_war_support = 0.1
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.3
+		}
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.35
+		}
+		add_popularity = {
+			ideology = libertarian_socialism
+			popularity = 0.15
+		}
+		declare_war_on = {
+			target = DZG
+			type = annex_everything
+		}
+		add_ideas = {
+			ALT_a_peoples_force
+		}
+		hidden_effect = {
+			retire_character = ALT_ma_fuxiang
+			set_politics = {
+				ruling_party = bolshevism
+			}
+			country_event = { id = alt.6 days = 6 }
+		}
+	}
+}
+
+country_event = {
+	id = alt.6
+	title = alt.6.t
+	desc = alt.6.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.6.a
+		army_experience = 10
+		add_war_support = 0.04
+		add_corps_commander_role = {
+			character = ALT_pavel_rybalko
+			skill = 2
+			attack_skill = 2 
+			defense_skill = 2 
+			planning_skill = 2
+			logistics_skill = 3 
+			traits = { inflexible_strategist cavalry_officer }
+		}
+		division_template = {
+			name = "Mounted Infantry"		
+			regiments = {
+				cavalry = { x = 0 y = 0 }
+				cavalry = { x = 0 y = 1 }
+				cavalry = { x = 1 y = 0 }
+				cavalry = { x = 1 y = 1 }
+				cavalry = { x = 2 y = 0 }
+				cavalry = { x = 2 y = 1 }	
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+			}
+		}
+		random_owned_controlled_state = {
+			create_unit = {
+				division = "name = \"1st Mounted Infantry\" division_template = \"Mounted Infantry\" start_experience_factor = 0.4" 
+				owner = PREV
 			}
 		}
 	}
