@@ -566,41 +566,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = WRD_fall_rot
-		icon = GFX_focus_WRD_rot
-		cost = 6
-		available = { has_government = esotericism }
-		relative_position_id = WRD_avenge_the_battle_of_paris
-		y = 1
-		x = -1
-		prerequisite = {
-			focus = WRD_avenge_the_battle_of_paris
-		}
-		prerequisite = {
-			focus = WRD_retake_old_german_lands
-		}
-		available = {
-		    has_war = no
-		}
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			    create_wargoal = {
-				type = annex_everything
-				target = WVA
-			    }
-				create_wargoal = {
-				type = annex_everything
-				target = UKR
-			    }
-				create_wargoal = {
-				type = annex_everything
-				target = SOV
-			    }
-				
-		}
-	}
-	
-	focus = {
 		id = WRD_the_germans_of_the_lowlands
 		icon = GFX_focus_WRD_lowlands
 		cost = 6
@@ -657,6 +622,41 @@ focus_tree = {
 				type = annex_everything
 				target = FRA
 			     }
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_fall_rot
+		icon = GFX_focus_WRD_rot
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_avenge_the_battle_of_paris
+		y = 1
+		x = -1
+		prerequisite = {
+			focus = WRD_avenge_the_battle_of_paris
+		}
+		prerequisite = {
+			focus = WRD_retake_old_german_lands
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = WVA
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = UKR
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = SOV
+			    }
 				
 		}
 	}
@@ -777,7 +777,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_a_thousand_week_reich
-		icon = GFX_focus_WRD_lebensraum
+		icon = GFX_focus_WRD_twr
 		cost = 4
 		available = { has_government = esotericism }
 		relative_position_id = WRD_fall_rot
@@ -854,7 +854,7 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-				
+			activate_advisor = WRD_oskar_dirlewanger_sec
 		}
 	}
 	
@@ -910,7 +910,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_total_advancement_of_german_science
-		icon = GFX_focus_WRD_oskar
+		icon = GFX_focus_WRD_science
 		cost = 7
 		available = { has_government = esotericism }
 		relative_position_id = WRD_total_german_war_economy
@@ -928,7 +928,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_a_new_religion_for_the_german_people
-		icon = GFX_focus_WRD_oskar
+		icon = GFX_focus_WRD_islam
 		cost = 7
 		available = { has_government = esotericism }
 		relative_position_id = WRD_total_advancement_of_german_science
@@ -945,7 +945,7 @@ focus_tree = {
 	
 	focus = {
 		id = WRD_return_to_the_aryan_way_of_life
-		icon = GFX_focus_WRD_aryan
+		icon = GFX_focus_WRD_way
 		cost = 6
 		available = { has_government = esotericism }
 		relative_position_id = WRD_purge_the_unworthy_of_the_reich
@@ -2320,22 +2320,19 @@ focus_tree = {
 		id = WRD_first_the_german_kaiserreich_back_on_the_world_stage
 		icon = GFX_focus_WRD_first_beaten_but_not_defeated
 		cost = 8
-		x = 0
-		y = 1
-		relative_position_id = WRD_the_rebirth_of_the_vaterland
-		
+		x = 10
+		y = 10
 		available = {
 			has_completed_focus = WRD_the_rebirth_of_the_vaterland
 		}
-		
 		available = {
 			NOT = {
 			has_government = esotericism
 			}
 		}
-		
-		
-		
+		prerequisite = {
+			focus = WRD_deutschland_uber_alles focus = WRD_trust_in_the_kaiser
+		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
 		    add_stability = 0.05
