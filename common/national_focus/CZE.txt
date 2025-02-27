@@ -382,8 +382,149 @@ focus_tree = {
 	    id = CZE_ministry_of_local_development
 		prerequisite = { focus = CZE_czechoslovak_economical_plan }
 		relative_position_id = CZE_czechoslovak_economical_plan
-		x = 5
+		x = 4
 		y = 1
 		cost = 4
+	}
+	focus = { 
+	    id = CZE_poldi_kladno
+		prerequisite = { focus = CZE_riches_in_the_ground }
+		relative_position_id = CZE_riches_in_the_ground
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_chimneys_of_ostrava
+		prerequisite = { focus = CZE_poldi_kladno }
+		relative_position_id = CZE_poldi_kladno
+		x = 0
+		y = 1
+		cost = 4
+	}
+    focus = {
+	    id = CZE_jachymov_glowing_rocks
+		prerequisite = { focus = CZE_chimneys_of_ostrava }
+		relative_position_id = CZE_chimneys_of_ostrava
+		x = 0 
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_skoda_plzen
+		prerequisite = { focus = CZE_kickstart_skoda }
+		relative_position_id = CZE_kickstart_skoda 
+		x = -1 
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_skoda_mlada_boleslav
+		prerequisite = { focus = CZE_kickstart_skoda }
+		relative_position_id = CZE_kickstart_skoda 
+		x = 1
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_skoda_ads
+		prerequisite = { focus = CZE_skoda_plzen }
+		prerequisite = { focus = CZE_skoda_mlada_boleslav }
+		relative_position_id = CZE_skoda_plzen
+		x = 1 
+		y = 1
+	    cost = 4
+	}
+	focus = {
+	    id = CZE_skoda_tanks
+		prerequisite = { focus = CZE_skoda_ads }
+		relative_position_id = CZE_skoda_ads
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_factories_to_soldiers
+		prerequisite = { focus = CZE_fund_zbrojovka }
+		relative_position_id = CZE_fund_zbrojovka 
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_foreign_contracts
+		prerequisite = { focus = CZE_factories_to_soldiers }
+		relative_position_id = CZE_factories_to_soldiers 
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = { 
+	    id = CZE_merge_companies
+		prerequisite = { focus = CZE_foreign_contracts }
+		relative_position_id = CZE_foreign_contracts
+		x = 0
+		y = 1 
+		cost = 4
+	}
+	focus = {
+	    id = CZE_support_bata
+		prerequisite = { focus = CZE_ministry_of_local_development }
+		relative_position_id = CZE_ministry_of_local_development
+		x = -1 
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_zlin_boots
+		prerequisite = { focus = CZE_support_bata }
+		relative_position_id = CZE_support_bata
+		x = 0 
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_obujeme_svet
+		prerequisite = { focus = CZE_zlin_boots }
+		relative_position_id = CZE_zlin_boots
+		x = 0 
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_support_aero
+		prerequisite = { focus = CZE_ministry_of_local_development }
+		relative_position_id = CZE_ministry_of_local_development
+		x = 1
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_foreign_air_experts
+		prerequisite = { focus = CZE_support_aero }
+		relative_position_id = CZE_support_aero
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_modern_biplanes
+		prerequisite = { focus = CZE_foreign_air_experts }
+		relative_position_id = CZE_foreign_air_experts
+		x = 0
+		y = 1
+		cost = 4
+	}
+	focus = {
+	    id = CZE_made_in_czechoslovakia
+		prerequisite = { focus = CZE_modern_biplanes }
+		prerequisite = { focus = CZE_obujeme_svet }
+		prerequisite = { focus = CZE_merge_companies }
+		prerequisite = { focus = CZE_skoda_tanks }
+		prerequisite = { focus = CZE_jachymov_glowing_rocks }
+		relative_position_id = CZE_merge_companies
+		x = -1
+		y = 1 
+		cost = 10
 	}
 } 

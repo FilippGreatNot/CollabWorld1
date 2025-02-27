@@ -97,6 +97,19 @@ characters = {
 		}
 	}
 	
+	WRD_harun_himmler = {
+		name = "Harun Lutfi Al-Munichi"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/WRD/WRD_harun_himmler.tga"
+			}
+		}
+		country_leader = {
+			ideology = esoteric_nazism
+			traits = { defender_of_european_islam }
+		}
+	}
+	
 	### Multirole characters ###
 	WRD_hans_von_seeckt = { #Ham
 		name = WRD_hans_von_seeckt
@@ -124,6 +137,41 @@ characters = {
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 4
+		}
+	}
+	
+	WRD_oskar_dirlewanger = {
+		name = "Oskar Dirlewanger"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/WRD/WRD_oskar.tga"
+				small = "GFX_idea_WRD_oskar"
+			}
+			army = {
+				large = "gfx/leaders/WRD/WRD_oskar.tga"
+				small = "GFX_idea_WRD_oskar"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = WRD_oskar_dirlewanger_sec
+			traits = { militarist }
+			can_be_fired = no
+			visible = {
+				has_completed_focus = WRD_appoint_oskar_dirlewanger
+			}
+		}
+		corps_commander = {
+			traits = { harsh_leader }
+			skill = 2
+			
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			visible = {
+				has_government = esotericism
+			}
 		}
 	}
 	
@@ -169,20 +217,6 @@ characters = {
 	}
 	
 	## Economy Minister ##
-	WRD_alfred_hugenberg = {
-		name = WRD_alfred_hugenberg
-		portraits = {
-			civilian = {
-				small = "GFX_idea_WRD_alfred_hugenberg"
-			}
-		}
-		advisor = {
-			slot = economy_minister
-			idea_token = WRD_alfred_hugenberg_ec
-			traits = { businessman }
-			can_be_fired = no
-		}
-	}
 	
 	## Propaganda Minister ##
 	WRD_herbert_windt = {
