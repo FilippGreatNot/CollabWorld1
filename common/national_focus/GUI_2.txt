@@ -1,0 +1,549 @@
+focus_tree = { 
+    id =  kuomintang_focus2
+    country = {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = GUI
+        }
+    }
+    default = no
+	
+	focus = {
+        id = KUO_state_economic
+        icon = GFX_goal_generic_construction
+        mutually_exclusive = { }
+        x = 5
+        y = 0
+        cost = 4
+
+         
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+        add_political_power = 5
+        		GUI = {
+			country_event = gui.7
+        }
+		} 
+    }
+	
+	focus = {
+        id = KUO_listen_van
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_state_economic}
+        mutually_exclusive = { focus = KUO_listen_chan }
+        x = 2
+        y = 1
+        cost = 3
+
+          allow_branch = {
+			if = {
+				NOT = {
+					has_completed_focus = KUO_listen_chan
+					
+				}
+			}
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+        add_political_power = 50
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.2
+}
+        swap_ideas = {
+				add_idea = GUI_collapse_economy1
+				remove_idea = GUI_collapse_economy
+			}
+        }
+		} 
+	
+	focus = {
+        id = KUO_listen_chan
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_state_economic}
+         mutually_exclusive = { focus = KUO_listen_van }
+        x = 8
+        y = 1
+        cost = 3
+
+         allow_branch = {
+			if = {
+				NOT = {
+					has_completed_focus = KUO_listen_van
+					
+				}
+			}
+		}
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+        add_political_power = 50
+        add_popularity = {
+    ideology = authoritarian_democrat
+    popularity = +0.2
+}
+        swap_ideas = {
+				add_idea = GUI_collapse_economy1
+				remove_idea = GUI_collapse_economy
+			}
+        }
+		} 
+		
+		focus = {
+        id = KUO_hunger
+        icon = GFX_goal_generic_construction
+        prerequisite = { 
+        focus = KUO_listen_chan
+        focus =	KUO_listen_van	}
+         mutually_exclusive = { }
+        x = 5
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 2
+		swap_ideas = {
+				add_idea = GUI_collapse_economy2
+				remove_idea = GUI_collapse_economy1
+			}
+        }
+}
+        
+		
+		focus = {
+        id = KUO_approve_unions
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_listen_van	}
+         mutually_exclusive = { }
+        x = 1
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+available = {
+      has_completed_focus = KUO_schools}
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 20
+		add_popularity = {
+    ideology =  bolshevism
+    popularity = +0.05
+}
+        }
+		}
+		
+		focus = {
+        id = KUO_raise_salary
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_approve_unions	}
+         mutually_exclusive = { }
+        x = 1
+        y = 3
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 20
+		add_popularity = {
+    ideology =  social_democrat
+    popularity = +0.05
+}
+    		add_popularity = {
+    ideology =  liberalism
+    popularity = +0.02
+}
+     add_stability = 0.05
+	 
+	 swap_ideas = {
+				add_idea = GUI_collapse_economy4
+				remove_idea = GUI_collapse_economy3
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_schools
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_hunger	}
+         mutually_exclusive = { }
+        x = 5
+        y = 3
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 10	 
+	 swap_ideas = {
+				add_idea = GUI_collapse_economy3
+				remove_idea = GUI_collapse_economy2
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_ask_help
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_schools	}
+         mutually_exclusive = { }
+        x = 5
+        y = 4
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 10	 
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_reduce_rent
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_raise_salary		}
+         mutually_exclusive = { }
+        x = 3
+        y = 4
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+			swap_ideas = {
+				add_idea = GUI_collapse_economy5
+				remove_idea = GUI_collapse_economy4
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_strangle_unions
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_listen_chan	}
+         mutually_exclusive = { }
+        x = 9
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+available = {
+      has_completed_focus = KUO_schools}
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 20
+		add_popularity = {
+    ideology =  bolshevism
+    popularity = -0.05
+}
+        }
+		}
+	
+	focus = {
+        id = KUO_business_assistance
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_strangle_unions	}
+         mutually_exclusive = { }
+        x = 9
+        y = 3
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		add_political_power = 20
+		add_popularity = {
+    ideology =  authoritarian_democrat
+    popularity = +0.05
+}
+    		add_popularity = {
+    ideology =  liberalism
+    popularity = +0.02
+}
+     add_stability = 0.05
+	 
+	 swap_ideas = {
+				add_idea = GUI_collapse_economy4
+				remove_idea = GUI_collapse_economy3
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_buy_food
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = 	KUO_business_assistance	}
+         mutually_exclusive = { }
+        x = 7
+        y = 4
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+			swap_ideas = {
+				add_idea = GUI_collapse_economy5
+				remove_idea = GUI_collapse_economy4
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_rich_province
+        icon = GFX_goal_generic_construction
+        prerequisite = { 
+		focus = KUO_reduce_rent
+		focus = KUO_buy_food
+		}
+         mutually_exclusive = { }
+        x = 5
+        y = 5
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+			swap_ideas = {
+				add_idea = GUI_good_economy
+				remove_idea = GUI_collapse_economy5
+			}
+	 
+    }
+	}
+	
+	
+	
+	
+	
+	
+	
+	focus = {
+        id = KUO_our_ways
+        icon = GFX_goal_generic_construction
+        prerequisite = { }
+         mutually_exclusive = { }
+        x = 17
+        y = 0
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+			GUI = {
+			country_event = gui.8
+        }
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_no_kpk
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_our_ways}
+         mutually_exclusive = { focus = KUO_yes_kpk }
+        x = 15
+        y = 1
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+        }
+	 
+    }
+	
+	focus = {
+        id = KUO_yes_kpk
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_our_ways}
+         mutually_exclusive = {focus = KUO_no_kpk }
+        x = 19
+        y = 1
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.2
+ ideology =  bolshevism
+    popularity = +0.05
+ }
+add_popularity = {
+    ideology = social_democrat
+    popularity = +0.05}
+	add_opinion_modifier = {
+	target = PRC
+	modifier = medium_increase
+	}
+		}
+	 
+    }
+	}
+	
+	}
+	
+	}
+	
+	
