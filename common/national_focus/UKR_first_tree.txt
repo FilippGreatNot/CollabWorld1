@@ -1,8 +1,7 @@
 #!gfx:interface/country/ukraine/ukr_soc/UKR_soc_focus.gfx
 focus_tree = {
-
-
 	id = UKR
+	
 	country = {
 		factor = 0
 		modifier = {
@@ -12,12 +11,7 @@ focus_tree = {
 	}
 	default = no
 	
-###################################################
-#                                                 #
-#             STARTING BRANCH                     #
-#                                                 #
-###################################################
-
+	### Starting branch ###
 	focus = {
 		id = UKR_flimsy_stability
 		icon = GFX_focus_UKR_flimsy_stability
@@ -25,8 +19,7 @@ focus_tree = {
 		x = 12
 		y = 0
 		completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_flimsy_stability"
-		country_event = ukr.startbranch.1
+			country_event = ukr.startbranch.1
 		}
 	}
 	
@@ -40,9 +33,8 @@ focus_tree = {
 		x = 12
 		y = 1
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_weak_rule_of_batka"
 			country_event = ukr.startbranch.2
-	}
+		}
 	}
 	focus = {
 		id = UKR_our_way
@@ -55,19 +47,13 @@ focus_tree = {
 		y = 2
 		
 		completion_reward = {
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_our_way"
 			country_event = ukr.startbranch.3
 			add_political_power = 50
 			add_stability = 0.1
 		}
-
 	}
 	
-###################################################
-#                                                 #
-#               INCIDENT                          #
-#                                                 #
-###################################################
+	### Inicident ###
 	focus = {
 		id = UKR_everything_started_alright_when
 		icon = GFX_focus_UKR_everything_started_alright_when
@@ -79,8 +65,6 @@ focus_tree = {
 		y = 3
 		
 		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_incident_in_chernigov"
-			
 			add_political_power = 50
 			add_stability = 0.05
 			country_event = ukr.startbranch.4
@@ -96,19 +80,13 @@ focus_tree = {
 		x = 12
 		y = 4
 		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_incident_in_chernigov"
-			
+		completion_reward = {
 			add_political_power = -150
 			country_event = ukr.startbranch.5
 		}
 	}
 	
-###################################################
-#                                                 #
-#             FINAL BRANCH FUCKERS                #
-#                                                 #
-###################################################
+	### FINAL BRANCH FUCKERS ###
 	focus = {
 		id = UKR_com
 		icon = GFX_focus_UKR_com
@@ -116,11 +94,12 @@ focus_tree = {
 		x = 14
 		y = 7
 		
-	available = {
+		available = {
 			always = no
 		}
-	completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_white_victory"
+		
+		completion_reward = {
+			
 		}
 	}
 
@@ -131,11 +110,11 @@ focus_tree = {
 		x = 10
 		y = 7
 		
-	available = {
+		available = {
 			always = no
 		}
-	completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_white_victory"
+		completion_reward = {
+			
 		}
 	}
 	
@@ -146,14 +125,11 @@ focus_tree = {
 		x = 12
 		y = 7
 		
-	available = {
+		available = {
 			always = no
 		}
-	completion_reward = {
-		log = "[GetDateText]: [ROOT.GetTag]: Focus UKR_he_is_alive"
+		completion_reward = {
+			
 		}
 	}
-
 }
-	
-

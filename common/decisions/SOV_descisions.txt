@@ -198,6 +198,10 @@ SOV_comintern_decisions = {
 SOV_annex_communist_decisions = {
 	SOV_puppet_UKR = {
 		priority = 1000
+		available = {
+			UKR = { has_war = no }
+		}
+		ai_will_do = { base = 100 }
 		fire_only_once = yes
 		cost = 50
 		complete_effect = {
@@ -206,6 +210,11 @@ SOV_annex_communist_decisions = {
 	}
 	SOV_annex_UKR = {
 		visible = { UKR = { is_puppet_of = SOV } }
+		ai_will_do = { base = 100 }
+		available = {
+			UKR = { has_war = no }
+		}
+		fire_only_once = yes
 		priority = 1000
 		cost = 75
 		days_remove = 50
@@ -217,6 +226,9 @@ SOV_annex_communist_decisions = {
 SOV_annex_communist_decisions_second = {
 	SOV_puppet_UKR_second = {
 		fire_only_once = yes
+		available = {
+			UKR = { has_war = no }
+		}
 		priority = 1000
 		ai_will_do = { base = 100 }
 		cost = 50
@@ -225,7 +237,12 @@ SOV_annex_communist_decisions_second = {
 		}
 	}
 	SOV_annex_UKR_second = {
-		visible = { UKR = { is_puppet_of = SOV } }
+		visible = { 
+			UKR = { is_puppet_of = SOV } 
+		}
+		available = {
+			UKR = { has_war = no }
+		}
 		ai_will_do = { base = 100 }
 		priority = 1000
 		cost = 75
