@@ -6223,6 +6223,168 @@ focus_tree = {
 		}
 	}
 
+	focus = { 
+		id = FGB_luttwitz_unite_the_state
+		icon = GFX_focus_FGB_noske_default
+		x = 3
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_crush_the_uprising
+		prerequisite = { focus = FGB_luttwitz_crush_the_uprising }
+		prerequisite = { focus = FGB_luttwitz_spell_the_end_of_the_stuttgart_protests }
+		completion_reward = {
+			remove_ideas = {
+				FGB_austerity_policies
+			}
+			add_timed_idea = {
+				idea = FGB_stability_and_recovery
+				days = 100
+			}
+			country_event = fgb.100
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_purge_the_sa
+		icon = GFX_focus_FGB_noske_default
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_unite_the_state
+		prerequisite = { focus = FGB_luttwitz_unite_the_state }
+		completion_reward = {
+			add_political_power = -40
+			add_stability = 0.05
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.1
+			}
+			retire_character = FGB_ernst_rohm 
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_no_more_shortages
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = FGB_luttwitz_unite_the_state
+		prerequisite = { focus = FGB_luttwitz_unite_the_state }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
+			add_ideas = {
+				FGB_militaristic_policies
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_reach_the_conclusion_of_the_dark_era
+		icon = GFX_focus_FGB_noske_default
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FGB_luttwitz_purge_the_sa
+		prerequisite = { focus = FGB_luttwitz_purge_the_sa }
+		prerequisite = { focus = FGB_luttwitz_no_more_shortages }
+		completion_reward = {
+			add_war_support = 0.05
+			every_other_country = {
+				limit = { has_country_flag = germany }
+				every_owned_state = {
+					add_claim_by = FGB
+				}
+			}
+			set_cosmetic_tag = FGB_german_unification_authority
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_offer_an_olive_branch_to_the_ludendorff_regime
+		icon = GFX_focus_FGB_noske_default
+		x = -5
+		y = 1
+		cost = 5
+		available = { NOT = { has_war = yes } }
+		allow_branch = { has_country_flag = FGB_luttwitz_united_the_state }
+		mutually_exclusive = { focus = FGB_luttwitz_march_west }
+		relative_position_id = FGB_luttwitz_reach_the_conclusion_of_the_dark_era
+		prerequisite = { focus = FGB_luttwitz_reach_the_conclusion_of_the_dark_era }
+		completion_reward = {
+			WRD = { country_event = fgb.101 }
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_march_west
+		icon = GFX_focus_FGB_noske_default
+		x = -3
+		y = 1
+		cost = 5
+		available = { NOT = { has_war = yes } }
+		allow_branch = { has_country_flag = FGB_luttwitz_united_the_state }
+		mutually_exclusive = { focus = FGB_luttwitz_offer_an_olive_branch_to_the_ludendorff_regime }
+		relative_position_id = FGB_luttwitz_reach_the_conclusion_of_the_dark_era
+		prerequisite = { focus = FGB_luttwitz_reach_the_conclusion_of_the_dark_era }
+		completion_reward = {
+			declare_war_on = {
+				target = WRD
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_march_east
+		icon = GFX_focus_FGB_noske_default
+		x = 3
+		y = 1
+		cost = 5
+		available = { NOT = { has_war = yes } }
+		allow_branch = { has_country_flag = FGB_luttwitz_united_the_state }
+		mutually_exclusive = { focus = FGB_luttwitz_plant_a_coup_in_bavaria }
+		relative_position_id = FGB_luttwitz_reach_the_conclusion_of_the_dark_era
+		prerequisite = { focus = FGB_luttwitz_reach_the_conclusion_of_the_dark_era }
+		completion_reward = {
+			declare_war_on = {
+				target = BAV
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = { 
+		id = FGB_luttwitz_plant_a_coup_in_bavaria
+		icon = GFX_focus_FGB_noske_default
+		x = 5
+		y = 1
+		cost = 5
+		available = { NOT = { has_war = yes } }
+		allow_branch = { has_country_flag = FGB_luttwitz_united_the_state }
+		mutually_exclusive = { focus = FGB_luttwitz_march_east }
+		relative_position_id = FGB_luttwitz_reach_the_conclusion_of_the_dark_era
+		prerequisite = { focus = FGB_luttwitz_reach_the_conclusion_of_the_dark_era }
+		completion_reward = {
+			
+		}
+	}
+
  #############################################################################  #########################
 ##                                                                           ## ##                      ##
 ##  ##     ## ###### ##     ###### ########     ###     ########   ##    ##  ## ##                        ##

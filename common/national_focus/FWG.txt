@@ -13,7 +13,7 @@ focus_tree = {
 	focus = {
 		id = FWG_fate_of_the_junkers
 		icon = GFX_focus_FWG_fate_of_the_junkers
-		x = 10
+		x = 18
 		y = 0
 		cost = 5
 		available_if_capitulated = yes
@@ -74,6 +74,7 @@ focus_tree = {
 				popularity = -0.08
 			}
 			add_manpower = -15000
+			custom_effect_tooltip = FWG_unlocks_a_new_decision_category_tt
 		}
 	}
 	focus = {
@@ -168,15 +169,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FWG_merges
-		icon = GFX_focus_FWG_merges
-		x = -12
+		id = FWG_henke
+		icon = GFX_focus_FWG_henke
+		x = -15
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
 		available = { 
 			custom_trigger_tooltip = {
-				has_country_flag = FWG_merges_flag
+				has_country_flag = FWG_henke_flag
 				tooltip = FWG_will_be_completed_through_focus_tt
 			} 
 		}
@@ -186,17 +187,285 @@ focus_tree = {
 		relative_position_id = FWG_the_congress_of_1922
 		prerequisite = { focus = FWG_the_congress_of_1922 }
 		completion_reward = {
-			promote_character = FWG_august_merges
+			set_politics = { ruling_party = social_democrat }
+			promote_character = FWG_alfred_henke
 			add_popularity = {
-				ideology = libertarian_socialism
+				ideology = social_democrat
 				popularity = 0.1
 			}
 		}
 	}
 	focus = {
+		id = FWG_rapprochement_with_the_ebert_government
+		icon = GFX_focus_FWG_henke
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_henke
+		prerequisite = { focus = FWG_henke }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = GER
+				modifier = FWG_mending_relations
+			}
+		}
+	}
+	focus = {
+		id = FWG_offer_the_republicans_a_pact_of_nonaggression
+		icon = GFX_focus_FWG_henke
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { GER = { has_completed_focus = GER_first_the_spd_holds_against_all_odds } }
+		relative_position_id = FWG_rapprochement_with_the_ebert_government
+		prerequisite = { focus = FWG_rapprochement_with_the_ebert_government }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = GER
+				modifier = FWG_mending_relations
+			}
+		}
+	}
+	focus = {
+		id = FWG_bread_for_guns_campaign
+		icon = GFX_focus_FWG_henke
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_rapprochement_with_the_ebert_government
+		prerequisite = { focus = FWG_rapprochement_with_the_ebert_government }
+		completion_reward = {
+			add_political_power = -50
+			add_manpower = 10000
+			add_ideas = { extensive_conscription }
+			country_event = fwg.7
+		}
+	}
+	focus = {
+		id = FWG_a_speech_in_bremen
+		icon = GFX_focus_FWG_henke
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_henke
+		prerequisite = { focus = FWG_henke }
+		completion_reward = {
+			country_event = fwg.6
+		}
+	}
+	focus = {
+		id = FWG_a_party_of_revolution
+		icon = GFX_focus_FWG_henke
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_a_speech_in_bremen
+		prerequisite = { focus = FWG_a_speech_in_bremen }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.03
+			}
+			add_timed_idea = {
+				idea = FWG_a_party_of_revolution_idea
+				days = 30
+			}
+		}
+	}
+	focus = {
+		id = FWG_win_the_battle_against_pacifism
+		icon = GFX_focus_FWG_henke
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_bread_for_guns_campaign
+		prerequisite = { focus = FWG_bread_for_guns_campaign }
+		prerequisite = { focus = FWG_a_party_of_revolution }
+		completion_reward = {
+			add_war_support = 0.1
+			add_stability = 0.1
+			add_ideas = {
+				a_gun_for_every_household
+			}
+		}
+	}
+	focus = {
+		id = FWG_equip_our_militias_with_better_guns
+		icon = GFX_focus_FWG_henke
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_win_the_battle_against_pacifism
+		prerequisite = { focus = FWG_win_the_battle_against_pacifism }
+		completion_reward = {
+			#add ideas
+		}
+	}
+	focus = {
+		id = FWG_the_father_of_the_bremen_soviet
+		icon = GFX_focus_FWG_henke
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_win_the_battle_against_pacifism
+		prerequisite = { focus = FWG_win_the_battle_against_pacifism }
+		prerequisite = { focus = FWG_a_party_of_revolution }
+		completion_reward = {
+			#add leader trait
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_dictate_a_new_economic_policy
+		icon = GFX_focus_FWG_henke
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_henke
+		prerequisite = { focus = FWG_henke }
+		completion_reward = {
+			add_ideas = {
+				mixed_economy
+			}
+			add_ideas = {
+				free_trade
+			}
+		}
+	}
+	focus = {
+		id = FWG_investments_from_the_dutch
+		icon = GFX_focus_FWG_henke
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = { focus = FWG_nurture_industrial_growth }
+		relative_position_id = FWG_dictate_a_new_economic_policy
+		prerequisite = { focus = FWG_dictate_a_new_economic_policy }
+		completion_reward = {
+			custom_effect_tooltip = FWG_there_is_a_chance_they_might_reject_tt
+			HOL = { country_event = fwg.3 }
+		}
+	}
+	focus = {
+		id = FWG_nurture_industrial_growth
+		icon = GFX_focus_FWG_henke
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = { focus = FWG_investments_from_the_dutch }
+		relative_position_id = FWG_dictate_a_new_economic_policy
+		prerequisite = { focus = FWG_dictate_a_new_economic_policy }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_nationalise_critical_industries
+		icon = GFX_focus_FWG_henke
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { has_completed_focus = FWG_crush_the_junker_threat }
+		relative_position_id = FWG_investments_from_the_dutch
+		prerequisite = { focus = FWG_investments_from_the_dutch focus = FWG_nurture_industrial_growth }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			remove_ideas = {
+				FWG_the_powerless_junkers
+			}
+		}
+	}
+	focus = {
+		id = FWG_what_it_means_to_be_a_worker
+		icon = GFX_focus_FWG_henke
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_nationalise_critical_industries
+		prerequisite = { focus = FWG_nationalise_critical_industries }
+		completion_reward = {
+			country_event = fwg.9
+		}
+	}
+	focus = {
 		id = FWG_ruhle
 		icon = GFX_focus_FWG_ruhle
-		x = -4
+		x = -5
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -228,7 +497,7 @@ focus_tree = {
 	focus = {
 		id = FWG_rocker
 		icon = GFX_focus_FWG_rocker
-		x = 4
+		x = 5
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -598,7 +867,7 @@ focus_tree = {
 	focus = {
 		id = FWG_kosch
 		icon = GFX_focus_FWG_kosch
-		x = 12
+		x = 15
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -625,7 +894,7 @@ focus_tree = {
 	focus = {
 		id = FWG_begin_early_industrial_expansion
 		icon = GFX_focus_generic_production
-		x = 30
+		x = 42
 		y = 0
 		cost = 6
 		available_if_capitulated = yes
@@ -749,15 +1018,16 @@ focus_tree = {
 		icon = GFX_focus_generic_production
 		x = 1
 		y = 1
-		cost = 3
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		relative_position_id = FWG_move_industry_away_from_the_vulnerable_ruhr
 		prerequisite = { focus = FWG_move_industry_away_from_the_vulnerable_ruhr focus = FWG_exploit_the_riches_of_the_south }
 		completion_reward = {
 			add_stability = 0.1
-			remove_ideas = {
-				FWG_the_weakened_junkers
+			swap_ideas = {
+				remove_idea = FWG_the_weakened_junkers
+				add_idea = FWG_the_powerless_junkers
 			}
 		}
 	}
@@ -853,7 +1123,7 @@ focus_tree = {
 		icon = GFX_focus_generic_production
 		x = 2
 		y = 1
-		cost = 5
+		cost = 7
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		relative_position_id = FWG_crush_the_junker_threat

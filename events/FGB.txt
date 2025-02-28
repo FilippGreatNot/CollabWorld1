@@ -143,7 +143,10 @@ country_event = {
 		mark_focus_tree_layout_dirty = yes 
 		custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
 		hidden_effect = { 
-			complete_national_focus = FGB_noske_victory_over_bavaria 
+			if = {
+				limit = { has_completed_focus = FGB_noske_new_day_new_germany }
+				complete_national_focus = FGB_noske_victory_over_bavaria 
+			}
 			division_template = {
 				name = "Nationalist Troops"
 				priority = 1
@@ -2322,6 +2325,27 @@ country_event = {
 			ideology = despotism
 			popularity = 0.02
 		}
+	}
+}
+
+country_event = {
+	id = fgb.100
+	title = fgb.100.t
+	desc = fgb.100.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.100.a
+		remove_ideas = {
+			FGB_the_grey_terror
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.02
+		}
+		set_country_flag = FGB_luttwitz_united_the_state
+		mark_focus_tree_layout_dirty = yes
 	}
 }
 

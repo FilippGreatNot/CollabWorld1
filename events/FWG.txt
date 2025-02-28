@@ -28,8 +28,8 @@ country_event = {
 	option = {
 		name = fwg.2.a
 		ai_chance = { base=50 }
-		set_country_flag = FWG_merges_flag
-		complete_national_focus = { focus = FWG_merges }
+		set_country_flag = FWG_henke_flag
+		complete_national_focus = { focus = FWG_henke }
 	}
 	option = {
 		name = fwg.2.b
@@ -48,5 +48,137 @@ country_event = {
 		ai_chance = { base=50 }
 		set_country_flag = FWG_kosch_flag
 		complete_national_focus = { focus = FWG_kosch }
+	}
+}
+
+country_event = {
+	id = fwg.3
+	title = fwg.3.t
+	desc = fwg.3.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.3.a
+		ai_chance = { base=60 }
+		FWG = { country_event = fwg.4 }
+	}
+	option = {
+		name = fwg.3.b
+		ai_chance = { base=40 }
+		add_political_power = 50
+		FWG = { country_event = fwg.5 }
+	}
+}
+
+country_event = {
+	id = fwg.4
+	title = fwg.4.t
+	desc = fwg.4.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.4.a
+		add_political_power = -50	
+	}
+}
+
+country_event = {
+	id = fwg.5
+	title = fwg.5.t
+	desc = fwg.5.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.5.a
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build  = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fwg.6
+	title = fwg.6.t
+	desc = fwg.6.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.6.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.03
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment_0
+			amount = 200
+			producer = FWG
+		}
+	}
+}
+
+country_event = {
+	id = fwg.7
+	title = fwg.7.t
+	desc = fwg.7.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.7.a
+		add_timed_idea = {
+			idea = FWG_half_year_mobilisation
+			days = 180
+		}
+	}
+}
+
+country_event = {
+	id = fwg.8
+	title = fwg.8.t
+	desc = fwg.8.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.8.a
+		diplomatic_relation = { 
+			country = FWG
+			relation = non_aggression_pact 
+		}
+		FWG = {
+			diplomatic_relation = { 
+				country = GER
+				relation = non_aggression_pact 
+			}
+		}
+	}
+	option = {
+		name = fwg.8.b
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = fwg.9
+	title = fwg.9.t
+	desc = fwg.9.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.9.a
+		add_stability = 0.04
+		add_ideas = {
+			FWG_what_it_means_to_be_a_worker_idea
+		}
 	}
 }

@@ -537,7 +537,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 3
 		y = 1
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -547,7 +547,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.1
 			every_owned_state = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -561,7 +561,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -1
 		y = 1
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -585,7 +585,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -3
 		y = 1
-		cost = 5
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -594,11 +594,19 @@ focus_tree = {
         prerequisite = { focus = DSH_appoint_a_regency_council }
 		completion_reward = {
 			add_political_power = -100
-			852 = {
-				add_extra_state_shared_building_slots = 2
+			1096 = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
+					instant_build  = yes
+				}
+			}
+			852 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
 					instant_build  = yes
 				}
 			}
@@ -609,7 +617,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -1
 		y = 1
-		cost = 5
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -627,7 +635,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build  = yes
 				}
 			}
@@ -635,31 +643,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
-					instant_build  = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = DSH_investments_into_stuttgart_proper
-		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-        relative_position_id = DSH_bribe_monarchist_junkers
-        prerequisite = { focus = DSH_seize_socialist_property focus = DSH_bribe_monarchist_junkers }
-		completion_reward = {
-			add_research_slot = 1
-			50 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build  = yes
 				}
 			}
@@ -670,7 +654,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -691,7 +675,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build  = yes
 				}
 			}
@@ -700,9 +684,9 @@ focus_tree = {
 	focus = {
 		id = DSH_build_a_new_military_school
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
-		x = 0
+		x = 1
 		y = 1
-		cost = 5
+		cost = 8
 		available_if_capitulated = yes
 		available = {
 			has_war = no 
@@ -711,8 +695,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-        relative_position_id = DSH_investments_into_stuttgart_proper
-        prerequisite = { focus = DSH_investments_into_stuttgart_proper }
+        relative_position_id = DSH_seize_socialist_property
+        prerequisite = { focus = DSH_seize_socialist_property focus = DSH_bribe_monarchist_junkers }
 		completion_reward = {
 			add_war_support = 0.1
 			add_research_slot = 1
@@ -723,7 +707,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 6
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -732,6 +716,13 @@ focus_tree = {
         prerequisite = { focus = DSH_secure_the_support_of_militaristic_industrialists }
 		prerequisite = { focus = DSH_seize_socialist_property }
 		completion_reward = {
+			1096 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
 			852 = {
 				add_building_construction = {
 					type = infrastructure
@@ -805,7 +796,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -820,14 +811,6 @@ focus_tree = {
 					amount = 2
 				}
 			}
-			852 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build  = yes
-				}
-			}
 		}
 	}
 	focus = {
@@ -835,7 +818,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 1
 		y = 1
-		cost = 5
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -856,7 +839,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 1
-		cost = 5
+		cost = 8
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -873,7 +856,7 @@ focus_tree = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
-					instant_build  = yes
+					instant_build = yes
 				}
 			}
 		}
@@ -2147,7 +2130,7 @@ focus_tree = {
 		prerequisite = { focus = DSH_discredit_the_communist_regime }
 		prerequisite = { focus = DSH_force_the_workers_back_into_the_factories }
 		completion_reward = {
-			add_stability = -0.1
+			add_stability = 0.05
 			BAV = {
 				every_core_state = {
 					add_core_of = DSH 
@@ -3138,6 +3121,25 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = DSH_recover_ostafrika
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -4
+		y = 1
+		bypass = { NOT = { country_exists = DOA } }
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_under_the_german_thumb
+		prerequisite = { focus = DSH_under_the_german_thumb }
+		completion_reward = {
+			DSH = {
+				country_event = dsh.54
+			}
+		}
+	}
+	focus = {
 		id = DSH_plan_rot
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = -2
@@ -3477,6 +3479,126 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = DSH_begin_naval_buildup
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 5
+		y = 1
+		cost = 15
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_under_the_german_thumb
+		prerequisite = { focus = DSH_under_the_german_thumb }
+		completion_reward = {
+			every_core_state = {
+				limit = { is_coastal = yes }
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build  = yes
+				}
+			}
+			add_timed_idea = {
+				idea = DSH_construction_efforts
+				days = 120
+			}
+		}
+	}
+	focus = {
+		id = DSH_reignite_the_age_old_rivalry
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+			num_of_naval_factories > 15
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_begin_naval_buildup
+		prerequisite = { focus = DSH_begin_naval_buildup }
+		completion_reward = {
+			add_war_support = 0.1
+			declare_war_on = {
+				target = ENG
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	focus = {
+		id = DSH_offer_the_british_a_place_in_our_alliance
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 7
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_under_the_german_thumb
+		prerequisite = { focus = DSH_under_the_german_thumb }
+		completion_reward = {
+			ENG = {
+				country_event = dsh.55
+			}
+		}
+	}
+	focus = {
+		id = DSH_purchase_nordkamerun
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_offer_the_british_a_place_in_our_alliance
+		prerequisite = { focus = DSH_offer_the_british_a_place_in_our_alliance }
+		completion_reward = {
+			ENG = {
+				country_event = dsh.56
+			}
+		}
+	}
+	focus = {
+		id = DSH_retaking_the_kalahari
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_war = no
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_reignite_the_age_old_rivalry
+		prerequisite = { focus = DSH_reignite_the_age_old_rivalry focus = DSH_purchase_nordkamerun }
+		completion_reward = {
+			declare_war_on = {
+				target = NMB
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
 		id = DSH_soldiers_welfare
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 23
@@ -3488,6 +3610,561 @@ focus_tree = {
 		}
 		completion_reward = {
 			DSH_echoes_from_the_great_war_level_up = yes
+			add_ideas = {
+				DSH_social_expenditure
+			}
+		}
+	}
+	focus = {
+		id = DSH_increase_competition_among_companies
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_soldiers_welfare
+		prerequisite = { focus = DSH_soldiers_welfare }
+		completion_reward = {
+			add_ideas = { DSH_industrial_innovation }
+		}
+	}
+	focus = {
+		id = DSH_aim_for_autarky
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { has_completed_focus = DSH_the_freikorps_final_road }
+		mutually_exclusive = { focus = DSH_aim_for_a_free_market }
+		relative_position_id = DSH_increase_competition_among_companies
+		prerequisite = { focus = DSH_increase_competition_among_companies }
+		completion_reward = {
+			add_ideas = { state_economy }
+		}
+	}
+	focus = {
+		id = DSH_embolden_our_isolationism
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_aim_for_autarky
+		prerequisite = { focus = DSH_aim_for_autarky }
+		completion_reward = {
+			add_ideas = { DSH_investments_into_technology }
+			add_country_leader_trait = isolationist
+		}
+	}
+	focus = {
+		id = DSH_developing_our_domestic_industry
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 15
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_embolden_our_isolationism
+		prerequisite = { focus = DSH_embolden_our_isolationism }
+		completion_reward = {
+			add_political_power = -100
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_developing_our_defensive_capabilities
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 15
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_developing_our_domestic_industry
+		prerequisite = { focus = DSH_developing_our_domestic_industry }
+		completion_reward = {
+			add_political_power = -100
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_dig_up_our_own_resources
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_aim_for_autarky
+		prerequisite = { focus = DSH_aim_for_autarky }
+		completion_reward = {
+			add_ideas = {
+				DSH_resource_extractions
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = tungsten
+					amount = 2
+				}
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = aluminium
+					amount = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_improve_irrigation_netowrks
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_dig_up_our_own_resources
+		prerequisite = { focus = DSH_dig_up_our_own_resources }
+		completion_reward = {
+			every_owned_state = {
+				add_manpower = 1500
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = DSH_centralise_state_industries
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_improve_irrigation_netowrks
+		prerequisite = { focus = DSH_improve_irrigation_netowrks }
+		completion_reward = {
+			add_stability = -0.05
+			swap_ideas = {
+				remove_idea = DSH_industrial_innovation
+				add_idea = DSH_state_fostered_industrial_development
+			}
+		}
+	}
+	focus = {
+		id = DSH_achieve_total_autarky
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_developing_our_defensive_capabilities
+		prerequisite = { focus = DSH_developing_our_defensive_capabilities }
+		prerequisite = { focus = DSH_centralise_state_industries }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DSH_state_fostered_industrial_development
+				remove_idea = DSH_investments_into_technology
+				remove_idea = DSH_resource_extractions
+				add_idea = DSH_total_autarky_achieved
+			}
+		}
+	}
+	focus = {
+		id = DSH_build_houses_for_the_homeless
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { num_of_owned_factories > 9 }
+		relative_position_id = DSH_increase_competition_among_companies
+		prerequisite = { focus = DSH_increase_competition_among_companies }
+		completion_reward = {
+			DSH_social_expenditure_level_up = yes
+			add_political_power = -50
+			every_owned_state = { add_extra_state_shared_building_slots = 1 }
+			DSH_echoes_from_the_great_war_level_up = yes
+		}
+	}
+	focus = {
+		id = DSH_increase_investments_in_new_roads
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { num_of_owned_factories > 19 }
+		relative_position_id = DSH_build_houses_for_the_homeless
+		prerequisite = { focus = DSH_build_houses_for_the_homeless }
+		completion_reward = {
+			DSH_social_expenditure_level_up = yes
+			add_political_power = -100
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			DSH_echoes_from_the_great_war_level_up = yes
+		}
+	}
+	focus = {
+		id = DSH_urbanising_undeveloped_areas
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { num_of_owned_factories > 19 }
+		relative_position_id = DSH_build_houses_for_the_homeless
+		prerequisite = { focus = DSH_build_houses_for_the_homeless }
+		completion_reward = {
+			DSH_social_expenditure_level_up = yes
+			add_political_power = -100
+			every_owned_state = {
+				increase_state_category_by_one_level = yes
+			}
+			DSH_echoes_from_the_great_war_level_up = yes
+		}
+	}
+	focus = {
+		id = DSH_building_new_hospitals
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { num_of_owned_factories > 29 }
+		relative_position_id = DSH_increase_investments_in_new_roads
+		prerequisite = { focus = DSH_increase_investments_in_new_roads }
+		prerequisite = { focus = DSH_urbanising_undeveloped_areas }
+		completion_reward = {
+			DSH_social_expenditure_level_up = yes
+			add_political_power = -50
+			random_owned_state = { add_manpower = 10000 }
+			DSH_echoes_from_the_great_war_level_up = yes
+			custom_effect_tooltip = DSH_will_unlock_new_decisions_tt
+		}
+	}
+	focus = {
+		id = DSH_investments_into_stuttgart_proper
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+        relative_position_id = DSH_building_new_hospitals
+        prerequisite = { focus = DSH_building_new_hospitals }
+		completion_reward = {
+			add_research_slot = 1
+			50 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_aim_for_a_free_market
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		available = { has_completed_focus = DSH_the_freikorps_final_road }
+		mutually_exclusive = { focus = DSH_aim_for_autarky }
+		relative_position_id = DSH_increase_competition_among_companies
+		prerequisite = { focus = DSH_increase_competition_among_companies }
+		completion_reward = {
+			add_ideas = { regulated_market_economy }
+		}
+	}
+	focus = {
+		id = DSH_privatise_state_owned_industry
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_aim_for_a_free_market
+		prerequisite = { focus = DSH_aim_for_a_free_market }
+		completion_reward = {
+			add_political_power = 150
+			random_owned_state = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = -1
+				add_building_construction = {
+					type = industrial_complex
+					level = -1
+					instant_build  = yes
+				}
+			}
+			random_owned_state = {
+				increase_state_category_by_one_level = yes
+				add_extra_state_shared_building_slots = -1
+				add_building_construction = {
+					type = industrial_complex
+					level = -1
+					instant_build  = yes
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	focus = {
+		id = DSH_lower_business_taxes
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_privatise_state_owned_industry
+		prerequisite = { focus = DSH_privatise_state_owned_industry }
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = {
+				DSH_low_business_tax
+			}
+		}
+	}
+	focus = {
+		id = DSH_expand_industrial_centres
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_lower_business_taxes
+		prerequisite = { focus = DSH_lower_business_taxes }
+		completion_reward = {
+			custom_effect_tooltip = DSH_every_core_state_with_more_than_4_infrastructure_tt
+			every_core_state = {
+				limit = {
+					is_owned_by = DSH
+					infrastructure > 4
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DSH_swedish_trade_deal
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = WRD }
+			NOT = { country_exists = FWG }
+		}
+		bypass = {
+			SWE = { has_completed_focus = SWE_peaceful_revolution }
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_aim_for_a_free_market
+		prerequisite = { focus = DSH_aim_for_a_free_market }
+		completion_reward = {
+			SWE = {
+				country_event = dsh.51
+			}
+		}
+	}
+	focus = {
+		id = DSH_establish_free_trade
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { any_owned_state = { is_coastal = yes } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_swedish_trade_deal
+		prerequisite = { focus = DSH_swedish_trade_deal }
+		completion_reward = {
+			add_ideas = {
+				free_trade
+			}
+		}
+	}
+	focus = {
+		id = DSH_revitalise_our_education_sector
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { any_owned_state = { is_coastal = yes } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_establish_free_trade
+		prerequisite = { focus = DSH_establish_free_trade }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = industry
+				name = robert
+			}
+			add_ideas = {
+				DSH_revitalised_education_sector
+			}
+		}
+	}
+	focus = {
+		id = DSH_institute_the_policies_of_a_free_market
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = DSH_unified_germany_tt
+				any_other_country = { NOT = { has_country_flag = germany } }
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_expand_industrial_centres
+		prerequisite = { focus = DSH_expand_industrial_centres }
+		prerequisite = { focus = DSH_revitalise_our_education_sector }
+		completion_reward = {
+			add_ideas = {
+				free_market_economy
+			}
 		}
 	}
 }
