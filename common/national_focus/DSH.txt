@@ -4124,7 +4124,6 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-		available = { any_owned_state = { is_coastal = yes } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -4152,7 +4151,12 @@ focus_tree = {
 		available = { 
 			custom_trigger_tooltip = {
 				tooltip = DSH_unified_germany_tt
-				any_other_country = { NOT = { has_country_flag = germany } }
+				NOT = { country_exists = BAV }
+				NOT = { country_exists = FWG }
+				NOT = { country_exists = GER }
+				NOT = { country_exists = PLA }
+				NOT = { country_exists = UVS }
+				NOT = { country_exists = WRD }
 			}
 		}
 		ai_will_do = {
