@@ -986,4 +986,600 @@ focus_tree = {
 			add_war_support = 0.1
 		}
 	}
+	
+	focus = {
+		id = GER_first_continue_the_fight_for_german_democracy
+		icon = GFX_focus_GER_fight
+		cost = 5
+		x = 18
+		y = 0
+		available = { 
+			date > 1923.1.30
+		}
+		completion_reward = {
+		
+		     add_war_support = 0.05
+			 add_political_power = 50
+			 
+		}
+	}
+	focus = {
+		id = GER_first_reform_the_reichswehr
+		icon = GFX_focus_GER_reform
+		cost = 10
+		
+		prerequisite = {
+			focus = GER_first_continue_the_fight_for_german_democracy
+		}
+		
+		relative_position_id = GER_first_continue_the_fight_for_german_democracy
+		x = 0
+		y = 1
+		
+		completion_reward = {
+			remove_ideas = GER_weakened_reichswehr
+		}
+	}
+	
+	focus = {
+		id = GER_first_urban_area_fortification_effort
+		icon = GFX_focus_GER_fort
+		cost = 6
+		
+		prerequisite = {
+			focus = GER_first_reform_the_reichswehr
+		}
+		
+		relative_position_id = GER_first_reform_the_reichswehr
+		x = 0
+		y = 1
+		
+		completion_reward = {
+			army_experience = 20
+			59 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6377
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 526
+					instant_build = yes
+				}
+			}
+			836 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 6521
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 13570
+					instant_build = yes
+				}
+			}
+			1056 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3522
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6582
+					instant_build = yes
+				}
+			}
+			61 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 321
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 13481
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = GER_first_establish_rapid_response_forces
+		icon = GFX_focus_GER_rapid
+		cost = 7
+		
+		prerequisite = {
+			focus = GER_first_reform_the_reichswehr
+		}
+		
+		relative_position_id = GER_first_reform_the_reichswehr
+		x = -2
+		y = 1
+		
+		completion_reward = {
+			army_experience = 15
+			add_ideas = GER_rapid_response_tactics
+		}
+	}
+	
+	focus = {
+		id = GER_first_air_support_in_ground_combat
+		icon = GFX_focus_GER_air
+		cost = 7
+		
+		prerequisite = {
+			focus = GER_first_reform_the_reichswehr
+		}
+		
+		relative_position_id = GER_first_reform_the_reichswehr
+		x = 2
+		y = 1
+		
+		completion_reward = {
+			air_experience = 20
+			add_ideas = GER_close_air_support
+		}
+	}
+	
+	focus = {
+		id = GER_first_recruit_republican_paramilitary_units
+		icon = GFX_focus_GER_paramilitary
+		cost = 6
+		
+		prerequisite = {
+			focus = GER_first_air_support_in_ground_combat focus = GER_first_establish_rapid_response_forces focus = GER_first_urban_area_fortification_effort
+		}
+		
+		relative_position_id = GER_first_urban_area_fortification_effort
+		x = 0
+		y = 1
+		
+		completion_reward = {
+			air_experience = 10
+			add_war_support = -0.05
+			add_political_power = -25
+			  division_template = {
+				name = "Republican Paramilitary"
+				priority = 1
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Republican Paramilitary\" division_template = \"Republican Paramilitary\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+            random_owned_state = {
+				create_unit = {
+					division = "name = \"Republican Paramilitary\" division_template = \"Republican Paramilitary\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+            random_owned_state = {
+				create_unit = {
+					division = "name = \"Republican Paramilitary\" division_template = \"Republican Paramilitary\" start_experience_factor = 0.2" 
+					owner = PREV
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = GER_squash_the_wilhelmshaven_mutiny
+		icon = GFX_focus_UVS_destroy_anarchists
+		cost = 5
+		x = 4
+		y = 1
+		relative_position_id = GER_first_continue_the_fight_for_german_democracy
+		
+		bypass = {
+			NOT = {
+				country_exists = FWG
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = FWG
+		}
+		prerequisite = {
+			focus = GER_first_continue_the_fight_for_german_democracy
+		}
+		will_lead_to_war_with = FWG
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = FWG
+				type = civil_war
+			}
+			add_civil_war_target = FWG
+
+		}
+	}
+	
+	focus = {
+		id = GER_retake_the_rhineland
+		icon = GFX_focus_FGB_attack_wehrkommando
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GER_squash_the_wilhelmshaven_mutiny
+		
+		bypass = {
+			NOT = {
+				country_exists = WRD
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = WRD
+		}
+		prerequisite = {
+			focus = GER_squash_the_wilhelmshaven_mutiny
+		}
+		will_lead_to_war_with = WRD
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = WRD
+				type = civil_war
+			}
+			add_civil_war_target = WRD
+
+		}
+	}
+	focus = {
+        id = GER_take_down_the_evil_paramilitary
+        icon = GFX_focus_GER_evil
+        relative_position_id = GER_retake_the_rhineland
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_retake_the_rhineland
+        }
+		available = {
+			has_war = no
+			OR = {
+				is_neighbor_of = FGB
+				is_neighbor_of = DSH
+			}
+		}
+		will_lead_to_war_with = FGB
+		
+		bypass = {
+			NOT = {
+				country_exists = FGB
+			}
+			NOT = {
+				country_exists = DSH
+			}
+		}
+		mutually_exclusive = {
+			focus = GER_join_forces_with_the_freikorps
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+			if = { 
+				limit = { is_neighbor_of = FGB } 
+				declare_war_on = {
+					target = FGB
+					type = civil_war
+				}	
+				add_civil_war_target = FGB
+			}
+			if = { 
+				limit = { is_neighbor_of = DSH } 
+				declare_war_on = {
+					target = DSH
+					type = civil_war
+				}	
+				add_civil_war_target = DSH
+			}
+        }
+	}
+	focus = {
+        id = GER_join_forces_with_the_freikorps
+        icon = GFX_focus_GER_evil
+        relative_position_id = GER_retake_the_rhineland
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_retake_the_rhineland
+        }
+		available = {
+			has_war = no
+			OR = {
+				is_neighbor_of = FGB
+				is_neighbor_of = DSH
+			}
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = FGB
+			}
+			NOT = {
+				country_exists = DSH
+			}
+		}
+		mutually_exclusive = {
+			focus = GER_take_down_the_evil_paramilitary
+		}
+		available = {
+			has_completed_focus = GER_first_hold_a_meeting_with_the_freikorps
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+		    custom_effect_tooltip = GER_gameend
+			
+			if = { 
+				limit = { is_neighbor_of = FGB } 
+				FGB = {
+				annex_country = { 
+					target = GER
+					transfer_troops = yes 
+				}
+			    }
+			    GER = {
+				every_unit_leader = {
+					set_nationality = FGB
+				}
+			}
+			}
+			if = { 
+				limit = { is_neighbor_of = DSH } 
+				DSH = {
+				annex_country = { 
+					target = GER
+					transfer_troops = yes 
+				}
+			    }
+			    GER = {
+				every_unit_leader = {
+					set_nationality = DSH
+				}
+			}
+			}
+        }
+	}
+	
+	focus = {
+        id = GER_end_the_bavarian_rebellion
+        icon = GFX_focus_GER_bavaria
+        relative_position_id = GER_join_forces_with_the_freikorps
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_take_down_the_evil_paramilitary focus = GER_join_forces_with_the_freikorps
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = BAV
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = BAV
+			}
+		}
+		will_lead_to_war_with = BAV
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = BAV
+				type = civil_war
+			    }
+			    add_civil_war_target = BAV
+				
+               }
+	}
+	
+	focus = {
+		id = GER_prepare_to_end_the_spartacists
+		icon = GFX_focus_GER_prepare
+		cost = 5
+		x = -4
+		y = 1
+		relative_position_id = GER_first_continue_the_fight_for_german_democracy
+		
+		bypass = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = UVS
+		}
+		prerequisite = {
+			focus = GER_first_continue_the_fight_for_german_democracy
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = GER
+			}
+			add_manpower = 15000
+			army_experience = 10
+
+		}
+	}
+	
+	focus = {
+		id = GER_finish_the_spartacist_war_once_and_for_all
+		icon = GFX_focus_GER_prepare
+		cost = 5
+		x = 0
+		y = 1
+		relative_position_id = GER_prepare_to_end_the_spartacists
+		
+		bypass = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+		available = {
+		    has_war = no
+			is_neighbor_of = UVS
+		}
+		prerequisite = {
+			focus = GER_prepare_to_end_the_spartacists
+		}
+		will_lead_to_war_with = UVS
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
+			declare_war_on = {
+				target = UVS
+				type = civil_war
+			    }
+			    add_civil_war_target = UVS
+				
+               }
+		}
+	
+	focus = {
+        id = GER_make_an_example
+        icon = GFX_focus_GER_example
+        relative_position_id = GER_finish_the_spartacist_war_once_and_for_all
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_finish_the_spartacist_war_once_and_for_all
+        }
+		available = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+		mutually_exclusive = {
+			focus = GER_exile_the_revolutionaries
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_stability = -0.04
+			add_political_power = 25
+        }
+	}
+	
+	focus = {
+        id = GER_exile_the_revolutionaries
+        icon = GFX_focus_GER_exile
+        relative_position_id = GER_finish_the_spartacist_war_once_and_for_all
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_finish_the_spartacist_war_once_and_for_all
+        }
+		available = {
+			NOT = {
+				country_exists = UVS
+			}
+		}
+		mutually_exclusive = {
+			focus = GER_make_an_example
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.03
+			}
+			add_stability = 0.03
+			add_political_power = -15
+        }
+	}
+	
+	focus = {
+        id = GER_throw_out_the_polish_illegals
+        icon = GFX_focus_BAV_end
+        relative_position_id = GER_make_an_example
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_exile_the_revolutionaries focus = GER_make_an_example
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = PLA
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = PLA
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = PLA
+				type = civil_war
+			    }
+			    add_civil_war_target = PLA
+				
+               }
+	}
+	
+	focus = {
+        id = GER_a_new_germany_on_the_world_stage
+        icon = GFX_focus_GER_new
+        relative_position_id = GER_first_recruit_republican_paramilitary_units
+        x = 0
+        y = 2
+        cost = 5
+		prerequisite = {
+            focus = GER_throw_out_the_polish_illegals focus = GER_end_the_bavarian_rebellion
+        }
+		available = {
+			has_war = no
+		}
+		
+		available = {
+			NOT = {
+				country_exists = PLA
+				country_exists = UVS
+				country_exists = FWG
+				country_exists = WRD
+				country_exists = BAV
+				country_exists = FGB
+				country_exists = DSH
+			}
+		}
+		completion_reward = {
+				remove_ideas = GER_unstable_democracy
+				
+               }
+	}
 }
