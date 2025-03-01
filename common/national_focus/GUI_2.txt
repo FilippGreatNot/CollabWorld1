@@ -752,6 +752,133 @@ division_template = {
     }
     }
 
+focus = {
+        id = KUO_army_reform
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_new_capital}
+         mutually_exclusive = { }
+        x = 17
+        y = 4
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+	swap_ideas = {
+				add_idea = GUI_low_army_2
+				remove_idea = GUI_low_army_1
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_trip
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_army_reform}
+         mutually_exclusive = { }
+        x = 17
+        y = 5
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		
+	GUI = {
+			country_event = gui.10
+        }		
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_northern_campaign
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_trip}
+         mutually_exclusive = { }
+        x = 17
+        y = 6
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		
+    declare_war_on = {
+				target = JGX
+				type = annex_everything
+			}
+			JGX = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = ZHE
+				type = annex_everything
+			}
+			ZHE = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = ANC
+				type = annex_everything
+			}
+			ANC = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = HUB
+				type = annex_everything
+			}
+			HUB = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			CHI = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = XSR
+				type = annex_everything
+			}
+			XSR = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = SHC
+				type = annex_everything
+			}
+			SHC = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = REH
+				type = annex_everything
+			}
+			REH = { make_every_core_national_for_PREV = yes }
+	 
+	 add_timed_idea = {
+    idea = GUI_high_army
+    days = 100
+}
+	 
+    }
+	}
 
 	}
 	
