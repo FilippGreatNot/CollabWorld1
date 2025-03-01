@@ -190,3 +190,62 @@ add_namespace = gui
 			}             
          }
 		  }
+
+		  country_event={ 
+		id = gui.9
+		title = gui.9.t
+		desc = gui.9.desc
+		picture = GFX_report_event_kuo_1
+		
+                fire_only_once = yes
+                
+                is_triggered_only = yes
+                      option{
+			name=gui.9.a
+			ai_chance = {
+				base=50
+			}
+		
+		trigger = {
+                tag = GUI
+				has_completed_focus = KUO_gui_and_guanxi
+    }    
+
+    add_state_core = 594
+	add_state_core = 591
+	add_state_core = 599
+	add_state_core = 593
+	add_state_core = 592
+	
+	        add_popularity = {
+    ideology =  bolshevism
+    popularity = +0.05
+ }
+add_popularity = {
+    ideology = social_democrat
+    popularity = +0.05}
+	
+	annex_country = { target = NGC transfer_troops = yes }
+
+         }
+		  
+	                option{
+			name=gui.9.b
+			ai_chance = {
+				base=50
+		    }
+		trigger = {
+                tag = GUI
+		} 
+    add_state_core = 594
+	add_state_core = 591
+	add_state_core = 599
+	add_state_core = 593
+	add_state_core = 592
+	annex_country = { target = NGC transfer_troops = yes }	
+	        add_popularity = {
+    ideology = authoritarian_democrat
+    popularity = +0.2
+}
+	}
+	}
