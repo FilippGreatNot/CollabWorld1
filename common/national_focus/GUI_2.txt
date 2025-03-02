@@ -47,15 +47,6 @@ focus_tree = {
         y = 1
         cost = 3
 
-          allow_branch = {
-			if = {
-				NOT = {
-					has_completed_focus = KUO_listen_chan
-					
-				}
-			}
-		}
-
         ai_will_do = {
             factor = 1
         }
@@ -88,15 +79,6 @@ focus_tree = {
         x = 8
         y = 1
         cost = 3
-
-         allow_branch = {
-			if = {
-				NOT = {
-					has_completed_focus = KUO_listen_van
-					
-				}
-			}
-		}
 
         ai_will_do = {
             factor = 1
@@ -543,7 +525,361 @@ add_popularity = {
 	}
 	
 	}
+
+focus = {
+        id = KUO_gui_and_guanxi
+        icon = GFX_goal_generic_construction
+        prerequisite = { 
+        focus = KUO_yes_kpk
+        focus = KUO_no_kpk 
+        }
+         mutually_exclusive = { }
+        x = 17
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+             
+            GUI = {
+            country_event = gui.9
+        }
+     
+    }
+    }
+
+focus = {
+        id = KUO_red_brigades
+        icon = GFX_goal_generic_construction
+        prerequisite = {focus = KUO_yes_kpk}
+         mutually_exclusive = { }
+        x = 20
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+division_template = {
+    name = "Red Brigades"
+    is_locked = yes
+    division_cap = 3 
+    division_names_group = GUI_red_brigades
+    priority = 0
+    template_counter = 0
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 0 y = 3 }
+    }
+    support = {
+        military_police = { x = 0 y = 0 }
+    }
+}
+     random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Red Brigades\" division_template = \"Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Red Brigades\" division_template = \"Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Red Brigades\" division_template = \"Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Red Brigades\" division_template = \"Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Red Brigades\" division_template = \"Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+    }
+    }
 	
+	focus = {
+        id = KUO_anti_red_brigades
+        icon = GFX_goal_generic_construction
+        prerequisite = {focus = KUO_no_kpk}
+         mutually_exclusive = { }
+        x = 14
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+division_template = {
+    name = "Anti Red Brigades"
+    is_locked = yes
+    division_cap = 3 
+    division_names_group = GUI_anti_red_brigades
+    priority = 0
+    template_counter = 0
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+    }
+    support = {
+        military_police = { x = 0 y = 0 }
+    }
+}
+     random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Anti Red Brigades\" division_template = \"Anti Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Anti Red Brigades\" division_template = \"Anti Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Anti Red Brigades\" division_template = \"Anti Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Anti Red Brigades\" division_template = \"Anti Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Anti Red Brigades\" division_template = \"Anti Red Brigades\" start_experience_factor = 0.5" 
+					owner = PREV
+				}
+			}
+    }
+    }
+	
+	focus = {
+        id = KUO_new_capital
+        icon = GFX_goal_generic_construction
+        prerequisite = {focus = KUO_gui_and_guanxi}
+         mutually_exclusive = { }
+        x = 17
+        y = 3
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+             
+        set_capital = {
+					state = 592`
+					remember_old_capital = no
+				}
+		set_cosmetic_tag = GUI_canton
+        annex_country = { target = HNN transfer_troops = yes }
+		annex_country = { target = SIC transfer_troops = yes }
+		
+		add_state_core = 752
+		add_state_core = 753
+		add_state_core = 751
+		add_state_core = 605
+		add_state_core = 943
+		add_state_core = 602
+		add_state_core = 750
+    }
+    }
+
+focus = {
+        id = KUO_army_reform
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_new_capital}
+         mutually_exclusive = { }
+        x = 17
+        y = 4
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+	swap_ideas = {
+				add_idea = GUI_low_army_2
+				remove_idea = GUI_low_army_1
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_trip
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_army_reform}
+         mutually_exclusive = { }
+        x = 17
+        y = 5
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		
+	GUI = {
+			country_event = gui.10
+        }		
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_northern_campaign
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_trip}
+         mutually_exclusive = { }
+        x = 17
+        y = 6
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+		
+    declare_war_on = {
+				target = JGX
+				type = annex_everything
+			}
+			JGX = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = ZHE
+				type = annex_everything
+			}
+			ZHE = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = ANC
+				type = annex_everything
+			}
+			ANC = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = HUB
+				type = annex_everything
+			}
+			HUB = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			CHI = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = XSR
+				type = annex_everything
+			}
+			XSR = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = SHC
+				type = annex_everything
+			}
+			SHC = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+				target = REH
+				type = annex_everything
+			}
+			REH = { make_every_core_national_for_PREV = yes }
+	 
+	 add_timed_idea = {
+    idea = GUI_high_army
+    days = 100
+}
+	 
+    }
+	}
+
 	}
 	
 	
