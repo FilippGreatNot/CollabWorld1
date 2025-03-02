@@ -325,7 +325,60 @@ country_event = {
 			}
 		army_experience = -10
 	}
- }
+}
+ 
+country_event = {
+	id = ger.9
+	title = ger.9.t
+	desc = ger.9.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = ger.9.a
+		ai_chance = { base = 9 }
+		add_stability = 0.02
+		FROM = { add_to_faction = PREV }
+	}
+
+	option = {
+		name = ger.9.b
+		ai_chance = { base = 1 }
+		add_political_power = 10
+	}
+}
+
+country_event = {
+	id = ger.10
+	title = ger.10.t
+	desc = ger.10.d
+	picture = GFX_report_event_tukha
+	is_triggered_only = yes
+
+	option = {
+		name = ger.10.a
+		add_stability = 0.03
+		add_political_power = -20
+		
+	}
+
+	option = {
+		name = ger.10.b
+		add_political_power = 25
+	}
+	
+	option = {
+		name = ger.10.c
+		 add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			   }
+	      add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			   }
+	}
+}
  
 country_event = {
 	id = ger.69

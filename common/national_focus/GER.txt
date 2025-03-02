@@ -1731,6 +1731,66 @@ focus_tree = {
             focus = GER_establish_the_europakt
         }
 		completion_reward = {
+		 HOL = {
+				country_event = ger.9
+			}
+		 LUX = {
+				country_event = ger.9
+			}
+		 BEL = {
+				country_event = ger.9
+			}
+	}
+	}
+	
+	focus = {
+        id = GER_support_macarthurs_liberation_army
+        icon = GFX_focus_GER_benelux
+        relative_position_id = GER_establish_the_europakt
+        x = 3
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = GER_establish_the_europakt
+        }
+		completion_reward = {
+		 CCC = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = GER
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = GER
+			}
+			}
+		 add_political_power = 25
+		 
+			
+	}
+	}
+	
+	focus = {
+        id = GER_launch_the_war_of_french_liberation
+        icon = GFX_focus_GER_france
+        relative_position_id = GER_invite_the_benelux_states
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_invite_the_benelux_states
+        }
+		available = {
+			country_exists = FRA
+			has_war = no
+		}
+		completion_reward = {
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			     }
 	}
 	}
 	
@@ -1740,11 +1800,69 @@ focus_tree = {
         relative_position_id = GER_establish_the_europakt
         x = -1
         y = 1
-        cost = 5
+        cost = 6
 		prerequisite = {
             focus = GER_establish_the_europakt
         }
 		completion_reward = {
+		 NOR = {
+				country_event = ger.9
+			}
+		 FIN = {
+				country_event = ger.9
+			}
+		 SWE = {
+				country_event = ger.9
+			}
+		 DEN = {
+				country_event = ger.9
+			}
+	}
+	}
+	
+	focus = {
+        id = GER_the_southern_european_expansion
+        icon = GFX_focus_GER_scandi
+        relative_position_id = GER_establish_the_europakt
+        x = -3
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = GER_establish_the_europakt
+        }
+		completion_reward = {
+		 CZE = {
+				country_event = ger.9
+			}
+		 AUS = {
+				country_event = ger.9
+			}
+		 YUG = {
+				country_event = ger.9
+			}
+		 ROM = {
+				country_event = ger.9
+			}
+		 BUL = {
+				country_event = ger.9
+			}
+	}
+	}
+	
+	focus = {
+        id = GER_invite_ireland_to_the_europakt
+        icon = GFX_focus_GER_scandi
+        relative_position_id = GER_establish_the_europakt
+        x = -3
+        y = 2
+        cost = 7
+		prerequisite = {
+            focus = GER_the_southern_european_expansion focus = GER_invite_the_benelux_states focus = GER_invite_the_scandinavian_states
+        }
+		completion_reward = {
+		 IRE = {
+				country_event = ger.9
+			}
 	}
 	}
 	
@@ -1754,14 +1872,22 @@ focus_tree = {
         relative_position_id = GER_invite_the_benelux_states
         x = -2
         y = 1
-        cost = 5
+        cost = 6
 		mutually_exclusive = {
 			focus = GER_integrate_east_prussia
 		}
+		available = {
+			country_exists = BLR
+			has_war = no
+		}
 		prerequisite = {
-            focus = GER_invite_the_benelux_states focus = GER_invite_the_scandinavian_states
+            focus = GER_invite_the_benelux_states focus = GER_invite_the_scandinavian_states focus = GER_the_southern_european_expansion
         }
 		completion_reward = {
+		 create_wargoal = {
+				type = annex_everything
+				target = BLR
+			     }
 	}
 	}
 	
@@ -1775,8 +1901,14 @@ focus_tree = {
 		prerequisite = {
             focus = GER_take_down_the_tukhachevsky_regime
         }
+		available = {
+		    NOT = {
+			country_exists = BLR
+			}
+		}
 		completion_reward = {
-	}
+		     country_event = ger.10
+	    }
 	}
 	
 	focus = {
@@ -1787,7 +1919,7 @@ focus_tree = {
         y = 1
         cost = 5
 		prerequisite = {
-            focus = GER_invite_the_benelux_states focus = GER_invite_the_scandinavian_states
+            focus = GER_invite_the_benelux_states focus = GER_invite_the_scandinavian_states focus = GER_the_southern_european_expansion
         }
 		available = {
 			country_exists = EPR
@@ -1796,6 +1928,17 @@ focus_tree = {
 			focus = GER_take_down_the_tukhachevsky_regime
 		}
 		completion_reward = {
+		 GER = {
+				annex_country = { 
+					target = EPR
+					transfer_troops = yes 
+				}
+			    }
+			    EPR = {
+				every_unit_leader = {
+					set_nationality = GER
+				}
+	            }
 	}
 	}
 	
@@ -1809,7 +1952,60 @@ focus_tree = {
 		prerequisite = {
             focus = GER_integrate_east_prussia
         }
+		available = {
+			country_exists = POL
+		}
 		completion_reward = {
+		     POL = {
+				country_event = ger.9
+			}
+	}
+	}
+	
+	focus = {
+        id = GER_the_last_war_against_bolshevism
+        icon = GFX_focus_GER_tukha
+        relative_position_id = GER_ally_the_new_polish_republic
+        x = -1
+        y = 1
+        cost = 6
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+            focus = GER_ally_the_new_polish_republic focus = GER_the_tukhachevsky_trials
+        }
+		completion_reward = {
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = WVA
+			     }
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = UKR
+			     }
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SOV
+			     }
+	}
+	}
+	
+	focus = {
+        id = GER_a_triumph_against_tyranny
+        icon = GFX_focus_GER_triumph
+        relative_position_id = GER_the_last_war_against_bolshevism
+        x = 0
+        y = 1
+        cost = 5
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+            focus = GER_the_last_war_against_bolshevism
+        }
+		completion_reward = {
+		 add_ideas = GER_defender_of_european_democracy
 	}
 	}
 }
