@@ -1006,7 +1006,7 @@ focus_tree = {
 	focus = {
 		id = GER_first_reform_the_reichswehr
 		icon = GFX_focus_GER_reform
-		cost = 10
+		cost = 15
 		
 		prerequisite = {
 			focus = GER_first_continue_the_fight_for_german_democracy
@@ -1015,6 +1015,10 @@ focus_tree = {
 		relative_position_id = GER_first_continue_the_fight_for_german_democracy
 		x = 0
 		y = 1
+		
+		ai_will_do = {
+			factor = 10
+		}
 		
 		completion_reward = {
 			remove_ideas = GER_weakened_reichswehr
@@ -1200,6 +1204,9 @@ focus_tree = {
 		available = {
 		    has_war = no
 			is_neighbor_of = FWG
+		}
+		ai_will_do = {
+			factor = 5
 		}
 		prerequisite = {
 			focus = GER_first_continue_the_fight_for_german_democracy
@@ -1415,6 +1422,9 @@ focus_tree = {
 		    has_war = no
 			is_neighbor_of = UVS
 		}
+		ai_will_do = {
+			factor = 10
+		}
 		prerequisite = {
 			focus = GER_first_continue_the_fight_for_german_democracy
 		}
@@ -1452,6 +1462,9 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_prepare_to_end_the_spartacists
 		}
+		ai_will_do = {
+			factor = 10
+		}
 		will_lead_to_war_with = UVS
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 		completion_reward = {	
@@ -1480,6 +1493,9 @@ focus_tree = {
 				country_exists = UVS
 			}
 		}
+		ai_will_do = {
+			factor = 10
+		}
 		mutually_exclusive = {
 			focus = GER_exile_the_revolutionaries
 		}
@@ -1507,6 +1523,9 @@ focus_tree = {
 			NOT = {
 				country_exists = UVS
 			}
+		}
+		ai_will_do = {
+			factor = 10
 		}
 		mutually_exclusive = {
 			focus = GER_make_an_example
@@ -1581,5 +1600,230 @@ focus_tree = {
 				remove_ideas = GER_unstable_democracy
 				
                }
+	}
+	
+	focus = {
+        id = GER_launch_a_nationwide_reconstruction_effort
+        icon = GFX_focus_GER_new
+        relative_position_id = GER_a_new_germany_on_the_world_stage
+        x = 1
+        y = 1
+        cost = 7
+		prerequisite = {
+            focus = GER_a_new_germany_on_the_world_stage
+        }
+		available = {
+			has_war = no
+		}
+		
+		available = {
+			OR = {
+			has_government = liberalism
+			has_government = social_democrat
+			has_government = conservatism
+			has_government = authoritarian_democrat
+			}
+		}
+		completion_reward = {
+		     add_stability = 0.05
+			 add_political_power = 50
+				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}	
+            }
+	}
+	
+	focus = {
+        id = GER_secure_our_new_democracy
+        icon = GFX_focus_GER_new
+        relative_position_id = GER_a_new_germany_on_the_world_stage
+        x = -1
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = GER_a_new_germany_on_the_world_stage
+        }
+		available = {
+			has_war = no
+		}
+		
+		available = {
+			OR = {
+			has_government = liberalism
+			has_government = social_democrat
+			has_government = conservatism
+			has_government = authoritarian_democrat
+			}
+		}
+		completion_reward = {
+	 	   add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			add_stability = 0.05
+	    }
+		}
+		
+	focus = {
+		id = GER_establish_the_europakt
+		icon = GFX_focus_GER_europakt
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+			OR = {
+			has_government = liberalism
+			has_government = social_democrat
+			has_government = conservatism
+			has_government = authoritarian_democrat
+			}
+		}
+		prerequisite = { focus = GER_launch_a_nationwide_reconstruction_effort }
+		prerequisite = { focus = GER_secure_our_new_democracy }
+		relative_position_id = GER_a_new_germany_on_the_world_stage
+		completion_reward = {
+			add_threat = -5
+			add_political_power = 50
+			create_faction = faction_GER_europakt
+		}
+	}
+	
+	focus = {
+        id = GER_invite_the_benelux_states
+        icon = GFX_focus_GER_benelux
+        relative_position_id = GER_establish_the_europakt
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_establish_the_europakt
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = GER_invite_the_scandinavian_states
+        icon = GFX_focus_GER_scandi
+        relative_position_id = GER_establish_the_europakt
+        x = -1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = GER_establish_the_europakt
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_take_down_the_tukhachevsky_regime
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_invite_the_benelux_states
+        x = -2
+        y = 1
+        cost = 5
+		mutually_exclusive = {
+			focus = BAV_integrate_east_prussia
+		}
+		prerequisite = {
+            focus = BAV_invite_the_benelux_states focus = BAV_invite_the_scandinavian_states
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_the_tukhachevsky_trials
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_take_down_the_tukhachevsky_regime
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_take_down_the_tukhachevsky_regime
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_the_tyrants_of_the_east_must_fall
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_the_tukhachevsky_trials
+        x = 1
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_the_tukhachevsky_trials focus = BAV_ally_the_new_polish_republic
+        }
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_integrate_east_prussia
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_invite_the_benelux_states
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_invite_the_benelux_states focus = BAV_invite_the_scandinavian_states
+        }
+		available = {
+			country_exists = EPR
+		}
+		mutually_exclusive = {
+			focus = BAV_take_down_the_tukhachevsky_regime
+		}
+		completion_reward = {
+	}
+	}
+	
+	focus = {
+        id = BAV_ally_the_new_polish_republic
+        icon = GFX_focus_BAV_liberate
+        relative_position_id = BAV_integrate_east_prussia
+        x = 0
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = BAV_integrate_east_prussia
+        }
+		completion_reward = {
+	}
 	}
 }
