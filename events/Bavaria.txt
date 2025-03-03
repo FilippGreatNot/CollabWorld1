@@ -898,20 +898,30 @@ country_event = {
 				ideology = despotism
 				popularity = -0.15
 				ideology = bolshevism
-				popularity = -0.15
-				
-<<<<<<< Updated upstream
-    }
-	  }
-=======
+				popularity = -0.15				
 		}
 	}
->>>>>>> Stashed changes
 	option = {
         name = bavaria.36.b
+		add_political_power = -25
+		add_stability = 0.05
+		add_war_support = -0.05
+		add_popularity = {
+				ideology = despotism
+				popularity = -0.05
+				ideology = bolshevism
+				popularity = -0.05	
     }
 	option = {
         name = bavaria.36.c
+		add_political_power = 25
+		add_stability = -0.05
+		add_war_support = 0.05
+		add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+				ideology = bolshevism
+				popularity = 0.05
     }
 }
 country_event = {
@@ -946,13 +956,13 @@ country_event = {
 
 
 country_event = {
-	id = bavaria.37	
-	title = bavaria.37.t
-	desc = bavaria.37.d
+	id = bavaria.45
+	title = bavaria.45.t
+	desc = bavaria.45.d
 	is_triggered_only = yes
 
 	option = {
-		name = bavaria.37.a
+		name = bavaria.45.a
 		ai_chance = { base = 4 }
 		BAV = {
 			create_wargoal = {
@@ -965,8 +975,9 @@ country_event = {
 	}
 	
 	option = {
-		name = bavaria.37.b
+		name = bavaria.45.b
 		ai_chance = { base = 6 }
+		FROM = { add_to_faction = PREV }
 		BAV = {
 			country_event =  bavaria.39
 		}
