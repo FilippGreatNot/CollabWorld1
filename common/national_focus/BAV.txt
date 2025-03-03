@@ -2463,11 +2463,18 @@ focus_tree = {
         icon = GFX_focus_BAV_crack
         relative_position_id = BAV_protect_an_independent_ireland
         y = 1
-        cost = 5
+        cost = 4
 		prerequisite = {
             focus = BAV_protect_an_independent_ireland
         }
 		completion_reward = {
+		ENG = {
+			 add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_stability = -0.05
+	}
 	}
 	}
 	
@@ -2476,11 +2483,24 @@ focus_tree = {
         icon = GFX_focus_BAV_delegation
         relative_position_id = BAV_open_cracks_in_the_fuller_regime
         y = 1
-        cost = 5
+        cost = 3
 		prerequisite = {
             focus = BAV_open_cracks_in_the_fuller_regime
         }
 		completion_reward = {
+		MEX = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = BAV_simmilar_ideals
+				}
+				}
+	    CAN = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = BAV_simmilar_ideals
+				}
+				}
+		add_political_power = 30
 	}
 	}
 	
@@ -2526,7 +2546,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_invite_the_benelux_states
-        icon = GFX_focus_BAV_benelux
+        icon = GFX_focus_BAV_lowland
         relative_position_id = BAV_establish_a_european_confederation
         x = 3
         y = 1
@@ -2555,7 +2575,7 @@ focus_tree = {
 	
 	focus = {
         id = BAV_liberate_france_from_reactionism
-        icon = GFX_focus_BAV_liberate
+        icon = GFX_focus_BAV_france
         relative_position_id = BAV_invite_the_benelux_states
         x = 2
         y = 1
@@ -2563,8 +2583,15 @@ focus_tree = {
 		prerequisite = {
             focus = BAV_invite_the_benelux_states
         }
+		available = {
+		    has_war = no
+			country_exists = FRA
+		}
 		completion_reward = {
-		 custom_effect_tooltip = BAV_france_eu
+		     create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			}
 	}
 	}
 	
@@ -2579,22 +2606,20 @@ focus_tree = {
             focus = BAV_liberate_france_from_reactionism
         }
 		completion_reward = {
-		SPR = {
-			country_event = { 
-				id = bavaria.45
-			}
-		}
-		POR = {
-			country_event = { 
-				id = bavaria.45
-			}
-		}
+		add_stability = 0.05
+		add_political_power = 25
+		FRA = {
+				add_opinion_modifier = {
+					target = BAV
+					modifier = BAV_simmilar_ideals
+				}
+				}
 	}
 	}
 	
 	focus = {
         id = BAV_take_down_the_tukhachevsky_regime
-        icon = GFX_focus_BAV_liberate
+        icon = GFX_focus_BAV_chud
         relative_position_id = BAV_invite_the_benelux_states
         x = -2
         y = 1
@@ -2605,13 +2630,21 @@ focus_tree = {
 		prerequisite = {
             focus = BAV_invite_the_benelux_states focus = BAV_invite_the_scandinavian_states
         }
+		available = {
+		    has_war = no
+			country_exists = BLR
+		}
 		completion_reward = {
+		create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BLR
+			}
 	}
 	}
 	
 	focus = {
         id = BAV_the_tukhachevsky_trials
-        icon = GFX_focus_BAV_liberate
+        icon = GFX_focus_BAV_tukha
         relative_position_id = BAV_take_down_the_tukhachevsky_regime
         x = 0
         y = 1
@@ -2620,6 +2653,7 @@ focus_tree = {
             focus = BAV_take_down_the_tukhachevsky_regime
         }
 		completion_reward = {
+		country_event = ger.10
 	}
 	}
 	
@@ -2633,13 +2667,28 @@ focus_tree = {
 		prerequisite = {
             focus = BAV_the_tukhachevsky_trials focus = BAV_ally_the_new_polish_republic
         }
+		available = {
+		    has_war = no
+		}
 		completion_reward = {
+		create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SOV
+			}
+		create_wargoal = {
+				type = puppet_wargoal_focus
+				target = WVA
+			}
+		create_wargoal = {
+				type = puppet_wargoal_focus
+				target = UKR
+			}
 	}
 	}
 	
 	focus = {
         id = BAV_integrate_east_prussia
-        icon = GFX_focus_BAV_liberate
+        icon = GFX_focus_BAV_east
         relative_position_id = BAV_invite_the_benelux_states
         x = 0
         y = 1
@@ -2654,6 +2703,17 @@ focus_tree = {
 			focus = BAV_take_down_the_tukhachevsky_regime
 		}
 		completion_reward = {
+		BAV = {
+				annex_country = { 
+					target = EPR
+					transfer_troops = yes 
+				}
+			    }
+			    EPR = {
+				every_unit_leader = {
+					set_nationality = BAV
+				}
+	            }
 	}
 	}
 	
@@ -2667,6 +2727,10 @@ focus_tree = {
 		prerequisite = {
             focus = BAV_integrate_east_prussia
         }
+		available = {
+		    has_war = no
+			country_exists = POL
+		}
 		completion_reward = {
 		POL = {
 			country_event = { 

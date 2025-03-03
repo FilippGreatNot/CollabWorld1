@@ -895,9 +895,7 @@ country_event = {
 		add_stability = 0.1
 		add_war_support = -0.08
 		add_popularity = {
-				ideology = despotism
-				popularity = -0.15
-				ideology = bolshevism
+				ideology = national_syndicalism
 				popularity = -0.15				
 		}
 	}
@@ -907,22 +905,20 @@ country_event = {
 		add_stability = 0.05
 		add_war_support = -0.05
 		add_popularity = {
-				ideology = despotism
-				popularity = -0.05
-				ideology = bolshevism
+				ideology = national_syndicalism
 				popularity = -0.05	
     }
+	}
 	option = {
         name = bavaria.36.c
 		add_political_power = 25
 		add_stability = -0.05
 		add_war_support = 0.05
 		add_popularity = {
-				ideology = despotism
-				popularity = 0.05
-				ideology = bolshevism
+				ideology = national_syndicalism
 				popularity = 0.05
     }
+	}
 }
 country_event = {
     id = bavaria.37
@@ -944,7 +940,7 @@ country_event = {
 			}
 			add_popularity = {
 				ideology = social_democrat
-				popularity = 0.15
+				popularity = 0.1
 			}
 			add_stability = 0.05
 			add_war_support = -0.05	
@@ -963,24 +959,20 @@ country_event = {
 
 	option = {
 		name = bavaria.45.a
-		ai_chance = { base = 4 }
+		ai_chance = { base = 2 }
 		BAV = {
 			create_wargoal = {
-				type = annex_everything
+				type = puppet_wargoal_focus
 				target = PREV
 			}
-			country_event =  bavaria.40
 			
 		}
 	}
 	
 	option = {
 		name = bavaria.45.b
-		ai_chance = { base = 6 }
+		ai_chance = { base = 8 }
 		FROM = { add_to_faction = PREV }
-		BAV = {
-			country_event =  bavaria.39
-		}
 		
 	}
 }
@@ -1005,7 +997,7 @@ country_event = {
 	option = {
 		name = bavaria.38.b
 		ai_chance = { base = 4 }
-	    FROM = { add_to_faction = PREV }
+	    BAV = { add_to_faction = AUS }
 		
 	}
 
@@ -1015,31 +1007,5 @@ option = {
 		BAV = {
 		add_political_power = 50
 		}
-	}
-}
-
-
-country_event = {
-	id = bavaria.39
-	title = bavaria.39.t
-	desc = bavaria.39.d
-	is_triggered_only = yes
-
-	option = {
-		name = bavaria.39.a
-		FROM = { add_to_faction = PREV }
-		ai_chance = { base = 10 }
-	}
-}
-
-country_event = {
-	id = bavaria.40
-	title = bavaria.40.t
-	desc = bavaria.40.d
-	is_triggered_only = yes
-
-	option = {
-		name = bavaria.40.a
-		ai_chance = { base = 10 }
 	}
 }
