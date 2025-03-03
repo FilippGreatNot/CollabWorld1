@@ -3395,6 +3395,42 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = UVS_first_support_the_american_socialist_front
+		icon = GFX_focus_UVS_asf
+		cost = 4
+		
+		prerequisite = {
+			focus = UVS_first_red_germany_on_the_world_stage
+		}
+
+		relative_position_id = UVS_first_red_germany_on_the_world_stage
+		y = 1
+		x = 5
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_support_the_american_socialist_front"
+			
+			ASF = { 
+			add_political_power = 25
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2000
+				producer = UVS
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
+				producer = UVS
+			}
+			add_opinion_modifier = {
+					target = UVS
+					modifier = FRA_leftist_rhetoric_communism
+				}
+			}
+			add_political_power = 30
+		}
+	}
+	focus = {
 		id = UVS_first_bring_the_revolution_to_austria
 		icon = GFX_focus_UVS_liberate_austria
 		cost = 5
@@ -3407,7 +3443,7 @@ focus_tree = {
 
 		relative_position_id = UVS_first_red_germany_on_the_world_stage
 		y = 1
-		x = 7
+		x = 8
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_bring_the_revolution_to_austria"
