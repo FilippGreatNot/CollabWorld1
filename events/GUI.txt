@@ -9,7 +9,7 @@ add_namespace = gui
                 fire_only_once = yes
                 
                 is_triggered_only = yes
-                      option{
+                      option = {
 			name=gui.1.a
 			ai_chance = {
 				base=50
@@ -21,7 +21,7 @@ add_namespace = gui
     }              
          }
 		  
-	                option{
+	                option = {
 			name=gui.1.b
 			ai_chance = {
 				base=50
@@ -43,7 +43,7 @@ add_namespace = gui
 				has_completed_focus = KUO_our_economic
     } 
                 is_triggered_only = yes
-                      option{
+                      option = {
 			name=gui.2.a
 			ai_chance = {
 				base=50
@@ -63,7 +63,7 @@ add_namespace = gui
 				has_completed_focus = KUO_our_army
     } 
                 is_triggered_only = yes
-                      option{
+                      option = {
 			name=gui.3.a
 			ai_chance = {
 				base=50
@@ -83,7 +83,7 @@ add_namespace = gui
 				has_completed_focus = KUO_our_economic
     } 
                 is_triggered_only = yes
-                      option{
+                      option = {
 			name=gui.4.a
 			ai_chance = {
 				base=50
@@ -103,7 +103,7 @@ add_namespace = gui
 				has_completed_focus = KUO_our_party
     } 
                 is_triggered_only = yes
-                      option{
+                      option = {
 			name=gui.41.a
 			ai_chance = {
 				base=50
@@ -123,7 +123,7 @@ add_namespace = gui
 				has_completed_focus = KUO_our_betrayal
     } 
                 is_triggered_only = yes
-                      option{
+                      option = {
 			name=gui.5.a
 			ai_chance = {
 				base=50
@@ -143,8 +143,8 @@ add_namespace = gui
 				has_completed_focus = KUO_new_convocation
     } 
                 is_triggered_only = yes
-                      option{
-			name=gui.6.a
+                      option = {
+			name = gui.6.a
 			ai_chance = {
 				base=50
 			}             
@@ -171,45 +171,41 @@ add_namespace = gui
          }
 		  }
 		  
-		  country_event={  
+country_event={  
 		id = gui.8
 		title = gui.8.t
 		desc = gui.8.desc
 		picture = GFK_normal
-		
-                fire_only_once = yes
-                	trigger = {
+	    fire_only_once = yes
+        trigger = {
                 tag = GUI
 				has_completed_focus = KUO_our_ways
-    } 
-                is_triggered_only = yes
-                      option{
-			name=gui.8.a
+        } 
+        is_triggered_only = yes
+        option = {
+		name=gui.8.a
 			ai_chance = {
 				base=50
 			}             
          }
-		  }
+}
 
-		  country_event={ 
+country_event={ 
 		id = gui.9
 		title = gui.9.t
 		desc = gui.9.desc
 		picture = GFX_report_event_kuo_1
-		
-                fire_only_once = yes
-                
-                is_triggered_only = yes
-                      option{
+		trigger = {
+                tag = GUI
+		        has_completed_focus = KUO_guanxi
+       }    
+       fire_only_once = yes        
+       is_triggered_only = yes
+       option = {
 			name=gui.9.a
 			ai_chance = {
 				base=50
 			}
-		
-		trigger = {
-                tag = GUI
-		has_completed_focus = KUO_guanxi
-    }    
 
     add_state_core = 594
 	add_state_core = 591
@@ -223,13 +219,14 @@ add_namespace = gui
  }
 add_popularity = {
     ideology = social_democrat
-    popularity = +0.05}
+    popularity = +0.05
+	}
 	
 	annex_country = { target = NGC transfer_troops = yes }
 
          }
 		  
-	                option{
+	        option = {
 			name=gui.9.b
 			ai_chance = {
 				base=50
