@@ -1,4 +1,5 @@
 add_namespace = fwg
+add_namespace = korsch
 
 country_event = {
 	id = fwg.1
@@ -180,5 +181,73 @@ country_event = {
 		add_ideas = {
 			FWG_what_it_means_to_be_a_worker_idea
 		}
+	}
+}
+
+country_event = {
+	id = fwg.10
+	title = fwg.10.t
+	desc = fwg.10.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.10.a
+		add_stability = 0.04
+		add_ideas = {
+			FWG_anti_bolshevik_rhetoric1
+		}
+	}
+}
+
+country_event = {
+	id = korsch.1
+	title = korsch.1.t 
+	desc = korsch.1.d 
+	picture = GFX_report_event_marxism_and_philosophy
+	is_triggered_only = yes 
+
+	option = {
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.02
+		}
+		if = {
+			limit = { has_completed_focus = FWG_kosch }
+			FWG_anti_bolshevik_rhetoric_level_up = yes
+			add_political_power = 20
+		}
+	}
+}
+
+country_event = {
+	id = korsch.2
+	title = korsch.2.t 
+	desc = korsch.2.d 
+	picture = GFX_report_event_marxism_and_philosophy
+	is_triggered_only = yes 
+
+	option = {
+		name = korsch.2.a
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.02
+		}
+		FWG_anti_bolshevik_rhetoric_level_up = yes
+	}
+}
+
+country_event = {
+	id = korsch.3
+	title = korsch.3.t 
+	desc = korsch.3.d 
+	picture = GFX_report_event_marxism_and_philosophy
+	is_triggered_only = yes 
+
+	option = {
+		name = korsch.3.a 
+		set_country_flag = FWG_union_of_soviet_republics
+		mark_focus_tree_layout_dirty = yes
+		FWG_anti_bolshevik_rhetoric_level_up = yes
 	}
 }

@@ -95,9 +95,21 @@ focus_tree = {
 				remove_idea = FWG_multiethnic_army
 				add_idea = FWG_multiethnic_army2
 			}
-			every_owned_state = {
+			random_owned_state = {
 				create_unit = {
-					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.6" 
+					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.3" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.3" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.3" 
 					owner = FWG
 				}
 			}
@@ -317,7 +329,7 @@ focus_tree = {
 	focus = {
 		id = FWG_equip_our_militias_with_better_guns
 		icon = GFX_focus_FWG_henke
-		x = -1
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -339,7 +351,7 @@ focus_tree = {
 		id = FWG_the_father_of_the_bremen_soviet
 		icon = GFX_focus_FWG_henke
 		x = 1
-		y = 1
+		y = 2
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -426,7 +438,7 @@ focus_tree = {
 	focus = {
 		id = FWG_nationalise_critical_industries
 		icon = GFX_focus_FWG_henke
-		x = 1
+		x = 2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -465,6 +477,25 @@ focus_tree = {
 		prerequisite = { focus = FWG_nationalise_critical_industries }
 		completion_reward = {
 			country_event = fwg.9
+		}
+	}
+	focus = {
+		id = FWG_lift_the_claim_on_dutch_low_saxony
+		icon = GFX_focus_FWG_henke
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_investments_from_the_dutch
+		prerequisite = { focus = FWG_investments_from_the_dutch }
+		completion_reward = {
+			add_stability = 0.05
+			866 = {
+				remove_claim_by = FWG
+			}
 		}
 	}
 	focus = {
@@ -665,6 +696,9 @@ focus_tree = {
 			add_popularity = {
     			ideology = bolshevism
     			popularity = 0.1
+			}
+			remove_ideas = {
+				FWG_the_powerless_junkers
 			}
 		}
 	}
@@ -894,6 +928,414 @@ focus_tree = {
 				ideology = marxism
 				popularity = 0.1
 			}
+			country_event = fwg.10
+		}
+	}
+	focus = {
+		id = FWG_a_different_kind_of_marxism
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_kosch
+		prerequisite = { focus = FWG_kosch }
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.06
+			}
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = FWG_clamp_down_on_the_bolshevik_menace
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_a_different_kind_of_marxism
+		prerequisite = { focus = FWG_a_different_kind_of_marxism }
+		completion_reward = {
+			add_political_power = 20
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = FWG_begin_plans_for_industrialisation
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_kosch
+		prerequisite = { focus = FWG_kosch }
+		completion_reward = {
+			add_timed_idea = {
+				idea = FWG_industrial_planning
+				days = 120
+			}
+		}
+	}
+	focus = {
+		id = FWG_mobilise_the_economy
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 0
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_begin_plans_for_industrialisation
+		prerequisite = { focus = FWG_begin_plans_for_industrialisation }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+			add_ideas = {
+				state_economy
+				a_gun_for_every_household
+			}
+		}
+	}
+	focus = {
+		id = FWG_a_new_socialist_revolution
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_clamp_down_on_the_bolshevik_menace
+		prerequisite = { focus = FWG_clamp_down_on_the_bolshevik_menace }
+		prerequisite = { focus = FWG_mobilise_the_economy }
+		completion_reward = {
+			add_war_support = 0.1
+			add_ideas = {
+				FWG_the_new_marxist_revolution
+			}
+		}
+	}
+	focus = {
+		id = FWG_legacy_of_hegel
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = -3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_a_new_socialist_revolution
+		prerequisite = { focus = FWG_a_new_socialist_revolution }
+		completion_reward = {
+			add_ideas = {
+				FWG_hegelian_teachings
+			}
+		}
+	}
+	focus = {
+		id = FWG_intimidate_the_faud
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = { focus = FWG_enforce_liberal_principles }
+		relative_position_id = FWG_legacy_of_hegel
+		prerequisite = { focus = FWG_legacy_of_hegel }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = -0.05
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.15
+			}
+		}
+	}
+	focus = {
+		id = FWG_enforce_liberal_principles
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		mutually_exclusive = { focus = FWG_intimidate_the_faud }
+		relative_position_id = FWG_legacy_of_hegel
+		prerequisite = { focus = FWG_legacy_of_hegel }
+		completion_reward = {
+			add_stability = 0.05
+			swap_ideas = {
+				remove_idea = FWG_hegelian_teachings
+				add_idea = FWG_hegelian_teachings2
+			}
+		}
+	}
+	focus = {
+		id = FWG_speak_out_against_soviet_crimes
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_a_new_socialist_revolution
+		prerequisite = { focus = FWG_a_new_socialist_revolution }
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			country_event = korsch.2
+		}
+	}
+	focus = {
+		id = FWG_creation_of_an_organised_military
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_speak_out_against_soviet_crimes
+		prerequisite = { focus = FWG_speak_out_against_soviet_crimes }
+		completion_reward = {
+			army_experience = -50
+			add_manpower = -15000
+			division_template = {
+    			name = "Revolutionary Brigades"
+    			regiments = {
+        			infantry = { x = 0 y = 0 }
+        			infantry = { x = 0 y = 1 }
+        			infantry = { x = 1 y = 0 }
+        			infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 0 }
+        			infantry = { x = 2 y = 1 }
+    			}
+    			support = {
+        			artillery = { x = 0 y = 0 }
+    			}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Revolutionary Brigades\" division_template = \"Revolutionary Brigades\" start_experience_factor = 0.5" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Revolutionary Brigades\" division_template = \"Revolutionary Brigades\" start_experience_factor = 0.5" 
+					owner = FWG
+				}
+			}
+			swap_ideas = {
+				remove_idea = FWG_multiethnic_army2
+    			add_idea = FWG_multiethnic_army3
+			}
+			custom_effect_tooltip = new_division_template
+		}
+	}
+	focus = { 
+		id = FWG_korschs_vision
+		icon = GFX_focus_FWG_korschs_vision
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_creation_of_an_organised_military
+		prerequisite = { focus = FWG_creation_of_an_organised_military }
+		completion_reward = {
+			add_country_leader_trait = FWG_a_crusader_against_bolshevism
+			country_event = korsch.3
+		}
+	}
+	focus = {
+		id = FWG_korschs_war
+		icon = GFX_focus_FWG_korschs_war
+		x = 3
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_a_new_socialist_revolution
+		prerequisite = { focus = FWG_a_new_socialist_revolution }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 20
+			add_command_power = 40
+		}
+	}
+	focus = {
+		id = FWG_break_ties_with_the_soviets
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = -1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_korschs_war
+		prerequisite = { focus = FWG_korschs_war }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = FWG_ideological_division
+			}
+		}
+	}
+	focus = {
+		id = FWG_importance_of_the_revolutionary_praxis
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_break_ties_with_the_soviets
+		prerequisite = { focus = FWG_break_ties_with_the_soviets }
+		completion_reward = {
+			add_ideas = {
+				FWG_workers_at_the_helm
+			}
+		}
+	}
+	focus = {
+		id = FWG_launch_an_uprising_against_the_horthy_dictatorship
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		available = {
+			NOT = { country_exists = WRD country_exists = GER }
+			HUN = { has_government = despotism }
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_korschs_war
+		prerequisite = { focus = FWG_korschs_war }
+		completion_reward = {
+			hidden_effect = {
+				43 = { transfer_state_to = HUN }
+				155 = { transfer_state_to = HUN }
+				935 = { transfer_state_to = HUN }
+			}
+			HUN = {
+				start_civil_war = {
+					ideology = marxism 
+					size = 0.3
+					capital = 935
+					states = { 935 }
+					keep_political_leader = yes
+    				keep_political_party_members = yes
+					set_cosmetic_tag = gyor_soviet
+					load_oob = HUNWM
+					create_country_leader = {
+						name = "György Lukács"
+						desc = "POLITICS_GYORGY_LUKACS_DESC"
+						picture = "gfx/leaders/HUN/HUN_gyorgy_lukacs.dds"
+						ideology = western_marxism
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_a_widespread_revolution
+		icon = GFX_focus_FWG_a_different_kind_of_marxism
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		available = {
+			HUN = { has_war = no has_government = marxism }
+		}
+		bypass = { HUN = { has_war = no has_government = despotism } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_launch_an_uprising_against_the_horthy_dictatorship
+		prerequisite = { focus = FWG_launch_an_uprising_against_the_horthy_dictatorship }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FWG_the_new_marxist_revolution
+				add_idea = FWG_the_new_marxist_revolution2
+			}
+		}
+	}
+	focus = {
+		id = FWG_proclaim_a_soviet_union
+		icon = GFX_focus_FWG_proclaim_a_soviet_union
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = DSH_unified_germany_tt
+				NOT = { country_exists = BAV }
+				NOT = { country_exists = DSH }
+				NOT = { country_exists = FGB }
+				NOT = { country_exists = GER }
+				NOT = { country_exists = PLA }
+				NOT = { country_exists = UVS }
+				NOT = { country_exists = WRD }
+			}
+		}
+		allow_branch = {
+			has_country_flag = FWG_union_of_soviet_republics
+		}
+		relative_position_id = FWG_importance_of_the_revolutionary_praxis
+		prerequisite = { focus = FWG_korschs_vision }
+		prerequisite = { focus = FWG_importance_of_the_revolutionary_praxis }
+		completion_reward = {
+			set_cosmetic_tag = FWG_soviet_union 
 		}
 	}
 	focus = {
@@ -1126,7 +1568,7 @@ focus_tree = {
 	focus = {
 		id = FWG_streamline_weapons_manufacturing
 		icon = GFX_focus_generic_production
-		x = 2
+		x = 3
 		y = 1
 		cost = 7
 		available_if_capitulated = yes
@@ -1152,7 +1594,7 @@ focus_tree = {
 	focus = {
 		id = FWG_fortify_the_southern_border
 		icon = GFX_focus_generic_production
-		x = 0
+		x = -1
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
@@ -1164,7 +1606,7 @@ focus_tree = {
 				add_building_construction = {
 					type = bunker
 					level = 2
-					province = 13526
+					province = 13523
 					instant_build = yes
 				}
 				add_building_construction = {
@@ -1176,7 +1618,7 @@ focus_tree = {
 				add_building_construction = {
 					type = bunker
 					level = 2
-					province = 13523
+					province = 13526
 					instant_build = yes
 				}
 			}
@@ -1241,6 +1683,77 @@ focus_tree = {
 					type = bunker
 					level = 2
 					province = 13515
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_fortify_the_eastern_border
+		icon = GFX_focus_generic_production
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_streamline_weapons_manufacturing
+		prerequisite = { focus = FWG_streamline_weapons_manufacturing }
+		completion_reward = {
+			1087 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 405
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3355
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13437
+					instant_build = yes
+				}
+			}
+			56 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 3234
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13586
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13589
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13594
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13601
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 13608
 					instant_build = yes
 				}
 			}
