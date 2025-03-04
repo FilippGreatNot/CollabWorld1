@@ -895,21 +895,117 @@ country_event = {
 		add_stability = 0.1
 		add_war_support = -0.08
 		add_popularity = {
-				ideology = despotism
-				popularity = -0.15
-				ideology = bolshevism
-				popularity = -0.15
-				
-    }
-	  }
+				ideology = national_syndicalism
+				popularity = -0.15				
+		}
+	}
 	option = {
         name = bavaria.36.b
+		add_political_power = -25
+		add_stability = 0.05
+		add_war_support = -0.05
+		add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.05	
     }
+	}
 	option = {
         name = bavaria.36.c
+		add_political_power = 25
+		add_stability = -0.05
+		add_war_support = 0.05
+		add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
     }
+	}
+}
+country_event = {
+    id = bavaria.37
+    title = bavaria.37.t
+    desc = bavaria.37.d
+    picture = GFX_report_event_bavaria_army
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = bavaria.37.a
+		 add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+			add_stability = 0.05
+			add_war_support = -0.05	
+		}
+	}
+
+
+
+
+
+country_event = {
+	id = bavaria.45
+	title = bavaria.45.t
+	desc = bavaria.45.d
+	is_triggered_only = yes
+
+	option = {
+		name = bavaria.45.a
+		ai_chance = { base = 2 }
+		BAV = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PREV
+			}
+			
+		}
+	}
+	
+	option = {
+		name = bavaria.45.b
+		ai_chance = { base = 8 }
+		FROM = { add_to_faction = PREV }
+		
+	}
 }
 
+country_event = {
+	id = bavaria.38
+	title = bavaria.38.t
+	desc = bavaria.38.d
+	is_triggered_only = yes
 
+	option = {
+		name = bavaria.38.a
+		ai_chance = { base = 4 }
+		AUS = { make_every_core_national_for_PREV = yes }
+		create_wargoal = {
+				type = annex_everything
+				target = AUS
+		
+		}
+	}
+	
+	option = {
+		name = bavaria.38.b
+		ai_chance = { base = 4 }
+	    BAV = { add_to_faction = AUS }
+		
+	}
 
-
+option = {
+		name = bavaria.38.c
+		ai_chance = { base = 2 }
+		BAV = {
+		add_political_power = 50
+		}
+	}
+}
