@@ -1,4 +1,4 @@
-WRD_the_return_of_the_empire = {
+WRD_the_return_of_the_empire = { 																										####### MONARCHIST DECISIONS #######
 	WRD_ask_for_ostafrikas_loyalty = {
 		icon = generic_form_nation
 		
@@ -58,23 +58,431 @@ WRD_the_return_of_the_empire = {
 	}
 }
 
-WRD_state_integration = { 
-	WRD_bohemia_integration = { 
+WRD_state_integration = { 																											###### SS-INTEGRATION DECISIONS ######
+	WRD_west_prussia_integration = { 			### Westpreußen ###
 		icon = generic_form_nation 
 		available = {
-			owns_state = 110
-			owns_state = 110
+			owns_state = 63
+			owns_state = 68
+			owns_state = 1063
+			owns_state = 807
+			owns_state = 85
+			owns_state = 848
+		}
+		visible = {
+			has_completed_focus = WRD_retake_old_german_lands
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 63
+				state = 68
+				state = 1063
+				state = 807
+				state = 85
+				state = 848
+			}
+		}
+		modifier = { political_power_gain = -0.05 } 
+		cost = 50
+		ai_will_do = { factor = 100 }
+		days_remove = 60
+		fire_only_once = yes
+		remove_effect	= {
+			add_state_core = 63
+			add_state_core = 68
+			add_state_core = 1063
+			add_state_core = 807
+			add_state_core = 85
+			add_state_core = 848
+		}
+	}
+	
+	WRD_bohemia_integration = { 			### BOHEMIA ###
+		icon = generic_form_nation 
+		available = {
+			owns_state = 9
+			owns_state = 75
+			owns_state = 72
+		}
+		visible = {
+			has_completed_focus = WRD_the_doorstep_of_the_reich
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 9
+				state = 75
+				state = 72
+			}
+		}
+		modifier = { political_power_gain = -0.1 } 
+		cost = 50
+		ai_will_do = { factor = 100 }
+		days_remove = 120
+		fire_only_once = yes
+		remove_effect	= {
+			add_state_core = 9
+			add_state_core = 75
+			add_state_core = 72
+			hidden_effect = {
+				9 = { set_state_name = "Böhmen" }
+				75 = { set_state_name = "Mähren" }
+				72 = { set_state_name = "Olsa-Gebiet" }
+				set_province_name = { id = 11542 name = "Prag" }
+				set_province_name = { id = 6418 name = "Pilsen" }
+				set_province_name = { id = 3569 name = "Brünn" }
+				set_province_name = { id = 6562 name = "Olmütz" }
+				set_province_name = { id = 9569 name = "Tabor" }
+				set_province_name = { id = 11401 name = "Reichenberg" }
+				set_province_name = { id = 3585 name = "Karlovy Vary" }
+				set_province_name = { id = 3583 name = "Ostrau" }
+			}
+		}
+	}
+	
+	WRD_slovenia_integration = { 			### SLOVENIA ###
+		icon = generic_form_nation 
+		available = {
+			owns_state = 992
+			owns_state = 102
+			owns_state = 736
+			owns_state = 873
+			owns_state = 991
+			owns_state = 892
+		}
+		visible = {
+			has_completed_focus = WRD_the_doorstep_of_the_reich
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 992
+				state = 102
+				state = 736
+				state = 873
+				state = 991
+				state = 892
+			}
+		}
+		modifier = { political_power_gain = -0.15 } 
+		cost = 100
+		ai_will_do = { factor = 100 }
+		days_remove = 120
+		fire_only_once = yes
+		remove_effect	= {
+			add_state_core = 992
+			add_state_core = 102
+			add_state_core = 736
+			add_state_core = 873
+			add_state_core = 991
+			add_state_core = 892
+			hidden_effect = {
+				102 = { set_state_name = "Drau" }
+				992 = { set_state_name = "Laibach" }
+				736 = { set_state_name = "Küstenland" }
+				992 = { set_state_name = "Laibach" }
+				873 = { set_state_name = "Istrien" }
+				991 = { set_state_name = "Gafers" }
+				892 = { set_state_name = "Triest" }
+				set_province_name = { id = 9627 name = "Laibach" }
+				set_province_name = { id = 596 name = "Marburg an der Drau" }
+				set_province_name = { id = 3654 name = "Cilli" }
+				set_province_name = { id = 13288 name = "Gafers" }
+				set_province_name = { id = 6626 name = "Triest" } 
+				set_province_name = { id = 11735 name = "Pola" }
+			}
+		}
+	}
+	
+	WRD_tirol_integration = { 			### TYROL ###
+		icon = generic_form_nation 
+		available = {
+			owns_state = 860
+			owns_state = 39
+		}
+		visible = {
+			has_completed_focus = WRD_the_doorstep_of_the_reich
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 860
+				state = 39
+			}
+		}
+		modifier = { political_power_gain = -0.05 } 
+		cost = 50
+		ai_will_do = { factor = 100 }
+		days_remove = 120
+		fire_only_once = yes
+		remove_effect	= {
+			add_state_core = 860
+			add_state_core = 39
+			hidden_effect = {
+				39 = { set_state_name = "Welschtirol " }
+				860 = { set_state_name = "Friaul-Ladinien" }
+				set_province_name = { id = 13497 name = "Görz" }
+				set_province_name = { id = 13498 name = "Weiden" }
+			}
 		}
 	
+	}
 	
-	
-	
+	WRD_swiss_integration = { 			### SCHWEIZ ###
+		icon = generic_form_nation 
+		available = {
+			owns_state = 151
+			owns_state = 3
+			owns_state = 882
+			owns_state = 894
+			owns_state = 870
+			owns_state = 939
+		}
+		visible = {
+			has_completed_focus = WRD_avenge_the_battle_of_paris
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 151
+				state = 3
+				state = 882
+				state = 894
+				state = 870
+				state = 939
+			}
+		}
+		modifier = { political_power_gain = -0.2 } 
+		cost = 100
+		ai_will_do = { factor = 100 }
+		days_remove = 120
+		fire_only_once = yes
+		remove_effect	= {
+			add_state_core = 151
+			add_state_core = 3
+			add_state_core = 882
+			add_state_core = 894
+			add_state_core = 870
+			add_state_core = 939
+			hidden_effect = {
+				870 = { set_state_name = "Churwald" }
+				3 = { set_state_name = "Bärenmark" }
+				151 = { set_state_name = "Zürichgau" }
+				882 = { set_state_name = "Genferland" }
+				894 = { set_state_name = "Matterhorn" } 
+				939 = { set_state_name = "Tannenbergstadt" } 
+				set_province_name = { id = 13266 name = "Adlerfels" }
+				set_province_name = { id = 663 name = "Führerstadt Zürich" }
+				set_province_name = { id = 9620 name = "Zähringen" }
+				set_province_name = { id = 6666 name = "Genf" }
+			}
+		}
 	
 	}
+	
+	WRD_alsace_integration = { 					### ELSASS-LOTHRINGEN ###
+		icon = generic_form_nation
+		available = { 
+			controls_state = 28 
+		}
+		visible = {
+			owns_state = 28
+			owns_state = 8
+			owns_state = 851
+			owns_state = 1093
+			owns_state = 840
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 28
+				state = 8
+				state = 851
+				state = 1093
+				state = 840
+			}
+		}
+		modifier = { political_power_gain = -0.10 }
+		cost = 50
+		ai_will_do = { factor = 100 }
+		days_remove = 120
+		fire_only_once = yes
+		remove_effect	= {
+			add_state_core = 28
+			add_state_core = 8
+			add_state_core = 1093
+			add_state_core = 851
+			add_state_core = 840
+			hidden_effect = {
+				28 = { set_state_name = "Elsaß-Lothringen" } 
+				8 = { set_state_name = "Großherzogtum Luxemburg" }
+				840 = { set_state_name = "Ardennen" } 
+				set_province_name = { id = 9503 name = "Straßburg" }
+				set_province_name = { id = 678 name = "Mülhausen " }
+				set_province_name = { id = 13238 name = "Arel" }
+				set_province_name = { id = 6583 name = "Luxemburg-Stadt" }
+			}	
+		}
+	}	
 }
 
-WRD_ordensstaat = {
-	WRD_sweden_state = {							### HYPERBOREA ###
+
+WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISIONS ######
+		WRD_frankreich_state = {								### FRANKREICH ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 16
+			owns_state = 19
+			owns_state = 21
+			owns_state = 20
+			owns_state = 31
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_avenge_the_battle_of_paris 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_avenge_the_battle_of_paris 
+		}
+		
+		complete_effect = {
+			FRA = {
+				load_focus_tree = { tree = generic_tree keep_completed = no }
+				set_cosmetic_tag = WRD_frankreich
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism
+					name = WRD_frankreich_party
+				}
+				hidden_effect = {
+					add_state_core = 16
+					add_state_core = 15
+					add_state_core = 30
+					add_state_core = 23
+					add_state_core = 24
+					add_state_core = 33
+					add_state_core = 27
+					add_state_core = 26
+					add_state_core = 20
+					add_state_core = 32
+					add_state_core = 21
+					add_state_core = 22
+					add_state_core = 25
+					add_state_core = 23
+					add_state_core = 19
+					add_state_core = 806
+					add_state_core = 31
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = FRA
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				FRA = { transfer_state = 16 }
+				FRA = { transfer_state = 15 }
+				FRA = { transfer_state = 30 }
+				FRA = { transfer_state = 23 }
+				FRA = { transfer_state = 24 }
+				FRA = { transfer_state = 33 }
+				FRA = { transfer_state = 27 }
+				FRA = { transfer_state = 26 }
+				FRA = { transfer_state = 20 }
+				FRA = { transfer_state = 32 }
+				FRA = { transfer_state = 32 }
+				FRA = { transfer_state = 21 }
+				FRA = { transfer_state = 22 }
+				FRA = { transfer_state = 25 }
+				FRA = { transfer_state = 23 }
+				FRA = { transfer_state = 19 }
+				FRA = { transfer_state = 31 }
+				FRA = { transfer_state = 806 }
+			}
+		}
+	}	
+	WRD_albion_state = { 								### ALBION ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 126
+			owns_state = 132
+			owns_state = 130
+			owns_state = 128
+			owns_state = 874
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_liberate_germanias_westernmost_outpost 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_liberate_germanias_westernmost_outpost 
+		}
+		
+		complete_effect = {
+			ENG = {
+				load_focus_tree = { tree = generic_tree keep_completed = no }
+				set_cosmetic_tag = WRD_albion
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism
+					name = WRD_albion_party
+				}
+				hidden_effect = {
+					add_state_core = 874
+					add_state_core = 127
+					add_state_core = 338
+					add_state_core = 126
+					add_state_core = 125
+					add_state_core = 129
+					add_state_core = 128
+					add_state_core = 130
+					add_state_core = 132
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = ENG
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				ENG = { transfer_state = 874 }
+				ENG = { transfer_state = 127 }
+				ENG = { transfer_state = 126 }
+				ENG = { transfer_state = 125 }
+				ENG = { transfer_state = 129 }
+				ENG = { transfer_state = 128 }
+				ENG = { transfer_state = 130 }
+				ENG = { transfer_state = 132 }
+				ENG = { transfer_state = 338 }
+			}
+		}
+	}	
+	WRD_sweden_state = {										### HYPERBOREA ###
 		icon = generic_form_nation
 			available = {
 				owns_state = 110
@@ -294,7 +702,7 @@ WRD_ordensstaat = {
 		}
 		}
 	}
-	WRD_ruthenian_state = { 							### UKRAINE ###
+	WRD_ruthenian_state = { 								### UKRAINE ###
 		icon = generic_form_nation
 		
 		available = {
@@ -407,6 +815,8 @@ WRD_ordensstaat = {
 		
 		available = {
 			owns_state = 137
+			owns_state = 196
+			owns_state = 200			
 		}
 		
 		fire_only_once = yes
@@ -506,6 +916,8 @@ WRD_ordensstaat = {
 			}
 			hidden_effect = {
 				KAR = { transfer_state = 195 }
+				195 = { set_state_name = "Himmlergau" }
+				set_province_name = { id = 3151 name = "Führerstadt Himmlerburg" }
 			}	
 		}
 	}	
@@ -552,6 +964,42 @@ WRD_ordensstaat = {
 				}
 				hidden_effect = {
 					add_state_core = 219
+					add_state_core = 223
+					add_state_core = 205
+					add_state_core = 222
+					add_state_core = 224
+					add_state_core = 241
+					add_state_core = 243
+					add_state_core = 242
+					add_state_core = 246
+					add_state_core = 247
+					add_state_core = 248
+					add_state_core = 263
+					add_state_core = 264
+					add_state_core = 244
+					add_state_core = 351
+					add_state_core = 214
+					add_state_core = 400
+					add_state_core = 397
+					add_state_core = 262
+					add_state_core = 825
+					add_state_core = 573
+					add_state_core = 581
+					add_state_core = 398
+					add_state_core = 399
+					add_state_core = 651
+					add_state_core = 652
+					add_state_core = 249
+					add_state_core = 251
+					add_state_core = 250
+					add_state_core = 256
+					add_state_core = 833
+					add_state_core = 252
+					add_state_core = 253
+					add_state_core = 254
+					add_state_core = 255
+					add_state_core = 257
+					add_state_core = 258
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -563,6 +1011,44 @@ WRD_ordensstaat = {
 			}
 			hidden_effect = {
 				SOV = { transfer_state = 219 }
+				SOV = { transfer_state = 223 }
+				SOV = { transfer_state = 205 }
+				SOV = { transfer_state = 222 }
+				SOV = { transfer_state = 224 }
+				SOV = { transfer_state = 241 }
+				SOV = { transfer_state = 243 }
+				SOV = { transfer_state = 242 }
+				SOV = { transfer_state = 246 }
+				SOV = { transfer_state = 247 }
+				SOV = { transfer_state = 248 }
+				SOV = { transfer_state = 263 }
+				SOV = { transfer_state = 264 }
+				SOV = { transfer_state = 244 }
+				SOV = { transfer_state = 351 }
+				SOV = { transfer_state = 214 }
+				SOV = { transfer_state = 400 }
+				SOV = { transfer_state = 397 }
+				SOV = { transfer_state = 262 }
+				SOV = { transfer_state = 825 }
+				SOV = { transfer_state = 573 }
+				SOV = { transfer_state = 581 }
+				SOV = { transfer_state = 398 }
+				SOV = { transfer_state = 399 }
+				SOV = { transfer_state = 651 }
+				SOV = { transfer_state = 652 }
+				SOV = { transfer_state = 249 }
+				SOV = { transfer_state = 251 }
+				SOV = { transfer_state = 250 }
+				SOV = { transfer_state = 256 }
+				SOV = { transfer_state = 833 }
+				SOV = { transfer_state = 252 }
+				SOV = { transfer_state = 253 }
+				SOV = { transfer_state = 254 }
+				SOV = { transfer_state = 255 }
+				SOV = { transfer_state = 257 }
+				SOV = { transfer_state = 258 }
+				219 = { set_state_name = "Moskowien" }
+				set_province_name = { id = 219 name = "Führerstadt Moskowien" }
 			}	
 		}
 	}		
