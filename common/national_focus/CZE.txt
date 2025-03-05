@@ -14,6 +14,10 @@ focus_tree = {
 		x = 5
 		y = 0
 		cost = 4
+		completion_reward = {
+		    add_political_power = 35
+			add_stability = 0.05
+		}
 	}
 	focus = {
 	    id = CZE_question_of_military
@@ -23,7 +27,11 @@ focus_tree = {
 		}
 		x = -2
 		y = 1
-		cost = 4
+		cost = 1
+		completion_reward = {
+		    add_political_power = 35
+			army_experience = 20
+		}
 	}
 	focus = {
 	    id = CZE_question_of_identity
@@ -33,7 +41,10 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
-		cost = 4
+		cost = 1
+		completion_reward = {
+		    add_political_power = 35
+		}
 	}
 	focus = {
 	    id = CZE_legionary_traditions
@@ -45,6 +56,13 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 6
+		completion_reward = {
+		    add_popularity = {
+			    ideology = authoritarian_democrat
+				popularity = 0.15
+			}
+			army_experience = 50
+		}
 	}
 	focus = {
 	    id = CZE_new_czechoslovak_army
@@ -56,6 +74,31 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 6
+		completion_reward = {
+		    army_experience = 75
+			add_popularity = {
+			    ideology = authoritarian_democrat
+				popularity = -0.1
+			}
+			add_corps_commander_role = {
+			    character = CZE_frantisek_bartos
+		        skill = 2
+			
+			    attack_skill = 2
+			    defense_skill = 4
+			    planning_skill = 1
+			    logistics_skill = 2
+			}
+			add_corps_commander_role = {
+			    character = CZE_lev_hanak
+		        skill = 2
+			
+			    attack_skill = 2
+			    defense_skill = 2
+			    planning_skill = 3
+			    logistics_skill = 3 
+			}
+		}
 	}
 	focus = {
 	    id = CZE_status_of_russian_legion
@@ -66,6 +109,17 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 6
+		completion_reward = {
+		    diplomatic_relation = {
+			    country = RUS
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_opinion_modifier = {
+			    target = RUS
+			    modifier = CZE_czech_legions
+	    	}
+		}
 	}
 	focus = {
 	    id = CZE_repatriate_imperial_soldiers
@@ -76,6 +130,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 6
+		completion_reward = {
+		    add_manpower = 10000
+			add_stability = -0.05
+		}
 	}
 	focus = {
 	    id = CZE_parade_of_army
@@ -87,6 +145,16 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 4
+		completion_reward = {
+		    swap_ideas = {
+			    remove_idea = CZE_unorganised_military
+				add_idea = CZE_lions_sword
+			}
+		    add_popularity = {
+			    ideology = authoritarian_democrat
+				popularity = 0.15
+			}
+		}
 	}
     focus = { 
 	    id = CZE_union_of_two_nations
@@ -98,6 +166,10 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 6
+		completion_reward = {
+		    add_manpower = 10000
+			add_stability = 0.05
+		}
 	}
     focus = { 
 	    id = CZE_federative_republic
@@ -109,6 +181,10 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 6
+		completion_reward = {
+		    add_manpower = 20000
+			add_stability = -0.05
+		}
 	}
 	    focus = { 
 	    id = CZE_multilingual_state
@@ -119,6 +195,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 6
+		completion_reward = {
+		    add_stability = -0.05
+			add_popularity = { 
+			    ideology = authoritarian_democrat 
+				popularity = -0.05
+			}
+			set_cosmetic_tag = CZE_federation
+		}
 	}
     focus = { 
 	    id = CZE_embrace_czechoslovak_superiority
@@ -129,6 +213,17 @@ focus_tree = {
 		x = -1
 		y = 2
 		cost = 6
+		completion_reward = {
+		    add_stability = -0.15
+			add_popularity = {
+			    ideology = esotericism
+				popularity = 0.04
+			}
+			add_popularity = {
+			    ideology = national_syndicalism
+				popularity = 0.06
+			}
+		}
 	}
     focus = { 
 	    id = CZE_birth_of_a_new_identity
@@ -140,6 +235,13 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 4
+		completion_reward = {
+		    add_political_power = 75
+			swap_ideas = {
+			    remove_idea = CZE_unclear_identity
+				add_idea = CZE_czechoslovak_identity
+			}
+		}
 	}
     focus = { 
 	    id = CZE_return_of_the_russian_legion
@@ -153,6 +255,40 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 4
+		completion_reward = {
+		    add_political_power = 50
+			add_popularity = {
+			    ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+			add_corps_commander_role = {
+			    character = CZE_gajda
+				skill = 4
+				
+				attack_skill = 4
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+			    character = CZE_sergej
+				skill = 4
+				
+				attack_skill = 3
+				defense_skill = 5
+				planning_skill = 3 
+				logistics_skill = 4
+			}
+			add_field_marshal_role = {
+			    character = CZE_syrovy
+				skill = 3
+				
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 5
+			}
+		}
 	}
     focus = { 
 	    id = CZE_meeting_at_the_prague_castle
