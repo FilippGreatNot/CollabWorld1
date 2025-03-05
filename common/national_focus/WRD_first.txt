@@ -491,8 +491,8 @@ focus_tree = {
 		cost = 5
 		available = { has_government = esotericism }
 		relative_position_id = WRD_a_purple_germany
-		y = 1
-		x = 2
+		y = 2
+		x = 4
 		prerequisite = {
 			focus = WRD_a_purple_germany
 		}
@@ -507,15 +507,31 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = WRD_formalize_the_ordenstaats
+		icon = GFX_focus_WRD_ordenstaat
+		cost = 1
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
+		y = 5
+		x = 0
+		prerequisite = {
+			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+		}
+	}
+	
+	focus = {
 		id = WRD_the_doorstep_of_the_reich
 		icon = GFX_focus_WRD_door
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
-		y = 1
-		x = -1
+		relative_position_id = WRD_formalize_the_ordenstaats
+		y = 1	
+		x = 3
 		prerequisite = {
-			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+			focus = WRD_formalize_the_ordenstaats
 		}
 		available = {
 		    has_war = no
@@ -545,11 +561,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_land
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_the_doorstep_of_the_reich
+		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1
-		x = 0
+		x = -3
 		prerequisite = {
-			focus = WRD_the_doorstep_of_the_reich
+			focus = WRD_formalize_the_ordenstaats
 		}
 		available = {
 		    has_war = no
@@ -577,11 +593,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_lowlands
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
+		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1
-		x = 1
+		x = 0
 		prerequisite = {
-			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+			focus = WRD_formalize_the_ordenstaats
 		}
 		available = {
 		    has_war = no
@@ -613,11 +629,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_paris
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_the_germans_of_the_lowlands
+		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1
-		x = 0
+		x = -6
 		prerequisite = {
-			focus = WRD_the_germans_of_the_lowlands
+			focus = WRD_formalize_the_ordenstaats
 		}
 		available = {
 		    has_war = no
@@ -638,14 +654,17 @@ focus_tree = {
 		icon = GFX_focus_WRD_rot
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_avenge_the_battle_of_paris
-		y = 1
-		x = -1
-		prerequisite = {
-			focus = WRD_avenge_the_battle_of_paris
-		}
+		relative_position_id = WRD_the_germans_of_the_lowlands
+		y = 2
+		x = 0
 		prerequisite = {
 			focus = WRD_retake_old_german_lands
+		}
+		prerequisite = {
+			focus = WRD_the_germans_of_the_lowlands
+		}
+		prerequisite = {
+			focus = WRD_the_doorstep_of_the_reich
 		}
 		available = {
 		    has_war = no
@@ -680,11 +699,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_nordic
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
+		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1
-		x = 3
+		x = -9
 		prerequisite = {
-			focus = WRD_the_beginnings_of_a_germanic_lebensraum
+			focus = WRD_formalize_the_ordenstaats
 		}
 		available = {
 		    has_war = no
@@ -717,11 +736,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_england
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_reunite_with_the_nordic_aryans
+		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1
-		x = 0
+		x = 6
 		prerequisite = {
-			focus = WRD_reunite_with_the_nordic_aryans
+			focus = WRD_formalize_the_ordenstaats
 		}
 		available = {
 		    has_war = no
@@ -816,7 +835,7 @@ focus_tree = {
 		cost = 4
 		available = { has_government = esotericism }
 		relative_position_id = WRD_a_purple_germany
-		y = 1
+		y = 2
 		x = 0
 		prerequisite = {
 			focus = WRD_a_purple_germany
@@ -835,13 +854,33 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = WRD_formalize_the_waffen_ss
+		icon = GFX_focus_WRD_reichsbanner
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_deal_with_the_reichsbanner_rebellion
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_deal_with_the_reichsbanner_rebellion
+		}
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_timed_idea = { 
+				add_stability = 0.05
+				add_political_power = 50
+			}
+				
+		}
+	focus = {
 		id = WRD_purge_the_unworthy_of_the_reich
 		icon = GFX_focus_WRD_purge
 		cost = 8
 		available = { has_government = esotericism }
 		relative_position_id = WRD_a_purple_germany
-		y = 1
-		x = -2
+		y = 2
+		x = -4
 		prerequisite = {
 			focus = WRD_a_purple_germany
 		}
