@@ -127,6 +127,9 @@ WRD_state_integration = { 																											###### SS-INTEGRATION DECIS
 				9 = { set_state_name = "Böhmen" }
 				75 = { set_state_name = "Mähren" }
 				72 = { set_state_name = "Olsa-Gebiet" }
+				69 = { set_state_name = "Nordsudetenland" }
+				887 = { set_state_name = "Südsudetenland" }
+				74 = { set_state_name = "Sudetenschlesien" }
 				set_province_name = { id = 11542 name = "Prag" }
 				set_province_name = { id = 6418 name = "Pilsen" }
 				set_province_name = { id = 3569 name = "Brünn" }
@@ -322,7 +325,114 @@ WRD_state_integration = { 																											###### SS-INTEGRATION DECIS
 }
 
 
-WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISIONS ######
+WRD_ordensstaat = {	
+		WRD_iberia_state = {								### IBERIEN ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 41
+			owns_state = 112
+			owns_state = 171
+			owns_state = 169
+			owns_state = 165
+			owns_state = 853
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_avenge_the_battle_of_paris 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_avenge_the_battle_of_paris 
+		}
+		
+		complete_effect = {
+			SPR = {
+				set_cosmetic_tag = WRD_iberia
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism
+					name = WRD_iberia_party
+				}
+				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 853 
+					add_state_core = 165
+					add_state_core = 794
+					add_state_core = 167
+					add_state_core = 166
+					add_state_core = 172
+					add_state_core = 792
+					add_state_core = 168
+					add_state_core = 793
+					add_state_core = 176
+					add_state_core = 790
+					add_state_core = 791
+					add_state_core = 174
+					add_state_core = 171
+					add_state_core = 41
+					add_state_core = 788 
+					add_state_core = 170
+					add_state_core = 175
+					add_state_core = 789
+					add_state_core = 173
+					add_state_core = 169
+					add_state_core = 179
+					add_state_core = 795
+					add_state_core = 112
+					add_state_core = 181
+					add_state_core = 180
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = SPR
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				SPR = { transfer_state = 853 }
+				SPR = { transfer_state = 165 }
+				SPR = { transfer_state = 794 }
+				SPR = { transfer_state = 167 }
+				SPR = { transfer_state = 166 }
+				SPR = { transfer_state = 172 }
+				SPR = { transfer_state = 792 }
+				SPR = { transfer_state = 168 }
+				SPR = { transfer_state = 793 }
+				SPR = { transfer_state = 176 }
+				SPR = { transfer_state = 790 }
+				SPR = { transfer_state = 791 }
+				SPR = { transfer_state = 174 }
+				SPR = { transfer_state = 171 }
+				SPR = { transfer_state = 41 }
+				SPR = { transfer_state = 788 }
+				SPR = { transfer_state = 170 }
+				SPR = { transfer_state = 175 }
+				SPR = { transfer_state = 789 }
+				SPR = { transfer_state = 173 }
+				SPR = { transfer_state = 169 }
+				SPR = { transfer_state = 179 }
+				SPR = { transfer_state = 795 }
+				SPR = { transfer_state = 112 }
+				SPR = { transfer_state = 181 }
+				SPR = { transfer_state = 180 }
+			}
+		}
+	}
+																														###### SS-ORDENSSTAAT DECISIONS ######
 		WRD_frankreich_state = {								### FRANKREICH ###
 		icon = generic_form_nation
 		
@@ -351,7 +461,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			FRA = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_frankreich
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -363,6 +472,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_frankreich_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 16
 					add_state_core = 15
 					add_state_core = 30
@@ -445,7 +555,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			ENG = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_albion
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -457,6 +566,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_albion_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 874
 					add_state_core = 127
 					add_state_core = 338
@@ -522,7 +632,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			NIR = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_hibernia
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -534,6 +643,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_leningrad_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 113
 					add_state_core = 119
 					add_state_core = 135
@@ -547,6 +657,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 136
 					add_state_core = 120
 					add_state_core = 14 # Brittany Core #
+					set_capital = { state = 113 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -570,7 +681,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				NIR = { transfer_state = 136 }
 				NIR = { transfer_state = 120 }
 				NIR = { transfer_state = 14 } # Brittany #
-				set_capital = { state = 113 remember_old_capital = no }
 			}	
 		}
 	}
@@ -599,7 +709,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		complete_effect = {
 		
 		SWE = {	
-			load_focus_tree = { tree = generic_tree keep_completed = no }
 			set_cosmetic_tag = WRD_sweden
 			set_politics = { ruling_party = esotericism }
 			add_popularity = {
@@ -611,6 +720,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
                 name = WRD_sweden_party
             }
 			hidden_effect = {
+				load_focus_tree = { tree = generic_tree keep_completed = no }
 				add_state_core = 138
 				add_state_core = 139
 				add_state_core = 140
@@ -713,7 +823,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			ITS = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_italy
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -725,6 +834,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_italy_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no } 
 					add_state_core = 159
 					add_state_core = 160
 					add_state_core = 858
@@ -751,6 +861,13 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 933
 					add_state_core = 934
 					add_state_core = 156
+					set_capital = { state = 159 remember_old_capital = no }
+					remove_ideas = economically_isolated
+					remove_ideas = UVS_post_pover
+					remove_ideas = ITS_socialist_economy
+					remove_ideas = ITS_separate_militias_from_army
+					remove_ideas = ITS_flee_to_swi
+					remove_ideas = ITS_heavily_disorganised_industry
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -787,7 +904,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				ITS = { transfer_state = 933 }
 				ITS = { transfer_state = 934 }
 				ITS = { transfer_state = 156 }
-				set_capital = { state = 159 remember_old_capital = no }
 			}	
 		}
 	}
@@ -819,7 +935,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			HUN = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_hungary
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -831,6 +946,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_hungary_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 43
 					add_state_core = 155
 					add_state_core = 935
@@ -846,6 +962,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 71
 					add_state_core = 70
 					remove_ideas = HUN_korona
+					set_capital = { state = 43 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -870,7 +987,624 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				HUN = { transfer_state = 889 }
 				HUN = { transfer_state = 71 }
 				HUN = { transfer_state = 70 }
-				set_capital = { state = 43 remember_old_capital = no }
+			}	
+		}
+	}
+
+	WRD_yugoslavia_state = { 								### Illyria ### 
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 107
+			owns_state = 109
+			owns_state = 185
+			owns_state = 44
+			owns_state = 163
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_the_doorstep_of_the_reich 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_the_doorstep_of_the_reich 
+		}
+		
+		complete_effect = {
+			YUG = {
+				set_cosmetic_tag = WRD_yugoslavia
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism 
+					name = WRD_yugoslavia_party
+				}
+				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 109
+					add_state_core = 964
+					add_state_core = 103
+					add_state_core = 163
+					add_state_core = 1018
+					add_state_core = 885
+					add_state_core = 863
+					add_state_core = 1036
+					add_state_core = 1037
+					add_state_core = 104
+					add_state_core = 804
+					add_state_core = 1031
+					add_state_core = 107
+					add_state_core = 862
+					add_state_core = 913
+					add_state_core = 105
+					add_state_core = 1015
+					add_state_core = 802
+					add_state_core = 872
+					add_state_core = 44
+					add_state_core = 805
+					add_state_core = 185
+					add_state_core = 1016
+					add_state_core = 1017
+					remove_ideas = YUG_consequences_of_the_great_war
+					remove_ideas = YUG_debt_crisis
+					remove_ideas = YUG_agrarian_economy
+					set_capital = { state = 107 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = YUG
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				YUG = { transfer_state = 109 }
+				YUG = { transfer_state = 964 }
+				YUG = { transfer_state = 103 }
+				YUG = { transfer_state = 163 }
+				YUG = { transfer_state = 1018 }
+				YUG = { transfer_state = 885 }
+				YUG = { transfer_state = 863 }
+				YUG = { transfer_state = 1036 }
+				YUG = { transfer_state = 1037 }
+				YUG = { transfer_state = 104 }
+				YUG = { transfer_state = 804 }
+				YUG = { transfer_state = 1031 }
+				YUG = { transfer_state = 107 }
+				YUG = { transfer_state = 862 }
+				YUG = { transfer_state = 913 }
+				YUG = { transfer_state = 105 }
+				YUG = { transfer_state = 1015 }
+				YUG = { transfer_state = 802 }
+				YUG = { transfer_state = 872 }
+				YUG = { transfer_state = 44 }
+				YUG = { transfer_state = 805 }
+				YUG = { transfer_state = 185 }
+				YUG = { transfer_state = 1016 }
+				YUG = { transfer_state = 1017 }
+				set_province_name = { id = 11586 name = "Belgrade" }
+			}	
+		}
+	}
+
+	WRD_romania_state = { 								### DAZIEN ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 46
+			owns_state = 80
+			owns_state = 77
+			owns_state = 78
+			owns_state = 84
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_the_doorstep_of_the_reich 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_the_doorstep_of_the_reich 
+		}
+		
+		complete_effect = {
+			ROM = {
+				set_cosmetic_tag = WRD_romania
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism 
+					name = WRD_romania_party
+				}
+				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 46
+					add_state_core = 81
+					add_state_core = 77
+					add_state_core = 766
+					add_state_core = 78
+					add_state_core = 79
+					add_state_core = 1038
+					add_state_core = 80
+					add_state_core = 883
+					add_state_core = 84
+					remove_ideas = ROM_agricultural_backbone
+					remove_ideas = ROM_recovering_armed_forces
+					remove_ideas = ROM_anti_hungarian_sentiment
+					set_capital = { state = 46 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = ROM
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				ROM = { transfer_state = 46 }
+				ROM = { transfer_state = 81 }
+				ROM = { transfer_state = 77 }
+				ROM = { transfer_state = 766 }
+				ROM = { transfer_state = 78 }
+				ROM = { transfer_state = 79 }
+				ROM = { transfer_state = 1038 }
+				ROM = { transfer_state = 80 }
+				ROM = { transfer_state = 883 }
+				ROM = { transfer_state = 84 }
+			}	
+		}
+	}
+
+	WRD_bulgaria_state = { 								### THRAKIEN ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 48
+			owns_state = 341
+			owns_state = 731
+			owns_state = 891
+			owns_state = 106
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_the_doorstep_of_the_reich 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_the_doorstep_of_the_reich 
+		}
+		
+		complete_effect = {
+			BUL = {
+				set_cosmetic_tag = WRD_bulgaria
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism 
+					name = WRD_bulgaria_party
+				}
+				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 48
+					add_state_core = 891
+					add_state_core = 731
+					add_state_core = 902
+					add_state_core = 184
+					add_state_core = 108
+					add_state_core = 341
+					add_state_core = 1055
+					add_state_core = 925
+					add_state_core = 868
+					add_state_core = 1005
+					add_state_core = 106
+					add_state_core = 212
+					add_state_core = 211
+					add_state_core = 801
+					add_state_core = 803
+					set_capital = { state = 48 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = BUL
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				BUL = { transfer_state = 48 }
+				BUL = { transfer_state = 891 } 
+				BUL = { transfer_state = 731 }
+				BUL = { transfer_state = 902 }
+				BUL = { transfer_state = 184 }
+				BUL = { transfer_state = 341 }
+				BUL = { transfer_state = 1055 }
+				BUL = { transfer_state = 925 }
+				BUL = { transfer_state = 868 }
+				BUL = { transfer_state = 1005 }
+				BUL = { transfer_state = 108 }
+				BUL = { transfer_state = 106 }
+				BUL = { transfer_state = 212 }
+				BUL = { transfer_state = 211 }
+				BUL = { transfer_state = 801 }
+				BUL = { transfer_state = 803 } 
+			}	
+		}
+	}
+
+	WRD_balkan_state = { 								### RUMTHULE ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 45
+			owns_state = 764
+			owns_state = 82
+			YUG = { 
+				owns_state = 44
+			}
+			BUL = {
+				owns_state = 731
+			}
+			ROM = {
+				NOT = { 
+					owns_state = 889
+				}
+			}
+			HUN = {
+				owns_state = 889
+				NOT = {
+					owns_state = 864
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_a_thousand_week_reich
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_a_thousand_week_reich 
+		}
+		
+		complete_effect = {
+			YUG = {
+				set_cosmetic_tag = WRD_balkan
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism 
+					name = WRD_balkan_party
+				}
+				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					set_capital = { state = 107 remember_old_capital = no }
+					add_state_core = 109
+					add_state_core = 964
+					add_state_core = 103
+					add_state_core = 163
+					add_state_core = 1018
+					add_state_core = 885
+					add_state_core = 863
+					add_state_core = 1036
+					add_state_core = 1037
+					add_state_core = 104
+					add_state_core = 804
+					add_state_core = 1031
+					add_state_core = 107
+					add_state_core = 862
+					add_state_core = 913
+					add_state_core = 105
+					add_state_core = 1015
+					add_state_core = 802
+					add_state_core = 872
+					add_state_core = 44
+					add_state_core = 805
+					add_state_core = 185
+					add_state_core = 1016
+					add_state_core = 1017
+					add_state_core = 43
+					add_state_core = 155
+					add_state_core = 935
+					add_state_core = 154
+					add_state_core = 861
+					add_state_core = 880
+					add_state_core = 664
+					add_state_core = 877
+					add_state_core = 73
+					add_state_core = 83
+					add_state_core = 76
+					add_state_core = 889
+					add_state_core = 71
+					add_state_core = 70
+					add_state_core = 46
+					add_state_core = 81
+					add_state_core = 77
+					add_state_core = 766
+					add_state_core = 78
+					add_state_core = 79
+					add_state_core = 1038
+					add_state_core = 80
+					add_state_core = 883
+					add_state_core = 84
+					add_state_core = 48
+					add_state_core = 891
+					add_state_core = 731
+					add_state_core = 902
+					add_state_core = 184
+					add_state_core = 108
+					add_state_core = 341
+					add_state_core = 1055
+					add_state_core = 925
+					add_state_core = 868
+					add_state_core = 1005
+					add_state_core = 106
+					add_state_core = 212
+					add_state_core = 211
+					add_state_core = 801
+					add_state_core = 803
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = YUG
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				YUG = { transfer_state = 45 }
+				YUG = { transfer_state = 764 }
+				YUG = { transfer_state = 82 }
+				YUG = { transfer_state = 109 }
+				YUG = { transfer_state = 964 }
+				YUG = { transfer_state = 103 }
+				YUG = { transfer_state = 163 }
+				YUG = { transfer_state = 1018 }
+				YUG = { transfer_state = 885 }
+				YUG = { transfer_state = 863 }
+				YUG = { transfer_state = 1036 }
+				YUG = { transfer_state = 1037 }
+				YUG = { transfer_state = 104 }
+				YUG = { transfer_state = 804 }
+				YUG = { transfer_state = 1031 }
+				YUG = { transfer_state = 107 }
+				YUG = { transfer_state = 862 }
+				YUG = { transfer_state = 913 }
+				YUG = { transfer_state = 105 }
+				YUG = { transfer_state = 1015 }
+				YUG = { transfer_state = 802 }
+				YUG = { transfer_state = 872 }
+				YUG = { transfer_state = 44 }
+				YUG = { transfer_state = 805 }
+				YUG = { transfer_state = 185 }
+				YUG = { transfer_state = 1016 }
+				YUG = { transfer_state = 1017 }
+				YUG = { transfer_state = 43 }
+				YUG = { transfer_state = 155 }
+				YUG = { transfer_state = 935 }
+				YUG = { transfer_state = 154 }
+				YUG = { transfer_state = 861 }
+				YUG = { transfer_state = 880 }
+				YUG = { transfer_state = 664 }
+				YUG = { transfer_state = 877 }
+				YUG = { transfer_state = 73 }
+				YUG = { transfer_state = 83 }
+				YUG = { transfer_state = 76 }
+				YUG = { transfer_state = 889 }
+				YUG = { transfer_state = 71 }
+				YUG = { transfer_state = 70 }
+				YUG = { transfer_state = 48 }
+				YUG = { transfer_state = 891 } 
+				YUG = { transfer_state = 731 }
+				YUG = { transfer_state = 902 }
+				YUG = { transfer_state = 184 }
+				YUG = { transfer_state = 341 }
+				YUG = { transfer_state = 1055 }
+				YUG = { transfer_state = 925 }
+				YUG = { transfer_state = 868 }
+				YUG = { transfer_state = 1005 }
+				YUG = { transfer_state = 108 }
+				YUG = { transfer_state = 106 }
+				YUG = { transfer_state = 212 }
+				YUG = { transfer_state = 211 }
+				YUG = { transfer_state = 801 }
+				YUG = { transfer_state = 803 } 
+				YUG = { transfer_state = 46 }
+				YUG = { transfer_state = 81 }
+				YUG = { transfer_state = 77 }
+				YUG = { transfer_state = 766 }
+				YUG = { transfer_state = 78 }
+				YUG = { transfer_state = 79 }
+				YUG = { transfer_state = 1038 }
+				YUG = { transfer_state = 80 }
+				YUG = { transfer_state = 883 }
+				YUG = { transfer_state = 84 }
+				set_province_name = { id = 11586 name = "Führerstadt Belgrade" }
+			}	
+		}
+	}
+
+	WRD_turkey_state = { 								### TURKEY ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 797
+			owns_state = 339
+			owns_state = 924
+			owns_state = 343
+			owns_state = 1076
+			owns_state = 49
+			owns_state = 354
+			owns_state = 909
+			owns_state = 921
+			owns_state = 800
+			owns_state = 344
+			owns_state = 677
+			owns_state = 676
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_a_thousand_week_reich
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_a_thousand_week_reich 
+		}
+		
+		complete_effect = {
+			TUR = {
+				set_cosmetic_tag = WRD_turkey
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				set_party_name = {
+					ideology = esotericism 
+					name = WRD_turkey_party
+				}
+				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					set_capital = { state = 49 remember_old_capital = no }
+					add_state_core = 797
+					add_state_core = 340
+					add_state_core = 1042
+					add_state_core = 339
+					add_state_core = 923
+					add_state_core = 342
+					add_state_core = 343
+					add_state_core = 1076
+					add_state_core = 345
+					add_state_core = 924
+					add_state_core = 926
+					add_state_core = 346
+					add_state_core = 49
+					add_state_core = 347
+					add_state_core = 356
+					add_state_core = 798
+					add_state_core = 348
+					add_state_core = 355
+					add_state_core = 349
+					add_state_core = 344
+					add_state_core = 353
+					add_state_core = 354
+					add_state_core = 909
+					add_state_core = 921
+					add_state_core = 800
+					add_state_core = 976
+					add_state_core = 800
+					add_state_core = 344
+					add_state_core = 350
+					add_state_core = 352
+					add_state_core = 799
+					add_state_core = 677
+					add_state_core = 899
+					add_state_core = 680
+					add_state_core = 867
+					add_state_core = 881
+					add_state_core = 900
+					add_state_core = 676
+					add_state_core = 904
+					add_state_core = 888
+					remove_ideas = TUR_unstable_regimen
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = TUR
+					autonomous_state = autonomy_integrated_puppet
+				}
+			}
+			hidden_effect = {
+				TUR = { transfer_state = 797 }
+				TUR = { transfer_state = 340 }
+				TUR = { transfer_state = 1042 }
+				TUR = { transfer_state = 339 }
+				TUR = { transfer_state = 923 }
+				TUR = { transfer_state = 342 }
+				TUR = { transfer_state = 343 }
+				TUR = { transfer_state = 1076 }
+				TUR = { transfer_state = 345 }
+				TUR = { transfer_state = 924 }
+				TUR = { transfer_state = 926 }
+				TUR = { transfer_state = 346 }
+				TUR = { transfer_state = 49 }
+				TUR = { transfer_state = 347 }
+				TUR = { transfer_state = 356 }
+				TUR = { transfer_state = 798 }
+				TUR = { transfer_state = 348 }
+				TUR = { transfer_state = 355 }
+				TUR = { transfer_state = 349 }
+				TUR = { transfer_state = 344 }
+				TUR = { transfer_state = 353 }
+				TUR = { transfer_state = 354 }
+				TUR = { transfer_state = 909 }
+				TUR = { transfer_state = 921 }
+				TUR = { transfer_state = 800 }
+				TUR = { transfer_state = 976 }
+				TUR = { transfer_state = 800 }
+				TUR = { transfer_state = 344 }
+				TUR = { transfer_state = 350 }
+				TUR = { transfer_state = 352 }
+				TUR = { transfer_state = 799 }
+				TUR = { transfer_state = 677 }
+				TUR = { transfer_state = 899 }
+				TUR = { transfer_state = 680 }
+				TUR = { transfer_state = 867 }
+				TUR = { transfer_state = 881 }
+				TUR = { transfer_state = 900 }
+				TUR = { transfer_state = 676 }
+				TUR = { transfer_state = 904 }
+				TUR = { transfer_state = 888 }
 			}	
 		}
 	}
@@ -903,7 +1637,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			WVA = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_baltic
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -915,6 +1648,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
                 name = WRD_baltic_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 808
 					add_state_core = 812
 					add_state_core = 11
@@ -1017,7 +1751,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			UKR = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_ukraine
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1029,6 +1762,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_ukraine_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 202
 					add_state_core = 201
 					add_state_core = 93
@@ -1107,7 +1841,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 			owns_state = 214
 			owns_state = 241
 			owns_state = 652
-			owns_state = 573
 
 		}
 		
@@ -1128,7 +1861,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			SOV = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_moskowien
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1140,6 +1872,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_moskowien_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 219
 					add_state_core = 223
 					add_state_core = 205
@@ -1160,12 +1893,11 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 397
 					add_state_core = 262
 					add_state_core = 825
-					add_state_core = 573
-					add_state_core = 581
 					add_state_core = 398
 					add_state_core = 399
 					add_state_core = 651
 					add_state_core = 652
+					add_state_core = 582
 					add_state_core = 249
 					add_state_core = 251
 					add_state_core = 250
@@ -1177,6 +1909,11 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 255
 					add_state_core = 257
 					add_state_core = 258
+					remove_ideas = SOV_war_communism
+					remove_ideas = SOV_unfinished_electrification
+					remove_ideas = SOV_kronstadt_legacy
+					remove_ideas = SOV_food_problems
+					remove_ideas = legacy_of_the_great_war
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -1207,12 +1944,11 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				SOV = { transfer_state = 397 }
 				SOV = { transfer_state = 262 }
 				SOV = { transfer_state = 825 }
-				SOV = { transfer_state = 573 }
-				SOV = { transfer_state = 581 }
 				SOV = { transfer_state = 398 }
 				SOV = { transfer_state = 399 }
 				SOV = { transfer_state = 651 }
 				SOV = { transfer_state = 652 }
+				SOV = { transfer_state = 582 }
 				SOV = { transfer_state = 249 }
 				SOV = { transfer_state = 251 }
 				SOV = { transfer_state = 250 }
@@ -1258,7 +1994,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			OCG = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_donvolga
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1270,6 +2005,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_donvolga_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 217
 					add_state_core = 218
 					add_state_core = 245
@@ -1283,6 +2019,8 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 407
 					add_state_core = 401
 					add_state_core = 406
+					add_state_core = 402
+					set_capital = { state = 217 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -1306,8 +2044,10 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				OCG = { transfer_state = 407 }
 				OCG = { transfer_state = 401 }
 				OCG = { transfer_state = 406 }
-				set_capital = { state = 217 remember_old_capital = no }
+				OCG = { transfer_state = 402 }
 				217 = { set_state_name = "Neu-Ruhr" } 
+				set_province_name = { id = 3529 name = "Neuessen" }
+				set_province_name = { id = 3529 name = "Rostov-on-Donau" }
 				set_province_name = { id = 3529 name = "Neuessen" }
 			}	
 		}
@@ -1341,7 +2081,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			GEO = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_caucasus
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1353,6 +2092,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_caucasus_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 916
 					add_state_core = 908
 					add_state_core = 914
@@ -1376,6 +2116,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 235
 					add_state_core = 233
 					add_state_core = 234
+					set_capital = { state = 231 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -1409,7 +2150,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				GEO = { transfer_state = 235 }
 				GEO = { transfer_state = 233 }
 				GEO = { transfer_state = 234 }
-				set_capital = { state = 231 remember_old_capital = no }
 				231 = { set_state_name = "Kartlien" } 
 				set_province_name = { id = 1599 name = "Tiflis" }
 			}	
@@ -1442,7 +2182,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			SRF = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_crimea
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1454,9 +2193,11 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_crimean_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }		
 					add_state_core = 137
 					add_state_core = 196
 					add_state_core = 200
+					set_capital = { state = 137 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -1482,7 +2223,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				set_province_name = { id = 6596 name = "Neuheidenau" }
 				set_province_name = { id = 11405 name = "Heidendorf" }
 				set_province_name = { id = 9571 name = "Berdiansk" }
-				set_capital = { state = 137 remember_old_capital = no }
 			}	
 		}
 	}
@@ -1511,7 +2251,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			KAR = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_leningrad
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1523,8 +2262,10 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_leningrad_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 195
 					remove_ideas = KAR_defenders_of_the_north
+					set_capital = { state = 195 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -1536,7 +2277,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 			}
 			hidden_effect = {
 				KAR = { transfer_state = 195 }
-				set_capital = { state = 195 remember_old_capital = no }
 				195 = { set_state_name = "Himmlergau" } 
 				set_province_name = { id = 3151 name = "Führerstadt Himmlerburg" }
 			}	
@@ -1555,7 +2295,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 			owns_state = 1075
 			owns_state = 116
 			owns_state = 115
-			owns_state = 446
 			owns_state = 183
 			owns_state = 182
 			owns_state = 47
@@ -1582,7 +2321,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 		
 		complete_effect = {
 			IKA = {
-				load_focus_tree = { tree = generic_tree keep_completed = no }
 				set_cosmetic_tag = WRD_mittelmeer
 				set_politics = { ruling_party = esotericism }
 				add_popularity = {
@@ -1594,6 +2332,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					name = WRD_mittelmeer_party
 				}
 				hidden_effect = {
+					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 118
 					add_state_core = 177
 					add_state_core = 458
@@ -1602,7 +2341,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 1075
 					add_state_core = 116
 					add_state_core = 115
-					add_state_core = 446
 					add_state_core = 183
 					add_state_core = 182
 					add_state_core = 47
@@ -1610,6 +2348,7 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 					add_state_core = 186
 					add_state_core = 1074
 					add_state_core = 187
+					set_capital = { state = 116 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
 			}
@@ -1628,7 +2367,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				IKA = { transfer_state = 1075 }
 				IKA = { transfer_state = 116 }
 				IKA = { transfer_state = 115 }
-				IKA = { transfer_state = 446 }
 				IKA = { transfer_state = 183 }
 				IKA = { transfer_state = 182 }
 				IKA = { transfer_state = 47 }
@@ -1636,7 +2374,6 @@ WRD_ordensstaat = {																															###### SS-ORDENSSTAAT DECISION
 				IKA = { transfer_state = 186 }
 				IKA = { transfer_state = 1074 }
 				IKA = { transfer_state = 187 }
-				set_capital = { state = 116 remember_old_capital = no }
 				116 = { set_state_name = "Malte" } 
 				set_province_name = { id = 12003 name = "Malte" }
 			}	
