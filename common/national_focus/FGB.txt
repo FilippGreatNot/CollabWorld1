@@ -5853,9 +5853,10 @@ focus_tree = {
 	focus = {
 		id = FGB_rohm_strike_the_snakes_nest
 		icon = GFX_focus_FGB_rohm_gear_up_for_the_next_war
-		x = 0
+		x = 1
 		y = 1
 		cost = 4
+		mutually_exclusive = { focus = FGB_rohm_offer_the_ss_integration }
 		bypass = { has_war_with = WRD }
 		relative_position_id = FGB_rohm_gear_up_for_the_next_war
 		prerequisite = { focus = FGB_rohm_gear_up_for_the_next_war }
@@ -5864,6 +5865,21 @@ focus_tree = {
 				target = WRD
 				type = annex_everything
 			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_offer_the_ss_integration
+		icon = GFX_focus_FGB_rohm_gear_up_for_the_next_war
+		x = -1
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_rohm_strike_the_snakes_nest }
+		bypass = { has_war_with = WRD }
+		relative_position_id = FGB_rohm_gear_up_for_the_next_war
+		prerequisite = { focus = FGB_rohm_gear_up_for_the_next_war }
+		completion_reward = {
+			
 		}
 	}
 
