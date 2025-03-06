@@ -13,7 +13,7 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_kyiv_on_fire
 		icon = GFX_focus_UKR_soc_kyiv_on_fire
-		cost = 2
+		cost = 4
 		
 		x = 11
 		y = 0
@@ -26,12 +26,15 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_fix_ind
 		icon = GFX_focus_UKR_fix_ind
-		cost = 4
+		cost = 5
 		x = 19
 		y = 0
 		
 		available = {
-			has_completed_focus = UKR_soc_sit_stabilize
+			OR = { 
+				has_completed_focus = UKR_soc_sit_stabilize
+				date > 1923.06.01
+			}
 		}
 		
 		completion_reward = {
@@ -42,13 +45,16 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_fix_army
 		icon = GFX_focus_UKR_soc_fix_army
-		cost = 6
+		cost = 8
 		
 		x = 25
 		y = 0
 		
 		available = {
-			has_completed_focus = UKR_soc_sit_stabilize
+			OR = { 
+				has_completed_focus = UKR_soc_sit_stabilize
+				date > 1923.01.01
+			}
 		}
 		
 		completion_reward = {
@@ -276,6 +282,12 @@ focus_tree = {
 		id = UKR_soc_tukha_problem
 		icon = GFX_focus_UKR_soc_tukha_problem
 		cost = 5
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = UKR_Alexander_Shumsky
+			}
+		}
 		prerequisite = { focus = UKR_soc_look_on_west }
 		bypass = {
 			NOT = {
@@ -313,6 +325,12 @@ focus_tree = {
 		id = UKR_soc_demand_bessarab
 		icon = GFX_focus_UKR_soc_demand_bessarab
 		cost = 5
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = UKR_Alexander_Shumsky
+			}
+		}
 		prerequisite = { focus = UKR_soc_look_on_west }
 		x = 6
 		y = 6
@@ -461,6 +479,7 @@ focus_tree = {
 		y = 7
 		completion_reward = {
 			add_ideas = { UKR_true_left_ukraine_idea }
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -673,7 +692,8 @@ focus_tree = {
 			#promote_character
 			add_command_power = 30
 			add_political_power = 75
-			add_war_support = 0.03
+			add_war_support = 0.05
+			army_experience = 15
 		}
 	}
 	focus = {
@@ -695,6 +715,7 @@ focus_tree = {
 					UKR_army_in_chaos3
 				}
 			}
+			army_experience = 25
 		}
 	}
 
@@ -707,7 +728,13 @@ focus_tree = {
 		x = 22
 		y = 4
 		completion_reward = {
-			
+			add_manpower = 35000
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = UKR
+			}
 		}
 	}
 
@@ -775,6 +802,22 @@ focus_tree = {
 		y = 6
 		completion_reward = {
 			add_research_slot = 1
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+			army_experience = 20
 		}
 	}
 	focus = {
@@ -782,6 +825,12 @@ focus_tree = {
 		id = UKR_soc_demand_crimea
 		icon = GFX_focus_UKR_soc_demand_crimea
 		cost = 5
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = UKR_Alexander_Shumsky
+			}
+		}
 		prerequisite = { focus = UKR_soc_reject }
 		bypass = {
 			NOT = {
@@ -814,6 +863,17 @@ focus_tree = {
 		id = UKR_soc_quick_military_operation
 		icon = GFX_focus_UKR_soc_quick_military_operation
 		cost = 5
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = UKR_Alexander_Shumsky
+			}
+			NOT = {
+				has_war_with_wargoal_against = {
+    				target = SRF
+				}
+			}
+		}
 		bypass = {
 			NOT = {
 				country_exists = SRF
@@ -829,6 +889,7 @@ focus_tree = {
 				target = SRF
 				type = annex_everything
 			}
+			SRF = { make_every_core_national_for_PREV = yes }
 			hidden_effect = {
 				set_country_flag = UKR_soc_can_unite
 			}
@@ -858,6 +919,12 @@ focus_tree = {
 		id = UKR_soc_lith
 		icon = GFX_focus_UKR_soc_lith
 		cost = 7
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = UKR_Alexander_Shumsky
+			}
+		}
 		bypass = {
 			NOT = {
 				country_exists = WVA
@@ -871,6 +938,7 @@ focus_tree = {
 				target = WVA
 				type = annex_everything
 			}
+			WVA = { make_every_core_national_for_PREV = yes }
 			hidden_effect = {
 				set_country_flag = UKR_soc_can_unite
 			}
@@ -888,6 +956,10 @@ focus_tree = {
 				country_exists = BLR
 				country_exists = WVA
 				country_exists = SRF
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = UKR_Alexander_Shumsky
 			}
 		}
 		prerequisite = { focus = UKR_soc_lith }
@@ -910,7 +982,15 @@ focus_tree = {
 		x = 24
 		y = 5
 		completion_reward = {
-			
+			 add_tech_bonus = {
+				bonus = 0.8
+				uses = 2
+				category = armor
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.15
+			}
 		}
 	}
 
@@ -923,10 +1003,11 @@ focus_tree = {
 		x = 22
 		y = 5
 		completion_reward = {
-			
+			add_ideas = UKR_soc_army_brotherhood
 		}
 	}
-		focus = {
+
+	focus = {
 		id = UKR_soc_final_prepare
 		icon = GFX_focus_UKR_soc_final_prepare
 		allow_branch = {
@@ -939,8 +1020,69 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = {
 				idea = UKR_soc_final_preparations_idea
-				years = 1
+				months = 6
 		}
 		}
 		}
+	
+	focus = {
+		id = UKR_soc_plan_attack
+		icon = GFX_focus_UKR_soc_plan_attack
+		prerequisite = { focus = UKR_soc_final_prepare }
+		allow_branch = {
+			has_completed_focus = UKR_soc_lith
+			has_completed_focus = UKR_soc_quick_military_operation
+		}
+		cost = 5
+		x = 16
+		y = 11
+		completion_reward = {
+			add_timed_idea = {
+				idea = UKR_soc_plan_attack
+				months = 5
+		}
+		}
+	}
+
+	focus = {
+		id = UKR_soc_raise_more_soldiers
+		icon = GFX_focus_UKR_soc_raise_more_soldiers
+		prerequisite = { focus = UKR_soc_final_prepare }
+		allow_branch = {
+			has_completed_focus = UKR_soc_lith
+			has_completed_focus = UKR_soc_quick_military_operation
+		}
+		cost = 3
+		x = 14
+		y = 11
+		completion_reward = {
+			add_manpower = 25000
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = UKR_soc_start_war_sov
+		icon = GFX_focus_UKR_soc_start_war_sov
+		prerequisite = { focus = UKR_soc_raise_more_soldiers }
+		prerequisite = { focus = UKR_soc_plan_attack }
+		allow_branch = {
+			has_completed_focus = UKR_soc_lith
+			has_completed_focus = UKR_soc_quick_military_operation
+		}
+		cost = 3
+		x = 15
+		y = 12
+		completion_reward = {
+			declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+			SOV = { make_every_core_national_for_PREV = yes }
+			hidden_effect = {
+				news_event = UKR_soc.22
+			}
+		}
+
+	}
 }

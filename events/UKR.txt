@@ -244,6 +244,7 @@ country_event = {
 				type = annex_everything
 			}
 		}
+		SRF = { make_every_core_national_for_PREV = yes }
 		add_war_support = 0.1
 	}
 }
@@ -461,9 +462,10 @@ country_event = {
 			type = annex_everything
 			target = SRF
 		}
+		SRF = { make_every_core_national_for_PREV = yes }
 	}
 }
-
+#demand bes
 country_event = {
 	id = ukr.13
 	title = ukr.13.t
@@ -500,10 +502,9 @@ country_event = {
 	}
 	option = {
 		name = ukr.13.c
-		
-		create_wargoal = {
-			type = annex_everything
+		declare_war_on = {
 			target = ROM
+			type = annex_everything
 		}
 	}
 }
@@ -545,14 +546,15 @@ country_event = {
 	option = {
 		name = ukr_soc.16.a
 		add_war_support = 0.1
-		PREV = {
-			create_wargoal = {
-				target = FROM
+		UKR = {
+		    declare_war_on = {
+				target = ROM
 				type = annex_everything
 			}
 		}
 	}
 }
+
 
 country_event = {
 	id = ukr_soc.17
@@ -586,10 +588,11 @@ country_event = {
 	option = {
 		name = ukr_soc.18.a
 		add_war_support = 0.05
-		create_wargoal = {
-			target = FROM
-			type = annex_everything
+		declare_war_on = {
+				target = BLR
+				type = annex_everything
 		}
+		BLR = { make_every_core_national_for_PREV = yes }
 		hidden_effect = {
 			complete_national_focus = UKR_soc_invade
 		}
@@ -663,5 +666,16 @@ country_event = {
 				transfer_troops = yes
 			}
 		}
+	}
+}
+
+news_event = {
+	id = ukr_soc.22
+	picture = GFX_news_event_ukr_sov_war
+	title = ukr_soc.22.t
+	desc = ukr_soc.22.d 
+	is_triggered_only = yes
+	option = {
+		name = ukr_soc.22.a
 	}
 }

@@ -112,4 +112,399 @@ GUI_northern_campaign5 = {
     }
 }
 
+GUI_northern_campaign6 = {
+			
+		fire_only_once = yes
+		
+		visible = {
+		has_war_with = REH	
+		}
+		
+		cost = 150
+        
+		available = {
+		has_war_with = REH    
+				}
+		
+		complete_effect = {
+            add_stability = -0.02
+			add_popularity = {
+				ideology = bolshevism
+				popularity = +0.05
+			}
+			
+			division_template = {
+    name = "Work squads"
+    is_locked = yes
+    division_cap = 3 
+    priority = 0
+    template_counter = 0
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+    }
+    support = {
+        military_police = { x = 0 y = 0 }
+    }
+}
+     random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Work squads\" division_template = \"Work squads\" start_experience_factor = 0.5" 
+					owner = GUI
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Work squads\" division_template = \"Work squads\" start_experience_factor = 0.5" 
+					owner = GUI
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Work squads\" division_template = \"Work squads\" start_experience_factor = 0.5" 
+					owner = GUI
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Work squads\" division_template = \"Work squads\" start_experience_factor = 0.5" 
+					owner = GUI
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Work squads\" division_template = \"Work squads\" start_experience_factor = 0.5" 
+					owner = GUI
+				}
+			}
+			
+			add_timed_idea = {
+    idea = GUI_no_workers1
+    days = 100
+}
+			
+			}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+}
+
+GUI_ask_help = {
+
+GUI_foreign_investments = {
+			
+		fire_only_once = yes
+		
+		visible = {
+		
+		
+		}
+		
+		cost = 100
+        
+		available = {
+		    has_completed_focus = KUO_ask_help
+				}
+		
+		complete_effect = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+						add_ideas = {
+                        GUI_foreign_dependency
+			}
+			}
+
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
+GUI_foreign_investments2 = {			
+		
+		visible = {
+		NOT = { has_completed_focus = KUO_northern_campaign }		
+		}
+		
+		cost = 100
+        
+		available = {
+		    has_completed_focus = KUO_ask_help
+				}
+		days_remove = 100
+		days_re_enable = 150
+		complete_effect = {
+			random_owned_controlled_state = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 2
+					   instant_build = yes
+				    }
+				 }
+                add_timed_idea = {
+    idea = GUI_no_workers1
+    days = 30
+}
+			}
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
+GUI_foreign_investments3 = {
+			
+		fire_only_once = yes
+		
+		visible = {	}
+		
+		cost = 100
+        
+		available = {
+		    has_completed_focus = KUO_ask_help
+				}
+		
+		complete_effect = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+						add_ideas = {
+                        GUI_foreign_dependency1
+			}
+			}
+
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
+GUI_foreign_investments4 = {
+		
+		visible = {
+		NOT = { has_completed_focus = KUO_northern_campaign }
+		}
+		
+		cost = 150
+        days_remove = 30
+		days_re_enable = 150
+		
+		available = {
+		    has_completed_focus = KUO_ask_help
+				}
+		
+		complete_effect = {
+						add_timed_idea = {
+    idea = GUI_foreign_dependency2
+    days = 100
+            }
+			}
+
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
+}
+
+GUI_yunnan = {
+
+GUI_yunnan_help = {
+		
+		visible = {
+		has_completed_focus = KUO_our_ways
+		}
+		icon = YUN_liberalism
+		cost = 50
+        days_remove = 10
+		days_re_enable = 40
+		
+		available = {
+		    has_completed_focus = KUO_our_ways
+			NOT = {
+			YNC = {
+            has_government = liberalism
+			 }
+				}
+				}
+		
+		complete_effect = {
+        YNC = { 
+		add_popularity = {
+    ideology =  liberalism
+    popularity = +0.04
+}
+        add_stability = -0.02
+		}
+			}
+
+			
+		
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	
+	GUI_yunnan_agitators = {
+		
+		visible = {
+		has_completed_focus = KUO_our_ways
+		}
+		icon = YUN_liberalism
+		cost = 50
+        days_remove = 10
+		days_re_enable = 40
+		
+		available = {
+		    has_completed_focus = KUO_our_ways
+			NOT = {
+			YNC = {
+            has_government = liberalism
+			 }
+				}
+				}
+		
+		complete_effect = {
+        YNC = { 
+		add_popularity = {
+    ideology =  liberalism
+    popularity = +0.02
+}
+        add_war_support = -0.03
+		}
+			}
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
+GUI_yunnan_agitators1 = {
+		
+		visible = {
+		has_completed_focus = KUO_our_ways
+		}
+		icon = YUN_liberalism
+		cost = 50
+        days_remove = 10
+		days_re_enable = 40
+		
+		available = {
+		    has_completed_focus = KUO_our_ways
+			NOT = {
+			YNC = {
+            has_government = liberalism
+			 }
+				}
+		        }
+		complete_effect = {
+        YNC = { 
+		add_popularity = {
+    ideology =  liberalism
+    popularity = +0.01
+}
+        damage_building = {
+ type = infrastructure
+ damage = 1
+}
+
+		}
+			}
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
+GUI_yunnan_agitators2 = {
+		
+		visible = {
+		has_completed_focus = KUO_our_ways
+		}
+		icon = YUN_liberalism
+		cost = 50
+        days_remove = 10
+		days_re_enable = 40
+		
+		available = {
+		    has_completed_focus = KUO_our_ways
+			YNC = {
+			liberalism > 0.5 }
+				}
+		
+		complete_effect = {
+        YNC = { 
+		add_popularity = {
+    ideology =  liberalism
+    popularity = +0.05
+}
+       set_politics = {
+				ruling_party = liberalism
+			}
+		}
+				set_autonomy = {
+	target = YNC
+	autonomous_state = autonomy_colony
+}
+			}
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+	
+	GUI_yunnan_agitators3 = {
+		
+		visible = {
+		has_completed_focus = KUO_our_ways					 
+		}
+		icon = YUN_liberalism
+		cost = 50
+        days_remove = 10
+		days_re_enable = 40
+		
+		available = {
+		    has_completed_focus = KUO_our_ways
+            YNC = {
+            has_government = liberalism
+			 }
+				}
+		
+		complete_effect = {
+		annex_country = { target = YNC transfer_troops = yes }
+		add_state_core = 325
+		add_state_core = 747
+		add_state_core = 986
+			}
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+
 }
