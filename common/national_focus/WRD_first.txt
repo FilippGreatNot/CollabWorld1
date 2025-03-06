@@ -529,7 +529,7 @@ focus_tree = {
 		available = { has_government = esotericism }
 		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1	
-		x = 3
+		x = 6
 		prerequisite = {
 			focus = WRD_formalize_the_ordenstaats
 		}
@@ -553,6 +553,87 @@ focus_tree = {
 				target = CZE
 			    }
 				
+		}
+	}
+	focus = {
+		id = WRD_operation_north_balkan
+		icon = GFX_focus_WRD_balkan
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_doorstep_of_the_reich
+		y = 1	
+		x = 2
+		prerequisite = {
+			focus = WRD_the_doorstep_of_the_reich
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+				create_wargoal = {
+				type = annex_everything
+				target = HUN
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = ROM
+			    }
+				
+		}
+	}
+	focus = {
+		id = WRD_operation_south_balkan
+		icon = GFX_focus_WRD_balkan
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_doorstep_of_the_reich
+		y = 1	
+		x = -2
+		prerequisite = {
+			focus = WRD_the_doorstep_of_the_reich
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+				create_wargoal = {
+				type = annex_everything
+				target = BUL
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = GRE
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = YUG
+			    }
+				
+		}
+	}
+	focus = {
+		id = WRD_operation_turkey
+		icon = GFX_focus_WRD_balkan
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_the_doorstep_of_the_reich
+		y = 2		
+		x = 0
+		prerequisite = {
+			focus = WRD_the_doorstep_of_the_reich
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+				create_wargoal = {
+				type = annex_everything
+				target = YUG
+				
+			}
 		}
 	}
 	
@@ -648,6 +729,113 @@ focus_tree = {
 				
 		}
 	}
+	focus = {
+		id = WRD_operation_iberia
+		icon = GFX_focus_WRD_swiss
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_avenge_the_battle_of_paris
+		y = 1
+		x = 2
+		prerequisite = {
+			focus = WRD_avenge_the_battle_of_paris
+		}
+		available = {
+		    has_war = no
+		}
+		available = {
+			country_exists = SPR
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			create_wargoal = {
+				type = annex_everything
+				target = SPR
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+			     }
+				
+			}
+		}
+	}
+	
+	focus = {
+		id = WRD_operation_africa
+		icon = GFX_focus_WRD_africa
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_avenge_the_battle_of_paris
+		y = 1
+		x = -2
+		prerequisite = {
+			focus = WRD_avenge_the_battle_of_paris
+		}
+		available = {
+		    has_war = no
+		}
+		available = {
+			country_exists = SPR
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			create_wargoal = {
+				type = annex_everything
+				target = LBA
+				}
+			create_wargoal = {
+				type = annex_everything
+				target = CYR
+				}
+			create_wargoal = {
+				type = annex_everything
+				target = EGY
+				}
+			create_wargoal = {
+				type = annex_everything
+				target = TRP
+			     }
+				
+				}
+			}
+	focus = {
+		id = WRD_operation_italy
+		icon = GFX_focus_WRD_italy
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_avenge_the_battle_of_paris
+		y = 2
+		x = 0
+		prerequisite = {
+			focus = WRD_avenge_the_battle_of_paris
+		}
+		available = {
+		    has_war = no
+		}
+		available = {
+			country_exists = SPR
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			create_wargoal = {
+				type = annex_everything
+				target = LBA
+			create_wargoal = {
+				type = annex_everything
+				target = CYR
+			create_wargoal = {
+				type = annex_everything
+				target = EGY
+			create_wargoal = {
+				type = annex_everything
+				target = TRP
+			     }
+				
+				}
+			}
+		}
+	}
+	}
 	
 	focus = {
 		id = WRD_fall_rot
@@ -664,7 +852,7 @@ focus_tree = {
 			focus = WRD_the_germans_of_the_lowlands
 		}
 		prerequisite = {
-			focus = WRD_the_doorstep_of_the_reich
+			focus = WRD_operation_switzerland
 		}
 		available = {
 		    has_war = no
@@ -730,6 +918,72 @@ focus_tree = {
 				
 		}
 	}
+	focus = {
+		id = WRD_operation_america
+		icon = GFX_focus_WRD_america
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_reunite_with_the_nordic_aryans
+		y = 2
+		x = -2
+		prerequisite = {
+			focus = WRD_reunite_with_the_nordic_aryans
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = CAN
+			     }
+				create_wargoal = {
+				type = annex_everything
+				target = USA
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = MEX
+			     }
+				
+		}
+	}
+	focus = {
+		id = WRD_operation_siberia
+		icon = GFX_focus_WRD_america
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_reunite_with_the_nordic_aryans
+		y = 3
+		x = -4
+		prerequisite = {
+			focus = WRD_reunite_with_the_nordic_aryans
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = KMP
+			     }
+				create_wargoal = {
+				type = annex_everything
+				target = FER
+			     }
+				 create_wargoal = {
+				type = annex_everything
+				target = FSR
+			     }
+				create_wargoal = {
+				type = annex_everything
+				target = RUS
+			     }
+				
+		}
+	}
 	
 	focus = {
 		id = WRD_liberate_germanias_westernmost_outpost
@@ -738,7 +992,7 @@ focus_tree = {
 		available = { has_government = esotericism }
 		relative_position_id = WRD_formalize_the_ordenstaats
 		y = 1
-		x = 6
+		x = 9
 		prerequisite = {
 			focus = WRD_formalize_the_ordenstaats
 		}
@@ -776,6 +1030,30 @@ focus_tree = {
 				
 		}
 	}
+	focus = {
+		id = WRD_operation_ireland
+		icon = GFX_focus_WRD_invade_ireland
+		cost = 6
+		available = { has_government = esotericism }
+		relative_position_id = WRD_liberate_germanias_westernmost_outpost
+		y = 3
+		x = 4
+		prerequisite = {
+			focus = WRD_liberate_germanias_westernmost_outpost
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			    create_wargoal = {
+				type = annex_everything
+				target = IRE
+				
+		}
+	}
+	}
+	
 	
 	focus = {
 		id = WRD_support_the_ku_klux_klan
@@ -783,8 +1061,8 @@ focus_tree = {
 		cost = 4
 		available = { has_government = esotericism }
 		relative_position_id = WRD_liberate_germanias_westernmost_outpost
-		y = 1
-		x = 0
+		y = 2
+		x = 2
 		prerequisite = {
 			focus = WRD_liberate_germanias_westernmost_outpost
 		}
@@ -804,6 +1082,33 @@ focus_tree = {
 			}
 			}
 			add_political_power = 50
+				
+		}
+	}
+	
+	focus = {
+		id = WRD_operation_switzerland
+		icon = GFX_focus_WRD_swiss
+		cost = 4
+		available = { has_government = esotericism }
+		relative_position_id = WRD_formalize_the_ordenstaats
+		y = 1
+		x = 3
+		prerequisite = {
+			focus = WRD_formalize_the_ordenstaats
+		}
+		available = {
+		    has_war = no
+		}
+		available = {
+			country_exists = SWI
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			create_wargoal = {
+				type = annex_everything
+				target = SWI
+			     }
 				
 		}
 	}
