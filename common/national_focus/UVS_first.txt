@@ -1606,13 +1606,16 @@ focus_tree = {
 	focus = {
 		id = UVS_keep_council_rule
 		icon = GFX_focus_SOV_first_outcome_of_the_unfinished_revolution
-		x = -1
+		x = -3
 		y = 1
 		cost = 5
 		search_filters = {FOCUS_FILTER_POLITICAL}	
 		
 		mutually_exclusive = {
 			focus = UVS_give_rule_to_ebert
+		}
+		mutually_exclusive = {
+			focus = UVS_give_rule_to_einstein
 		}
 		
 		relative_position_id = UVS_victory_of_dspd
@@ -1623,9 +1626,47 @@ focus_tree = {
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
-			add_stability = 0.10
-			add_political_power = 50
+			add_stability = 0.05
 		
+		}
+	}
+	
+	
+	focus = {
+	    id = UVS_give_rule_to_einstein
+		icon = GFX_focus_UVS_give_rule_to_ebert
+		x = -1
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}	
+		
+		relative_position_id = UVS_victory_of_dspd
+		
+		prerequisite = {
+			focus = UVS_victory_of_dspd
+		}
+
+		mutually_exclusive = {
+			focus = UVS_keep_council_rule
+		}
+		mutually_exclusive = {
+			focus = UVS_give_rule_to_ebert
+		}
+		
+		
+		completion_reward = {
+			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
+			promote_character = UVS_albert_einstein
+			add_political_power = 35
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.15
+			}
 		}
 	}
 
@@ -1646,12 +1687,16 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = UVS_keep_council_rule
 		}
+		mutually_exclusive = {
+			focus = UVS_give_rule_to_einstein
+		}
 		
 		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_victory_of_dspd_log"
 			promote_character = UVS_friedrich_ebert_jr
-			add_stability = -0.05
+			add_political_power = 85
+			add_war_support = 0.02
 		}
 	}
 
@@ -1669,6 +1714,7 @@ focus_tree = {
 		prerequisite = {
 			focus = UVS_keep_council_rule
 			focus = UVS_give_rule_to_ebert
+			focus = UVS_give_rule_to_einstein
 		}
 		
 		
@@ -1692,6 +1738,7 @@ focus_tree = {
 			focus = UVS_keep_council_rule
 			focus = UVS_give_rule_to_ebert
 			focus = UVS_international_socialist_brigades
+			focus = UVS_give_rule_to_einstein
 		}
 		
 		
@@ -1750,7 +1797,7 @@ focus_tree = {
 	focus = {
 		id = UVS_support_labor_unions
 		icon = GFX_focus_UVS_labor_unions_industry
-		x = -3
+		x = -5
 		y = 1
 		cost = 5
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY}	
@@ -1845,7 +1892,7 @@ focus_tree = {
 	focus = {
 		id = UVS_social_security_program
 		icon = GFX_focus_UVS_social_security
-		x = -5
+		x = -7
 		y = 1
 		cost = 5
 		search_filters = {FOCUS_FILTER_POLITICAL}	
