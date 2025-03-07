@@ -13,7 +13,7 @@ focus_tree = {
 	    id = CZE_convene_the_legionary_council
 		x = 5
 		y = 0
-		cost = 4
+		cost = 3
 		completion_reward = {
 		    add_political_power = 35
 			add_stability = 0.05
@@ -55,7 +55,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_new_czechoslovak_army }
 		x = -1
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    add_popularity = {
 			    ideology = authoritarian_democrat
@@ -73,7 +73,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_legionary_traditions }
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    army_experience = 75
 			add_popularity = {
@@ -108,7 +108,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    diplomatic_relation = {
 			    country = RUS
@@ -129,7 +129,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    add_manpower = 10000
 			add_stability = -0.05
@@ -144,7 +144,7 @@ focus_tree = {
 		}
 		x = -1
 		y = 1
-		cost = 4
+		cost = 3
 		completion_reward = {
 		    swap_ideas = {
 			    remove_idea = CZE_unorganised_military
@@ -165,7 +165,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_federative_republic }
 		x = -1
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    add_manpower = 10000
 			add_stability = 0.05
@@ -180,7 +180,7 @@ focus_tree = {
 		mutually_exclusive = { focus = CZE_union_of_two_nations }
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    add_manpower = 20000
 			add_stability = -0.05
@@ -194,7 +194,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    add_stability = -0.05
 			add_popularity = { 
@@ -212,7 +212,7 @@ focus_tree = {
 		}
 		x = -1
 		y = 2
-		cost = 6
+		cost = 5
 		completion_reward = {
 		    add_stability = -0.15
 			add_popularity = {
@@ -234,7 +234,7 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 		completion_reward = {
 		    add_political_power = 75
 			swap_ideas = {
@@ -254,7 +254,7 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
-		cost = 4
+		cost = 3
 		completion_reward = {
 		    add_political_power = 50
 			add_popularity = {
@@ -298,17 +298,18 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
 	}
     focus = { 
 	    id = CZE_death_of_stefanik
 		relative_position_id = CZE_meeting_at_the_prague_castle
+		available = { always = no }
 		prerequisite = { 
 		    focus = CZE_meeting_at_the_prague_castle
 		}
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
 	}
     focus = { 
 	    id = CZE_assure_the_public
@@ -318,7 +319,14 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
+		completion_reward = {
+		    add_stability = 0.05
+			add_popularity = {
+			    ideology = authoritarian_democrat
+				popularity = 0.05
+			}
+		}
 	}
     focus = { 
 	    id = CZE_assemble_the_provisional_council
@@ -328,7 +336,11 @@ focus_tree = {
 		}
 		x = -1
 		y = 1
-		cost = 10
+		cost = 8
+		completion_reward = {
+		    add_war_support = -0.05
+			add_stability = 0.05
+		}
 	}
     focus = { 
 	    id = CZE_begin_the_investigation
@@ -341,12 +353,12 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		cost = 4
+		cost = 3
 	}
     focus = {
 	    id = CZE_better_keep_quiet
 		relative_position_id = CZE_convene_the_legionary_council
-		available = { has_completed_focus = CZE_begin_the_investigation }
+		available = { always = no }
 		x = 9
 		y = 0
 	}
@@ -356,7 +368,15 @@ focus_tree = {
 		prerequisite = { focus = CZE_better_keep_quiet }
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
+		completion_reward = {
+		    add_stability = 0.05
+			add_political_power = 25
+			add_popularity = {
+			    ideology = authoritarian_democrat 
+				popularity = 0.05
+			}
+		}
 	}
     focus = {
 	    id = CZE_introduce_curfew
@@ -364,7 +384,21 @@ focus_tree = {
 		prerequisite = { focus = CZE_announce_czechoslovak_future }
 		x = -1
 		y = 1
-		cost = 6
+		cost = 5
+		completion_reward = {
+		    add_popularity = {
+			    ideology = liberalism
+				popularity = -0.07
+			}
+		    add_popularity = {
+			    ideology = conservatism
+				popularity = -0.07
+			}
+		    add_popularity = {
+			    ideology = social_democrat
+				popularity = -0.07
+			}
+		}
 	}
     focus = {
 	    id = CZE_call_for_security
@@ -372,7 +406,10 @@ focus_tree = {
 		prerequisite = { focus = CZE_introduce_curfew }
 		x = 0
 		y = 1
-		cost = 4
+		cost = 3
+		completion_reward = {
+		    add_political_power = 40
+		}
 	}
     focus = {
 	    id = CZE_call_in_economic_advisors
@@ -380,7 +417,11 @@ focus_tree = {
 		prerequisite = { focus = CZE_announce_czechoslovak_future }
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5 
+		completion_reward = {
+		    add_ideas = CZE_czechoslovak_economy_1
+			add_political_power = 50
+		}
 	}
     focus = {
 	    id = CZE_occupy_factories
@@ -388,8 +429,28 @@ focus_tree = {
 		prerequisite = { focus = CZE_call_in_economic_advisors }
 		x = 0
 		y = 1
-		cost = 4
-	}
+		cost = 3
+		completion_reward = {
+		    swap_ideas = {
+			    remove_idea = CZE_czechoslovak_economy_1
+				add_idea = CZE_czechoslovak_economy_2
+			}
+			random_owned_controlled_state = {
+			    add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+			    add_building_construction = {
+				    type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+    }
 	focus = {
 	    id = CZE_new_czechoslovak_commander
 		relative_position_id = CZE_occupy_factories
@@ -397,7 +458,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_call_for_security }
         x = -1 
 		y = 1
-		cost = 4
+		cost = 3
 	}
 	focus = {
 	    id = CZE_two_seats_at_one_throne
@@ -405,7 +466,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_new_czechoslovak_commander }
         x = 0
 		y = 1
-		cost = 4
+		cost = 3
 	}
 	focus = {
 	    id = CZE_seek_support_amongst_democrats
@@ -413,7 +474,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_two_seats_at_one_throne }
         x = -2
 		y = 1
-		cost = 6
+		cost = 5
 	}
 	focus = {
 	    id = CZE_meet_with_masaryk
@@ -421,7 +482,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_seek_support_amongst_democrats }
         x = 0
 		y = 1
-		cost = 6
+		cost = 5
 	}
 	focus = {
 	    id = CZE_streghten_military_influence
@@ -429,7 +490,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_two_seats_at_one_throne }
         x = 0
 		y = 1
-		cost = 6
+		cost = 5
 	}
 	focus = {
 	    id = CZE_battalions_of_industrial_help
@@ -437,7 +498,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_streghten_military_influence }
         x = 0
 		y = 1
-		cost = 6
+		cost = 5
 	}
 	focus = {
 	    id = CZE_seek_support_amongst_nationalists
@@ -445,7 +506,7 @@ focus_tree = {
 		prerequisite = { focus = CZE_two_seats_at_one_throne }
 		x = 2
 		y = 1
-		cost = 6
+		cost = 5
 	}
 	focus = {
 	    id = CZE_purge_suspicious_officers
@@ -453,14 +514,13 @@ focus_tree = {
 		prerequisite = { focus = CZE_seek_support_amongst_nationalists }
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 	}
 	focus = {
 	    id = CZE_future_of_the_throne
 		relative_position_id = CZE_purge_suspicious_officers
-		prerequisite = { focus = CZE_purge_suspicious_officers }
+		prerequisite = { focus = CZE_purge_suspicious_officers focus = CZE_meet_with_masaryk }
 		prerequisite = { focus = CZE_battalions_of_industrial_help }
-		prerequisite = { focus = CZE_meet_with_masaryk }
 		x = -2
 		y = 1
 		cost = 10
@@ -489,6 +549,9 @@ focus_tree = {
 		x = 24
 		y = 0
 		cost = 6
+		completion_reward = {
+		    add_political_power = 50
+		}
 	}
 	focus = {
 	    id = CZE_riches_in_the_ground
@@ -529,6 +592,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		completion_reward = {
+		    9 = {
+			    add_resource = {
+				    type = steel
+					amount = 4
+				}
+			}
+		}
 	}
 	focus = {
 	    id = CZE_chimneys_of_ostrava
@@ -537,6 +608,14 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 4
+		completion_reward = {
+		    72 = {
+			    add_resource = {
+				    type = steel
+					amount = 7
+				}
+			}
+		}
 	}
     focus = {
 	    id = CZE_jachymov_glowing_rocks
