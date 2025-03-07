@@ -876,6 +876,115 @@ focus = {
     }
 	}
 
+focus = {
+        id = KUO_academy
+        icon = GFX_goal_generic_construction
+        prerequisite = { }
+         mutually_exclusive = { }
+        x = 25
+        y = 0
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+	swap_ideas = {
+				add_idea = GUI_low_army_3
+				remove_idea = GUI_low_army_2
+			}
+			 add_research_slot = 1
+			
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_foreign_aid
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_academy}
+         mutually_exclusive = { }
+        x = 25
+        y = 1
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+	swap_ideas = {
+				add_idea = GUI_low_army_4
+				remove_idea = GUI_low_army_3
+			}
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_german_help
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_foreign_aid }
+         mutually_exclusive = { focus = KUO_sov_help }
+        x = 24
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+	 
+    }
+	}
+	
+	focus = {
+        id = KUO_sov_help
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = KUO_foreign_aid }
+         mutually_exclusive = { focus = KUO_german_help}
+        x = 26
+        y = 2
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+
+        complete_tooltip = {
+        }
+
+        completion_reward = {
+			 
+	 
+    }
+	}
+
 	}
 	
 	
