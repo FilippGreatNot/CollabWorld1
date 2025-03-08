@@ -477,7 +477,7 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			    
-				
+				remove_ideas = WRD_temporary_martial_law
 				add_country_leader_trait = {
 				ideology = esotericism
 				trait = the_chicken_farmer
@@ -507,7 +507,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = WRD_formalize_the_ordensstaats
+		id = WRD_formalise_the_ordensstaats
 		icon = GFX_focus_WRD_ordenstaat
 		cost = 1
 		available = { has_government = esotericism }
@@ -527,11 +527,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_door
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_formalize_the_ordensstaats
+		relative_position_id = WRD_formalise_the_ordensstaats
 		y = 1	
 		x = 3
 		prerequisite = {
-			focus = WRD_formalize_the_ordensstaats
+			focus = WRD_formalise_the_ordensstaats
 		}
 		available = {
 		    has_war = no
@@ -561,11 +561,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_land
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_formalize_the_ordensstaats
+		relative_position_id = WRD_formalise_the_ordensstaats
 		y = 1
 		x = -3
 		prerequisite = {
-			focus = WRD_formalize_the_ordensstaats
+			focus = WRD_formalise_the_ordensstaats
 		}
 		available = {
 		    has_war = no
@@ -593,21 +593,17 @@ focus_tree = {
 		icon = GFX_focus_WRD_lowlands
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_formalize_the_ordensstaats
+		relative_position_id = WRD_formalise_the_ordensstaats
 		y = 1
 		x = 0
 		prerequisite = {
-			focus = WRD_formalize_the_ordensstaats
+			focus = WRD_formalise_the_ordensstaats
 		}
 		available = {
 		    has_war = no
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			add_state_claim = 851
-				add_state_claim = 8
-				add_state_claim = 28
-				add_state_claim = 1093
 			    create_wargoal = {
 				type = annex_everything
 				target = LUX
@@ -629,18 +625,17 @@ focus_tree = {
 		icon = GFX_focus_WRD_paris
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_formalize_the_ordensstaats
+		relative_position_id = WRD_formalise_the_ordensstaats
 		y = 1
 		x = -6
 		prerequisite = {
-			focus = WRD_formalize_the_ordensstaats
+			focus = WRD_formalise_the_ordensstaats
 		}
 		available = {
 		    has_war = no
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			add_state_claim = 28
 			    create_wargoal = {
 				type = annex_everything
 				target = FRA
@@ -691,6 +686,22 @@ focus_tree = {
 				type = annex_everything
 				target = OCG
 			}				
+			create_wargoal = {
+				type = annex_everything
+				target = GEO
+			}				
+			create_wargoal = {
+				type = annex_everything
+				target = ARM
+			}				
+			create_wargoal = {
+				type = annex_everything
+				target = AZR
+			}				
+			create_wargoal = {
+				type = annex_everything
+				target = TWR
+			}				
 		}
 	}
 	
@@ -699,18 +710,17 @@ focus_tree = {
 		icon = GFX_focus_WRD_nordic
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_formalize_the_ordensstaats
+		relative_position_id = WRD_formalise_the_ordensstaats
 		y = 1
 		x = -9
 		prerequisite = {
-			focus = WRD_formalize_the_ordensstaats
+			focus = WRD_formalise_the_ordensstaats
 		}
 		available = {
 		    has_war = no
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			841 = { add_core_of = WRD }
 			    create_wargoal = {
 				type = annex_everything
 				target = DEN
@@ -736,11 +746,11 @@ focus_tree = {
 		icon = GFX_focus_WRD_england
 		cost = 6
 		available = { has_government = esotericism }
-		relative_position_id = WRD_formalize_the_ordensstaats
+		relative_position_id = WRD_formalise_the_ordensstaats
 		y = 1
 		x = 6
 		prerequisite = {
-			focus = WRD_formalize_the_ordensstaats
+			focus = WRD_formalise_the_ordensstaats
 		}
 		available = {
 		    has_war = no
@@ -854,7 +864,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = WRD_formalize_the_waffen_ss
+		id = WRD_formalise_the_waffen_ss
 		icon = GFX_focus_WRD_reichsbanner
 		cost = 4
 		available = { has_government = esotericism }
@@ -867,9 +877,11 @@ focus_tree = {
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			add_timed_idea = { 
-				add_stability = 0.05
-				add_political_power = 50
+				idea = WRD_waffen_ss
+				days = 180
 			}	
+			add_political_power = 50
+
 		}
 		}
 	focus = {
