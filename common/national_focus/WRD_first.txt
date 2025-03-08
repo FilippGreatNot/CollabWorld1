@@ -302,7 +302,7 @@ focus_tree = {
 			
 			add_political_power = 100
 			add_stability = -0.05
-			
+			remove_ideas = WRD_less_public_trust
 		}
 	}
 	
@@ -478,10 +478,12 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			    
 				
-				add_country_leader_trait = {
+			add_country_leader_trait = {
 				ideology = esotericism
 				trait = the_chicken_farmer
 			}
+			remove_ideas = WRD_temporary_martial_law
+			remove_ideas = WRD_catastrophe_of_the_weltkrieg
 		}
 	}
 	
@@ -757,12 +759,6 @@ focus_tree = {
 		available = {
 		    has_war = no
 		}
-		available = {
-		    OR = { 
-			country_exists = SPR
-			country_exists = POR
-			}
-		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			create_wargoal = {
@@ -790,9 +786,6 @@ focus_tree = {
 		available = {
 		    has_war = no
 		}
-		available = {
-			country_exists = SWI
-		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			create_wargoal = {
@@ -819,9 +812,6 @@ focus_tree = {
 		}
 		available = {
 		    has_war = no
-		}
-		available = {
-			country_exists = SPR
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
@@ -852,8 +842,8 @@ focus_tree = {
 	}
 	}
 	focus = {
-		id = WRD_operation_africa
-		icon = GFX_focus_WRD_africa
+		id = WRD_operation_north_africa
+		icon = GFX_focus_WRD_north_africa
 		cost = 4
 		available = { has_government = esotericism }
 		relative_position_id = WRD_operation_italy
@@ -864,9 +854,7 @@ focus_tree = {
 		}
 		available = {
 		    has_war = no
-		}
-		available = {
-			country_exists = SPR
+			has_completed_focus = WRD_operation_iberia
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
@@ -898,13 +886,10 @@ focus_tree = {
 		y = 1
 		x = 2
 		prerequisite = {
-			focus = WRD_operation_africa focus = WRD_operation_turkey
+			focus = WRD_operation_north_africa focus = WRD_operation_turkey
 		}
 		available = {
 		    has_war = no
-		}
-		available = {
-			country_exists = SPR
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
@@ -1032,7 +1017,6 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			841 = { add_core_of = WRD }
 			    create_wargoal = {
 				type = annex_everything
 				target = DEN
@@ -1168,6 +1152,9 @@ focus_tree = {
 		available = {
 		    has_war = no
 		}
+		available = {
+		    has_completed_focus = WRD_a_thousand_week_reich
+		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			    create_wargoal = {
@@ -1236,18 +1223,32 @@ focus_tree = {
 		id = WRD_a_thousand_week_reich
 		icon = GFX_focus_WRD_twr
 		cost = 4
-		available = { has_government = esotericism }
+		available = { 
+			has_government = esotericism 
+			owns_state = 836
+			owns_state = 10
+			owns_state = 28
+			owns_state = 892
+			owns_state = 6
+			KAR = {
+				owns_state = 195
+			}
+			SRF = {
+				owns_state = 200
+			}
+		}
 		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
 		y = 5
 		x = -3
 		prerequisite = {
-			focus = WRD_operation_siberia focus = WRD_operation_africa focus = WRD_operation_turkey
+			focus = WRD_operation_siberia focus = WRD_operation_north_africa focus = WRD_operation_turkey
 		}
 		available = {
 		    has_war = no
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			add_ideas = WRD_thousand_year_reich
 			add_stability = 0.05
 			add_political_power = 50
 		}
@@ -1287,13 +1288,12 @@ focus_tree = {
 		prerequisite = {
 			focus = WRD_a_purple_germany
 		}
-		completion_reward = {	
+		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			add_timed_idea = { 
 				idea = WRD_purging_the_unworthy
 				months = 6
-			}
-				
+			}	
 		}
 	}
 	
@@ -2789,7 +2789,7 @@ focus_tree = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_catastrophe_of_the_weltkrieg log"
 		    add_stability = 0.05
 			add_political_power = 50
-
+			remove_ideas = WRD_catastrophe_of_the_weltkrieg
 		}
 	}
 	
