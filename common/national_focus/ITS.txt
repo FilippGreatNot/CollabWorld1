@@ -226,7 +226,16 @@ focus_tree = {
 		completion_reward = {
 			set_politics = {
 				ruling_party = national_syndicalism
-			}	
+			}
+			hidden_effect = {
+				ITS_edmondo_rossoni_sec = {
+					retire = yes
+				}
+				remove_advisor_role = {
+				  character = "ITS_edmondo_rossoni_eco"
+				  slot = economy_minister
+				}
+			}
 		}
 	}
 	focus = {
@@ -305,8 +314,13 @@ focus_tree = {
 					add_popularity = {
 						ideology = national_syndicalism
 						popularity = -0.1
-					}	
-					kill_ideology_leader = national_syndicalism					
+					}
+					add_popularity = {
+						ideology = despotism
+						popularity = -0.05
+					}					
+					kill_ideology_leader = national_syndicalism		
+					hidden_effect = { kill_ideology_leader = national_syndicalism }
 			}
 		}
 	}
@@ -326,8 +340,33 @@ focus_tree = {
 			add_popularity = {
 				ideology = national_syndicalism
 				popularity = -0.1
-			}	
+			}
+			add_popularity = {
+				ideology = despotism
+				popularity = -0.05
+			}			
 			kill_ideology_leader = national_syndicalism
+			hidden_effect = { kill_ideology_leader = national_syndicalism }
+		}
+	}
+	focus = {
+		id = ITS_reformist_safety
+		#icon =
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = ITS_purge_2
+		prerequisite = { focus = ITS_purge_2 }
+		completion_reward = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.04
+			}	
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.02
+			}
+			add_stability = 0.1
 		}
 	}
 	focus = {
@@ -779,7 +818,6 @@ focus_tree = {
 		y = 6
 		
 		available = {
-			has_completed_focus = ITS_back_on_track
 			has_completed_focus = ITS_done_with_preuni_industry
 			has_completed_focus = ITS_ready_for_war
 		}
