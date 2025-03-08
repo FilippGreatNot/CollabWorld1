@@ -1,0 +1,60 @@
+## SETUP ##
+add_namespace = cze
+
+## MAIN ##
+
+news_event = {
+	id = cze.1
+	title = cze.1.t
+	desc = cze.1.d
+	fire_only_once = yes
+	major = yes
+	picture = GFX_news_event_USA_JDR_dead
+	#is_triggered_only = yes
+	
+	
+	trigger = {
+		tag = CZE
+		has_completed_focus = CZE_meeting_at_the_prague_castle
+	}
+	
+	option = {
+		name = cze.1.a
+		kill_country_leader = yes
+        add_country_leader_role = {
+            character = CZE_military_council
+            country_leader = {
+                ideology = stratocracy
+            }
+            promote_leader = yes
+		}
+		complete_national_focus = {
+		    focus = CZE_death_of_stefanik
+			use_side_message = yes
+		}
+	}
+}
+news_event = {
+    id = cze.2
+	title = cze.2.t
+	desc = cze.2.d
+	fire_only_once = yes
+	major = yes 
+	picture = GFX_news_event_USA_JDR_dead
+	
+	
+	trigger = {
+	    tag = CZE
+		has_completed_focus = CZE_begin_the_investigation
+	}
+	
+	option = {
+	    name = cze.2.a
+		complete_national_focus = CZE_better_keep_quiet
+		add_popularity = {
+		    ideology = authoritarian_democrat 
+			popularity = -0.1
+		}
+		add_stability = -0.05
+	}
+}
