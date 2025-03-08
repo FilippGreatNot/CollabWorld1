@@ -178,12 +178,15 @@ focus_tree = {
 		prerequisite = { focus = FWG_our_swords_and_shields }
 		completion_reward = {
 			country_event = fwg.2
+			hidden_effect = {
+				country_event = { id = fwg.12 days = 3 }
+			}
 		}
 	}
 	focus = {
 		id = FWG_henke
 		icon = GFX_focus_FWG_henke
-		x = -15
+		x = -20
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -501,7 +504,7 @@ focus_tree = {
 	focus = {
 		id = FWG_ruhle
 		icon = GFX_focus_FWG_ruhle
-		x = -5
+		x = -10
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -533,7 +536,7 @@ focus_tree = {
 	focus = {
 		id = FWG_rocker
 		icon = GFX_focus_FWG_rocker
-		x = 5
+		x = 0
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -906,7 +909,7 @@ focus_tree = {
 	focus = {
 		id = FWG_kosch
 		icon = GFX_focus_FWG_kosch
-		x = 15
+		x = 10
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -993,7 +996,7 @@ focus_tree = {
 				idea = FWG_industrial_planning
 				days = 120
 			}
-			country_event = { id = fgb.11 days = 120 }
+			country_event = { id = fwg.11 days = 120 }
 		}
 	}
 	focus = {
@@ -1097,7 +1100,6 @@ focus_tree = {
 		relative_position_id = FWG_legacy_of_hegel
 		prerequisite = { focus = FWG_legacy_of_hegel }
 		completion_reward = {
-			add_stability = 0.05
 			swap_ideas = {
 				remove_idea = FWG_hegelian_teachings
 				add_idea = FWG_hegelian_teachings2
@@ -1140,6 +1142,7 @@ focus_tree = {
 		completion_reward = {
 			army_experience = -50
 			add_manpower = -15000
+			add_ideas = { extensive_conscription }
 			division_template = {
     			name = "Revolutionary Brigades"
     			regiments = {
@@ -1340,9 +1343,38 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_rise_of_the_kpd
+		icon = GFX_focus_generic_production
+		x = 20
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			custom_trigger_tooltip = {
+				has_country_flag = FWG_eberlein_flag
+				tooltip = FWG_has_been_couped_tt
+			}
+		}
+		relative_position_id = FWG_the_congress_of_1922
+		prerequisite = { focus = FWG_the_congress_of_1922 }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			set_politics = { ruling_party = bolshevism }
+			promote_character = FWG_hugo_eberlein
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			set_cosmetic_tag = FWG_eberlein
+			hidden_effect = { news_event = fwg.13 }
+		}
+	}
+	focus = {
 		id = FWG_begin_early_industrial_expansion
 		icon = GFX_focus_generic_production
-		x = 42
+		x = 50
 		y = 0
 		cost = 6
 		available_if_capitulated = yes
@@ -1480,6 +1512,63 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_widespread_road_construction
+		icon = GFX_focus_generic_production
+		x = -4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_crush_the_junker_threat
+		prerequisite = { focus = FWG_crush_the_junker_threat }
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_digging_more_metals_out_of_the_ground
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_widespread_road_construction
+		prerequisite = { focus = FWG_widespread_road_construction }
+		completion_reward = {
+			add_stability = -0.04
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = aluminium
+					amount = 2
+				}
+			}
+			swap_ideas = {
+				remove_idea = FWG_public_mining_works_idea2
+				add_idea = FWG_public_mining_works_idea3
+			}
+		}
+	}
+	focus = {
 		id = FWG_modernise_our_agriculture
 		icon = GFX_focus_generic_production
 		x = -2
@@ -1597,7 +1686,7 @@ focus_tree = {
 		icon = GFX_focus_generic_production
 		x = -1
 		y = 1
-		cost = 6
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		relative_position_id = FWG_streamline_weapons_manufacturing
@@ -1694,7 +1783,7 @@ focus_tree = {
 		icon = GFX_focus_generic_production
 		x = 1
 		y = 1
-		cost = 6
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		relative_position_id = FWG_streamline_weapons_manufacturing
@@ -1757,6 +1846,38 @@ focus_tree = {
 					province = 13608
 					instant_build = yes
 				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_build_up_an_advanced_welfare_net
+		icon = GFX_focus_generic_production
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_digging_more_metals_out_of_the_ground
+		prerequisite = { focus = FWG_digging_more_metals_out_of_the_ground }
+		prerequisite = { focus = FWG_diversify_the_job_sector }
+		completion_reward = {
+			add_ideas = {
+				FWG_social_safety_net
+			}
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
+		id = FWG_prepare_for_the_coming_war
+		icon = GFX_focus_generic_production
+		x = 60
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = FWG_defensive_preparations
+				days = 200
 			}
 		}
 	}

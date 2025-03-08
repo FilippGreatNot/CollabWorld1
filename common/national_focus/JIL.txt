@@ -136,15 +136,32 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = JIL_declare_manchuria_unified
+		id = JIL_strike_at_the_russian_threat
 		icon = GFX_focus_generic_diplomatic_treaty
 		x = 1
 		y = 1
 		cost = 5
 		available = { has_war = no }
+		bypass = { NOT = { country_exists = ZHL } }
         relative_position_id = JIL_break_the_alliance
         prerequisite = { focus = JIL_break_the_alliance }
 		prerequisite = { focus = JIL_end_the_korean_rebellion }
+		completion_reward = {
+			declare_war_on = {
+				target = ZHL
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = JIL_declare_manchuria_unified
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 0
+		y = 1
+		cost = 5
+		available = { has_war = no }
+        relative_position_id = JIL_strike_at_the_russian_threat
+        prerequisite = { focus = JIL_strike_at_the_russian_threat }
 		completion_reward = {
 			add_stability = 0.1
 			MAN = { make_every_core_national_for_PREV = yes }

@@ -5493,7 +5493,19 @@ focus_tree = {
 		relative_position_id = FGB_rohm_contact_balbo
 		prerequisite = { focus = FGB_rohm_contact_balbo }
 		completion_reward = {
-			#what it says - sending 500-800 guns to tuscany
+			add_political_power = -20
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -750
+				producer = FGB
+			}
+			TUS = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = 750
+					producer = FGB
+				}
+			}
 		}
 	}
 
@@ -5506,7 +5518,14 @@ focus_tree = {
 		relative_position_id = FGB_rohm_the_sturmabteilungs_power_secured
 		prerequisite = { focus = FGB_rohm_the_sturmabteilungs_power_secured }
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
 		}
 	}
 
@@ -5533,7 +5552,18 @@ focus_tree = {
 		relative_position_id = FGB_rohm_filler_focus_name_1
 		prerequisite = { focus = FGB_rohm_filler_focus_name_1 }
 		completion_reward = {
-			
+			BAV = {
+				add_stability = -0.1
+				add_political_power = -50
+				add_popularity = {
+					ideology = national_syndicalism
+					popularity = 0.1
+				}
+				add_popularity = {
+					ideology = esotericism
+					popularity = 0.05
+				}
+			}
 		}
 	}
 
@@ -5546,7 +5576,25 @@ focus_tree = {
 		relative_position_id = FGB_rohm_the_sturmabteilungs_power_secured
 		prerequisite = { focus = FGB_rohm_the_sturmabteilungs_power_secured }
 		completion_reward = {
-			#claims on germany and wsp
+			add_war_support = 0.1
+			BAV = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			WRD = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			UVS = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			GER = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			FWG = { 
+				every_core_state = { add_claim_by = FGB }
+			}
+			PLA = { 
+				every_core_state = { add_claim_by = FGB }
+			}
 		}
 	}
 
@@ -5577,7 +5625,10 @@ focus_tree = {
 		prerequisite = { focus = FGB_rohm_filler_focus_name_2 }
 		prerequisite = { focus = FGB_rohm_prepare_for_the_battle_for_germany }
 		completion_reward = {
-			#preparing for war against bavaria eg. temporary attack buffs 
+			add_timed_idea = {
+				idea = FGB_striking_east
+				days = 240
+			}
 		}
 	}
 	
@@ -5606,7 +5657,9 @@ focus_tree = {
 		relative_position_id = FGB_rohm_cooperate_with_the_dnbap
 		prerequisite = { focus = FGB_rohm_cooperate_with_the_dnbap }
 		completion_reward = {
-			#bavarian generals, but soviet this time
+			BAV = {
+				every_unit_leader = { add_nationality = FGB }
+			}
 		}
 	}
 

@@ -230,6 +230,44 @@ country_event = {
 	}
 }
 
+
+country_event = {
+	id = fwg.12
+	title = fwg.12.t
+	desc = fwg.12.d
+	picture = GFK_normal
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.12.a
+		add_political_power = 40
+		custom_effect_tooltip = FWG_the_coup_is_thwarted_tt
+	}
+	option = {
+		name = fwg.12.b 
+		add_stability = -0.02
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.04
+		}
+		set_country_flag = FWG_eberlein_flag
+		complete_national_focus = FWG_rise_of_the_kpd
+	}
+}
+
+news_event = {
+	id = fwg.13
+	title = fwg.13.t
+	desc = fwg.13.d 
+	picture = GFX_normal 
+	is_triggered_only = yes 
+	major = yes 
+
+	option = {
+		name = fwg.13.a
+	}
+}
+
 country_event = {
 	id = korsch.1
 	title = korsch.1.t 
@@ -279,5 +317,18 @@ country_event = {
 		set_country_flag = FWG_union_of_soviet_republics
 		mark_focus_tree_layout_dirty = yes
 		FWG_anti_bolshevik_rhetoric_level_up = yes
+	}
+}
+
+country_event = {
+	id = korsch.4
+	title = korsch.4.t 
+	desc = korsch.4.d 
+	picture = GFX_report_event_korsch
+	is_triggered_only = yes 
+
+	option = {
+		name = korsch.4.a 
+		add_war_support = 0.04
 	}
 }
