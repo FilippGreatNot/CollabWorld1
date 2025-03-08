@@ -924,6 +924,7 @@ focus_tree = {
 				ruling_only = yes
 				character = UKR_Alexander_Shumsky
 			}
+			has_war = no
 		}
 		bypass = {
 			NOT = {
@@ -1064,6 +1065,9 @@ focus_tree = {
 	focus = {
 		id = UKR_soc_start_war_sov
 		icon = GFX_focus_UKR_soc_start_war_sov
+		bypass = {
+			NOT = { country_exists = SOV } 
+		}
 		prerequisite = { focus = UKR_soc_raise_more_soldiers }
 		prerequisite = { focus = UKR_soc_plan_attack }
 		allow_branch = {
@@ -1083,6 +1087,212 @@ focus_tree = {
 				news_event = UKR_soc.22
 			}
 		}
+	}
 
+	focus = {
+		id = UKR_soc_unite_with_kazakh
+		icon = GFX_focus_UKR_mid_asia
+		cost = 5
+		allow_branch = {
+			has_completed_focus = UKR_soc_start_war_sov
+		}
+		x = 19
+		y = 12
+		bypass = {
+			NOT = { country_exists = OCG } 
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = OCG
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = OCG
+				type = annex_everything
+			}
+			OCG = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = UKR_clean_the_steppes
+		icon = GFX_focus_UKR_mid_asia_2
+		cost = 5
+		prerequisite = { focus = UKR_soc_unite_with_kazakh }
+		x = 19
+		y = 13
+		available = { has_war = no }
+		allow_branch = {
+			has_completed_focus = UKR_soc_start_war_sov
+		}
+		completion_reward = {
+		     declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KAZ
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KYR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = MNS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BSM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BUK
+				type = annex_everything
+			}
+			TMS = { make_every_core_national_for_PREV = yes }
+			KYR = { make_every_core_national_for_PREV = yes }
+			KAZ = { make_every_core_national_for_PREV = yes }
+			BUK = { make_every_core_national_for_PREV = yes }
+			KHI = { make_every_core_national_for_PREV = yes }
+			BSM = { make_every_core_national_for_PREV = yes }
+			MNS = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = UKR_go_to_caucas
+		icon = GFX_focus_UKR_sov_caucas
+		cost = 5
+		x = 21
+		y = 13
+		available = { has_war = no }
+		allow_branch = {
+			has_completed_focus = UKR_soc_start_war_sov
+		}
+		completion_reward = {
+		     declare_war_on = {
+				target = GEO
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = AZR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ARM
+				type = annex_everything
+			}
+
+			GEO = { make_every_core_national_for_PREV = yes }
+			AZR = { make_every_core_national_for_PREV = yes }
+			ARM = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = UKR_end_kolchak
+		icon = GFX_focus_UKR_kolchak
+		cost = 5
+		x = 23
+		y = 12
+		allow_branch = {
+			has_completed_focus = UKR_soc_start_war_sov
+		}
+		available = { has_war = no }
+		completion_reward = {
+		    declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+            RUS = { make_every_core_national_for_PREV = yes }
+		}
+	}
+
+	focus = {
+		id = UKR_the_far_siberia
+		icon = GFX_focus_UKR_east
+		cost = 5
+		allow_branch = {
+			has_completed_focus = UKR_soc_start_war_sov
+		}
+		prerequisite = { focus = UKR_end_kolchak }
+		x = 23
+		y = 13
+		 available = {
+            has_war = no
+			OR = {
+           		is_neighbor_of = KMP
+				is_neighbor_of = FER
+				is_neighbor_of = FSR
+			}
+        }
+		bypass = {
+			NOT = {
+				country_exists = KMP
+				country_exists = FER
+				country_exists = FSR
+			}
+		}
+		completion_reward = {
+            declare_war_on = {
+                target = FER
+                type = annex_everything
+            }
+            FER = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+            KMP = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = FSR
+                type = annex_everything
+            }
+            FSR = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = UKR_soc_the_triumph_of_farmers
+		icon = GFX_focus_UKR_triumph
+		cost = 7
+		prerequisite = { focus = UKR_clean_the_steppes }
+		prerequisite = { focus = UKR_the_far_siberia }
+		prerequisite = { focus = UKR_go_to_caucas }
+		x = 21
+		y = 15
+		available = {
+		   has_war = no
+			NOT = {
+				country_exists = RUS
+				country_exists = ARM
+				country_exists = AZR
+				country_exists = GEO
+				country_exists = OCG
+				country_exists = TMS
+				country_exists = KAZ
+				country_exists = KYR
+				country_exists = BSM
+				country_exists = MNS
+				country_exists = BUK
+				country_exists = KHI
+				country_exists = FER
+				country_exists = FSR
+				country_exists = KMP
+			}
+		}
+		completion_reward = {
+		    add_stability = 0.1
+			add_war_support = 0.05
+			add_ideas = UKR_problems_of_reunification
+			hidden_effect = {
+				show_superevent_ukraine_soviet_reunification = yes
+				set_cosmetic_tag = UKR_bolshevism_2
+			}
+		}
 	}
 }

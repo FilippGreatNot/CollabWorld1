@@ -5,6 +5,7 @@ UKR_demand_decisions = {
 		icon = decision_generic_civil_support.dds
 		fire_only_once = yes
 		visible = {
+			country_exists = SRF
 			has_country_flag = UKR_can_demand_crimea
 			has_country_leader = {
 				ruling_only = yes
@@ -26,6 +27,7 @@ UKR_demand_decisions = {
 		icon = decision_generic_civil_support.dds
 		fire_only_once = yes
 		visible = {
+			country_exists = ROM
 			has_country_flag = UKR_can_demand_bessarabia
 			has_country_leader = {
 				ruling_only = yes
@@ -141,5 +143,15 @@ UKR_soc_build_factories_decisions = {
 		}
 	}
 	modifier = { civilian_factory_use = 5 }
+	}
+}
+#unification
+UKR_soc_unite_soviet_union = {
+	UKR_soc_win_sov = {
+	ai_will_do = { base = 100 }
+	fire_only_once = yes
+	complete_effect = {
+		UKR = { country_event = UKR_soc.23 }
+	}
 	}
 }
