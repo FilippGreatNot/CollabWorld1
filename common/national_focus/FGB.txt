@@ -5247,7 +5247,7 @@ focus_tree = {
 		icon = GFX_goal_demand_sudetenland
 		x = 1
 		y = 1
-		cost = 5
+		cost = 7
 		ai_will_do = {
 			factor = 25
 		}
@@ -5262,6 +5262,30 @@ focus_tree = {
 				type = infantry_equipment_0
 				amount = 2000
 				producer = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_criticise_the_bavarian_regime
+		icon = GFX_goal_demand_sudetenland
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_under_a_populist_veil
+		prerequisite = { focus = FGB_under_a_populist_veil focus = FGB_ehrhardt_takes_charge }
+		completion_reward = {
+			BAV = { add_political_power = -30 }
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.04
 			}
 		}
 	}
