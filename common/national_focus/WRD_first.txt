@@ -583,23 +583,26 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-				create_wargoal = {
+			create_wargoal = {
 				type = annex_everything
 				target = BUL
-			    }
-				create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = GRE
-			    }
-				create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = ROM
-			    }
-				create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = ALB
-			    }
-				
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = IKA
+			}				
 		}
 	}
 	focus = {
@@ -769,7 +772,10 @@ focus_tree = {
 				type = annex_everything
 				target = POR
 			     }
-				
+			create_wargoal = {
+				type = annex_everything
+				target = ADR
+			     }				
 			}
 	}
 	focus = {
@@ -818,28 +824,36 @@ focus_tree = {
 			create_wargoal = {
 				type = annex_everything
 				target = ITS
-			     }
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = VNE
-			     }
-				 create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = MSS
-			     }
-				 create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = ITA
-			     }
-				 create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = TUS
-			     }
-				 create_wargoal = {
+			}
+			create_wargoal = {
 				type = annex_everything
 				target = SAR
-			     }
-	}
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = VAT
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SAN
+			}		
+		}
 	}
 	focus = {
 		id = WRD_operation_north_africa
@@ -854,29 +868,44 @@ focus_tree = {
 		}
 		available = {
 		    has_war = no
-			has_completed_focus = WRD_operation_iberia
+			has_completed_focus = WRD_avenge_the_battle_of_paris
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
 			create_wargoal = {
 				type = annex_everything
 				target = LBA
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = CYR
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = EGY
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = TRP
-			     }
-				
-				}
 			}
+			create_wargoal = {
+				type = annex_everything
+				target = ETH
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = ERI
+			}	
+			create_wargoal = {
+				type = annex_everything
+				target = SOM
+			}		
+			create_wargoal = {
+				type = annex_everything
+				target = ASA
+			}		
+		}
+	}
 	focus = {
 		id = WRD_operation_middle_east
 		icon = GFX_focus_WRD_mittelosten
@@ -896,54 +925,88 @@ focus_tree = {
 			create_wargoal = {
 				type = annex_everything
 				target = PAL
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = LEB
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = SYR
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = JOR
-			     }
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = IRQ
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = SAU
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = HEJ
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = OMA
-			     }
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = UAE
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = MSC
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = YEM
-				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = PER
-			     }
-				
-				}
 			}
+				
+		}
+	}
+	focus = {
+		id = WRD_operation_south_africa
+		icon = GFX_focus_WRD_mittelosten
+		cost = 5
+		available = { has_government = esotericism }
+		relative_position_id = WRD_operation_middle_east
+		y = 1
+		x = 0
+		prerequisite = {
+			focus = WRD_operation_middle_east
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
+			create_wargoal = {
+				type = annex_everything
+				target = ZIM
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = BOT
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = NMB
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = SAF
+			}				
+		}
+	}	
 	focus = {
 		id = WRD_fall_rot
 		icon = GFX_focus_WRD_rot
@@ -956,7 +1019,7 @@ focus_tree = {
 			focus = WRD_retake_old_german_lands
 		}
 		available = {
-		    has_war = no
+		    has_war = no 
 		}
 		available = {
 			has_completed_focus = WRD_avenge_the_battle_of_paris
@@ -1130,12 +1193,15 @@ focus_tree = {
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
-			    create_wargoal = {
+			create_wargoal = {
 				type = annex_everything
 				target = IRE
-				
+			}	
+			create_wargoal = {
+				type = annex_everything
+				target = NIR
+			}			
 		}
-	}
 	}
 	
 	focus = {
@@ -1154,6 +1220,10 @@ focus_tree = {
 		}
 		available = {
 		    has_completed_focus = WRD_a_thousand_week_reich
+			ENG = { 
+				is_puppet_of = WRD
+				owns_state = 126
+			}
 		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus WRD_first_beaten_but_not_defeated log"
@@ -1168,10 +1238,6 @@ focus_tree = {
 				 create_wargoal = {
 				type = annex_everything
 				target = USA
-			     }
-				 create_wargoal = {
-				type = annex_everything
-				target = KKK
 			     }
 				 create_wargoal = {
 				type = annex_everything
@@ -1226,15 +1292,19 @@ focus_tree = {
 		available = { 
 			has_government = esotericism 
 			owns_state = 836
+			owns_state = 1061
+			owns_state = 9
 			owns_state = 10
-			owns_state = 28
-			owns_state = 892
+			owns_state = 7
 			owns_state = 6
-			KAR = {
-				owns_state = 195
+			owns_state = 3
+			FRA = {
+				is_puppet_of = WRD
+				owns_state = 16
 			}
-			SRF = {
-				owns_state = 200
+			SOV = {
+				is_puppet_of = WRD
+				owns_state = 219
 			}
 		}
 		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum

@@ -2688,8 +2688,6 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 			owns_state = 1076
 			owns_state = 49
 			owns_state = 354
-			owns_state = 909
-			owns_state = 921
 			owns_state = 800
 			owns_state = 344
 			owns_state = 677
@@ -2748,8 +2746,6 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 344
 					add_state_core = 353
 					add_state_core = 354
-					add_state_core = 909
-					add_state_core = 921
 					add_state_core = 800
 					add_state_core = 976
 					add_state_core = 800
@@ -2799,8 +2795,6 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				TUR = { transfer_state = 344 }
 				TUR = { transfer_state = 353 }
 				TUR = { transfer_state = 354 }
-				TUR = { transfer_state = 909 }
-				TUR = { transfer_state = 921 }
 				TUR = { transfer_state = 800 }
 				TUR = { transfer_state = 976 }
 				TUR = { transfer_state = 800 }
@@ -2887,6 +2881,8 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 878
 					add_state_core = 656
 					add_state_core = 1066
+					add_state_core = 1104
+					add_state_core = 1101
 					add_state_core = 679
 					add_state_core = 1065
 					add_state_core = 658
@@ -2927,6 +2923,8 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				PAL = { transfer_state = 878 }
 				PAL = { transfer_state = 656 }
 				PAL = { transfer_state = 1066 }
+				PAL = { transfer_state = 1104 }
+				PAL = { transfer_state = 1101 }
 				PAL = { transfer_state = 679 }
 				PAL = { transfer_state = 1066 }
 				PAL = { transfer_state = 1065 }
@@ -2945,6 +2943,538 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				PAL = { transfer_state = 1097 }
 				PAL = { transfer_state = 293 }
 			}	
+		}
+	}
+
+	WRD_iran_state = { 								### IRAN ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 266
+			owns_state = 413
+			owns_state = 419
+			owns_state = 410
+			owns_state = 416
+			owns_state = 412
+			owns_state = 905
+			owns_state = 421
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = { 
+			has_completed_focus = WRD_operation_middle_east 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_middle_east
+		}
+		
+		complete_effect = {
+			PER = {
+				set_cosmetic_tag = WRD_iran
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = esotericism
+						name = WRD_iran_party
+					}				
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 266
+					add_state_core = 420
+					add_state_core = 419
+					add_state_core = 905
+					add_state_core = 417
+					add_state_core = 421
+					add_state_core = 413
+					add_state_core = 411
+					add_state_core = 412
+					add_state_core = 418
+					add_state_core = 416
+					add_state_core = 414
+					add_state_core = 410
+					set_capital = { state = 1010 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = PER
+					autonomous_state = autonomy_ss_ordensstaat
+				}
+			}
+			hidden_effect = {
+				PER = { transfer_state = 266 }
+				PER = { transfer_state = 420 }
+				PER = { transfer_state = 419 }
+				PER = { transfer_state = 905 }
+				PER = { transfer_state = 417 }
+				PER = { transfer_state = 421 }
+				PER = { transfer_state = 413 }
+				PER = { transfer_state = 411 }
+				PER = { transfer_state = 412 }
+				PER = { transfer_state = 418 }
+				PER = { transfer_state = 416 }
+				PER = { transfer_state = 414 }
+				PER = { transfer_state = 410 }
+			}	
+		}
+	}	
+
+	WRD_egypt_state = { 								### EGYPT ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 1010
+			owns_state = 1047
+			owns_state = 549
+			owns_state = 271
+			owns_state = 974
+			owns_state = 268
+			owns_state = 550
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = { 
+			has_completed_focus = WRD_operation_north_africa 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_north_africa
+		}
+		
+		complete_effect = {
+			EGY = {
+				set_cosmetic_tag = WRD_egypt
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = esotericism
+						name = WRD_egypt_party
+					}				
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 1010
+					add_state_core = 446
+					add_state_core = 447
+					add_state_core = 452
+					add_state_core = 456
+					add_state_core = 551
+					add_state_core = 550
+					add_state_core = 268
+					add_state_core = 974
+					add_state_core = 271
+					add_state_core = 549
+					add_state_core = 865
+					add_state_core = 767
+					add_state_core = 552
+					add_state_core = 1047
+					add_state_core = 457
+					set_capital = { state = 1010 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = EGY
+					autonomous_state = autonomy_ss_ordensstaat
+				}
+			}
+			hidden_effect = {
+				EGY = { transfer_state = 1010 }
+				EGY = { transfer_state = 446 }
+				EGY = { transfer_state = 447 }
+				EGY = { transfer_state = 452 }
+				EGY = { transfer_state = 456 }
+				EGY = { transfer_state = 551 }
+				EGY = { transfer_state = 550 }
+				EGY = { transfer_state = 268 }
+				EGY = { transfer_state = 974 }
+				EGY = { transfer_state = 271 }
+				EGY = { transfer_state = 549 }
+				EGY = { transfer_state = 865 }
+				EGY = { transfer_state = 767 }
+				EGY = { transfer_state = 552 }
+				EGY = { transfer_state = 1047 }
+				EGY = { transfer_state = 457 }
+			}	
+		}
+	}
+
+	WRD_morocco_state = { 								### MOROCCO ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 459
+			owns_state = 460
+			owns_state = 665
+			owns_state = 448
+			owns_state = 450
+			owns_state = 273
+			owns_state = 461
+			owns_state = 783
+			owns_state = 290
+			owns_state = 775
+			owns_state = 515
+			owns_state = 699
+			owns_state = 782
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = { 
+			has_completed_focus = WRD_operation_north_africa 
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_north_africa
+		}
+		
+		complete_effect = {
+			MOR = {
+				set_cosmetic_tag = WRD_morocco
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = esotericism
+						name = WRD_morocco_party
+					}				
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 699
+					add_state_core = 462
+					add_state_core = 461
+					add_state_core = 290
+					add_state_core = 513
+					add_state_core = 459
+					add_state_core = 460
+					add_state_core = 783
+					add_state_core = 665
+					add_state_core = 661
+					add_state_core = 448
+					add_state_core = 662
+					add_state_core = 449
+					add_state_core = 450
+					add_state_core = 451
+					add_state_core = 663
+					add_state_core = 273
+					add_state_core = 1008
+					add_state_core = 1048
+					add_state_core = 775
+					add_state_core = 1009
+					add_state_core = 515
+					add_state_core = 782
+					add_state_core = 786
+					add_state_core = 514
+					set_capital = { state = 459 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = MOR
+					autonomous_state = autonomy_ss_ordensstaat
+				}
+			}
+			hidden_effect = {
+				MOR = { transfer_state = 699 }
+				MOR = { transfer_state = 462 }
+				MOR = { transfer_state = 461 }
+				MOR = { transfer_state = 783 }
+				MOR = { transfer_state = 290 }
+				MOR = { transfer_state = 513 }
+				MOR = { transfer_state = 459 }
+				MOR = { transfer_state = 460 }
+				MOR = { transfer_state = 665 }
+				MOR = { transfer_state = 661 }
+				MOR = { transfer_state = 448 }
+				MOR = { transfer_state = 662 }
+				MOR = { transfer_state = 449 }
+				MOR = { transfer_state = 450 }
+				MOR = { transfer_state = 451 }
+				MOR = { transfer_state = 663 }
+				MOR = { transfer_state = 273 }
+				MOR = { transfer_state = 1008 }
+				MOR = { transfer_state = 1048 }
+				MOR = { transfer_state = 775 }
+				MOR = { transfer_state = 1009 }
+				MOR = { transfer_state = 515 }
+				MOR = { transfer_state = 782 }
+				MOR = { transfer_state = 786 }
+				MOR = { transfer_state = 514 }
+			}	
+		}
+	}	
+	
+	WRD_fna_state = { 								### WESTAFRIKA ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 272
+			owns_state = 701
+			owns_state = 296
+			owns_state = 700
+			owns_state = 298
+			owns_state = 556
+			owns_state = 274
+			owns_state = 558
+			owns_state = 781
+			owns_state = 776
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = { 
+			has_completed_focus = WRD_liberate_germanias_westernmost_outpost
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_liberate_germanias_westernmost_outpost
+		}
+		
+		complete_effect = {
+			FNA = {
+				set_cosmetic_tag = WRD_fna
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = esotericism
+						name = WRD_fna_party
+					}				
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 557
+					add_state_core = 272
+					add_state_core = 701
+					add_state_core = 556
+					add_state_core = 296
+					add_state_core = 780
+					add_state_core = 700
+					add_state_core = 298
+					add_state_core = 779
+					add_state_core = 274
+					add_state_core = 778
+					add_state_core = 781
+					add_state_core = 777
+					add_state_core = 776
+					add_state_core = 558
+					set_capital = { state = 459 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = FNA
+					autonomous_state = autonomy_ss_ordensstaat
+				}
+			}
+			hidden_effect = {
+				FNA = { transfer_state = 557 }
+				FNA = { transfer_state = 272 }
+				FNA = { transfer_state = 701 }
+				FNA = { transfer_state = 556 }
+				FNA = { transfer_state = 296 }
+				FNA = { transfer_state = 780 }
+				FNA = { transfer_state = 700 }
+				FNA = { transfer_state = 298 }
+				FNA = { transfer_state = 779 }
+				FNA = { transfer_state = 274 }
+				FNA = { transfer_state = 778 }
+				FNA = { transfer_state = 781 }
+				FNA = { transfer_state = 777 }
+				FNA = { transfer_state = 776 }
+				FNA = { transfer_state = 558 }
+			}
+		}
+	}
+
+	WRD_congo_state = { 								### ZENTRALAFRIKA ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 295
+			owns_state = 1022
+			owns_state = 796
+			owns_state = 297
+			owns_state = 771
+			owns_state = 660
+			owns_state = 774
+			owns_state = 773
+			owns_state = 539
+			owns_state = 540
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = { 
+			has_completed_focus = WRD_avenge_the_battle_of_paris
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_avenge_the_battle_of_paris
+		}
+		
+		complete_effect = {
+			COG = {
+				set_cosmetic_tag = WRD_congo
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = esotericism
+						name = WRD_congo_party
+					}				
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 1022
+					add_state_core = 773
+					add_state_core = 774
+					add_state_core = 1050
+					add_state_core = 660
+					add_state_core = 297
+					add_state_core = 539
+					add_state_core = 772
+					add_state_core = 796
+					add_state_core = 538
+					add_state_core = 718
+					add_state_core = 295
+					add_state_core = 540
+					add_state_core = 771
+					set_capital = { state = 773 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = COG
+					autonomous_state = autonomy_ss_ordensstaat
+				}
+			}
+			hidden_effect = {
+				COG = { transfer_state = 1022 }
+				COG = { transfer_state = 773 }
+				COG = { transfer_state = 774 }
+				COG = { transfer_state = 1050 }
+				COG = { transfer_state = 660 }
+				COG = { transfer_state = 297 }
+				COG = { transfer_state = 539 }
+				COG = { transfer_state = 772 }
+				COG = { transfer_state = 796 }
+				COG = { transfer_state = 538 }
+				COG = { transfer_state = 718 }
+				COG = { transfer_state = 295 }
+				COG = { transfer_state = 540 }
+				COG = { transfer_state = 771 }
+			}
+		}
+	}	
+	
+	WRD_south_africa_state = { 								### SUDAFRIKA ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 681
+			owns_state = 541
+			owns_state = 542
+			owns_state = 545
+			owns_state = 719
+			owns_state = 275
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = { 
+			has_completed_focus = WRD_operation_south_africa
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_south_africa
+		}
+		
+		complete_effect = {
+			SAF = {
+				set_cosmetic_tag = WRD_south_africa
+				set_politics = { ruling_party = esotericism }
+				add_popularity = {
+				ideology = esotericism
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = esotericism
+						name = WRD_south_africa_party
+					}				
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 681
+					add_state_core = 719
+					add_state_core = 275
+					add_state_core = 541
+					add_state_core = 542
+					add_state_core = 545
+					set_capital = { state = 773 remember_old_capital = no }
+					add_ideas = WRD_ss_ordensstaat
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = SAF
+					autonomous_state = autonomy_ss_ordensstaat
+				}
+			}
+			hidden_effect = {
+				SAF = { transfer_state = 681 }
+				SAF = { transfer_state = 719 }
+				SAF = { transfer_state = 275 }
+				SAF = { transfer_state = 541 }
+				SAF = { transfer_state = 542 }
+				SAF = { transfer_state = 545 }
+			}
 		}
 	}	
 }	
