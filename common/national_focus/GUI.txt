@@ -12,88 +12,51 @@ focus_tree = {
     focus = {
         id = KUO_new_year
         icon = GFX_goal_generic_construction
-        prerequisite = { }
-        mutually_exclusive = { }
         x = 5
         y = 0
         cost = 4
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
             add_stability = 0.05
             add_political_power = 50
-		GUI = {
 			country_event = gui.1
-        } 
+        }
     }
-}
-  focus = {
+
+    focus = {
         id = KUO_our_army
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_new_year }
-        mutually_exclusive = { }
         x = 3.5
         y = 1
         cost = 2
-
-         
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        army_experience = 10
-        	 		GUI = {
+            army_experience = 10 
 			country_event = gui.3
-        }	
         } 
     }
 
-focus = {
+    focus = {
         id = KUO_our_economic
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_new_year }
-        mutually_exclusive = { }
         x = 7
         y = 1
         cost = 2
-
-         
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = 10
-        		GUI = {
+            add_political_power = 10
 			country_event = gui.2
-        }
 		} 
     }
 	
@@ -101,92 +64,54 @@ focus = {
         id = KUO_our_party
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_our_army }
-        mutually_exclusive = { }
         x = 3.5
         y = 2
         cost = 2
-
-         
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = 5
-        		GUI = {
+            add_political_power = 5
 			country_event = gui.4
-        }
 		} 
     }
-	
-		focus = {
+
+	focus = {
         id = KUO_our_betrayal
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_our_economic }
-        mutually_exclusive = { }
         x = 7
         y = 2
         cost = 2
-
-         
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = -10
-        		GUI = {
+            add_political_power = -10
 			country_event = gui.5
-        }
 		} 
     }
-focus = {
+
+    focus = {
         id = KUO_new_convocation
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_our_betrayal }
 		prerequisite = { focus = KUO_our_party }
-        mutually_exclusive = { }
         x = 5
         y = 3
         cost = 2
-
-         
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = 50
-        		GUI = {
+            add_political_power = 50
 			country_event = gui.6
-        }
-		load_focus_tree = kuomintang_focus2
+		    load_focus_tree = kuomintang_focus2
 		} 
     }
-	}
+}
 	
 	

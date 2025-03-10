@@ -371,3 +371,8 @@ PLA_change_name_of_state_or_vp = {
 			}
 	}
 }
+add_two_building_slots_in_two_random_states = {
+	custom_effect_tooltip = add_two_building_slots_in_two_random_states_tt
+	random_owned_controlled_state = {  add_extra_state_shared_building_slots = 2 set_state_flag = { flag = bulding_slot_flag days = 2 } }
+	random_owned_controlled_state = { limit = { NOT = { has_state_flag = building_slot_flag } } add_extra_state_shared_building_slots = 2 }
+}

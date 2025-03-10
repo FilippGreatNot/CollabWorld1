@@ -534,6 +534,210 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_remember_the_mutinies
+		icon = GFX_focus_FWG_remember_the_mutinies
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_ruhle
+		prerequisite = { focus = FWG_ruhle }
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
+			add_war_support = 0.04
+		}
+	}
+	focus = {
+		id = FWG_reinvigorate_anti_bolshevism
+		icon = GFX_focus_FWG_reinvigorate_anti_bolshevism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_remember_the_mutinies
+		prerequisite = { focus = FWG_remember_the_mutinies }
+		completion_reward = {
+			retire_character = FWG_hugo_eberlein
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.02
+			}
+			add_timed_idea = {
+				idea = FWG_anti_bolshevik_campaigns
+				days = 90
+			}
+		}
+	}
+	focus = {
+		id = FWG_strengthen_ties_with_the_spartakists
+		icon = GFX_focus_FWG_strengthen_ties_with_the_spartakists
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_ruhle
+		prerequisite = { focus = FWG_ruhle }
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = FWG_contact_with_the_bavarian_revolution
+		icon = GFX_focus_FWG_contact_with_the_bavarian_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_strengthen_ties_with_the_spartakists
+		prerequisite = { focus = FWG_strengthen_ties_with_the_spartakists }
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = FWG_placate_the_swedes
+		icon = GFX_focus_FWG_contact_with_the_bavarian_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { SWE = { has_completed_focus = SWE_peaceful_revolution } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_contact_with_the_bavarian_revolution
+		prerequisite = { focus = FWG_contact_with_the_bavarian_revolution }
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = FWG_agricultural_development_plans
+		icon = GFX_focus_FWG_agricultural_development_plans
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_ruhle
+		prerequisite = { focus = FWG_ruhle }
+		completion_reward = {
+			add_two_building_slots_in_two_random_states = yes
+		}
+	}
+	focus = {
+		id = FWG_leech_out_corrupt_businessmen
+		icon = GFX_focus_FWG_agricultural_development_plans
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_agricultural_development_plans
+		prerequisite = { focus = FWG_agricultural_development_plans }
+		completion_reward = {
+			add_political_power = -30
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}	
+			}
+		}
+	}
+	focus = {
+		id = FWG_approve_a_military_funding_plan
+		icon = GFX_focus_FWG_approve_a_military_funding_plan
+		x = 1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_agricultural_development_plans
+		prerequisite = { focus = FWG_agricultural_development_plans }
+		completion_reward = {
+			add_war_support = 0.05
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}	
+			}
+		}
+	}
+	focus = {
+		id = FWG_centralise_the_economy
+		icon = GFX_focus_FWG_centralise_the_economy
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_leech_out_corrupt_businessmen
+		prerequisite = { focus = FWG_leech_out_corrupt_businessmen }
+		prerequisite = { focus = FWG_approve_a_military_funding_plan }
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = {
+				planned_economy
+			}
+		}
+	}
+	focus = { 
+		id = FWG_listen_to_our_workers
+		icon = GFX_focus_FWG_listen_to_our_workers
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_centralise_the_economy
+		prerequisite = { focus = FWG_centralise_the_economy }
+		completion_reward = {
+			add_stability = 0.08
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
 		id = FWG_rocker
 		icon = GFX_focus_FWG_rocker
 		x = 0
@@ -1119,6 +1323,7 @@ focus_tree = {
 		relative_position_id = FWG_a_new_socialist_revolution
 		prerequisite = { focus = FWG_a_new_socialist_revolution }
 		completion_reward = {
+			retire_character = FWG_hugo_eberlein
 			add_war_support = 0.05
 			add_popularity = {
 				ideology = bolshevism
@@ -1311,6 +1516,8 @@ focus_tree = {
 				remove_idea = FWG_the_new_marxist_revolution
 				add_idea = FWG_the_new_marxist_revolution2
 			}
+			create_faction = "Western Internationale"
+			add_to_faction = HUN
 		}
 	}
 	focus = {
