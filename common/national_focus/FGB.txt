@@ -5350,7 +5350,18 @@ focus_tree = {
 		prerequisite = { focus = FGB_electing_new_leader }
 		allow_branch = { has_country_flag = FGB_rohm_flag }
 		completion_reward = {
-			add_political_power = 5
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			}
+			add_country_leader_role = {
+    			character = FGB_ernst_rohm
+    			promote_leader = yes
+   	 			country_leader = {
+        			ideology = paternal_autocrat
+        			traits = { stormtrooper }
+    			}
+			}
 		}
 	}
 
@@ -5363,7 +5374,20 @@ focus_tree = {
 		relative_position_id = FGB_rohm
 		prerequisite = { focus = FGB_rohm }
 		completion_reward = {
-
+			retire_character = FGB_otto_gessler
+			retire_character = FGB_kurt_schumacher
+			add_popularity = {
+				ideology = liberalism
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.04
+			}
 		}
 	}
 
@@ -5376,7 +5400,15 @@ focus_tree = {
 		relative_position_id = FGB_rohm_root_out_the_liberal_freikorps_staff
 		prerequisite = { focus = FGB_rohm_root_out_the_liberal_freikorps_staff }
 		completion_reward = {
-
+			add_war_support = -0.06
+			retire_character = FGB_waldemar_pabst
+			retire_character = FGB_kurt_daluege
+			retire_character = FGB_karl_wolff
+			add_political_power = 50
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.08
+			}
 		}
 	}
 
@@ -5389,7 +5421,10 @@ focus_tree = {
 		relative_position_id = FGB_rohm_purge_disloyal_generals
 		prerequisite = { focus = FGB_rohm_purge_disloyal_generals }
 		completion_reward = {
-
+			add_stability = 0.1
+			add_ideas = {
+				FGB_the_second_revolution
+			}
 		}
 	}
 	
@@ -5402,6 +5437,7 @@ focus_tree = {
 		relative_position_id = FGB_rohm
 		prerequisite = { focus = FGB_rohm }
 		completion_reward = {
+			add_political_power = 50
 			add_popularity = {
 				ideology = national_syndicalism
 				popularity = 0.06
@@ -5418,9 +5454,23 @@ focus_tree = {
 		relative_position_id = FGB_rohm_empower_the_sturmabteilung
 		prerequisite = { focus = FGB_rohm_empower_the_sturmabteilung }
 		completion_reward = {
+			add_manpower = -12000
 			add_popularity = {
-				ideology = marxism
-				popularity = -0.06
+				ideology = bolshevism
+				popularity = -0.08
+			}
+			if = { 
+				limit = { has_idea = FGB_civil_unrest1_a } 
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest1_a
+					add_idea = FGB_civil_unrest_rohm
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest1_a
+				}
 			}
 		}
 	}
@@ -5430,13 +5480,17 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_weaken_the_stahlhelm
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = FGB_rohm_the_communists_as_a_shooting_practice
 		prerequisite = { focus = FGB_rohm_the_communists_as_a_shooting_practice }
 		completion_reward = {
 			add_popularity = {
 				ideology = authoritarian_democrat
-				popularity = -0.06
+				popularity = -0.08
+			}
+			DSH = { retire_character = DSH_franz_seldte }
+			hidden_effect = {
+				country_event = fgb.103
 			}
 		}
 	}
@@ -5450,7 +5504,9 @@ focus_tree = {
 		relative_position_id = FGB_rohm
 		prerequisite = { focus = FGB_rohm }
 		completion_reward = {
-
+			add_ideas = {
+				FGB_the_power_of_the_syndicates
+			}
 		}
 	}
 
@@ -5459,11 +5515,25 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_seize_the_means_of_production
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = FGB_rohm_the_power_of_the_syndicates
 		prerequisite = { focus = FGB_rohm_the_power_of_the_syndicates }
 		completion_reward = {
-
+			add_two_building_slots_in_two_random_states = yes
+			random_owned_state = {
+				limit = { 
+					free_building_slots = {
+    					building = industrial_complex
+    					size > 1
+    					include_locked = yes
+					} 
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build  = yes
+				}
+			}
 		}
 	}
 
@@ -5476,7 +5546,23 @@ focus_tree = {
 		relative_position_id = FGB_rohm_seize_the_means_of_production
 		prerequisite = { focus = FGB_rohm_seize_the_means_of_production }
 		completion_reward = {
-
+			if = { 
+				limit = { has_idea = FGB_civil_unrest1_a } 
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest1_a
+					add_idea = FGB_civil_unrest_rohm
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = FGB_civil_unrest
+					add_idea = FGB_civil_unrest1_a
+				}
+			}
+			add_timed_idea = {
+				idea = FGB_employment_program
+				days = 200
+			}
 		}
 	}
 
@@ -5485,49 +5571,102 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_the_sturmabteilungs_power_secured
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = FGB_rohm_weaken_the_stahlhelm
 		prerequisite = { focus = FGB_rohm_the_second_revolution }
 		prerequisite = { focus = FGB_rohm_weaken_the_stahlhelm }
 		prerequisite = { focus = FGB_rohm_mass_employment_program }
 		completion_reward = {
+			remove_ideas = {
+				FGB_civil_unrest_rohm
+			}
+			set_politics = {
+				ruling_party = national_syndicalism
+			}
+			set_cosmetic_tag = FGB_sturmabteilung
+			hidden_effect = {
+				news_event = fgb.101
+			}
+		}
+	}
 
+	focus = {
+		id = FGB_rohm_the_new_era_of_germany
+		icon = GFX_focus_FGB_rohm_the_sturmabteilungs_power_secured
+		x = 0
+		y = 1
+		cost = 0
+		allow_branch = { has_country_flag = FGB_rohm_power_secured }
+		relative_position_id = FGB_rohm_the_sturmabteilungs_power_secured
+		prerequisite = { focus = FGB_rohm_the_sturmabteilungs_power_secured }
+		completion_reward = {
+			add_war_support = 0.1
+			add_stability = 0.15
 		}
 	}
 
 	focus = {
 		id = FGB_rohm_contact_balbo
 		icon = GFX_focus_FGB_rohm_contact_balbo
+		x = -7
+		y = 1
+		cost = 4
+		mutually_exclusive = { focus = FGB_rohm_contact_mussolini }
+		relative_position_id = FGB_rohm_the_new_era_of_germany
+		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
+		completion_reward = {
+			custom_effect_tooltip = FGB_balbo_is_weaker_but_is_more_likely_to_accept_tt
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_contact_mussolini
+		icon = GFX_focus_FGB_rohm_contact_mussolini
 		x = -5
 		y = 1
 		cost = 4
-		relative_position_id = FGB_rohm_the_sturmabteilungs_power_secured
-		prerequisite = { focus = FGB_rohm_the_sturmabteilungs_power_secured }
+		mutually_exclusive = { focus = FGB_rohm_contact_balbo }
+		relative_position_id = FGB_rohm_the_new_era_of_germany
+		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
-			#nonagr pact
+			custom_effect_tooltip = FGB_mussolini_is_stronger_but_is_less_likely_to_accept_tt
 		}
 	}
 
 	focus = {
 		id = FGB_rohm_smuggle_guns_across_the_swiss_border
 		icon = GFX_focus_FGB_rohm_smuggle_guns_across_the_swiss_border
-		x = 0
+		x = 1
 		y = 1
 		cost = 4
 		relative_position_id = FGB_rohm_contact_balbo
-		prerequisite = { focus = FGB_rohm_contact_balbo }
+		prerequisite = { focus = FGB_rohm_contact_balbo focus = FGB_rohm_contact_mussolini }
 		completion_reward = {
+			custom_effect_tooltip = FGB_the_effects_of_this_focus_will_evolve_tt
 			add_political_power = -20
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
 				amount = -750
 				producer = FGB
 			}
-			TUS = {
-				add_equipment_to_stockpile = {
-					type = infantry_equipment_0
-					amount = 750
-					producer = FGB
+			if = { 
+				limit = { has_completed_focus = FGB_rohm_contact_balbo } 
+				TUS = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_0
+						amount = 750
+						producer = FGB
+					}
+				}
+			}
+			else_if = {
+				limit = { has_completed_focus = FGB_rohm_contact_mussolini }
+				ITS = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_0
+						amount = 750
+						producer = FGB
+					}
 				}
 			}
 		}
@@ -5538,15 +5677,18 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_smuggle_guns_across_the_swiss_border
 		x = -1
 		y = 1
-		cost = 4
-		relative_position_id = FGB_rohm_the_sturmabteilungs_power_secured
-		prerequisite = { focus = FGB_rohm_the_sturmabteilungs_power_secured }
+		cost = 5
+		relative_position_id = FGB_rohm_the_new_era_of_germany
+		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
+			add_ideas = {
+				a_gun_for_every_household
+			}
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build  = yes
 				}
 			}
@@ -5554,16 +5696,62 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_rohm_abandon_the_northern_sect
-		icon = GFX_focus_FGB_rohm_smuggle_guns_across_the_swiss_border
+		id = FGB_rohm_assign_a_new_cabinet
+		icon = GFX_focus_FGB_rohm_assign_a_new_cabinet
 		x = -2
-		y = 1
-		cost = 4
+		y = 0
+		cost = 5
 		relative_position_id = FGB_rohm_filler_focus_name_1
-		prerequisite = { focus = FGB_rohm_filler_focus_name_1 }
+		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
-			add_war_support = -0.05
-			#there were two wings of the nsdap i believe and this focus is for abandoning the other one
+			
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_enlist_new_brownshirts
+		icon = GFX_focus_FGB_rohm_assign_a_new_cabinet
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_rohm_assign_a_new_cabinet
+		prerequisite = { focus = FGB_rohm_assign_a_new_cabinet }
+		completion_reward = {
+			custom_effect_tooltip = new_division_template
+			division_template = {
+				name = "Sturmabteilung"
+				priority = 1
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					artillery_brigade = { x = 2 y = 0 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
+				create_unit = {
+					division = "name = \"1st. Sturmabteilung\" division_template = \"Sturmabteilung\" start_experience_factor = 0.3" 
+					owner = FGB
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
+				create_unit = {
+					division = "name = \"2nd. Sturmabteilung\" division_template = \"Sturmabteilung\" start_experience_factor = 0.3" 
+					owner = FGB
+				}
+			}
 		}
 	}
 
@@ -5572,7 +5760,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_smuggle_guns_across_the_swiss_border
 		x = 0
 		y = 1
-		cost = 4
+		cost = 5
 		relative_position_id = FGB_rohm_filler_focus_name_1
 		prerequisite = { focus = FGB_rohm_filler_focus_name_1 }
 		completion_reward = {
@@ -5596,9 +5784,9 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_roll_out_the_drums_of_war
 		x = 1
 		y = 1
-		cost = 4
-		relative_position_id = FGB_rohm_the_sturmabteilungs_power_secured
-		prerequisite = { focus = FGB_rohm_the_sturmabteilungs_power_secured }
+		cost = 5
+		relative_position_id = FGB_rohm_the_new_era_of_germany
+		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
 			add_war_support = 0.1
 			BAV = { 
@@ -5627,10 +5815,13 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_prepare_for_the_battle_for_germany
 		x = 0
 		y = 1
-		cost = 4
+		cost = 6
 		relative_position_id = FGB_rohm_roll_out_the_drums_of_war
 		prerequisite = { focus = FGB_rohm_roll_out_the_drums_of_war }
 		completion_reward = {
+			add_ideas = {
+				extensive_conscription
+			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
 				amount = 2000
@@ -5655,6 +5846,78 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = FGB_rohm_replenishing_our_ranks
+		icon = GFX_focus_FGB_rohm_prepare_for_a_strike_against_the_lion
+		x = 3
+		y = 1
+		cost = 8
+		relative_position_id = FGB_rohm_the_new_era_of_germany
+		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
+		completion_reward = {
+			add_corps_commander_role = {
+				Character = FGB_daniel_gerth
+				traits = { inflexible_strategist fgb_paramilitarist }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			add_corps_commander_role = {
+				Character = FGB_walther_stennes
+				traits = { brilliant_strategist fgb_paramilitarist }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			add_corps_commander_role = {
+				Character = FGB_manfred_von_killinger
+				traits = { infantry_officer fgb_paramilitarist }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			add_corps_commander_role = {
+				Character = FGB_horst_von_petersdorff
+				traits = { fgb_paramilitarist }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			add_corps_commander_role = {
+				Character = FGB_albert_leo_schlageter
+				traits = { fgb_paramilitarist }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_for_a_united_germany
+		icon = GFX_focus_FGB_rohm_for_a_united_germany
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_rohm_replenishing_our_ranks
+		prerequisite = { focus = FGB_rohm_replenishing_our_ranks }
+		completion_reward = {
+			add_ideas = {
+				FGB_for_a_united_germany
+			}
+		}
+	}
 	
 	focus = {
 		id = FGB_rohm_cooperate_with_the_dnbap
@@ -5667,7 +5930,12 @@ focus_tree = {
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
-			#offer of submission to bavaria if they have gobi
+			BAV = {
+				country_event = {
+					id = fgb.105
+					days = 1
+				}
+			}
 		}
 	}
 
@@ -5740,7 +6008,12 @@ focus_tree = {
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
-			#offer of submission to bavaria if they DONT have gobi (less likely to accept)
+			BAV = {
+				country_event = {
+					id = fgb.104
+					days = 2
+				}
+			}
 		}
 	}
 
@@ -5786,9 +6059,9 @@ focus_tree = {
 		relative_position_id = FGB_rohm_level_munich_to_the_ground
 		prerequisite = { focus = FGB_rohm_level_munich_to_the_ground }
 		completion_reward = {
-			#literally 1984
 			every_owned_state = {
 				limit = { is_core_of = BAV }
+				add_manpower = -1000
 				add_core_of = FGB 
 				remove_core_of = BAV
 			}

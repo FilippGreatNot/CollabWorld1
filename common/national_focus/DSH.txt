@@ -549,7 +549,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 3
 		y = 1
-		cost = 8
+		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -557,12 +557,12 @@ focus_tree = {
         relative_position_id = DSH_duesterbergs_ascension
         prerequisite = { focus = DSH_duesterbergs_ascension }
 		completion_reward = {
-			add_stability = -0.1
-			every_owned_state = {
-				add_extra_state_shared_building_slots = 1
+			add_stability = -0.06
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build  = yes
 				}
 			}
@@ -3685,7 +3685,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 1
-		cost = 15
+		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -3717,7 +3717,7 @@ focus_tree = {
 		icon = GFX_focus_DSH_a_new_era_for_the_bund
 		x = 0
 		y = 1
-		cost = 15
+		cost = 10
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -3985,6 +3985,30 @@ focus_tree = {
 					instant_build  = yes
 				}
 			}
+		}
+	}
+	focus = {
+		id = DSH_take_out_loans
+		icon = GFX_focus_DSH_a_new_era_for_the_bund
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DSH_has_debt_tt
+				hidden_trigger = {
+					has_political_power < 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = DSH_investments_into_stuttgart_proper
+		completion_reward = {
+			custom_effect_tooltip = DSH_will_unlock_new_decisions_tt
+			custom_effect_tooltip = DSH_the_decisions_will_give_loans_tt
 		}
 	}
 	focus = {

@@ -2349,6 +2349,132 @@ country_event = {
 	}
 }
 
+news_event = {
+	id = fgb.101
+	title = fgb.101.t
+	desc = fgb.101.d
+	picture = GFX_news_event_sturmabteilung_takeover
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.101.a
+		hidden_effect = {
+			FGB = {
+				country_event = fgb.102
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.102
+	title = fgb.102.t
+	desc = fgb.102.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.102.a
+		set_country_flag = FGB_rohm_power_secured 
+		mark_focus_tree_layout_dirty = yes 
+		complete_national_focus = FGB_rohm_the_new_era_of_germany
+	}
+}
+
+country_event = {
+	id = fgb.103
+	title = fgb.103.t
+	desc = fgb.103.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.103.a
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.02
+		}
+		add_field_marshal_role = {
+			Character = FGB_theodor_duesterberg
+			traits = { inflexible_strategist infantry_leader }
+            attack_skill = 2
+            defense_skill = 3
+            planning_skill = 2
+            logistics_skill = 3
+			skill = 3
+		}
+	}
+	option = {
+		name = fgb.103.b
+		add_political_power = 20
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = -0.03
+		}
+		retire_character = FGB_theodor_duesterberg
+	}
+}
+
+country_event = {
+	id = fgb.104
+	title = fgb.104.t
+	desc = fgb.104.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.104.a
+		ai_chance = { base = 10 }
+		FGB = {
+			annex_country = {
+				target = BAV
+				transfer_troops = no
+			}
+		}
+	}
+	option = {
+		name = fgb.104.b
+		ai_chance = { base = 30 }
+		add_war_support = 20
+		FGB = {
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.105
+	title = fgb.105.t
+	desc = fgb.105.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.105.a
+		ai_chance = { base = 20 }
+		FGB = {
+			annex_country = {
+				target = BAV
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = fgb.105.b
+		ai_chance = { base = 30 }
+		add_war_support = 20
+		FGB = {
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			}
+		}
+	}
+}
+
 country_event = {
 	id = fgb_policy.1
 	title = fgb_policy.1.t
