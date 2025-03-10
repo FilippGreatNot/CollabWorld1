@@ -17,6 +17,7 @@ focus_tree = {
 		completion_reward = {
 		    add_political_power = 35
 			add_stability = 0.05
+			country_event = cze.4
 		}
 	}
 	focus = {
@@ -31,6 +32,7 @@ focus_tree = {
 		completion_reward = {
 		    add_political_power = 35
 			army_experience = 20
+			country_event = cze.5
 		}
 	}
 	focus = {
@@ -44,6 +46,7 @@ focus_tree = {
 		cost = 1
 		completion_reward = {
 		    add_political_power = 35
+			country_event = cze.6
 		}
 	}
 	focus = {
@@ -257,6 +260,7 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 		    add_political_power = 50
+			add_manpower = 60000
 			add_popularity = {
 			    ideology = authoritarian_democrat
 				popularity = 0.1
@@ -299,6 +303,9 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 3
+		completion_reward = { 
+		    country_event = cze.1
+		}
 	}
     focus = { 
 	    id = CZE_death_of_stefanik
@@ -354,12 +361,15 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 3
+		completion_reward = {
+		    country_event = cze.2
+		}
 	}
     focus = {
 	    id = CZE_better_keep_quiet
 		relative_position_id = CZE_convene_the_legionary_council
 		available = { always = no }
-		x = 9
+		x = 11
 		y = 0
 	}
     focus = {
@@ -459,14 +469,34 @@ focus_tree = {
         x = -1 
 		y = 1
 		cost = 3
+		completion_reward = {
+		    country_event = cze.3
+		}
 	}
 	focus = {
 	    id = CZE_two_seats_at_one_throne
 		relative_position_id = CZE_new_czechoslovak_commander
 		prerequisite = { focus = CZE_new_czechoslovak_commander }
+		available = { always = no }
         x = 0
 		y = 1
 		cost = 3
+		completion_reward = { 
+		    set_party_name = {
+			    ideology = authoritarian_democrat
+				long_name = CZE_legionary_authdem_long
+				name = CZE_legionary_authdem
+			}
+			set_party_name = {
+			    ideology = despotism
+				long_name = CZE_legionary_despot_long
+				name = CZE_legionary_despot
+			}
+			promote_character = {
+			    character = CZE_gajda
+				ideology = militant_panslavism
+			}
+		}
 	}
 	focus = {
 	    id = CZE_seek_support_amongst_democrats
@@ -475,6 +505,14 @@ focus_tree = {
         x = -2
 		y = 1
 		cost = 5
+		completion_reward = { 
+		    add_popularity = {
+			    ideology = authoritarian_democrat 
+				popularity = 0.05
+			}
+			add_political_power = 75
+			add_stability = 0.05
+		}
 	}
 	focus = {
 	    id = CZE_meet_with_masaryk
@@ -483,6 +521,13 @@ focus_tree = {
         x = 0
 		y = 1
 		cost = 5
+		completion_reward = {
+		    country_event = cze.7
+			add_popularity = { 
+			    ideology = authoritarian_democrat 
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 	    id = CZE_streghten_military_influence
@@ -491,6 +536,10 @@ focus_tree = {
         x = 0
 		y = 1
 		cost = 5
+		completion_reward = {
+		    load_oob = "CZE"
+		    army_experience = 25
+		}
 	}
 	focus = {
 	    id = CZE_battalions_of_industrial_help
@@ -498,7 +547,13 @@ focus_tree = {
 		prerequisite = { focus = CZE_streghten_military_influence }
         x = 0
 		y = 1
-		cost = 5
+		cost = 5 
+		completion_reward = {
+		    swap_ideas = {
+			    remove_idea = CZE_czechoslovak_economy_2
+				add_idea = CZE_czechoslovak_economy_3
+			}
+		}
 	}
 	focus = {
 	    id = CZE_seek_support_amongst_nationalists
@@ -507,6 +562,16 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 5
+		completion_reward = { 
+		    add_popularity = {
+			    ideology = despotism 
+				popularity = 0.15
+			}
+			add_popularity = {
+			    ideology = national_syndicalism
+				popularity = 0.07
+			}
+		}
 	}
 	focus = {
 	    id = CZE_purge_suspicious_officers
@@ -515,6 +580,15 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 5
+		completion_reward = {
+		    add_popularity = {
+			    ideology = despotism 
+				popularity = 0.05
+			}
+			add_manpower = -250
+			add_stability = 0.05
+			retire_character = CZE_sergej
+		}
 	}
 	focus = {
 	    id = CZE_future_of_the_throne
@@ -524,29 +598,104 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 10
+		completion_reward = {
+		    add_political_power = 100
+			country_event = cze.8
+		}
 	}
 	focus = {
 	    id = CZE_syrovy_wins
 		relative_position_id = CZE_future_of_the_throne
 		prerequisite = { focus = CZE_future_of_the_throne }
 		mutually_exclusive = { focus = CZE_gajda_wins }
-		x = -4
+		available = { has_country_flag = CZE_syrovy_elected }
+		x = -5
 		y = 1
 		cost = 10
+		completion_reward = {
+		    retire_country_leader = yes
+			promote_character = {
+			    character = CZE_syrovy
+				ideology = stratocracy
+			}
+			add_popularity = {
+			    ideology = authoritarian_democrat 
+				popularity = 0.1
+			}
+			remove_unit_leader_role = CZE_gajda
+		}
+	}
+	focus = {
+	    id = CZE_nationalist_traitors
+		relative_position_id = CZE_syrovy_wins
+		prerequisite = { focus = CZE_syrovy_wins }
+		x = -2
+		y = 1
+		cost = 5
+		completion_reward = {
+		    add_popularity = {
+			    ideology = national_syndicalism 
+				popularity = -0.1
+			}
+			set_party_name = {
+			    ideology = national_syndicalism
+				name = CZE_banned_nazis
+			}
+			set_party_name = {
+			    ideology = esotericism
+				name = CZE_banned_eso
+			}
+		}
+	}
+	focus = { 
+	    id = CZE_continue_stefanik
+		relative_position_id = CZE_syrovy_wins
+		prerequisite = { focus = CZE_syrovy_wins }
+		x = 2 
+		y = 1 
+		cost = 5
+		completion_reward = { 
+		    swap_ideas = {
+			    remove_idea = CZE_promised_democracy
+				add_idea = CZE_stefanik_work
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
 	}
 	focus = {
 	    id = CZE_gajda_wins
 		relative_position_id = CZE_future_of_the_throne
 		prerequisite = { focus = CZE_future_of_the_throne }
 		mutually_exclusive = { focus = CZE_syrovy_wins }
-		x = 4
+		available = { has_country_flag = CZE_gajda_elected }
+		x = 5
 		y = 1
 		cost = 10
+		completion_reward = {
+		    set_politics = {
+			    ruling_party = despotism
+			}
+			add_popularity = {
+			    ideology = despotism 
+				popularity = 0.4
+			}
+			remove_unit_leader_role = CZE_syrovy
+			add_field_marshal_role = { 
+			    character = CZE_gajda
+				skill = 4 
+				
+				attack_skill = 4
+				defense_skill = 3
+				planning_skill = 4
+				logistics_skill = 2
+			}
+		}
 	}
 	focus = {
 	    id = CZE_czechoslovak_economical_plan
 		available = { has_completed_focus = CZE_call_in_economic_advisors }
-		x = 24
+		x = 26
 		y = 0
 		cost = 6
 		completion_reward = {
