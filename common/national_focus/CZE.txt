@@ -4,7 +4,7 @@ focus_tree = {
     country = {
         base = 0
         modifier = {
-            add = 10
+            add = 50
             tag = CZE
         }
     }
@@ -306,14 +306,12 @@ focus_tree = {
 		completion_reward = { 
 		    country_event = cze.1
 		}
-	}
+	}	
     focus = { 
 	    id = CZE_death_of_stefanik
 		relative_position_id = CZE_meeting_at_the_prague_castle
 		available = { always = no }
-		prerequisite = { 
-		    focus = CZE_meeting_at_the_prague_castle
-		}
+		prerequisite = { focus = CZE_meeting_at_the_prague_castle }
 		x = 0
 		y = 1
 		cost = 3
@@ -664,6 +662,85 @@ focus_tree = {
 		}
 	}
 	focus = {
+	    id = CZE_legions_after_marxists
+		relative_position_id = CZE_nationalist_traitors
+		prerequisite = { focus = CZE_nationalist_traitors }
+		x = -2
+		y = 1
+		cost = 5
+		completion_reward = {
+		    add_manpower = -200
+			add_popularity = {
+			    ideology = marxism
+				popularity = -0.1
+			}
+			add_stability = 0.05
+		}
+	}
+	focus = {
+	    id = CZE_invite_back_kramar
+		relative_position_id = CZE_nationalist_traitors
+		prerequisite = { focus = CZE_nationalist_traitors }
+		prerequisite = { focus = CZE_continue_stefanik }
+		x = 2
+		y = 1
+		cost = 5
+		completion_reward = {
+		    set_party_name = {
+			    ideology = despotism
+				long_name = CZE_despotism_kramar_long
+				name = CZE_despotism_kramar
+			}
+			promote_character = {
+			    character = CZE_karel_kramar
+				ideology = paternal_autocrat
+			}
+			add_popularity = {
+			    ideology = despotism
+				popularity = 0.15
+			}
+		}
+	}
+	focus = {
+	    id = CZE_masaryk_president
+		relative_position_id = CZE_continue_stefanik
+		prerequisite = { focus = CZE_continue_stefanik }
+		x = 2
+		y = 1
+		cost = 5
+		completion_reward = {
+		    set_party_name = {
+			    ideology = liberalism
+				long_name = CZE_liberalism_masaryk_long
+				name = CZE_liberalism_masaryk
+			}
+			add_popularity = {
+			    ideology = liberalism
+				popularity = 0.07
+			}
+			add_stability = 0.05
+			promote_character = {
+			    character = CZE_tomas_masaryk
+				ideology = social_liberalism
+			}
+		}
+	}
+	focus = {
+	    id = CZE_austerity_for_workas
+		relative_position_id = CZE_legions_after_marxists
+		prerequisite = { focus = CZE_legions_after_marxists }
+		prerequisite = { focus = CZE_invite_back_kramar }
+		x = 2
+		y = 1
+		cost = 3
+		completion_reward = {
+		    swap_ideas = {
+			    remove_idea = CZE_czechoslovak_economy_3
+				add_idea = CZE_czechoslovak_economy_4
+			}
+		}
+	}
+	focus = {
 	    id = CZE_gajda_wins
 		relative_position_id = CZE_future_of_the_throne
 		prerequisite = { focus = CZE_future_of_the_throne }
@@ -717,6 +794,15 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 4
+		completion_reward = {
+		    random_owned_controlled_state = {
+			    add_building_construction = {
+				    type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 	    id = CZE_fund_zbrojovka
@@ -781,6 +867,15 @@ focus_tree = {
 		x = -1 
 		y = 1
 		cost = 4
+		completion_reward = {
+		    9 = {
+			    add_building_construction = {
+				    type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 	    id = CZE_skoda_mlada_boleslav
@@ -789,6 +884,15 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 4
+		completion_reward = {
+		    9 = {
+			    add_building_construction = {
+				    type = industrial_complex 
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 	    id = CZE_skoda_ads
