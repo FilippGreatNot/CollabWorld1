@@ -1,5 +1,6 @@
 ## SETUP ##
 add_namespace = cze
+add_namespace = cze.start
 
 ## MAIN ##
 
@@ -107,7 +108,7 @@ country_event = {
 	desc = cze.7.d
     fire_only_once = yes
 	is_triggered_only = yes
-	picture = GFX_report_event_vril
+	picture = GFX_report_syrovy_masaryk
 	
 	option = {
 	    name = cze.7.a
@@ -128,5 +129,39 @@ country_event = {
 	option = {
 	    name = cze.8.b
 		set_country_flag = CZE_gajda_elected
+	}
+}
+country_event = {
+    id = cze.start
+	title = cze.start.t
+	desc = cze.start.d
+	fire_only_once = yes
+	trigger = {
+	    focus_progress = {
+		    focus = CZE_convene_the_legionary_council
+			progress > 0
+		}
+	}
+	picture = GFX_report_event_vril
+	
+	option = {
+	    name = cze.start.a
+		country_event = cze.start.2
+	}
+	option = {
+	    name = cze.start.b
+		add_political_power = 5
+	}
+}
+country_event = {
+    id = cze.start.2
+	title = cze.start.2.t
+	desc = cze.start.2.d
+	is_triggered_only = yes
+	picture = GFX_report_event_vril
+	
+	option = {
+	    name = cze.start.2.a
+		add_political_power = 5
 	}
 }
