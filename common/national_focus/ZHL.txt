@@ -1,0 +1,638 @@
+focus_tree = {
+	id = zheltorossiyan.focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ZHL
+		}
+	}
+	default = no
+	
+	focus = {
+		id = ZHL_dawn_zheltorossiya
+        icon = GFX_ZHL_dawn_zheltorossiya
+		
+        x = 5
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+		     add_war_support = 0.05
+			 add_political_power = 25
+			 add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_ask_far_eastern_republic_for_guns
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_dawn_zheltorossiya }
+		
+        x = 7
+        y = 2
+		
+        cost = 5
+
+		completion_reward = {
+			army_experience = 10
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = ZHL
+			}
+			add_timed_idea = {
+				idea = ZHL_repaying_debt
+				days = 60
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_force_laborers_mine
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_dawn_zheltorossiya }
+		
+        x = 3
+        y = 2
+		
+        cost = 5
+
+		completion_reward = {
+			add_stability = -0.04
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 9
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = tungsten
+					amount = 4
+				}
+			}
+		}
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_question_of_army_leader
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { }
+		
+        x = 35
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_mobilize_army
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_dawn_zheltorossiya }
+		
+        x = 5
+        y = 2
+		
+        cost = 3
+
+		completion_reward = {
+			add_command_power = 20
+			add_war_support = 0.05
+			army_experience = 10
+		}
+		
+		allow_branch = {
+		}
+	}
+
+
+	focus = {
+		id = ZHL_Deploy_cossacks
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_ask_far_eastern_republic_for_guns }
+		
+        x = 6
+        y = 3
+		
+        cost = 4
+
+		completion_reward = {
+			division_template = {
+				name = "Cossack Militias"
+				priority = 1	
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+			}
+
+
+			714 = {
+				create_unit = {
+					division = "name = \"Cossack Militias\" division_template = \"Cossack Militias\" start_experience_factor = 0.3"
+					owner = PREV
+					count = 2
+				}
+			}
+
+			761 = {
+				create_unit = {
+					division = "name = \"Cossack Militias\" division_template = \"Cossack Militias\" start_experience_factor = 0.3"
+					owner = PREV
+					count = 1
+				}
+			}
+		}
+
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_establish_new_work_camps
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_force_laborers_mine }
+		
+        x = 4
+        y = 3
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = 0.06
+			761 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+		focus = {
+		id = ZHL_final_preparation
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_mobilize_army }
+		
+        x = 5
+        y = 4
+		
+        cost = 3
+
+		completion_reward = {
+			army_experience = 10
+
+		}
+
+
+		
+		allow_branch = {
+		}
+	}
+																									
+	focus = {
+		id = ZHL_invasion_fengtian_clique
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_mobilize_army focus = ZHL_establish_new_work_camps focus = ZHL_Deploy_cossacks }
+		
+        x = 5
+        y = 4
+		
+        cost = 5
+
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = MAN
+				type = annex_everything
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_integrate_fengtian
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invasion_fengtian_clique }
+		
+        x = 5
+        y = 5
+		
+        cost = 5
+
+		completion_reward = {
+			add_stability = -0.05
+			MAN = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_destroy_jilin_army
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invasion_fengtian_clique }
+		
+        x = 3
+        y = 5
+		
+        cost = 4
+
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = JIL
+				type = annex_everything
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_intergrate_harbin
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_destroy_jilin_army }
+		
+        x = 3
+        y = 6
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_invade_heavenly_army_fengtian
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invasion_fengtian_clique }
+		
+        x = 7
+        y = 5
+		
+        cost = 4
+
+		completion_reward = {
+			add_war_support = 0.05
+			declare_war_on = {
+				target = HVN
+				type = annex_everything
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_integrate_heavenly_army_fengtian
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invade_heavenly_army_fengtian }
+		
+        x = 7
+        y = 6
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			HVN = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_zheltorossiyan_unification
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_integrate_fengtian focus = ZHL_intergrate_harbin focus =  ZHL_integrate_heavenly_army_fengtian }
+		
+        x = 5
+        y = 7
+		
+        cost = 5
+
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.08
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.1
+			}
+			country_event = zhl.1
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_begin_industrialisation
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { }
+		
+        x = 23
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+			add_stability = -0.10
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_construct_modern_roads
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_land_reform }
+		
+        x = 25
+        y = 3
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_rebuild_nadamursk
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_construct_modern_roads }
+		
+        x = 26
+        y = 4
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_modernize_nenjiang
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_rebuild_nadamursk }
+		
+        x = 26
+        y = 5
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_increse_education_funding
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_land_reform }
+		
+        x = 21
+        y = 3
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_harbin_state_university
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invest_in_new_schools }
+		
+        x = 21
+        y = 6
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+		focus = {
+		id = ZHL_Infrastructual_revolution
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_modernize_nenjiang }
+		
+        x = 25
+        y = 6
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_land_reform
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_begin_industrialisation }
+		
+        x = 23
+        y = 2
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_modernize_factory_tools
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_land_reform }
+		
+        x = 23
+        y = 3
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_reform_education_system
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_increse_education_funding }
+		
+        x = 20
+        y = 4
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_rapid_electrification
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_modernize_factory_tools }
+		
+        x = 24
+        y = 4
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_fund_mechanical_modernisation
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_modernize_factory_tools }
+		
+        x = 22
+        y = 4
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_invest_in_new_schools
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_reform_education_system }
+		
+        x = 20
+        y = 5
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+
+	focus = {
+		id = ZHL_slava_zheltorossyi
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { }
+		
+        x = 15
+        y = 1
+		
+        cost = 5
+
+		completion_reward = {
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_rise_of_national_bolhshevism
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { }
+		
+        x = 15
+        y = 9
+		
+        cost = 5
+
+		available = {
+			has_country_leader = {
+                name = "Nikolai Ustryalov"
+                ruling_only = yes
+            }
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.10
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+}
