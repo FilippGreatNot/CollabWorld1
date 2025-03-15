@@ -1,0 +1,82 @@
+add_namespace = zhl
+add_namespace = zhl.diplomacy
+add_namespace = zhl.diplomacy.erf_invite
+
+country_event = {
+	id = zhl.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event zhl.1" }
+	title = zhl.1.t
+	desc = zhl.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = zhl.1.a
+		country_event = { id = zhl.4 days = 1 }
+	}
+}
+
+country_event = {
+	id = zhl.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event zhl.2" }
+	title = zhl.2.t
+	desc = zhl.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = zhl.2.a
+	}
+
+	option = {
+		name = zhl.2.b
+	}
+}
+
+country_event = {
+	id = zhl.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event zhl.3" }
+	title = zhl.3.t
+	desc = zhl.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = zhl.3.a
+	}
+}
+
+country_event = {
+	id = zhl.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event zhl.4" }
+	title = zhl.4.t
+	desc = zhl.4.d
+	is_triggered_only = yes
+
+	option = {
+		name = zhl.4.a
+		promote_character = ZHL_vasily_boldyrev
+		country_event = { id = zhl.5 days = 5 }
+	}
+}
+
+country_event = {
+	id = zhl.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event zhl.5" }
+	title = zhl.5.t
+	desc = zhl.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = zhl.5.a
+		set_politics = {
+			ruling_party = bolshevism
+		}
+		add_popularity = {
+			ideology = bolshevism
+			popularity = 0.1
+		}
+		set_cosmetic_tag = ZHL_nazbol
+	}
+
+	option = {
+		name = zhl.5.b
+	}
+}

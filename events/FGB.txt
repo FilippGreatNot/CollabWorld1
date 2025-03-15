@@ -139,38 +139,42 @@ country_event = {
 	
 	option = {
 		name = fgb.5.a
-		set_country_flag = FGB_noske_victory_over_bavaria_flag
-		mark_focus_tree_layout_dirty = yes 
-		custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
+		add_war_support = 0.04
 		hidden_effect = { 
 			if = {
-				limit = { has_completed_focus = FGB_noske_new_day_new_germany }
-				complete_national_focus = FGB_noske_victory_over_bavaria 
-			}
-			division_template = {
-				name = "Nationalist Troops"
-				priority = 1
-				is_locked = yes
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
+				limit = { has_government = social_democrat }
+				set_country_flag = FGB_noske_victory_over_bavaria_flag
+				mark_focus_tree_layout_dirty = yes 
+				custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
+				if = {
+					limit = { has_completed_focus = FGB_noske_new_day_new_germany }
+					complete_national_focus = FGB_noske_victory_over_bavaria 
 				}
-				support = {
-					engineer = { x = 0 y = 0 }
+				division_template = {
+					name = "Nationalist Troops"
+					priority = 1
+					is_locked = yes
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+					}
 				}
-			}
-			52 = {
-				create_unit = {
-					division = "name = \"1st. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
-					owner = FGB
+				52 = {
+					create_unit = {
+						division = "name = \"1st. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+						owner = FGB
+					}
 				}
-			}
-			53 = {
-				create_unit = {
-					division = "name = \"2nd. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
-					owner = FGB
+				53 = {
+					create_unit = {
+						division = "name = \"2nd. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+						owner = FGB
+					}
 				}
 			}
 		}
@@ -369,12 +373,11 @@ news_event = {
 	option = {
 		name = fgb.13.a
 		FGB = {
-			custom_effect_tooltip = FGB_noske_victory_over_wehrkommando_tt
-			set_country_flag = FGB_noske_victory_over_wehrkommando_flag
-			mark_focus_tree_layout_dirty = yes
-			hidden_effect = {
-				add_war_support = -0.05
-				add_stability = -0.05
+			if = { 
+				limit = { has_government = social_democrat } 
+				custom_effect_tooltip = FGB_noske_victory_over_wehrkommando_tt
+				set_country_flag = FGB_noske_victory_over_wehrkommando_flag
+				mark_focus_tree_layout_dirty = yes
 			}
 		}
 	}
@@ -2470,6 +2473,152 @@ country_event = {
 			create_wargoal = {
 				type = annex_everything
 				target = BAV
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.106
+	title = fgb.106.t
+	desc = fgb.106.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.106.a
+		ai_chance = { 
+			base = 20 
+			modifier = { has_government = despotism factor = 10 }
+		}
+		FGB = {
+			annex_country = {
+				target = WRD
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = fgb.106.b
+		ai_chance = { base = 30 }
+		add_war_support = 20
+		FGB = {
+			create_wargoal = {
+				type = annex_everything
+				target = BAV
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.107
+	title = fgb.107.t
+	desc = fgb.107.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.107.a
+		ai_chance = { base = 8 }
+		set_politics = {
+			ruling_party = despotism
+		}
+		add_popularity = {
+			ideology = despotism
+			popularity = 0.06
+		}
+		set_cosmetic_tag = BAV_freikorps_coup
+		FGB = {
+			country_event = fgb.108
+		}
+		hidden_effect = {
+			news_event = { id = fgb.109 days = 1 }
+		}
+	}
+	option = {
+		name = fgb.107.b
+		ai_chance = { base = 32 }
+		FGB = {
+			country_event = fgb.110
+		}
+	}
+}
+
+country_event = {
+	id = fgb.108
+	title = fgb.108.t
+	desc = fgb.108.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.108.a
+		add_political_power = 20
+		add_war_support = 0.05
+		add_stability = 0.05
+	}
+}
+
+news_event = {
+	id = fgb.109
+	title = fgb.109.t
+	desc = fgb.109.d
+	picture = GFX_news_event_generic_war2
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = fgb.109.a
+	}
+}
+
+country_event = {
+	id = fgb.110
+	title = fgb.110.t
+	desc = fgb.110.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.110.a
+		add_war_support = 0.05
+		create_wargoal = {
+			type = annex_everything
+			target = BAV
+		}
+	}
+}
+
+country_event = {
+	id = fgb.111
+	title = fgb.111.t
+	desc = fgb.111.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.111.a
+		ai_chance = {
+			base = 40
+		}
+		FGB = {
+			annex_country = {
+				target = WRD
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = fgb.111.b 
+		ai_chance = {
+			base = 15
+		}
+		add_war_support = 0.04
+		FGB = {
+			create_wargoal = {
+				type = annex_everything
+				target = WRD
 			}
 		}
 	}

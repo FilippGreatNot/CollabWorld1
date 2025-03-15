@@ -439,7 +439,7 @@ focus_tree = {
 		id = ALT_complete_economic_restoration
 		icon = GFX_focus_ALT_complete_economic_restoration
 		x = 0
-		y = 2
+		y = 1
 		cost = 5
 		available = {
 			NOT = { has_idea = ALT_four_year_plan }
@@ -1677,7 +1677,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_put_the_prisoners_into_the_work_camps
-		icon = GFX_focus_GER_schutztruppe
+		icon = GFX_focus_ALT_put_the_prisoners_into_the_work_camps
 		x = 1
 		y = 2
 		ai_will_do = {
@@ -1704,7 +1704,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_mass_production_of_new_planes
-		icon = GFX_focus_GER_schutztruppe
+		icon = GFX_focus_ALT_mass_production_of_new_planes
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -1774,7 +1774,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_under_the_russian_eye
-		icon = GFX_focus_SOV_stalins_cult_of_personality
+		icon = GFX_focus_ALT_under_the_russian_eye
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -1899,7 +1899,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_form_the_peoples_council
-		icon = GFX_focus_ARG_women_in_industry
+		icon = GFX_focus_ALT_form_the_peoples_council
 		x = 6
 		y = 1
 		ai_will_do = {
@@ -1973,7 +1973,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_a_sophisticated_weapons_manufacturing_network
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		icon = GFX_focus_ALT_a_sophisticated_weapons_manufacturing_network
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -1994,7 +1994,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_the_department_of_industry
-		icon = GFX_focus_generic_industry_2
+		icon = GFX_focus_ALT_the_department_of_industry
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -2113,7 +2113,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_model_ourselves_after_the_cheka
-		icon = GFX_goal_generic_intelligence_exchange
+		icon = GFX_focus_ALT_model_ourselves_after_the_cheka
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -3919,7 +3919,7 @@ focus_tree = {
 		id = ALT_a_new_era_for_china
 		icon = GFX_focus_ALT_a_new_era_for_china
 		x = 0
-		y = 2
+		y = 1
 		ai_will_do = {
 			factor = 10
 		}
@@ -3945,7 +3945,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_invade_the_nationalists
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_invade_the_nationalists
 		x = -4
 		y = 1
 		ai_will_do = {
@@ -3985,7 +3985,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_integrate_the_tibetans
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_integrate_the_tibetans
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -4023,7 +4023,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_bring_down_sichuanese_fevor
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_bring_down_sichuanese_fevor
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -4049,7 +4049,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_bury_sun_yat_sens_legacy
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_bury_sun_yat_sens_legacy
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -4080,7 +4080,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_make_deals_with_the_central_socialists
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_make_deals_with_the_central_socialists
 		x = 0
 		y = 1
 		ai_will_do = {
@@ -4111,7 +4111,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_help_conquer_xian
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_help_conquer_xian
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -4135,7 +4135,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_support_the_inner_mongolian_insurgency
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_support_the_inner_mongolian_insurgency
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -4168,8 +4168,48 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ALT_invade_beiyang
+		icon = GFX_focus_ALT_invade_beiyang
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_help_conquer_xian
+		prerequisite = { focus = ALT_help_conquer_xian }
+		prerequisite = { focus = ALT_support_the_inner_mongolian_insurgency }
+		completion_reward = {
+			REH = { make_every_core_national_for_PREV = yes }
+			CHI = { make_every_core_national_for_PREV = yes }
+			HUB = { make_every_core_national_for_PREV = yes }
+			SHC = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = REH
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = HUB
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = SHC
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
 		id = ALT_stage_the_shivee_incident
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_stage_the_shivee_incident
 		x = 4
 		y = 1
 		ai_will_do = {
@@ -4222,7 +4262,7 @@ focus_tree = {
 
 	focus = {
 		id = ALT_support_the_manchu_farmers
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_support_the_manchu_farmers
 		x = -1
 		y = 1
 		ai_will_do = {
@@ -4252,9 +4292,10 @@ focus_tree = {
 			JIL = { make_every_core_national_for_PREV = yes }
 		}
 	}
+
 	focus = {
 		id = ALT_establish_the_manchurian_soviet_republic
-		icon = GFX_focus_ALT_a_new_era_for_china
+		icon = GFX_focus_ALT_establish_the_manchurian_soviet_republic
 		x = 1
 		y = 1
 		ai_will_do = {
@@ -4285,6 +4326,273 @@ focus_tree = {
 				}
 			}
 			puppet = MAN 
+		}
+	}
+
+	focus = {
+		id = ALT_demand_back_the_japanese_concessions
+		icon = GFX_focus_ALT_demand_back_the_japanese_concessions
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_support_the_manchu_farmers
+		prerequisite = { focus = ALT_support_the_manchu_farmers }
+		prerequisite = { focus = ALT_establish_the_manchurian_soviet_republic }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_knock_out_the_anhui_clique
+		icon = GFX_focus_ALT_knock_out_the_anhui_clique
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_bury_sun_yat_sens_legacy
+		prerequisite = { focus = ALT_bury_sun_yat_sens_legacy }
+		prerequisite = { focus = ALT_invade_beiyang }
+		completion_reward = {
+			ANC = { make_every_core_national_for_PREV = yes }
+			JGX = { make_every_core_national_for_PREV = yes }
+			ZHE = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = ANC
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = JGX
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ZHE
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = ALT_occupy_the_treaty_ports
+		icon = GFX_focus_ALT_occupy_the_treaty_ports
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_invade_beiyang
+		prerequisite = { focus = ALT_invade_beiyang }
+		prerequisite = { focus = ALT_demand_back_the_japanese_concessions }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_the_1930_party_congress
+		icon = GFX_focus_ALT_the_1930_party_congress
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 10
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_knock_out_the_anhui_clique
+		prerequisite = { focus = ALT_knock_out_the_anhui_clique }
+		prerequisite = { focus = ALT_occupy_the_treaty_ports }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_the_century_of_chinese_communism
+		icon = GFX_focus_ALT_the_century_of_chinese_communism
+		x = 11
+		y = -6
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 0
+		available = {
+			always = no
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_knock_out_the_anhui_clique
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_form_the_oriental_internationale
+		icon = GFX_focus_ALT_form_the_oriental_internationale
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		mutually_exclusive = { focus = ALT_buddy_up_with_the_russians }
+		relative_position_id = ALT_the_century_of_chinese_communism
+		prerequisite = { focus = ALT_the_century_of_chinese_communism }
+		completion_reward = {
+			create_faction = "The Oriental Internationale"
+		}
+	}
+
+	focus = {
+		id = ALT_support_the_indochinese_insurgency
+		icon = GFX_focus_ALT_support_the_indochinese_insurgency
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_form_the_oriental_internationale
+		prerequisite = { focus = ALT_form_the_oriental_internationale focus = ALT_buddy_up_with_the_russians }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_assist_the_delhi_commune
+		icon = GFX_focus_ALT_assist_the_delhi_commune
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_form_the_oriental_internationale
+		prerequisite = { focus = ALT_form_the_oriental_internationale focus = ALT_buddy_up_with_the_russians }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_buddy_up_with_the_russians
+		icon = GFX_focus_ALT_buddy_up_with_the_russians
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		mutually_exclusive = { focus = ALT_form_the_oriental_internationale }
+		relative_position_id = ALT_the_century_of_chinese_communism
+		prerequisite = { focus = ALT_the_century_of_chinese_communism}
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_establish_contact_with_the_germans
+		icon = GFX_focus_ALT_establish_contact_with_the_germans
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_buddy_up_with_the_russians
+		prerequisite = { focus = ALT_form_the_oriental_internationale focus = ALT_buddy_up_with_the_russians }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_our_friends_in_sweden
+		icon = GFX_focus_ALT_our_friends_in_sweden
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_buddy_up_with_the_russians
+		prerequisite = { focus = ALT_form_the_oriental_internationale focus = ALT_buddy_up_with_the_russians }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = ALT_liberate_the_japanese_workers
+		icon = GFX_focus_ALT_liberate_the_japanese_workers
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		cost = 5
+		available = {
+			has_war = no
+			is_subject = no
+		}
+		relative_position_id = ALT_assist_the_delhi_commune
+		prerequisite = { focus = ALT_support_the_indochinese_insurgency focus = ALT_assist_the_delhi_commune focus = ALT_establish_contact_with_the_germans focus = ALT_our_friends_in_sweden }
+		completion_reward = {
+			declare_war_on = {
+				target = JKR
+				type = puppet_wargoal_focus
+			}
+			declare_war_on = {
+				target = JAP
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }

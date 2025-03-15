@@ -1506,6 +1506,8 @@ focus_tree = {
 		prerequisite = { focus = IRQ_rashid_ali }
 		
 		completion_reward = {	
+			add_stability = 0.5
+			add_political_power = 30
 		}
 	}
 
@@ -1799,9 +1801,6 @@ focus_tree = {
 			}
 
 		}
-			add_ideas = {
-				IRQ_oil_exports
-			}
 
 
 		}
@@ -1875,7 +1874,7 @@ focus_tree = {
 
 		}
 	}
-		 focus= {
+	focus= {
 		id = IRQ_euphrates
 		icon = GFX_focus_IRQ_elections
 		x = -3
@@ -1892,6 +1891,11 @@ focus_tree = {
 		prerequisite = { focus = IRQ_stir_garden }
 		
 		completion_reward = {	
+		291 = {
+		add_extra_state_shared_building_slots = 1
+		}
+		add_war_support = 0.05
+		country_event = irq.22
 		}
 	}
 
@@ -1944,9 +1948,9 @@ focus_tree = {
 		prerequisite = {focus = IRQ_euphrates_state}
 		
 		completion_reward = {	
-			remove_ideas = {
-			IRQ_sectarian_woes2
-			}
+		remove_ideas = {
+		IRQ_sectarian_woes
+		}
 		}
 	}
 
@@ -1967,6 +1971,8 @@ focus_tree = {
 		prerequisite = { focus = IRQ_euphrates }
 		
 		completion_reward = {	
+		add_research_slot = 1
+		add_political_power = 10
 		}
 	}
 
@@ -2027,6 +2033,9 @@ focus_tree = {
 		prerequisite = { focus = IRQ_tigris }
 		
 		completion_reward = {	
+		remove_ideas = {
+				IRQ_tribal_unrest
+			}
 		}
 	}
 
@@ -2045,11 +2054,8 @@ focus_tree = {
      
 		
 		prerequisite = { focus = IRQ_tigris_end_tribal_conflicts }
-		
-		completion_reward = {	
-			remove_ideas = {
-				IRQ_tribal_unrest2
-			}
+		completion_reward = { 
+
 		}
 	}
 
@@ -2142,18 +2148,25 @@ focus_tree = {
 		icon = GFX_focus_IRQ_elections
 		x = -9
 		y = 1
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		relative_position_id = IRQ_rashid_ali
 		ai_will_do = {
 			factor = 10
 		}
-
+		available = {
+		has_country_leader = {
+                    name = "Rashid Ali al Gaylani"
+                    ruling_only = yes
+                }
+		has_government = national_syndicalism	
+				 }
      
 		
 		prerequisite = { focus = IRQ_rashid_ali }
 		
 		completion_reward = {	
+		add_ideas = IRQ_futuwwa
 		}
 	}
 	focus = {
@@ -2161,7 +2174,7 @@ focus_tree = {
 		icon = GFX_focus_IRQ_elections
 		x = -2
 		y = 1
-		cost = 10
+		cost = 7
 		available_if_capitulated = yes
 		relative_position_id = IRQ_futuwwa_nationalization
 		ai_will_do = {
@@ -2173,6 +2186,14 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_nationalization }
 		
 		completion_reward = {	
+		country_event = irq.19
+		291 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+		}
 		}
 	}
 
@@ -2193,6 +2214,21 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_nationalization }
 		
 		completion_reward = {	
+		add_war_support = 0.15
+		add_political_power = 50
+		army_experience = 20
+		add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			}
+		add_popularity = {
+			ideology = reactionism 
+			popularity = 0.12
+		}
+		add_popularity = {
+		ideology = esotericism 
+		popularity = 0.05
+		}
 		}
 	}
 
@@ -2213,6 +2249,10 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_nationalization }
 		
 		completion_reward = {	
+		add_manpower = 5000
+		add_stability = 0.05
+		army_experience = 15
+		country_event = irq.20
 		}
 	}
 
@@ -2235,6 +2275,11 @@ focus_tree = {
 		prerequisite = {focus = IRQ_futuwwa_blood}
 		
 		completion_reward = {	
+		swap_ideas = {
+		remove_idea = IRQ_futuwwa
+		add_idea = IRQ_futuwwa_saint_george	
+			}
+
 		}
 	}
 
@@ -2255,6 +2300,44 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_george }
 		
 		completion_reward = {	
+		add_war_support = 0.15
+		add_political_power = 30
+		add_manpower = 5000
+		division_template = {
+				name = "Kataib al-Saadeh al-Qurayshiyyah"
+				priority = 1
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					artillery_brigade = { x = 2 y = 0 }
+				}
+					support = {
+       			 artillery = { x = 0 y = 0 }
+   				 }
+			}
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				prioritize = { 50 }
+				create_unit = {
+					division = "name = \"al-Liwa al-Qurayshi al-Awwal\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 1" 
+					owner = IRQ
+				}
+				create_unit = {
+					division = "name = \"Kataib al-Qura al-Musawiyya\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 1" 
+					owner = IRQ
+				}
+				create_unit = {
+					division = "name = \"al-Liwa al-Qurayshi al-Thani\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 1" 
+					owner = IRQ
+				}
+			}
 		}
 	}
 
@@ -2275,6 +2358,14 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_george }
 		
 		completion_reward = {	
+		add_manpower = 35000
+		army_experience = 5
+		add_stability = -0.1
+		add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 3500
+				producer = IRQ
+		}
 		}
 	}
 
@@ -2296,6 +2387,9 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_children}
 		
 		completion_reward = {	
+		add_ideas = {
+		IRQ_the_new_iraqi_man
+		}
 		}
 	}
 

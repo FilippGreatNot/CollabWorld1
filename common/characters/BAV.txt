@@ -136,8 +136,6 @@ characters = {
 			idea_token = BAV_rudolf_egelhofer_hog
 			traits = { army_chief_defensive_2 }
 			can_be_fired = yes
-			
-
 		}
 	}
 	BAV_tobias_akselrod = {
@@ -217,6 +215,93 @@ characters = {
 			can_be_fired = no
 			visible = {
 				has_completed_focus = BAV_appoint_gregor_strasser
+			}
+		}
+	}
+	BAV_lerchenfeld_kofering = {
+		name = "Graf von Lerchenfeld-Köfering"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BAV/BAV_lerchenfeld_kofering.dds"
+			}
+		}
+		country_leader = {
+			ideology = classical_conservatism
+			desc = "POLITICS_LERCHENFELD_DESC"
+		}
+	}
+	BAV_carl_schmitt = {
+		name = "Carl Schmitt"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BAV/BAV_carl_schmitt.dds"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = BAV_carl_schmitt_prop
+			traits = { national_theorist }
+			can_be_fired = no
+			available = {
+				OR = {
+					has_government = national_syndicalism
+					has_government = conservatism
+					has_government = reactionism
+				}
+			}
+		}
+	}
+	BAV_gustav_ritter_von_kahr = {
+		name = "Gustav Ritter von Kahr"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BAV/BAV_gustav_ritter_von_kahr.dds"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = BAV_gustav_ritter_von_kahr_sec
+			traits = { conservative_lawyer }
+			can_be_fired = no
+			available = {
+				has_government = conservatism
+			}
+		}
+	}
+	BAV_karl_friedrich_speck = {
+		name = "Karl Friedrich Speck"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BAV/BAV_karl_friedrich_speck.dds"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = BAV_karl_friedrich_speck_ec
+			traits = { experienced_economist }
+			can_be_fired = no
+			available = {
+				has_government = conservatism
+			}
+		}
+	}
+	BAV_matthias_erzberger = {
+		name = "Matthias Erzberger"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/BAV/BAV_matthias_erzberger.dds"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = BAV_matthias_erzberger_hog
+			traits = { liberal_economist }
+			can_be_fired = no
+			available = {
+				OR = {
+					has_government = conservatism
+					has_government = liberalism
+				}
 			}
 		}
 	}
