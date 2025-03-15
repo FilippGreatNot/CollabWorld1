@@ -1,5 +1,6 @@
 add_namespace = ukr.startbranch
 add_namespace = ukr.com
+add_namespace = ukr.makhno
 add_namespace = ukr.white
 add_namespace = ukr.ger
 add_namespace = ukr_soc
@@ -691,4 +692,62 @@ country_event = {
 		update_focus_tree = yes
 		custom_effect_tooltip = UKR_soc_capture_mosc_tooltip
 	}
+}
+
+#white 
+	country_event = {
+	id = ukr.white.1 # Unification with Russia 
+	title = ukr.white.1.t
+	desc = ukr.white.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukr.white.1.a #well... i think we`ll agree
+			UKR = { complete_national_focus = UKR_white_army_unified }
+	}
+	
+	option = {
+		name = ukr.white.1.b #White army ruled from Kyiv? He is joking!
+			UKR = { complete_national_focus = UKR_traitors_must_die }
+	}
+}
+
+	country_event = {
+	id = ukr.white.2 # Unification with South Russian White Army ВСЮР
+	title = ukr.white.2.t
+	desc = ukr.white.2.desc 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukr.white.2.a # Whites together, baby!
+			UKR = { complete_national_focus = UKR_unification_with_caucasus }
+		}
+	
+	option = {
+		name = ukr.white.2.b # I think... its stupid
+			UKR = { complete_national_focus = UKR_backstab }
+		}
+}
+
+### MAKHNO ###
+
+	country_event = {
+	id = ukr.makhno.1
+	title = ukr.makhno.1.t #we should choose our trade partner - english government in London or in Ottawa
+	desc = ukr.makhno.1.desc
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ukr.makhno.1.a #british government
+		add_war_support = 0.05
+	}
+	
+	option = {
+		name = ukr.makhno.1.b #canadian government
+		add_stability = 0.05
+	}
+	
 }
