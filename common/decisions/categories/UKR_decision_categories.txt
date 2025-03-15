@@ -3,6 +3,7 @@ UKR_demand_decisions = {
 	priority = 100
 	allowed = {
 		tag = UKR
+		UKR = { has_war = no }
 	}
 	visible = {
 		has_country_flag = UKR_can_demand
@@ -27,5 +28,19 @@ UKR_soc_build_factories_decisions = {
 	}
 	visible = {
 		has_country_flag = UKR_can_build_factories
+	}
+}
+
+UKR_soc_unite_soviet_union = {
+	icon = decision_generic_civil_support.dds
+	priority = 100000
+	allowed = {
+		tag = UKR
+	}
+	visible = {
+		UKR = {
+			controls_state = 219#moscwa
+			has_war = no
+		}
 	}
 }

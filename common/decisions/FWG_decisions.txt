@@ -2,11 +2,50 @@ FWG_managing_the_freikorps = {
 	FWG_the_caspari_problem = {
 		icon = GFX_decision_generic_form_nation
 		on_map_mode = decision_view_only
-		fire_only_once = yes
 		highlight_states = {
 			highlight_states_trigger = {
 				has_state_flag = FWG_freikorps_influence 
 			}
+		}
+	}
+}
+FWG_korsch_cat = {
+	FWG_release_a_statement_on_lenins_death = {
+		visible = { date > 1924.12.31 }
+		available = { NOT = { SOV = { has_character = SOV_vladimir_lenin } } }
+		allowed = { tag = FWG }
+		icon = GFX_decision_lenin
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+			FWG_anti_bolshevik_rhetoric_level_up = yes
+			country_event = korsch.4
+		}
+	}
+	FWG_seize_junker_property = {
+		visible = { has_completed_focus = FWG_kosch }
+		available = { num_of_owned_factories > 14 has_completed_focus = FWG_crush_the_junker_threat }
+		days_remove = 30
+		fire_only_once = yes
+		complete_effect = {
+			remove_ideas = {
+				FWG_the_powerless_junkers
+			}
+			add_political_power = 50
+		}
+	}
+	FWG_denounce_the_faud = {
+		visible = { has_completed_focus = FWG_kosch }
+		available = { has_completed_focus = FWG_kosch }
+		days_remove = 60
+		modifier = {
+			libertarian_socialism_drift = -0.01
+		}
+		complete_effect = {
+			add_stability = -0.02
+		}
+		remove_effect = {
+			add_political_power = 50
 		}
 	}
 }

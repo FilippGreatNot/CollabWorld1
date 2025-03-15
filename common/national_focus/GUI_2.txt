@@ -1,5 +1,5 @@
 focus_tree = { 
-    id =  kuomintang_focus2
+    id = kuomintang_focus2
     country = {
         factor = 0
         modifier = {
@@ -12,588 +12,391 @@ focus_tree = {
 	focus = {
         id = KUO_state_economic
         icon = GFX_goal_generic_construction
-        mutually_exclusive = { }
         x = 5
         y = 0
         cost = 4
-
-         
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = 5
-        		GUI = {
+            add_political_power = 5
 			country_event = gui.7
-        }
 		} 
     }
 	
 	focus = {
         id = KUO_listen_van
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_state_economic}
+        prerequisite = { focus = KUO_state_economic }
         mutually_exclusive = { focus = KUO_listen_chan }
         x = 2
         y = 1
         cost = 3
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = 50
-        add_popularity = {
-    ideology = social_democrat
-    popularity = +0.2
-}
-        swap_ideas = {
+            add_political_power = 50
+            add_popularity = {
+                ideology = social_democrat
+                popularity = 0.2
+            }
+            swap_ideas = {
 				add_idea = GUI_collapse_economy1
 				remove_idea = GUI_collapse_economy
 			}
         }
-		} 
+	} 
 	
 	focus = {
         id = KUO_listen_chan
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_state_economic}
-         mutually_exclusive = { focus = KUO_listen_van }
+        mutually_exclusive = { focus = KUO_listen_van }
         x = 8
         y = 1
         cost = 3
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_political_power = 50
-        add_popularity = {
-    ideology = authoritarian_democrat
-    popularity = +0.2
-}
-        swap_ideas = {
+            add_political_power = 50
+            add_popularity = {
+                ideology = authoritarian_democrat
+                popularity = 0.2
+            }
+            swap_ideas = {
 				add_idea = GUI_collapse_economy1
 				remove_idea = GUI_collapse_economy
 			}
         }
-		} 
+	} 
 		
-		focus = {
+	focus = {
         id = KUO_hunger
         icon = GFX_goal_generic_construction
         prerequisite = { 
-        focus = KUO_listen_chan
-        focus =	KUO_listen_van	}
-         mutually_exclusive = { }
+            focus = KUO_listen_chan
+            focus =	KUO_listen_van 
+        }
         x = 5
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-		add_political_power = 2
-		swap_ideas = {
+		    add_political_power = 2
+		    swap_ideas = {
 				add_idea = GUI_collapse_economy2
 				remove_idea = GUI_collapse_economy1
 			}
         }
-}
+    }
         
 		
-		focus = {
+	focus = {
         id = KUO_approve_unions
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_listen_van	}
-         mutually_exclusive = { }
         x = 1
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-available = {
-      has_completed_focus = KUO_schools}
+        ai_will_do = { factor = 1 }
+        available = { has_completed_focus = KUO_schools }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-		add_political_power = 20
-		add_popularity = {
-    ideology =  bolshevism
-    popularity = +0.05
-}
+		    add_political_power = 20
+		    add_popularity = {
+                ideology = bolshevism
+                popularity = 0.05
+            }
         }
-		}
+	}
 		
-		focus = {
+	focus = {
         id = KUO_raise_salary
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_approve_unions	}
-         mutually_exclusive = { }
         x = 1
         y = 3
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-		add_political_power = 20
-		add_popularity = {
-    ideology =  social_democrat
-    popularity = +0.05
-}
+		    add_political_power = 20
+		    add_popularity = {
+                ideology =  social_democrat
+                popularity = 0.05
+            }
     		add_popularity = {
-    ideology =  liberalism
-    popularity = +0.02
-}
-     add_stability = 0.05
-	 
-	 swap_ideas = {
+                ideology = liberalism
+                popularity = 0.02
+            }
+            add_stability = 0.05
+	        swap_ideas = {
 				add_idea = GUI_collapse_economy4
 				remove_idea = GUI_collapse_economy3
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_schools
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_hunger	}
-         mutually_exclusive = { }
         x = 5
         y = 3
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-		add_political_power = 10	 
-	 swap_ideas = {
+		    add_political_power = 10	 
+	        swap_ideas = {
 				add_idea = GUI_collapse_economy3
 				remove_idea = GUI_collapse_economy2
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_ask_help
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_schools	}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_schools }
         x = 5
         y = 4
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-		add_political_power = 10	 
-	 
-    }
+        completion_reward = { add_political_power = 10 }
 	}
 	
 	focus = {
         id = KUO_reduce_rent
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_raise_salary		}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_raise_salary }
         x = 3
         y = 4
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-			 
 			swap_ideas = {
 				add_idea = GUI_collapse_economy5
 				remove_idea = GUI_collapse_economy4
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_strangle_unions
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_listen_chan	}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_listen_chan }
         x = 9
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-available = {
-      has_completed_focus = KUO_schools}
+        ai_will_do = { factor = 1 }
+        available = { has_completed_focus = KUO_schools }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
 		add_political_power = 20
-		add_popularity = {
-    ideology =  bolshevism
-    popularity = -0.05
-}
+		    add_popularity = {
+                ideology = bolshevism
+                popularity = -0.05
+            }
         }
-		}
+	}
 	
 	focus = {
         id = KUO_business_assistance
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_strangle_unions	}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_strangle_unions }
         x = 9
         y = 3
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-		add_political_power = 20
-		add_popularity = {
-    ideology =  authoritarian_democrat
-    popularity = +0.05
-}
+		    add_political_power = 20
+		    add_popularity = {
+                ideology = authoritarian_democrat
+                popularity = 0.05
+            }
     		add_popularity = {
-    ideology =  liberalism
-    popularity = +0.02
-}
-     add_stability = 0.05
-	 
-	 swap_ideas = {
+                ideology = liberalism
+                popularity = 0.02
+            }
+            add_stability = 0.05
+	        swap_ideas = {
 				add_idea = GUI_collapse_economy4
 				remove_idea = GUI_collapse_economy3
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_buy_food
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = 	KUO_business_assistance	}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_business_assistance }
         x = 7
         y = 4
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-			 
 			swap_ideas = {
 				add_idea = GUI_collapse_economy5
 				remove_idea = GUI_collapse_economy4
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_rich_province
         icon = GFX_goal_generic_construction
         prerequisite = { 
-		focus = KUO_reduce_rent
-		focus = KUO_buy_food
+		    focus = KUO_reduce_rent
+		    focus = KUO_buy_food
 		}
-         mutually_exclusive = { }
         x = 5
         y = 5
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-			 
 			swap_ideas = {
 				add_idea = GUI_good_economy
 				remove_idea = GUI_collapse_economy5
 			}
-	 
-    }
+        }
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	focus = {
         id = KUO_our_ways
         icon = GFX_goal_generic_construction
-        prerequisite = { }
-         mutually_exclusive = { }
         x = 17
         y = 0
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-			 
-			GUI = {
-			country_event = gui.8
-        }
-	 
-    }
+        completion_reward = { country_event = gui.8 }
 	}
 	
 	focus = {
         id = KUO_no_kpk
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_our_ways}
-         mutually_exclusive = { focus = KUO_yes_kpk }
+        prerequisite = { focus = KUO_our_ways }
+        mutually_exclusive = { focus = KUO_yes_kpk }
         x = 15
         y = 1
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
         }
-	 
     }
 	
 	focus = {
         id = KUO_yes_kpk
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_our_ways}
-         mutually_exclusive = {focus = KUO_no_kpk }
+        prerequisite = { focus = KUO_our_ways }
+        mutually_exclusive = { focus = KUO_no_kpk }
         x = 19
         y = 1
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-        add_popularity = {
-    ideology = social_democrat
-    popularity = +0.2
- ideology =  bolshevism
-    popularity = +0.05
- }
-add_popularity = {
-    ideology = social_democrat
-    popularity = +0.05}
-	add_opinion_modifier = {
-	target = PRC
-	modifier = medium_increase
-	}
+            add_popularity = {
+                ideology = social_democrat
+                popularity = 0.2
+                ideology = bolshevism
+                popularity = 0.05
+            }
+            add_popularity = {
+                ideology = marxism
+                popularity = 0.05
+            }
+	        add_opinion_modifier = {
+	            target = PRC
+	            modifier = medium_increase
+	        }
 		}
-	 
     }
 	
 
-focus = {
+    focus = {
         id = KUO_guanxi
         icon = GFX_goal_generic_construction
         prerequisite = { 
-        focus = KUO_yes_kpk
-        focus = KUO_no_kpk 
+            focus = KUO_yes_kpk
+            focus = KUO_no_kpk 
         }
-         mutually_exclusive = { }
         x = 17
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-             
-            GUI = {
-            country_event = gui.9
-        }
-     
-    }
+        completion_reward = { country_event = gui.9 }
     }
 
-focus = {
+    focus = {
         id = KUO_red_brigades
         icon = GFX_goal_generic_construction
-        prerequisite = {focus = KUO_yes_kpk}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_yes_kpk }
         x = 20
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-division_template = {
-    name = "Red Brigades"
-    is_locked = yes
-    division_cap = 3 
-    priority = 0
-    template_counter = 0
-    regiments = {
-        infantry = { x = 0 y = 0 }
-        infantry = { x = 0 y = 1 }
-        infantry = { x = 0 y = 2 }
-        infantry = { x = 0 y = 3 }
-    }
-    support = {
-        military_police = { x = 0 y = 0 }
-    }
-}
-     random_owned_controlled_state = {
+            division_template = {
+                name = "Red Brigades"
+                is_locked = yes
+                division_cap = 3 
+                priority = 0
+                template_counter = 0
+                regiments = {
+                    infantry = { x = 0 y = 0 }
+                    infantry = { x = 0 y = 1 }
+                    infantry = { x = 0 y = 2 }
+                    infantry = { x = 0 y = 3 }
+                }
+                support = { military_police = { x = 0 y = 0 } }
+            }
+            random_owned_controlled_state = {
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
 					division = "name = \"Red Brigades\" division_template = \"Red Brigades\" start_experience_factor = 0.5" 
@@ -628,49 +431,38 @@ division_template = {
 					owner = GUI
 				}
 			}
-    }
+        }
     }
 	
 	focus = {
         id = KUO_anti_red_brigades
         icon = GFX_goal_generic_construction
-        prerequisite = {focus = KUO_no_kpk}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_no_kpk }
         x = 14
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-division_template = {
-    name = "Anti Red Brigades"
-    is_locked = yes
-    division_cap = 3 
-    priority = 0
-    template_counter = 0
-    regiments = {
-        infantry = { x = 0 y = 0 }
-        infantry = { x = 0 y = 1 }
-        infantry = { x = 0 y = 2 }
-        infantry = { x = 0 y = 3 }
-		infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-    }
-    support = {
-        military_police = { x = 0 y = 0 }
-    }
-}
-     random_owned_controlled_state = {
+            division_template = {
+                name = "Anti Red Brigades"
+                is_locked = yes
+                division_cap = 3 
+                priority = 0
+                template_counter = 0
+                regiments = {
+                    infantry = { x = 0 y = 0 }
+                    infantry = { x = 0 y = 1 }
+                    infantry = { x = 0 y = 2 }
+                    infantry = { x = 0 y = 3 }
+		            infantry = { x = 1 y = 0 }
+		            infantry = { x = 1 y = 1 }
+                }
+                support = { military_police = { x = 0 y = 0 } }
+            }
+            random_owned_controlled_state = {
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
 					division = "name = \"Anti Red Brigades\" division_template = \"Anti Red Brigades\" start_experience_factor = 0.5" 
@@ -705,202 +497,137 @@ division_template = {
 					owner = GUI
 				}
 			}
-    }
+        }
     }
 	
 	focus = {
         id = KUO_new_capital
         icon = GFX_goal_generic_construction
-        prerequisite = {focus = KUO_guanxi}
-         mutually_exclusive = { }
+        prerequisite = {focus = KUO_guanxi }
         x = 17
         y = 3
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
+        ai_will_do = { factor = 1 }
         cancel_if_invalid = yes
         continue_if_invalid = no
         available_if_capitulated = no
-
-        complete_tooltip = {
-        }
-
         completion_reward = {
-             
-        set_capital = {
-					state = 592
-					remember_old_capital = no
-				}
-		set_cosmetic_tag = GUI_canton
-        annex_country = { target = HNN transfer_troops = yes }
-		annex_country = { target = SIC transfer_troops = yes }
-		
-		add_state_core = 752
-		add_state_core = 753
-		add_state_core = 751
-		add_state_core = 605
-		add_state_core = 943
-		add_state_core = 602
-		add_state_core = 750
-    }
+            set_capital = {
+				state = 592
+				remember_old_capital = no
+			}
+		    set_cosmetic_tag = GUI_canton
+            annex_country = { target = HNN transfer_troops = yes }
+    		annex_country = { target = SIC transfer_troops = yes }
+		    add_state_core = 752
+	    	add_state_core = 753
+	    	add_state_core = 751
+		    add_state_core = 605
+		    add_state_core = 943
+		    add_state_core = 602
+		    add_state_core = 750
+        }
     }
 
-focus = {
+    focus = {
         id = KUO_army_reform
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_new_capital}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_new_capital }
         x = 17
         y = 4
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-			 
-	swap_ideas = {
+        ai_will_do = { factor = 1 }
+        completion_reward = { 
+	        swap_ideas = {
 				add_idea = GUI_low_army_2
 				remove_idea = GUI_low_army_1
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_trip
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_army_reform}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_army_reform }
         x = 17
         y = 5
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-		
-	GUI = {
-			country_event = gui.10
-        }		
-	 
-    }
+        ai_will_do = { factor = 1 }
+        completion_reward = { country_event = gui.11 }
 	}
 	
 	focus = {
         id = KUO_northern_campaign
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_trip}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_trip }
         x = 17
         y = 6
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
+        ai_will_do = { factor = 1 }
         completion_reward = {
-		
-    declare_war_on = {
+            declare_war_on = {
 				target = JGX
 				type = annex_everything
 			}
 			JGX = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = ZHE
 				type = annex_everything
 			}
 			ZHE = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = ANC
 				type = annex_everything
 			}
 			ANC = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = HUB
 				type = annex_everything
 			}
 			HUB = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = CHI
 				type = annex_everything
 			}
 			CHI = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = XSR
 				type = annex_everything
 			}
 			XSR = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = SHC
 				type = annex_everything
 			}
 			SHC = { make_every_core_national_for_PREV = yes }
-			
 			declare_war_on = {
 				target = REH
 				type = annex_everything
 			}
 			REH = { make_every_core_national_for_PREV = yes }
-	 
-	 add_timed_idea = {
-    idea = GUI_high_army
-    days = 100
-}
-	 
-    }
+	        add_timed_idea = {
+                idea = GUI_high_army
+                days = 100
+            } 
+            hidden_effect = {
+                news_event = gui.10 #Northern expedition
+            }
+        }
 	}
 
-focus = {
+    focus = {
         id = KUO_academy
         icon = GFX_goal_generic_construction
-        prerequisite = { }
-         mutually_exclusive = { }
         x = 25
         y = 0
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-			 
-	swap_ideas = {
+        ai_will_do = { factor = 1 }
+        completion_reward = { 
+            add_research_slot = 1
+	        swap_ideas = {
 				add_idea = GUI_low_army_3
 				remove_idea = GUI_low_army_2
 			}
-			 add_research_slot = 1
-			
 			random_owned_controlled_state = {
 				add_building_construction = {
 					type = arms_factory
@@ -908,83 +635,48 @@ focus = {
 					instant_build = yes
 				}
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_foreign_aid
         icon = GFX_goal_generic_construction
-        prerequisite = { focus = KUO_academy}
-         mutually_exclusive = { }
+        prerequisite = { focus = KUO_academy }
         x = 25
         y = 1
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
-        completion_reward = {
-			 
-	swap_ideas = {
+        ai_will_do = { factor = 1 }
+        completion_reward = { 
+	        swap_ideas = {
 				add_idea = GUI_low_army_4
 				remove_idea = GUI_low_army_3
 			}
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_german_help
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_foreign_aid }
-         mutually_exclusive = { focus = KUO_sov_help }
+        mutually_exclusive = { focus = KUO_sov_help }
         x = 24
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
+        ai_will_do = { factor = 1 }
         completion_reward = {
-			 
-	 
-    }
+        }
 	}
 	
 	focus = {
         id = KUO_sov_help
         icon = GFX_goal_generic_construction
         prerequisite = { focus = KUO_foreign_aid }
-         mutually_exclusive = { focus = KUO_german_help}
+        mutually_exclusive = { focus = KUO_german_help }
         x = 26
         y = 2
         cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-
-        complete_tooltip = {
-        }
-
+        ai_will_do = { factor = 1 }
         completion_reward = {
-			 
-	 
-    }
+        }
 	}
-
-	}
-	
-	
+}

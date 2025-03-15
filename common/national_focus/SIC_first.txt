@@ -185,9 +185,9 @@ focus_tree = {
 	focus = {
 		id = SIC_inside_and_outside
 		icon = GFX_focus_generic_annex_country_2
-		x = -3
+		x = -2
 		y = 1
-		cost = 2.857142857142857
+		cost = 5
 		relative_position_id = SIC_national_propaganda
 		prerequisite = { focus = SIC_national_propaganda }
 		completion_reward = {
@@ -214,8 +214,8 @@ focus_tree = {
 				popularity = 0.1
 			}
 			add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = 0.05
+				ideology = conservatism
+				popularity = 0.1
 			}
 		}
 	}
@@ -223,9 +223,9 @@ focus_tree = {
 	focus = {
 		id = SIC_join_the_constitutional_bloc
 		icon = GFX_focus_generic_annex_country_2
-		x = -1
+		x = -2
 		y = 1
-		cost = 2
+		cost = 5
 		relative_position_id = SIC_ally_with_the_liberals
 		prerequisite = { focus = SIC_ally_with_the_liberals }
 		completion_reward = {
@@ -238,9 +238,10 @@ focus_tree = {
 	focus = {
 		id = SIC_enlist_kuomintang_soldiers
 		icon = GFX_focus_generic_annex_country_2
-		x = 1
+		x = 0
 		y = 1
-		cost = 2
+		cost = 5
+		mutually_exclusive = { focus = SIC_the_tongmenghui_pioneers }
 		relative_position_id = SIC_ally_with_the_liberals
 		prerequisite = { focus = SIC_ally_with_the_liberals }
 		completion_reward = {
@@ -251,6 +252,27 @@ focus_tree = {
 			}
 			set_politics = {
 				ruling_party = liberalism
+			}
+		}
+	}
+
+	focus = {
+		id = SIC_the_tongmenghui_pioneers
+		icon = GFX_focus_generic_annex_country_2
+		x = 2
+		y = 1
+		cost = 5
+		mutually_exclusive = { focus = SIC_enlist_kuomintang_soldiers }
+		relative_position_id = SIC_ally_with_the_liberals
+		prerequisite = { focus = SIC_ally_with_the_liberals }
+		completion_reward = {
+			army_experience = 50
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = conservatism
 			}
 		}
 	}
@@ -282,7 +304,7 @@ focus_tree = {
 		icon = GFX_focus_generic_annex_country_2
 		x = 0
 		y = 1
-		cost = 3.417
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -299,7 +321,7 @@ focus_tree = {
 		icon = GFX_focus_generic_annex_country_2
 		x = 0
 		y = 1
-		cost = 5.714285714285714
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -323,7 +345,7 @@ focus_tree = {
 		icon = GFX_focus_generic_annex_country_2
 		x = 2
 		y = 2
-		cost = 8.571428571428571
+		cost = 5
 		relative_position_id = SIC_national_propaganda
 		prerequisite = { focus = SIC_national_propaganda }
 		completion_reward = {
@@ -346,7 +368,7 @@ focus_tree = {
 		icon = GFX_goal_demand_sudetenland
 		x = 0
 		y = 1
-		cost = 8.571428571428571
+		cost = 5
 		available = {
 			NOT = { country_exists = CBT }
 		}
@@ -370,8 +392,8 @@ focus_tree = {
 		id = SIC_combat_the_xikang_claims
 		icon = GFX_focus_generic_annex_country_1
 		x = 0
-		y = 2
-		cost = 15
+		y = 1
+		cost = 10
 		relative_position_id = SIC_victory_in_the_east
 		prerequisite = { focus = SIC_victory_in_the_east }
 		completion_reward = {

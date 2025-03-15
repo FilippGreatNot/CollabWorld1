@@ -178,12 +178,15 @@ focus_tree = {
 		prerequisite = { focus = FWG_our_swords_and_shields }
 		completion_reward = {
 			country_event = fwg.2
+			hidden_effect = {
+				country_event = { id = fwg.12 days = 3 }
+			}
 		}
 	}
 	focus = {
 		id = FWG_henke
 		icon = GFX_focus_FWG_henke
-		x = -15
+		x = -20
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -214,6 +217,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -272,6 +276,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -308,7 +313,7 @@ focus_tree = {
 	focus = {
 		id = FWG_win_the_battle_against_pacifism
 		icon = GFX_focus_FWG_henke
-		x = 1
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -331,7 +336,7 @@ focus_tree = {
 		icon = GFX_focus_FWG_henke
 		x = 0
 		y = 1
-		cost = 5
+		cost = 6
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
@@ -350,8 +355,8 @@ focus_tree = {
 	focus = {
 		id = FWG_the_father_of_the_bremen_soviet
 		icon = GFX_focus_FWG_henke
-		x = 1
-		y = 2
+		x = 2
+		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -379,6 +384,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -501,7 +507,7 @@ focus_tree = {
 	focus = {
 		id = FWG_ruhle
 		icon = GFX_focus_FWG_ruhle
-		x = -5
+		x = -10
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -531,9 +537,248 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_remember_the_mutinies
+		icon = GFX_focus_FWG_remember_the_mutinies
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_ruhle
+		prerequisite = { focus = FWG_ruhle }
+		completion_reward = {
+			add_stability = -0.02
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
+			add_war_support = 0.04
+		}
+	}
+	focus = {
+		id = FWG_reinvigorate_anti_bolshevism
+		icon = GFX_focus_FWG_reinvigorate_anti_bolshevism
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_remember_the_mutinies
+		prerequisite = { focus = FWG_remember_the_mutinies }
+		completion_reward = {
+			retire_character = FWG_hugo_eberlein
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.02
+			}
+			add_timed_idea = {
+				idea = FWG_anti_bolshevik_campaigns
+				days = 90
+			}
+		}
+	}
+	focus = {
+		id = FWG_mobilise_the_people
+		icon = GFX_focus_FWG_mobilise_the_people
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_reinvigorate_anti_bolshevism
+		prerequisite = { focus = FWG_reinvigorate_anti_bolshevism }
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = {
+				extensive_conscription
+			}
+			add_timed_idea = {
+				idea = FWG_mobilisation_campaigns
+				days = 360
+			}
+		}
+	}
+	focus = {
+		id = FWG_strengthen_ties_with_the_spartakists
+		icon = GFX_focus_FWG_strengthen_ties_with_the_spartakists
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_ruhle
+		prerequisite = { focus = FWG_ruhle }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = UVS 
+				modifier = FWG_mending_relations
+			}
+		}
+	}
+	focus = {
+		id = FWG_contact_with_the_bavarian_revolution
+		icon = GFX_focus_FWG_contact_with_the_bavarian_revolution
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_strengthen_ties_with_the_spartakists
+		prerequisite = { focus = FWG_strengthen_ties_with_the_spartakists }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = BAV
+				modifier = FWG_ideological_similarities
+			}
+		}
+	}
+	focus = {
+		id = FWG_placate_the_swedes
+		icon = GFX_focus_FWG_contact_with_the_bavarian_revolution
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		available = { SWE = { has_completed_focus = SWE_peaceful_revolution } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_contact_with_the_bavarian_revolution
+		prerequisite = { focus = FWG_contact_with_the_bavarian_revolution }
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SWE
+				modifier = FWG_ideological_similarities
+			}
+		}
+	}
+	focus = {
+		id = FWG_agricultural_development_plans
+		icon = GFX_focus_FWG_agricultural_development_plans
+		x = 3
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_ruhle
+		prerequisite = { focus = FWG_ruhle }
+		completion_reward = {
+			add_two_building_slots_in_two_random_states = yes
+		}
+	}
+	focus = {
+		id = FWG_leech_out_corrupt_businessmen
+		icon = GFX_focus_FWG_agricultural_development_plans
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_agricultural_development_plans
+		prerequisite = { focus = FWG_agricultural_development_plans }
+		completion_reward = {
+			add_political_power = -30
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}	
+			}
+		}
+	}
+	focus = {
+		id = FWG_approve_a_military_funding_plan
+		icon = GFX_focus_FWG_approve_a_military_funding_plan
+		x = 1
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_agricultural_development_plans
+		prerequisite = { focus = FWG_agricultural_development_plans }
+		completion_reward = {
+			add_war_support = 0.05
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}	
+			}
+		}
+	}
+	focus = {
+		id = FWG_centralise_the_economy
+		icon = GFX_focus_FWG_centralise_the_economy
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_leech_out_corrupt_businessmen
+		prerequisite = { focus = FWG_leech_out_corrupt_businessmen }
+		prerequisite = { focus = FWG_approve_a_military_funding_plan }
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = {
+				state_economy
+			}
+		}
+	}
+	focus = { 
+		id = FWG_listen_to_our_workers
+		icon = GFX_focus_FWG_listen_to_our_workers
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_centralise_the_economy
+		prerequisite = { focus = FWG_centralise_the_economy }
+		completion_reward = {
+			add_stability = 0.08
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
 		id = FWG_rocker
 		icon = GFX_focus_FWG_rocker
-		x = 5
+		x = 0
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -564,6 +809,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -591,6 +837,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -906,7 +1153,7 @@ focus_tree = {
 	focus = {
 		id = FWG_kosch
 		icon = GFX_focus_FWG_kosch
-		x = 15
+		x = 10
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -938,6 +1185,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -983,6 +1231,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
 		ai_will_do = {
 			factor = 10
 		}
@@ -993,7 +1242,7 @@ focus_tree = {
 				idea = FWG_industrial_planning
 				days = 120
 			}
-			country_event = { id = fgb.11 days = 120 }
+			country_event = { id = fwg.11 days = 120 }
 		}
 	}
 	focus = {
@@ -1097,7 +1346,6 @@ focus_tree = {
 		relative_position_id = FWG_legacy_of_hegel
 		prerequisite = { focus = FWG_legacy_of_hegel }
 		completion_reward = {
-			add_stability = 0.05
 			swap_ideas = {
 				remove_idea = FWG_hegelian_teachings
 				add_idea = FWG_hegelian_teachings2
@@ -1117,6 +1365,7 @@ focus_tree = {
 		relative_position_id = FWG_a_new_socialist_revolution
 		prerequisite = { focus = FWG_a_new_socialist_revolution }
 		completion_reward = {
+			retire_character = FWG_hugo_eberlein
 			add_war_support = 0.05
 			add_popularity = {
 				ideology = bolshevism
@@ -1140,6 +1389,7 @@ focus_tree = {
 		completion_reward = {
 			army_experience = -50
 			add_manpower = -15000
+			add_ideas = { extensive_conscription }
 			division_template = {
     			name = "Revolutionary Brigades"
     			regiments = {
@@ -1308,6 +1558,8 @@ focus_tree = {
 				remove_idea = FWG_the_new_marxist_revolution
 				add_idea = FWG_the_new_marxist_revolution2
 			}
+			create_faction = "Western Internationale"
+			add_to_faction = HUN
 		}
 	}
 	focus = {
@@ -1340,9 +1592,38 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_rise_of_the_kpd
+		icon = GFX_focus_generic_production
+		x = 20
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			custom_trigger_tooltip = {
+				has_country_flag = FWG_eberlein_flag
+				tooltip = FWG_has_been_couped_tt
+			}
+		}
+		relative_position_id = FWG_the_congress_of_1922
+		prerequisite = { focus = FWG_the_congress_of_1922 }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			set_politics = { ruling_party = bolshevism }
+			promote_character = FWG_hugo_eberlein
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			set_cosmetic_tag = FWG_eberlein
+			hidden_effect = { news_event = fwg.13 }
+		}
+	}
+	focus = {
 		id = FWG_begin_early_industrial_expansion
 		icon = GFX_focus_generic_production
-		x = 42
+		x = 50
 		y = 0
 		cost = 6
 		available_if_capitulated = yes
@@ -1480,6 +1761,63 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_widespread_road_construction
+		icon = GFX_focus_generic_production
+		x = -4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_crush_the_junker_threat
+		prerequisite = { focus = FWG_crush_the_junker_threat }
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_digging_more_metals_out_of_the_ground
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_widespread_road_construction
+		prerequisite = { focus = FWG_widespread_road_construction }
+		completion_reward = {
+			add_stability = -0.04
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 5
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 2
+				}
+			}
+			random_owned_state = {
+				add_resource = {
+					type = aluminium
+					amount = 2
+				}
+			}
+			swap_ideas = {
+				remove_idea = FWG_public_mining_works_idea2
+				add_idea = FWG_public_mining_works_idea3
+			}
+		}
+	}
+	focus = {
 		id = FWG_modernise_our_agriculture
 		icon = GFX_focus_generic_production
 		x = -2
@@ -1597,7 +1935,7 @@ focus_tree = {
 		icon = GFX_focus_generic_production
 		x = -1
 		y = 1
-		cost = 6
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		relative_position_id = FWG_streamline_weapons_manufacturing
@@ -1694,7 +2032,7 @@ focus_tree = {
 		icon = GFX_focus_generic_production
 		x = 1
 		y = 1
-		cost = 6
+		cost = 4
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
 		relative_position_id = FWG_streamline_weapons_manufacturing
@@ -1758,6 +2096,69 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+		}
+	}
+	focus = {
+		id = FWG_build_up_an_advanced_welfare_net
+		icon = GFX_focus_generic_production
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_digging_more_metals_out_of_the_ground
+		prerequisite = { focus = FWG_digging_more_metals_out_of_the_ground }
+		prerequisite = { focus = FWG_diversify_the_job_sector }
+		completion_reward = {
+			add_ideas = {
+				FWG_social_safety_net
+			}
+			FWG_a_very_small_industry_level_down = yes
+		}
+	}
+	focus = {
+		id = FWG_prepare_for_the_coming_war
+		icon = GFX_focus_generic_production
+		x = 60
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			date > 1923.1.30
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = FWG_defensive_preparations
+				days = 200
+			}
+		}
+	}
+	focus = {
+		id = FWG_hold_westphalia
+		icon = GFX_focus_FWG_hold_westphalia
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FWG_prepare_for_the_coming_war
+		prerequisite = { focus = FWG_prepare_for_the_coming_war }
+		available = { has_war_with = WRD }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			# timed idea
+		}
+	}
+	focus = {
+		id = FWG_behind_the_weser
+		icon = GFX_focus_FWG_behind_the_weser
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = FWG_prepare_for_the_coming_war
+		prerequisite = { focus = FWG_prepare_for_the_coming_war }
+		available = { has_war_with = GER }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			# timed idea
 		}
 	}
 }
