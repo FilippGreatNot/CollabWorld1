@@ -139,38 +139,42 @@ country_event = {
 	
 	option = {
 		name = fgb.5.a
-		set_country_flag = FGB_noske_victory_over_bavaria_flag
-		mark_focus_tree_layout_dirty = yes 
-		custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
+		add_war_support = 0.04
 		hidden_effect = { 
 			if = {
-				limit = { has_completed_focus = FGB_noske_new_day_new_germany }
-				complete_national_focus = FGB_noske_victory_over_bavaria 
-			}
-			division_template = {
-				name = "Nationalist Troops"
-				priority = 1
-				is_locked = yes
-				regiments = {
-					infantry = { x = 0 y = 0 }
-					infantry = { x = 0 y = 1 }
-					infantry = { x = 1 y = 0 }
-					infantry = { x = 1 y = 1 }
+				limit = { has_government = social_democrat }
+				set_country_flag = FGB_noske_victory_over_bavaria_flag
+				mark_focus_tree_layout_dirty = yes 
+				custom_effect_tooltip = FGB_noske_victory_over_bavaria_tt
+				if = {
+					limit = { has_completed_focus = FGB_noske_new_day_new_germany }
+					complete_national_focus = FGB_noske_victory_over_bavaria 
 				}
-				support = {
-					engineer = { x = 0 y = 0 }
+				division_template = {
+					name = "Nationalist Troops"
+					priority = 1
+					is_locked = yes
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+					}
 				}
-			}
-			52 = {
-				create_unit = {
-					division = "name = \"1st. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
-					owner = FGB
+				52 = {
+					create_unit = {
+						division = "name = \"1st. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+						owner = FGB
+					}
 				}
-			}
-			53 = {
-				create_unit = {
-					division = "name = \"2nd. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
-					owner = FGB
+				53 = {
+					create_unit = {
+						division = "name = \"2nd. Nationalist Troop\" division_template = \"Nationalist Troops\" start_experience_factor = 0.9" 
+						owner = FGB
+					}
 				}
 			}
 		}

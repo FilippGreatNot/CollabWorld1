@@ -5817,7 +5817,28 @@ focus_tree = {
 		relative_position_id = FGB_rohm_filler_focus_name_1
 		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
-			
+			activate_advisor = FGB_emil_maurice_sec
+			add_corps_commander_role = {
+				Character = FGB_emil_maurice
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			activate_advisor = FGB_joseph_berchtold_prop
+			add_corps_commander_role = {
+				Character = FGB_joseph_berchtold
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			activate_advisor = FGB_gottfried_feder_ec
+			retire_character = FGB_freikorps_council
 		}
 	}
 
@@ -6035,12 +6056,12 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_rohm_cooperate_with_the_dnbap
-		icon = GFX_focus_BAV_gobi
+		icon = GFX_focus_BAV_bnbap
 		x = -2
 		y = 1
 		cost = 4
 		mutually_exclusive = { focus = FGB_rohm_demand_the_end_of_the_false_socialists }
-		available = { BAV = { has_completed_focus = BAV_the_victory_of_the_national_revolution } }
+		available = { BAV = { has_completed_focus = BAV_the_rise_of_the_bnbap } }
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
@@ -6386,11 +6407,12 @@ focus_tree = {
 		relative_position_id = FGB_rohm_prepare_for_the_rhein
 		prerequisite = { focus = FGB_rohm_prepare_for_the_rhein }
 		completion_reward = {
+			custom_effect_tooltip = FGB_if_you_do_not_see_effects_tt
 			every_core_state = {
 				tooltip = FGB_any_state_with_less_than_3_infrastructure_tt
 				limit = {
 					is_owned_by = FGB
-					infrastructure < 3
+					infrastructure < 4
 				}
 				add_building_construction = {
 					type = infrastructure
@@ -6410,6 +6432,7 @@ focus_tree = {
 		relative_position_id = FGB_rohm_tend_to_underdeveloped_areas
 		prerequisite = { focus = FGB_rohm_tend_to_underdeveloped_areas }
 		completion_reward = {
+			custom_effect_tooltip = FGB_if_you_do_not_see_effects_tt
 			every_owned_state = {
 				tooltip = FGB_every_owned_state_with_a_low_state_category_tt
 				limit = {
@@ -6419,6 +6442,7 @@ focus_tree = {
 						has_state_category = three 
 						has_state_category = four 
 						has_state_category = five 
+						has_state_category = six 
 					}
 				}
 				increase_state_category_by_one_level = yes 
@@ -6555,69 +6579,20 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_rohm_grant_amnesty_to_dirlewanger
-		icon = GFX_focus_WRD_oskar
-		x = 0
-		y = 1
-		cost = 4
-		available = { NOT = { country_exists = WRD } }
-		relative_position_id = FGB_rohm_integrate_the_ss_militias
-		prerequisite = { focus = FGB_rohm_integrate_the_ss_militias }
-		completion_reward = {
-			add_war_support = 0.04
-			add_popularity = {
-				ideology = esotericism
-				popularity = 0.03
-			}
-			WRD_oskar_dirlewanger = {
-				set_nationality = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_rohm_expanding_the_sturmabteilung
-		icon = GFX_focus_FGB_rohm_expanding_the_sturmabteilung
-		x = 1
-		y = 1
-		cost = 4
-		available = { NOT = { country_exists = WRD } }
-		relative_position_id = FGB_rohm_grant_amnesty_to_dirlewanger
-		prerequisite = { focus = FGB_rohm_grant_amnesty_to_dirlewanger focus = FGB_rohm_exile_the_kaiser }
-		completion_reward = {
-			add_popularity = {
-				ideology = national_syndicalism
-				popularity = 0.04
-			}
-			WRD = { 
-				every_unit_leader = { add_nationality = FGB } 
-				every_core_state = {
-					add_core_of = FGB 
-					remove_core_of = WRD
-				}
-			}
-			every_state = {
-				limit = {
-					is_claimed_by = WRD 
-				}
-				remove_claim_by = WRD 
-				add_claim_by = FGB
-			}
-		}
-	}
-
-	focus = {
 		id = FGB_rohm_offer_the_ss_integration
 		icon = GFX_focus_WRD_expand_the_ss
 		x = 0
 		y = 1
 		cost = 4
+		available = {
+			WRD = [ has_government = esotericism ]
+		}
 		mutually_exclusive = { focus = FGB_rohm_strike_the_snakes_nest }
 		bypass = { has_war_with = WRD }
 		relative_position_id = FGB_rohm_prepare_for_the_rhein
 		prerequisite = { focus = FGB_rohm_prepare_for_the_rhein }
 		completion_reward = {
-			
+			WRD = { country_event = { id = fgb.111 days = 2 } }
 		}
 	}
 
@@ -6678,6 +6653,58 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_rohm_grant_amnesty_to_dirlewanger
+		icon = GFX_focus_WRD_oskar
+		x = 0
+		y = 1
+		cost = 4
+		available = { NOT = { country_exists = WRD } }
+		relative_position_id = FGB_rohm_integrate_the_ss_militias
+		prerequisite = { focus = FGB_rohm_integrate_the_ss_militias }
+		completion_reward = {
+			add_war_support = 0.04
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.03
+			}
+			WRD_oskar_dirlewanger = {
+				set_nationality = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_expanding_the_sturmabteilung
+		icon = GFX_focus_FGB_rohm_expanding_the_sturmabteilung
+		x = 1
+		y = 1
+		cost = 4
+		available = { NOT = { country_exists = WRD } }
+		relative_position_id = FGB_rohm_grant_amnesty_to_dirlewanger
+		prerequisite = { focus = FGB_rohm_grant_amnesty_to_dirlewanger focus = FGB_rohm_exile_the_kaiser }
+		completion_reward = {
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.04
+			}
+			WRD = { 
+				every_unit_leader = { add_nationality = FGB } 
+				every_core_state = {
+					add_core_of = FGB 
+					remove_core_of = WRD
+				}
+			}
+			every_state = {
+				limit = {
+					is_claimed_by = WRD 
+				}
+				remove_claim_by = WRD 
+				add_claim_by = FGB
+			}
+		}
+	}
+
+	focus = {
 		id = FGB_rohm_recruitment_in_the_rhineland
 		icon = GFX_focus_FGB_rohm_gear_up_for_the_next_war
 		x = 0
@@ -6701,7 +6728,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_rohm_the_bavarian_backbone focus = FGB_rohm_the_industrial_juggernaut }
 		prerequisite = { focus = FGB_rohm_expanding_the_sturmabteilung }
 		completion_reward = {
-			
+			add_war_support = 0.1
 		}
 	}
 
@@ -9240,6 +9267,9 @@ focus_tree = {
 		prerequisite = { focus = FGB_complete_recovery }
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			add_ideas = {
+				FGB_invigorate_the_german_economy_idea
+			}
 			custom_effect_tooltip = FGB_will_unlock_industrialisation_decisions_tt
 		}
 	}
