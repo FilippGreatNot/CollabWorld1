@@ -2019,4 +2019,661 @@ focus_tree = {
 		 add_ideas = GER_defender_of_european_democracy
 	}
 	}
+	
+	focus = {
+		id = GER_the_rise_of_the_vril_society
+		icon = GFX_focus_WRD_vril
+		cost = 5
+		x = 8
+		y = 10
+    	available = { has_government = esotericism }
+		completion_reward = {
+		
+		     add_war_support = 0.05
+			 add_popularity = {
+				ideology = esotericism
+				popularity = 0.05
+			}
+			 
+		}
+	}
+	focus = {
+        id = GER_nothing_ever_happens_so_please_calm_down
+        icon = GFX_focus_WRD_neh
+        relative_position_id = GER_the_rise_of_the_vril_society
+        x = -2
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_the_rise_of_the_vril_society
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_popularity = {
+			ideology = esotericism
+			popularity = 0.1
+			}
+			add_stability = 0.1
+			add_political_power = -75
+	}
+	}
+	focus = {
+        id = GER_integrate_himmlers_schutzstaffel
+        icon = GFX_focus_WRD_himmler_assumes_control
+        relative_position_id = GER_nothing_ever_happens_so_please_calm_down
+        x = 1
+        y = 1
+        cost = 5
+		available = {
+			country_exists = WRD
+			WRD = {
+			has_government = esotericism
+			}
+		}
+		available = { has_government = esotericism }
+		bypass = {
+		    NOT =  {
+			country_exists = WRD
+		    }
+	    }
+		prerequisite = {
+            focus = GER_nothing_ever_happens_so_please_calm_down
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		     GER = {
+				annex_country = { 
+					target = WRD
+					transfer_troops = yes 
+				}
+			    }
+			    WRD = {
+				every_unit_leader = {
+					set_nationality = GER
+				}
+				
+	}
+	}
+	}
+	focus = {
+        id = GER_funding_of_the_society
+        icon = GFX_focus_WRD_fund
+        relative_position_id = GER_integrate_himmlers_schutzstaffel
+        x = 0
+        y = 1
+        cost = 7
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_integrate_himmlers_schutzstaffel
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 5 }
+			add_political_power = 100
+			add_manpower = 50000
+	}
+	}
+	focus = {
+        id = GER_silently_eliminate_the_societys_opponents
+        icon = GFX_focus_WRD_fund
+        relative_position_id = GER_nothing_ever_happens_so_please_calm_down
+        x = -1
+        y = 1
+        cost = 6
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_nothing_ever_happens_so_please_calm_down
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.1
+			}
+			add_manpower = -20000
+			add_stability = 0.1
+	}
+	}
+	focus = {
+        id = GER_strenghten_our_grip_over_the_institutions
+        icon = GFX_focus_WRD_fund
+        relative_position_id = GER_silently_eliminate_the_societys_opponents
+        x = 0
+        y = 1
+        cost = 8
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_silently_eliminate_the_societys_opponents
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.1
+			}
+			add_political_power = 100
+			add_stability = 0.1
+	}
+	}
+	focus = {
+        id = GER_ensure_the_total_domination_of_the_vril_society
+        icon = GFX_focus_WRD_fund
+        relative_position_id = GER_strenghten_our_grip_over_the_institutions
+        x = 1
+        y = 1
+        cost = 8
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_strenghten_our_grip_over_the_institutions
+        }
+		prerequisite = {
+            focus = GER_funding_of_the_society
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.5
+			}
+			add_political_power = 200
+			add_war_support = 0.15
+	}
+	}
+	focus = {
+        id = GER_the_total_advancement_of_science
+        icon = GFX_focus_WRD_science
+        relative_position_id = GER_ensure_the_total_domination_of_the_vril_society
+        x = -1
+        y = 1
+        cost = 6
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_ensure_the_total_domination_of_the_vril_society
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_research_slot = 1
+			army_experience = 75
+			navy_experience = 50
+			air_experience = 50
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.25
+			}
+	}
+	}
+	focus = {
+        id = GER_the_army_of_nightmares
+        icon = GFX_focus_WRD_war
+        relative_position_id = GER_ensure_the_total_domination_of_the_vril_society
+        x = 1
+        y = 1
+        cost = 10
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_ensure_the_total_domination_of_the_vril_society
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_manpower = 200000
+			add_ideas = GER_army_of_nightmares
+			army_experience = 50
+			  random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}				
+		     random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}		
+			random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+            random_owned_controlled_state = {
+		        add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}						
+			    add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 10000
+				producer = GER
+		        }
+	}
+	}
+	focus = {
+        id = GER_the_vril_energy_must_be_somewhere_right
+        icon = GFX_focus_WRD_neh
+        relative_position_id = GER_the_rise_of_the_vril_society
+        x = 2
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		available = { has_completed_focus = GER_a_new_germany_on_the_world_stage }
+		prerequisite = {
+            focus = GER_the_rise_of_the_vril_society
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_war_support = 0.1
+	}
+	}
+	focus = {
+        id = GER_spread_the_society_to_the_neighborhood
+        icon = GFX_focus_WRD_door
+        relative_position_id = GER_the_vril_energy_must_be_somewhere_right
+        x = -1
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_the_vril_energy_must_be_somewhere_right
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			AUS = { make_every_core_national_for_PREV = yes }
+				hidden_effect = {
+					add_state_core = 69
+					add_state_core = 887
+					add_state_core = 74
+				}
+				create_wargoal = {
+				type = annex_everything
+				target = AUS
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = CZE
+			    }
+	}
+	}
+	focus = {
+        id = GER_march_into_eastern_europe
+        icon = GFX_focus_WRD_rot
+        relative_position_id = GER_spread_the_society_to_the_neighborhood
+        x = 0
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_spread_the_society_to_the_neighborhood
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+				create_wargoal = {
+				type = annex_everything
+				target = BLR
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = POL
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = WVA
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = UKR
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = EPR
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = SRF
+			    }
+	}
+	}
+	focus = {
+        id = GER_take_over_scandinavia
+        icon = GFX_focus_WRD_nordic
+        relative_position_id = GER_the_vril_energy_must_be_somewhere_right
+        x = 1
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_the_vril_energy_must_be_somewhere_right
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			SWE = { make_every_core_national_for_PREV = yes }
+			FIN = { make_every_core_national_for_PREV = yes }
+			DEN = { make_every_core_national_for_PREV = yes }
+			NOR = { make_every_core_national_for_PREV = yes }
+				create_wargoal = {
+				type = annex_everything
+				target = SWE
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = DEN
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = FIN
+			    }
+				create_wargoal = {
+				type = annex_everything
+				target = NOR
+			    }
+	}
+	}
+	focus = {
+        id = GER_launch_an_expedition_to_the_north_pole
+        icon = GFX_focus_WRD_launch
+        relative_position_id = GER_take_over_scandinavia
+        x = 0
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_take_over_scandinavia
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+			country_event = ger.70
+	}
+	}
+	
+	focus = {
+        id = GER_occupy_central_asia
+        icon = GFX_focus_GER_central
+        relative_position_id = GER_march_into_eastern_europe
+        x = 1
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_launch_an_expedition_to_the_north_pole
+        }
+		prerequisite = {
+            focus = GER_march_into_eastern_europe
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = OCG
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KAZ
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KYR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = MNS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BSM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BUK
+				type = annex_everything
+			}
+	}
+	}
+	focus = {
+        id = GER_the_great_invasion_of_tibet
+        icon = GFX_focus_GER_tibet
+        relative_position_id = GER_occupy_central_asia
+        x = 0
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_occupy_central_asia
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = TIB
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = TIA
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = SIK
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ASH
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KUM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = JMK
+				type = annex_everything
+			}
+	}
+	}
+	
+	focus = {
+        id = GER_agartha_beckons
+        icon = GFX_focus_GER_tibet
+        relative_position_id = GER_the_army_of_nightmares
+        x = 1
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_the_great_invasion_of_tibet
+        }
+		prerequisite = {
+            focus = GER_the_total_advancement_of_science
+        }
+		prerequisite = {
+            focus = GER_the_army_of_nightmares
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    country_event = ger.71
+	}
+	}
+	focus = {
+        id = GER_vril_powered_superguns
+        icon = GFX_focus_GER_super
+        relative_position_id = GER_agartha_beckons
+        x = 2
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_agartha_beckons
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    swap_ideas = {
+				remove_idea = GER_army_of_nightmares
+				add_idea = GER_army_of_nightmares2
+			}
+	}
+	}
+	focus = {
+        id = GER_die_glocke
+        icon = GFX_focus_GER_glocke
+        relative_position_id = GER_agartha_beckons
+        x = -2
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_agartha_beckons
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    add_ideas = GER_glocke
+	}
+	}
+	focus = {
+        id = GER_discover_the_wunderwaffen
+        icon = GFX_focus_GER_ww
+        relative_position_id = GER_agartha_beckons
+        x = 0
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_agartha_beckons
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 1
+			}
+			add_research_slot = 1
+	}
+	}
+	focus = {
+        id = GER_the_black_sun_shall_shine_over_the_world
+        icon = GFX_focus_GER_bs
+        relative_position_id = GER_die_glocke
+        x = 2
+        y = 1
+        cost = 5
+		available = { has_government = esotericism }
+		prerequisite = {
+            focus = GER_die_glocke
+        }
+		prerequisite = {
+            focus = GER_vril_powered_superguns
+        }
+		prerequisite = {
+            focus = GER_discover_the_wunderwaffen
+        }
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		    has_war = no
+		}
+		completion_reward = {
+		    every_other_country = {
+				limit = {
+					NOT = { is_ally_with = PREV }
+				}
+				ROOT = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+			set_country_flag = wages_war_with_everyone #Used to declare war whenever a new tag appears on the map
+	}
+	}
 }
