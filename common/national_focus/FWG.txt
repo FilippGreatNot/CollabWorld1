@@ -251,6 +251,23 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_a_speech_in_bremen
+		icon = GFX_focus_FWG_a_speech_in_bremen
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_henke
+		prerequisite = { focus = FWG_henke }
+		completion_reward = {
+			country_event = fwg.6
+		}
+	}
+	focus = {
 		id = FWG_bread_for_guns_campaign
 		icon = GFX_focus_FWG_bread_for_guns_campaign
 		x = -1
@@ -267,23 +284,6 @@ focus_tree = {
 			add_manpower = 10000
 			add_ideas = { extensive_conscription }
 			country_event = fwg.7
-		}
-	}
-	focus = {
-		id = FWG_a_speech_in_bremen
-		icon = GFX_focus_FWG_a_speech_in_bremen
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		available = { NOT = { has_completed_focus = FWG_rise_of_the_kpd } }
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FWG_henke
-		prerequisite = { focus = FWG_henke }
-		completion_reward = {
-			country_event = fwg.6
 		}
 	}
 	focus = {
@@ -633,46 +633,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FWG_denounce_the_MSPD
-		icon = GFX_focus_FWG_denounce_the_MSPD
-		x = -2
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FWG_strengthen_ties_with_the_spartakists
-		prerequisite = { focus = FWG_strengthen_ties_with_the_spartakists }
-		completion_reward = {
-			add_war_support = 0.04
-			add_opinion_modifier = {
-				target = GER
-				modifier = FWG_ideological_division
-			}
-		}
-	}
-	focus = {
-		id = FWG_exile_wels
-		icon = GFX_focus_FWG_exile_wels
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FWG_denounce_the_MSPD
-		prerequisite = { focus = FWG_denounce_the_MSPD }
-		completion_reward = {
-			retire_character = FWG_otto_wels
-			add_popularity = {
-				ideology = social_democrat
-				popularity = -0.06
-			}
-		}
-	}
-	focus = {
 		id = FWG_strengthen_ties_with_the_spartakists
 		icon = GFX_focus_FWG_strengthen_ties_with_the_spartakists
 		x = -2
@@ -728,6 +688,46 @@ focus_tree = {
 			add_opinion_modifier = {
 				target = SWE
 				modifier = FWG_ideological_similarities
+			}
+		}
+	}
+	focus = {
+		id = FWG_denounce_the_MSPD
+		icon = GFX_focus_FWG_denounce_the_MSPD
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_strengthen_ties_with_the_spartakists
+		prerequisite = { focus = FWG_strengthen_ties_with_the_spartakists }
+		completion_reward = {
+			add_war_support = 0.04
+			add_opinion_modifier = {
+				target = GER
+				modifier = FWG_ideological_division
+			}
+		}
+	}
+	focus = {
+		id = FWG_exile_wels
+		icon = GFX_focus_FWG_exile_wels
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_denounce_the_MSPD
+		prerequisite = { focus = FWG_denounce_the_MSPD }
+		completion_reward = {
+			retire_character = FWG_otto_wels
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.06
 			}
 		}
 	}

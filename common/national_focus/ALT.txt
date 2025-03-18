@@ -3978,14 +3978,14 @@ focus_tree = {
 				}
 			}
 			if = {
-				limit = { country_event = CBT }
+				limit = { country_exists = CBT }
 				create_wargoal = {
 					type = annex_everything
 					target = CBT
 				}
 			}
 			if = {
-				limit = { country_event = YNC }
+				limit = { country_exists = YNC }
 				create_wargoal = {
 					type = annex_everything
 					target = YNC
@@ -4359,9 +4359,7 @@ focus_tree = {
 		relative_position_id = ALT_support_the_manchu_farmers
 		prerequisite = { focus = ALT_support_the_manchu_farmers focus = ALT_establish_the_manchurian_soviet_republic }
 		completion_reward = {
-			SHD = {
-				country_event = { id = alt.7 days = 2 }
-			}
+			SHD = { country_event = { id = alt.7 days = 2 } }
 		}
 	}
 
@@ -4620,7 +4618,8 @@ focus_tree = {
 				type = puppet_wargoal_focus
 			}
 			hidden_effect = {
-				show_superevent_ALT_sino_japanese_war = yes
+				#show_superevent_ALT_sino_japanese_war = yes
+				#Broken ^^
 			}
 		}
 	}
