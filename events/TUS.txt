@@ -897,7 +897,7 @@ country_event = {
 	
 	option = {
 		name = tus_coun2.1.a
-		#Create Local Counseles
+		#Create Local Councils
 		remove_ideas = TUS_overwhelmed_council
 		if = {
 			limit = {has_idea = TUS_disunified_government}
@@ -945,17 +945,39 @@ country_event = {
 			}
 		}
 		if = {
-			limit = {has_idea = TUS_disunified_government_2}
+			limit = { 
+				OR = { 
+					has_idea = TUS_disunified_government_2 
+					has_idea = TUS_disunified_government
+				} 
+			}
 			#will do civil war
-			country_event = {
-				id = tus_civ_war.1
-				days = 30		
+			hidden_effect = {
+				country_event = {
+					id = tus_civ_war.1
+					days = 30		
+				}
 			}
 		}
 	}
 	
 	option = {
 		name = tus_coun2.2.b
+		if = {
+			limit = { 
+				OR = { 
+					has_idea = TUS_disunified_government_2 
+					has_idea = TUS_disunified_government
+				} 
+			}
+			#will do civil war
+			hidden_effect = {
+				country_event = {
+					id = tus_civ_war.1
+					days = 30		
+				}
+			}
+		}
 	}
 }
 
