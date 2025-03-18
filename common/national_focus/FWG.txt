@@ -213,7 +213,7 @@ focus_tree = {
 	focus = {
 		id = FWG_rapprochement_with_the_ebert_government
 		icon = GFX_focus_FWG_rapprochement_with_the_ebert_government
-		x = -2
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -233,7 +233,7 @@ focus_tree = {
 	focus = {
 		id = FWG_offer_the_republicans_a_pact_of_nonaggression
 		icon = GFX_focus_FWG_offer_the_republicans_a_pact_of_nonaggression
-		x = -2
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -253,15 +253,15 @@ focus_tree = {
 	focus = {
 		id = FWG_bread_for_guns_campaign
 		icon = GFX_focus_FWG_bread_for_guns_campaign
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = FWG_rapprochement_with_the_ebert_government
-		prerequisite = { focus = FWG_rapprochement_with_the_ebert_government }
+		relative_position_id = FWG_a_speech_in_bremen
+		prerequisite = { focus = FWG_a_speech_in_bremen }
 		completion_reward = {
 			add_political_power = -50
 			add_manpower = 10000
@@ -272,7 +272,7 @@ focus_tree = {
 	focus = {
 		id = FWG_a_speech_in_bremen
 		icon = GFX_focus_FWG_a_speech_in_bremen
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -289,7 +289,7 @@ focus_tree = {
 	focus = {
 		id = FWG_a_party_of_revolution
 		icon = GFX_focus_FWG_a_party_of_revolution
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -313,7 +313,7 @@ focus_tree = {
 	focus = {
 		id = FWG_win_the_battle_against_pacifism
 		icon = GFX_focus_FWG_win_the_battle_against_pacifism
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -610,6 +610,65 @@ focus_tree = {
 			add_timed_idea = {
 				idea = FWG_mobilisation_campaigns
 				days = 360
+			}
+		}
+	}
+	focus = {
+		id = FWG_fight_for_a_new_revolution
+		icon = GFX_focus_FWG_fight_for_a_new_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_mobilise_the_people
+		prerequisite = { focus = FWG_mobilise_the_people }
+		completion_reward = {
+			add_war_support = 0.04
+			add_ideas = {
+				FWG_fight_for_a_new_revolution_idea
+			}
+		}
+	}
+	focus = {
+		id = FWG_denounce_the_MSPD
+		icon = GFX_focus_FWG_denounce_the_MSPD
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_strengthen_ties_with_the_spartakists
+		prerequisite = { focus = FWG_strengthen_ties_with_the_spartakists }
+		completion_reward = {
+			add_war_support = 0.04
+			add_opinion_modifier = {
+				target = GER
+				modifier = FWG_ideological_division
+			}
+		}
+	}
+	focus = {
+		id = FWG_exile_wels
+		icon = GFX_focus_FWG_exile_wels
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_denounce_the_MSPD
+		prerequisite = { focus = FWG_denounce_the_MSPD }
+		completion_reward = {
+			retire_character = FWG_otto_wels
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.06
 			}
 		}
 	}
@@ -1762,7 +1821,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_widespread_road_construction
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_widespread_road_construction
 		x = -4
 		y = 1
 		cost = 5
@@ -1783,7 +1842,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_digging_more_metals_out_of_the_ground
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_digging_more_metals_out_of_the_ground
 		x = 0
 		y = 1
 		cost = 8
@@ -1819,7 +1878,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_modernise_our_agriculture
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_modernise_our_agriculture
 		x = -2
 		y = 1
 		cost = 5
@@ -1846,7 +1905,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_diversify_the_job_sector
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_diversify_the_job_sector
 		x = 0
 		y = 1
 		cost = 5
@@ -1890,7 +1949,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_the_bremen_centre_of_socialist_history
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_the_bremen_centre_of_socialist_history
 		x = 0
 		y = 1
 		cost = 5
@@ -1906,7 +1965,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_streamline_weapons_manufacturing
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_streamline_weapons_manufacturing
 		x = 3
 		y = 1
 		cost = 7
@@ -1932,7 +1991,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_fortify_the_southern_border
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_fortify_the_southern_border
 		x = -1
 		y = 1
 		cost = 4
@@ -2029,7 +2088,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_fortify_the_eastern_border
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_fortify_the_eastern_border
 		x = 1
 		y = 1
 		cost = 4
@@ -2100,7 +2159,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_build_up_an_advanced_welfare_net
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_build_up_an_advanced_welfare_net
 		x = 1
 		y = 1
 		cost = 5
@@ -2136,7 +2195,7 @@ focus_tree = {
 	focus = {
 		id = FWG_hold_westphalia
 		icon = GFX_focus_FWG_hold_westphalia
-		x = 2
+		x = 1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_prepare_for_the_coming_war
@@ -2144,13 +2203,16 @@ focus_tree = {
 		available = { has_war_with = WRD }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
-			# timed idea
+			add_timed_idea = {
+				idea = FWG_defending_the_south
+				days = 120
+			}
 		}
 	}
 	focus = {
 		id = FWG_behind_the_weser
 		icon = GFX_focus_FWG_behind_the_weser
-		x = -2
+		x = -1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_prepare_for_the_coming_war
@@ -2158,7 +2220,10 @@ focus_tree = {
 		available = { has_war_with = GER }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
-			# timed idea
+			add_timed_idea = {
+				idea = FWG_defending_the_east
+				days = 120
+			}
 		}
 	}
 }

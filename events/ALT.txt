@@ -32,6 +32,18 @@ country_event = {
 		add_war_support = 0.05
 		add_stability = -0.05
 		custom_effect_tooltip = ALT_they_could_declare_war
+		hidden_effect = {
+			MON = { 
+				declare_war_on = {
+					target = ALT
+					type = take_claimed_state
+				}
+				declare_war_on = {
+					target = RMA
+					type = take_claimed_state
+				}
+			}
+		}
 	}
 
 	option = {
@@ -184,6 +196,35 @@ country_event = {
 			create_unit = {
 				division = "name = \"1st Mounted Infantry\" division_template = \"Mounted Infantry\" start_experience_factor = 0.4" 
 				owner = PREV
+			}
+		}
+	}
+}
+
+country_event = {
+	id = alt.7
+	title = alt.7.t
+	desc = alt.7.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.7.a
+		ai_will_do = { base = 10 }
+		ALT = { 
+			annex_country = {
+				target = SHD
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = alt.7.b
+		ai_will_do = { base = 20 }
+		ALT = { 
+			create_wargoal = {
+				type = annex_everything
+				target = SHD
 			}
 		}
 	}

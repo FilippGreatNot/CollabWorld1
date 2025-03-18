@@ -3963,9 +3963,12 @@ focus_tree = {
 				type = annex_everything
 				target = GUI
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = HNN
+			if = { 
+				limit = { country_exists = HNN } 
+				create_wargoal = {
+					type = annex_everything
+					target = HNN
+				}
 			}
 			if = { 
 				limit = { country_exists = SIC } 
@@ -3974,10 +3977,18 @@ focus_tree = {
 					target = SIC
 				}
 			}
-			else = {
+			if = {
+				limit = { country_event = CBT }
 				create_wargoal = {
 					type = annex_everything
 					target = CBT
+				}
+			}
+			if = {
+				limit = { country_event = YNC }
+				create_wargoal = {
+					type = annex_everything
+					target = YNC
 				}
 			}
 		}
@@ -3995,29 +4006,26 @@ focus_tree = {
 		available = {
 			has_war = no
 			is_subject = no
-			any_owned_state = { is_core_of = TIB }
 		}
 		relative_position_id = ALT_invade_the_nationalists
 		prerequisite = { focus = ALT_invade_the_nationalists }
 		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = TIB
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = XIK
-			}
-			TIB = {
-				every_core_state = { add_core_of = ALT }
-			}
-			XIK = {
-				every_core_state = { add_core_of = ALT }
-				every_owned_state = {
-					limit = { is_demilitarized_zone = yes }
-					set_demilitarized_zone = no
+			if = { 
+				limit = { country_exists = TIB } 
+				declare_war_on = {
+					target = TIB
+					type = annex_everything
 				}
 			}
+			if = { 
+				limit = { country_exists = XIK } 
+				declare_war_on = {
+					target = XIK
+					type = annex_everything
+				}
+			}
+			TIB = { make_every_core_national_for_PREV = yes }
+			XIK = { make_every_core_national_for_PREV = yes }
 		}
 	}
 
@@ -4044,6 +4052,7 @@ focus_tree = {
 				popularity = -0.1
 			}
 			SIC = { make_every_core_national_for_PREV = yes }
+			CBT = { make_every_core_national_for_PREV = yes }
 		}
 	}
 
@@ -4067,6 +4076,7 @@ focus_tree = {
 		completion_reward = {
 			GUI = { make_every_core_national_for_PREV = yes }
 			HNN = { make_every_core_national_for_PREV = yes }
+			YNC = { make_every_core_national_for_PREV = yes }
 			every_owned_state = {
 				limit = { is_core_of = GUI }
 				remove_core_of = GUI 
@@ -4074,6 +4084,10 @@ focus_tree = {
 			every_owned_state = {
 				limit = { is_core_of = HNN }
 				remove_core_of = HNN
+			}
+			every_owned_state = {
+				limit = { is_core_of = YNC }
+				remove_core_of = YNC
 			}
 		}
 	}
@@ -4343,10 +4357,11 @@ focus_tree = {
 			is_subject = no
 		}
 		relative_position_id = ALT_support_the_manchu_farmers
-		prerequisite = { focus = ALT_support_the_manchu_farmers }
-		prerequisite = { focus = ALT_establish_the_manchurian_soviet_republic }
+		prerequisite = { focus = ALT_support_the_manchu_farmers focus = ALT_establish_the_manchurian_soviet_republic }
 		completion_reward = {
-			
+			SHD = {
+				country_event = { id = alt.7 days = 2 }
+			}
 		}
 	}
 
@@ -4402,7 +4417,18 @@ focus_tree = {
 		prerequisite = { focus = ALT_invade_beiyang }
 		prerequisite = { focus = ALT_demand_back_the_japanese_concessions }
 		completion_reward = {
-			
+			326 = {
+				add_core_of = ALT
+				transfer_state_to = ALT
+			}
+			728 = {
+				add_core_of = ALT 
+				transfer_state_to = ALT
+			}
+			729 = {
+				add_core_of = ALT 
+				transfer_state_to = ALT
+			}
 		}
 	}
 
@@ -4592,6 +4618,9 @@ focus_tree = {
 			declare_war_on = {
 				target = JAP
 				type = puppet_wargoal_focus
+			}
+			hidden_effect = {
+				show_superevent_ALT_sino_japanese_war = yes
 			}
 		}
 	}
