@@ -436,3 +436,73 @@ libertarian_socialism_decisions = {
 		}
 	}
 }
+national_syndicalism_decisions = {
+	improve_our_military_might = {
+		days_re_enable = 360
+		icon = ger_mefo_bills
+		
+		cost = 150
+		
+		days_remove = 120
+
+		complete_effect = {
+			random_core_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+		modifier = {
+			command_power_gain_mult = 0.1
+			experience_gain_army_factor = 0.1
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	polarise_the_media = {
+		days_re_enable = 240
+		icon = ger_mefo_bills
+		
+		cost = 100
+		
+		complete_effect = {
+			add_stability = 0.075
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	acts_against_communism = {
+		days_re_enable = 120
+		icon = ger_mefo_bills
+		
+		cost = 75
+
+		complete_effect = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.03
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}

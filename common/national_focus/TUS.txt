@@ -769,7 +769,6 @@
 		}
 		
  		available = {
-			has_war = no
 			NOT = {has_idea = TUS_prepare_for_reunificatoin_idea }
 		}
 		
@@ -818,7 +817,7 @@
 			focus = TUS_the_red_menace
 		}
 		
-		available = {NOT = {country_exists = ITS} has_war = no}
+		available = {NOT = {country_exists = ITS}}
 		
 		bypass = {
 			OR = {
@@ -855,7 +854,6 @@
 		}
 		
  		available = {
-			has_war = no
 			NOT = {has_idea = TUS_prepare_for_reunificatoin_idea }
 		}
 		
@@ -909,7 +907,6 @@
 		}
 		
  		available = {
-			has_war = no
 		}
 		
 		relative_position_id = TUS_destroy_the_frauds
@@ -949,7 +946,7 @@
 			focus = TUS_destroy_the_frauds
 		}
 		
-		available = {NOT = {country_exists = ITA} has_war = no}
+		available = {NOT = {country_exists = ITA}}
 		
 		bypass = {
 			OR = {
@@ -998,7 +995,6 @@
 		}
 		
 		available = {
-			has_war = no
 			NOT = { owns_state = 930}
 		}
 		
@@ -1037,7 +1033,7 @@
 			focus = TUS_secure_northen_italy
 		}
 		
-		available = {NOT = {country_exists = MSS} NOT = {country_exists = VNE} has_war = no}
+		available = {NOT = {country_exists = MSS} NOT = {country_exists = VNE}}
 		
 		bypass = {
 			OR = {
@@ -1373,6 +1369,13 @@
 			focus = TUS_restabilize_the_government
 		}
 		
+		available = {
+			has_country_flag = done_speech_in_rome
+			has_country_flag = done_speech_in_venice
+			has_country_flag = done_speech_in_genoa
+			has_country_flag = done_speech_in_palermo	
+		}
+		
         x = 0
         y = 1
 		
@@ -1384,16 +1387,6 @@
 		
 		completion_reward = {
 			remove_ideas = TUS_worker_strikes
-			custom_effect_tooltip = TUS_modify_ppl_subtract_10
-			subtract_from_variable = {
-				var = TUS_Balbo_Pop_ppl
-				value = 10
-			}
-			custom_effect_tooltip = TUS_modify_mil_subtract_5
-			subtract_from_variable = {
-				var = TUS_Balbo_Pop_mil
-				value = 5
-			}
 		}
 	}
 	

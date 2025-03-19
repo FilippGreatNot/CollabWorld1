@@ -5517,6 +5517,7 @@ focus_tree = {
 			retire_character = FGB_waldemar_pabst
 			retire_character = FGB_kurt_daluege
 			retire_character = FGB_karl_wolff
+			retire_character = FGB_theodor_eicke
 			add_political_power = 50
 			add_popularity = {
 				ideology = national_syndicalism
@@ -5724,11 +5725,15 @@ focus_tree = {
 		x = -7
 		y = 1
 		cost = 4
+		available = { country_exists = TUS }
 		mutually_exclusive = { focus = FGB_rohm_contact_mussolini }
 		relative_position_id = FGB_rohm_the_new_era_of_germany
 		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
 			custom_effect_tooltip = FGB_balbo_is_weaker_but_is_more_likely_to_accept_tt
+			TUS = {
+				country_event = { id = rohm_diplomacy.1 days = 1 }
+			}
 		}
 	}
 
@@ -5738,11 +5743,15 @@ focus_tree = {
 		x = -5
 		y = 1
 		cost = 4
+		available = { country_exists = ITS }
 		mutually_exclusive = { focus = FGB_rohm_contact_balbo }
 		relative_position_id = FGB_rohm_the_new_era_of_germany
 		prerequisite = { focus = FGB_rohm_the_new_era_of_germany }
 		completion_reward = {
 			custom_effect_tooltip = FGB_mussolini_is_stronger_but_is_less_likely_to_accept_tt
+			ITS = {
+				country_event = { id = rohm_diplomacy.1 days = 1 }
+			}
 		}
 	}
 
@@ -6061,7 +6070,10 @@ focus_tree = {
 		y = 1
 		cost = 4
 		mutually_exclusive = { focus = FGB_rohm_demand_the_end_of_the_false_socialists }
-		available = { BAV = { has_completed_focus = BAV_the_rise_of_the_bnbap } }
+		available = { 
+			has_war = no
+			BAV = { has_completed_focus = BAV_the_rise_of_the_bnbap } 
+		}
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
@@ -6139,7 +6151,10 @@ focus_tree = {
 		y = 1
 		cost = 4
 		mutually_exclusive = { focus = FGB_rohm_cooperate_with_the_dnbap }
-		available = { NOT = { BAV = { has_completed_focus = BAV_the_victory_of_the_national_revolution } } }
+		available = { 
+			has_war = no
+			NOT = { BAV = { has_completed_focus = BAV_the_rise_of_the_bnbap } } 
+		}
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
@@ -6224,11 +6239,29 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_recruitment_in_bavaria
 		x = 1
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = FGB_rohm_integration_of_the_dnbap
 		prerequisite = { focus = FGB_rohm_integration_of_the_dnbap focus = FGB_rohm_there_was_no_bavarian_soviet }
 		completion_reward = {
-
+			add_manpower = 150000
+			add_corps_commander_role = {
+				character = FGB_julius_schreck
+				traits = { fgb_paramilitarist }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+				character = FGB_christian_berger
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
 		}
 	}
 
@@ -6237,7 +6270,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_improve_worker_conditions
 		x = 3
 		y = 1
-		cost = 8
+		cost = 6
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
@@ -6254,7 +6287,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_increase_militarism_in_the_state
 		x = -1
 		y = 1
-		cost = 8
+		cost = 6
 		relative_position_id = FGB_rohm_improve_worker_conditions
 		prerequisite = { focus = FGB_rohm_improve_worker_conditions }
 		completion_reward = {
@@ -6274,7 +6307,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_sudeten_recruitment
 		x = 0
 		y = 1
-		cost = 8
+		cost = 4
 		relative_position_id = FGB_rohm_increase_militarism_in_the_state
 		prerequisite = { focus = FGB_rohm_increase_militarism_in_the_state }
 		completion_reward = {
@@ -6304,7 +6337,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_an_economy_that_runs_on_blood_sweat_and_tears
 		x = 1
 		y = 1
-		cost = 8
+		cost = 6
 		relative_position_id = FGB_rohm_improve_worker_conditions
 		prerequisite = { focus = FGB_rohm_improve_worker_conditions focus = FGB_rohm_tend_to_underdeveloped_areas }
 		completion_reward = {
@@ -6324,7 +6357,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_seize_the_reins_of_the_market
 		x = 0
 		y = 1
-		cost = 5
+		cost = 4
 		relative_position_id = FGB_rohm_an_economy_that_runs_on_blood_sweat_and_tears
 		prerequisite = { focus = FGB_rohm_an_economy_that_runs_on_blood_sweat_and_tears }
 		completion_reward = {
@@ -6403,7 +6436,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_tend_to_underdeveloped_areas
 		x = -3
 		y = 1
-		cost = 8
+		cost = 6
 		relative_position_id = FGB_rohm_prepare_for_the_rhein
 		prerequisite = { focus = FGB_rohm_prepare_for_the_rhein }
 		completion_reward = {
@@ -6428,7 +6461,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_victory_on_the_industrial_front
 		x = 1
 		y = 1
-		cost = 8
+		cost = 6
 		relative_position_id = FGB_rohm_tend_to_underdeveloped_areas
 		prerequisite = { focus = FGB_rohm_tend_to_underdeveloped_areas }
 		completion_reward = {
@@ -6455,7 +6488,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_resource_distributions
 		x = 0
 		y = 1
-		cost = 8
+		cost = 6
 		relative_position_id = FGB_rohm_victory_on_the_industrial_front
 		prerequisite = { focus = FGB_rohm_victory_on_the_industrial_front }
 		completion_reward = {
@@ -6525,6 +6558,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 4
+		available = { has_war = no }
 		mutually_exclusive = { focus = FGB_rohm_offer_the_ss_integration }
 		bypass = { has_war_with = WRD }
 		relative_position_id = FGB_rohm_prepare_for_the_rhein
@@ -6586,6 +6620,7 @@ focus_tree = {
 		y = 1
 		cost = 4
 		available = {
+			has_war = no
 			WRD = { has_government = esotericism }
 		}
 		mutually_exclusive = { focus = FGB_rohm_strike_the_snakes_nest }
@@ -6710,7 +6745,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_recruitment_in_the_rhineland
 		x = 0
 		y = 1
-		cost = 6
+		cost = 5
 		relative_position_id = FGB_rohm_expanding_the_sturmabteilung
 		prerequisite = { focus = FGB_rohm_expanding_the_sturmabteilung }
 		completion_reward = {
@@ -6723,13 +6758,235 @@ focus_tree = {
 		icon = GFX_focus_FGB_rohm_gear_up_for_the_next_war
 		x = 4
 		y = 1
-		cost = 5
+		cost = 7
 		relative_position_id = FGB_rohm_there_was_no_bavarian_soviet
 		prerequisite = { focus = FGB_rohm_integration_of_the_dnbap focus = FGB_rohm_there_was_no_bavarian_soviet }
 		prerequisite = { focus = FGB_rohm_the_bavarian_backbone focus = FGB_rohm_the_industrial_juggernaut }
 		prerequisite = { focus = FGB_rohm_expanding_the_sturmabteilung }
 		completion_reward = {
 			add_war_support = 0.1
+			add_timed_idea = {
+				idea = FGB_fury_of_a_patriot
+				days = 250
+			}
+			custom_effect_tooltip = FGB_line_up_the_syndicate_border_tt
+			country_event = { id = fgb.112 days = 4 }
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_the_fate_of_the_syndicalist_west
+		icon = GFX_focus_FGB_rohm_the_fate_of_the_syndicalist_west
+		x = 0
+		y = 1
+		cost = 0
+		allow_branch = { has_country_flag = FGB_rohm_final_blows_flag }
+		relative_position_id = FGB_rohm_gear_up_for_the_next_war
+		prerequisite = { focus = FGB_rohm_gear_up_for_the_next_war }
+		completion_reward = {
+			FWG = { country_event = { id = fgb.113 days = 2 } }
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_a_brown_revolution
+		icon = GFX_focus_FGB_rohm_a_brown_revolution
+		x = -1
+		y = 1
+		cost = 0
+		available = {
+			always = no
+		}
+		mutually_exclusive = { focus = FGB_rohm_crush_the_urban_pestilence }
+		relative_position_id = FGB_rohm_the_fate_of_the_syndicalist_west
+		prerequisite = { focus = FGB_rohm_the_fate_of_the_syndicalist_west }
+		completion_reward = {
+			add_stability = 0.04
+			annex_country = {
+				target = FWG
+				transfer_troops = yes
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_crush_the_urban_pestilence
+		icon = GFX_focus_FGB_rohm_crush_the_urban_pestilence
+		x = 1
+		y = 1
+		cost = 0
+		available = {
+			always = no
+		}
+		mutually_exclusive = { focus = FGB_rohm_a_brown_revolution }
+		relative_position_id = FGB_rohm_the_fate_of_the_syndicalist_west
+		prerequisite = { focus = FGB_rohm_the_fate_of_the_syndicalist_west }
+		completion_reward = {
+			add_war_support = 0.04
+			declare_war_on = {
+				target = FWG
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_correct_the_wrongful_path
+		icon = GFX_focus_FGB_rohm_correct_the_wrongful_path
+		x = 1
+		y = 1
+		cost = 5
+		available = { NOT = { country_exists = FWG } }
+		relative_position_id = FGB_rohm_a_brown_revolution
+		prerequisite = { focus = FGB_rohm_a_brown_revolution focus = FGB_rohm_crush_the_urban_pestilence }
+		completion_reward = {
+			add_political_power = -20
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_connect_up_the_north
+		icon = GFX_focus_FGB_rohm_connect_up_the_north
+		x = 0
+		y = 1
+		cost = 8
+		relative_position_id = FGB_rohm_correct_the_wrongful_path
+		prerequisite = { focus = FGB_rohm_correct_the_wrongful_path }
+		completion_reward = {
+			FWG = {
+				every_core_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build  = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_set_up_local_gauleiters
+		icon = GFX_focus_FGB_rohm_set_up_local_gauleiters
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_rohm_connect_up_the_north
+		prerequisite = { focus = FGB_rohm_connect_up_the_north }
+		completion_reward = {
+			add_political_power = 50
+			FWG = {
+				every_core_state = {
+					add_core_of = FGB 
+					remove_core_of = FGB
+				}
+			}
+			every_state = {
+				limit = { is_claimed_by = FWG }
+				remove_claim_by = FWG 
+				add_claim_by = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_open_up_trade
+		icon = GFX_focus_FGB_rohm_set_up_local_gauleiters
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FGB_rohm_set_up_local_gauleiters
+		prerequisite = { focus = FGB_rohm_set_up_local_gauleiters }
+		completion_reward = {
+			add_ideas = {
+				free_trade
+			}
+			add_equipment_to_stockpile = {
+				type = convoy 
+				amount = 25
+				producer = FGB
+			}
+			random_core_state = {
+				limit = { is_coastal = yes }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_march_to_the_brandenburg_gates
+		icon = GFX_focus_FGB_rohm_set_up_local_gauleiters
+		x = -5
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = {
+			OR = {
+				has_war_with = GER 
+				not = { country_exists = GER }
+			}
+		}
+		relative_position_id = FGB_rohm_gear_up_for_the_next_war
+		prerequisite = { focus = FGB_rohm_gear_up_for_the_next_war }
+		completion_reward = {
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_forbid_mentioning_his_name
+		icon = GFX_focus_FGB_rohm_set_up_local_gauleiters
+		x = -1
+		y = 1
+		cost = 5
+		available = { NOT = { country_exists = GER } }
+		relative_position_id = FGB_rohm_march_to_the_brandenburg_gates
+		prerequisite = { focus = FGB_rohm_march_to_the_brandenburg_gates }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_gateway_to_the_baltic
+		icon = GFX_focus_FGB_rohm_set_up_local_gauleiters
+		x = 5
+		y = 1
+		cost = 5
+		available = { has_war = no }
+		bypass = {
+			OR = {
+				has_war_with = UVS 
+				not = { country_exists = UVS }
+			}
+		}
+		relative_position_id = FGB_rohm_gear_up_for_the_next_war
+		prerequisite = { focus = FGB_rohm_gear_up_for_the_next_war }
+		completion_reward = {
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
 		}
 	}
 
@@ -9291,6 +9548,7 @@ focus_tree = {
 			custom_effect_tooltip = FGB_subsidise_merck_darmstadt_tt
  			custom_effect_tooltip = FGB_fund_vereinigte_stahlwerke_tt
  			custom_effect_tooltip = FGB_invest_in_krupp_tt
+			custom_effect_tooltip = FGB_workers_saarland_tt
 		}
 	}
 	

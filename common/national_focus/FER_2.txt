@@ -1,0 +1,321 @@
+focus_tree = {
+	id = FER_two
+	country = {
+		factor = 0
+		modifier = {
+			add = 6
+			tag = FER
+		}
+	}
+	default = no
+	
+	focus = {
+		id = FER_improve_infrastructure
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 1
+		available = {
+		has_completed_focus = FER_economic_reforms
+		}
+		prerequisite = {
+		}
+		completion_reward = {
+		408 = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 2
+					   instant_build = yes
+				    }
+				 }
+
+		}
+	}
+	
+		focus = {
+		id = FER_clear_slums
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+		focus = FER_improve_infrastructure
+		}
+		completion_reward = {
+		560 = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+		409 = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+		657 = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+				 
+		 563 = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+
+		}
+	}
+	
+		focus = {
+		id = FER_attract_foreign_engineers
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 4
+		y = 2
+		prerequisite = {
+		focus = FER_improve_infrastructure
+		}
+		completion_reward = {
+		408 = 
+			{ add_extra_state_shared_building_slots = 1
+				       add_building_construction = {
+					   type = industrial_complex
+					   level = 2
+					   instant_build = yes
+				    }
+				 }
+
+		}
+	}
+	
+			focus = {
+		id = FER_japanese_advisors
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 0
+		y = 3
+		prerequisite = {
+		focus = FER_clear_slums
+		}
+		completion_reward = {
+        add_ideas = FER_japanese_advisors
+		}
+	}
+	
+		focus = {
+		id = FER_english_advisers
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 4
+		y = 3
+		prerequisite = {
+		focus = FER_attract_foreign_engineers
+		}
+		completion_reward = {
+        add_ideas = FER_english_advisers
+		}
+	}
+	
+			focus = {
+		id = FER_restore_vladivostok
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 4
+		prerequisite = { focus = FER_english_advisers }
+		prerequisite = { focus = FER_japanese_advisors } 
+		completion_reward = {
+        swap_ideas = {
+				add_idea = FER_bad_economy1
+				remove_idea = FER_bad_economy
+			}
+		}
+	}
+	
+		focus = {
+		id = FER_new_meeting
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 7
+		y = 0
+		prerequisite = {
+		}
+		completion_reward = {
+        country_event = { id = fer.6  }
+		}
+	}
+	
+			focus = {
+		id = FER_military_reforms
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 7
+		y = 1
+		prerequisite = {
+		focus = FER_new_meeting
+		}
+		completion_reward = {
+		}
+	}
+				focus = {
+		id = FER_economic_reforms
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 7
+		y = 2
+		prerequisite = {
+		focus = FER_military_reforms
+		}
+		completion_reward = {
+		}
+	}
+					focus = {
+		id = FER_invite_liberals
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 7
+		y = 3
+		prerequisite = {
+		focus = FER_economic_reforms
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = social_democrat
+    popularity = +0.1
+}
+    add_popularity = {
+    ideology = liberalism
+    popularity = +0.1
+}
+		}
+	}
+	
+			focus = {
+		id = FER_experience_of_war
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 13
+		y = 1
+		available = {
+		has_completed_focus = FER_military_reforms
+		}
+		prerequisite = { }
+		completion_reward = {
+        swap_ideas = {
+				add_idea = FER_distrust_of_army1
+				remove_idea = FER_distrust_of_army
+			}
+		}
+	}
+	
+			focus = {
+		id = FER_military_construction_sites
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 11
+		y = 2
+		prerequisite = { focus = FER_experience_of_war }
+		completion_reward = {
+				408 = 
+			{ add_extra_state_shared_building_slots = 2
+				       add_building_construction = {
+					   type = arms_factory
+					   level = 2
+					   instant_build = yes
+				    }
+				 }
+		}
+	}
+	
+				focus = {
+		id = FER_new_training_sessions
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 11
+		y = 3
+		prerequisite = { focus = FER_military_construction_sites }
+		completion_reward = {
+        swap_ideas = {
+				add_idea = FER_distrust_of_army2
+				remove_idea = FER_distrust_of_army1
+			}
+		}
+	}
+	
+					focus = {
+		id = FER_foreign_advisers
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 15
+		y = 2
+		available = {
+		has_completed_focus = FER_new_training_sessions
+		}
+		prerequisite = { focus = FER_experience_of_war }
+		completion_reward = {
+        swap_ideas = {
+				add_idea = FER_distrust_of_army3
+				remove_idea = FER_distrust_of_army2
+			}
+		}
+	}
+	
+		focus = {
+		id = FER_plan_of_20_divisions
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 15
+		y = 3
+		prerequisite = { focus = FER_foreign_advisers }
+		completion_reward = {
+        swap_ideas = {
+				add_idea = FER_distrust_of_army4
+				remove_idea = FER_distrust_of_army3
+			}
+		}
+	}
+			focus = {
+		id = FER_new_army
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 13
+		y = 4
+		prerequisite = { focus = FER_plan_of_20_divisions }
+		prerequisite = { focus = FER_new_training_sessions }
+		completion_reward = {
+        swap_ideas = {
+				add_idea = FER_distrust_of_army5
+				remove_idea = FER_distrust_of_army4
+			}
+		}
+	}
+	
+	focus = {
+		id = FER_meeting
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 7
+		y = 5
+		prerequisite = { focus = FER_invite_liberals }
+		prerequisite = { focus = FER_new_army }
+		prerequisite = { focus = FER_restore_vladivostok }
+		completion_reward = {
+		country_event = { id = fer.7  }
+		}
+	}
+	
+	}

@@ -213,7 +213,7 @@ focus_tree = {
 	focus = {
 		id = FWG_rapprochement_with_the_ebert_government
 		icon = GFX_focus_FWG_rapprochement_with_the_ebert_government
-		x = -2
+		x = -4
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -233,7 +233,7 @@ focus_tree = {
 	focus = {
 		id = FWG_offer_the_republicans_a_pact_of_nonaggression
 		icon = GFX_focus_FWG_offer_the_republicans_a_pact_of_nonaggression
-		x = -2
+		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -251,28 +251,9 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FWG_bread_for_guns_campaign
-		icon = GFX_focus_FWG_bread_for_guns_campaign
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FWG_rapprochement_with_the_ebert_government
-		prerequisite = { focus = FWG_rapprochement_with_the_ebert_government }
-		completion_reward = {
-			add_political_power = -50
-			add_manpower = 10000
-			add_ideas = { extensive_conscription }
-			country_event = fwg.7
-		}
-	}
-	focus = {
 		id = FWG_a_speech_in_bremen
 		icon = GFX_focus_FWG_a_speech_in_bremen
-		x = 0
+		x = -1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -287,9 +268,28 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_bread_for_guns_campaign
+		icon = GFX_focus_FWG_bread_for_guns_campaign
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_a_speech_in_bremen
+		prerequisite = { focus = FWG_a_speech_in_bremen }
+		completion_reward = {
+			add_political_power = -50
+			add_manpower = 10000
+			add_ideas = { extensive_conscription }
+			country_event = fwg.7
+		}
+	}
+	focus = {
 		id = FWG_a_party_of_revolution
 		icon = GFX_focus_FWG_a_party_of_revolution
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -313,7 +313,7 @@ focus_tree = {
 	focus = {
 		id = FWG_win_the_battle_against_pacifism
 		icon = GFX_focus_FWG_win_the_battle_against_pacifism
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -614,6 +614,25 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_fight_for_a_new_revolution
+		icon = GFX_focus_FWG_fight_for_a_new_revolution
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_mobilise_the_people
+		prerequisite = { focus = FWG_mobilise_the_people }
+		completion_reward = {
+			add_war_support = 0.04
+			add_ideas = {
+				FWG_fight_for_a_new_revolution_idea
+			}
+		}
+	}
+	focus = {
 		id = FWG_strengthen_ties_with_the_spartakists
 		icon = GFX_focus_FWG_strengthen_ties_with_the_spartakists
 		x = -2
@@ -669,6 +688,46 @@ focus_tree = {
 			add_opinion_modifier = {
 				target = SWE
 				modifier = FWG_ideological_similarities
+			}
+		}
+	}
+	focus = {
+		id = FWG_denounce_the_MSPD
+		icon = GFX_focus_FWG_denounce_the_MSPD
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_strengthen_ties_with_the_spartakists
+		prerequisite = { focus = FWG_strengthen_ties_with_the_spartakists }
+		completion_reward = {
+			add_war_support = 0.04
+			add_opinion_modifier = {
+				target = GER
+				modifier = FWG_ideological_division
+			}
+		}
+	}
+	focus = {
+		id = FWG_exile_wels
+		icon = GFX_focus_FWG_exile_wels
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_denounce_the_MSPD
+		prerequisite = { focus = FWG_denounce_the_MSPD }
+		completion_reward = {
+			retire_character = FWG_otto_wels
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.06
 			}
 		}
 	}
@@ -1621,6 +1680,381 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_import_soviet_guns
+		icon = GFX_focus_generic_production
+		x = -2
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		relative_position_id = FWG_rise_of_the_kpd
+		prerequisite = { focus = FWG_rise_of_the_kpd }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = -25
+			army_experience = 15
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.03
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = SOV
+			}
+			add_opinion_modifier = {
+    			target = SOV
+    			modifier = FWG_ideological_similarities
+			}
+		}
+	}
+	focus = {
+		id = FWG_establish_a_secret_police
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		relative_position_id = FWG_import_soviet_guns
+		prerequisite = { focus = FWG_import_soviet_guns }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_command_power = 50
+			add_political_power = 75
+			division_template = {
+    			name = "Geheimpolizei"
+    			regiments = {
+        			infantry = { x = 0 y = 0 }
+        			infantry = { x = 0 y = 1 }
+        			infantry = { x = 1 y = 0 }
+        			infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 0 }
+        			infantry = { x = 2 y = 1 }
+    			}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Geheimpolizei\" division_template = \"Geheimpolizei\" start_experience_factor = 0.5" 
+					owner = FWG
+				}
+			}
+			swap_ideas = {
+				remove_idea = FWG_multiethnic_army2
+    			add_idea = FWG_multiethnic_army3
+			}
+			custom_effect_tooltip = new_division_template
+		}
+	}
+	focus = {
+		id = FWG_crack_down_on_the_anarchist_resistance
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = FWG_rise_of_the_kpd
+		prerequisite = { focus = FWG_rise_of_the_kpd }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.02
+			}
+			add_political_power = 50
+			add_manpower = -500
+			add_stability = -0.03
+		}
+	}
+	focus = {
+		id = FWG_arrest_uspd_agitators
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = FWG_crack_down_on_the_anarchist_resistance
+		prerequisite = { focus = FWG_crack_down_on_the_anarchist_resistance }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.02
+			}
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = FWG_seize_the_means_of_warfare
+		icon = GFX_focus_generic_production
+		x = 2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		relative_position_id = FWG_rise_of_the_kpd
+		prerequisite = { focus = FWG_rise_of_the_kpd }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_manpower = 200
+			army_experience = 20
+			56 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_assume_total_control_of_the_industry
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		relative_position_id = FWG_seize_the_means_of_warfare
+		prerequisite = { focus = FWG_seize_the_means_of_warfare }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		    add_stability = -0.05
+			add_ideas = state_economy
+			56 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_war_of_the_workers_awaits
+		icon = GFX_focus_generic_production
+		x = 0
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = FWG_rise_of_the_kpd
+		prerequisite = { focus = FWG_establish_a_secret_police }
+		prerequisite = { focus = FWG_arrest_uspd_agitators }
+		prerequisite = { focus = FWG_assume_total_control_of_the_industry }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_manpower = 15000
+			GER = {
+				add_stability = -0.03
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.02
+				}
+			}
+			WRD = {
+				add_stability = -0.03
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	focus = { 
+		id = FWG_expand_the_local_heavy_industry
+		icon = GFX_focus_FWG_heavy_industry
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = { factor = 15 }
+		relative_position_id = FWG_the_war_of_the_workers_awaits
+		prerequisite = { focus = FWG_the_war_of_the_workers_awaits }
+		completion_reward = {
+			FWG_a_very_small_industry_level_down = yes
+			1086 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = FWG_total_mobilisation_of_the_workers
+		icon = GFX_focus_total_mobilisation
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_war_of_the_workers_awaits
+		prerequisite = { focus = FWG_the_war_of_the_workers_awaits }
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = {
+				extensive_conscription
+			}
+            add_manpower = 10000
+		}
+	}
+	focus = {
+		id = FWG_the_dictatorship_of_the_proletariat
+		icon = GFX_focus_FWG_proletariat
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_war_of_the_workers_awaits
+		prerequisite = { focus = FWG_the_war_of_the_workers_awaits }
+		completion_reward = {
+			add_ideas = FWG_dictatorship_of_the_proletariat
+		}
+	}
+	focus = {
+		id = FWG_the_lessons_of_vladimir_lenin
+		icon = GFX_focus_FWG_proletariat
+		x = -1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_dictatorship_of_the_proletariat
+		prerequisite = { focus = FWG_the_dictatorship_of_the_proletariat }
+		completion_reward = {
+			add_popularity = {
+		        ideology = bolshevism
+		        popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_sabotage_the_wehrkommando
+		icon = GFX_focus_FWG_proletariat
+		x = 1
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = FWG_the_dictatorship_of_the_proletariat
+		prerequisite = { focus = FWG_the_dictatorship_of_the_proletariat }
+		completion_reward = {
+			WRD = {
+				add_war_support = -0.05
+				add_political_power = -50
+				add_popularity = {
+					ideology = bolshevism
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	focus = { 
+		id = FWG_the_leninist_ideal_must_spread
+		icon = GFX_focus_FWG_the_leninist_ideal_must_spread
+		x = 1
+		y = 1
+		cost = 4
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_lessons_of_vladimir_lenin
+		prerequisite = { focus = FWG_the_lessons_of_vladimir_lenin }
+		prerequisite = { focus = FWG_sabotage_the_wehrkommando }
+		completion_reward = {
+			add_country_leader_trait = FWG_leninist_visionary
+		}
+	}
+	focus = {
+		id = FWG_break_ties_with_the_spartakusbund
+		icon = GFX_focus_FWG_break_ties
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_war_of_the_workers_awaits
+		prerequisite = { focus = FWG_the_war_of_the_workers_awaits }
+		mutually_exclusive = {
+			focus = FWG_the_time_for_revolutionary_unity
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = UVS
+				modifier = FWG_ideological_division
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_time_for_revolutionary_unity
+		icon = GFX_focus_FWG_hi_chlebek_niggas_in
+		x = 4
+		y = 1
+		cost = 4
+		available = {
+			has_war = no
+			is_neighbor_of = UVS
+		}
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_the_war_of_the_workers_awaits
+		prerequisite = { focus = FWG_the_war_of_the_workers_awaits }
+		mutually_exclusive = {
+			focus = FWG_break_ties_with_the_spartakusbund
+		}
+		completion_reward = {
+		UVS = {
+				annex_country = { 
+					target = FWG
+					transfer_troops = yes 
+				}
+			    }
+			    FWG = {
+				every_unit_leader = {
+					set_nationality = UVS
+				}
+		}
+		custom_effect_tooltip = GER_gameend
+	}
+	}
+	focus = {
 		id = FWG_begin_early_industrial_expansion
 		icon = GFX_focus_FWG_begin_early_industrial_expansion
 		x = 50
@@ -1762,7 +2196,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_widespread_road_construction
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_widespread_road_construction
 		x = -4
 		y = 1
 		cost = 5
@@ -1783,7 +2217,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_digging_more_metals_out_of_the_ground
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_digging_more_metals_out_of_the_ground
 		x = 0
 		y = 1
 		cost = 8
@@ -1819,7 +2253,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_modernise_our_agriculture
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_modernise_our_agriculture
 		x = -2
 		y = 1
 		cost = 5
@@ -1846,7 +2280,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_diversify_the_job_sector
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_diversify_the_job_sector
 		x = 0
 		y = 1
 		cost = 5
@@ -1890,7 +2324,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_the_bremen_centre_of_socialist_history
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_the_bremen_centre_of_socialist_history
 		x = 0
 		y = 1
 		cost = 5
@@ -1906,7 +2340,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_streamline_weapons_manufacturing
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_streamline_weapons_manufacturing
 		x = 3
 		y = 1
 		cost = 7
@@ -1932,7 +2366,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_fortify_the_southern_border
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_fortify_the_southern_border
 		x = -1
 		y = 1
 		cost = 4
@@ -2029,7 +2463,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_fortify_the_eastern_border
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_fortify_the_eastern_border
 		x = 1
 		y = 1
 		cost = 4
@@ -2100,7 +2534,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_build_up_an_advanced_welfare_net
-		icon = GFX_focus_generic_production
+		icon = GFX_focus_FWG_build_up_an_advanced_welfare_net
 		x = 1
 		y = 1
 		cost = 5
@@ -2136,7 +2570,7 @@ focus_tree = {
 	focus = {
 		id = FWG_hold_westphalia
 		icon = GFX_focus_FWG_hold_westphalia
-		x = 2
+		x = 1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_prepare_for_the_coming_war
@@ -2144,13 +2578,16 @@ focus_tree = {
 		available = { has_war_with = WRD }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
-			# timed idea
+			add_timed_idea = {
+				idea = FWG_defending_the_south
+				days = 120
+			}
 		}
 	}
 	focus = {
 		id = FWG_behind_the_weser
 		icon = GFX_focus_FWG_behind_the_weser
-		x = -2
+		x = -1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_prepare_for_the_coming_war
@@ -2158,7 +2595,10 @@ focus_tree = {
 		available = { has_war_with = GER }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
-			# timed idea
+			add_timed_idea = {
+				idea = FWG_defending_the_east
+				days = 120
+			}
 		}
 	}
 }
