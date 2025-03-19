@@ -261,6 +261,67 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = uvs.11
+	title = uvs.11.t
+	desc = uvs.11.d
+	is_triggered_only = yes
+	picture = GFX_report_event_laufenberg
+	
+	option = {
+		name = uvs.11.a
+		add_country_leader_trait = UVS_very_sick_leader
+	}
+}
+
+country_event = {
+	id = uvs.12
+	title = uvs.12.t
+	desc = uvs.12.d
+	is_triggered_only = yes
+
+	option = {
+		name = uvs.12.a
+		ai_chance = { base = 1 }
+	}
+	
+	option = {
+		name = uvs.12.b
+		ai_chance = { base = 9 }
+	    FROM = { add_to_faction = PREV }
+		
+	}
+}
+country_event = {
+	id = uvs.13
+	title = uvs.13.t
+	desc = uvs.13.d
+	is_triggered_only = yes
+
+	option = {
+		name = uvs.13.a
+		FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+	}
+	
+	option = {
+		name = uvs.13.b
+	    if = {
+			limit = {
+				owns_state = 841
+			}
+			FROM = {
+				set_state_owner = 841
+			}
+		}
+		
+	}
+}
+
 
 ### Diplomacy ###
 country_event = {
