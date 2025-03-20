@@ -1,0 +1,184 @@
+focus_tree = {
+	id = FER_three
+	country = {
+		factor = 0
+		modifier = {
+			add = 6
+			tag = FER
+		}
+	}
+	
+	focus = {
+		id = FER_back_others
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+		}
+		completion_reward = {
+        country_event = { id = fer.8  }
+				add_popularity = {
+    ideology = social_democrat
+    popularity = +0.2
+}
+    add_popularity = {
+    ideology = liberalism
+    popularity = +0.2
+}
+
+    add_popularity = {
+    ideology = authoritarian_democrat
+    popularity = -0.2
+}
+		}
+	}
+	
+		focus = {
+		id = FER_purges_in_army
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 2
+		prerequisite = {
+		focus = FER_back_others
+		}
+		completion_reward = {
+        country_event = { id = fer.9  }
+				add_popularity = {
+    ideology = social_democrat
+    popularity = +0.03
+}
+    add_popularity = {
+    ideology = liberalism
+    popularity = +0.02
+}
+
+    add_popularity = {
+    ideology = authoritarian_democrat
+    popularity = -0.05
+}
+       add_war_support = -0.2
+		}
+	}
+	
+			focus = {
+		id = FER_purges_in_government
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 3
+		prerequisite = {
+		focus = FER_purges_in_army
+		}
+		completion_reward = {
+        country_event = { id = fer.10  }
+				add_popularity = {
+    ideology = social_democrat
+    popularity = -0.05
+}
+    add_popularity = {
+    ideology = liberalism
+    popularity = -0.05
+}
+
+    add_popularity = {
+    ideology = authoritarian_democrat
+    popularity = -0.05
+}
+    add_stability = 0.05
+	add_political_power = 100
+		}
+	}
+	
+				focus = {
+		id = FER_mobilize_youth
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 4
+		prerequisite = {
+		focus = FER_purges_in_government
+		}
+		completion_reward = {
+		
+		division_template = {
+    name = "Detachments for the protection of Russian democracy"
+    is_locked = yes
+    division_cap = 3 
+    priority = 0
+    template_counter = 0
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+    }
+    support = {
+        military_police = { x = 0 y = 0 }
+    }
+}
+     random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Detachments for the protection of Russian democracy\" division_template = \"Detachments for the protection of Russian democracy\" start_experience_factor = 0.5" 
+					owner = FER
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Detachments for the protection of Russian democracy\" division_template = \"Detachments for the protection of Russian democracy\" start_experience_factor = 0.5" 
+					owner = FER
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Detachments for the protection of Russian democracy\" division_template = \"Detachments for the protection of Russian democracy\" start_experience_factor = 0.5" 
+					owner = FER
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Detachments for the protection of Russian democracy\" division_template = \"Detachments for the protection of Russian democracy\" start_experience_factor = 0.5" 
+					owner = FER
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Detachments for the protection of Russian democracy\" division_template = \"Detachments for the protection of Russian democracy\" start_experience_factor = 0.5" 
+					owner = FER
+				}
+			}
+		
+		
+		
+    add_stability = 0.01
+	add_political_power = 100
+		}
+	}
+	
+	
+				focus = {
+		id = FER_light_russian_democracy
+		icon = GFX_our_benefactors
+		cost = 5
+		x = 2
+		y = 5
+		prerequisite = {
+		focus = FER_mobilize_youth
+		}
+		completion_reward = {
+        country_event = { id = fer.11  }
+        load_focus_tree = FER_Kerensky_1
+    add_stability = 0.1
+	add_political_power = 100
+		}
+	}
+	
+	}
