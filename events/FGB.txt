@@ -123,8 +123,6 @@ news_event = {
 					id = fgb.5
 					days = 2
 				}
-				add_war_support = -0.05
-				add_stability = -0.05
 			}
 		}
 	}
@@ -986,8 +984,8 @@ country_event = {
 	}
 	option = {
 		name = fgb.37.b
-		add_stability = -0.15
-		add_war_support = -0.15
+		add_stability = 0.05
+		add_war_support = -0.1
 		add_popularity = {
 			ideology = national_syndicalism
 			popularity = 0.1
@@ -1734,7 +1732,7 @@ country_event = {
 
 	option = {
 		name = fgb.71.a
-		ai_chance = { base = 10 }
+		ai_chance = { base = 15 }
 		add_political_power = 10
 		add_popularity = { ideology = despotism popularity = -0.05 }
 		set_party_name = { 
@@ -1753,7 +1751,7 @@ country_event = {
 	}
 	option = {
 		name = fgb.71.c
-		ai_chance = { base = 10 }
+		ai_chance = { base = 15 }
 		add_stability = -0.05
 		add_popularity = { ideology = social_democrat popularity = 0.03 }
 		country_event = { id = fgb.72 days = 6 }
@@ -2057,7 +2055,16 @@ country_event = {
 
 	option = {
 		name = fgb.88.a
-		ai_chance = { base = 10 }
+		ai_chance = { 
+			base = 10 
+			modifier = {
+				has_country_leader = {
+					character = FGB_waldemar_pabst2
+					ruling_only = yes
+				}
+				factor = 3
+			}
+		}
 		add_war_support = 0.05
 		add_popularity = { ideology = social_democrat popularity = -0.1 }
 		add_country_leader_role = {

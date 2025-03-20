@@ -2533,6 +2533,76 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FWG_expand_our_dockyards
+		icon = GFX_focus_FWG_expand_our_dockyards
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_streamline_weapons_manufacturing
+		prerequisite = { focus = FWG_streamline_weapons_manufacturing }
+		completion_reward = {
+			every_owned_state = {
+				limit = { is_coastal = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build  = yes
+				}
+			}
+			56 = {
+				increase_state_category_by_one_level = yes
+				add_manpower = 15000
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 11360
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 13465
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 13473
+					instant_build  = yes
+				}
+				add_victory_points = {
+					province = 11360
+					value = 1
+				}
+				add_victory_points = {
+					province = 13465
+					value = 2
+				}
+				add_victory_points = {
+					province = 13473
+					value = 1
+				}
+			}
+			1091 = {
+				increase_state_category_by_one_level = yes
+				add_manpower = 2000
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 241
+					instant_build  = yes
+				}
+				add_victory_points = {
+					province = 241
+					value = 2
+				}
+			}
+		}
+	}
+	focus = {
 		id = FWG_build_up_an_advanced_welfare_net
 		icon = GFX_focus_FWG_build_up_an_advanced_welfare_net
 		x = 1
@@ -2598,6 +2668,26 @@ focus_tree = {
 			add_timed_idea = {
 				idea = FWG_defending_the_east
 				days = 120
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_revolution_yields_its_influence
+		icon = GFX_focus_FWG_behind_the_weser
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = FWG_prepare_for_the_coming_war
+		prerequisite = { focus = FWG_prepare_for_the_coming_war }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_war_support = 0.1
+			custom_effect_tooltip = FWG_every_territory_will_be_claimed_tt
+			every_other_country = {
+				limit = { has_country_flag = germany }
+				every_owned_state = {
+					add_claim_by = FGB
+				}
 			}
 		}
 	}

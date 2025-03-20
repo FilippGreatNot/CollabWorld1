@@ -1,4 +1,5 @@
 add_namespace = alt
+add_namespace = alt_border_conflict
 
 country_event = {
 	id = alt.1
@@ -10,13 +11,11 @@ country_event = {
 	option = {
 		name = alt.1.a
 		add_war_support = 0.05
-		set_country_flag = ALT_puppets_rma_true
 	}
 
 	option = {
 		name = alt.1.b
 		add_stability = 0.05
-		set_country_flag = ALT_puppets_rma_false
 	}
 }
 
@@ -226,6 +225,52 @@ country_event = {
 				type = annex_everything
 				target = SHD
 			}
+		}
+	}
+}
+
+country_event = {
+	id = alt_border_conflict.1
+	title = alt_border_conflict.1.t
+	desc = alt_border_conflict.1.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt_border_conflict.1.a
+		ai_chance = { base = 10 }
+		ALT = {
+			army_experience = 20
+			add_war_support = 0.02
+			add_stability = 0.02
+		}
+		RMA = {
+			army_experience = -20
+			add_war_support = -0.02
+			add_stability = -0.02
+		}
+	}
+}
+
+country_event = {
+	id = alt_border_conflict.2
+	title = alt_border_conflict.2.t
+	desc = alt_border_conflict.2.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt_border_conflict.2.a
+		ai_chance = { base = 10 }
+		ALT = {
+			army_experience = -20
+			add_war_support = -0.02
+			add_stability = -0.02
+		}
+		RMA = {
+			army_experience = 20
+			add_war_support = 0.02
+			add_stability = 0.02
 		}
 	}
 }
