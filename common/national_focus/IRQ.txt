@@ -1714,9 +1714,9 @@ focus_tree = {
 
 	focus = {
 		id = IRQ_oriental_industrial_revolution
-		icon = GFX_focus_IRQ_industrial_revolution
+		icon = GFX_focus_IRQ_elections
 		x = 0
-		y = 2
+		y = 1
 		cost = 16
 		available_if_capitulated = yes
 		relative_position_id = IRQ_syndicalist_dream
@@ -2141,7 +2141,7 @@ focus_tree = {
 
 		focus = {
 		id = IRQ_tigris_men_in_black
-		icon = GFX_focus_IRQ_elections
+		icon = GFX_focus_IRQ_men_in_black
 		x = 0
 		y = 1
 		cost = 10
@@ -2156,7 +2156,28 @@ focus_tree = {
 		prerequisite = { focus = IRQ_tigris_new_iraq }
 		
 		completion_reward = {	
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				add_ideas = PER_savak_lar
+				if = {
+					limit = {
+						has_intelligence_agency = no
+					}
+
+					create_intelligence_agency = {
+						name = "SKG"
+						icon = GFX_focus_IRQ_men_in_black
+					}
+				}
+				else = {
+					add_stability = 0.05
+				}
 		}
+		add_stability = 0.1
+		add_war_support = 0.05
+	}
 	}
 
 	
