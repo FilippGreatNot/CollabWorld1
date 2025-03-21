@@ -1,5 +1,5 @@
 focus_tree = {
-	id = zheltorossiyan.focus
+	id = ZHL_focus
 	country = {
 		factor = 0
 		modifier = {
@@ -389,105 +389,26 @@ focus_tree = {
         cost = 5
 
 		completion_reward = {
-			add_stability = -0.10
+			add_stability = -0.05
+			add_political_power = 25
+			add_timed_idea = {
+				idea = ZHL_industrialisation
+				days = 180
+			}	
 		}
-		
+	
 		allow_branch = {
 		}
 	}
 
+
 	focus = {
-		id = ZHL_rebuild_nadamursk
+		id = ZHL_construct_more_roads
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_land_reform }
+		prerequisite = { focus = ZHL_begin_industrialisation }
 		
         x = 25
-        y = 3
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_modernize_nenjiang
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_rebuild_nadamursk }
-		
-        x = 26
-        y = 4
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_move_capital_harbin
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_modernize_nenjiang }
-		
-        x = 26
-        y = 5
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_increse_education_funding
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_land_reform }
-		
-        x = 21
-        y = 3
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_harbin_state_university
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_invest_in_new_schools }
-		
-        x = 21
-        y = 6
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-		focus = {
-		id = ZHL_Infrastructual_revolution
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_move_capital_harbin }
-		
-        x = 25
-        y = 6
+        y = 2
 		
         cost = 5
 
@@ -501,9 +422,56 @@ focus_tree = {
 	focus = {
 		id = ZHL_land_reform
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_begin_industrialisation }
+		prerequisite = { focus = ZHL_construct_more_roads }
+		prerequisite = { focus = ZHL_create_ministry_of_education }
+		prerequisite = { focus = ZHL_establish_ministry_of_economy }
 		
         x = 23
+        y = 3
+		
+        cost = 5
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = -50
+		    swap_ideas = {
+				remove_idea = ZHL_stagnant_economy
+				add_idea = ZHL_stagnant_economy2
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_establish_ministry_of_economy
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_begin_industrialisation }
+		
+		
+        x = 23
+        y = 2
+		
+        cost = 5
+
+		completion_reward = {
+		   swap_ideas = {
+				remove_idea = ZHL_stagnant_economy2
+				add_idea = ZHL_stagnant_economy3
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_create_ministry_of_education
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_begin_industrialisation }
+		
+        x = 21
         y = 2
 		
         cost = 5
@@ -514,92 +482,6 @@ focus_tree = {
 		allow_branch = {
 		}
 	}
-
-	focus = {
-		id = ZHL_modernize_factory_tools
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_land_reform }
-		
-        x = 23
-        y = 3
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_reform_education_system
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_increse_education_funding }
-		
-        x = 20
-        y = 4
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_rapid_electrification
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_modernize_factory_tools }
-		
-        x = 24
-        y = 4
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_fund_mechanical_modernisation
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_modernize_factory_tools }
-		
-        x = 22
-        y = 4
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_invest_in_new_schools
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_reform_education_system }
-		
-        x = 20
-        y = 5
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
 
 	focus = {
 		id = ZHL_slava_zheltorossyi
@@ -616,158 +498,6 @@ focus_tree = {
 				ideology = despotism
 				popularity = 0.05
 			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_rise_of_national_bolshevism
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { }
-		
-        x = 15
-        y = 9
-		
-        cost = 5
-
-		available = {
-			has_country_leader = {
-                name = "Nikolai Ustryalov"
-                ruling_only = yes
-            }
-		}
-
-		completion_reward = {
-			add_popularity = {
-				ideology = bolshevism
-				popularity = 0.10
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_the_red_teror
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_rise_of_national_bolshevism }
-		
-        x = 17
-        y = 10
-		
-        cost = 2
-
-		available = {
-		}
-
-		completion_reward = {
-			add_stability = 0.05
-			add_political_power = 25
-
-			add_popularity = {
-				ideology = bolshevism
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = despotism
-				popularity = -0.05
-			}
-			add_popularity = {
-				ideology = conservatism
-				popularity = -0.05
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id =  ZHL_execute_white_officers
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_rise_of_national_bolshevism }
-		
-        x = 13
-        y = 10
-		
-        cost = 2
-
-		completion_reward = {
-			add_war_support = -0.05
-			add_stability = -0.05
-			retire_character = ZHL_vasily_boldyrev
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id =  ZHL_organize_work_for_unemployed
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_fund_mechanical_modernisation }
-		
-        x = 22
-        y = 5
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id =  ZHL_modernize_rular_farms
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_rapid_electrification }
-		
-        x = 24
-        y = 5
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id =  ZHL_growth_of_zheltorossiyan_economy
-        icon = GFX_ZHL_dawn_zheltorossiya
-		x = 23
-        y = 6
-		prerequisite = { focus = ZHL_modernize_rular_farms }
-		prerequisite = { focus = ZHL_organize_work_for_unemployed }
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id =  ZHL_zheltorossiyan_dream
-        icon = GFX_ZHL_dawn_zheltorossiya
-		x = 23
-        y = 7
-		prerequisite = { focus = ZHL_harbin_state_university }
-		prerequisite = { focus = ZHL_growth_of_zheltorossiyan_economy }
-		prerequisite = { focus = ZHL_Infrastructual_revolution }
-		
-        cost = 5
-
-		completion_reward = {
 		}
 		
 		allow_branch = {

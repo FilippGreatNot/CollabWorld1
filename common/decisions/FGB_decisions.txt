@@ -236,6 +236,11 @@ FGB_industrial_category = {
 		icon = FGB_reform 
 		fire_only_once = yes 
 		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 1082 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
 		modifier = {
 			political_power_cost = 0.15
 			consumer_goods_factor = 0.1
@@ -269,6 +274,11 @@ FGB_industrial_category = {
 		icon = FGB_reform 
 		fire_only_once = yes 
 		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 51 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
 		modifier = {
 			political_power_cost = 0.15
 			consumer_goods_factor = 0.1
@@ -306,6 +316,11 @@ FGB_industrial_category = {
 		icon = FGB_reform 
 		fire_only_once = yes 
 		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 51 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
 		modifier = {
 			political_power_cost = 0.15
 			consumer_goods_factor = 0.1
@@ -322,6 +337,52 @@ FGB_industrial_category = {
 			add_breakthrough_progress = {
 				specialization = specialization_land
 				value = 0.05
+			}
+		}
+	}
+	FGB_bring_workers_to_the_saarland = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 975
+			has_completed_focus = FGB_develop_the_rhine
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 75
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 975 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			monthly_population = -0.075
+		}
+		remove_effect = {
+			975 = {
+				increase_state_category_by_one_level = yes 
+				add_manpower = 12000
+				add_victory_points = {
+					province = 11531
+					value = 2
+				}
+				add_victory_points = {
+					province = 13388
+					value = 1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
 			}
 		}
 	}

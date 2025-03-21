@@ -1,5 +1,6 @@
 add_namespace = fgb
 add_namespace = fgb_policy
+add_namespace = rohm_diplomacy
 
 country_event = {
 	id = fgb.1
@@ -50,7 +51,7 @@ country_event = {
 	
 	option = {
 		name = fgb.2.a
-		ai_chance = { base = 50 }
+		ai_chance = { base = 20 }
 		custom_effect_tooltip = FGB_noske_content_tt
 		set_country_flag = FGB_noske_flag
 		mark_focus_tree_layout_dirty = yes
@@ -58,14 +59,14 @@ country_event = {
 	}
 	option = {
 		name = fgb.2.b
-		ai_chance = { base = 10 }
+		ai_chance = { base = 20 }
 		set_country_flag = FGB_pabst_flag
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = FGB_pabst
 	}
 	option = {
 		name = fgb.2.c
-		ai_chance = { base = 1 }
+		ai_chance = { base = 20 }
 		set_country_flag = FGB_rohm_flag
 		mark_focus_tree_layout_dirty = yes
 	 	complete_national_focus = FGB_rohm
@@ -2619,6 +2620,177 @@ country_event = {
 			create_wargoal = {
 				type = annex_everything
 				target = WRD
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fgb.112
+	title = fgb.112.t
+	desc = fgb.112.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.112.a
+		ai_chance = {
+			base = 40
+		}
+		set_country_flag = FGB_rohm_final_blows_flag
+		mark_focus_tree_layout_dirty = yes 
+		complete_national_focus = FGB_rohm_the_fate_of_the_syndicalist_west
+	}
+}
+
+country_event = {
+	id = fgb.113
+	title = fgb.113.t
+	desc = fgb.113.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.113.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 2
+				has_government = libertarian_socialism
+			}
+			modifier = {
+				factor = 1
+				has_government = social_democrat
+			}
+		}
+		FGB = {
+			complete_national_focus = FGB_rohm_a_brown_revolution
+		}
+	}
+	option = {
+		name = fgb.113.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 2
+				has_government = bolshevism
+			}
+		}
+		add_war_support = 0.05
+		FGB = { 
+			complete_national_focus = FGB_rohm_crush_the_urban_pestilence
+		}
+	}
+}
+
+country_event = {
+	id = rohm_diplomacy.1
+	title = rohm_diplomacy.1.t 
+	desc = rohm_diplomacy.1.d 
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes 
+
+	option = {
+		name = rohm_diplomacy.1.a
+		ai_chance = {
+			base = 15
+			modifier = {
+				factor = 2
+				has_government = national_syndicalism
+			}
+		}
+		FGB = { country_event = { id = rohm_diplomacy.2 days = 1 } }
+	}
+	option = {
+		name = rohm_diplomacy.1.b
+		ai_chance = {
+			base = 10
+		}
+		FGB = { country_event = { id = rohm_diplomacy.3 days = 1 } }
+	}
+}
+
+country_event = {
+	id = rohm_diplomacy.2
+	title = rohm_diplomacy.2.t 
+	desc = rohm_diplomacy.2.d 
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes 
+
+	option = {
+		name = rohm_diplomacy.2.a
+		add_political_power = 20
+		if = {
+			limit = {
+				has_completed_focus = FGB_rohm_contact_mussolini
+			}
+			add_opinion_modifier = {
+				target = ITS 
+				modifier = FGB_friendly_relations
+			}
+			diplomatic_relation = {
+				country = ITS
+				relation = non_aggression_pact
+				active = yes
+			}
+			ITS = {
+				diplomatic_relation = {
+					country = FGB
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = FGB_rohm_contact_balbo
+			}
+			add_opinion_modifier = {
+				target = TUS
+				modifier = FGB_friendly_relations
+			}
+			diplomatic_relation = {
+				country = TUS
+				relation = non_aggression_pact
+				active = yes
+			}
+			TUS = {
+				diplomatic_relation = {
+					country = FGB
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rohm_diplomacy.3
+	title = rohm_diplomacy.3.t 
+	desc = rohm_diplomacy.3.d 
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes 
+
+	option = {
+		name = rohm_diplomacy.3.a
+		add_political_power = -20
+		if = {
+			limit = {
+				has_completed_focus = FGB_rohm_contact_mussolini
+			}
+			add_opinion_modifier = {
+				target = ITS 
+				modifier = FGB_disgruntled
+			}
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = FGB_rohm_contact_balbo
+			}
+			add_opinion_modifier = {
+				target = TUS
+				modifier = FGB_disgruntled
 			}
 		}
 	}
