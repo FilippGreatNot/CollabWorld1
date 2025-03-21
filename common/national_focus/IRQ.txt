@@ -1891,7 +1891,6 @@ focus_tree = {
 		291 = {
 		add_extra_state_shared_building_slots = 1
 		}
-		add_war_support = 0.05
 		country_event = irq.22
 		}
 	}
@@ -1910,11 +1909,10 @@ focus_tree = {
 		prerequisite = { focus = IRQ_euphrates }
 		
 		completion_reward = {	
-		add_popularity = {
-				ideology = national_syndicalism
-				popularity = 0.15
+			add_timed_idea = { 
+				idea = IRQ_foreign_investments
+				months = 5
 			}
-		add_political_power = 30
 		}
 	}
 
@@ -2009,8 +2007,7 @@ focus_tree = {
 		prerequisite = { focus = IRQ_euphrates_education }
 		
 		completion_reward = {	
-		add_war_support = 0.10
-		add_stability = 0.30
+		add_ideas = IRQ_reorganisation_of_the_state
 		}
 	}
 
@@ -2030,7 +2027,11 @@ focus_tree = {
 		
 		prerequisite = { focus = IRQ_stir_garden }
 		
-		completion_reward = {	
+		completion_reward = {
+		add_war_support = 0.06
+		676 = {
+		add_extra_state_shared_building_slots = 1
+		}	
 		}
 	}
 
@@ -2073,7 +2074,9 @@ focus_tree = {
 		
 		prerequisite = { focus = IRQ_tigris_end_tribal_conflicts }
 		completion_reward = { 
-
+		add_country_leader_trait = {
+				trait = new_hammurabi
+			}
 		}
 	}
 
@@ -2095,6 +2098,13 @@ focus_tree = {
 		prerequisite = {focus = IRQ_tigris_hammurabi}
 		
 		completion_reward = {	
+			    ISR = {
+				add_opinion_modifier = {
+					target = IRQ
+					modifier = GER_grave_insult
+				}
+			}
+			add_research_slot = 1
 		}
 	}
 
@@ -2116,6 +2126,9 @@ focus_tree = {
 		prerequisite = {focus = IRQ_euphrates_rebuild_shrines}
 		
 		completion_reward = {	
+			add_ideas = IRQ_idea_i_am_iraq
+			add_stability = 0.15
+			add_war_support = 0.10
 		}
 	}
 
@@ -2136,6 +2149,8 @@ focus_tree = {
 		prerequisite = { focus = IRQ_tigris }
 		
 		completion_reward = {	
+		add_stability = 0.1
+		add_political_power = 100
 		}
 	}
 
@@ -2160,14 +2175,13 @@ focus_tree = {
 				limit = {
 					has_dlc = "La Resistance"
 				}
-				add_ideas = PER_savak_lar
 				if = {
 					limit = {
 						has_intelligence_agency = no
 					}
 
 					create_intelligence_agency = {
-						name = "SKG"
+						name = "Kengir Society"
 						icon = GFX_focus_IRQ_men_in_black
 					}
 				}
