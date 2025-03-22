@@ -91,7 +91,7 @@ focus_tree = {
 		icon = GFX_focus_IRQ_constitution
 		x = -1
 		y = 1
-		cost = 10
+		cost = 7
 		available_if_capitulated = yes
 		mutually_exclusive = { focus = IRQ_first_a_change_of_plan }
 		relative_position_id = IRQ_first_preserve_iraqi_cultural_heritage
@@ -218,7 +218,7 @@ focus_tree = {
 		icon = GFX_focus_IRQ_parliament
 		x = 0
 		y = 1
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_faisals_constitutional_reforms
 		ai_will_do = {
@@ -240,12 +240,39 @@ focus_tree = {
 			
 		}
 	}
+		focus = {
+		id = IRQ_first_iraq_at_last
+		icon = GFX_focus_IRQ_arab_era
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_rule_with_the_iron_fist
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				}
+		
+		prerequisite = { focus = IRQ_first_rule_with_the_iron_fist focus = IRQ_first_establish_an_iraqi_parliament }
+		
+		completion_reward = {	
+		add_stability = 0.15
+		add_war_support = 0.05
+		country_event = irq.26
+		}
+	}
 	
 	focus = {
 		id = IRQ_first_the_era_of_the_arabs
 		icon = GFX_focus_IRQ_arab_era
 		x = -1
-		y = 1
+		y = 2
 		cost = 10
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_rule_with_the_iron_fist
@@ -263,7 +290,7 @@ focus_tree = {
 		 	    has_completed_focus = IRQ_first_a_unified_iraq
 		    }
 		
-		prerequisite = { focus = IRQ_first_rule_with_the_iron_fist focus = IRQ_first_establish_an_iraqi_parliament }
+		prerequisite = { focus = IRQ_first_iraq_at_last }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -955,6 +982,13 @@ focus_tree = {
 			add_political_power = 100
 			
 		}
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 	}
 	
 	focus = {
@@ -979,6 +1013,13 @@ focus_tree = {
 			}
 			
 		}
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 	}
 	
 	focus = {
@@ -1001,8 +1042,14 @@ focus_tree = {
 				remove_idea = IRQ_sectarian_woes
 				add_idea = IRQ_sectarian_woes2
 			}
-			
 		}
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 	}
 	
 	focus = {
@@ -1025,6 +1072,14 @@ focus_tree = {
 			add_political_power = 25
 			
 		}
+
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 	}
 	
 	focus = {
@@ -1038,7 +1093,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		prerequisite = { focus = IRQ_first_minimize_the_sectarian_divide }
 		prerequisite = { focus = IRQ_first_calm_down_the_tribes }
 		
@@ -1111,7 +1172,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		prerequisite = { focus = IRQ_first_the_cradle_of_civilization }
 		
 		completion_reward = {	
@@ -1144,7 +1211,13 @@ focus_tree = {
 		}
 		
 		prerequisite = { focus = IRQ_first_the_cradle_of_civilization }
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			add_timed_idea = { 
@@ -1174,7 +1247,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		prerequisite = { focus = IRQ_first_seek_foreign_investments }
 		
 		completion_reward = {	
@@ -1197,7 +1276,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		prerequisite = { focus = IRQ_first_modernize_our_infrastructure }
 		mutually_exclusive = { focus = IRQ_first_introduce_land_reforms }
 		
@@ -1218,7 +1303,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 4
 					instant_build = yes
 				}
 				
@@ -1257,7 +1342,13 @@ focus_tree = {
 		
 		prerequisite = { focus = IRQ_first_modernize_our_infrastructure }
 		mutually_exclusive = { focus = IRQ_first_invest_in_industrialization }
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			swap_ideas = {
@@ -1284,13 +1375,18 @@ focus_tree = {
 		}
 		
 		prerequisite = { focus = IRQ_first_invest_in_industrialization  focus = IRQ_first_introduce_land_reforms }
-		
+			available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				 }
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			676 = {
 				add_resource = {
 					type = oil
-					amount = 14
+					amount = 45
 				}
 			}
 			add_ideas = {
@@ -1322,6 +1418,12 @@ focus_tree = {
 			}
 			
 		}
+			available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				 }
 	}
 	
 	focus = {
@@ -1335,7 +1437,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+			available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				 }
 		prerequisite = { focus = IRQ_first_invest_in_industrialization  focus = IRQ_first_introduce_land_reforms }
 		
 		completion_reward = {	
@@ -1343,7 +1450,7 @@ focus_tree = {
 			291 = {
 				add_resource = {
 					type = oil
-					amount = 5
+					amount = 10
 				}
 			}
 			add_political_power = 100
@@ -1463,11 +1570,12 @@ focus_tree = {
 	  focus = {
 		id = IRQ_rashid_ali
 		icon = GFX_focus_IRQ_elections
-		x = -7
-		y = 4
+		x = 0
+		y = 2
 		cost = 10
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_iraq_hold_elections
+		prerequisite = { focus = IRQ_first_iraq_hold_elections }
 		ai_will_do = {
 			factor = 10
 		}
@@ -1917,6 +2025,7 @@ focus_tree = {
 				idea = IRQ_foreign_investments
 				months = 5
 			}
+			add_stability = -0.15
 		}
 	}
 
@@ -2012,6 +2121,7 @@ focus_tree = {
 		
 		completion_reward = {	
 		add_ideas = IRQ_reorganisation_of_the_state
+		add_stability = -0.2
 		}
 	}
 
@@ -2383,7 +2493,7 @@ focus_tree = {
 				limit = { ROOT = { has_full_control_of_state = PREV } }
 				prioritize = { 50 }
 				create_unit = {
-					division = "name = \"al-Liwa al-Qurayshi al-Awwal\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 1" 
+					division = "name = \"al-Liwa al-Qurayshi al-Awwal\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 0.5" 
 					owner = IRQ
 				}
 				create_unit = {
@@ -2391,7 +2501,7 @@ focus_tree = {
 					owner = IRQ
 				}
 				create_unit = {
-					division = "name = \"al-Liwa al-Qurayshi al-Thani\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 1" 
+					division = "name = \"al-Liwa al-Qurayshi al-Thani\" division_template = \"Kataib al-Saadeh al-Qurayshiyyah\" start_experience_factor = 0.5" 
 					owner = IRQ
 				}
 			}
@@ -2455,14 +2565,14 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_iraq_bakr_sidqis_coup
 		icon = GFX_focus_IRQ_bakr
-		x = 24
-		y = 0
+		x = 21
+		y = 3
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
-		
+		prerequisite = { focus = IRQ_first_iraqi_military_reforms}
 		available = {
 		has_country_leader = {
                     name = "Bakr Sidqi"
@@ -2560,8 +2670,8 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_iraq_on_the_world_stage
 		icon = GFX_focus_IRQ_world
-		x = 22
-		y = 3
+		x = 25
+		y = 0
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -2748,7 +2858,7 @@ focus_tree = {
 		available = {
 		has_completed_focus = IRQ_i_am_iraq
 		}
-    
+		prerequisite = { focus = IRQ_i_am_iraq }
 		
 		completion_reward = {	
 		news_event = irq.24
@@ -2946,7 +3056,7 @@ focus_tree = {
 		available = {
 		has_completed_focus = IRQ_i_am_iraq
 		}
-		prerequisite = {focus = IRQ_kings_of_the_four_corners}
+		prerequisite = {focus = IRQ_our_cyclical_enemies}
 		
 		completion_reward = {	
 		create_wargoal = {

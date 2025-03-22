@@ -1,0 +1,221 @@
+focus_tree = {
+    id = SYR
+
+    country = {
+        base = 0
+        modifier = {
+            add = 10
+            tag = SYR
+        }
+    }
+    
+    focus = {
+        id = SYR_on_the_cross_roads_of_history
+        icon = GFX_
+        x = 5
+        y = 0
+        cost = 10
+        completion_reward = { 
+		add_stability = 0.10
+		add_political_power = 100
+		}		  
+    }
+
+	   focus = {
+        id = SYR_the_stratocracy
+        icon = GFX_
+        x = 2
+        y = 1
+		relative_position_id = SYR_on_the_cross_roads_of_history
+        cost = 10
+		prerequisite = { focus = SYR_on_the_cross_roads_of_history}
+        completion_reward = { 
+		add_political_power = 100
+		army_experience = 35
+		add_popularity = {
+		ideology = authoritarian_democrat 
+		popularity = 0.15 }
+		random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+				create_unit = {
+					division = "name = \"Eagles of the Whirlwind\" division_template = \"National Guard\" start_experience_factor = 1" 
+					owner = SYR
+				}
+				create_unit = {
+					division = "name = \"Druze Battalion\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+			}
+		}		  
+    }
+	focus = {
+        id = SYR_defense_of_the_state
+        icon = GFX_
+        x = -1
+        y = 1
+		relative_position_id = SYR_the_stratocracy
+        cost = 10
+		prerequisite = { focus = SYR_the_stratocracy}
+        completion_reward = { 
+		556 = {
+		add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+		add_extra_state_shared_building_slots = 1
+		increase_state_category_by_one_level = yes
+		}
+		random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+			}
+		}		  
+    }
+	focus = {
+        id = SYR_civilian_administration
+        icon = GFX_
+        x = 1
+        y = 1
+		relative_position_id = SYR_the_stratocracy
+        cost = 10
+		prerequisite = { focus = SYR_the_stratocracy}
+        completion_reward = { 
+		677 = {
+		add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+		add_extra_state_shared_building_slots = 4
+		increase_state_category_by_one_level = yes
+		}
+		add_stability = 0.25
+		680 = {
+		increase_state_category_by_one_level = yes
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+		}
+		}		  
+    }
+	focus = {
+        id = SYR_syria_modernised
+        icon = GFX_
+        x = 0
+        y = 2
+		relative_position_id = SYR_the_stratocracy
+        cost = 10
+		prerequisite = { focus = SYR_defense_of_the_state}
+		prerequisite = { focus = SYR_civilian_administration }
+        completion_reward = { 
+		add_ideas = SYR_idea_westernization
+		}		  
+    }
+
+	focus = {
+        id = SYR_navigating_syria
+        icon = GFX_
+        x = -2
+        y = 1
+		relative_position_id = SYR_on_the_cross_roads_of_history
+        cost = 10
+		prerequisite = { focus = SYR_on_the_cross_roads_of_history}
+        completion_reward = { 
+		add_political_power = 100
+		}		  
+    }
+
+	focus = {
+        id = SYR_education_reform
+        icon = GFX_
+        x = -1
+        y = 1
+		relative_position_id = SYR_navigating_syria
+        cost = 10
+		prerequisite = { focus = SYR_navigating_syria}
+        completion_reward = { 
+		add_research_slot = 1
+		}		  
+    }
+
+	focus = {
+        id = SYR_minorities
+        icon = GFX_
+        x = 1
+        y = 1
+		relative_position_id = SYR_navigating_syria
+        cost = 10
+		prerequisite = { focus = SYR_navigating_syria}
+        completion_reward = { 
+		add_stability = 0.15
+		add_war_support = 0.22
+		random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+			}
+		}		  
+    }
+
+	focus = {
+        id = SYR_song_of_victory
+        icon = GFX_
+        x = 0
+        y = 2
+		relative_position_id = SYR_navigating_syria
+        cost = 10
+		prerequisite = { focus = SYR_education_reform }
+		prerequisite = { focus = SYR_minorities }
+        completion_reward = { 
+			random_owned_controlled_state = {
+				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+				create_unit = {
+					division = "name = \"Eagles of the Whirlwind\" division_template = \"National Guard\" start_experience_factor = 1" 
+					owner = SYR
+				}
+				create_unit = {
+					division = "name = \"Druze Battalion\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+			}
+		}		  
+    }
+		focus = {
+        id = SYR_a_morning_in_beirut
+        icon = GFX_
+        x = 2
+        y = 1
+		relative_position_id = SYR_song_of_victory
+        cost = 10
+		prerequisite = { focus = SYR_song_of_victory}
+		prerequisite = { focus = SYR_syria_modernised}
+        completion_reward = { 
+		country_event = syr.1
+		declare_war_on = {
+				target = LEB
+				type = civil_war
+			    }
+		}		  
+    }
+}
