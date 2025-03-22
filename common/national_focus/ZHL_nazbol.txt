@@ -313,6 +313,7 @@ focus_tree = {
 		id = ZHL_colectivisation
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_bolshevik_nationalization }
+		mutually_exclusive = { focus = ZHL_industrialisation2 }
 		
         x = 20
         y = 3
@@ -330,7 +331,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_1_industrialisation
+		id = ZHL_industrialisation2
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_bolshevik_nationalization }
 		mutually_exclusive = { focus = ZHL_colectivisation }
@@ -472,6 +473,30 @@ focus_tree = {
 			declare_war_on = {
 				target = FSR
 				type = annex_everything
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_the_red_vohzd
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_bolshevik_revolution }
+		
+        x = 5
+        y = 5
+		
+        cost = 5
+
+		available = {
+		}
+
+		completion_reward = {
+		   add_country_leader_trait = {
+				ideology = bolshevism
+				trait = ZHL_red_vohzd
 			}
 		}
 		
