@@ -1383,6 +1383,7 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.1
 			}
+			add_ideas = IRQ_new_constitution
 		}
 	}
 	
@@ -1459,7 +1460,7 @@ focus_tree = {
 			
 		}
 	}
-	focus = {
+	  focus = {
 		id = IRQ_rashid_ali
 		icon = GFX_focus_IRQ_elections
 		x = -7
@@ -1479,10 +1480,10 @@ focus_tree = {
 				 }
 		
 		completion_reward = {	
-		add_stability = 0.3
+		add_stability = 0.05
 				add_popularity = {
 				ideology = national_syndicalism
-				popularity = 0.1
+				popularity = 0.16
 			}
 		country_event = irq.16
 
@@ -1692,6 +1693,7 @@ focus_tree = {
 		add_stability = 0.15
 		676 = {
 		add_extra_state_shared_building_slots = 2
+		increase_state_category_by_one_level = yes
 					add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -1853,6 +1855,7 @@ focus_tree = {
 				state = 878
 				}
 				}
+				increase_state_category_by_one_level = yes
 				add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 					type = industrial_complex
@@ -1890,6 +1893,7 @@ focus_tree = {
 		completion_reward = {	
 		291 = {
 		add_extra_state_shared_building_slots = 1
+		increase_state_category_by_one_level = yes
 		}
 		country_event = irq.22
 		}
@@ -2031,6 +2035,7 @@ focus_tree = {
 		add_war_support = 0.06
 		676 = {
 		add_extra_state_shared_building_slots = 1
+		increase_state_category_by_one_level = yes
 		}	
 		}
 	}
@@ -2127,8 +2132,6 @@ focus_tree = {
 		
 		completion_reward = {	
 			add_ideas = IRQ_idea_i_am_iraq
-			add_stability = 0.15
-			add_war_support = 0.10
 		}
 	}
 
@@ -2149,8 +2152,10 @@ focus_tree = {
 		prerequisite = { focus = IRQ_tigris }
 		
 		completion_reward = {	
-		add_stability = 0.1
-		add_political_power = 100
+		swap_ideas = {
+				remove_idea = regulated_market_economy
+				add_idea = state_economy
+			}
 		}
 	}
 
@@ -2189,7 +2194,6 @@ focus_tree = {
 					add_stability = 0.05
 				}
 		}
-		add_stability = 0.1
 		add_war_support = 0.05
 	}
 	}
@@ -2353,7 +2357,7 @@ focus_tree = {
 		prerequisite = { focus = IRQ_futuwwa_george }
 		
 		completion_reward = {	
-		add_war_support = 0.15
+		add_war_support = 0.05
 		add_political_power = 30
 		add_manpower = 5000
 		division_template = {
@@ -2413,10 +2417,10 @@ focus_tree = {
 		completion_reward = {	
 		add_manpower = 35000
 		army_experience = 5
-		add_stability = -0.1
+		add_stability = -0.25
 		add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 3500
+				amount = 2500
 				producer = IRQ
 		}
 		}
@@ -2729,7 +2733,494 @@ focus_tree = {
 			
 		}
 	}
-	
+
+	focus = {
+		id = IRQ_fourteen_tamouz
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_i_am_iraq
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+    
+		
+		completion_reward = {	
+		news_event = irq.24
+		remove_ideas = IRQ_new_constitution
+			
+		}
 	}
+
+	focus = {
+		id = IRQ_back_at_it_again
+		icon = GFX_focus_IRQ_elections
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_fourteen_tamouz
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_fourteen_tamouz}
+		
+		completion_reward = {	
+		888 = {
+		add_resource = {
+		type = steel
+		amount = 6
+						}
+		}
+
+		}
+	}
+	focus = {
+		id = IRQ_bayt_al_hikma
+		icon = GFX_focus_IRQ_elections
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_back_at_it_again
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_back_at_it_again}
+		
+		completion_reward = {	
+		add_research_slot = 1
+		}
+	}
+
+		focus = {
+		id = IRQ_begin_militarization
+		icon = GFX_focus_IRQ_elections
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_fourteen_tamouz
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_fourteen_tamouz}
+		
+		completion_reward = {	
+		676 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+		}
+		878 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+		}
+		}
+	}
+
+	focus = {
+		id = IRQ_prussia_of_the_arabs_2
+		icon = GFX_focus_IRQ_elections
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_begin_militarization
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_begin_militarization}
+		
+		completion_reward = {	
+		add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		army_experience = 15
+		add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = IRQ_kings_of_the_four_corners
+		icon = GFX_focus_IRQ_elections
+		x = 1
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_begin_militarization
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_begin_militarization }
+		prerequisite = {focus = IRQ_back_at_it_again}
+		prerequisite = {focus = IRQ_bayt_al_hikma}
+		prerequisite = {focus = IRQ_prussia_of_the_arabs_2}
+		
+		completion_reward = {	
+		add_war_support = 0.15
+		add_political_power = 100
+		add_ideas = IRQ_four_corners
+		}
+	}
+	focus = {
+		id = IRQ_our_cyclical_enemies
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_kings_of_the_four_corners
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_kings_of_the_four_corners}
+		
+		completion_reward = {	
+		create_wargoal = {
+				type = annex_everything
+				target = SYR
+			}
+		create_wargoal = {
+			type = annex_everything
+			target = LEB
+		}
+		SYR = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		LEB = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		}
+	}
+
+		focus = {
+		id = IRQ_revenge_against_cyrus
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_kings_of_the_four_corners
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_kings_of_the_four_corners}
+		
+		completion_reward = {	
+		create_wargoal = {
+				type = annex_everything
+				target = PER
+			}
+		421 = {
+		add_core_of = IRQ
+		}
+		417 = {
+		add_core_of = IRQ
+		}
+		905 = {
+		add_core_of = IRQ
+		}
+		419 = {
+		add_core_of = IRQ
+		}
+		420 = {
+		add_core_of = IRQ
+		}
+		418 = {
+		add_core_of = IRQ
+		}
+		417 = {
+		add_core_of = IRQ
+		}
+		}
+	}
+	focus = {
+		id = IRQ_magan
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_revenge_against_cyrus
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_revenge_against_cyrus}
+		
+		completion_reward = {	
+		create_wargoal = {
+				type = annex_everything
+				target = UAE
+			}
+		}
+	}
+
+	focus = {
+		id = IRQ_subdue_the_nabataeans
+		icon = GFX_focus_IRQ_elections
+		x = 2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_kings_of_the_four_corners
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_kings_of_the_four_corners}
+		
+		completion_reward = {	
+		create_wargoal = {
+				type = annex_everything
+				target = JOR
+			}
+				JOR = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		}
+	}
+	focus = {
+		id = IRQ_hittites
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_subdue_the_nabataeans
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_subdue_the_nabataeans}
+		
+		completion_reward = {	
+		KUR = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		EAR = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		CIL = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		TWR = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		}
+	}
+	focus = {
+		id = IRQ_the_shrew_of_jerusalem
+		icon = GFX_focus_IRQ_elections
+		x = -2
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_kings_of_the_four_corners
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_kings_of_the_four_corners}
+		
+		completion_reward = {	
+		PAL = {
+		country_event = irq.25
+		}
+		PAL = { 
+				every_core_state = { add_core_of = IRQ }
+			}
+		}
+	}
+	focus = {
+		id = IRQ_kartvelian_origins
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_subdue_the_nabataeans
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_hittites }
+		
+		completion_reward = {	
+		create_wargoal = {
+				type = annex_everything
+				target = GEO
+			}
+		create_wargoal = {
+				type = annex_everything
+				target = ARM
+			}
+		create_wargoal = {
+				type = annex_everything
+				target = AZR
+			}
+		AZR = {
+		every_core_state = { add_core_of = IRQ }
+		}
+		GEO = {
+		every_core_state = { add_core_of = IRQ }
+		}
+		ARM = {
+		every_core_state = {add_core_of = IRQ}
+		}
+		}
+	}
+	focus = {
+		id = IRQ_reclaim_tayma
+		icon = GFX_focus_IRQ_elections
+		x = -2
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_kings_of_the_four_corners
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_the_shrew_of_jerusalem}
+		
+		completion_reward = {	
+		create_wargoal = {
+			type = annex_everything
+			target = SAU
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = HEJ
+		}
+		679 = {
+		add_core_of = IRQ
+		}
+		855 = {
+		add_core_of = IRQ
+		}
+		1095 = {
+		add_core_of = IRQ
+		}
+		1066 = {
+		add_core_of = IRQ
+		}
+		1065 = {
+		add_core_of = IRQ
+		}
+		}
+	}
+		focus = {
+		id = IRQ_the_grand_jewel
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_reclaim_tayma
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_reclaim_tayma}
+		
+		completion_reward = {	
+		create_wargoal = {
+			type = annex_everything
+			target = EGY 
+		}
+		453 = {
+		add_core_of = IRQ
+		}
+		446 = {
+		add_core_of = IRQ
+		}
+		447 = {
+		add_core_of = IRQ
+		}
+		452 = {
+		add_core_of = IRQ
+		}
+		}
+			}
+	focus = {
+		id = IRQ_reform_babylon
+		icon = GFX_focus_IRQ_elections
+		x = 0
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_magan
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+		has_completed_focus = IRQ_i_am_iraq
+		}
+		prerequisite = {focus = IRQ_magan}
+		prerequisite = {focus = IRQ_the_grand_jewel}
+		prerequisite = {focus = IRQ_kartvelian_origins}
+		
+		completion_reward = {	
+		set_cosmetic_tag = IRQ_babylonia
+		}
+	}
+}
 	
 	

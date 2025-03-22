@@ -455,3 +455,51 @@ country_event = {
 	add_manpower = 500
 	}
 }
+
+news_event = {
+	id = irq.24
+	title = irq.24.t
+	desc = irq.24.d
+	picture = GFX_news_fourteen_tamouz
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = irq.24.a
+}
+}
+country_event = {
+	id = irq.25
+	title = irq.25.t
+	desc = irq.25.d
+	is_triggered_only = yes
+
+	option = {
+		name = irq.25.a
+		FROM = {
+			annex_country = { 
+				target = PREV
+				transfer_troops = yes 
+			}
+		}
+		
+		PREV = {
+			every_unit_leader = {
+				set_nationality = FROM
+			}
+		}
+	}
+	
+	option = {
+		name = irq.25.b
+	    FROM = {
+			declare_war_on = {
+				target = PREV
+				type = annex_everything
+			}
+		}
+		ai_chance = { base = 0 }
+		
+	}
+}
