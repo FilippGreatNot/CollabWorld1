@@ -339,6 +339,14 @@ focus_tree = {
 			add_ideas = {
 				UVS_economics_thalmann
 			}
+			random_owned_controlled_state = {
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			set_country_flag = repair_damaged_roads_flag
 		}
 	}
@@ -464,6 +472,11 @@ focus_tree = {
             activate_advisor = UVS_werner_sombart_ec
             activate_advisor = UVS_heinrich_laufenberg_sec
             activate_advisor = UVS_ernst_niekisch_sec
+			
+			 add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.05
+			}
 
 		}
 	}
@@ -679,7 +692,12 @@ focus_tree = {
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Joachim von Ribbentrop"
+                    ruling_only = yes
+                }
+				 }
 		prerequisite = {
 			focus = UVS_tighten_economic_control
 		}
@@ -1006,7 +1024,7 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = -0.05
 			}
-			add_political_power = -50
+			add_political_power = -25
 		}
 	}
 	
@@ -1285,7 +1303,7 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = { 
 				idea = UVS_economic_boost
-				days = 60
+				days = 180
 			}
 			set_country_flag = repair_damaged_roads_flag
 		}
@@ -1754,7 +1772,7 @@ focus_tree = {
 			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 200
+				amount = 800
 				producer = UVS
 			}
 			swap_ideas = {
@@ -2031,7 +2049,7 @@ focus_tree = {
 		    
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 500
+				amount = 750
 				producer = UVS
 			}
 			add_manpower = 20000
@@ -3454,6 +3472,10 @@ focus_tree = {
 		y = 1
 		x = 5
 		
+		available = {
+			country_exists = ASF
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_support_the_american_socialist_front"
 			
@@ -3805,6 +3827,333 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = uvs.diplomacy.6
+		}
+	}
+	focus = {
+		id = UVS_heinrich_laufenbergs_ascension
+		icon = GFX_focus_UVS_laufenberg
+		cost = 5
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 14
+		y = 10
+
+		completion_reward = {
+		    hidden_effect = {
+			    country_event = { id = uvs.11 days = 30 }
+			}
+		      add_war_support = 0.05
+			 add_popularity = {
+				ideology = bolshevism
+				popularity = 0.07
+			}
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.03
+			}
+             custom_effect_tooltip = BAV_laufenberg_how_tt
+		}
+	}
+	focus = {
+		id = UVS_embolden_germanys_national_pride
+		icon = GFX_focus_UVS_laufenberg
+		cost = 5
+		prerequisite = { focus = UVS_heinrich_laufenbergs_ascension }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 0
+		y = 1
+        relative_position_id = UVS_heinrich_laufenbergs_ascension
+		
+		completion_reward = {
+             add_war_support = 0.1
+			 add_manpower = 20000
+			 add_political_power = 25
+		}
+	}
+	focus = {
+		id = UVS_strenghten_the_german_arms_industry
+		icon = GFX_focus_UVS_laufenberg
+		cost = 7
+		prerequisite = { focus = UVS_heinrich_laufenbergs_ascension }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 2
+		y = 1
+        relative_position_id = UVS_heinrich_laufenbergs_ascension
+		
+		completion_reward = {
+              random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				}
+				army_experience = 15
+		}
+	}
+	focus = {
+		id = UVS_purge_the_reactionary_bismarckist_wing
+		icon = GFX_focus_UVS_laufenberg
+		cost = 5
+		prerequisite = { focus = UVS_heinrich_laufenbergs_ascension }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = -2
+		y = 1
+        relative_position_id = UVS_heinrich_laufenbergs_ascension
+		
+		completion_reward = {
+             add_popularity = {
+				ideology = national_syndicalism
+				popularity = -0.06
+			}
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.02
+			}
+			add_political_power = 75
+			add_command_power = 25
+		}
+	}
+	focus = {
+		id = UVS_seek_treatment_for_laufenbergs_sickness
+		icon = GFX_focus_UVS_sick
+		cost = 5
+		prerequisite = { focus = UVS_purge_the_reactionary_bismarckist_wing }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = -1
+		y = 1
+        relative_position_id = UVS_purge_the_reactionary_bismarckist_wing
+		
+		completion_reward = {
+             remove_country_leader_trait = UVS_very_sick_leader
+		}
+	}
+	focus = {
+		id = UVS_build_laufenbergs_cult_of_personality
+		icon = GFX_focus_UVS_sick
+		cost = 5
+		prerequisite = { focus = UVS_purge_the_reactionary_bismarckist_wing focus = UVS_embolden_germanys_national_pride }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 1
+		y = 1
+        relative_position_id = UVS_purge_the_reactionary_bismarckist_wing
+		
+		completion_reward = {
+             add_country_leader_trait = volksfuhrer
+		}
+	}
+	focus = {
+		id = UVS_mobilize_the_german_proletariat
+		icon = GFX_focus_UVS_sick
+		cost = 5
+		prerequisite = { focus = UVS_embolden_germanys_national_pride }
+		prerequisite = { focus = UVS_strenghten_the_german_arms_industry }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 3
+		y = 1
+        relative_position_id = UVS_purge_the_reactionary_bismarckist_wing
+		
+		completion_reward = {
+             add_manpower = 75000
+			 add_political_power = -50
+			 add_ideas = UVS_national_mobilization
+		}
+	}
+	focus = {
+		id = UVS_focus_on_economic_self_sufficiency
+		icon = GFX_focus_UVS_autarky
+		cost = 5
+		prerequisite = { focus = UVS_strenghten_the_german_arms_industry }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 5
+		y = 1
+        relative_position_id = UVS_purge_the_reactionary_bismarckist_wing
+		
+		completion_reward = {
+			 add_ideas = UVS_national_autarky
+		}
+	}
+	focus = {
+		id = UVS_ally_the_italian_revolutionaries
+		icon = GFX_focus_BAV_meet
+		cost = 5
+		prerequisite = { focus = UVS_seek_treatment_for_laufenbergs_sickness }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+		 available = {
+		 has_completed_focus = UVS_first_estabilish_the_european_revolutionary_front
+				}
+        x = 1
+		y = 1
+        relative_position_id = UVS_seek_treatment_for_laufenbergs_sickness
+		bypass = {
+			NOT = {
+				country_exists = ITS
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = ITS
+		}
+		completion_reward = {
+            ITS = {
+			    country_event = {
+			    	id = uvs.12
+		    	}
+		    }
+		}
+	}
+	focus = {
+		id = UVS_increase_the_workers_economic_control
+		icon = GFX_focus_BAV_control
+		cost = 6
+		prerequisite = { focus = UVS_build_laufenbergs_cult_of_personality }
+		prerequisite = { focus = UVS_mobilize_the_german_proletariat }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 1
+		y = 1
+        relative_position_id = UVS_build_laufenbergs_cult_of_personality
+		
+		completion_reward = {
+			 add_ideas = BAV_increased_worker_control_in_key_industries
+			 random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			    }
+		}
+	}
+	focus = {
+		id = UVS_demand_northern_schleswig
+		icon = GFX_focus_UVS_schleswig
+		cost = 5
+		prerequisite = { focus = UVS_focus_on_economic_self_sufficiency }
+		prerequisite = { focus = UVS_mobilize_the_german_proletariat }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+        x = 1
+		y = 1
+		bypass = {
+			NOT = {
+				country_exists = DEN
+			}
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = DEN
+		}
+        relative_position_id = UVS_mobilize_the_german_proletariat
+		
+		completion_reward = {
+			DEN = {
+			    country_event = {
+			    id = uvs.13
+		    }
+		}
+	}
+	}
+	focus = {
+		id = UVS_declare_the_greater_german_proletarian_state
+		icon = GFX_focus_UVS_proletariat
+		cost = 5
+		prerequisite = { focus = UVS_demand_northern_schleswig }
+		prerequisite = { focus = UVS_increase_the_workers_economic_control }
+		prerequisite = { focus = UVS_ally_the_italian_revolutionaries }
+        available = {
+		has_country_leader = {
+                    name = "Heinrich Laufenberg"
+                    ruling_only = yes
+                }
+				}
+		available = {
+			owns_state = 841
+			owns_state = 85
+			owns_state = 1061
+			owns_state = 28
+		}
+        x = 0
+		y = 1
+        relative_position_id = UVS_increase_the_workers_economic_control
+		
+		completion_reward = {
+			set_cosmetic_tag = UVS_laufenberg
+			add_war_support = 0.1
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.1
+			   }
 		}
 	}
 }
