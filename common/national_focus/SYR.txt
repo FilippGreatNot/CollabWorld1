@@ -18,6 +18,25 @@ focus_tree = {
         completion_reward = { 
 		add_stability = 0.10
 		add_political_power = 100
+		division_template = {
+				name = "National Guard"
+				priority = 1
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					artillery_brigade = { x = 2 y = 0 }
+				}
+					support = {
+       			 artillery = { x = 0 y = 0 }
+   				 }
+			}
 		}		  
     }
 
@@ -37,6 +56,14 @@ focus_tree = {
 		popularity = 0.15 }
 		random_owned_controlled_state = {
 				limit = { ROOT = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
+				create_unit = {
+					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
+					owner = SYR
+				}
 				create_unit = {
 					division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.5" 
 					owner = SYR

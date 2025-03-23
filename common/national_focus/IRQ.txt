@@ -145,7 +145,7 @@ focus_tree = {
 		icon = GFX_focus_IRQ_change_of_plan
 		x = 1
 		y = 1
-		cost = 10
+		cost = 7
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_preserve_iraqi_cultural_heritage
 		ai_will_do = {
@@ -184,7 +184,7 @@ focus_tree = {
 		icon = GFX_focus_IRQ_iron_fist
 		x = 0
 		y = 1
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_a_change_of_plan
 		ai_will_do = {
@@ -1126,7 +1126,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		prerequisite = { focus = IRQ_first_the_cradle_of_civilization }
 		
 		completion_reward = {	
@@ -1152,7 +1158,13 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		has_completed_focus = IRQ_first_iraq_at_last
+		 }
 		prerequisite = { focus = IRQ_first_buy_american_guns }
 		
 		completion_reward = {	
@@ -1593,6 +1605,7 @@ focus_tree = {
 				ideology = national_syndicalism
 				popularity = 0.16
 			}
+		set_country_flag = IRQ_babylon
 		country_event = irq.16
 
 		}
@@ -2863,7 +2876,7 @@ focus_tree = {
 		completion_reward = {	
 		news_event = irq.24
 		remove_ideas = IRQ_new_constitution
-			
+		set_cosmetic_tag = IRQ_babylon
 		}
 	}
 
@@ -3328,7 +3341,7 @@ focus_tree = {
 		prerequisite = {focus = IRQ_kartvelian_origins}
 		
 		completion_reward = {	
-		set_cosmetic_tag = IRQ_babylonia
+		set_cosmetic_tag = IRQ_babylon_2 
 		}
 	}
 }
