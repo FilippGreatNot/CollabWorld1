@@ -12,7 +12,7 @@ FGB_army_category = {
 		ai_will_do = {
 			base = 200
 		}
-		cost = 30
+		cost = 50
 		icon = FGB_reform
 		fire_only_once = no
 		days_remove = 60
@@ -53,7 +53,7 @@ FGB_army_category = {
 		ai_will_do = {
 			base = 200
 		}
-		cost = 30
+		cost = 50
 		icon = FGB_reform2
 		fire_only_once = no
 		days_remove = 60
@@ -95,7 +95,7 @@ FGB_army_category = {
 		ai_will_do = {
 			base = 200
 		}
-		cost = 30
+		cost = 75
 		icon = FGB_reform3
 		fire_only_once = no
 		days_remove = 60
@@ -232,7 +232,7 @@ FGB_industrial_category = {
 		ai_will_do = {
 			base = 200
 		}
-		cost = 50
+		cost = 75
 		icon = FGB_reform 
 		fire_only_once = yes 
 		days_remove = 30
@@ -312,7 +312,7 @@ FGB_industrial_category = {
 		ai_will_do = {
 			base = 200
 		}
-		cost = 50
+		cost = 75
 		icon = FGB_reform 
 		fire_only_once = yes 
 		days_remove = 30
@@ -336,7 +336,7 @@ FGB_industrial_category = {
 			}
 			add_breakthrough_progress = {
 				specialization = specialization_land
-				value = 0.05
+				value = 0.1
 			}
 		}
 	}
@@ -354,7 +354,7 @@ FGB_industrial_category = {
 		ai_will_do = {
 			base = 200
 		}
-		cost = 75
+		cost = 125
 		icon = FGB_reform 
 		fire_only_once = yes 
 		days_remove = 30
@@ -383,6 +383,213 @@ FGB_industrial_category = {
 					level = 1
 					instant_build  = yes
 				}
+			}
+		}
+	}
+	FGB_develop_the_rural_altbayern = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 52
+			has_full_control_of_state = 53
+			has_full_control_of_state = 1089
+			has_completed_focus = FGB_revitalise_southern_industry
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 125
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 52 state = 53 state = 1089 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			monthly_population = -0.05
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			52 = {
+				add_manpower = -40000
+				add_victory_points = {
+					province = 11620
+					value = 1
+				}
+				add_victory_points = {
+					province = 13579
+					value = 2
+				}
+				add_victory_points = {
+					province = 13603
+					value = 1
+				}
+			}
+			53 = {
+				add_manpower = 20000
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+				add_victory_points = {
+					province = 9681
+					value = 1
+				}
+				add_victory_points = {
+					province = 13605
+					value = 2
+				}
+			}
+			1089 = {
+				add_manpower = 20000
+				increase_state_category_by_one_level = yes
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+				add_victory_points = {
+					province = 3299
+					value = 3
+				}
+			}
+		}
+	}
+	FGB_fund_bauer_ag = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 52
+			has_completed_focus = FGB_revitalise_southern_industry
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 75
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 52 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			52 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	FGB_fund_the_erdinger_brewery = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 52
+			has_completed_focus = FGB_revitalise_southern_industry
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 75
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 52 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			add_stability = 0.04
+			52 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	FGB_invest_in_bmws_expansion = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 52
+			has_completed_focus = FGB_revitalise_southern_industry
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 175
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 52 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			add_stability = 0.04
+			52 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build  = yes
+				}
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.15
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.2
 			}
 		}
 	}

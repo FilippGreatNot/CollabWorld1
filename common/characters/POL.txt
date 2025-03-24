@@ -2,12 +2,12 @@ characters = {
 	POL_daszynski = {
 		name = "Ignacy Daszyński"
 		portraits={
-			army = {
+			civilian = {
 				large = "gfx/leaders/POL/Daszynski.dds"
 			}
 		}
 		country_leader = {
-			ideology = liberal_socialism
+			ideology = democratic_socialism
 		}
 	}
 	POL_wincenty_witos = {
@@ -22,6 +22,67 @@ characters = {
 		}
 		country_leader = {
 			ideology = social_liberalism
+		}
+	}
+	POL_feliks_dzierzynski = {
+		name = "Feliks Edmundowicz Dzierżyński"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/POL_feliks_dzierzynski.dds"
+			}
+			army = {
+				large = "gfx/leaders/POL/POL_feliks_dzierzynski.dds"
+			}
+		}
+		country_leader = {
+			ideology = war_socialism
+		}
+	}
+	POL_roman_dmowski = {
+		name = "Roman Stanisław Dmowski"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/POL_roman_dmowski.dds"
+			}
+		}
+		country_leader = {
+			ideology = revolutionary_nationalism
+		}
+	}
+	POL_stanislaw_grabski = {
+		name = "Stanisław Grabski"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/POL_stanislaw_grabski.dds"
+				small = "gfx/interface/ministers/POL/POL_stanislaw_grabski.dds"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = POL_stanislaw_grabski_ec
+			visible = {
+				original_tag = POL
+			}
+			available = {
+				OR = {
+					has_government = national_syndicalism
+					has_government = reactionism
+				}
+			}
+			traits = { experienced_economist }
+			cost = 100
+			can_be_fired = no
+		}
+	}
+	POL_stanislaw_glabinski = {
+		name = "Stanisław Głąbiński"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/POL_stanislaw_glabinski.dds"
+			}
+		}
+		country_leader = {
+			ideology = liberal_conservatism
 		}
 	}
 }
