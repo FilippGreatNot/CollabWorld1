@@ -790,6 +790,7 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = FGB_noske_ger_unified_flag
+			set_country_flag = FGB_eco_flag
 			complete_national_focus = FGB_noske_the_second_revolution_of_1848
 			mark_focus_tree_layout_dirty = yes
 		}
@@ -893,6 +894,9 @@ country_event = {
 	picture = GFX_report_event_german_eagle
 	is_triggered_only = yes
 	fire_only_once = yes
+	trigger = {
+		has_government = social_democrat
+	}
 
 	option = {
 		name = fgb.34.a
@@ -2691,6 +2695,300 @@ country_event = {
 }
 
 country_event = {
+	id = fgb.114
+	title = fgb.114.t
+	desc = fgb.114.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.114.a
+		ai_chance = {
+			base = 40
+		}
+		set_cosmetic_tag = FGB_Rohm
+	}
+	option = {
+		name = fgb.114.b
+		ai_chance = {
+			base = 10
+		}
+		add_war_support = 0.04
+	}
+}
+
+country_event = {
+	id = fgb.115
+	title = fgb.115.t
+	desc = fgb.115.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.115.a
+		ai_chance = {
+			base = 40
+		}
+		add_timed_idea = {
+			idea = UVS_recent_victory
+			months = 2
+		}
+		hidden_effect = {
+			country_event = { id = fgb.116 days = 1 }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.116
+	title = fgb.116.t
+	desc = fgb.116.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.116.a
+		ai_chance = {
+			base = 40
+		}
+		add_stability = -0.04
+		set_country_flag = FGB_rohm_the_last_steps_flag
+		set_country_flag = FGB_eco_flag
+		hidden_effect = {
+			if = { limit = { country_exists = PLA } set_country_flag = FGB_rohm_crushing_the_pla_flag }
+			country_event = { id = fgb.117 days = 2 }
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = {
+	id = fgb.117
+	title = fgb.117.t
+	desc = fgb.117.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.117.a
+		ai_chance = {
+			base = 40
+		}
+		retire_character = FGB_adolf_hiedler
+		retire_character = FGB_martin_bormann
+		retire_character = FGB_joseph_goebbels
+		retire_character = FGB_heinrich_himmler
+		hidden_effect = {
+			if = { limit = { has_character = WRD_heinrich_himmler } retire_character = WRD_heinrich_himmler }
+			if = { limit = { has_character = BAV_joseph_goebbels } retire_character = BAV_joseph_goebbels }
+			# news event / superevent
+			country_event =  { id = fgb.118 days = 5 }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.118
+	title = fgb.118.t
+	desc = fgb.118.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.118.a
+		ai_chance = {
+			base = 40
+		}
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = -0.06
+		}
+		hidden_effect = {
+			country_event = { id = fgb.119 days = 2 }
+		}
+	}
+	option = {
+		name = fgb.118.b
+		ai_chance = {
+			base = 50
+		}
+		add_political_power = -90
+		promote_character = {
+			character = FGB_anton_drexler
+			ideology = national_syndicalism
+		}
+	}
+}
+
+country_event = {
+	id = fgb.119
+	title = fgb.119.t
+	desc = fgb.119.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.119.a
+		ai_chance = {
+			base = 40
+		}
+		add_stability = -0.1
+		add_popularity = {
+			ideology = national_syndicalism
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = esotericism
+			popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = { id = fgb.120 days = 3 }
+		}
+	}
+}
+
+country_event = {
+	id = fgb.120
+	title = fgb.120.t
+	desc = fgb.120.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			FWG = { 
+				set_capital = { state = 57 }
+				set_cosmetic_tag = VDW 
+				load_focus_tree = VDW_tree
+				set_politics = { ruling_party = esotericism } 
+				add_country_leader_role = {
+					character = FWG_adam_dressler
+					promote_leader = yes
+					country_leader = {
+						ideology = valkism
+						traits = { revisionist }
+					}
+				}
+				add_field_marshal_role = {
+					character = FWG_adam_dressler
+					traits = { trickster brilliant_strategist }
+					skill = 5
+					attack_skill = 4
+					defense_skill = 4
+					planning_skill = 5
+					logistics_skill = 3
+				}
+				add_corps_commander_role = {
+					character = FGB_friedrich_kochling
+					traits = { inflexible_strategist }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 4
+					logistics_skill = 3
+				}
+				add_popularity = {
+					ideology = esotericism
+					popularity = 1
+				}
+				set_party_name = {
+					ideology = esotericism
+					name = "NV"
+					long_name = "Nationale Volksvereinigung"
+				}
+			}
+			FGB = {
+				retire_character = FGB_adam_dressler
+				retire_character = FGB_friedrich_kochling
+			}
+			42 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			50 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			51 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			55 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			56 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			57 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			852 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			975 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1082 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1083 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1084 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1085 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1086 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1087 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1090 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1091 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+			1096 = {
+				add_core_of = FWG 
+				transfer_state_to = FWG
+			}
+		}
+	}
+
+	option = {
+		name = fgb.120.a
+		ai_chance = {
+			base = 40
+		}
+		promote_character = {
+			character = FGB_anton_drexler
+			ideology = revolutionary_nationalism
+		}
+	}
+	option = {
+		name = fgb.120.b 
+		FWG = { change_tag_from = FGB }
+	}
+}
+
+
+country_event = {
 	id = rohm_diplomacy.1
 	title = rohm_diplomacy.1.t 
 	desc = rohm_diplomacy.1.d 
@@ -2800,6 +3098,7 @@ country_event = {
 				modifier = FGB_disgruntled
 			}
 		}
+		unlock_national_focus = FGB_rohm_smuggle_guns_across_the_swiss_border
 	}
 }
 
