@@ -339,6 +339,14 @@ focus_tree = {
 			add_ideas = {
 				UVS_economics_thalmann
 			}
+			random_owned_controlled_state = {
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			set_country_flag = repair_damaged_roads_flag
 		}
 	}
@@ -684,7 +692,12 @@ focus_tree = {
 		available = {
 			has_completed_focus = UVS_endlich_einigkeit
 		}
-		
+		available = {
+		has_country_leader = {
+                    name = "Joachim von Ribbentrop"
+                    ruling_only = yes
+                }
+				 }
 		prerequisite = {
 			focus = UVS_tighten_economic_control
 		}
@@ -1011,7 +1024,7 @@ focus_tree = {
 				ideology = bolshevism
 				popularity = -0.05
 			}
-			add_political_power = -50
+			add_political_power = -25
 		}
 	}
 	
@@ -1290,7 +1303,7 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = { 
 				idea = UVS_economic_boost
-				days = 60
+				days = 180
 			}
 			set_country_flag = repair_damaged_roads_flag
 		}
@@ -1759,7 +1772,7 @@ focus_tree = {
 			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 200
+				amount = 800
 				producer = UVS
 			}
 			swap_ideas = {
@@ -2036,7 +2049,7 @@ focus_tree = {
 		    
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 500
+				amount = 750
 				producer = UVS
 			}
 			add_manpower = 20000
@@ -3459,6 +3472,10 @@ focus_tree = {
 		y = 1
 		x = 5
 		
+		available = {
+			country_exists = ASF
+		}
+		
 		completion_reward = {
 			log = "[GetDateText]: [ROOT.GetTag]: Focus UVS_first_support_the_american_socialist_front"
 			
@@ -4022,6 +4039,9 @@ focus_tree = {
                     name = "Heinrich Laufenberg"
                     ruling_only = yes
                 }
+				}
+		 available = {
+		 has_completed_focus = UVS_first_estabilish_the_european_revolutionary_front
 				}
         x = 1
 		y = 1

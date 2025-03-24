@@ -1604,7 +1604,7 @@ focus_tree = {
 	
 	focus = {
         id = GER_launch_a_nationwide_reconstruction_effort
-        icon = GFX_focus_GER_new
+        icon = GFX_focus_GER_wide
         relative_position_id = GER_a_new_germany_on_the_world_stage
         x = 1
         y = 1
@@ -1659,7 +1659,7 @@ focus_tree = {
 	
 	focus = {
         id = GER_secure_our_new_democracy
-        icon = GFX_focus_GER_new
+        icon = GFX_focus_GER_secure
         relative_position_id = GER_a_new_germany_on_the_world_stage
         x = -1
         y = 1
@@ -1698,7 +1698,7 @@ focus_tree = {
 		
 	focus = {
 		id = GER_establish_the_europakt
-		icon = GFX_focus_GER_europakt
+		icon = GFX_focus_GER_euro
 		x = 0
 		y = 2
 		cost = 5
@@ -1745,7 +1745,7 @@ focus_tree = {
 	
 	focus = {
         id = GER_support_macarthurs_liberation_army
-        icon = GFX_focus_GER_benelux
+        icon = GFX_focus_GER_macarthur
         relative_position_id = GER_establish_the_europakt
         x = 3
         y = 1
@@ -1753,6 +1753,9 @@ focus_tree = {
 		prerequisite = {
             focus = GER_establish_the_europakt
         }
+		available = {
+			country_exists = CCC
+		}
 		completion_reward = {
 		 CCC = {
 			add_equipment_to_stockpile = {
@@ -1822,7 +1825,7 @@ focus_tree = {
 	
 	focus = {
         id = GER_the_southern_european_expansion
-        icon = GFX_focus_GER_scandi
+        icon = GFX_focus_GER_south
         relative_position_id = GER_establish_the_europakt
         x = -3
         y = 1
@@ -1851,7 +1854,7 @@ focus_tree = {
 	
 	focus = {
         id = GER_invite_ireland_to_the_europakt
-        icon = GFX_focus_GER_scandi
+        icon = GFX_focus_GER_ireland
         relative_position_id = GER_establish_the_europakt
         x = -3
         y = 2
@@ -1975,7 +1978,7 @@ focus_tree = {
 	
 	focus = {
         id = GER_the_last_war_against_bolshevism
-        icon = GFX_focus_GER_tukha
+        icon = GFX_focus_GER_last
         relative_position_id = GER_ally_the_new_polish_republic
         x = -1
         y = 1
@@ -2027,6 +2030,9 @@ focus_tree = {
 		x = 8
 		y = 10
     	available = { has_government = esotericism }
+		allow_branch = {
+			has_country_flag = GER_vril_allowed
+		}
 		completion_reward = {
 		
 		     add_war_support = 0.05
