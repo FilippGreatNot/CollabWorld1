@@ -3762,13 +3762,12 @@ focus_tree = {
 		relative_position_id = ALT_towards_the_north
 		prerequisite = { focus = ALT_towards_the_north }
 		completion_reward = {
-			818 = {
-				add_claim_by = ALT
+			MON = { every_owned_state = { add_claim_by = ALT } }
+			create_wargoal = {
+				type = annex_everything
+				target = MON
 			}
-			declare_war_on = {
-				target = RMA
-				type = puppet_wargoal_focus
-			}
+			custom_effect_tooltip = ALT_unlocks_decision_category_tt
 		}
 	}
 
@@ -3791,12 +3790,8 @@ focus_tree = {
 		relative_position_id = ALT_towards_the_north
 		prerequisite = { focus = ALT_towards_the_north }
 		completion_reward = {
-			create_faction = ALT_anti_russian_bloc
+			create_faction = "League of the Red Sky"
 			add_to_faction = MON
-			declare_war_on = {
-				target = RMA
-				type = puppet_wargoal_focus
-			}
 		}
 	}
 
@@ -4467,7 +4462,8 @@ focus_tree = {
 		}
 		relative_position_id = ALT_knock_out_the_anhui_clique
 		completion_reward = {
-			
+			set_temp_variable = { ideology_change_var = 0.1 }
+			change_ruling_party_popularity = yes
 		}
 	}
 

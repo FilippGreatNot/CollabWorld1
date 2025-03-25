@@ -1,0 +1,85 @@
+add_namespace = pol 
+
+country_event = {
+	id = pol.1
+	title = pol.1.t
+	desc = pol.1.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = pol.1.a
+		add_popularity = {
+            ideology = conservatism
+            popularity = 0.04
+        }
+	}
+    option = {
+		name = pol.1.b
+		add_popularity = {
+            ideology = social_democrat
+            popularity = 0.03
+        }
+	}
+	option = {
+		name = pol.1.c
+		add_popularity = {
+            ideology = libertarian_socialism
+            popularity = 0.06
+        }
+	}
+}
+
+country_event = {
+	id = pol.2
+	title = pol.2.t
+	desc = pol.2.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = pol.2.a
+		set_politics = { ruling_party = libertarian_socialism }
+	}
+    option = {
+		name = pol.2.b
+		set_politics = { ruling_party = social_democrat }
+	}
+	option = {
+		name = pol.2.c
+		add_popularity = {
+			ideology = liberalism
+			popularity = 0.02
+		}
+	}
+	option = {
+		name = pol.2.e
+		country_event = pol.3
+	}
+}
+
+country_event = {
+	id = pol.3
+	title = pol.3.t
+	desc = pol.3.d
+	picture = GFX_report_event_german_eagle
+	is_triggered_only = yes
+
+	option = {
+		name = pol.3.a
+		set_politics = { ruling_party = conservatism }
+	}
+    option = {
+		name = pol.3.b
+		set_politics = { ruling_party = authoritarian_democrat }
+	}
+	option = {
+		name = pol.3.c
+		set_politics = { ruling_party = reactionism }
+	}
+	option = {
+		name = pol.3.e 
+		set_politics = { ruling_party = national_syndicalism }
+		add_stability = -0.03
+	}
+}
