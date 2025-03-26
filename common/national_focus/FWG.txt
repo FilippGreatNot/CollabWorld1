@@ -91,10 +91,7 @@ focus_tree = {
 		prerequisite = { focus = FWG_fate_of_the_junkers }
 		completion_reward = {
 			add_war_support = 0.05
-			swap_ideas = {
-				remove_idea = FWG_multiethnic_army
-				add_idea = FWG_multiethnic_army2
-			}
+			FWG_multiethnic_army_up = yes
 			random_owned_state = {
 				create_unit = {
 					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.3" 
@@ -244,9 +241,8 @@ focus_tree = {
 		relative_position_id = FWG_rapprochement_with_the_ebert_government
 		prerequisite = { focus = FWG_rapprochement_with_the_ebert_government }
 		completion_reward = {
-			add_opinion_modifier = {
-				target = GER
-				modifier = FWG_mending_relations
+			GER = {
+				country_event = fwg.14
 			}
 		}
 	}
@@ -1124,10 +1120,7 @@ focus_tree = {
         			military_police = { x = 0 y = 0 }
     			}
 			}
-			swap_ideas = {
-				remove_idea = FWG_multiethnic_army2
-    			add_idea = FWG_multiethnic_army3
-			}
+			FWG_multiethnic_army_up = yes
 			custom_effect_tooltip = new_division_template
 		}
 	}
@@ -1475,10 +1468,7 @@ focus_tree = {
 					owner = FWG
 				}
 			}
-			swap_ideas = {
-				remove_idea = FWG_multiethnic_army2
-    			add_idea = FWG_multiethnic_army3
-			}
+			FWG_multiethnic_army_up = yes
 			custom_effect_tooltip = new_division_template
 		}
 	}
@@ -1742,10 +1732,7 @@ focus_tree = {
 					owner = FWG
 				}
 			}
-			swap_ideas = {
-				remove_idea = FWG_multiethnic_army2
-    			add_idea = FWG_multiethnic_army3
-			}
+			FWG_multiethnic_army_up = yes
 			custom_effect_tooltip = new_division_template
 		}
 	}
@@ -2623,7 +2610,7 @@ focus_tree = {
 	focus = {
 		id = FWG_prepare_for_the_coming_war
 		icon = GFX_focus_FWG_prepare_for_the_coming_war
-		x = 60
+		x = 68
 		cost = 5
 		available_if_capitulated = yes
 		available = {
@@ -2635,6 +2622,342 @@ focus_tree = {
 				idea = FWG_defensive_preparations
 				days = 200
 			}
+		}
+	}
+	focus = {
+		id = FWG_developing_our_doctrine
+		icon = GFX_focus_FWG_developing_our_doctrine
+		x = 60
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = FWG_we_need_men_on_the_front
+		icon = GFX_focus_FWG_we_need_men_on_the_front
+		x = -2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		mutually_exclusive = { focus = FWG_blast_the_enemy_with_better_guns }
+		relative_position_id = FWG_developing_our_doctrine 
+		prerequisite = { focus = FWG_developing_our_doctrine }
+		completion_reward = {
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.3" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Volksmiliz\" division_template = \"Volksmiliz\" start_experience_factor = 0.3" 
+					owner = FWG
+				}
+			}
+			add_ideas = {
+				FWG_quantity
+			}
+		}
+	}
+	focus = {
+		id = FWG_attract_more_fellow_revolutionaries
+		icon = GFX_focus_FWG_attract_more_fellow_revolutionaries
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_we_need_men_on_the_front 
+		prerequisite = { focus = FWG_we_need_men_on_the_front }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FWG_effects_from_the_rotflucht
+				add_idea = FWG_effects_from_the_rotflucht_a
+			}
+		}
+	}
+	focus = {
+		id = FWG_expand_our_general_staff
+		icon = GFX_focus_FWG_expand_our_general_staff
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_we_need_men_on_the_front 
+		prerequisite = { focus = FWG_we_need_men_on_the_front focus = FWG_blast_the_enemy_with_better_guns }
+		completion_reward = {
+			custom_effect_tooltip = FWG_some_of_our_leaders_will_receive_general_roles_tt
+			add_corps_commander_role = {
+				character = FWG_johann_knief
+				traits = { inflexible_strategist }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			add_corps_commander_role = {
+				character = FWG_august_merges
+				traits = { infantry_officer }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			custom_effect_tooltip = FWG_we_will_also_attract_tt
+			add_corps_commander_role = {
+				character = FWG_joris_ivens
+				traits = { trickster }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+		}
+	}
+	focus = {
+		id = FWG_fix_up_the_army_figures
+		icon = GFX_focus_FWG_fix_up_the_army_figures
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_attract_more_fellow_revolutionaries 
+		prerequisite = { focus = FWG_attract_more_fellow_revolutionaries }
+		prerequisite = { focus = FWG_expand_our_general_staff }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FWG_quantity
+				add_idea = FWG_quantity2
+			}
+		}
+	}
+	focus = {
+		id = FWG_create_a_wider_division_order
+		icon = GFX_focus_FWG_create_a_wider_division_order
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_fix_up_the_army_figures 
+		prerequisite = { focus = FWG_fix_up_the_army_figures }
+		completion_reward = {
+			division_template = {
+    			name = "Large Cavalry Divisions"
+    			regiments = {
+        			cavalry = { x = 0 y = 0 }
+        			cavalry = { x = 0 y = 1 }
+        			cavalry = { x = 0 y = 2 }
+        			cavalry = { x = 0 y = 3 }
+
+        			cavalry = { x = 1 y = 0 }
+        			cavalry = { x = 1 y = 1 }
+        			cavalry = { x = 1 y = 2 }
+        			cavalry = { x = 1 y = 3 }
+    			}
+			}
+			custom_effect_tooltip = new_division_template
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Large Cavalry Divisions\" division_template = \"Large Cavalry Divisions\" start_experience_factor = 0.2" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Large Cavalry Divisions\" division_template = \"Large Cavalry Divisions\" start_experience_factor = 0.2" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Large Cavalry Divisions\" division_template = \"Large Cavalry Divisions\" start_experience_factor = 0.2" 
+					owner = FWG
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_build_up_the_military_industry
+		icon = GFX_focus_FWG_build_up_the_military_industry
+		x = 3
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_attract_more_fellow_revolutionaries 
+		prerequisite = { focus = FWG_attract_more_fellow_revolutionaries focus = FWG_build_up_a_new_stockpile_of_weapons }
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_a_new_military_headquarters
+		icon = GFX_focus_FWG_a_new_military_headquarters
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_build_up_the_military_industry 
+		prerequisite = { focus = FWG_build_up_the_military_industry }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = FWG_blast_the_enemy_with_better_guns
+		icon = GFX_focus_FWG_blast_the_enemy_with_better_guns
+		x = 2
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		mutually_exclusive = { focus = FWG_we_need_men_on_the_front }
+		relative_position_id = FWG_developing_our_doctrine 
+		prerequisite = { focus = FWG_developing_our_doctrine }
+		completion_reward = {
+			add_tech_bonus = {
+    			bonus = 0.5
+    			uses = 1
+    			category = infantry_weapons
+			}
+			add_ideas = {
+				FWG_quality
+			}
+		}
+	}
+	focus = {
+		id = FWG_build_up_a_new_stockpile_of_weapons
+		icon = GFX_focus_FWG_build_up_a_new_stockpile_of_weapons
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_blast_the_enemy_with_better_guns 
+		prerequisite = { focus = FWG_we_need_men_on_the_front focus = FWG_blast_the_enemy_with_better_guns }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1500
+				producer = FWG 
+			}
+		}
+	}
+	focus = {
+		id = FWG_set_up_a_proper_training_service
+		icon = GFX_focus_FWG_build_up_a_new_stockpile_of_weapons
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_blast_the_enemy_with_better_guns 
+		prerequisite = { focus = FWG_blast_the_enemy_with_better_guns }
+		completion_reward = {
+			army_experience = -50
+			swap_ideas = {
+				remove_idea = FWG_effects_from_the_rotflucht
+				add_idea = FWG_effects_from_the_rotflucht_b
+			}
+		}
+	}
+	focus = {
+		id = FWG_increase_our_standards
+		icon = GFX_focus_FWG_increase_our_standards
+		x = 1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_build_up_a_new_stockpile_of_weapons 
+		prerequisite = { focus = FWG_build_up_a_new_stockpile_of_weapons }
+		prerequisite = { focus = FWG_set_up_a_proper_training_service }
+		completion_reward = {
+			army_experience = -50
+			swap_ideas = {
+				remove_idea = FWG_quality
+				add_idea = FWG_quality2
+			}
+		}
+	}
+	focus = {
+		id = FWG_construct_a_new_elite_template
+		icon = GFX_focus_FWG_construct_a_new_elite_template
+		x = 0
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_increase_our_standards 
+		prerequisite = { focus = FWG_increase_our_standards }
+		completion_reward = {
+			division_template = {
+    			name = "Elite Infantry Brigade"
+    			regiments = {
+        			infantry = { x = 0 y = 0 }
+        			infantry = { x = 0 y = 1 }
+        			infantry = { x = 0 y = 2 }
+        			infantry = { x = 0 y = 3 }
+
+        			artillery_brigade = { x = 1 y = 0 }
+        			artillery_brigade = { x = 1 y = 1 }
+    			}
+				support = {
+					artillery = { x = 0 y = 0 }
+					engineer = { x = 0 y = 1 }
+				}
+			}
+			custom_effect_tooltip = new_division_template
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Elite Infantry Brigade\" division_template = \"Elite Infantry Brigade\" start_experience_factor = 0.5" 
+					owner = FWG
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Elite Infantry Brigade\" division_template = \"Elite Infantry Brigade\" start_experience_factor = 0.5" 
+					owner = FWG
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_resolving_army_divides
+		icon = GFX_focus_FWG_resolving_army_divides
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		ai_will_do = { factor = 10 }
+		relative_position_id = FWG_create_a_wider_division_order 
+		prerequisite = { focus = FWG_create_a_wider_division_order focus = FWG_a_new_military_headquarters focus = FWG_construct_a_new_elite_template }
+		completion_reward = {
+			custom_effect_tooltip = FWG_we_will_unlock_decisions_tt
 		}
 	}
 	focus = {
