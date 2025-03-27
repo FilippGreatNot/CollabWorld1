@@ -271,6 +271,36 @@ news_event = {
 }
 
 country_event = {
+	id = fwg.14
+	title = fwg.14.t
+	desc = fwg.14.d
+	picture = GFX_news_event_bolshevik_takeover
+	is_triggered_only = yes
+		
+	option = {
+		name = fwg.14.a
+		ai_chance = { base = 20 }
+		add_war_support = 0.03
+	}
+	option = {
+		name = fwg.14.b 
+		ai_chance = { base = 80 }
+		diplomatic_relation = {
+    		country = FWG
+    		relation = non_aggression_pact
+    		active = no
+		}
+		FWG = {
+			diplomatic_relation = {
+    			country = GER
+    			relation = non_aggression_pact
+    			active = no
+			}
+		}
+	}
+}
+
+country_event = {
 	id = korsch.1
 	title = korsch.1.t 
 	desc = korsch.1.d 

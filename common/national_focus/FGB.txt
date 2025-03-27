@@ -5089,24 +5089,13 @@ focus_tree = {
 		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
 			add_war_support = 0.05
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"1st. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
-					owner = FGB
-				}
-			}
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"2nd. Freiwilligenkorps\" division_template = \"Freiwilligenkorps\" start_experience_factor = 0.6" 
-					owner = FGB
-				}
-			}
+			add_manpower = 15000
 		}
 	}
 
 	focus = {
 		id = FGB_quell_urban_revolts
-		icon = GFX_focus_FGB_rohm
+		icon = GFX_focus_FGB_quell_urban_revolts
 		x = 0
 		y = 1
 		cost = 3
@@ -5131,7 +5120,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_give_pabst_field_command
-		icon = GFX_focus_FGB_pabst
+		icon = GFX_focus_FGB_give_pabst_field_command
 		x = 2
 		y = 1
 		cost = 3
@@ -5158,7 +5147,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_legacy_of_the_ehrhardt_brigade
-		icon = GFX_focus_FGB_pabst
+		icon = GFX_focus_FGB_legacy_of_the_ehrhardt_brigade
 		x = -1
 		y = 1
 		cost = 3
@@ -5201,7 +5190,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_implement_curfews
-		icon = GFX_focus_FGB_pabst
+		icon = GFX_focus_FGB_implement_curfews
 		x = 1
 		y = 1
 		cost = 3
@@ -5223,7 +5212,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_raise_conservative_support
-		icon = GFX_focus_FGB_pabst
+		icon = GFX_focus_FGB_raise_conservative_support
 		x = 0
 		y = 1
 		cost = 3
@@ -5247,7 +5236,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_execute_the_revolutionaries
-		icon = GFX_focus_FGB_pabst
+		icon = GFX_focus_FGB_execute_the_revolutionaries
 		x = 0
 		y = 1
 		cost = 4
@@ -5276,7 +5265,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_under_a_populist_veil
-		icon = GFX_goal_demand_sudetenland
+		icon = GFX_focus_FGB_under_a_populist_veil
 		x = -2
 		y = 1
 		cost = 5
@@ -5302,7 +5291,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_ehrhardt_takes_charge
-		icon = GFX_goal_demand_sudetenland
+		icon = GFX_focus_FGB_ehrhardt_takes_charge
 		x = 4
 		y = 1
 		cost = 5
@@ -5335,7 +5324,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_arouse_popular_support
-		icon = GFX_goal_demand_sudetenland
+		icon = GFX_focus_FGB_arouse_popular_support
 		x = -1
 		y = 1
 		cost = 5
@@ -5357,10 +5346,10 @@ focus_tree = {
 
 	focus = {
 		id = FGB_pump_money_into_the_factories
-		icon = GFX_goal_demand_sudetenland
+		icon = GFX_focus_FGB_pump_money_into_the_factories
 		x = 1
 		y = 1
-		cost = 7
+		cost = 5
 		ai_will_do = {
 			factor = 25
 		}
@@ -5370,10 +5359,15 @@ focus_tree = {
 			army_experience = 30
 			50 = {
 				add_extra_state_shared_building_slots = 1
+				add_building_construction = { 
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
 			}
 			add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 2000
+				amount = 1000
 				producer = FGB
 			}
 		}
@@ -5381,7 +5375,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_criticise_the_bavarian_regime
-		icon = GFX_goal_demand_sudetenland
+		icon = GFX_focus_FGB_criticise_the_bavarian_regime
 		x = 3
 		y = 1
 		cost = 5
@@ -5405,7 +5399,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_pabst_reengage_abandoned_warehouses
-		icon = GFX_focus_generic_industry_2
+		icon = GFX_focus_FGB_pabst_reengage_abandoned_warehouses
 		x = -1
 		y = 1
 		cost = 5
@@ -5436,7 +5430,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_pabst_right_to_rearm
-		icon = GFX_focus_ETH_freedom_at_gunpoint
+		icon = GFX_focus_FGB_pabst_right_to_rearm
 		x = 1
 		y = 1
 		cost = 5
@@ -5892,7 +5886,11 @@ focus_tree = {
 				logistics_skill = 1
 			}
 			activate_advisor = FGB_gottfried_feder_ec
-			retire_character = FGB_freikorps_council
+			remove_advisor_role = {
+  				character = "FGB_freikorps_council"
+		  		slot = head_of_government
+			}
+			activate_advisor = FGB_hans_ulrich_hog
 		}
 	}
 
@@ -6168,6 +6166,7 @@ focus_tree = {
 			has_war = no
 			BAV = { has_completed_focus = BAV_the_rise_of_the_bnbap } 
 		}
+		bypass = { NOT = { country_exists = BAV }}
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
 		completion_reward = {
@@ -6261,6 +6260,12 @@ focus_tree = {
 		available = { 
 			has_war = no
 			NOT = { BAV = { has_completed_focus = BAV_the_rise_of_the_bnbap } } 
+		}
+		bypass = {
+			OR = {
+				has_war_with = BAV 
+				not = { country_exists = BAV }
+			}
 		}
 		relative_position_id = FGB_rohm_prepare_for_a_strike_against_the_lion
 		prerequisite = { focus = FGB_rohm_prepare_for_a_strike_against_the_lion }
@@ -6716,7 +6721,12 @@ focus_tree = {
 		}
 		available = { has_war = no }
 		mutually_exclusive = { focus = FGB_rohm_offer_the_ss_integration }
-		bypass = { has_war_with = WRD }
+		bypass = {
+			OR = {
+				has_war_with = WRD 
+				not = { country_exists = WRD }
+			}
+		}
 		relative_position_id = FGB_rohm_prepare_for_the_rhein
 		prerequisite = { focus = FGB_rohm_prepare_for_the_rhein }
 		completion_reward = {
@@ -6789,7 +6799,12 @@ focus_tree = {
 			WRD = { has_government = esotericism }
 		}
 		mutually_exclusive = { focus = FGB_rohm_strike_the_snakes_nest }
-		bypass = { has_war_with = WRD }
+		bypass = {
+			OR = {
+				has_war_with = WRD 
+				not = { country_exists = WRD }
+			}
+		}
 		relative_position_id = FGB_rohm_prepare_for_the_rhein
 		prerequisite = { focus = FGB_rohm_prepare_for_the_rhein }
 		completion_reward = {
@@ -7340,7 +7355,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_rohm_stamp_out_the_last_remnants_of_the_counterrevoltionaries
-		icon = GFX_focus_FGB_seize_prussian_junker_property
+		icon = GFX_focus_FGB_rohm_stamp_out_the_last_remnants_of_the_counterrevoltionaries
 		x = 0
 		y = 1
 		cost = 4.2857

@@ -1,5 +1,19 @@
 add_namespace = alt
+add_namespace = alt_introductory
 add_namespace = alt_border_conflict
+
+country_event = {
+	id = alt_introductory.1
+	title = alt_introductory.1.t
+	desc = alt_introductory.1.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt_introductory.1.a
+		add_political_power = 10
+	}
+}
 
 country_event = {
 	id = alt.1
@@ -11,11 +25,13 @@ country_event = {
 	option = {
 		name = alt.1.a
 		add_war_support = 0.05
+		set_country_flag = ALT_puppets_rma_true
 	}
 
 	option = {
 		name = alt.1.b
 		add_stability = 0.05
+		set_country_flag = ALT_puppets_rma_false
 	}
 }
 
@@ -28,32 +44,13 @@ country_event = {
 
 	option = {
 		name = alt.2.a
-		add_war_support = 0.05
-		add_stability = -0.05
-		custom_effect_tooltip = ALT_they_could_declare_war
-		hidden_effect = {
-			MON = { 
-				declare_war_on = {
-					target = ALT
-					type = take_claimed_state
-				}
-				declare_war_on = {
-					target = RMA
-					type = take_claimed_state
-				}
-			}
+		set_cosmetic_tag = ALT_china
+		add_timed_idea = {
+			idea = UVS_recent_victory
+			days = 120
 		}
-	}
-
-	option = {
-		name = alt.2.b
-		add_political_power = -50
-		add_war_support = -0.1
-		MON = {
-			annex_country = {
-				target = RMA
-				transfer_troops = yes
-			}
+		country_event = {
+			id = alt.8 days = 7
 		}
 	}
 }
@@ -216,6 +213,9 @@ country_event = {
 				transfer_troops = yes
 			}
 		}
+		every_unit_leader = {
+			set_nationality = ALT
+		}
 	}
 	option = {
 		name = alt.7.b
@@ -226,6 +226,256 @@ country_event = {
 				target = SHD
 			}
 		}
+	}
+}
+
+country_event = {
+	id = alt.8
+	title = alt.8.t
+	desc = alt.8.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.8.a
+		ai_chance = { base = 10 }
+		dismantle_faction = yes
+		if = {
+			limit = {
+				country_exists = MON 
+				MON = { has_government = bolshevism }
+			}
+			MON = {
+				country_event = {
+					id = alt.9 days = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = PRC
+			}
+			PRC = {
+				country_event = {
+					id = alt.9 days = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = INM
+			}
+			INM = {
+				country_event = {
+					id = alt.9 days = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = MAN 
+				MAN = {
+					is_subject = yes
+				}
+			}
+			ALT = {
+				annex_country = {
+					target = MAN
+					transfer_troops = yes
+				}
+			}
+			MAN = {
+				every_core_state = {
+					add_core_of = ALT 
+					remove_core_of = MAN
+				}
+			}
+		}
+		country_event = {
+			id = alt.11 days = 7
+		}
+	}
+}
+
+country_event = {
+	id = alt.9
+	title = alt.9.t
+	desc = alt.9.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.9.a
+		ai_chance = { base = 30 }
+		ALT = {
+			country_event = alt.10
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = alt.9.a
+		ai_chance = { base = 10 }
+		ALT = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROOT
+			}
+		}
+	}
+}
+
+country_event = {
+	id = alt.10
+	title = alt.10.t
+	desc = alt.10.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.10.a
+		ai_chance = { base = 30 }
+		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = alt.11
+	title = alt.11.t
+	desc = alt.11.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.11.a
+		ai_chance = { base = 30 }
+		add_ideas = {
+			ALT_buddhism
+		}
+		country_event = {
+			id = alt.12 days = 7
+		}
+	}
+	option = {
+		name = alt.11.b
+		ai_chance = { base = 30 }
+		add_ideas = {
+			ALT_atheism
+		}
+		country_event = {
+			id = alt.12 days = 7
+		}
+	}
+}
+
+country_event = {
+	id = alt.12
+	title = alt.12.t
+	desc = alt.11.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.12.a
+		ai_chance = { base = 30 }
+		set_capital = { state = 608 remember_old_capital = no }
+		608 = {
+			add_victory_points = {
+				province = 9843
+				value = 5
+			}
+		}
+		country_event = {
+			id = alt.13 days = 7
+		}
+	}
+	option = {
+		name = alt.12.b
+		ai_chance = { base = 30 }
+		set_capital = { state = 613 remember_old_capital = no }
+		613 = {
+			add_victory_points = {
+				province = 7014
+				value = 5
+			}
+		}
+		country_event = {
+			id = alt.13 days = 7
+		}
+	}
+	option = {
+		name = alt.12.c
+		ai_chance = { base = 30 }
+		set_capital = { state = 592 remember_old_capital = no }
+		592 = {
+			add_victory_points = {
+				province = 1047
+				value = 10
+			}
+		}
+		country_event = {
+			id = alt.13 days = 7
+		}
+	}
+}
+
+country_event = {
+	id = alt.13
+	title = alt.13.t
+	desc = alt.13.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.13.a
+		ai_chance = { base = 30 }
+		set_party_name = { 
+			ideology = bolshevism
+			name = "CCP (B)"
+			long_name = "Chinese Communist Party (Bolsheviks)"
+		}
+		set_party_name = { 
+			ideology = marxism
+			name = "CCP (M)"
+			long_name = "Chinese Communist Party (Marxists)"
+		}
+		country_event = {
+			id = alt.14 days = 4
+		}
+	}
+	option = {
+		name = alt.13.b
+		ai_chance = { base = 30 }
+		set_party_name = { 
+			ideology = bolshevism
+			name = "PPC (B)"
+			long_name = "People's Party of China (Bolsheviks)"
+		}
+		set_party_name = { 
+			ideology = marxism
+			name = "PPC (M)"
+			long_name = "People's Party of China (Marxists)"
+		}
+		country_event = {
+			id = alt.14 days = 4
+		}
+	}
+}
+
+country_event = {
+	id = alt.14
+	title = alt.14.t
+	desc = alt.14.d
+	picture = GFX_report_event_valknut
+	is_triggered_only = yes
+
+	option = {
+		name = alt.14.a
+		ai_chance = { base = 30 }
+		add_stability = 0.1
+		complete_national_focus = ALT_the_century_of_chinese_communism
 	}
 }
 

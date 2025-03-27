@@ -84,6 +84,62 @@ DSH_industrial_cat = {
             set_country_flag = DSH_decision_3
 		}
 	}
+	DSH_social_decision_4 = {
+		visible = {
+			has_completed_focus = DSH_building_new_hospitals
+            has_country_flag = DSH_decision_3
+            NOT = { has_country_flag = DSH_decision_4 }
+		}
+		available = {
+            has_political_power > 49
+		}
+		allowed = {
+			tag = DSH
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 100
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 50
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			clr_country_flag = DSH_decision_3
+			DSH_echoes_from_the_great_war_level_up = yes
+            set_country_flag = DSH_decision_4
+		}
+	}
+	DSH_social_decision_5 = {
+		visible = {
+			has_completed_focus = DSH_building_new_hospitals
+            has_country_flag = DSH_decision_4
+		}
+		available = {
+            has_political_power > 49
+		}
+		allowed = {
+			tag = DSH
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 100
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 50
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			clr_country_flag = DSH_decision_4
+			DSH_echoes_from_the_great_war_level_up = yes
+		}
+	}
 }
 DSH_debt_cat = {
 	DSH_take_out_50_pp = {
