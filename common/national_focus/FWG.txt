@@ -1640,6 +1640,426 @@ focus_tree = {
 			set_cosmetic_tag = FWG_soviet_union 
 		}
 	}
+
+focus = {
+		id = FWG_begin_challenge_soviets
+		x = 28
+		y = 13
+		cost = 3
+
+		available_if_capitulated = no
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = DSH_unified_germany_tt
+				NOT = { country_exists = BAV }
+				NOT = { country_exists = DSH }
+				NOT = { country_exists = FGB }
+				NOT = { country_exists = GER }
+				NOT = { country_exists = PLA }
+				NOT = { country_exists = UVS }
+				NOT = { country_exists = WRD }
+			}
+		}
+		allow_branch = {
+			has_country_flag = FWG_union_of_soviet_republics
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_popularity = {
+    			ideology = marxism
+    			popularity = 0.5
+			}
+		}
+	}
+
+	focus = {
+		id = FWG_advance_to_warsaw
+		x = 2
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_begin_challenge_soviets}
+		relative_position_id = FWG_begin_challenge_soviets
+		mutually_exclusive = {focus = FWG_strike_deal_blr}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_neighbor_of = BLR
+					NOT = {
+						is_neighbor_of = POL
+					}
+				}
+				declare_war_on = {
+    				target = BLR
+    				type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					is_neighbor_of = POL
+					NOT = {
+						is_neighbor_of = BLR
+					}
+				}
+				declare_war_on = {
+    				target = POL
+    				type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					is_neighbor_of = POL
+					NOT = {
+						is_neighbor_of = BLR
+					}
+					country_exists = EPR
+				}
+				declare_war_on = {
+    				target = POL
+    				type = annex_everything
+				}
+				declare_war_on = {
+    				target = EPR
+    				type = annex_everything
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_strike_deal_blr
+		x = -2
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_begin_challenge_soviets}
+		mutually_exclusive = {focus = FWG_advance_to_warsaw}
+		relative_position_id = FWG_begin_challenge_soviets
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			BLR = {
+				country_event = {
+					id = korsch.5
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_aharchists_regime
+		x = 2
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_strike_deal_blr focus= FWG_advance_to_warsaw}
+		relative_position_id = FWG_strike_deal_blr
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_neighbor_of = UKR
+					NOT = {
+						is_neighbor_of = UKW
+						country_exists = UKW
+					}
+				}
+				declare_war_on = {
+    				target = UKR
+    				type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					is_neighbor_of = UKW
+					NOT = {
+						is_neighbor_of = UKR
+						country_exists = UKR
+					}
+				}
+				declare_war_on = {
+    				target = UKW
+    				type = annex_everything
+				}
+			}
+			declare_war_on = {
+    			target = UKR
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_wva
+		x = 0
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_aharchists_regime}
+		relative_position_id = FWG_end_aharchists_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			declare_war_on = {
+    			target = WVA
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_fortify_baltics
+		x = 1
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_wva}
+		relative_position_id = FWG_end_wva
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = FWG_Fortify_Baltics
+			hidden_effect = {
+			813 = {
+				add_building_construction = {
+					type = bunker
+        			province = 4640
+					level = 3
+				}
+			} 
+			191 = {
+				add_building_construction = {
+					type = bunker
+        			province = 592
+					level = 3
+				}
+			}
+			810 = {
+				add_building_construction = {
+					type = bunker
+        			province = 319
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 222
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 9275
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 3298
+					level = 3
+				}
+			}
+			}
+
+		}
+	}
+	focus = {
+		id = FWG_fortify_ukraine
+		x = -1
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_wva}
+		relative_position_id = FWG_end_wva
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = FWG_Fortify_Dinipro
+			hidden_effect = {
+			197 = {
+				add_building_construction = {
+					type = bunker
+        			province = 3755
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11715
+					level = 3
+				}
+			} 
+			226 = {
+				add_building_construction = {
+					type = bunker
+        			province = 9419
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11437
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11422
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 9433
+					level = 3
+				}
+			}
+			203 = {
+				add_building_construction = {
+					type = bunker
+        			province = 6478
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 3468
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 488
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11454
+					level = 3
+				}
+			}
+			202 = {
+				add_building_construction = {
+					type = bunker
+        			province = 3494
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 525
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 3543
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 9568
+					level = 3
+				}
+			}
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_lenins_regime
+		x = 0
+		y = 2
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_wva}
+		prerequisite = {focus=  FWG_fortify_baltics}
+		prerequisite = {focus=  FWG_fortify_ukraine}
+		relative_position_id = FWG_end_wva
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			declare_war_on = {
+    			target = SOV
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_redefine_what_it_means_to_be_soviet
+		x = 2
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_lenins_regime}
+		relative_position_id = FWG_end_lenins_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_war_support = 0.23
+		}
+	}
+	focus = {
+		id = FWG_the_true_revolution
+		x = -2
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_lenins_regime}
+		relative_position_id = FWG_end_lenins_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = {
+				FWG_true_revolution
+			}
+		}
+	}
+	focus = {
+		id = FWG_a_vast_nation
+		x = 0
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_lenins_regime}
+		relative_position_id = FWG_end_lenins_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = FWG_From_Moscow_To_Berlin
+		x = 0
+		y = 1
+		cost = 3
+
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_a_vast_nation}
+		prerequisite = {focus=  FWG_the_true_revolution}
+		prerequisite = {focus=  FWG_redefine_what_it_means_to_be_soviet}
+		relative_position_id = FWG_a_vast_nation
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			country_event = {
+				id = korsch.8
+			}
+		}
+	}
+
 	focus = {
 		id = FWG_rise_of_the_kpd
 		icon = GFX_focus_FWG_rise_of_the_kpd
