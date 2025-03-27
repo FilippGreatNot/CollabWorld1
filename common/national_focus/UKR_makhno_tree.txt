@@ -28,6 +28,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 2
+		
+		completion_reward = {
+			country_event = ukr.makhno.5
+		}
 
 	}
 	focus = {
@@ -101,6 +105,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
+		
+		completion_reward = {
+			add_manpower = -121842
+		}
 
 	}
 	focus = {
@@ -112,6 +120,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 3
+		
+		completion_reward = {
+		country_event = ukr.makhno.2
+		}
 
 	}
 	focus = {
@@ -130,6 +142,10 @@ focus_tree = {
 		completion_reward = {
 			remove_ideas = UKR_banditism
 			add_ideas = UKR_integrated_bandits
+		add_timed_idea = {
+		idea = UKR_payments_to_mercenaries
+		days = 360
+		}
 		}
 
 	}
@@ -163,6 +179,10 @@ focus_tree = {
 		}
 		x = 22
 		y = 5
+		
+		completion_reward = {
+			country_event = UKR.makhno.3
+		}
 
 	}
 	
@@ -248,7 +268,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_heavy_industry
-		icon = GFX_focus_UKR_heavy_industry
+		icon = GFX_goal_generic_construct_mil_factory
 		cost = 4
 		prerequisite = {
 			focus = UKR_small_drop_of_bureaucracy
@@ -274,7 +294,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
 	}
 	}
 	focus = {
@@ -307,6 +326,10 @@ focus_tree = {
 		}
 		x = 5
 		y = 4
+		
+			completion_reward = {
+				add_ideas = UKR_individual_industrialisation_system_idea
+			}
 
 	}
 	focus = {
@@ -318,6 +341,10 @@ focus_tree = {
 		}
 		x = 2
 		y = 5
+		
+			completion_reward = {
+				add_ideas = UKR_liquidation_of_illiteracy_idea
+			}
 
 	}
 	focus = {
@@ -380,7 +407,7 @@ focus_tree = {
 	}
 	focus = {
 		id = UKR_open_to_the_world
-		icon = GFX_focus_UKR_open_to_the_world
+		icon = GFX_goal_generic_position_armies
 		cost = 7
 		prerequisite = {
 			focus = UKR_small_drop_of_bureaucracy
@@ -443,14 +470,9 @@ focus_tree = {
 		y = 3
 		
 		completion_reward = {
-			ARM = { 
-				add_timed_idea = {
-					idea = UKR_anarchist_help
-					days = 180
-				}
-			}
-
+			ARM = { add_ideas = UKR_anarchist_help }
 		}
+
 	}
 	
 		### ARMY ###
@@ -748,6 +770,28 @@ focus_tree = {
 
 	}
 	
+		focus = {
+		id = UKR_kronstadt_of_south
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 8
+		prerequisite = {
+			focus = UKR_fleet_under_black_flags
+		}
+		x = 45
+		y = 2
+
+	}
+	focus = {
+		id = UKR_skies_and_water
+		icon = GFX_goal_generic_navy_carrier
+		cost = 6
+		prerequisite = {
+			focus = UKR_kronstadt_of_south
+		}
+		x = 45
+		y = 3
+
+	}
 	
 		### UNIFICATION ###
 	focus = {
@@ -756,6 +800,370 @@ focus_tree = {
 		cost = 6
 		x = 43
 		y = 8
+
+		available = {
+			has_idea = UKR_reforms_of_black_army
+		}
+		
+		completion_reward = {
+			add_timed_idea = {
+			idea = UKR_march_for_freedom_idea
+			days = 365
+		}
+		}
+
+	}
+	
+		focus = {
+		id = UKR_beat_the_reds_until_they_turn_white
+		icon = GFX_goal_generic_territory_or_war
+		cost = 6
+		prerequisite = {
+			focus = UKR_march_for_freedom
+		}
+		x = 40
+		y = 9
+
+	}
+	focus = {
+		id = UKR_stop_the_shizo_marshal
+		icon = GFX_goal_anti_comintern_pact
+		cost = 6
+		prerequisite = {
+			focus = UKR_beat_the_reds_until_they_turn_white
+		}
+		x = 40
+		y = 11
+		
+				available = {
+			has_war = no
+		}
+		
+		completion_reward = {
+			add_timed_idea = {
+			idea = UKR_against_napoleon
+			days = 360
+			}
+			
+			declare_war_on = {
+				target = BLR
+				type = annex_everything
+			}
+			
+			BLR = { make_every_core_national_for_PREV = yes }
+		}
+
+	}
+	focus = {
+		id = UKR_liberate_baltics
+		icon = GFX_goal_generic_navy_submarine
+		cost = 6
+		prerequisite = {
+			focus = UKR_stop_the_shizo_marshal
+		}
+		x = 39
+		y = 12
+		
+		available = {
+			has_war = no
+		}	
+		
+				bypass = {
+			WVA = {
+				exists = no
+			}
+			}
+			
+		completion_reward = {
+			declare_war_on = {
+				target = WVA
+				type = annex_everything
+			}
+			WVA = { make_every_core_national_for_PREV = yes }
+		}
+
+	}
+	
+	focus = {
+		id = UKR_our_old_ally
+		icon = GFX_goal_generic_major_war
+		cost = 4
+		prerequisite = {
+			focus = UKR_beat_the_reds_until_they_turn_white
+		}
+		x = 43
+		y = 10
+				available = {
+			has_war = no
+		}
+		
+		completion_reward = {
+						declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+			SOV = { make_every_core_national_for_PREV = yes }
+		}
+
+	}
+	focus = {
+		id = UKR_through_the_urals
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 6
+		prerequisite = {
+			focus = UKR_our_old_ally
+		}
+		x = 42
+		y = 11
+		
+	will_lead_to_war_with = RUS
+	will_lead_to_war_with = SRF
+		completion_reward = {
+			add_timed_idea = {
+			idea = UKR_anarchy_march_through_urals
+			days = 365
+			}
+			
+			RUS = { make_every_core_national_for_PREV = yes }
+			FSR = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+			target = RUS
+			type = annex_everything
+			}
+			declare_war_on = {
+			target = FSR
+			type = annex_everything
+			}
+		}
+
+	}
+	focus = {
+		id = UKR_cut_a_window_to_the_ocean
+		icon = GFX_goal_generic_navy_anti_submarine
+		cost = 6
+		prerequisite = {
+			focus = UKR_through_the_urals
+		}
+		x = 42
+		y = 12
+		
+	will_lead_to_war_with = FER
+		
+		bypass = {
+			KMP = {
+				exists = no
+			}
+		}
+
+		bypass = {
+			FER = {
+				exists = no
+			}
+		}
+		
+		available = {
+			has_war = no
+		}
+				
+		completion_reward = {
+			declare_war_on = {
+				target = KMP
+				type = annex_everything
+			}
+					declare_war_on = {
+				target = FER
+				type = annex_everything
+			}
+			
+			KMP = { make_every_core_national_for_PREV = yes }
+			FER = { make_every_core_national_for_PREV = yes }
+		}
+
+	}
+
+	focus = {
+		id = UKR_beat_the_whites_until_they_turn_red
+		icon = GFX_goal_generic_territory_or_war
+		cost = 6
+		prerequisite = {
+			focus = UKR_march_for_freedom
+		}
+		x = 46
+		y = 9
+
+	}
+	focus = {
+		id = UKR_stop_with_denikintsi
+		icon = GFX_goal_generic_trade
+		cost = 6
+		prerequisite = {
+			focus = UKR_beat_the_whites_until_they_turn_red
+		}
+		x = 46
+		y = 10
+		
+		will_lead_to_war_with = SRF
+		
+		available = {
+			has_war = no
+		}
+		
+				bypass = {
+			SRF = {
+				exists = no
+			}
+			}
+		
+		completion_reward = {
+			SRF = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+			target = SRF
+			type = annex_everything 
+			}
+		}
+
+	}
+	focus = {
+		id = UKR_cossacs_must_be_free
+		icon = GFX_goal_generic_army_doctrines
+		cost = 6
+		prerequisite = {
+			focus = UKR_through_the_urals
+			focus = UKR_stop_with_denikintsi
+		}
+		x = 45
+		y = 12
+			will_lead_to_war_with = OCG
+		available = {
+			has_war = no
+		}
+		
+				bypass = {
+			OCG = {
+				exists = no
+			}
+			}
+				
+		completion_reward = {
+			declare_war_on = {
+				target = OCG
+				type = annex_everything
+			}
+			OCG = { make_every_core_national_for_PREV = yes }
+		}
+
+	}
+	
+		focus = {
+		id = UKR_liberate_steppe
+		icon = GFX_goal_generic_cavalry
+		cost = 6
+		prerequisite = {
+			focus = UKR_cossacs_must_be_free
+		}
+		x = 46
+		y = 13
+		
+				available = {
+			has_war = no
+		}
+					will_lead_to_war_with = KAZ
+		completion_reward = {
+			declare_war_on = {
+				target = KAZ
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+		    declare_war_on = {
+				target = MNS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BUK
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BSM
+				type = annex_everything
+			}
+			
+			declare_war_on = {
+				target = KYR
+				type = annex_everything
+			}
+			
+			KAZ = { make_every_core_national_for_PREV = yes }
+		    BSM = { make_every_core_national_for_PREV = yes }
+			TMS = { make_every_core_national_for_PREV = yes }
+			MNS = { make_every_core_national_for_PREV = yes }
+			BUK = { make_every_core_national_for_PREV = yes }
+			KHI = { make_every_core_national_for_PREV = yes }
+			KYR = { make_every_core_national_for_PREV = yes }
+		}
+
+	}
+	focus = {
+		id = UKR_white_snow_under_black_flag
+		icon = GFX_goal_generic_political_pressure
+		cost = 6
+		prerequisite = {
+			focus = UKR_liberate_baltics
+		}
+		x = 39
+		y = 13
+		
+		will_lead_to_war_with = FIN
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			FIN = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+			target = FIN
+			type = annex_everything
+			}
+		}
+
+	}
+	focus = {
+		id = UKR_through_the_caucasus
+		icon = GFX_goal_generic_major_war
+		cost = 3
+		prerequisite = {
+			focus = UKR_stop_with_denikintsi
+		}
+		x = 47
+		y = 11
+		
+		will_lead_to_war_with = ARM
+		completion_reward = {
+			AZR = { make_every_core_national_for_PREV = yes }
+			ARM = { make_every_core_national_for_PREV = yes }
+			GEO = { make_every_core_national_for_PREV = yes }
+			
+			declare_war_on = {
+			target = ARM 
+			type = annex_everything 
+			}
+						declare_war_on = {
+			target = GEO
+			type = annex_everything 
+			}
+			declare_war_on = {
+			target = AZB
+			type = annex_everything 
+			}
+		}
 
 	}
 	
@@ -766,6 +1174,15 @@ focus_tree = {
 		cost = 10
 		x = 16
 		y = 7
+		
+				available = {
+			always = no
+		}
+		
+		completion_reward = {
+		country_event = UKR.makhno.4
+		add_ideas = UKR_creating_new_society_idea
+		}
 
 	}
 	
@@ -778,6 +1195,10 @@ focus_tree = {
 		}
 		x = 14
 		y = 8
+		
+		completion_reward = {
+		add_ideas = UKR_freedom_of_thought_idea
+		}
 
 	}
 	focus = {
@@ -789,6 +1210,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 8
+		
+		completion_reward = {
+			add_ideas = UKR_code_of_laws
+		}
 
 	}
 	focus = {
@@ -800,6 +1225,10 @@ focus_tree = {
 		}
 		x = 18
 		y = 8
+		
+		completion_reward = {
+			add_ideas = UKR_working_counsils
+		}
 
 	}
 	focus = {
@@ -828,6 +1257,10 @@ focus_tree = {
 		}
 		x = 16
 		y = 10
+		
+		completion_reward = {
+			add_ideas = UKR_autogestion_idea
+		}
 
 	}
 
@@ -862,129 +1295,7 @@ focus_tree = {
 
 	}
 
-	focus = {
-		id = UKR_beat_the_reds_until_they_turn_white
-		icon = GFX_goal_generic_territory_or_war
-		cost = 6
-		prerequisite = {
-			focus = UKR_march_for_freedom
-		}
-		x = 40
-		y = 9
 
-	}
-	focus = {
-		id = UKR_stop_the_shizo_marshal
-		icon = GFX_goal_anti_comintern_pact
-		cost = 6
-		prerequisite = {
-			focus = UKR_beat_the_reds_until_they_turn_white
-		}
-		x = 40
-		y = 11
-
-	}
-	focus = {
-		id = UKR_liberate_baltics
-		icon = GFX_goal_generic_navy_submarine
-		cost = 6
-		prerequisite = {
-			focus = UKR_stop_the_shizo_marshal
-		}
-		x = 39
-		y = 12
-
-	}
-	
-	focus = {
-		id = UKR_our_old_ally
-		icon = GFX_goal_generic_major_war
-		cost = 4
-		prerequisite = {
-			focus = UKR_beat_the_reds_until_they_turn_white
-		}
-		x = 43
-		y = 10
-
-	}
-	focus = {
-		id = UKR_through_the_urals
-		icon = GFX_goal_generic_war_with_comintern
-		cost = 6
-		prerequisite = {
-			focus = UKR_our_old_ally
-		}
-		x = 42
-		y = 11
-
-	}
-	focus = {
-		id = UKR_cut_a_window_to_the_ocean
-		icon = GFX_goal_generic_navy_anti_submarine
-		cost = 6
-		prerequisite = {
-			focus = UKR_through_the_urals
-		}
-		x = 42
-		y = 12
-
-	}
-	focus = {
-		id = UKR_kronstadt_of_south
-		icon = GFX_goal_generic_construct_naval_dockyard
-		cost = 8
-		prerequisite = {
-			focus = UKR_fleet_under_black_flags
-		}
-		x = 45
-		y = 2
-
-	}
-	focus = {
-		id = UKR_skies_and_water
-		icon = GFX_goal_generic_navy_carrier
-		cost = 6
-		prerequisite = {
-			focus = UKR_kronstadt_of_south
-		}
-		x = 45
-		y = 3
-
-	}
-	focus = {
-		id = UKR_beat_the_whites_until_they_turn_red
-		icon = GFX_goal_generic_territory_or_war
-		cost = 6
-		prerequisite = {
-			focus = UKR_march_for_freedom
-		}
-		x = 46
-		y = 9
-
-	}
-	focus = {
-		id = UKR_stop_with_denikintsi
-		icon = GFX_goal_generic_trade
-		cost = 6
-		prerequisite = {
-			focus = UKR_beat_the_whites_until_they_turn_red
-		}
-		x = 46
-		y = 10
-
-	}
-	focus = {
-		id = UKR_cossacs_must_be_free
-		icon = GFX_goal_generic_army_doctrines
-		cost = 6
-		prerequisite = {
-			focus = UKR_through_the_urals
-			focus = UKR_stop_with_denikintsi
-		}
-		x = 45
-		y = 12
-
-	}
 	focus = {
 		id = UKR_for_the_progress
 		icon = GFX_goal_generic_scientific_exchange
@@ -997,39 +1308,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 7
-
-	}
-	focus = {
-		id = UKR_liberate_steppe
-		icon = GFX_goal_generic_cavalry
-		cost = 6
-		prerequisite = {
-			focus = UKR_cossacs_must_be_free
+		
+		completion_reward = {
+			add_ideas = UKR_for_the_progress_idea
 		}
-		x = 46
-		y = 13
 
 	}
-	focus = {
-		id = UKR_white_snow_under_black_flag
-		icon = GFX_goal_generic_political_pressure
-		cost = 6
-		prerequisite = {
-			focus = UKR_liberate_baltics
-		}
-		x = 39
-		y = 13
 
-	}
-	focus = {
-		id = UKR_through_the_caucasus
-		icon = GFX_goal_generic_major_war
-		cost = 3
-		prerequisite = {
-			focus = UKR_stop_with_denikintsi
-		}
-		x = 47
-		y = 11
-
-	}
 }
