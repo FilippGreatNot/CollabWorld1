@@ -1801,6 +1801,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 23
 					add_state_core = 19
 					add_state_core = 806
+					add_state_core = 1103
 					add_state_core = 31
 					remove_ideas = legacy_of_the_great_war
 					remove_ideas = FRA_nationwide_strikes
@@ -1835,6 +1836,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				FRA = { transfer_state = 19 }
 				FRA = { transfer_state = 31 }
 				FRA = { transfer_state = 806 }
+				FRA = { transfer_state = 1103 }
 			}
 		}
 	}
@@ -2758,7 +2760,6 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 680
 					add_state_core = 867
 					add_state_core = 881
-					add_state_core = 900
 					add_state_core = 676
 					add_state_core = 904
 					add_state_core = 888
@@ -2807,11 +2808,41 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				TUR = { transfer_state = 680 }
 				TUR = { transfer_state = 867 }
 				TUR = { transfer_state = 881 }
-				TUR = { transfer_state = 900 }
 				TUR = { transfer_state = 676 }
 				TUR = { transfer_state = 904 }
 				TUR = { transfer_state = 888 }
 			}	
+		}
+	}
+
+	WRD_kars_transfer = { 								### state transfer to turkey ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 921
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_operation_turkey
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_turkey 
+			TUR = {
+				is_puppet_of = WRD
+			}
+		}
+		
+		complete_effect = {
+			add_state_core = 921		
+			TUR = { transfer_state = 921 }
 		}
 	}
 
@@ -2899,6 +2930,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 854
 					add_state_core = 1097
 					add_state_core = 293
+					add_state_core = 900
 					set_capital = { state = 454 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
@@ -2942,6 +2974,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				PAL = { transfer_state = 854}
 				PAL = { transfer_state = 1097 }
 				PAL = { transfer_state = 293 }
+				PAL = { transfer_state = 900 }
 			}	
 		}
 	}
