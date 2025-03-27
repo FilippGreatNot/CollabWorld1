@@ -9,7 +9,7 @@ focus_tree = {
 	}
 focus = {
     id = ISR_last_hope
-    icon = GFX_ISR_last_hope
+    icon = GFX_focus_isr_last_hope
     x = 10
     y = 0
     cost = 5
@@ -19,12 +19,17 @@ focus = {
     }
     available = {}
     completion_reward = {
+        add_stability = 0.05
+			957 = {
+				add_manpower = 7500
+			}
+			add_political_power = 50
     }
 }
 
 focus = {
     id = ISR_destroy_bandit_groups
-    icon = GFX_goal_ISR_bandit_destroy
+    icon = GFX_focus_isr_destroy_bandits
 
     cost = 5
     available_if_capitulated = yes
@@ -38,13 +43,19 @@ focus = {
         focus = ISR_last_hope
     }
     completion_reward = {
+        add_stability = 0.075
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.055
+			}
+		country_event = isr.1
+		add_manpower = -150
     }
 }
 
 focus = {
     id = ISR_raise_jewish_militias
-    icon = GFX_goal_ISR_jewish_militias
-
+    icon = GFX_focus_isr_raise_militias
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -57,12 +68,53 @@ focus = {
         focus = ISR_last_hope
     }
     completion_reward = {
+        #spawn units
+			division_template = {
+				name = "Jewish Militiants"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+				}
+				support = {
+					recon = { x = 0 y = 0 }
+				} 
+			}
+			random_owned_controlled_state = {
+				prioritize = { 957 }
+				create_unit = {
+					division = "name = \"Vadodora Kibutza\" division_template = \"Jewish Militias\" start_experience_factor = 0.6 start_equipment_factor = 1.0"
+					owner = ISR
+				}
+			}
+			division_template = {
+				name = "Zionist Brigades"
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 957 }
+				create_unit = {
+					division = "name = \"Zionist Chativa\" division_template = \"Zionist Brigades\" start_experience_factor = 0.6 start_equipment_factor = 0.75"
+					owner = ISR
+	
+				}
+			}
     }
 }
 
 focus = {
     id = ISR_raid_for_supplies
-    icon = GFX_goal_ISR_raid_supplies
+    icon = GFX_focus_isr_reinforce_supplies
 
     cost = 5
     available_if_capitulated = yes
@@ -84,7 +136,7 @@ focus = {
 
 focus = {
     id = ISR_drive_out_indian_anti_semites
-    icon = GFX_goal_ISR_out_anti_semite
+    icon = GFX_focus_isr_drive_out_antisemites
 
     cost = 5
     available_if_capitulated = yes
@@ -103,7 +155,7 @@ focus = {
 
 focus = {
     id = ISR_bring_jewish_migrants
-    icon = GFX_goal_ISR_european_zionism
+    icon = GFX_focus_isr_immigration
 
     cost = 5
     available_if_capitulated = yes
@@ -122,7 +174,7 @@ focus = {
 
 focus = {
     id = ISR_meet_with_european_zionists
-    icon = GFX_goal_ISR_european_zionist_come
+    icon = GFX_focus_isr_meet_european_jews
 
     cost = 5
     available_if_capitulated = yes
@@ -144,7 +196,7 @@ focus = {
 
 focus = {
     id = ISR_establish_indian_haganah
-    icon = GFX_goal_ISR_militia_council
+    icon = GFX_focus_isr_haganah
 
     cost = 5
     available_if_capitulated = yes
@@ -166,7 +218,7 @@ focus = {
 
 focus = {
     id = ISR_second_home_for_judaism
-    icon = GFX_goal_ISR_second_home_for_judaism
+    icon = GFX_focus_isr_2nd_home_jews
 
     cost = 5
     available_if_capitulated = yes
@@ -190,7 +242,7 @@ focus = {
 }
 focus = {
     id = ISR_foundation_of_the_knesset
-    icon = GFX_goal_ISR_second_home_for_judaism
+    icon = GFX_focus_isr_make_knesset
 
     cost = 5
     available_if_capitulated = yes
@@ -208,7 +260,7 @@ focus = {
 }
 focus = {
     id = ISR_ezra_rim_retains_his_position
-    icon = GFX_goal_ISR_second_home_for_judaism
+    icon = GFX_focus_isr_ezra_rim_stays
 
     cost = 5
     available_if_capitulated = yes
@@ -227,7 +279,7 @@ focus = {
 }
 focus = {
     id = ISR_the_reactionary_split
-    icon = GFX_goal_ISR_second_home_for_judaism
+    icon = GFX_focus_isr_reactionary_split
 
     cost = 5
     available_if_capitulated = yes
