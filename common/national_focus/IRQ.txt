@@ -1339,7 +1339,54 @@ focus_tree = {
 			
 		}
 	}
-	
+
+			focus= {
+		id = IRQ_euphrates_rebuild_shrines
+		icon = GFX_focus_IRQ_shrines
+		x = -1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		relative_position_id = IRQ_euphrates_sayyids
+		ai_will_do = {
+			factor = 10
+		}
+		prerequisite = { focus = IRQ_euphrates_sayyids }
+		prerequisite = { focus = IRQ_euphrates_state }
+		
+		completion_reward = {	
+		remove_ideas = {
+		IRQ_sectarian_woes
+		}
+		country_event = irq.23
+		}
+	}
+	focus = {
+		id = IRQ_tigris_new_babylon
+		icon = GFX_focus_IRQ_new_babylon
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_tigris_hammurabi
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_tigris_men_in_black }
+		prerequisite = {focus = IRQ_tigris_hammurabi}
+		
+		completion_reward = {	
+			    ISR = {
+				add_opinion_modifier = {
+					target = IRQ
+					modifier = GER_grave_insult
+				}
+			}
+		}
+	}
 	focus = {
 		id = IRQ_first_introduce_land_reforms
 		icon = GFX_focus_IRQ_agriculture
@@ -1527,6 +1574,28 @@ focus_tree = {
 			add_political_power = 100
 			
 			
+		}
+	}
+
+		focus = {
+		id = IRQ_i_am_iraq
+		icon = GFX_focus_IRQ_i_am_iraq
+		x = -3
+		y = 1
+		cost = 8
+		available_if_capitulated = yes
+		relative_position_id = IRQ_tigris_new_babylon
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_tigris_new_babylon }
+		prerequisite = {focus = IRQ_euphrates_rebuild_shrines}
+		
+		completion_reward = {	
+			add_ideas = IRQ_idea_i_am_iraq
 		}
 	}
 		focus = {
@@ -2093,27 +2162,6 @@ focus_tree = {
 		}
 	}
 
-		focus= {
-		id = IRQ_euphrates_rebuild_shrines
-		icon = GFX_focus_IRQ_shrines
-		x = -1
-		y = 1
-		cost = 7
-		available_if_capitulated = yes
-		relative_position_id = IRQ_euphrates_sayyids
-		ai_will_do = {
-			factor = 10
-		}
-		prerequisite = { focus = IRQ_euphrates_sayyids }
-		prerequisite = { focus = IRQ_euphrates_state }
-		
-		completion_reward = {	
-		remove_ideas = {
-		IRQ_sectarian_woes
-		}
-		country_event = irq.23
-		}
-	}
 
 		focus = {
 		id = IRQ_euphrates_education
@@ -2229,54 +2277,6 @@ focus_tree = {
 		}
 	}
 
-		focus = {
-		id = IRQ_tigris_new_babylon
-		icon = GFX_focus_IRQ_new_babylon
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		relative_position_id = IRQ_tigris_hammurabi
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_tigris_men_in_black }
-		prerequisite = {focus = IRQ_tigris_hammurabi}
-		
-		completion_reward = {	
-			    ISR = {
-				add_opinion_modifier = {
-					target = IRQ
-					modifier = GER_grave_insult
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = IRQ_i_am_iraq
-		icon = GFX_focus_IRQ_i_am_iraq
-		x = -3
-		y = 1
-		cost = 8
-		available_if_capitulated = yes
-		relative_position_id = IRQ_tigris_new_babylon
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_tigris_new_babylon }
-		prerequisite = {focus = IRQ_euphrates_rebuild_shrines}
-		
-		completion_reward = {	
-			add_ideas = IRQ_idea_i_am_iraq
-		}
-	}
 
 	focus = {
 		id = IRQ_tigris_new_iraq
@@ -3097,7 +3097,7 @@ focus_tree = {
 	}
 	focus = {
 		id = IRQ_magan
-		icon = GFX_focus_IRQ_elections
+		icon = GFX_focus_IRQ_magan
 		x = 0
 		y = 1
 		cost = 5
@@ -3307,7 +3307,7 @@ focus_tree = {
 	}
 		focus = {
 		id = IRQ_the_grand_jewel
-		icon = GFX_focus_IRQ_elections
+		icon = GFX_focus_IRQ_masr
 		x = 0
 		y = 1
 		cost = 5
@@ -3345,7 +3345,7 @@ focus_tree = {
 			}
 	focus = {
 		id = IRQ_reform_babylon
-		icon = GFX_focus_IRQ_elections
+		icon = GFX_focus_IRQ_greater_babylon
 		x = 0
 		y = 2
 		cost = 5
@@ -3365,6 +3365,10 @@ focus_tree = {
 		set_cosmetic_tag = IRQ_babylon_2 
 		every_country = {
 		show_superevent_rashid_IRQ_babylon = yes
+		create_wargoal = {
+				type = annex_everything
+				target = ISR
+			}
 		}
 		}
 	}
