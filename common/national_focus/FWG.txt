@@ -854,7 +854,7 @@ focus_tree = {
 				ideology = libertarian_socialism
 				popularity = 0.1
 			}
-			set_cosmetic_tag = FGB_rocker
+			set_cosmetic_tag = FWG_rocker
 		}
 	}
 	focus = {
@@ -1640,6 +1640,427 @@ focus_tree = {
 			set_cosmetic_tag = FWG_soviet_union 
 		}
 	}
+
+focus = {
+		id = FWG_begin_challenge_soviets
+		icon = GFX_focus_FWG_begin_challenge_soviets
+		x = -1
+		y = 2
+		cost = 3
+		available_if_capitulated = no
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = DSH_unified_germany_tt
+				NOT = { country_exists = BAV }
+				NOT = { country_exists = DSH }
+				NOT = { country_exists = FGB }
+				NOT = { country_exists = GER }
+				NOT = { country_exists = PLA }
+				NOT = { country_exists = UVS }
+				NOT = { country_exists = WRD }
+			}
+		}
+		allow_branch = {
+			has_country_flag = FWG_union_of_soviet_republics
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FWG_proclaim_a_soviet_union
+		completion_reward = {
+			add_popularity = {
+    			ideology = marxism
+    			popularity = 0.5
+			}
+		}
+	}
+
+	focus = {
+		id = FWG_advance_to_warsaw
+		icon = GFX_focus_FWG_advance_to_warsaw
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_begin_challenge_soviets}
+		relative_position_id = FWG_begin_challenge_soviets
+		mutually_exclusive = {focus = FWG_strike_deal_blr}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_neighbor_of = BLR
+					NOT = {
+						is_neighbor_of = POL
+					}
+				}
+				declare_war_on = {
+    				target = BLR
+    				type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					is_neighbor_of = POL
+					NOT = {
+						is_neighbor_of = BLR
+					}
+				}
+				declare_war_on = {
+    				target = POL
+    				type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					is_neighbor_of = POL
+					NOT = {
+						is_neighbor_of = BLR
+					}
+					country_exists = EPR
+				}
+				declare_war_on = {
+    				target = POL
+    				type = annex_everything
+				}
+				declare_war_on = {
+    				target = EPR
+    				type = annex_everything
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_strike_deal_blr
+		icon = GFX_focus_FWG_strike_deal_blr
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_begin_challenge_soviets}
+		mutually_exclusive = {focus = FWG_advance_to_warsaw}
+		relative_position_id = FWG_begin_challenge_soviets
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			BLR = {
+				country_event = {
+					id = korsch.5
+				}
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_aharchists_regime
+		icon = GFX_focus_FWG_end_aharchists_regime
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_strike_deal_blr focus= FWG_advance_to_warsaw}
+		relative_position_id = FWG_strike_deal_blr
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					is_neighbor_of = UKR
+					NOT = {
+						is_neighbor_of = UKW
+						country_exists = UKW
+					}
+				}
+				declare_war_on = {
+    				target = UKR
+    				type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					is_neighbor_of = UKW
+					NOT = {
+						is_neighbor_of = UKR
+						country_exists = UKR
+					}
+				}
+				declare_war_on = {
+    				target = UKW
+    				type = annex_everything
+				}
+			}
+			declare_war_on = {
+    			target = UKR
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_wva
+		icon = GFX_focus_FWG_end_wva
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_aharchists_regime}
+		relative_position_id = FWG_end_aharchists_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			declare_war_on = {
+    			target = WVA
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_fortify_baltics
+		icon = GFX_focus_FWG_fortify_baltics
+		x = 1
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_wva}
+		relative_position_id = FWG_end_wva
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = FWG_Fortify_Baltics
+			hidden_effect = {
+			813 = {
+				add_building_construction = {
+					type = bunker
+        			province = 4640
+					level = 3
+				}
+			} 
+			191 = {
+				add_building_construction = {
+					type = bunker
+        			province = 592
+					level = 3
+				}
+			}
+			810 = {
+				add_building_construction = {
+					type = bunker
+        			province = 319
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 222
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 9275
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 3298
+					level = 3
+				}
+			}
+			}
+
+		}
+	}
+	focus = {
+		id = FWG_fortify_ukraine
+		icon = GFX_focus_FWG_fortify_ukraine
+		x = -1
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_wva}
+		relative_position_id = FWG_end_wva
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = FWG_Fortify_Dinipro
+			hidden_effect = {
+			197 = {
+				add_building_construction = {
+					type = bunker
+        			province = 3755
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11715
+					level = 3
+				}
+			} 
+			226 = {
+				add_building_construction = {
+					type = bunker
+        			province = 9419
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11437
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11422
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 9433
+					level = 3
+				}
+			}
+			203 = {
+				add_building_construction = {
+					type = bunker
+        			province = 6478
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 3468
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 488
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 11454
+					level = 3
+				}
+			}
+			202 = {
+				add_building_construction = {
+					type = bunker
+        			province = 3494
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 525
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 3543
+					level = 3
+				}
+				add_building_construction = {
+					type = bunker
+        			province = 9568
+					level = 3
+				}
+			}
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_lenins_regime
+		icon = GFX_focus_FWG_end_lenins_regime
+		x = 0
+		y = 2
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_wva}
+		prerequisite = {focus=  FWG_fortify_baltics}
+		prerequisite = {focus=  FWG_fortify_ukraine}
+		relative_position_id = FWG_end_wva
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			declare_war_on = {
+    			target = SOV
+    			type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_redefine_what_it_means_to_be_soviet
+		icon = GFX_focus_FWG_redefine_what_it_means_to_be_soviet
+		x = 2
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_lenins_regime}
+		relative_position_id = FWG_end_lenins_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_war_support = 0.2
+		}
+	}
+	focus = {
+		id = FWG_the_true_revolution
+		icon = GFX_focus_FWG_the_true_revolution
+		x = -2
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_lenins_regime}
+		relative_position_id = FWG_end_lenins_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = {
+				FWG_true_revolution
+			}
+		}
+	}
+	focus = {
+		id = FWG_a_vast_nation
+		icon = GFX_focus_FWG_a_vast_nation
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_end_lenins_regime}
+		relative_position_id = FWG_end_lenins_regime
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_political_power = 60
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = FWG_From_Moscow_To_Berlin
+		icon = GFX_focus_FWG_From_Moscow_To_Berlin
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = no
+		prerequisite = {focus=  FWG_a_vast_nation}
+		prerequisite = {focus=  FWG_the_true_revolution}
+		prerequisite = {focus=  FWG_redefine_what_it_means_to_be_soviet}
+		relative_position_id = FWG_a_vast_nation
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			country_event = {
+				id = korsch.8
+			}
+		}
+	}
+
 	focus = {
 		id = FWG_rise_of_the_kpd
 		icon = GFX_focus_FWG_rise_of_the_kpd
@@ -2869,7 +3290,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FWG_set_up_a_proper_training_service
-		icon = GFX_focus_FWG_build_up_a_new_stockpile_of_weapons
+		icon = GFX_focus_FWG_set_up_a_proper_training_service
 		x = 1
 		y = 1
 		cost = 6
@@ -2963,11 +3384,11 @@ focus_tree = {
 	focus = {
 		id = FWG_hold_westphalia
 		icon = GFX_focus_FWG_hold_westphalia
-		x = 1
+		x = -2
 		y = 1
 		cost = 5
-		relative_position_id = FWG_prepare_for_the_coming_war
-		prerequisite = { focus = FWG_prepare_for_the_coming_war }
+		relative_position_id = FWG_unite_against_wherkommando
+		prerequisite = { focus = FWG_unite_against_wherkommando }
 		available = { has_war_with = WRD }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
@@ -2980,11 +3401,11 @@ focus_tree = {
 	focus = {
 		id = FWG_behind_the_weser
 		icon = GFX_focus_FWG_behind_the_weser
-		x = -1
+		x = 2
 		y = 1
 		cost = 5
-		relative_position_id = FWG_prepare_for_the_coming_war
-		prerequisite = { focus = FWG_prepare_for_the_coming_war }
+		relative_position_id = FWG_rally_against_republic
+		prerequisite = { focus = FWG_rally_against_republic }
 		available = { has_war_with = GER }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
@@ -2998,7 +3419,7 @@ focus_tree = {
 		id = FWG_the_revolution_yields_its_influence
 		icon = GFX_focus_FWG_the_revolution_yields_its_influence
 		x = 0
-		y = 2
+		y = 1
 		cost = 5
 		relative_position_id = FWG_prepare_for_the_coming_war
 		prerequisite = { focus = FWG_prepare_for_the_coming_war }
@@ -3009,9 +3430,311 @@ focus_tree = {
 			every_other_country = {
 				limit = { has_country_flag = germany }
 				every_owned_state = {
-					add_claim_by = FGB
+					add_claim_by = FWG
 				}
 			}
+		}
+	}
+	focus = {
+		id = FWG_develop_urban_tactics
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = FWG_the_revolution_yields_its_influence
+		prerequisite = { focus = FWG_the_revolution_yields_its_influence }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			army_experience = 25
+			add_command_power = 10
+		}
+	}
+	focus = {
+		id = FWG_smuggle_dutch_guns
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FWG_the_revolution_yields_its_influence
+		prerequisite = { focus = FWG_the_revolution_yields_its_influence }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_equipment_to_stockpile = {
+    			type = infantry_equipment
+   				amount = 350
+    			producer = HOL
+			}
+		}
+	}
+	focus = {
+		id = FWG_socialists_stand_strong
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FWG_the_revolution_yields_its_influence
+		prerequisite = { focus = FWG_the_revolution_yields_its_influence }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_war_support = 0.3
+		}
+	}
+	focus = {
+		id = FWG_rally_against_republic
+		x = 1
+		y = 1
+		cost = 5
+		bypass = { 
+			OR = {
+				not = { country_exists = GER } 
+				has_war_with = GER
+			}
+		}
+		relative_position_id = FWG_socialists_stand_strong
+		prerequisite = { focus = FWG_socialists_stand_strong}
+		prerequisite = { focus = FWG_smuggle_dutch_guns}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			declare_war_on = {
+				target = GER
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_unite_against_wherkommando
+		x = -1
+		y = 1
+		cost = 5
+		bypass = { 
+			OR = {
+				not = { country_exists = WRD } 
+				has_war_with = WRD
+			}
+		}
+		relative_position_id = FWG_socialists_stand_strong
+		prerequisite = { focus = FWG_socialists_stand_strong}
+		prerequisite = { focus = FWG_develop_urban_tactics}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			declare_war_on = {
+				target = WRD
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_support_ruhr_workers
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FWG_unite_against_wherkommando
+		prerequisite = { focus = FWG_unite_against_wherkommando}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_popularity = {
+    			ideology = marxism
+   				popularity = 0.03
+			}
+		}
+	}
+	focus = {
+		id = FWG_anti_capitalist_rhetoric
+		x = 0
+		y = 1
+		cost = 5
+		relative_position_id = FWG_rally_against_republic
+		prerequisite = { focus = FWG_rally_against_republic}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			GER = {
+				add_political_power = -25
+				add_stability = -0.1
+			}
+		}
+	}
+	focus = {
+		id = FWG_fate_of_remaining_junkers
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FWG_behind_the_weser
+		prerequisite = { focus = FWG_anti_capitalist_rhetoric}
+		prerequisite = { focus = FWG_behind_the_weser}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_stability = -0.12
+			add_political_power = 15
+		}
+	}
+	focus = {
+		id = FWG_trial_monarchist_generals
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FWG_hold_westphalia
+		prerequisite = { focus = FWG_support_ruhr_workers}
+		prerequisite = { focus = FWG_hold_westphalia}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_stability = -0.1
+			add_popularity = {
+    			ideology = despotism
+   				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = FWG_people_on_offensive
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = FWG_fate_of_remaining_junkers
+		prerequisite = { focus = FWG_fate_of_remaining_junkers}
+		prerequisite = { focus = FWG_trial_monarchist_generals}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			army_experience = 5
+			add_manpower = 50000
+		}
+	}
+	focus = {
+		id = FWG_fall_of_monarchy
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = FWG_trial_monarchist_generals
+		prerequisite = { focus = FWG_trial_monarchist_generals}
+		prerequisite = { focus = FWG_fate_of_remaining_junkers}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_popularity = {
+    			ideology = despotism
+   				popularity = -0.04
+			}
+			add_popularity = {
+    			ideology = reactionism
+   				popularity = -0.04
+			}
+		}
+	}
+	focus = {
+		id = FWG_the_free_brigades
+		x = 0
+		y = 1
+		cost = 3
+		bypass = { 
+			OR = {
+				not = { country_exists = FGB } 
+				has_war_with = FGB
+			}
+		}
+		relative_position_id = FWG_fall_of_monarchy
+		prerequisite = { focus = FWG_fall_of_monarchy focus = FWG_people_on_offensive}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			if = {
+				limit = {
+					NOT = {
+						country_exists = DSH
+					}
+					country_exists = FGB
+				}
+				declare_war_on = {
+					target = FGB
+					type = annex_everything
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = FGB
+					}
+					country_exists = DSH
+				}
+				declare_war_on = {
+					target = DSH
+					type = annex_everything
+				}
+			}
+			declare_war_on = {
+				target = FGB
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_collapse_bavarian_revolution
+		x = 0
+		y = 1
+		cost = 3
+		bypass = { 
+			OR = {
+				not = { country_exists = BAV } 
+				has_war_with = BAV
+			}
+		}
+		relative_position_id = FWG_the_free_brigades
+		prerequisite = { focus = FWG_the_free_brigades }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			declare_war_on = {
+				target = BAV
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_free_silesian_workers
+		x = 0
+		y = 1
+		cost = 3
+		bypass = { 
+			OR = {
+				not = { country_exists = PLA } 
+				has_war_with = PLA
+			}
+		}
+		relative_position_id = FWG_end_authoritarian_revolution
+		prerequisite = { focus = FWG_end_authoritarian_revolution }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			declare_war_on = {
+				target = PLA
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_end_authoritarian_revolution
+		x = 0
+		y = 1
+		cost = 5
+		bypass = { 
+			OR = {
+				not = { country_exists = UVS } 
+				has_war_with = UVS 
+			}
+		}
+		relative_position_id = FWG_people_on_offensive
+		prerequisite = { focus = FWG_fall_of_monarchy focus = FWG_people_on_offensive}
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = FWG_people_always_win
+		x = -1
+		y = 1
+		cost = 3
+		relative_position_id = FWG_free_silesian_workers
+		prerequisite = { focus = FWG_free_silesian_workers }
+		prerequisite = { focus = FWG_collapse_bavarian_revolution }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_political_power = 50
+			add_war_support = 0.05
 		}
 	}
 }

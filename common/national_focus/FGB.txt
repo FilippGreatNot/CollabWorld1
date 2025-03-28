@@ -6130,7 +6130,15 @@ focus_tree = {
 		relative_position_id = FGB_rohm_replenishing_our_ranks
 		prerequisite = { focus = FGB_rohm_replenishing_our_ranks }
 		completion_reward = {
-			
+			add_corps_commander_role = {
+				Character = FGB_kurt_daluege
+				traits = { war_hero engineer_officer fgb_paramilitarist }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+			}
 		}
 	}
 
@@ -7642,7 +7650,7 @@ focus_tree = {
 	focus = {
 		id = FGB_rohm_march_into_the_osterreich
 		icon = GFX_focus_FGB_rohm_march_into_the_osterreich
-		x = -3
+		x = -4
 		y = 1
 		cost = 4.2857
 		ai_will_do = {
@@ -7826,7 +7834,7 @@ focus_tree = {
 	focus = {
 		id = FGB_rohm_look_east
 		icon = GFX_focus_FGB_rohm_look_east
-		x = 1
+		x = 0
 		y = 1
 		cost = 4.2857
 		ai_will_do = {
@@ -7906,17 +7914,108 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FGB_rohm_forge_a_new_polish_reich
+		icon = GFX_focus_FGB_rohm_forge_a_new_polish_reich
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 40
+		}
+		available = { has_war = no }
+		relative_position_id = FGB_rohm_a_new_oberost
+		prerequisite = { focus = FGB_rohm_a_new_oberost }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_integrate_the_frontier_areas
+		icon = GFX_focus_FGB_rohm_integrate_the_frontier_areas
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 40
+		}
+		available = { has_war = no }
+		relative_position_id = FGB_rohm_forge_a_new_polish_reich
+		prerequisite = { focus = FGB_rohm_forge_a_new_polish_reich }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_a_greater_baltic
+		icon = GFX_focus_FGB_rohm_a_greater_baltic
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 40
+		}
+		available = { has_war = no }
+		relative_position_id = FGB_rohm_a_new_oberost
+		prerequisite = { focus = FGB_rohm_a_new_oberost }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_offer_positions_to_baltendeutsch_generals
+		icon = GFX_focus_FGB_rohm_offer_positions_to_baltendeutsch_generals
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 40
+		}
+		available = { has_war = no }
+		relative_position_id = FGB_rohm_a_greater_baltic
+		prerequisite = { focus = FGB_rohm_a_greater_baltic }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_a_preliminary_lebensraum_achieved
+		icon = GFX_focus_FGB_rohm_a_preliminary_lebensraum_achieved
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 40
+		}
+		available = { has_war = no }
+		relative_position_id = FGB_rohm_integrate_the_frontier_areas
+		prerequisite = { focus = FGB_rohm_integrate_the_frontier_areas }
+		prerequisite = { focus = FGB_rohm_offer_positions_to_baltendeutsch_generals }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
 		id = FGB_rohm_reclaim_silesia
 		icon = GFX_focus_FGB_rohm_reclaim_silesia
-		x = 5
+		x = 4
 		y = 1
 		cost = 4.2857
 		ai_will_do = {
 			factor = 40
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "The PLA has to exist for this focus to be completable!"
+				has_country_flag = FGB_rohm_crushing_the_pla_flag
+			}
+		}
 		allow_branch = {
 			has_country_flag = FGB_rohm_the_last_steps_flag
-			has_country_flag = FGB_rohm_crushing_the_pla_flag
 		}
 		available = { has_war = no }
 		bypass = { NOT = { country_exists = PLA }}
@@ -8036,6 +8135,46 @@ focus_tree = {
 				}
 				remove_claim_by = PLA
 			}
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_recruit_silesian_militiamen
+		icon = GFX_focus_FGB_rohm_recruit_silesian_militiamen
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { country_exists = PLA }
+		}
+		relative_position_id = FGB_rohm_end_the_polish_reich
+		prerequisite = { focus = FGB_rohm_end_the_polish_reich }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_rohm_our_last_great_waltz
+		icon = GFX_focus_FGB_rohm_our_last_great_waltz
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 40
+		}
+		available = {
+			NOT = { country_exists = PLA }
+		}
+		relative_position_id = FGB_rohm_a_preliminary_lebensraum_achieved
+		prerequisite = { focus = FGB_rohm_annex_liechtenstein }
+		prerequisite = { focus = FGB_rohm_a_preliminary_lebensraum_achieved }
+		prerequisite = { focus = FGB_rohm_recruit_silesian_militiamen }
+		completion_reward = {
+			
 		}
 	}
 	

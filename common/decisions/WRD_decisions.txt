@@ -907,7 +907,12 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					set_party_name = {
 						ideology = esotericism
 						name = WRD_ukraine_party
-					}					
+					}
+					create_country_leader = {
+						name = "Herbert Backe"
+						picture = "gfx/leaders/UKR/WRD_SS_herbert_backe.tga"
+						ideology = esoteric_nazism	
+					}
 					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 202
 					add_state_core = 201
@@ -1023,7 +1028,13 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					set_party_name = {
 						ideology = esotericism
 						name = WRD_moskowien_party
-					}				
+					}	
+					create_country_leader = {
+						name = "Sergey Taboritsky"
+						picture = "gfx/leaders/SOV/WRD_SS_taboritsky.tga"
+						ideology = esoteric_nazism
+					}
+					
 					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 219
 					add_state_core = 223
@@ -1156,7 +1167,12 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					set_party_name = {
 						ideology = esotericism
 						name = WRD_donvolga_party
-					}				
+					}
+					create_country_leader = {
+						name = "Josef Berchtold"
+						picture = "gfx/leaders/OCG/WRD_SS_josef_berchtold.tga"
+						ideology = esoteric_nazism
+					}					
 					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 217
 					add_state_core = 218
@@ -1243,7 +1259,12 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					set_party_name = {
 						ideology = esotericism
 						name = WRD_caucasus_party
-					}				
+					}
+					create_country_leader = {
+						name = "Arno Schickedanz"
+						picture = "gfx/leaders/GEO/WRD_SS_arno_schickedanz.tga"
+						ideology = esoteric_nazism
+					}						
 					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 916
 					add_state_core = 908
@@ -1801,6 +1822,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 23
 					add_state_core = 19
 					add_state_core = 806
+					add_state_core = 1103
 					add_state_core = 31
 					remove_ideas = legacy_of_the_great_war
 					remove_ideas = FRA_nationwide_strikes
@@ -1835,6 +1857,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				FRA = { transfer_state = 19 }
 				FRA = { transfer_state = 31 }
 				FRA = { transfer_state = 806 }
+				FRA = { transfer_state = 1103 }
 			}
 		}
 	}
@@ -1878,6 +1901,11 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 						ideology = esotericism
 						name = WRD_albion_party
 					}
+					create_country_leader = {
+						name = "Wilhelm Bittrich"
+						picture = "gfx/leaders/ENG/WRD_SS_wilhelm_bittrich.tga"
+						ideology = esoteric_nazism
+					}						
 					load_focus_tree = { tree = generic_tree keep_completed = no }
 					add_state_core = 874
 					add_state_core = 127
@@ -2031,6 +2059,11 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				set_party_name = { 
 					ideology = esotericism
 					name = WRD_sweden_party
+				}
+				create_country_leader = {
+					name = "Hermann Wirth"
+					picture = "gfx/leaders/SWE/WRD_SS_hermann_wirth.tga"
+					ideology = esoteric_nazism
 				}
 				load_focus_tree = { tree = generic_tree keep_completed = no }
 				add_state_core = 138
@@ -2758,10 +2791,10 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 680
 					add_state_core = 867
 					add_state_core = 881
-					add_state_core = 900
 					add_state_core = 676
 					add_state_core = 904
 					add_state_core = 888
+					add_state_core = 909
 					remove_ideas = TUR_unstable_regimen
 					add_ideas = WRD_ss_ordensstaat
 				}	
@@ -2807,11 +2840,42 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				TUR = { transfer_state = 680 }
 				TUR = { transfer_state = 867 }
 				TUR = { transfer_state = 881 }
-				TUR = { transfer_state = 900 }
 				TUR = { transfer_state = 676 }
 				TUR = { transfer_state = 904 }
 				TUR = { transfer_state = 888 }
+				TUR = { transfer_state = 909 }
 			}	
+		}
+	}
+
+	WRD_kars_transfer = { 								### state transfer to turkey ###
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 921
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus = WRD_operation_turkey
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_turkey 
+			TUR = {
+				is_puppet_of = WRD
+			}
+		}
+		
+		complete_effect = {
+			add_state_core = 921		
+			TUR = { transfer_state = 921 }
 		}
 	}
 
@@ -2864,7 +2928,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					}				
 					create_country_leader = {
 						name = "Amin Al-Husseini"
-						picture = "gfx/leaders/PAL/ss_hosseini.tga"
+						picture = "gfx/leaders/PAL/WRD_SS_al_husseini.tga"
 						ideology = jihadism
 					}
 					load_focus_tree = { tree = generic_tree keep_completed = no }
@@ -2899,6 +2963,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 					add_state_core = 854
 					add_state_core = 1097
 					add_state_core = 293
+					add_state_core = 900
 					set_capital = { state = 454 remember_old_capital = no }
 					add_ideas = WRD_ss_ordensstaat
 				}	
@@ -2942,6 +3007,7 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 				PAL = { transfer_state = 854}
 				PAL = { transfer_state = 1097 }
 				PAL = { transfer_state = 293 }
+				PAL = { transfer_state = 900 }
 			}	
 		}
 	}
@@ -3409,6 +3475,77 @@ WRD_ordensstaat = {																		###### SS-ORDENSSTAAT DECISIONS ######
 			}
 		}
 	}	
+	
+	WRD_east_africa_transfer = { 
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 543
+			owns_state = 707
+			owns_state = 709
+			owns_state = 269
+			owns_state = 1102
+			owns_state = 559
+			owns_state = 548
+			owns_state = 547
+			owns_state = 544
+			owns_state = 770
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = WRD_operation_south_africa
+		}
+		
+		complete_effect = {
+			hidden_effect = {
+				DOA = {
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					add_state_core = 548
+					set_capital = { state = 896 remember_old_capital = no }
+					set_victory_points = { province = 896 value = 10 }
+				}	
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 547 }
+				DOA = { transfer_state = 1054 }
+				DOA = { transfer_state = 559 }
+				DOA = { transfer_state = 1102 }
+				DOA = { transfer_state = 269 }
+				DOA = { transfer_state = 770 }
+				DOA = { transfer_state = 544 }
+				DOA = { transfer_state = 708 }
+				DOA = { transfer_state = 543 }
+				DOA = { transfer_state = 706 }
+				DOA = { transfer_state = 707 }
+				DOA = { transfer_state = 709 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+				DOA = { transfer_state = 548 }
+			}
+		}
+	}
 	
 	WRD_south_africa_state = { 								### SUDAFRIKA ###
 		icon = generic_form_nation

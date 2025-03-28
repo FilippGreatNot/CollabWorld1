@@ -30,7 +30,9 @@ focus_tree = {
 		relative_position_id = VDW_dressler_creation_of_the_national_vanguard
 		prerequisite = { focus = VDW_dressler_creation_of_the_national_vanguard }
 		completion_reward = {
-
+			add_ideas = {
+				VDW_spirit_of_chivalry
+			}
 		}
 	}
 	focus = {
@@ -45,7 +47,9 @@ focus_tree = {
 		relative_position_id = VDW_dressler_creation_of_the_national_vanguard
 		prerequisite = { focus = VDW_dressler_creation_of_the_national_vanguard }
 		completion_reward = {
-
+			add_ideas = {
+				VDW_militaristic_elitism
+			}
 		}
 	}
 	focus = {
@@ -60,7 +64,9 @@ focus_tree = {
 		prerequisite = { focus = VDW_dressler_spirit_of_chivalry }
 		prerequisite = { focus = VDW_dressler_elite_among_elites }
 		completion_reward = {
-
+			add_ideas = {
+				VDW_not_a_single_step_backwards
+			}
 		}
 	}
 	focus = {
@@ -74,7 +80,14 @@ focus_tree = {
 		relative_position_id = VDW_dressler_cruelty_as_a_norm_of_behavior
 		prerequisite = { focus = VDW_dressler_cruelty_as_a_norm_of_behavior }
 		completion_reward = {
-
+			remove_ideas = {
+				VDW_spirit_of_chivalry
+				VDW_militaristic_elitism
+				VDW_not_a_single_step_backwards
+			}
+			add_ideas = {
+				VDW_the_perfect_army
+			}
 		}
 	}
 	focus = {
@@ -88,7 +101,13 @@ focus_tree = {
 		relative_position_id = VDW_dressler_cultivation_of_male_culture
 		prerequisite = { focus = VDW_dressler_cultivation_of_male_culture }
 		completion_reward = {
-
+			custom_effect_tooltip = VDW_our_army_will_be_purified_tt
+			add_stability = -0.1
+			add_war_support = 0.15
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.2
+			}
 		}
 	}
 	focus = {
@@ -103,7 +122,9 @@ focus_tree = {
 		relative_position_id = VDW_dressler_baptism_by_fire
 		prerequisite = { focus = VDW_dressler_baptism_by_fire }
 		completion_reward = {
-
+			add_ideas = {
+				VDW_aryan_production_methods
+			}
 		}
 	}
 	focus = {
@@ -117,7 +138,10 @@ focus_tree = {
 		relative_position_id = VDW_dressler_baptism_by_fire
 		prerequisite = { focus = VDW_dressler_baptism_by_fire }
 		completion_reward = {
-
+			add_timed_idea = {
+				idea = VDW_rapid_economic_buildup
+				days = 120
+			}
 		}
 	}
 	focus = {
@@ -132,7 +156,7 @@ focus_tree = {
 		relative_position_id = VDW_dressler_baptism_by_fire
 		prerequisite = { focus = VDW_dressler_baptism_by_fire }
 		completion_reward = {
-
+			add_country_leader_trait = volksfuhrer
 		}
 	}
 	focus = {
@@ -148,7 +172,8 @@ focus_tree = {
 		prerequisite = { focus = VDW_dressler_every_method_is_good }
 		prerequisite = { focus = VDW_dressler_the_halo_of_horror }
 		completion_reward = {
-
+			add_manpower = -100000
+			custom_effect_tooltip = VDW_the_unworthy_shall_be_purged_tt
 		}
 	}
 	focus = {
@@ -163,7 +188,9 @@ focus_tree = {
 		relative_position_id = VDW_dressler_terror_in_the_night
 		prerequisite = { focus = VDW_dressler_terror_in_the_night }
 		completion_reward = {
-			
+			add_political_power = 150
+			add_command_power = 80
+			army_experience = 50
 		}
 	}
 	focus = {
@@ -178,7 +205,9 @@ focus_tree = {
 		relative_position_id = VDW_dressler_terror_in_the_night
 		prerequisite = { focus = VDW_dressler_terror_in_the_night }
 		completion_reward = {
-			
+			add_ideas = {
+				VDW_the_volkisch_religion
+			}
 		}
 	}
 	focus = {
@@ -610,6 +639,10 @@ focus_tree = {
 				}
 				add_core_of = FWG 
 				remove_core_of = FGB
+			}
+			swap_ideas = {
+				remove_idea = VDW_dreams_of_a_volksreich
+				add_idea = VDW_volksreich_achieved
 			}
 		}
 	}

@@ -364,3 +364,71 @@ country_event = {
 		add_war_support = 0.04
 	}
 }
+
+country_event = {
+	id = korsch.5
+	title = korsch.5.t 
+	desc = korsch.5.d 
+	picture = GFX_report_event_korsch
+	is_triggered_only = yes 
+
+	option = {
+		name = korsch.5.a 
+		FWG = {
+			country_event = {
+				id = korsch.6
+			}
+		}
+	}
+	option = {
+		name = korsch.5.b
+		FWG = {
+			country_event = {
+				id = korsch.7
+			}
+		}
+	}
+}
+country_event = {
+	id = korsch.6
+	title = korsch.6.t 
+	desc = korsch.6.d 
+	picture = GFX_report_event_korsch
+	is_triggered_only = yes 
+
+	option = {
+		name = korsch.6.a 
+		declare_war_on = {
+    		target = BLR
+    		type = annex_everything
+		}
+	}
+}
+country_event = {
+	id = korsch.7
+	title = korsch.7.t 
+	desc = korsch.7.d 
+	picture = GFX_report_event_korsch
+	is_triggered_only = yes 
+	option = {
+		name = korsch.7.a 
+		annex_country = {
+    		target = BLR
+    		transfer_troops = no
+		}
+	}
+}
+
+# From Moskau To Berlin
+country_event = {
+	id = korsch.8
+	title = korsch.8.t 
+	desc = korsch.8.d 
+	picture = GFX_report_event_korsch
+	is_triggered_only = yes 
+	option = {
+		name = korsch.8.a 
+		set_province_name = { id = 6380 name = "Moskau" }
+		custom_effect_tooltip = BAV_thanks_for_playing_end_tt
+	}
+}

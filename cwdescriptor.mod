@@ -1,4 +1,4 @@
-version="0.3.0.2 American Nightmare"
+version="0.4.0.0 Zentralmächte"
 picture="thumbnail.png"
 tags={
 	"Alternative History"
