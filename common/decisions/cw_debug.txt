@@ -170,4 +170,17 @@ cw_debug_category = {
 			load_focus_tree = ADR_funny
 		}
 	}
+	cw_instant_win = {
+		visible = { is_debug = yes is_ai = no }
+		available = { has_war = yes }
+		cost = 0
+		complete_effect = {
+			every_state = {
+				limit = { controller = { has_war_with = FROM } }
+#				owner = { delete_units = {} }
+				set_state_controller_to = FROM
+			}
+			custom_effect_tooltip = "Will transfer control of all enemy provinces to you for a quick win. Use the ( deleteallunits 'tag' ) console command in conjuction beforehand. The delete_units effect is commented out by default in this decision in-case you don't want to delete all units"
+		}
+	}
 }
