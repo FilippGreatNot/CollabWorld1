@@ -119,6 +119,40 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = CZE
+					}
+					FROM = {
+						original_tag = FGB
+					}
+				}
+				FGB = { 
+                    white_peace = {
+                        tag = CZE
+                        message = "The Czechoslovak Dream ends in a Nightmare."
+                    }
+                    annex_country = {
+                        target = CZE
+                        transfer_troops = yes
+                    }
+					every_owned_state = {
+						limit = { 
+							is_core_of = SLO 
+						}
+						transfer_state_to = SLO 
+					}
+					puppet = {
+						target = sLO
+						end_wars = yes
+					}
+                }
+			}
+		}
+	}
     on_capitulation = {
     	effect = { 
 	     	if = { 
@@ -142,6 +176,10 @@ on_actions = {
                         target = HOL
                         transfer_troops = yes
                     }
+					annex_country = {
+						target = INS
+						transfer_troops = yes
+					}
                 }
 			}
 		}

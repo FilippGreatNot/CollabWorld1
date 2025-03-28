@@ -536,7 +536,7 @@ FGB_industrial_category = {
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
-					instant_build  = yes
+					instant_build = yes
 				}
 			}
 		}
@@ -569,7 +569,6 @@ FGB_industrial_category = {
 			consumer_goods_factor = 0.1
 		}
 		remove_effect = {
-			add_stability = 0.04
 			52 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -580,7 +579,7 @@ FGB_industrial_category = {
 				add_building_construction = {
 					type = air_base
 					level = 1
-					instant_build  = yes
+					instant_build = yes
 				}
 			}
 			add_breakthrough_progress = {
@@ -590,6 +589,129 @@ FGB_industrial_category = {
 			add_breakthrough_progress = {
 				specialization = specialization_air
 				value = 0.2
+			}
+		}
+	}
+	FGB_help_karmann_automobile_development = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 56
+			has_completed_focus = FGB_industrialising_lower_saxony
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 100
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 56 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			56 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.15
+			}
+		}
+	}
+	FGB_subsidise_salzgitter_ag = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 59
+			has_completed_focus = FGB_industrialising_lower_saxony
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 125
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 59 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			59 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 11
+				}
+			}
+		}
+	}
+	FGB_fund_the_einbeck_brewery = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 59
+			has_completed_focus = FGB_industrialising_lower_saxony
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 75
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 59 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			add_stability = 0.04
+			59 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
