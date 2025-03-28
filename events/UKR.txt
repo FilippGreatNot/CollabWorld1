@@ -81,6 +81,8 @@ country_event = {
 		name = ukr.sb.5.a #Makhno survives.
 		complete_national_focus = UKR_he_is_alive
 		load_focus_tree = UKR_makhno_tree
+
+		
 	}
 	
 	option = {
@@ -819,6 +821,19 @@ country_event = {
 	}
 	}
 
+news_event = {
+	id = ukr.makhno.7 #Assasination 
+	title = ukr.makhno.7.t
+	desc = ukr.makhno.7.d
+	picture = GFX_news_event_tachanka
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = ukr.makhno.7.a
+	}
+}
+
 	#superevent trigger
 	country_event = {
 	id = ukr.makhno.6
@@ -829,7 +844,11 @@ country_event = {
 	
 	option = {
 		name = ukr.makhno.6.a #Long Live Anarchy!
+		hidden_effect = {
+		every_country = {
 		show_superevent_ukraine_makhno_reunification = yes
+			}
+		}
 	}
 	
 }
