@@ -3031,7 +3031,7 @@ focus = {
 	focus = {
 		id = FWG_prepare_for_the_coming_war
 		icon = GFX_focus_FWG_prepare_for_the_coming_war
-		x = 68
+		x = 60
 		cost = 5
 		available_if_capitulated = yes
 		available = {
@@ -3048,7 +3048,8 @@ focus = {
 	focus = {
 		id = FWG_developing_our_doctrine
 		icon = GFX_focus_FWG_developing_our_doctrine
-		x = 60
+		x = 50
+		y = 7
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = { factor = 10 }
@@ -3382,40 +3383,6 @@ focus = {
 		}
 	}
 	focus = {
-		id = FWG_hold_westphalia
-		icon = GFX_focus_FWG_hold_westphalia
-		x = -2
-		y = 1
-		cost = 5
-		relative_position_id = FWG_unite_against_wherkommando
-		prerequisite = { focus = FWG_unite_against_wherkommando }
-		available = { has_war_with = WRD }
-		ai_will_do = { factor = 10 }
-		completion_reward = { 
-			add_timed_idea = {
-				idea = FWG_defending_the_south
-				days = 120
-			}
-		}
-	}
-	focus = {
-		id = FWG_behind_the_weser
-		icon = GFX_focus_FWG_behind_the_weser
-		x = 2
-		y = 1
-		cost = 5
-		relative_position_id = FWG_rally_against_republic
-		prerequisite = { focus = FWG_rally_against_republic }
-		available = { has_war_with = GER }
-		ai_will_do = { factor = 10 }
-		completion_reward = { 
-			add_timed_idea = {
-				idea = FWG_defending_the_east
-				days = 120
-			}
-		}
-	}
-	focus = {
 		id = FWG_the_revolution_yields_its_influence
 		icon = GFX_focus_FWG_the_revolution_yields_its_influence
 		x = 0
@@ -3437,6 +3404,7 @@ focus = {
 	}
 	focus = {
 		id = FWG_develop_urban_tactics
+		icon = GFX_focus_FWG_develop_urban_tactics
 		x = -2
 		y = 1
 		cost = 5
@@ -3445,11 +3413,12 @@ focus = {
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			army_experience = 25
-			add_command_power = 10
+			add_command_power = 40
 		}
 	}
 	focus = {
 		id = FWG_smuggle_dutch_guns
+		icon = GFX_focus_FWG_smuggle_dutch_guns
 		x = 2
 		y = 1
 		cost = 5
@@ -3459,13 +3428,19 @@ focus = {
 		completion_reward = { 
 			add_equipment_to_stockpile = {
     			type = infantry_equipment
-   				amount = 350
+   				amount = 750
+    			producer = HOL
+			}
+			add_equipment_to_stockpile = {
+    			type = support_equipment
+   				amount = 250
     			producer = HOL
 			}
 		}
 	}
 	focus = {
 		id = FWG_socialists_stand_strong
+		icon = GFX_focus_FWG_socialists_stand_strong
 		x = 0
 		y = 1
 		cost = 5
@@ -3478,6 +3453,7 @@ focus = {
 	}
 	focus = {
 		id = FWG_rally_against_republic
+		icon = GFX_focus_FWG_rally_against_republic
 		x = 1
 		y = 1
 		cost = 5
@@ -3488,8 +3464,8 @@ focus = {
 			}
 		}
 		relative_position_id = FWG_socialists_stand_strong
-		prerequisite = { focus = FWG_socialists_stand_strong}
-		prerequisite = { focus = FWG_smuggle_dutch_guns}
+		prerequisite = { focus = FWG_socialists_stand_strong }
+		prerequisite = { focus = FWG_smuggle_dutch_guns }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			declare_war_on = {
@@ -3499,7 +3475,25 @@ focus = {
 		}
 	}
 	focus = {
+		id = FWG_behind_the_weser
+		icon = GFX_focus_FWG_behind_the_weser
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = FWG_rally_against_republic
+		prerequisite = { focus = FWG_rally_against_republic }
+		available = { has_war_with = GER }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_timed_idea = {
+				idea = FWG_defending_the_east
+				days = 120
+			}
+		}
+	}
+	focus = {
 		id = FWG_unite_against_wherkommando
+		icon = GFX_focus_FWG_unite_against_wherkommando
 		x = -1
 		y = 1
 		cost = 5
@@ -3510,8 +3504,8 @@ focus = {
 			}
 		}
 		relative_position_id = FWG_socialists_stand_strong
-		prerequisite = { focus = FWG_socialists_stand_strong}
-		prerequisite = { focus = FWG_develop_urban_tactics}
+		prerequisite = { focus = FWG_socialists_stand_strong }
+		prerequisite = { focus = FWG_develop_urban_tactics }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			declare_war_on = {
@@ -3521,43 +3515,69 @@ focus = {
 		}
 	}
 	focus = {
+		id = FWG_hold_westphalia
+		icon = GFX_focus_FWG_hold_westphalia
+		x = -2
+		y = 1
+		cost = 5
+		relative_position_id = FWG_unite_against_wherkommando
+		prerequisite = { focus = FWG_unite_against_wherkommando }
+		available = { has_war_with = WRD }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			add_timed_idea = {
+				idea = FWG_defending_the_south
+				days = 120
+			}
+		}
+	}
+	focus = {
 		id = FWG_support_ruhr_workers
+		icon = GFX_focus_FWG_support_ruhr_workers
 		x = 0
 		y = 1
 		cost = 5
 		relative_position_id = FWG_unite_against_wherkommando
-		prerequisite = { focus = FWG_unite_against_wherkommando}
+		prerequisite = { focus = FWG_unite_against_wherkommando }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
+			add_political_power = 50
 			add_popularity = {
     			ideology = marxism
-   				popularity = 0.03
+   				popularity = 0.05
 			}
 		}
 	}
 	focus = {
 		id = FWG_anti_capitalist_rhetoric
+		icon = GFX_focus_FWG_anti_capitalist_rhetoric
 		x = 0
 		y = 1
 		cost = 5
 		relative_position_id = FWG_rally_against_republic
-		prerequisite = { focus = FWG_rally_against_republic}
+		prerequisite = { focus = FWG_rally_against_republic }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			GER = {
-				add_political_power = -25
+				add_political_power = -100
 				add_stability = -0.1
+				add_war_support = -0.05
+				add_popularity = {
+					ideology = libertarian_socialism
+					popularity = 0.05
+				}
 			}
 		}
 	}
 	focus = {
 		id = FWG_fate_of_remaining_junkers
+		icon = GFX_focus_FWG_fate_of_remaining_junkers
 		x = -1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_behind_the_weser
-		prerequisite = { focus = FWG_anti_capitalist_rhetoric}
-		prerequisite = { focus = FWG_behind_the_weser}
+		prerequisite = { focus = FWG_anti_capitalist_rhetoric }
+		prerequisite = { focus = FWG_behind_the_weser }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			add_stability = -0.12
@@ -3566,29 +3586,31 @@ focus = {
 	}
 	focus = {
 		id = FWG_trial_monarchist_generals
+		icon = GFX_focus_FWG_trial_monarchist_generals
 		x = 1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_hold_westphalia
-		prerequisite = { focus = FWG_support_ruhr_workers}
-		prerequisite = { focus = FWG_hold_westphalia}
+		prerequisite = { focus = FWG_support_ruhr_workers }
+		prerequisite = { focus = FWG_hold_westphalia }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
-			add_stability = -0.1
+			add_stability = -0.05
 			add_popularity = {
     			ideology = despotism
-   				popularity = -0.05
+   				popularity = -0.1
 			}
 		}
 	}
 	focus = {
 		id = FWG_people_on_offensive
+		icon = GFX_focus_FWG_people_on_offensive
 		x = -1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_fate_of_remaining_junkers
-		prerequisite = { focus = FWG_fate_of_remaining_junkers}
-		prerequisite = { focus = FWG_trial_monarchist_generals}
+		prerequisite = { focus = FWG_fate_of_remaining_junkers }
+		prerequisite = { focus = FWG_trial_monarchist_generals }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			army_experience = 5
@@ -3597,12 +3619,13 @@ focus = {
 	}
 	focus = {
 		id = FWG_fall_of_monarchy
+		icon = GFX_focus_FWG_fall_of_monarchy
 		x = 1
 		y = 1
 		cost = 5
 		relative_position_id = FWG_trial_monarchist_generals
-		prerequisite = { focus = FWG_trial_monarchist_generals}
-		prerequisite = { focus = FWG_fate_of_remaining_junkers}
+		prerequisite = { focus = FWG_trial_monarchist_generals }
+		prerequisite = { focus = FWG_fate_of_remaining_junkers }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			add_popularity = {
@@ -3617,6 +3640,7 @@ focus = {
 	}
 	focus = {
 		id = FWG_the_free_brigades
+		icon = GFX_focus_FWG_the_free_brigades
 		x = 0
 		y = 1
 		cost = 3
@@ -3627,7 +3651,7 @@ focus = {
 			}
 		}
 		relative_position_id = FWG_fall_of_monarchy
-		prerequisite = { focus = FWG_fall_of_monarchy focus = FWG_people_on_offensive}
+		prerequisite = { focus = FWG_fall_of_monarchy focus = FWG_people_on_offensive }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			if = {
@@ -3654,14 +3678,11 @@ focus = {
 					type = annex_everything
 				}
 			}
-			declare_war_on = {
-				target = FGB
-				type = annex_everything
-			}
 		}
 	}
 	focus = {
 		id = FWG_collapse_bavarian_revolution
+		icon = GFX_focus_FWG_collapse_bavarian_revolution
 		x = 0
 		y = 1
 		cost = 3
@@ -3682,7 +3703,30 @@ focus = {
 		}
 	}
 	focus = {
+		id = FWG_end_authoritarian_revolution
+		icon = GFX_focus_FWG_end_authoritarian_revolution
+		x = 0
+		y = 1
+		cost = 5
+		bypass = { 
+			OR = {
+				not = { country_exists = UVS } 
+				has_war_with = UVS 
+			}
+		}
+		relative_position_id = FWG_people_on_offensive
+		prerequisite = { focus = FWG_fall_of_monarchy focus = FWG_people_on_offensive }
+		ai_will_do = { factor = 10 }
+		completion_reward = { 
+			declare_war_on = {
+				target = UVS
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
 		id = FWG_free_silesian_workers
+		icon = GFX_focus_FWG_free_silesian_workers
 		x = 0
 		y = 1
 		cost = 3
@@ -3703,28 +3747,8 @@ focus = {
 		}
 	}
 	focus = {
-		id = FWG_end_authoritarian_revolution
-		x = 0
-		y = 1
-		cost = 5
-		bypass = { 
-			OR = {
-				not = { country_exists = UVS } 
-				has_war_with = UVS 
-			}
-		}
-		relative_position_id = FWG_people_on_offensive
-		prerequisite = { focus = FWG_fall_of_monarchy focus = FWG_people_on_offensive}
-		ai_will_do = { factor = 10 }
-		completion_reward = { 
-			declare_war_on = {
-				target = UVS
-				type = annex_everything
-			}
-		}
-	}
-	focus = {
 		id = FWG_people_always_win
+		icon = GFX_focus_FWG_people_always_win
 		x = -1
 		y = 1
 		cost = 3
@@ -3735,6 +3759,7 @@ focus = {
 		completion_reward = { 
 			add_political_power = 50
 			add_war_support = 0.05
+			EPR = { make_every_core_national_for_PREV = yes }
 		}
 	}
 }
