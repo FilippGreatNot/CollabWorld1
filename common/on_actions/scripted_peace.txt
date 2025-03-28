@@ -14,4 +14,22 @@ on_actions = {
 			#for any new ones follow a similar thing to above ^ please use events or scripted effect to avoid clutter 
 		}
 	}
+	
+	on_capitulation = { # Use on_capitulation instead of #on_capitulation_immediate if you want the deletion of units and transfer of equipment to take place
+		effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = KUR }
+					FROM = { is_turkish_tag = yes }
+				}
+				FROM = { annex_country = { target = KUR } }
+				MAK = {
+					if = {
+						limit = { is_puppet = yes }
+						overlord = { end_puppet = MAK }
+					}
+				}
+			}
+		}
+	}
 }
