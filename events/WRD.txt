@@ -132,14 +132,15 @@ country_event = {
 		set_cosmetic_tag = WRD_ostafrika
 		FROM = {
 			set_autonomy = {
-				target = PREV
+				target = DOA
 				autonomous_state = autonomy_ss_ordensstaat
-				end_wars = no
-				end_civil_wars = no
 			}
 		}
 		hidden_effect = {
 			WRD = { country_event = { id = wrd.15 } }
+			WRD = { 
+				add_ideas = WRD_ss_ordensstaat
+			}
 		}
 	}
 }
@@ -549,6 +550,79 @@ country_event = {
 		add_popularity = {
 				ideology = despotism
 				popularity = -0.04
-			}
+		}
+	}
+}
+
+ country_event = { 
+	id = wrd.20
+	title = wrd.20.t
+	desc = wrd.20.d
+	is_triggered_only = yes
+	picture = GFX_report_event_black_sun
+	
+	option = { 
+		name = wrd.20.a
+		hidden_effect = {
+			country_event = { id = wrd.21	days = 31  }
+		}			
+	}
+}
+
+ country_event = { 
+	id = wrd.21
+	title = wrd.21.t
+	desc = wrd.21.d
+	is_triggered_only = yes
+	picture = GFX_report_event_black_sun
+	
+	option = { 
+		name = wrd.21.a
+		ai_chance = { base = 50 }
+		hidden_effect = {
+			country_event = { id = wrd.23	days = 14  }
+		}	
+	}
+	option = { 
+		name = wrd.21.b
+		ai_chance = { base = 50 }
+		hidden_effect = {
+			country_event = { id = wrd.22	days = 14  }
+		}		
+	}	
+}
+
+ country_event = { 
+	id = wrd.22
+	title = wrd.22.t
+	desc = wrd.22.d
+	is_triggered_only = yes
+	picture = GFX_report_event_black_sun
+	
+	option = { 
+		name = wrd.22.a
+		add_political_power = 200
+		add_stability = 0.10
+		add_war_support = 0.10
+	}
+}
+
+ country_event = { 
+	id = wrd.23
+	title = wrd.23.t
+	desc = wrd.23.d
+	is_triggered_only = yes
+	picture = GFX_report_event_black_sun
+	
+	option = {
+		name = wrd.23.a
+		promote_character = {
+			character = WRD_heinrich_himmler_raw_milk
+			ideology = esoteric_nazism
+		}
+		set_portraits = {
+			character = WRD_heinrich_himmler_raw_milk
+			civilian = { large = "gfx/leaders/WRD/WRD_heinrich_himmler_raw_milk.tga" }
+		}
 	}
 }
