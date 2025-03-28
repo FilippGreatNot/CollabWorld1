@@ -132,6 +132,14 @@ focus = {
         focus = ISR_raise_jewish_militias
     }
     completion_reward = {
+	add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 750
+			}
+	add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 50
+			}
     }
 }
 
@@ -151,6 +159,7 @@ focus = {
         focus = ISR_destroy_bandit_groups
     }
     completion_reward = {
+		country_event = isr.2
     }
 }
 
@@ -170,6 +179,9 @@ focus = {
         focus = ISR_destroy_bandit_groups
     }
     completion_reward = {
+		957 = {
+				add_manpower = 50000
+			}
     }
 }
 
@@ -192,6 +204,7 @@ focus = {
         focus = ISR_raid_for_supplies
     }
     completion_reward = {
+		country_event = isr.3
     }
 }
 
@@ -214,7 +227,16 @@ focus = {
         focus = ISR_bring_jewish_migrants
     }
     completion_reward = {
-    }
+		add_ideas = ISR_haganah
+		random_owned_controlled_state = {
+				prioritize = { 957 }
+				create_unit = {
+					division = "name = \"Bene Haganah\" division_template = \"Zionist Brigades\" start_experience_factor = 0.6 start_equipment_factor = 0.75"
+					owner = ISR
+	
+				}
+		}
+	}
 }
 
 focus = {
@@ -239,8 +261,11 @@ focus = {
         focus = ISR_raid_for_supplies
     }
     completion_reward = {
+		add_political_power = 150
+		add_stability = 0.15
     }
 }
+
 focus = {
     id = ISR_foundation_of_the_knesset
     icon = GFX_focus_isr_make_knesset
@@ -259,6 +284,7 @@ focus = {
     completion_reward = {
     }
 }
+
 focus = {
     id = ISR_ezra_rim_retains_his_position
     icon = GFX_focus_isr_ezra_rim_stays
@@ -276,8 +302,10 @@ focus = {
         focus = ISR_foundation_of_the_knesset
     }
     completion_reward = {
+		custom_effect_tooltip = ISR_under_development_tt
     }
 }
+
 focus = {
     id = ISR_the_reactionary_split
     icon = GFX_focus_isr_reactionary_split
@@ -295,6 +323,6 @@ focus = {
         focus = ISR_foundation_of_the_knesset
     }
     completion_reward = {
+		custom_effect_tooltip = ISR_under_development_tt
     }
-}
 }
