@@ -1682,9 +1682,10 @@ focus = {
 		y = 1
 		cost = 3
 		available_if_capitulated = no
-		prerequisite = {focus=  FWG_begin_challenge_soviets}
+		bypass = { NOT = { country_exists = BLR } }
+		prerequisite = { focus = FWG_begin_challenge_soviets }
 		relative_position_id = FWG_begin_challenge_soviets
-		mutually_exclusive = {focus = FWG_strike_deal_blr}
+		mutually_exclusive = { focus = FWG_strike_deal_blr }
 		ai_will_do = {
 			factor = 10
 		}
@@ -1739,8 +1740,9 @@ focus = {
 		y = 1
 		cost = 3
 		available_if_capitulated = no
-		prerequisite = {focus=  FWG_begin_challenge_soviets}
-		mutually_exclusive = {focus = FWG_advance_to_warsaw}
+		bypass = { NOT = { country_exists = BLR } }
+		prerequisite = { focus = FWG_begin_challenge_soviets }
+		mutually_exclusive = { focus = FWG_advance_to_warsaw }
 		relative_position_id = FWG_begin_challenge_soviets
 		ai_will_do = {
 			factor = 10
@@ -1760,7 +1762,8 @@ focus = {
 		y = 1
 		cost = 3
 		available_if_capitulated = no
-		prerequisite = {focus=  FWG_strike_deal_blr focus= FWG_advance_to_warsaw}
+		bypass = { NOT = { country_exists = UKR } }
+		prerequisite = { focus = FWG_strike_deal_blr focus = FWG_advance_to_warsaw }
 		relative_position_id = FWG_strike_deal_blr
 		ai_will_do = {
 			factor = 10
@@ -2060,7 +2063,27 @@ focus = {
 			}
 		}
 	}
-
+	focus = {
+		id = FWG_unite_the_russian_people
+		icon = GFX_focus_FWG_From_Moscow_To_Berlin
+		x = 0
+		y = 1
+		cost = 3
+		available = { NOT = { country_exists = SOV } has_war = no }
+		available_if_capitulated = no
+		relative_position_id = FWG_From_Moscow_To_Berlin
+		prerequisite = { focus = FWG_From_Moscow_To_Berlin }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			BLR = { make_every_core_national_for_PREV = yes }
+			POL = { make_every_core_national_for_PREV = yes }
+			UKR = { make_every_core_national_for_PREV = yes }
+			WVA = { make_every_core_national_for_PREV = yes }
+			SOV = { make_every_core_national_for_PREV = yes }
+		}
+	}
 	focus = {
 		id = FWG_rise_of_the_kpd
 		icon = GFX_focus_FWG_rise_of_the_kpd
@@ -3483,6 +3506,7 @@ focus = {
 		relative_position_id = FWG_rally_against_republic
 		prerequisite = { focus = FWG_rally_against_republic }
 		available = { has_war_with = GER }
+		bypass = { NOT = { country_exists = GER } }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			add_timed_idea = {
@@ -3523,6 +3547,7 @@ focus = {
 		relative_position_id = FWG_unite_against_wherkommando
 		prerequisite = { focus = FWG_unite_against_wherkommando }
 		available = { has_war_with = WRD }
+		bypass = { NOT = { country_exists = WRD } }
 		ai_will_do = { factor = 10 }
 		completion_reward = { 
 			add_timed_idea = {

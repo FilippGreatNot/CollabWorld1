@@ -14,4 +14,60 @@ on_actions = {
 			}
 		}
 	}
+	on_capitulation = {
+    	effect = { 
+	   	if = { 
+				limit = {
+					ROOT = {
+						original_tag = JKR
+					}
+					FROM = {
+						original_tag = ALT
+					}
+				}
+				ALT = {
+					white_peace = {
+						tag = JAP
+						message = "The Rising Sun Has Finally Faded"
+					}
+					annex_country = {
+						target = JKR
+					}
+				}
+				if = {
+					limit = { JAP = { owns_state = 524 } }
+					524 = {
+						transfer_state_to = ALT 
+						add_core_of = ALT
+					}
+				}
+				525 = {
+					transfer_state_to = KOR
+				}
+				527 = {
+					transfer_state_to = KOR
+				}
+				if = {
+					limit = { JAP = { owns_state = 743 } }
+					743 = {
+						transfer_state_to = ALT 
+						add_core_of = ALT
+					}
+				}
+				if = {
+					limit = { JAP = { owns_state = 745 } }
+					745 = {
+						transfer_state_to = ALT 
+						add_core_of = ALT
+					}
+				}
+				ALT = {
+					puppet = {
+						target = KOR
+						end_wars = yes
+					}
+				}
+			}
+		}
+	}
 }
