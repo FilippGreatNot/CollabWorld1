@@ -1021,7 +1021,142 @@ focus_tree = {
 		has_completed_focus = IRQ_first_iraq_at_last
 		 }
 	}
+		focus = {
+		id = IRQ_first_iraq_democracy_in_iraq
+		icon = GFX_focus_IRQ_demo
+		x = 40
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available = {
+		has_country_leader = {
+                    name = "Yasin Al Hashimi"
+                    ruling_only = yes
+                }
+				 }
+		
 	
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_political_power = 50
+			add_stability = 0.05
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+			add_ideas = IRQ_new_constitution
+		}
+	}
+		focus = {
+		id = IRQ_first_iraq_fight_corruption
+		icon = GFX_focus_IRQ_corruption
+		x = -1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_democracy_in_iraq
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_iraq_democracy_in_iraq }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_stability = 0.1
+			add_political_power = 100
+			
+			
+		}
+	}
+		focus = {
+		id = IRQ_first_iraq_promise_peace
+		icon = GFX_focus_IRQ_peace
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_democracy_in_iraq
+		ai_will_do = {
+			factor = 10
+		}
+
+ 
+		
+		prerequisite = { focus = IRQ_first_iraq_democracy_in_iraq }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			add_stability = 0.05
+			add_war_support = -0.05
+			
+			
+		}
+	}
+	focus = {
+		id = IRQ_first_iraq_hold_elections
+		icon = GFX_focus_IRQ_elections
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_fight_corruption
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_first_iraq_fight_corruption }
+		prerequisite = { focus = IRQ_first_iraq_promise_peace }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			country_event = irq.11
+			
+			
+		}
+	}
+		  focus = {
+		id = IRQ_rashid_ali
+		icon = GFX_focus_IRQ_rashid_ali
+		x = 0
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_hold_elections
+		prerequisite = { focus = IRQ_first_iraq_hold_elections }
+		ai_will_do = {
+			factor = 10
+		}
+				available = {
+		has_country_leader = {
+                    name = "Rashid Ali al Gaylani"
+                    ruling_only = yes
+                }
+		has_government = national_syndicalism	
+				 }
+		
+		completion_reward = {	
+		add_stability = 0.05
+				add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.08
+			}
+		set_country_flag = IRQ_babylon
+		country_event = irq.16
+
+		}
+	}
 	focus = {
 		id = IRQ_first_minimize_the_sectarian_divide
 		icon = GFX_focus_IRQ_sects
@@ -1172,7 +1307,27 @@ focus_tree = {
 			country_event = irq.4
 		}
 	}
-	
+			focus = {
+		id = IRQ_stir_garden
+		icon = GFX_focus_IRQ_garden
+		x = 0
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		relative_position_id = IRQ_rashid_ali
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_rashid_ali }
+		
+		completion_reward = {	
+			add_stability = 0.05
+			add_political_power = 30
+		}
+	}
 	focus = {
 		id = IRQ_first_modernize_our_infrastructure
 		icon = GFX_focus_IRQ_modernize_infrastructure
@@ -1359,25 +1514,28 @@ focus_tree = {
 			
 		}
 	}
-	focus = {
-		id = IRQ_euphrates_state
-		icon = GFX_focus_IRQ_reorganisation
-		x = 0
+		focus = {
+		id = IRQ_tigris
+		icon = GFX_focus_IRQ_tigris
+		x = 3
 		y = 1
-		cost = 3
+		cost = 5
 		available_if_capitulated = yes
-		relative_position_id = IRQ_euphrates_education
+		relative_position_id = IRQ_stir_garden
 		ai_will_do = {
 			factor = 10
 		}
 
      
 		
-		prerequisite = { focus = IRQ_euphrates_education }
+		prerequisite = { focus = IRQ_stir_garden }
 		
-		completion_reward = {	
-		add_ideas = IRQ_reorganisation_of_the_state
-		add_stability = -0.2
+		completion_reward = {
+		add_war_support = 0.06
+		676 = {
+		add_extra_state_shared_building_slots = 1
+		increase_state_category_by_one_level = yes
+		}	
 		}
 	}
 	focus= {
@@ -1400,8 +1558,29 @@ focus_tree = {
 			}
 			add_stability = -0.15
 		}
+	}		focus = {
+		id = IRQ_tigris_end_tribal_conflicts
+		icon = GFX_focus_IRQ_calm_the_tribes
+		x = -1
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		relative_position_id = IRQ_tigris
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_tigris }
+		
+		completion_reward = {	
+		remove_ideas = {
+				IRQ_tribal_unrest
+			}
+		}
 	}
-	focus = {
+		focus = {
 		id = IRQ_euphrates_education
 		icon = GFX_focus_IRQ_education_reform
 		x = -1
@@ -1420,6 +1599,27 @@ focus_tree = {
 		completion_reward = {	
 		add_research_slot = 1
 		add_political_power = 10
+		}
+	}
+		focus = {
+		id = IRQ_euphrates_state
+		icon = GFX_focus_IRQ_reorganisation
+		x = 0
+		y = 1
+		cost = 3
+		available_if_capitulated = yes
+		relative_position_id = IRQ_euphrates_education
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_euphrates_education }
+		
+		completion_reward = {	
+		add_ideas = IRQ_reorganisation_of_the_state
+		add_stability = -0.2
 		}
 	}
 		focus= {
@@ -1471,6 +1671,88 @@ focus_tree = {
 		}
 		country_event = irq.23
 		}
+	}
+			focus = {
+		id = IRQ_tigris_hammurabi
+		icon = GFX_focus_IRQ_hammurabi
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_tigris_end_tribal_conflicts
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_tigris_end_tribal_conflicts }
+		completion_reward = { 
+		add_country_leader_trait = {
+				trait = new_hammurabi
+			}
+		}
+	}
+		focus = {
+		id = IRQ_tigris_new_iraq
+		icon = GFX_focus_IRQ_revolutionary_economy
+		x = 1
+		y = 1
+		cost = 7
+		available_if_capitulated = yes
+		relative_position_id = IRQ_tigris
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_tigris }
+		
+		completion_reward = {	
+		swap_ideas = {
+				remove_idea = regulated_market_economy
+				add_idea = state_economy
+			}
+		}
+	}
+	focus = {
+		id = IRQ_tigris_men_in_black
+		icon = GFX_focus_IRQ_men_in_black
+		x = 0
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_tigris_new_iraq
+		ai_will_do = {
+			factor = 10
+		}
+
+     
+		
+		prerequisite = { focus = IRQ_tigris_new_iraq }
+		
+		completion_reward = {	
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				if = {
+					limit = {
+						has_intelligence_agency = no
+					}
+
+					create_intelligence_agency = {
+						name = "Kengir Society"
+						icon = GFX_focus_IRQ_men_in_black
+					}
+				}
+				else = {
+					add_stability = 0.05
+				}
+		}
+		add_war_support = 0.05
+	}
 	}
 	focus = {
 		id = IRQ_tigris_new_babylon
@@ -1629,64 +1911,8 @@ focus_tree = {
 		}
 	}
 	
-	focus = {
-		id = IRQ_first_iraq_democracy_in_iraq
-		icon = GFX_focus_IRQ_demo
-		x = 40
-		y = 0
-		cost = 5
-		available_if_capitulated = yes
-		ai_will_do = {
-			factor = 10
-		}
-		
-		available = {
-		has_country_leader = {
-                    name = "Yasin Al Hashimi"
-                    ruling_only = yes
-                }
-				 }
-		
-	
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			add_political_power = 50
-			add_stability = 0.05
-			add_popularity = {
-				ideology = conservatism
-				popularity = 0.1
-			}
-			add_popularity = {
-				ideology = social_democrat
-				popularity = 0.1
-			}
-			add_ideas = IRQ_new_constitution
-		}
-	}
-	
-	focus = {
-		id = IRQ_first_iraq_fight_corruption
-		icon = GFX_focus_IRQ_corruption
-		x = -1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		relative_position_id = IRQ_first_iraq_democracy_in_iraq
-		ai_will_do = {
-			factor = 10
-		}
 
-		
-		prerequisite = { focus = IRQ_first_iraq_democracy_in_iraq }
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			add_stability = 0.1
-			add_political_power = 100
-			
-			
-		}
-	}
+	
 
 		focus = {
 		id = IRQ_i_am_iraq
@@ -1709,109 +1935,9 @@ focus_tree = {
 			add_ideas = IRQ_idea_i_am_iraq
 		}
 	}
-
-	focus = {
-		id = IRQ_first_iraq_promise_peace
-		icon = GFX_focus_IRQ_peace
-		x = 1
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		relative_position_id = IRQ_first_iraq_democracy_in_iraq
-		ai_will_do = {
-			factor = 10
-		}
-
- 
-		
-		prerequisite = { focus = IRQ_first_iraq_democracy_in_iraq }
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			add_stability = 0.05
-			add_war_support = -0.05
-			
-			
-		}
-	}
 	
-	focus = {
-		id = IRQ_first_iraq_hold_elections
-		icon = GFX_focus_IRQ_elections
-		x = 1
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		relative_position_id = IRQ_first_iraq_fight_corruption
-		ai_will_do = {
-			factor = 10
-		}
 
-     
-		
-		prerequisite = { focus = IRQ_first_iraq_fight_corruption }
-		prerequisite = { focus = IRQ_first_iraq_promise_peace }
-		
-		completion_reward = {	
-			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
-			country_event = irq.11
-			
-			
-		}
-	}
-	  focus = {
-		id = IRQ_rashid_ali
-		icon = GFX_focus_IRQ_rashid_ali
-		x = 0
-		y = 2
-		cost = 6
-		available_if_capitulated = yes
-		relative_position_id = IRQ_first_iraq_hold_elections
-		prerequisite = { focus = IRQ_first_iraq_hold_elections }
-		ai_will_do = {
-			factor = 10
-		}
-				available = {
-		has_country_leader = {
-                    name = "Rashid Ali al Gaylani"
-                    ruling_only = yes
-                }
-		has_government = national_syndicalism	
-				 }
-		
-		completion_reward = {	
-		add_stability = 0.05
-				add_popularity = {
-				ideology = national_syndicalism
-				popularity = 0.08
-			}
-		set_country_flag = IRQ_babylon
-		country_event = irq.16
 
-		}
-	}
-
-		focus = {
-		id = IRQ_stir_garden
-		icon = GFX_focus_IRQ_garden
-		x = 0
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		relative_position_id = IRQ_rashid_ali
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_rashid_ali }
-		
-		completion_reward = {	
-			add_stability = 0.05
-			add_political_power = 30
-		}
-	}
 		focus = {
 		id = IRQ_fourteen_tamouz
 		icon = GFX_focus_IRQ_tamouz_revolution
@@ -2199,139 +2325,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = IRQ_tigris
-		icon = GFX_focus_IRQ_tigris
-		x = 3
-		y = 1
-		cost = 5
-		available_if_capitulated = yes
-		relative_position_id = IRQ_stir_garden
-		ai_will_do = {
-			factor = 10
-		}
 
-     
-		
-		prerequisite = { focus = IRQ_stir_garden }
-		
-		completion_reward = {
-		add_war_support = 0.06
-		676 = {
-		add_extra_state_shared_building_slots = 1
-		increase_state_category_by_one_level = yes
-		}	
-		}
-	}
-
-	focus = {
-		id = IRQ_tigris_end_tribal_conflicts
-		icon = GFX_focus_IRQ_calm_the_tribes
-		x = -1
-		y = 1
-		cost = 6
-		available_if_capitulated = yes
-		relative_position_id = IRQ_tigris
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_tigris }
-		
-		completion_reward = {	
-		remove_ideas = {
-				IRQ_tribal_unrest
-			}
-		}
-	}
-
-		focus = {
-		id = IRQ_tigris_hammurabi
-		icon = GFX_focus_IRQ_hammurabi
-		x = 0
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		relative_position_id = IRQ_tigris_end_tribal_conflicts
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_tigris_end_tribal_conflicts }
-		completion_reward = { 
-		add_country_leader_trait = {
-				trait = new_hammurabi
-			}
-		}
-	}
-
-
-	focus = {
-		id = IRQ_tigris_new_iraq
-		icon = GFX_focus_IRQ_revolutionary_economy
-		x = 1
-		y = 1
-		cost = 7
-		available_if_capitulated = yes
-		relative_position_id = IRQ_tigris
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_tigris }
-		
-		completion_reward = {	
-		swap_ideas = {
-				remove_idea = regulated_market_economy
-				add_idea = state_economy
-			}
-		}
-	}
-
-		focus = {
-		id = IRQ_tigris_men_in_black
-		icon = GFX_focus_IRQ_men_in_black
-		x = 0
-		y = 1
-		cost = 10
-		available_if_capitulated = yes
-		relative_position_id = IRQ_tigris_new_iraq
-		ai_will_do = {
-			factor = 10
-		}
-
-     
-		
-		prerequisite = { focus = IRQ_tigris_new_iraq }
-		
-		completion_reward = {	
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				if = {
-					limit = {
-						has_intelligence_agency = no
-					}
-
-					create_intelligence_agency = {
-						name = "Kengir Society"
-						icon = GFX_focus_IRQ_men_in_black
-					}
-				}
-				else = {
-					add_stability = 0.05
-				}
-		}
-		add_war_support = 0.05
-	}
-	}
 		focus = {
 		id = IRQ_futuwwa_nationalization
 		icon = GFX_focus_IRQ_futuwwa_nationalization
