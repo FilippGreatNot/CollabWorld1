@@ -1,0 +1,179 @@
+guiTypes = {
+	containerWindowType = {
+		name = "CW_INTROW__GUI"
+		position = { x = 0 y = 0 }
+	 	size = { width = 1024 height= 703 }
+	 	moveable = no
+		origo = CENTER
+		orientation = CENTER
+		clipping = yes
+		show_sound = intel_mapmode
+		hide_sound = intel_mapmode
+		fade_time = 30000
+		fade_type = linear
+
+		background = {
+			name = "cw_introw__background"
+			quadTextureSprite = GFX_CW_INTRO__PARENT
+		}
+		
+		iconType = {
+	 		name ="cw_introw__top_extender"
+	 		spriteType = GFX_CW_INTRO__TOP
+	 		position = { x=0 y=0 }
+	 	}
+		iconType = {
+	 		name ="cw_introw__dapics"
+	 		spriteType = GFX_country_intro__GENERIC
+	 		position = { x=55 y=120 }
+			alwaystransparent = yes
+	 	}
+		containerWindowType = {
+			name = "CW_INTROWC__GUI"
+			position = { x = 0 y = 0 }
+			size = { width = 918 height= 359 }
+			moveable = no
+			origo = CENTER
+			orientation = CENTER
+			clipping = no
+			show_animation_type = linear
+			hide_animation_type = accelerated
+			hide_position = { x = -100 y = 90 }
+			show_position = { x = 0 y = 90 }
+			
+			buttonType = {
+				name = "cw_introw__crewcast_open_btn"
+				spriteType = GFX_CW_INTRO__CAST_SLIDER_BTN
+				position = { x = 885 y = 0 }
+				clicksound = click_chat
+				pdx_tooltip = cw_introw__crewcast_open_btn_tooltip
+				orientation = CENTER_RIGHT
+			}
+			iconType = {
+				name ="cw_introw__top_cast_slider"
+				spriteType = GFX_CW_INTRO__CAST_SLIDER
+				position = { x=5 y=0 }
+				alwaystransparent = no
+			}
+			buttonType = {
+				name = "cw_introw__crewcast_close_btn"
+				spriteType = GFX_CW_INTRO__CAST_SLIDER_BTN
+				position = { x = 4 y = 0 }
+				clicksound = click_chat
+				pdx_tooltip = cw_introw__crewcast_close_btn_tooltip
+				orientation = CENTER_RIGHT
+			}
+			instantTextBoxType = {
+				name ="cw_introw__cast_text"
+				position = { x = 50 y = 10 }
+				font = vic_22
+				text = "cw_introw__cast_text_loc"
+				format = left
+				maxWidth = 550
+				maxHeight = 330
+				scrollbarType = standardtext_slider
+			}
+			iconType = {
+				name = "cw_introw__cast_text_icon"
+				spriteType = GFX_frontend_game_logo
+				position = { x = 600 y = 10 }
+				scale = 0.5
+			}
+		}
+		iconType = {
+	 		name ="cw_introw__top_extender_cover"
+	 		spriteType = GFX_CW_INTRO__PICCOVER
+	 		position = { x=0 y=0 }
+			alwaystransparent = yes
+	 	}
+		iconType = {
+	 		name ="cw_introw__overlay"
+	 		spriteType = GFX_CW_INTRO__OVERLAY
+	 		position = { x=0 y=0 }
+			alwaystransparent = yes
+	 	}
+		buttonType = {
+	 		name ="cw_introw__mod_lore_btn"
+	 		spriteType = GFX_observer_button
+	 		position = { x=-420 y=-85 }
+			clicksound = click_chat
+			pdx_tooltip = cw_introw__mod_lore_btn__tooltip
+			orientation = CENTER_DOWN
+			scale = 0.8
+	 	}
+		buttonType = {
+	 		name ="cw_introw__country_lore_btn"
+	 		spriteType = GFX_lobby_country_mapmode_button
+	 		position = { x=-360 y=-85 }
+			clicksound = click_chat
+			pdx_tooltip = cw_introw__country_lore_btn__tooltip
+			orientation = CENTER_DOWN
+			scale = 0.8
+	 	}
+		
+		instantTextBoxType = {
+			name ="cw_introw__welcome_text"
+			position = { x = 263 y = 25 }
+			font = hoi_36header
+			text = "cw_introw__welcome_text_loc"
+			format = center
+			maxWidth = 500
+		}
+		instantTextBoxType = {
+			name ="cw_introw__country_name_playing_as"
+			position = { x = 263 y = 125 }
+			font = hoi_36header
+			text = "cw_introw__country_name_playing_as_loc"
+			format = center
+			maxWidth = 500
+		}
+		instantTextBoxType = {
+			name ="cw_introw__country_name_fake_outline"
+			position = { x = 263 y = 159 }
+			font = hoi_36header
+			text = "cw_introw__country_name_loc_outline"
+			format = center
+			maxWidth = 500
+		}
+		instantTextBoxType = {
+			name ="cw_introw__country_name"
+			position = { x = 263 y = 160 }
+			font = hoi_36header
+			text = "cw_introw__country_name_loc"
+			format = center
+			maxWidth = 500
+		}
+		
+		instantTextBoxType = {
+			name ="cw_introw__timeline_desc"
+			position = { x = 75 y = 275 }
+			font = vic_22
+			text = "cw_introw__timeline_desc_loc"
+			format = left
+			maxWidth = 550
+			maxHeight = 330
+			scrollbarType = standardtext_slider
+		}
+		instantTextBoxType = {
+			name ="cw_introw__country_desc"
+			position = { x = 75 y = 275 }
+			font = vic_22
+			text = "cw_introw__country_desc_loc"
+			format = left
+			maxWidth = 550
+			maxHeight = 330
+			scrollbarType = standardtext_slider
+		}
+		buttonType = {
+	 		name ="cw_introw__close_btn"
+	 		spriteType = GFX_play_button_ready
+	 		position = { x=0 y=-86 }
+			buttonFont = hoi_24header
+			buttonText = cw_introw__close_btn_txt
+			clicksound = click_close
+			shortcut = "ESCAPE"
+			orientation = CENTER_DOWN
+			scale = 1
+	 	}
+	}
+}
