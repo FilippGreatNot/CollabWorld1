@@ -9,6 +9,7 @@ scripted_gui = {
 				owner = { is_chinese_tag = yes }
 				OR = {
 					has_state_flag = xinjiang_state
+					has_state_flag = manchuria_state
 				}
 			}
 		}
@@ -22,9 +23,20 @@ scripted_gui = {
 		visible = {
 			AND = {
 				owner = { is_chinese_tag = yes }
-				OR = {
-					has_state_flag = xinjiang_state
-				}
+				has_state_flag = xinjiang_state
+			}
+		}
+	}
+
+	MAN_manchuria = {
+		context_type = selected_state_context
+		window_name = MAN_manchuria
+		parent_window_token = selected_state_view
+		ai_enabled = { always = no }
+		visible = {
+			AND = {
+				owner = { is_chinese_tag = yes }
+				has_state_flag = manchuria_state
 			}
 		}
 	}

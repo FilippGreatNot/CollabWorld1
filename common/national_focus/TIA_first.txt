@@ -230,7 +230,7 @@ focus_tree = {
 		y = 1
 		cost = 2
 		ai_will_do = {
-			factor = 10
+			factor = 20
 		}
 		prerequisite = { focus = TIA_at_the_edge_of_civilisation }
 		mutually_exclusive = { focus = TIA_the_tungan_republic }
@@ -550,7 +550,7 @@ focus_tree = {
 		y = 1
 		cost = 2
 		ai_will_do = {
-			factor = 40
+			factor = 20
 		}
 		prerequisite = { focus = TIA_at_the_edge_of_civilisation }
 		mutually_exclusive = { focus = TIA_a_turkic_state }
@@ -616,30 +616,9 @@ focus_tree = {
 	}
 
 	focus = {
-		id = TIA_small_border_skirmishes
-		icon = GFX_focus_generic_provoke_border_clashes
-		x = -1
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 10
-		}
-		available = {
-			always = no
-		}
-		relative_position_id = TIA_militarise_kashgar
-		prerequisite = { focus = TIA_militarise_kashgar }
-		mutually_exclusive = { focus = TIA_by_the_swords_edge }
-		completion_reward = {
-			custom_effect_tooltip = CHI_institute_cross_border_raids_effect_tooltip
-			set_country_flag = CHI_institute_cross_border_raids
-		}
-	}
-
-	focus = {
 		id = TIA_by_the_swords_edge
 		icon = GFX_focus_SWI_helvetic_junta
-		x = 1
+		x = 0
 		y = 1
 		cost = 10
 		ai_will_do = {
@@ -647,7 +626,6 @@ focus_tree = {
 		}
 		relative_position_id = TIA_militarise_kashgar
 		prerequisite = { focus = TIA_militarise_kashgar }
-		mutually_exclusive = { focus = TIA_small_border_skirmishes }
 		completion_reward = {
 			add_war_support = 0.05
 			create_wargoal = {
@@ -672,7 +650,7 @@ focus_tree = {
 	focus = {
 		id = TIA_integrate_hami
 		icon = GFX_focus_AST_rats_tobruk
-		x = -1
+		x = -2
 		y = 1
 		cost = 10
 		ai_will_do = {
@@ -681,8 +659,8 @@ focus_tree = {
 		available = {
 			owns_state = 760
 		}
-		relative_position_id = TIA_small_border_skirmishes
-		prerequisite = { focus = TIA_small_border_skirmishes focus = TIA_by_the_swords_edge }
+		relative_position_id = TIA_by_the_swords_edge
+		prerequisite = { focus = TIA_by_the_swords_edge }
 		completion_reward = {
 			760 = {
 				add_core_of = TIA
@@ -699,7 +677,7 @@ focus_tree = {
 	focus = {
 		id = TIA_integrate_the_center
 		icon = GFX_focus_spa_the_phalanx_ascendant
-		x = 1
+		x = 0
 		y = 1
 		cost = 10
 		ai_will_do = {
@@ -710,8 +688,8 @@ focus_tree = {
 			owns_state = 944
 			owns_state = 961
 		}
-		relative_position_id = TIA_small_border_skirmishes
-		prerequisite = { focus = TIA_small_border_skirmishes focus = TIA_by_the_swords_edge }
+		relative_position_id = TIA_by_the_swords_edge
+		prerequisite = { focus = TIA_by_the_swords_edge }
 		completion_reward = {
 			617 = {
 				add_core_of = TIA
@@ -746,7 +724,7 @@ focus_tree = {
 	focus = {
 		id = TIA_integrate_the_north
 		icon = GFX_focus_SOV_restore_cossack_units
-		x = 3
+		x = 2
 		y = 1
 		cost = 10
 		ai_will_do = {
@@ -757,8 +735,8 @@ focus_tree = {
 			owns_state = 936
 			owns_state = 962
 		}
-		relative_position_id = TIA_small_border_skirmishes
-		prerequisite = { focus = TIA_small_border_skirmishes focus = TIA_by_the_swords_edge }
+		relative_position_id = TIA_by_the_swords_edge
+		prerequisite = { focus = TIA_by_the_swords_edge }
 		completion_reward = {
 			618 = {
 				add_core_of = TIA
@@ -799,7 +777,7 @@ focus_tree = {
 		y = 1
 		cost = 2
 		ai_will_do = {
-			factor = 50
+			factor = 20
 		}
 		prerequisite = { focus = TIA_at_the_edge_of_civilisation }
 		mutually_exclusive = { focus = TIA_a_turkic_state }
@@ -870,7 +848,7 @@ focus_tree = {
 	focus = {
 		id = TIA_reinvigorate_shaowus_governorship
 		icon = GFX_goal_generic_demand_territory
-		x = -3
+		x = -2.5
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -899,7 +877,7 @@ focus_tree = {
 	focus = {
 		id = TIA_seize_hami
 		icon = GFX_focus_generic_annex_country
-		x = 1
+		x = 0
 		y = 1
 		cost = 5
 		ai_will_do = {

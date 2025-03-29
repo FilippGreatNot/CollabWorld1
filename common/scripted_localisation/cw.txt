@@ -7,11 +7,20 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetManchuriaStateName
+	text = {
+		trigger = { has_state_flag = manchuria_state }
+		localization_key = manchuria_state
+	}
+}
+
+defined_text = {
 	name = GetCountryIntroReply
-	text = { trigger = { is_german_tag = yes } localization_key = INTRO_REPLY__German }
+	text = { trigger = { is_german_tag = yes NOT = { original_tag = FGB } } localization_key = INTRO_REPLY__German }
 	text = { trigger = { is_russian_tag = yes } localization_key = INTRO_REPLY__Russian }
 	text = { trigger = { is_american_tag = yes } localization_key = INTRO_REPLY__American }
 	text = { trigger = { tag = IRQ } localization_key = INTRO_REPLY__IRQ }
+	text = { trigger = { tag = FGB } localization_key = INTRO_REPLY__FGB }
 	
 	text = { localization_key = INTRO_REPLY__Generic } # Do not add any countries below this line, the generic response must always be the last one.
 }
@@ -23,6 +32,7 @@ defined_text = {
 	text = { trigger = { tag = GER } localization_key = INTRO_TEXT__GER }
 	text = { trigger = { tag = IRQ } localization_key = INTRO_TEXT__IRQ }
 	text = { trigger = { tag = BAV } localization_key = INTRO_TEXT__BAV }
+	text = { trigger = { tag = FGB } localization_key = INTRO_TEXT__FGB }
 	
 	text = { localization_key = INTRO_TEXT__GENERIC } # Do not add any countries below this line, the generic response must always be the last one.
 }
@@ -34,4 +44,5 @@ defined_text = {
 	text = { trigger = { tag = GER } localization_key = GFX_country_intro__GER }
 	text = { trigger = { tag = IRQ } localization_key = GFX_country_intro__IRQ }
 	text = { trigger = { tag = BAV } localization_key = GFX_country_intro__BAV }
+	text = { trigger = { tag = FGB } localization_key = GFX_country_intro__FGB }
 }
