@@ -28,6 +28,39 @@ scripted_gui = {
 			}
 		}
 	}
+	
+	CW_intro_gui = {
+		context_type = player_context
+		window_name = CW_INTROW__GUI
+		ai_enabled = { always = no }
+		visible = { has_country_flag = CW_Intro__FLAG }
+		
+		triggers = {
+			cw_introw__country_desc_visible = { check_variable = { cw_introw_page = 1 } }
+			cw_introw__timeline_desc_visible = { check_variable = { cw_introw_page = 0 } }
+			cw_introw__top_cast_slider_visible = { check_variable = { cw_introw_page = 2 } }
+			cw_introw__crewcast_close_btn_visible = { check_variable = { cw_introw_page = 2 } }
+			cw_introw__cast_text_visible = { check_variable = { cw_introw_page = 2 } }
+			cw_introw__cast_text_icon_visible = { check_variable = { cw_introw_page = 2 } }
+		}
+		
+		effects = {
+			cw_introw__crewcast_open_btn_click = { set_variable = { cw_introw_page = 2 } }
+			cw_introw__country_lore_btn_click = { set_variable = { cw_introw_page = 1 } }
+			cw_introw__mod_lore_btn_click = { set_variable = { cw_introw_page = 0 } }
+			cw_introw__crewcast_close_btn_click = { set_variable = { cw_introw_page = 1 } }
+			cw_introw__close_btn_click = {
+				if = {
+					limit = { has_country_flag = CW_Intro__FLAG }
+					clr_country_flag = CW_Intro__FLAG
+					clear_variable = cw_introw_page
+					else = { set_country_flag = CW_Intro__FLAG } # Failsafe so the player doesn't get stuck
+				}
+			}
+		}
+		
+		properties = {
+			cw_introw__dapics = { image = "[ROOT.GetCountryPhoto]" }
+		}
+	}
 }
-			
-			

@@ -1,0 +1,148 @@
+focus_tree = {
+    id = ENG_first
+
+    country = {
+        base = 0
+        modifier = {
+            add = 10
+            tag = ENG
+        }
+    }
+    
+    focus = {
+        id = ENG_john_fc_fullers_britain
+        icon = GFX_focus_ENG_fullers_britain
+        x = 5
+        y = 0
+        cost = 3
+        completion_reward = {
+        }        
+    }
+    focus = {
+        id = ENG_discredit_the_royalist_exiles
+        icon = GFX_focus_ENG_discredit_the_royalist_exiles
+        relative_position_id = ENG_john_fc_fullers_britain
+        x = -1
+        y = 1
+        cost = 3
+        prerequisite = {
+            focus = ENG_john_fc_fullers_britain
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_crack_down_on_the_socialist_rioteers
+        icon = GFX_focus_ENG_crack_down_on_the_socialist_rioteers
+        relative_position_id = ENG_john_fc_fullers_britain
+        x = 1
+        y = 1
+        cost = 4
+        prerequisite = {
+            focus = ENG_john_fc_fullers_britain
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_reorganize_the_british_parliament
+        icon = GFX_focus_ENG_reorganize_the_british_parliament
+        relative_position_id = ENG_john_fc_fullers_britain
+        y = 2
+        cost = 6
+        prerequisite = {
+            focus = ENG_crack_down_on_the_socialist_rioteers
+        }
+		prerequisite = {
+            focus = ENG_discredit_the_royalist_exiles
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_manage_the_internal_house_of_cards
+        icon = GFX_focus_ENG_manage_the_internal_house_of_cards
+        relative_position_id = ENG_reorganize_the_british_parliament
+        y = 1
+        cost = 5
+        prerequisite = {
+            focus = ENG_reorganize_the_british_parliament
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_form_the_national_revolutionary_front
+        icon = GFX_focus_ENG_form_the_national_revolutionary_front
+        relative_position_id = ENG_manage_the_internal_house_of_cards
+		x = 1
+        y = 1
+        cost = 5
+		mutually_exclusive = {
+			focus = ENG_maintain_a_military_orientated_regime
+		}
+        prerequisite = {
+            focus = ENG_manage_the_internal_house_of_cards
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_maintain_a_military_orientated_regime
+        icon = GFX_focus_ENG_maintain_a_military_orientated_regime
+        relative_position_id = ENG_manage_the_internal_house_of_cards
+		x = -1
+        y = 1
+        cost = 5
+		mutually_exclusive = {
+			focus = ENG_form_the_national_revolutionary_front
+		}
+        prerequisite = {
+            focus = ENG_manage_the_internal_house_of_cards
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_appease_crowleys_occultists
+        icon = GFX_focus_ENG_appease_crowleys_occultists
+        relative_position_id = ENG_form_the_national_revolutionary_front
+        y = 1
+        cost = 5
+		mutually_exclusive = {
+			focus = ENG_calm_down_the_english_church
+		}
+        prerequisite = {
+            focus = ENG_form_the_national_revolutionary_front focus = ENG_maintain_a_military_orientated_regime
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_calm_down_the_english_church
+        icon = GFX_focus_ENG_calm_down_the_english_church
+        relative_position_id = ENG_maintain_a_military_orientated_regime
+        y = 1
+        cost = 5
+		mutually_exclusive = {
+			focus = ENG_appease_crowleys_occultists
+		}
+        prerequisite = {
+            focus = ENG_form_the_national_revolutionary_front focus = ENG_maintain_a_military_orientated_regime
+        }
+        completion_reward = {
+        }
+    }
+	focus = {
+        id = ENG_strenghten_fullers_grip_on_the_coalition
+        icon = GFX_focus_ENG_strenghten_fullers_grip_on_the_coalition
+        relative_position_id = ENG_manage_the_internal_house_of_cards
+        y = 3
+        cost = 5
+        prerequisite = {
+            focus = ENG_appease_crowleys_occultists focus = ENG_calm_down_the_english_church
+        }
+        completion_reward = {
+        }
+    }
+}
