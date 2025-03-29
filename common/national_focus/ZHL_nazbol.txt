@@ -95,28 +95,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id =  ZHL_national_bolshevik_army
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { }
-		
-        x = 32
-        y = 1
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
 		id =  ZHL_national_bolshevik_economy
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { }
 		
-        x = 21
+        x = 24	
         y = 1
 		
         cost = 5
@@ -211,33 +194,20 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_bolshevik_nationalization
+		id = ZHL_forced_atheism
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_national_bolshevik_economy }
+		prerequisite = { focus = ZHL_crush_the_chinesse_resistance focus = ZHL_peacefull_integration_chinesse }
 		
-        x = 21
-        y = 2
+        x = 3
+        y = 6
 		
-        cost = 5
+        cost = 4
 
 		available = {
-		}
+		}	
 
 		completion_reward = {
-		   swap_ideas = {
-				remove_idea = ZHL_stagnant_economy
-				add_idea = ZHL_stagnant_economy3
-			}
-			add_stability = -0.05
-			714 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build  = yes
-				}
-			}
-
+			
 		}
 		
 		allow_branch = {
@@ -245,12 +215,76 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_forced_atheism
+		id = ZHL_raid_white_supporters
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_crush_the_chinesse_resistance focus = ZHL_peacefull_integration_chinesse }
+		prerequisite = { focus = ZHL_control_over_people }
+		prerequisite = { focus = ZHL_inspiration_from_joseph_goebells }
 		
-        x = 3
-        y = 6
+        x = 12
+        y = 7
+		
+        cost = 4
+
+		available = {
+		}	
+
+		completion_reward = {
+			
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_modernize_road_system
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_industrialisation2 }
+		
+        x = 22
+        y = 3
+		
+        cost = 4
+
+		available = {
+		}	
+
+		completion_reward = {
+			
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_one_party_one_state
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_cooperate_with_ashan focus = ZHL_raid_white_supporters }
+		
+        x = 11
+        y = 8
+		
+        cost = 4
+
+		available = {
+		}	
+
+		completion_reward = {
+			
+		}
+		
+		allow_branch = {
+		}
+	}
+
+		focus = {
+		id = ZHL_praise_october_revolution
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_the_red_vohzd }
+		
+        x = 8
+        y = 7
 		
         cost = 4
 
@@ -290,73 +324,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_colectivisation
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_bolshevik_nationalization }
-		mutually_exclusive = { focus = ZHL_industrialisation2 }
-		
-        x = 22
-        y = 3
-		
-        cost = 5
-
-		available = {
-		}
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
 		id = ZHL_industrialisation2
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_bolshevik_nationalization }
-		mutually_exclusive = { focus = ZHL_colectivisation }
+		prerequisite = { focus = ZHL_national_bolshevik_economy }
 		
-        x = 20
-        y = 3
-		
-        cost = 5
-
-		available = {
-		}
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_eurasian_expansion
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { }
-		
-        x = 14
-        y = 1
-		
-        cost = 5
-
-		available = {
-		}
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_mongolian_operation
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_eurasian_expansion }
-		
-        x = 12
+        x = 21
         y = 2
 		
         cost = 5
@@ -372,11 +344,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_
+		id = ZHL_our_own_strasserism
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_eurasian_expansion }
+		prerequisite = { focus = ZHL_national_bolshevik_economy }
 		
-        x = 12
+        x = 27
         y = 2
 		
         cost = 5
@@ -391,33 +363,12 @@ focus_tree = {
 		}
 	}
 
-
-	focus = {
-		id = ZHL_contact_far_eastern_bolsheviks
+		focus = {
+		id = ZHL_increase_factory_workers_control
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_eurasian_expansion }
+		prerequisite = { focus = ZHL_our_own_strasserism }
 		
-        x = 16
-        y = 2
-		
-        cost = 5
-
-		available = {
-		}
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_invade_far_eastern_russia
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_contact_far_eastern_bolsheviks }
-		
-        x = 17
+        x = 28
         y = 3
 		
         cost = 5
@@ -433,12 +384,53 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_march_in_to_siberia
+		id = ZHL_forced_collectivisation
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_contact_far_eastern_bolsheviks }
+		prerequisite = { focus = ZHL_our_own_strasserism }
 		
-        x = 15
+        x = 26
         y = 3
+		
+        cost = 5
+
+		available = {
+		}
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_construct_more_kolkhozy
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_forced_collectivisation }
+		
+        x = 25
+        y = 4
+		
+        cost = 5
+
+		available = {
+		}
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+
+	focus = {
+		id = ZHL_embrace_planed_economy
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_our_own_strasserism }
+		
+        x = 27
+        y = 4
 		
         cost = 5
 
@@ -459,6 +451,30 @@ focus_tree = {
 		
         x = 7
         y = 6
+		
+        cost = 8
+
+		available = {
+		}
+
+		completion_reward = {
+		   add_country_leader_trait = {
+				ideology = bolshevism
+				trait = ZHL_red_vohzd
+			}
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_strengthen_workers_control
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_the_red_vohzd }
+		
+        x = 6
+        y = 7
 		
         cost = 8
 
