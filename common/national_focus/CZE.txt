@@ -748,6 +748,12 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 3
+		completion_reward = {
+		    add_popularity = {
+			    ideology = despotism
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 	    id = CZE_national_czechoslovak_bloc
@@ -757,6 +763,24 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 3
+		completion_reward = { 
+		    set_party_name = {
+			    ideology = despotism 
+				name = CZE_despotism_ncb
+				long_name = CZE_despotism_ncb_long
+			}
+			set_party_name = {
+			    ideology = authoritarian_democrat
+				name = CZE_authdem_ncb
+				long_name = CZE_authdem_ncb_long
+			}
+			set_party_name = {
+			    ideology = liberalism
+				name = CZE_liberalism_ncb
+				long_name = CZE_liberalism_ncb_long
+			}
+			add_political_power = 100
+		}
 	}
 	focus = {
 	    id = CZE_goodbye_to_syrovy
@@ -765,6 +789,27 @@ focus_tree = {
 		x = 0
 		y = 1
 		cost = 10
+		completion_reward = {
+		    set_politics = {
+			    ruling_party = despotism
+			}
+			add_popularity = {
+			    ideology = despotism
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+	    id = CZE_and_hello_to_kramar
+		relative_position_id = CZE_goodbye_to_syrovy
+		prerequisite = { focus = CZE_goodbye_to_syrovy }
+		x = 0
+		y = 1
+		cost = 5
+		completion_reward = {
+		    add_stability = 0.05
+			add_political_power = 75
+		}
 	}
 	focus = {
 	    id = CZE_gajda_wins

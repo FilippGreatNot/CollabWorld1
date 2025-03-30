@@ -529,6 +529,21 @@ FGB_industrial_category = {
 			political_power_cost = 0.15
 			consumer_goods_factor = 0.1
 		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { has_idea = FGB_the_power_of_beer } }
+				add_ideas = {
+					FGB_the_power_of_beer
+				}
+			}
+			else_if = {
+				limit = { has_idea = FGB_the_power_of_beer }
+				swap_ideas = {
+					remove_idea = FGB_the_power_of_beer
+					add_idea = FGB_the_power_of_beer2
+				}
+			}
+		}
 		remove_effect = {
 			add_stability = 0.04
 			52 = {
@@ -702,6 +717,21 @@ FGB_industrial_category = {
 		modifier = {
 			political_power_cost = 0.15
 			consumer_goods_factor = 0.1
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { has_idea = FGB_the_power_of_beer } }
+				add_ideas = {
+					FGB_the_power_of_beer
+				}
+			}
+			else_if = {
+				limit = { has_idea = FGB_the_power_of_beer }
+				swap_ideas = {
+					remove_idea = FGB_the_power_of_beer
+					add_idea = FGB_the_power_of_beer2
+				}
+			}
 		}
 		remove_effect = {
 			add_stability = 0.04
