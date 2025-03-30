@@ -1,0 +1,53 @@
+ENG_Influence_Shit = {
+    ENG_influence_debug_add_10_mil = {
+		# Usage example for modifying influence and loyalty variables
+		# One has to first choose how much influence/loyalty change he wants by defining a temporary variable in the decimal format (0.1 = 10) and then fire the associated scripted effect.
+		
+		available = {
+			check_variable = { INF_ROTSCHILD > 0.5		tooltip = ROTSCHILD_MORE_THAN_50INF }
+			check_variable = { INF_ROTSCHILD > 0.5		tooltip = ROTSCHILD_MORE_THAN_50LOY }
+		}
+		# Full list of checkable variables - INF for Influence and LOY for Loyalty
+		# You will have to define a tooltip loc for the checks that you make, located in ENG_l_english.yml
+		# 	INF_FULLER_CLIQUE		LOY_FULLER_CLIQUE
+		# 	INF_BRITISH_MILITARY	LOY_BRITISH_MILITARY
+		# 	INF_CROWLEYITES			LOY_CROWLEYITES
+		# 	INF_ROTSCHILD				LOY_ROTSCHILD
+		# 	INF_NATIONALIST			LOY_NATIONALIST
+		
+		
+		name = "(DEBUG) - Example Decision"
+		visible = { is_debug = yes }
+		complete_effect = {
+			# -- FULLER VARS --
+			set_temp_variable = { TEMP_INF_FULLER_CLIQUE = 0.1 }
+			ENG_update_fuller_influence = yes
+			set_temp_variable = { TEMP_LOY_FULLER_CLIQUE = 0.1 }
+			ENG_update_fuller_loyalty = yes
+			
+			# -- MILITARY VARS --
+			set_temp_variable = { TEMP_INF_BRITISH_MILITARY = 0.1 }
+			ENG_update_military_influence = yes
+			set_temp_variable = { TEMP_LOY_BRITISH_MILITARY = 0.1 }
+			ENG_update_military_loyalty = yes
+			
+			# -- CROWLEYITE VARS --
+			set_temp_variable = { TEMP_INF_CROWLEY = 0.1 }
+			ENG_update_crowley_influence = yes
+			set_temp_variable = { TEMP_LOY_CROWLEY = 0.1 }
+			ENG_update_crowley_loyalty = yes
+			
+			# -- ROTSCHILD VARS --
+			set_temp_variable = { TEMP_INF_ROTSCHILD = 0.1 }
+			ENG_update_rotschild_influence = yes
+			set_temp_variable = { TEMP_LOY_ROTSCHILD = 0.1 }
+			ENG_update_rotschild_loyalty = yes
+			
+			# -- NATIONALIST VARS --
+			set_temp_variable = { TEMP_INF_NATIONALIST = 0.1 }
+			ENG_update_nationalist_influence = yes
+			set_temp_variable = { TEMP_LOY_NATIONALIST = 0.1 }
+			ENG_update_nationalist_loyalty = yes
+		}
+    }
+}
