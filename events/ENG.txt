@@ -66,13 +66,70 @@ country_event = {
 	desc = eng.4.d
 	picture = GFX_report_event_english_church
 	is_triggered_only = yes
-
-	option = {
-		name = eng.3.a
+	
+    option = {
+		name = eng.4.a
 		add_popularity = {
 				ideology = reactionism
 				popularity = 0.02
 			}
 		add_political_power = 15
+		}
+		}
+	
+country_event = {
+	id = eng.5
+	title = eng.5.t
+	desc = eng.5.d
+	picture = GFX_report_event_rotha
+	is_triggered_only = yes
+
+	option = {
+		name = eng.5.a
+		set_temp_variable = { TEMP_LOY_NATIONALIST = -0.1 }
+		ENG_update_nationalist_loyalty = yes
+		}
+	}
+country_event = {
+	id = eng.6
+	title = eng.6.t
+	desc = eng.6.d
+	picture = GFX_report_event_rotha
+	fire_only_once = yes
+    
+	trigger = {
+         tag = ENG
+         check_variable = { INF_NATIONALIST > 0.8 }
+         check_variable = { LOY_NATIONALIST < 0.2 }
+     }
+
+	option = {
+		name = eng.6.a
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.1
+			}
+			
+			add_political_power = 75
+			
+			news_event = eng.7
+			
+			clr_country_flag = ENG_influence_shenanigans
+
+			set_politics = {
+				ruling_party = reactionism
+			}
+		}
+	}
+	
+news_event = {
+	id = eng.7
+	title = eng.7.t
+	desc = eng.7.d
+	picture = GFX_news_event_rotha
+	is_triggered_only = yes
+
+	option = {
+		name = eng.7.a
 		}
 	}
