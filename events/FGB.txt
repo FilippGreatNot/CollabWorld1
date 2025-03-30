@@ -2757,6 +2757,9 @@ country_event = {
 		add_stability = -0.04
 		set_country_flag = FGB_rohm_the_last_steps_flag
 		set_country_flag = FGB_eco_flag
+		add_ideas = {
+			FGB_noske_overstretched_industry
+		}
 		hidden_effect = {
 			if = { limit = { country_exists = PLA } set_country_flag = FGB_rohm_crushing_the_pla_flag }
 			country_event = { id = fgb.117 days = 1 }
@@ -2924,6 +2927,8 @@ country_event = {
 					FWG_public_mining_works_idea2
 					FWG_public_mining_works_idea3
 					FWG_effects_from_the_rotflucht
+					FWG_effects_from_the_rotflucht_a
+					FWG_effects_from_the_rotflucht_b
 					FWG_multiethnic_army
 					FWG_multiethnic_army2
 					FWG_multiethnic_army3
@@ -2962,6 +2967,11 @@ country_event = {
 					FWG_defending_the_south
 					FWG_defending_the_east
 					FWG_dictatorship_of_the_proletariat
+					FWG_quantity
+					FWG_quantity2
+					FWG_quality
+					FWG_quality2
+					FWG_true_revolution
 				}
 				add_ideas = {
 					VDW_dreams_of_a_volksreich
@@ -3070,6 +3080,25 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = fgb.121
+	title = fgb.121.t
+	desc = fgb.121.d
+	picture = GFX_report_event_sturmabteilung
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.121.a
+		ai_chance = {
+			base = 40
+		}
+		add_war_support = 0.1
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+}
 
 country_event = {
 	id = rohm_diplomacy.1
