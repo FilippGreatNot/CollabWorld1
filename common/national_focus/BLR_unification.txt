@@ -1,0 +1,307 @@
+#!gfx:interface/country/russia/BLR/BLR_focus.gfx
+#!gfx:interface/country/germany/UVS/UVS_focus.gfx
+focus_tree = {
+	id = BLR_unification
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BLR
+		}
+	}
+	
+	default = no
+	
+	focus = {
+		id = BLR_the_real_leader_of_the_revolution_unif
+		icon = GFX_focus_BLR_leader
+		cost = 5
+		x = 17
+		y = 0
+		available = { has_completed_focus = BLR_disconnect_from_the_union }
+		available = { date > 1925.1.30 }
+		completion_reward = {
+		add_stability = 0.025
+		add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = BLR_revenge_against_the_makhnovists_unif
+		icon = GFX_focus_BLR_makhno
+		cost = 5
+		prerequisite = { focus = BLR_the_real_leader_of_the_revolution }
+		x = 16
+		y = 1
+		bypass = {
+			NOT = { country_exists = UKR }
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = UKR
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			UKR = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = BLR_strike_pavels_corrupt_band_unif
+		icon = GFX_focus_BLR_pavel
+		cost = 5
+		prerequisite = { focus = BLR_the_real_leader_of_the_revolution }
+		x = 18
+		y = 1
+		bypass = {
+			NOT = { country_exists = WVA }
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = WVA
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = WVA
+				type = annex_everything
+			}
+			WVA = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = BLR_take_the_reigns_of_the_moscow_soviet_unif
+		icon = GFX_focus_BLR_moscow
+		cost = 5
+		prerequisite = { focus = BLR_strike_pavels_corrupt_band }
+		prerequisite = { focus = BLR_revenge_against_the_makhnovists }
+		x = 17
+		y = 2
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+			SOV = { make_every_core_national_for_PREV = yes }
+		    set_cosmetic_tag = BLR_military_government
+		}
+	}
+	focus = {
+		id = BLR_end_the_cossack_threat_unif
+		icon = GFX_focus_BLR_threat
+		cost = 5
+		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
+		x = 15
+		y = 3
+		bypass = {
+			NOT = { country_exists = OCG } 
+		}
+		available = {
+			has_war = no
+			is_neighbor_of = OCG
+		}
+		completion_reward = {
+		    declare_war_on = {
+				target = OCG
+				type = annex_everything
+			}
+			OCG = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = BLR_the_southernmost_frontier_unif
+		icon = GFX_focus_BLR_cossack
+		cost = 5
+		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
+		x = 17
+		y = 3
+		available = { has_war = no }
+		completion_reward = {
+		    declare_war_on = {
+				target = SRF
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ARM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GEO
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = AZR
+				type = annex_everything
+			}
+			SRF = { make_every_core_national_for_PREV = yes }
+			AZR = { make_every_core_national_for_PREV = yes }
+			GEO = { make_every_core_national_for_PREV = yes }
+			ARM = { make_every_core_national_for_PREV = yes }
+		
+		}
+	}
+	focus = {
+		id = BLR_expand_the_baku_oil_refineries_unif
+		icon = GFX_focus_BLR_baku
+		cost = 5
+		prerequisite = { focus = BLR_the_southernmost_frontier }
+		x = 17
+		y = 4
+		available = { has_war = no }
+		completion_reward = {
+		     908 = {
+				add_resource = {
+					type = oil
+					amount = 48
+				}
+			}
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = BLR_retake_the_siberian_wastes_unif
+		icon = GFX_focus_BLR_kolchak
+		cost = 5
+		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
+		x = 19
+		y = 3
+		available = { has_war = no }
+		completion_reward = {
+		    declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+            RUS = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = BLR_clean_the_steppes_unif
+		icon = GFX_focus_BLR_steppe
+		cost = 5
+		prerequisite = { focus = BLR_end_the_cossack_threat }
+		x = 15
+		y = 4
+		available = { has_war = no }
+		completion_reward = {
+		     declare_war_on = {
+				target = TMS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KAZ
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KYR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = KHI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = MNS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BSM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BUK
+				type = annex_everything
+			}
+			TMS = { make_every_core_national_for_PREV = yes }
+			KYR = { make_every_core_national_for_PREV = yes }
+			KAZ = { make_every_core_national_for_PREV = yes }
+			BUK = { make_every_core_national_for_PREV = yes }
+			KHI = { make_every_core_national_for_PREV = yes }
+			BSM = { make_every_core_national_for_PREV = yes }
+			MNS = { make_every_core_national_for_PREV = yes }
+		
+		}
+	}
+	focus = {
+		id = BLR_the_easternmost_point_unif
+		icon = GFX_focus_BLR_east
+		cost = 5
+		prerequisite = { focus = BLR_retake_the_siberian_wastes }
+		x = 19
+		y = 4
+		 available = {
+            has_war = no
+			OR = {
+           		is_neighbor_of = KMP
+				is_neighbor_of = FER
+				is_neighbor_of = FSR
+			}
+        }
+		bypass = {
+			NOT = {
+				country_exists = KMP
+				country_exists = FER
+				country_exists = FSR
+			}
+		}
+		completion_reward = {
+            declare_war_on = {
+                target = FER
+                type = annex_everything
+            }
+            FER = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+            KMP = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+                target = FSR
+                type = annex_everything
+            }
+            FSR = { make_every_core_national_for_PREV = yes }
+		}
+	}
+	focus = {
+		id = BLR_the_triumph_of_war_socialism_unif
+		icon = GFX_focus_BLR_triumph
+		cost = 5
+		prerequisite = { focus = BLR_expand_the_baku_oil_refineries }
+		prerequisite = { focus = BLR_the_easternmost_point }
+		prerequisite = { focus = BLR_clean_the_steppes }
+		x = 17
+		y = 5
+		available = {
+		   has_war = no
+			NOT = {
+				country_exists = SOV
+				country_exists = RUS
+				country_exists = WVA
+				country_exists = UKR
+				country_exists = ARM
+				country_exists = AZR
+				country_exists = GEO
+				country_exists = SRF
+				country_exists = OCG
+				country_exists = TMS
+				country_exists = KAZ
+				country_exists = KYR
+				country_exists = BSM
+				country_exists = MNS
+				country_exists = BUK
+				country_exists = KHI
+				country_exists = FER
+				country_exists = FSR
+				country_exists = KMP
+			}
+		}
+		completion_reward = {
+		    add_stability = 0.1
+			set_cosmetic_tag = BLR_united
+			news_event = tukha.8
+		}
+	}
+}

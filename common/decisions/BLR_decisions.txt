@@ -1,0 +1,20 @@
+BLR_decisions_category = {
+	BLR_annex_all = { 
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			for_each_scope_loop = {
+				array = global.russian_tags
+				if = {
+					limit = {
+						NOT = { tag = PREV }
+					}
+					ROOT = {
+						annex_country = { target = PREV }
+					}
+				}
+			}
+		}
+	}	
+}

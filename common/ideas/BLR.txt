@@ -68,10 +68,11 @@ ideas = {
 		}
 		
 		BLR_loyal_polish_workers = {
-			picture = UVS_disorganised_socialist_militias
+			picture = BLR_soviet_man
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
-				stability_weekly = 0.002
+				production_factory_max_efficiency_factor = 0.075
+				industrial_capacity_factory = 0.1
 			}
 		}
 		
@@ -95,8 +96,7 @@ ideas = {
 		
 		BLR_healthy_soldiers = {
 			modifier = {
-				army_org_factor = 0.1
-				monthly_population = 0.08
+				army_org_factor = 0.05
 				army_morale_factor = 0.05
 			}
 		}
@@ -115,8 +115,9 @@ ideas = {
 			picture = BLR_political
 			modifier = {
 				army_org_factor = -0.05
-				bolshevism_drift = 0.05
-				war_support_factor = 0.05
+				bolshevism_drift = 0.1
+				war_support_factor = 0.075
+				stability_factor = 0.05
 			}
 		}
 		
@@ -124,7 +125,7 @@ ideas = {
 			picture = BLR_apolitical
 			modifier = {
 				army_org_factor = 0.05
-				political_power_gain = -0.05
+				political_power_gain = -0.1
 			}
 		}
 		
@@ -132,15 +133,16 @@ ideas = {
 			picture = BLR_apolitical
 			name = BLR_apolitical_army_doctrine
 			modifier = {
-				army_org_factor = 0.08
+				army_org_factor = 0.075
 				political_power_gain = -0.05
+				land_doctrine_cost_factor = -0.1
 			}
 		}
 		
 		BLR_red_army_doctrine = {
 			picture = BLR_mass
 			modifier = {
-				cat_mass_assault_cost_factor = -0.2
+				cat_mass_assault_cost_factor = -0.25
 			}
 		}
 		
@@ -148,7 +150,7 @@ ideas = {
 			name = BLR_red_army_doctrine
 			picture = BLR_mobile
 			modifier = {
-				cat_mobile_warfare_cost_factor = -0.2
+				cat_mobile_warfare_cost_factor = -0.25
 			}
 		}
 		
@@ -159,5 +161,13 @@ ideas = {
 				political_power_gain = 0.06
 			}
 		}
+		BLR_soviet_war = {
+			icture = BLR_soviet_war
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			}
+		}		
 	}
 }

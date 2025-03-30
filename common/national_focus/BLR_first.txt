@@ -15,7 +15,7 @@ focus_tree = {
 	focus = {
 		id = BLR_tukhachevskys_regime_must_fall
 		icon = GFX_focus_BLR_fall
-		cost = 5
+		cost = 4
 		x = 2
 		y = 0
 		ai_will_do = { base = 9999 }
@@ -32,7 +32,7 @@ focus_tree = {
 		id = BLR_the_regime_of_the_red_napoleon
 		icon = GFX_focus_BLR_red_napoleon
 		cost = 5
-		x = 7
+		x = 8
 		y = 0
 		completion_reward = {
 		    add_political_power = 25 
@@ -46,7 +46,7 @@ focus_tree = {
 		id = BLR_the_real_leader_of_the_revolution
 		icon = GFX_focus_BLR_leader
 		cost = 5
-		x = 17
+		x = 18
 		y = 0
 		available = { has_completed_focus = BLR_disconnect_from_the_union }
 		available = { date > 1925.1.30 }
@@ -102,7 +102,7 @@ focus_tree = {
 	focus = {
 		id = BLR_smuggle_guns_through_silesia
 		icon = GFX_focus_BLR_smuggle
-		cost = 5
+		cost = 4
 		ai_will_do = { base = 9999 }
 		prerequisite = { focus = BLR_tukhachevskys_regime_must_fall }
 		x = 1
@@ -121,7 +121,7 @@ focus_tree = {
 	focus = {
 		id = BLR_sabotage_the_belarussian_industry
 		icon = GFX_focus_BLR_sabotage
-		cost = 5
+		cost = 4
 		ai_will_do = { base = 9999 }
 		prerequisite = { focus = BLR_tukhachevskys_regime_must_fall }
 		x = 3
@@ -140,7 +140,7 @@ focus_tree = {
 	focus = {
 		id = BLR_throw_the_muscovites_out_now
 		icon = GFX_focus_BLR_muscov
-		cost = 5
+		cost = 1
 		ai_will_do = { base = 9999 }
 		prerequisite = { focus = BLR_smuggle_guns_through_silesia }
 		prerequisite = { focus = BLR_sabotage_the_belarussian_industry }
@@ -156,7 +156,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_call_to_moscow
 		cost = 5
 		prerequisite = { focus = BLR_the_regime_of_the_red_napoleon }
-		x = 6
+		x = 7
 		y = 1
 		completion_reward = {
 		     country_event = tukha.10
@@ -167,7 +167,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_observe_locals
 		cost = 5
 		prerequisite = { focus = BLR_the_regime_of_the_red_napoleon }
-		x = 8
+		x = 9
 		y = 1
 		completion_reward = {
 		     add_political_power = 75
@@ -179,7 +179,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = BLR_a_call_to_moscow }
 		prerequisite = { focus = BLR_observe_the_situation }
-		x = 7
+		x = 8
 		y = 2
 		completion_reward = { 
 			country_event = tukha.9 
@@ -190,7 +190,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_land_reform_question
 		cost = 5
 		prerequisite = { focus = BLR_the_matters_of_the_district }
-		x = 3
+		x = 4
 		y = 3
 		completion_reward = {
 			country_event = tukha.6
@@ -199,11 +199,11 @@ focus_tree = {
 	focus = {
 		id = BLR_the_plan_was_a_mistake
 		icon = GFX_focus_BLR_mistake
-		cost = 5
+		cost = 4.4
 		prerequisite = { focus = BLR_the_question_of_the_land_reforms }
 		available = { has_country_flag = land_reforms_no }
 		mutually_exclusive = { focus = BLR_to_finish_what_we_started }
-		x = 2
+		x = 3
 		y = 4
 		completion_reward = {
 		       swap_ideas = {
@@ -220,7 +220,7 @@ focus_tree = {
 		prerequisite = { focus = BLR_the_question_of_the_land_reforms }
 		mutually_exclusive = { focus = BLR_the_plan_was_a_mistake }
 		available = { has_country_flag = land_reforms_yes }
-		x = 4
+		x = 5
 		y = 4
 		completion_reward = {
 		     add_political_power = 50
@@ -232,7 +232,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_resistance_question
 		cost = 5
 		prerequisite = { focus = BLR_the_matters_of_the_district }
-		x = 7
+		x = 8
 		y = 3
 		completion_reward = { 
 			country_event = tukha.7 
@@ -241,11 +241,11 @@ focus_tree = {
 	focus = {
 		id = BLR_teach_them_the_way_of_the_revolution
 		icon = GFX_focus_BLR_teach
-		cost = 7
+		cost = 7.2
 		prerequisite = { focus = BLR_the_question_of_the_resistance }
 		mutually_exclusive = { focus = BLR_strike_fear_into_their_hearts }
 		available = { has_country_flag = good_tukha }
-		x = 6
+		x = 7
 		y = 4
 		completion_reward = {
 		     add_popularity = {
@@ -258,9 +258,9 @@ focus_tree = {
 	focus = {
 		id = BLR_liberation_of_the_polish_workers
 		icon = GFX_focus_BLR_liberation
-		cost = 8
+		cost = 7.2
 		prerequisite = { focus = BLR_teach_them_the_way_of_the_revolution }
-		x = 6
+		x = 7
 		y = 5
 		completion_reward = {
 		       swap_ideas = {
@@ -278,7 +278,7 @@ focus_tree = {
 		prerequisite = { focus = BLR_the_question_of_the_resistance }
 		mutually_exclusive = { focus = BLR_teach_them_the_way_of_the_revolution }
 		available = { has_country_flag = evil_tukha }
-		x = 8
+		x = 9
 		y = 4
 		completion_reward = {
 		     add_stability = -0.05
@@ -291,7 +291,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_hideouts
 		cost = 3
 		prerequisite = { focus = BLR_strike_fear_into_their_hearts }
-		x = 8
+		x = 9
 		y = 5
 		completion_reward = {
 		     swap_ideas = {
@@ -311,7 +311,7 @@ focus_tree = {
 			focus = BLR_raid_their_hideouts
 			focus = BLR_liberation_of_the_polish_workers
 		}
-		x = 7
+		x = 8
 		y = 6
 		completion_reward = {
 		    remove_ideas = BLR_polish_resistance2
@@ -334,7 +334,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_loyalty_question
 		cost = 5
 		prerequisite = { focus = BLR_the_matters_of_the_district }
-		x = 11
+		x = 12
 		y = 3
 		completion_reward = {
 		    country_event = tukha.5
@@ -347,7 +347,7 @@ focus_tree = {
 		prerequisite = { focus = BLR_where_do_our_loyalties_lie }
 		mutually_exclusive = { focus = BLR_loyalty_to_moscow }
 		available = { has_country_flag = loyal_to_tukha }
-		x = 10
+		x = 11
 		y = 4
 		completion_reward = {
 		     add_war_support = 0.05
@@ -359,7 +359,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_disconnect
 		cost = 5
 		prerequisite = { focus = BLR_loyalty_to_the_red_napoleon }
-		x = 10
+		x = 11
 		y = 5
 		completion_reward = {
 		     SOV = {
@@ -378,7 +378,7 @@ focus_tree = {
 		prerequisite = { focus = BLR_where_do_our_loyalties_lie }
 		mutually_exclusive = { focus = BLR_loyalty_to_the_red_napoleon }
 		available = { has_country_flag = loyal_to_lenin }
-		x = 12
+		x = 13
 		y = 4
 		completion_reward = {
 		      add_political_power = 25
@@ -402,7 +402,7 @@ focus_tree = {
 		icon = GFX_focus_UVS_invite_experts
 		cost = 5
 		prerequisite = { focus = BLR_loyalty_to_moscow }
-		x = 12
+		x = 13
 		y = 5
 		completion_reward = {
 		     add_ideas = BLR_soviet_economic_support
@@ -417,7 +417,7 @@ focus_tree = {
 			focus = BLR_seek_soviet_economic_support
 			focus = BLR_disconnect_from_the_union
 		}
-		x = 11
+		x = 12
 		y = 6
 		completion_reward = {
 		     add_war_support = 0.05
@@ -431,7 +431,7 @@ focus_tree = {
 		prerequisite = { focus = BLR_the_polish_socialist_synthesis }
 		prerequisite = { focus = BLR_the_frontier_of_the_revolution }
 		prerequisite = { focus = BLR_fight_the_post_war_corruption }
-		x = 7
+		x = 8
 		y = 7
 		completion_reward = {
 		     add_war_support = 0.1
@@ -444,7 +444,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_makhno
 		cost = 5
 		prerequisite = { focus = BLR_the_real_leader_of_the_revolution }
-		x = 16
+		x = 17
 		y = 1
 		bypass = {
 			NOT = { country_exists = UKR }
@@ -466,7 +466,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_pavel
 		cost = 5
 		prerequisite = { focus = BLR_the_real_leader_of_the_revolution }
-		x = 18
+		x = 19
 		y = 1
 		bypass = {
 			NOT = { country_exists = WVA }
@@ -489,13 +489,14 @@ focus_tree = {
 		cost = 5
 		prerequisite = { focus = BLR_strike_pavels_corrupt_band }
 		prerequisite = { focus = BLR_revenge_against_the_makhnovists }
-		x = 17
+		x = 18
 		y = 2
 		available = {
 			has_war = no
 		}
 		completion_reward = {
-		    declare_war_on = {
+			add_ideas =  BLR_soviet_war
+			declare_war_on = {
 				target = SOV
 				type = annex_everything
 			}
@@ -508,7 +509,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_threat
 		cost = 5
 		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
-		x = 15
+		x = 16
 		y = 3
 		bypass = {
 			NOT = { country_exists = OCG } 
@@ -530,7 +531,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_cossack
 		cost = 5
 		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
-		x = 17
+		x = 18
 		y = 3
 		available = { has_war = no }
 		completion_reward = {
@@ -562,7 +563,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_baku
 		cost = 5
 		prerequisite = { focus = BLR_the_southernmost_frontier }
-		x = 17
+		x = 18
 		y = 4
 		available = { has_war = no }
 		completion_reward = {
@@ -578,31 +579,49 @@ focus_tree = {
 	focus = {
 		id = BLR_utilize_the_polish_workrforce
 		icon = GFX_focus_BLR_polish_workers
-		cost = 4
+		cost = 5
 		prerequisite = { focus = BLR_an_economical_analysis }
 		x = 17
 		y = 7
 		completion_reward = {
 		    add_manpower = 20000
-			92 = {
+			206 = {
 				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
 			}
-			98 = {
+			10 = {
 				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
 	focus = {
 		id = BLR_industrialize_krakow_and_its_surroundings
 		icon = GFX_focus_BLR_industrialize
-		cost = 6
+		cost = 8.7
 		prerequisite = { focus = BLR_utilize_the_polish_workrforce }
 		x = 17
 		y = 8
 		completion_reward = {
 		    set_country_flag = can_industrialise_russia
 			unlock_decision_category_tooltip = russia_industrialisation
-			204 = {
+			206 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			1004 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -613,12 +632,12 @@ focus_tree = {
 			204 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
 			}
-			96 = {
+			207 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -633,7 +652,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_kolchak
 		cost = 5
 		prerequisite = { focus = BLR_take_the_reigns_of_the_moscow_soviet }
-		x = 19
+		x = 20
 		y = 3
 		available = { has_war = no }
 		completion_reward = {
@@ -683,7 +702,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_east
 		cost = 5
 		prerequisite = { focus = BLR_retake_the_siberian_wastes }
-		x = 19
+		x = 20
 		y = 4
 		 available = {
             has_war = no
@@ -877,12 +896,13 @@ focus_tree = {
 		x = 27
 		y = 3
 		completion_reward = {
-		      add_tech_bonus = {
+			add_tech_bonus = {
 				name = secret_bonus
 				bonus = 0.40
 				uses = 3
 				category = armor
 			}
+			army_experience = 50
 		}
 	}
 	focus = {
@@ -893,23 +913,23 @@ focus_tree = {
 		x = 27
 		y = 4
 		completion_reward = {
-		      97 = {
+		      206 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
-				}
-			   206 = {
+			}
+			   207 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
 				}
+			}
 		}
-	}
 	}
 	focus = {
 		id = BLR_mass_assault_tactics
@@ -936,7 +956,12 @@ focus_tree = {
 		completion_reward = {
 		     add_equipment_to_stockpile = {
 				type = infantry_equipment_0
-				amount = 5000
+				amount = 7500
+				producer = BLR
+			}
+		     add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 500
 				producer = BLR
 			}
 			army_experience = 50
@@ -1117,9 +1142,9 @@ focus_tree = {
 	focus = {
 		id = BLR_accomodate_to_the_administrative_situation
 		icon = GFX_focus_BLR_admin
-		cost = 5
+		cost = 4.4
 		prerequisite = { focus = BLR_the_plan_was_a_mistake }
-		x = 2
+		x = 3
 		y = 5
 		completion_reward = {
 		      swap_ideas = {
@@ -1133,7 +1158,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_fruits
 		cost = 17.2
 		prerequisite = { focus = BLR_to_finish_what_we_started }
-		x = 4
+		x = 5
 		y = 5
 		completion_reward = {
 		     remove_ideas = BLR_failed_land_reforms
@@ -1148,7 +1173,7 @@ focus_tree = {
 			focus = BLR_the_fruits_of_the_reforms
 			focus = BLR_accomodate_to_the_administrative_situation
 		}
-		x = 3
+		x = 4
 		y = 6
 		completion_reward = {
 		    add_political_power = -50
@@ -1160,7 +1185,7 @@ focus_tree = {
 		icon = GFX_focus_BLR_steppe
 		cost = 5
 		prerequisite = { focus = BLR_end_the_cossack_threat }
-		x = 15
+		x = 16
 		y = 4
 		available = { has_war = no }
 		completion_reward = {
@@ -1217,7 +1242,7 @@ focus_tree = {
 	focus = {
 		id = BLR_strike_the_belarussian_kulaks
 		icon = GFX_focus_BLR_kulaks
-		cost = 6
+		cost = 5.8
 		prerequisite = { focus = BLR_an_economical_analysis }
 		x = 15
 		y = 7
@@ -1237,7 +1262,7 @@ focus_tree = {
 	focus = {
 		id = BLR_food_for_the_soldiers
 		icon = GFX_focus_BLR_food_for_soldiers
-		cost = 4
+		cost = 4.4
 		prerequisite = { focus = BLR_strike_the_belarussian_kulaks }
 		x = 15
 		y = 8
@@ -1267,7 +1292,7 @@ focus_tree = {
 		prerequisite = { focus = BLR_expand_the_baku_oil_refineries }
 		prerequisite = { focus = BLR_the_easternmost_point }
 		prerequisite = { focus = BLR_clean_the_steppes }
-		x = 17
+		x = 18
 		y = 5
 		available = {
 		   has_war = no
