@@ -1,0 +1,78 @@
+add_namespace = eng
+
+
+country_event = {
+	id = eng.1
+	title = eng.1.t
+	desc = eng.1.d
+	picture = GFX_report_event_crowley
+	fire_only_once = yes
+    
+	trigger = {
+         tag = ENG
+         check_variable = { INF_CROWLEYITES > 0.8 }
+         check_variable = { LOY_CROWLEYITES < 0.2 }
+     }
+
+	option = {
+		name = eng.1.a
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.1
+			}
+			
+			add_stability = -0.15
+			add_manpower = -20000
+			
+			news_event = eng.2
+			
+			clr_country_flag = ENG_influence_shenanigans
+
+			set_politics = {
+				ruling_party = esotericism
+			}
+		}
+	}
+	
+news_event = {
+	id = eng.2
+	title = eng.2.t
+	desc = eng.2.d
+	picture = GFX_news_event_crowley
+	is_triggered_only = yes
+
+	option = {
+		name = eng.2.a
+		}
+	}
+	
+country_event = {
+	id = eng.3
+	title = eng.3.t
+	desc = eng.3.d
+	picture = GFX_report_event_crowley
+	is_triggered_only = yes
+
+	option = {
+		name = eng.3.a
+		set_temp_variable = { TEMP_INF_CROWLEY = 0.1 }
+		ENG_update_crowley_influence = yes
+		}
+	}
+	
+country_event = {
+	id = eng.4
+	title = eng.4.t
+	desc = eng.4.d
+	picture = GFX_report_event_english_church
+	is_triggered_only = yes
+
+	option = {
+		name = eng.3.a
+		add_popularity = {
+				ideology = reactionism
+				popularity = 0.02
+			}
+		add_political_power = 15
+		}
+	}
