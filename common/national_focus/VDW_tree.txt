@@ -494,10 +494,6 @@ focus_tree = {
 				target = HOL
 				type = annex_everything
 			}
-			declare_war_on = {
-				target = INS
-				type = annex_everything
-			}
 			HOL = {
 				every_core_state = {
 					add_claim_by = FWG
@@ -539,19 +535,9 @@ focus_tree = {
 		relative_position_id = VDW_dressler_march_into_the_netherlands
 		prerequisite = { focus = VDW_dressler_march_into_the_netherlands }
 		completion_reward = {
-			if = {
-				limit = {
-					country_exists = INS
-				}
-				annex_country = {
-					target = INS
-					transfer_troops = yes
-				}
-			}
-			INS = {
-				every_core_state = {
-					add_core_of = FWG
-				}
+			declare_war_on = {
+				target = SWI
+				type = annex_everything
 			}
 		}
 	}
@@ -569,6 +555,7 @@ focus_tree = {
 		prerequisite = { focus = VDW_dressler_increase_aryan_settlement }
 		prerequisite = { focus = VDW_dressler_integrate_the_indonesian_peoples }
 		completion_reward = {
+			SWI = { make_every_core_national_for_PREV = yes }
 			add_war_support = 0.15
 			add_stability = 0.1
 		}
