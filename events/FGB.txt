@@ -1,6 +1,7 @@
 add_namespace = fgb
 add_namespace = fgb_policy
 add_namespace = rohm_diplomacy
+add_namespace = fgb_officer_death
 
 country_event = {
 	id = fgb.1
@@ -1216,7 +1217,7 @@ country_event = {
     			character = FGB_eugen_schiffer
     			promote_leader = yes
     			country_leader = {
-        		ideology = libertarian
+        		ideology = classical_liberalism
         		expire = "1965.1.1.1"
 			}
 		}
@@ -3272,5 +3273,19 @@ country_event = {
 	option = {
 		name = fgb_policy.4.a
 		add_stability = -0.05
+	}
+}
+
+unit_leader_event = {
+	id = fgb_officer_death.1
+	title = fgb_officer_death.1.t
+	desc = fgb_officer_death.1.d 
+	picture = GFX_report_event_maercker
+	is_triggered_only = yes 
+	fire_only_once = yes 
+
+	option = {
+		name = fgb_officer_death.1.a 
+		retire_character = FGB_georg_ludwig_maercker
 	}
 }
