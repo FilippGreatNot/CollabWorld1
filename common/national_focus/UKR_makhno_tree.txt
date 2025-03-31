@@ -329,6 +329,8 @@ focus_tree = {
 		
 			completion_reward = {
 				add_ideas = UKR_individual_industrialisation_system_idea
+			set_country_flag = can_industrialise_russia
+			unlock_decision_category_tooltip = russia_industrialisation
 			}
 
 	}
@@ -344,6 +346,7 @@ focus_tree = {
 		
 			completion_reward = {
 				add_ideas = UKR_liquidation_of_illiteracy_idea
+				add_research_slot = 1
 			}
 
 	}
@@ -356,7 +359,50 @@ focus_tree = {
 		}
 		x = 5
 		y = 5
-
+		
+		available = {
+		owns_state = 203
+		owns_state = 197
+		owns_state = 1046
+		owns_state = 225
+		}
+		
+		completion_reward = {
+			203 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			197 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			1046 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			225 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = UKR_vintovka_bolshe_ne_prazdnik
@@ -367,6 +413,22 @@ focus_tree = {
 		}
 		x = 4
 		y = 6
+		
+		completion_reward = {
+		add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 2500
+				producer = RUS
+			}
+			259 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -378,6 +440,19 @@ focus_tree = {
 		}
 		x = 7
 		y = 5
+		
+		completion_reward = {
+		tooltip = every_owned_core_with_less_than_3_infrastructure_tt
+				limit = {
+					is_owned_by = UKR
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+		}
 
 	}
 	focus = {
@@ -392,6 +467,17 @@ focus_tree = {
 		}
 		x = 6
 		y = 6
+		
+		completion_reward = {
+			227 = {
+			add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -403,6 +489,10 @@ focus_tree = {
 		}
 		x = 7
 		y = 7
+		
+		completion_reward = {
+			add_stability = 0.05
+		}
 
 	}
 	focus = {
@@ -416,7 +506,12 @@ focus_tree = {
 		y = 2
 		
 		completion_reward = {
-		remove_ideas = closed_economy
+		remove_ideas = { 
+			closed_economy 
+		}
+		add_ideas = {
+				limited_exports
+			}
 		}
 
 	}
@@ -447,6 +542,16 @@ focus_tree = {
 		x = 10
 		y = 4
 
+		completion_reward = {
+		add_ideas = UKR_king_of_the_black_market_idea
+			218 = {
+				add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+		}
+
 	}
 	focus = {
 		id = UKR_shadow_fleet
@@ -457,6 +562,10 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
+		
+		completion_reward = {
+			add_ideas = UKR_shadow_fleet_idea
+		}
 
 	}
 	focus = {
@@ -494,6 +603,10 @@ focus_tree = {
 		}
 		x = 34
 		y = 1
+		
+		completion_reward = {
+		air_experience = 200
+		}
 
 	}
 	focus = {
@@ -555,6 +668,10 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
+		
+		completion_reward = {
+			remove_ideas = UKR_army_in_chaos
+		}
 
 	}
 	focus = {
@@ -613,6 +730,12 @@ focus_tree = {
 		}
 		x = 39
 		y = 2
+		
+		completion_reward = {
+		army_experience = 50
+		remove_ideas = UKR_army_in_chaos
+		
+		}
 
 	}
 	focus = {
@@ -627,9 +750,11 @@ focus_tree = {
 		y = 3
 		
 		completion_reward = {
-			army_experience = 50
-			navy_experience = 50
-			air_experience = 50
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
+			
+			add_ideas = UKR_reforms_of_black_army
 		}
 
 	}
@@ -670,7 +795,13 @@ focus_tree = {
 		y = 4
 		
 		completion_reward = {
-			add_ideas = UKR_reforms_of_black_army
+			army_experience = 300
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = land_doctrine
+				name = UKR_black_army_reform
+			}
 		}
 
 	}
@@ -698,7 +829,7 @@ focus_tree = {
 		}
 		x = 40
 		y = 7
-
+		
 		completion_reward = {
 			add_ideas = UKR_cossac_brigades
 		}
@@ -770,8 +901,8 @@ focus_tree = {
 		y = 2
 		
 		completion_reward = {
-			navy_experience = 100
-			add_stability = -0.2
+		navy_experience = 100
+		add_stability = -0.2
 		}
 
 	}
@@ -785,6 +916,7 @@ focus_tree = {
 		}
 		x = 45
 		y = 2
+		
 		available = {
 		owns_state = 137
 		owns_state = 192
@@ -817,9 +949,6 @@ focus_tree = {
 				}
 
 	}
-}
-
-	}
 	focus = {
 		id = UKR_skies_and_water
 		icon = GFX_goal_generic_navy_carrier
@@ -839,7 +968,7 @@ focus_tree = {
 		cost = 6
 		x = 43
 		y = 8
-
+		
 		available = {
 			has_idea = UKR_reforms_of_black_army
 		}
@@ -1206,6 +1335,29 @@ focus_tree = {
 
 	}
 	
+	focus = {
+		id = UKR_mother_anarchy_over_the_whole_country
+		icon = GFX_goal_generic_major_war
+		cost = 3
+		prerequisite = {
+			focus = UKR_white_snow_under_black_flag
+			focus = UKR_liberate_steppe
+		}
+		x = 44
+		y = 15
+		
+		available = {
+		has_war = no
+		has_idea = UKR_autogestion_idea
+		has_idea = UKR_individual_industrialisation_system_idea
+		}
+		
+		completion_reward = {
+		country_event = ukr.makhno.6
+		set_custom_tag = UKR_makhno_united
+		}
+	}
+	
 		### SECOND POLITIC TREE ###
 	focus = {
 		id = UKR_creating_new_society
@@ -1350,6 +1502,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = UKR_for_the_progress_idea
+			add_research_slot = 1
 		}
 
 	}

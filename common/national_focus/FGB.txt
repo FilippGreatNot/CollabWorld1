@@ -1222,7 +1222,6 @@ focus_tree = {
 		cost = 4
 		available = {
 			BAV = {
-				has_autonomy_state = autonomy_integrated_puppet
 				is_subject_of = FGB
 				
 			}
@@ -6131,6 +6130,24 @@ focus_tree = {
 		relative_position_id = FGB_rohm_replenishing_our_ranks
 		prerequisite = { focus = FGB_rohm_replenishing_our_ranks }
 		completion_reward = {
+			add_field_marshal_role = {
+				Character = FGB_gerhard_rossbach
+				traits = { fgb_paramilitarist inflexible_strategist }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+				Character = FGB_wolf_heinrich_graf_von_helldorf
+				traits = { infantry_expert fgb_paramilitarist }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 2
+			}
 			add_corps_commander_role = {
 				Character = FGB_kurt_daluege
 				traits = { war_hero engineer_officer fgb_paramilitarist }
@@ -6139,6 +6156,33 @@ focus_tree = {
 				defense_skill = 2
 				planning_skill = 2
 				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+				Character = FGB_fritz_schlessmann
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+				Character = FGB_karl_ernst
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 2
+			}
+			add_corps_commander_role = {
+				Character = FGB_martin_bormann
+				traits = { fgb_paramilitarist }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
 			}
 			custom_effect_tooltip = FGB_rohm_recruitment_focuses_tt
 		}
@@ -8186,14 +8230,17 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = "The PLA has to exist for this focus to be completable!"
-				has_country_flag = FGB_rohm_crushing_the_pla_flag
+				OR = {
+					has_country_flag = FGB_rohm_crushing_the_pla_flag
+					country_exists = PLA 
+				}
 			}
 		}
 		allow_branch = {
 			has_country_flag = FGB_rohm_the_last_steps_flag
 		}
 		available = { has_war = no }
-		bypass = { NOT = { country_exists = PLA }}
+		bypass = { NOT = { country_exists = PLA } has_war_with = PLA }
 		relative_position_id = FGB_rohm_the_last_stages_of_reunification
 		prerequisite = { focus = FGB_rohm_the_last_stages_of_reunification }
 		completion_reward = {
@@ -10491,6 +10538,7 @@ focus_tree = {
 			custom_effect_tooltip = FGB_develop_karmann_tt
 			custom_effect_tooltip = FGB_salzgitter_steel_tt
 			custom_effect_tooltip = FGB_fund_einbeck_tt
+			custom_effect_tooltip = FGB_develop_hellmann_tt
 		}
 	}
 
