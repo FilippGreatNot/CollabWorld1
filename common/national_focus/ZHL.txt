@@ -13,7 +13,7 @@ focus_tree = {
 		id = ZHL_dawn_zheltorossiya
         icon = GFX_ZHL_dawn_zheltorossiya
 		
-        x = 7
+        x = 15
         y = 1
 		
         cost = 5
@@ -36,7 +36,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_dawn_zheltorossiya }
 		
-        x = 9
+        x = 17
         y = 2
 		
         cost = 5
@@ -51,7 +51,7 @@ focus_tree = {
 			}
 			add_timed_idea = {
 				idea = ZHL_repaying_debt
-				days = 60
+				days = 80
 			}
 		}
 		
@@ -64,7 +64,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_dawn_zheltorossiya }
 		
-        x = 5
+        x = 13
         y = 2
 		
         cost = 5
@@ -89,32 +89,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_question_of_army_leader
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { }
-		
-        x = 35
-        y = 1
-		
-        cost = 5
-
-		available = {
-			has_completed_focus = ZHL_zheltorossiyan_unification
-		}
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
 		id = ZHL_mobilize_army
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_dawn_zheltorossiya }
 		
-        x = 7
+        x = 15
         y = 2
 		
         cost = 3
@@ -135,7 +114,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_ask_far_eastern_republic_for_guns }
 		
-        x = 10
+        x = 18
         y = 3
 		
         cost = 5
@@ -161,7 +140,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_ask_far_eastern_republic_for_guns }
 		
-        x = 8
+        x = 16
         y = 3
 		
         cost = 4
@@ -207,7 +186,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_force_laborers_mine }
 		
-        x = 4
+        x = 12
         y = 3
 		
         cost = 5
@@ -229,7 +208,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_force_laborers_mine }
 		
-        x = 6
+        x = 14
         y = 3
 		
         cost = 4
@@ -255,7 +234,7 @@ focus_tree = {
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_mobilize_army }
 		
-        x = 7
+        x = 15
         y = 4
 		
         cost = 3
@@ -279,7 +258,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_Deploy_cossacks }
 		prerequisite = { focus = ZHL_mobilize_army }
 		
-        x = 7
+        x = 15
         y = 4
 		
         cost = 5
@@ -301,11 +280,28 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_integrate_fengtian
+		id = ZHL_pacify_suihua
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_invasion_fengtian_clique }
 		
-        x = 7
+        x = 16
+        y = 5
+		
+        cost = 5
+
+		completion_reward = {
+		}
+		
+		allow_branch = {
+		}
+	}
+
+		focus = {
+		id = ZHL_capture_fengtian_equipment
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invasion_fengtian_clique }
+		
+        x = 14
         y = 5
 		
         cost = 5
@@ -320,38 +316,32 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_destroy_jilin_army
+		id = ZHL_exile_zhang_zouhlin_to_japan
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_invasion_fengtian_clique }
+		prerequisite = { focus = ZHL_capture_fengtian_equipment }
+		prerequisite = { focus = ZHL_pacify_suihua }
 		
-        x = 5
-        y = 5
+        x = 15
+        y = 6
 		
-        cost = 4
-
-		available = {
-			has_war = no
-		}
+        cost = 5
 
 		completion_reward = {
-			add_war_support = 0.05
-			declare_war_on = {
-				target = JIL
-				type = annex_everything
-			}
+			add_stability = -0.05
+			MAN = { make_every_core_national_for_PREV = yes }
 		}
 		
-		allow_branch = {
+		allow_branch = {	
 		}
 	}
 
 	focus = {
-		id = ZHL_intergrate_harbin
+		id = ZHL_destroy_theocratic_dictatorship_in_Mukden
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_destroy_jilin_army }
+		prerequisite = { focus = ZHL_exile_zhang_zouhlin_to_japan }
 		
-        x = 5
-        y = 6
+        x = 13
+        y = 7
 		
         cost = 4
 
@@ -365,25 +355,18 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_invade_heavenly_army_fengtian
+		id = ZHL_erase_theocratic_sympathies
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_invasion_fengtian_clique }
+		prerequisite = { focus = ZHL_destroy_theocratic_dictatorship_in_Mukden }
 		
-        x = 9
-        y = 5
+        x = 13
+        y = 8
 		
         cost = 4
 
-		available = {
-			has_war = no
-		}
-
 		completion_reward = {
-			add_war_support = 0.05
-			declare_war_on = {
-				target = HVN
-				type = annex_everything
-			}
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
 		}
 		
 		allow_branch = {
@@ -391,12 +374,108 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_integrate_heavenly_army_fengtian
+		id = ZHL_move_capital_to_kharbinsk
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_invade_heavenly_army_fengtian }
+		prerequisite = { focus = ZHL_invade_jilin_army }
 		
-        x = 9
-        y = 6
+        x = 17
+        y = 8
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_purge_problematic_chinesse_politicians
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_exile_zhang_zouhlin_to_japan }
+		
+        x = 15
+        y = 7
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_invade_hunchun
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_purge_problematic_chinesse_politicians }
+		
+        x = 15
+        y = 8
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_make_harbin_the_center_of_manchuria
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_move_capital_to_kharbinsk }
+		
+        x = 17
+        y = 9
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_integrate_the_mukden_administration
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_erase_theocratic_sympathies }
+		
+        x = 13
+        y = 9
+		
+        cost = 4
+
+		completion_reward = {
+			add_stability = -0.05
+			JIL = { make_every_core_national_for_PREV = yes }
+		}
+		
+		allow_branch = {
+		}
+	}
+
+
+	focus = {
+		id = ZHL_invade_jilin_army
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_exile_zhang_zouhlin_to_japan }
+		
+        x = 17
+        y = 7
 		
         cost = 4
 
@@ -413,12 +492,12 @@ focus_tree = {
 		id = ZHL_zheltorossiyan_unification
         icon = GFX_ZHL_dawn_zheltorossiya
 
-		prerequisite = { focus = ZHL_integrate_fengtian }
-		prerequisite = { focus = ZHL_intergrate_harbin }
-		prerequisite = { focus = ZHL_integrate_heavenly_army_fengtian }
+		prerequisite = { focus = ZHL_integrate_the_mukden_administration }
+		prerequisite = { focus = ZHL_make_harbin_the_center_of_manchuria }
+		prerequisite = { focus = ZHL_invade_hunchun }
 
-        x = 7
-        y = 7
+        x = 15
+        y = 10
 		
         cost = 5n
 
@@ -437,140 +516,6 @@ focus_tree = {
 				country_exists = JIL
 				country_exists = HVN
 				country_exists = MAN
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_begin_industrialisation
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { }
-		
-        x = 23
-        y = 1
-		
-        cost = 5
-
-		available = {
-			has_completed_focus = ZHL_zheltorossiyan_unification
-		}
-
-		completion_reward = {
-			add_stability = -0.05
-			add_political_power = 25
-			add_timed_idea = {
-				idea = ZHL_industrialisation
-				days = 180
-			}	
-		}
-	
-		allow_branch = {
-		}
-	}
-
-
-	focus = {
-		id = ZHL_construct_more_roads
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_begin_industrialisation }
-		
-        x = 25
-        y = 2
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_land_reform
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_construct_more_roads }
-		prerequisite = { focus = ZHL_create_ministry_of_education }
-		prerequisite = { focus = ZHL_establish_ministry_of_economy }
-		
-        x = 23
-        y = 3
-		
-        cost = 5
-
-		completion_reward = {
-			add_stability = 0.05
-			add_political_power = -50
-		    swap_ideas = {
-				remove_idea = ZHL_stagnant_economy
-				add_idea = ZHL_stagnant_economy2
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_establish_ministry_of_economy
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_begin_industrialisation }
-		
-		
-        x = 23
-        y = 2
-		
-        cost = 5
-
-		completion_reward = {
-		   swap_ideas = {
-				remove_idea = ZHL_stagnant_economy2
-				add_idea = ZHL_stagnant_economy3
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_create_ministry_of_education
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_begin_industrialisation }
-		
-        x = 21
-        y = 2
-		
-        cost = 5
-
-		completion_reward = {
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_slava_zheltorossyi
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { }
-
-		available = {
-			has_completed_focus = ZHL_zheltorossiyan_unification
-		}
-		
-        x = 15
-        y = 1
-		
-        cost = 5
-
-		completion_reward = {
-			add_popularity = {
-				ideology = despotism
-				popularity = 0.05
 			}
 		}
 		
