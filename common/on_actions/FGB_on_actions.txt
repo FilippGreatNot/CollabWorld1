@@ -176,10 +176,33 @@ on_actions = {
                         target = HOL
                         transfer_troops = yes
                     }
-					annex_country = {
-						target = INS
-						transfer_troops = yes
+                }
+			}
+		}
+	}
+	on_capitulation = {
+    	effect = { 
+	     	if = { 
+				limit = {
+					ROOT = {
+						original_tag = SWI
 					}
+					FROM = {
+						original_tag = FWG
+                        FWG = {
+                            has_government = esotericism
+                        }
+					}
+				}
+				FWG = { 
+                    white_peace = {
+                        tag = SWI
+                        message = "The Swiss mountains could not stop the will of the German Volk"
+                    }
+                    annex_country = {
+                        target = SWI
+                        transfer_troops = yes
+                    }
                 }
 			}
 		}

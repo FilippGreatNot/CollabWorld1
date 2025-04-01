@@ -5073,91 +5073,47 @@ focus_tree = {
 				ideology = reactionism
 				popularity = 0.05
 			}
+			hidden_effect = {
+				country_event = { id = fgb.122 days = 1 }
+			}
 		}
 	}
 	
 	focus = {
-		id = FGB_deploy_counterrevolutionary_militias
-		icon = GFX_focus_FGB_electing_new_leader
+		id = FGB_pabst_deploy_counterrevolutionary_militias
+		icon = GFX_focus_FGB_pabst_deploy_counterrevolutionary_militias
 		x = -2
 		y = 1
-		cost = 4
+		cost = 4.2857
 		ai_will_do = {
 			factor = 10
 		}
 		relative_position_id = FGB_pabst
 		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
 			add_war_support = 0.05
 			add_manpower = 15000
-		}
-	}
-
-	focus = {
-		id = FGB_quell_urban_revolts
-		icon = GFX_focus_FGB_quell_urban_revolts
-		x = 0
-		y = 1
-		cost = 3
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FGB_pabst
-		prerequisite = { focus = FGB_pabst }
-		completion_reward = {
-			add_stability = -0.05
-			add_war_support = 0.05
 			add_popularity = {
-				ideology = despotism
-				popularity = 0.05
-			}
-			add_popularity = {
-				ideology = marxism
+				ideology = bolshevism
 				popularity = -0.05
 			}
 		}
 	}
 
 	focus = {
-		id = FGB_give_pabst_field_command
-		icon = GFX_focus_FGB_give_pabst_field_command
-		x = 2
+		id = FGB_pabst_legacy_of_the_ehrhardt_brigade
+		icon = GFX_focus_FGB_pabst_legacy_of_the_ehrhardt_brigade
+		x = 0
 		y = 1
-		cost = 3
+		cost = 4.2857
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = FGB_pabst
-		prerequisite = { focus = FGB_pabst }
+		relative_position_id = FGB_pabst_deploy_counterrevolutionary_militias
+		prerequisite = { focus = FGB_pabst_deploy_counterrevolutionary_militias }
 		completion_reward = {
-			add_war_support = 0.05
-			add_stability = -0.05
-			add_field_marshal_role = {
-				character = FGB_waldemar_pabst
-				skill = 3
-				attack_skill = 3
-				defense_skill = 3
-				planning_skill = 3
-				logistics_skill = 2
-				
-				traits = { infantry_officer }
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_legacy_of_the_ehrhardt_brigade
-		icon = GFX_focus_FGB_legacy_of_the_ehrhardt_brigade
-		x = -1
-		y = 1
-		cost = 3
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FGB_quell_urban_revolts
-		prerequisite = { focus = FGB_quell_urban_revolts }
-		prerequisite = { focus = FGB_deploy_counterrevolutionary_militias }
-		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
 			army_experience = 15
 			add_war_support = 0.05
 			add_popularity = {
@@ -5189,39 +5145,18 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_implement_curfews
-		icon = GFX_focus_FGB_implement_curfews
-		x = 1
-		y = 1
-		cost = 3
-		ai_will_do = {
-			factor = 10
-		}
-		relative_position_id = FGB_quell_urban_revolts
-		prerequisite = { focus = FGB_quell_urban_revolts }
-		prerequisite = { focus = FGB_give_pabst_field_command }
-		completion_reward = {
-			add_stability = 0.05
-			add_political_power = 30
-			add_popularity = {
-				ideology = social_democrat
-				popularity = -0.05
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_raise_conservative_support
-		icon = GFX_focus_FGB_raise_conservative_support
+		id = FGB_pabst_raise_conservative_support
+		icon = GFX_focus_FGB_pabst_raise_conservative_support
 		x = 0
 		y = 1
-		cost = 3
+		cost = 4.2857
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = FGB_legacy_of_the_ehrhardt_brigade
-		prerequisite = { focus = FGB_legacy_of_the_ehrhardt_brigade }
+		relative_position_id = FGB_pabst_legacy_of_the_ehrhardt_brigade
+		prerequisite = { focus = FGB_pabst_legacy_of_the_ehrhardt_brigade }
 		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
 			add_war_support = 0.05
 			add_popularity = {
 				ideology = conservatism
@@ -5235,17 +5170,66 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_execute_the_revolutionaries
-		icon = GFX_focus_FGB_execute_the_revolutionaries
+		id = FGB_pabst_quell_urban_revolts
+		icon = GFX_focus_FGB_pabst_quell_urban_revolts
 		x = 0
 		y = 1
-		cost = 4
+		cost = 4.2857
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = FGB_implement_curfews
-		prerequisite = { focus = FGB_implement_curfews }
+		relative_position_id = FGB_pabst
+		prerequisite = { focus = FGB_pabst }
 		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_implement_curfews
+		icon = GFX_focus_FGB_pabst_implement_curfews
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst_quell_urban_revolts
+		prerequisite = { focus = FGB_pabst_quell_urban_revolts }
+		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
+			add_stability = 0.05
+			add_political_power = 30
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_execute_the_revolutionaries
+		icon = GFX_focus_FGB_pabst_execute_the_revolutionaries
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst_implement_curfews
+		prerequisite = { focus = FGB_pabst_implement_curfews }
+		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
 			add_manpower = -1300
 			add_stability = 0.05
 			add_popularity = {
@@ -5264,18 +5248,93 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_under_a_populist_veil
-		icon = GFX_focus_FGB_under_a_populist_veil
-		x = -2
+		id = FGB_pabst_give_pabst_field_command
+		icon = GFX_focus_FGB_pabst_give_pabst_field_command
+		x = 2
 		y = 1
-		cost = 5
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst
+		prerequisite = { focus = FGB_pabst }
+		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
+			add_war_support = 0.05
+			add_stability = -0.05
+			
+			add_field_marshal_role = {
+				character = FGB_waldemar_pabst
+				skill = 3
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+				
+				traits = { infantry_officer }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_raise_new_officers
+		icon = GFX_focus_FGB_pabst_raise_new_officers
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst_give_pabst_field_command
+		prerequisite = { focus = FGB_pabst_give_pabst_field_command }
+		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
+			army_experience = 20
+			add_corps_commander_role = {
+				Character = FGB_wilhelm_faupel
+				skill = 3
+				attack_skill = 3
+				defense_skill = 4
+				planning_skill = 3
+				logistics_skill = 3
+				traits = { brilliant_strategist }
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_increase_national_service_quotas
+		icon = GFX_focus_FGB_pabst_increase_national_service_quotas
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst_raise_new_officers
+		prerequisite = { focus = FGB_pabst_raise_new_officers }
+		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
+			add_stability = -0.05
+			add_ideas = {
+				extensive_conscription
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_under_a_populist_veil
+		icon = GFX_focus_FGB_pabst_under_a_populist_veil
+		x = -1
+		y = 1
+		cost = 4.2857
 		ai_will_do = {
 			factor = 25
 		}
 		mutually_exclusive = { focus = FGB_ehrhardt_takes_charge }
-		relative_position_id = FGB_raise_conservative_support
-		prerequisite = { focus = FGB_raise_conservative_support }
-		prerequisite = { focus = FGB_execute_the_revolutionaries }
+		relative_position_id = FGB_pabst_raise_conservative_support
+		prerequisite = { focus = FGB_pabst_raise_conservative_support }
+		prerequisite = { focus = FGB_pabst_execute_the_revolutionaries }
 		completion_reward = {
 			add_political_power = 70
 			add_war_support = 0.05
@@ -5290,124 +5349,16 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_ehrhardt_takes_charge
-		icon = GFX_focus_FGB_ehrhardt_takes_charge
-		x = 4
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
-		mutually_exclusive = { focus = FGB_under_a_populist_veil }
-		relative_position_id = FGB_raise_conservative_support
-		prerequisite = { focus = FGB_raise_conservative_support }
-		prerequisite = { focus = FGB_execute_the_revolutionaries }
-		completion_reward = {
-			set_politics = {
-				ruling_party = authoritarian_democrat
-			}
-			add_country_leader_role = {
-				character = FGB_hermann_ehrhardt
-				promote_leader = yes
-				country_leader = {
-					ideology = stratocracy
-					expire = "1945.1.1.1"
-					traits = { war_industrialist }
-				}
-			}
-			add_popularity = {
-				ideology = authoritarian_democrat
-				popularity = 0.15
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_arouse_popular_support
-		icon = GFX_focus_FGB_arouse_popular_support
-		x = -1
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-		relative_position_id = FGB_ehrhardt_takes_charge
-		prerequisite = { focus = FGB_ehrhardt_takes_charge }
-		completion_reward = {
-			add_political_power = 100
-			add_war_support = 0.05
-			add_stability = 0.05
-			add_popularity = {
-				ideology = marxism
-				popularity = -0.05
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_pump_money_into_the_factories
-		icon = GFX_focus_FGB_pump_money_into_the_factories
-		x = 1
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-		relative_position_id = FGB_ehrhardt_takes_charge
-		prerequisite = { focus = FGB_ehrhardt_takes_charge }
-		completion_reward = {
-			army_experience = 30
-			50 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = { 
-					type = arms_factory 
-					level = 1
-					instant_build = yes
-				}
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_0
-				amount = 1000
-				producer = FGB
-			}
-		}
-	}
-
-	focus = {
-		id = FGB_criticise_the_bavarian_regime
-		icon = GFX_focus_FGB_criticise_the_bavarian_regime
-		x = 3
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-		relative_position_id = FGB_under_a_populist_veil
-		prerequisite = { focus = FGB_under_a_populist_veil focus = FGB_ehrhardt_takes_charge }
-		completion_reward = {
-			BAV = { add_political_power = -30 }
-			add_popularity = {
-				ideology = bolshevism
-				popularity = -0.04
-			}
-			add_popularity = {
-				ideology = marxism
-				popularity = -0.04
-			}
-		}
-	}
-
-	focus = {
 		id = FGB_pabst_reengage_abandoned_warehouses
 		icon = GFX_focus_FGB_pabst_reengage_abandoned_warehouses
 		x = -1
 		y = 1
-		cost = 5
+		cost = 4.2857
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = FGB_under_a_populist_veil
-		prerequisite = { focus = FGB_under_a_populist_veil }
+		relative_position_id = FGB_pabst_under_a_populist_veil
+		prerequisite = { focus = FGB_pabst_under_a_populist_veil }
 		completion_reward = {
 			50 = {
 				add_building_construction = {
@@ -5433,17 +5384,307 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_right_to_rearm
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4.2857
 		ai_will_do = {
 			factor = 10
 		}
-		relative_position_id = FGB_under_a_populist_veil
-		prerequisite = { focus = FGB_under_a_populist_veil }
+		relative_position_id = FGB_pabst_under_a_populist_veil
+		prerequisite = { focus = FGB_pabst_under_a_populist_veil }
 		completion_reward = {
 			add_war_support = 0.05
 			army_experience = 20
 			add_manpower = 60000
 			add_ideas = { FGB_right_of_rearmament }
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_introduce_educational_indoctrination
+		icon = GFX_focus_FGB_pabst_introduce_educational_indoctrination
+		x = 1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst_reengage_abandoned_warehouses
+		prerequisite = { focus = FGB_pabst_reengage_abandoned_warehouses }
+		prerequisite = { focus = FGB_pabst_right_to_rearm }
+		completion_reward = {
+			add_political_power = 20
+			add_ideas = {
+				FGB_indoctrination_in_schools
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_embolden_the_new_ideal
+		icon = GFX_focus_FGB_pabst_embolden_the_new_ideal
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = FGB_pabst_introduce_educational_indoctrination
+		prerequisite = { focus = FGB_pabst_introduce_educational_indoctrination }
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_criticise_the_bavarian_regime
+		icon = GFX_focus_FGB_criticise_the_bavarian_regime
+		x = 3
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_pabst_under_a_populist_veil
+		prerequisite = { focus = FGB_pabst_under_a_populist_veil focus = FGB_ehrhardt_takes_charge }
+		completion_reward = {
+			BAV = { add_political_power = -30 }
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.04
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_arrest_SPD_members
+		icon = GFX_focus_FGB_pabst_arrest_SPD_members
+		x = -1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_pabst_criticise_the_bavarian_regime
+		prerequisite = { focus = FGB_pabst_criticise_the_bavarian_regime }
+		completion_reward = {
+			retire_character = FGB_hans_vogel
+			retire_character = FGB_gustav_noske
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_ban_the_communist_parties
+		icon = GFX_focus_FGB_pabst_ban_the_communist_parties
+		x = 1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_pabst_criticise_the_bavarian_regime
+		prerequisite = { focus = FGB_pabst_criticise_the_bavarian_regime }
+		completion_reward = {
+			set_party_name = {
+				ideology = marxism
+				name = REDACTED
+				long_name = DATA_EXPUNGED
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.1
+			}
+			set_party_name = {
+				ideology = bolshevism
+				name = REDACTED
+				long_name = DATA_EXPUNGED
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = -0.1
+			}
+			set_party_name = {
+				ideology = libertarian_socialism
+				name = REDACTED
+				long_name = DATA_EXPUNGED
+			}
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = -0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_ehrhardt_takes_charge
+		icon = GFX_focus_FGB_ehrhardt_takes_charge
+		x = 1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 20
+		}
+		mutually_exclusive = { focus = FGB_pabst_under_a_populist_veil }
+		relative_position_id = FGB_pabst_increase_national_service_quotas 
+		prerequisite = { focus = FGB_pabst_increase_national_service_quotas }
+		prerequisite = { focus = FGB_pabst_execute_the_revolutionaries }
+		completion_reward = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+			}
+			add_country_leader_role = {
+				character = FGB_hermann_ehrhardt
+				promote_leader = yes
+				country_leader = {
+					ideology = stratocracy
+					expire = "1945.1.1.1"
+					traits = { war_industrialist }
+				}
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = "OC"
+				long_name = "Organisation Consul"
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_ehrhardt_arouse_popular_support
+		icon = GFX_focus_FGB_arouse_popular_support
+		x = -1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_ehrhardt_takes_charge
+		prerequisite = { focus = FGB_ehrhardt_takes_charge }
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.05
+			add_stability = 0.05
+			add_popularity = {
+				ideology = marxism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_ehrhardt_pump_money_into_the_factories
+		icon = GFX_focus_FGB_pump_money_into_the_factories
+		x = 1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_ehrhardt_takes_charge
+		prerequisite = { focus = FGB_ehrhardt_takes_charge }
+		completion_reward = {
+			army_experience = 30
+			50 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { 
+					type = arms_factory 
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = FGB
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_ehrhardt_the_new_era
+		icon = GFX_focus_FGB_ehrhardt_the_new_era
+		x = 1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_ehrhardt_arouse_popular_support
+		prerequisite = { focus = FGB_ehrhardt_arouse_popular_support }
+		prerequisite = { focus = FGB_ehrhardt_pump_money_into_the_factories }
+		completion_reward = {
+			add_ideas = {
+				FGB_the_new_era
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_ehrhardt_promote_classical_literature
+		icon = GFX_focus_FGB_ehrhardt_promote_classical_literature
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_ehrhardt_the_new_era
+		prerequisite = { focus = FGB_ehrhardt_the_new_era }
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_end_the_worker_revolts
+		icon = GFX_focus_FGB_pabst_end_the_worker_revolts
+		x = 0
+		y = 2
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_pabst_criticise_the_bavarian_regime
+		prerequisite = { focus = FGB_pabst_arrest_SPD_members }
+		prerequisite = { focus = FGB_pabst_ban_the_communist_parties }
+		completion_reward = {
+			FGB_unwavering_riots_level_up = yes
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_towards_a_noble_goal
+		icon = GFX_focus_FGB_pabst_towards_a_noble_goal
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_pabst_end_the_worker_revolts
+		prerequisite = { focus = FGB_pabst_end_the_worker_revolts }
+		prerequisite = { focus = FGB_pabst_embolden_the_new_ideal focus = FGB_ehrhardt_promote_classical_literature }
+		completion_reward = {
+			add_war_support = 0.1
 		}
 	}
 
@@ -8397,7 +8638,7 @@ focus_tree = {
 		prerequisite = { focus = FGB_rohm_a_preliminary_lebensraum_achieved }
 		prerequisite = { focus = FGB_rohm_recruit_silesian_militiamen }
 		completion_reward = {
-			
+			country_event = fgb.121
 		}
 	}
 	
@@ -8417,7 +8658,7 @@ focus_tree = {
 	
 	focus = {
 		id = FGB_other_middle
-		icon = GFX_focus_FGB_electing_new_leader
+		icon = GFX_focus_FGB_other_middle
 		x = 0
 		y = 1
 		cost = 3
