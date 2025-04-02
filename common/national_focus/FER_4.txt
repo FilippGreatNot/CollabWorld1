@@ -527,4 +527,124 @@ focus = FER_support_bourgeoisie }
        add_ideas = FER_freedom
         }
     }
+    focus = {
+        id = FER_issue_counterintelligence
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 1
+        prerequisite = { }
+        completion_reward = {
+       country_event = { id = fer.25  }
+        }
+    }
+    focus = {
+        id = FER_worker_militia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 3
+        prerequisite = { focus = FER_freedom_equality_fraternity }
+        completion_reward = {
+       swap_ideas = {
+                add_idea = FER_weak_counterintelligence1
+                remove_idea = FER_weak_counterintelligence
+            }
+        }
+    }
+    focus = {
+        id = FER_down_with_autocracy
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 4
+        prerequisite = { focus = FER_worker_militia }
+        completion_reward = {
+       swap_ideas = {
+                add_idea = FER_weak_counterintelligence2
+                remove_idea = FER_weak_counterintelligence1
+            }
+        }
+    }
+    focus = {
+        id = FER_weaken_supervision
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 5
+        prerequisite = { focus = FER_down_with_autocracy}
+        completion_reward = {
+       swap_ideas = {
+                add_idea = FER_weak_counterintelligence3
+                remove_idea = FER_weak_counterintelligence2
+            }
+        }
+    }
+    focus = {
+        id = FER_total_supervision
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 2
+        prerequisite = { focus = FER_issue_counterintelligence }
+       mutually_exclusive = { focus =  FER_freedom_equality_fraternity }
+        completion_reward = {
+       add_ideas = FER_strong_counterintelligence
+        }
+    }
+    focus = {
+        id = FER_reinforced_police
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 3
+        prerequisite = { focus =  FER_total_supervision}
+        completion_reward = {
+       swap_ideas = {
+                add_idea =  FER_strong_counterintelligence1
+                remove_idea =  FER_strong_counterintelligence
+            }
+        }
+    }
+    focus = {
+        id = FER_Install_more_wiretapping
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 4
+        prerequisite = { focus =  FER_reinforced_police }
+        completion_reward = {
+       swap_ideas = {
+                add_idea =  FER_strong_counterintelligence2
+                remove_idea =  FER_strong_counterintelligence1
+            }
+        }
+    }
+    focus = {
+        id = FER_supervision_of_everyone
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 6
+        prerequisite = { focus =  FER_Install_more_wiretapping }
+        completion_reward = {
+       swap_ideas = {
+                add_idea =  FER_strong_counterintelligence3
+                remove_idea =  FER_strong_counterintelligence2
+            }
+        }
+    }
+    focus = {
+        id = FER_contact_liberal_underground_of_Russia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 6
+        prerequisite = {
+ focus = FER_weaken_supervision
+  focus = FER_supervision_of_everyone } 
+        completion_reward = {
+  add_war_support = 0.1
+        }
+    }
 }
