@@ -39,7 +39,7 @@ focus_tree = {
         x = 17
         y = 2
 		
-        cost = 5
+        cost = 3
 
 		completion_reward = {
 			army_experience = 25
@@ -66,7 +66,7 @@ focus_tree = {
         x = 13
         y = 2
 		
-        cost = 5
+        cost = 3
 
 		completion_reward = {
 			add_political_power = 50
@@ -201,7 +201,34 @@ focus_tree = {
         cost = 3
 
 		completion_reward = {
-			army_experience = 10
+			army_experience = 30
+			division_template = {
+				name = "Pekhotnaya Diviziya"
+				priority = 1	
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+			}
+
+
+			714 = {
+				create_unit = {
+					division = "name = \"Pekhotnaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.3"
+					owner = PREV
+					count = 1
+				}
+			}
+
+			761 = {
+				create_unit = {
+					division = "name = \"Pekhotnaya Diviziya\" division_template = \"Pekhotnaya Diviziya\" start_experience_factor = 0.3"
+					owner = PREV
+					count = 1
+				}
+			}
 
 		}
 
@@ -220,11 +247,14 @@ focus_tree = {
         x = 13
         y = 4
 		
-        cost = 3
+        cost = 4
 
 		completion_reward = {
-			army_experience = 10
-
+			add_stability = -0.05
+		    add_timed_idea = {
+				idea = ZHL_motivate_workers_for_war
+				days = 80
+			}
 		}
 
 
@@ -270,12 +300,17 @@ focus_tree = {
         x = 17
         y = 4
 		
-        cost = 5
+        cost = 4
 
 		completion_reward = {
+		    add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1200
+				producer = ZHL
+			}
 			army_experience = 25
 			add_war_support = 0.05
-			add_stability 0.05
+			add_stability = 0.05
 		}
 
 
@@ -288,23 +323,29 @@ focus_tree = {
 		id = ZHL_invasion_fengtian_clique
         icon = GFX_ZHL_dawn_zheltorossiya
 
-		prerequisite = { focus = ZHL_we_need_you_to_work }
+		prerequisite = { focus = ZHL_temporary_mobilization }
 		
         x = 15
         y = 6
 		
-        cost = 5
+        cost = 4
+
+		bypass = {
+			NOT = {
+				country_exists = MAN
+			}
+		}
 
 		available = {
 			has_war = no
 		}
 
 		completion_reward = {
-			add_war_support = 0.05
 			declare_war_on = {
 				target = MAN
 				type = annex_everything
 			}
+			add_war_support = 0.05
 		}
 		
 		allow_branch = {
@@ -312,16 +353,22 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_pacify_suihua
+		id = ZHL_hunt_down_zoulins_supporters
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_invasion_fengtian_clique }
 		
         x = 16
         y = 7
 		
-        cost = 5
+        cost = 3
 
 		completion_reward = {
+			add_manpower = -100
+			add_stability = 0.05
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
 		}
 		
 		allow_branch = {
@@ -336,7 +383,7 @@ focus_tree = {
         x = 14
         y = 7
 		
-        cost = 5
+        cost = 4
 
 		completion_reward = {
 			add_political_power = -20
@@ -355,16 +402,16 @@ focus_tree = {
 		id = ZHL_exile_zhang_zouhlin_to_japan
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_capture_fengtian_equipment }
-		prerequisite = { focus = ZHL_pacify_suihua }
+		prerequisite = { focus = ZHL_hunt_down_zoulins_supporters }
 		
         x = 15
         y = 8
 		
-        cost = 5
+        cost = 2
 
 		completion_reward = {
-			add_stability = -0.05
-			MAN = { make_every_core_national_for_PREV = yes }
+			MAN = { every_core_state = { add_core_of = ZHL }}
+			add_stability = 0.05
 		}
 		
 		allow_branch = {	
@@ -381,7 +428,18 @@ focus_tree = {
 		
         cost = 4
 
+		bypass = {
+			NOT = {
+				country_exists = HVN
+			}
+		}
+
+		available = {
+			has_war = no
+		}
+
 		completion_reward = {
+			add_stability = -0.05
 			declare_war_on = {
 				target = HVN
 				type = annex_everything
@@ -402,9 +460,22 @@ focus_tree = {
 		
         cost = 4
 
+		available = {
+			NOT = {
+				country_exists = HVN
+			}
+		}
+
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			add_stability = 0.05
+			 add_popularity = {
+				ideology = reactionism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
 		}
 		
 		allow_branch = {
@@ -419,11 +490,18 @@ focus_tree = {
         x = 17
         y = 10
 		
-        cost = 4
+        cost = 2
+
+		available = {
+			NOT = {
+				country_exists = JIL
+			}
+		}
 
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			add_political_power = 25
+			add_stability = 0.05
+			 set_capital = { state = 950 remember_old_capital = no }
 		}
 		
 		allow_branch = {
@@ -440,9 +518,17 @@ focus_tree = {
 		
         cost = 4
 
+		available = {
+			has_war = no
+		}
+
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			add_political_power = 25
+			add_stability = 0.05
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
 		}
 		
 		allow_branch = {
@@ -459,11 +545,45 @@ focus_tree = {
 		
         cost = 4
 
+		bypass = {
+			NOT = {
+				country_exists = KOR
+			}
+		}
+
+		available = {
+			NOT = {
+				country_exists = JIL
+			}
+		}
+
 		completion_reward = {
 			declare_war_on = {
 				target = KOR
 				type = annex_everything
 			}	
+		}
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_deport_koreans_to_the_chosen
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_invade_hunchun }
+		
+        x = 15
+        y = 11
+		
+        cost = 4
+
+		completion_reward = {
+			add_manpower = -5000
+			add_stability = 0.05
+			937 = {
+				add_core_of = ZHL
+			}
 		}
 		
 		allow_branch = {
@@ -478,11 +598,11 @@ focus_tree = {
         x = 17
         y = 11
 		
-        cost = 4
+        cost = 3
 
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			add_stability = 0.05
+			JIL = { every_core_state = { add_core_of = ZHL }}
 		}
 		
 		allow_branch = {
@@ -497,11 +617,11 @@ focus_tree = {
         x = 13
         y = 11
 		
-        cost = 4
+        cost = 3
 
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			add_stability = 0.05
+			HVN = { every_core_state = { add_core_of = ZHL }}
 		}
 		
 		allow_branch = {
@@ -519,7 +639,18 @@ focus_tree = {
 		
         cost = 4
 
+		bypass = {
+			NOT = {
+				country_exists = JIL
+			}
+		}
+
+		available = {
+			has_war = no
+		}
+
 		completion_reward = {
+			add_stability = -0.05
 			declare_war_on = {
 				target = JIL
 				type = annex_everything
@@ -536,12 +667,12 @@ focus_tree = {
 
 		prerequisite = { focus = ZHL_integrate_the_mukden_administration }
 		prerequisite = { focus = ZHL_make_harbin_the_center_of_manchuria }
-		prerequisite = { focus = ZHL_invade_hunchun }
+		prerequisite = { focus = ZHL_deport_koreans_to_the_chosen }
 
         x = 15
         y = 12
 		
-        cost = 5n
+        cost = 3
 
 		completion_reward = {
 			add_stability = 0.05
