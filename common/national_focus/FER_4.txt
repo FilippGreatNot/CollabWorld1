@@ -14,8 +14,8 @@ focus = {
 		cost = 5
 		x = 2
 		y = 1
-		prerequisite = {
-		}
+		prerequisite = {}
+                available = { has_completed_focus = FER_continuation_economic_reforms }
 		completion_reward = {
     swap_ideas = {
 				add_idea = FER_bad_economy2
@@ -112,7 +112,7 @@ focus = {
 		icon = GFX_our_benefactors
 		cost = 5
 		x = 0
-		y = 1
+		y = 2
 		prerequisite = {
 focus = FER_five_year_plan
 		}
@@ -125,7 +125,7 @@ focus = {
         icon = GFX_our_benefactors
         cost = 5
         x = 0
-        y = 2
+        y = 3
         prerequisite = { focus = FER_new_settlements}
         completion_reward = {
     add_timed_idea = {
@@ -139,7 +139,7 @@ focus = {
         icon = GFX_our_benefactors
         cost = 5
         x = 0
-        y = 3
+        y = 4
         prerequisite = { focus = FER_creation_new_cities}
         completion_reward = {
     add_timed_idea = {
@@ -204,6 +204,459 @@ focus = {
                 add_idea = FER_bad_economy6
                 remove_idea = FER_bad_economy5
             }
+        }
+    }
+    focus = {
+        id = FER_new_constitution
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 1
+        prerequisite = {  }
+        available = { has_completed_focus =  FER_party_meeting }
+        completion_reward = {
+        country_event = { id = fer.16  }
+        }
+    }
+    focus = {
+        id = FER_universal_suffrage
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 2
+        prerequisite = {
+    focus = FER_new_constitution
+        }
+        mutually_exclusive = { focus = FER_men_suffrage }
+        completion_reward = {
+        country_event = { id = fer.15  }
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_men_suffrage
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 10
+        y = 2
+        prerequisite = {
+    focus = FER_new_constitution
+        }
+        mutually_exclusive = { focus = FER_universal_suffrage}
+        completion_reward = {
+        country_event = { id = fer.17  }
+        add_popularity = {
+    ideology = liberalism
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_senate_and_duma
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 3
+        prerequisite = {
+    focus = FER_men_suffrage
+    focus = FER_universal_suffrage
+        }
+        mutually_exclusive = { focus =  FER_cabinet_ministers}
+        completion_reward = {
+        country_event = { id = fer.18  }
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_cabinet_ministers
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 10
+        y = 3
+        prerequisite = {
+    focus = FER_men_suffrage
+    focus = FER_universal_suffrage
+        }
+        mutually_exclusive = { focus =  FER_senate_and_duma}
+        completion_reward = {
+        country_event = { id = fer.19  }
+        add_popularity = {
+    ideology = liberalism
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_wealth_tax
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 4
+        prerequisite = {
+    focus = FER_cabinet_ministers
+    focus = FER_senate_and_duma
+        }
+        mutually_exclusive = { focus = FER_support_bourgeoisie  }
+        completion_reward = {
+        country_event = { id = fer.22  }
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_support_bourgeoisie
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 10
+        y = 4
+        prerequisite = {
+    focus = FER_cabinet_ministers
+    focus = FER_senate_and_duma
+        }
+        mutually_exclusive = { focus =  FER_wealth_tax }
+        completion_reward = {
+        country_event = { id = fer.23  }
+        add_popularity = {
+    ideology = liberalism
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_appointment_prime_minister
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 5
+        prerequisite = { 
+focus =  FER_wealth_tax
+focus = FER_support_bourgeoisie }
+        completion_reward = {
+                                if = { 
+                limit = { social_democrat > 0.4 }
+                country_event = { id = fer.20  }
+                }
+                                if = { 
+                limit = { liberalism > 0.4 }
+                country_event = { id = fer.21  }
+                }
+        country_event = { id = fer.16  }
+        }
+      }
+     focus = {
+        id = FER_party_meeting
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 1
+        prerequisite = {}
+        completion_reward = {
+       add_stability = 0.1
+        }
+    }
+    focus = {
+        id = FER_federation_issue
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 2
+        prerequisite = { focus = FER_party_meeting  }
+        available = { has_completed_focus = FER_appointment_prime_minister}
+        completion_reward = {
+        country_event = { id = fer.24  }
+        }
+    }
+   focus = {
+        id = FER_continuation_economic_reforms
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 3
+        prerequisite = { focus = FER_federation_issue }
+        completion_reward = {
+       add_stability = 0.05
+        }
+    }
+    focus = {
+        id = FER_rebuilding_army
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 4
+        prerequisite = { focus = FER_continuation_economic_reforms }
+        completion_reward = {
+        add_war_support = 0.1
+        }
+    }
+   focus = {
+        id = FER_security_issue
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 5
+        prerequisite = { focus =  FER_rebuilding_army }
+        completion_reward = {
+        add_war_support = 0.05
+        }
+    }
+    focus = {
+        id = FER_new_russia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 6
+        prerequisite = { focus =   FER_security_issue }
+        available = { 
+        has_completed_focus = FER_appointment_prime_minister
+        OR = {
+       has_completed_focus = FER_memory_generations
+       has_completed_focus =  FER_total_freedom  }
+       }
+        completion_reward = {
+        add_ideas = FER_russia_of_future
+       remove_ideas = FER_distrust_of_government
+        }
+    }
+   focus = {
+        id = FER_milyukov_premiership
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 2
+        prerequisite = {}
+        allow_branch = {  has_country_flag = FER_volsky_appointment }
+        completion_reward = {
+       add_ideas = FER_cadets
+        }
+    }
+    focus = {
+        id = FER_bring_back_cadets
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 3
+        prerequisite = { focus = FER_milyukov_premiership }
+        allow_branch = { has_country_flag = FER_volsky_appointment }
+        completion_reward = {
+        add_popularity = {
+    ideology = liberalism
+    popularity = 0.2
+}
+        }
+    }
+    focus = {
+        id = FER_fight_corruption
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 4
+        prerequisite = {focus = FER_bring_back_cadets }
+        allow_branch  = { has_country_flag = FER_volsky_appointment }
+        completion_reward = {
+       add_ideas = FER_fight_against_corruption
+        }
+    }
+    focus = {
+        id = FER_memory_generations
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 5
+        prerequisite = {focus =  FER_fight_corruption}
+        allow_branch  = {has_country_flag = FER_volsky_appointment }
+        completion_reward = {
+       add_ideas = FER_memory_of_empire
+        }
+    }
+    focus = {
+        id = FER_volsky_premiership
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 2
+        prerequisite = {}
+        allow_branch  = { has_country_flag = FER_milyukov_appointment }
+        completion_reward = {
+       add_ideas = FER_сhildren_of_revolution
+        }
+    }
+    focus = {
+        id = FER_komuch_cells #CMCA
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 3
+        prerequisite = { focus =  FER_volsky_premiership }
+        allow_branch  = {has_country_flag = FER_milyukov_appointment }
+        completion_reward = {
+        add_popularity = {
+    ideology = social_democrat
+    popularity = 0.2
+}
+        }
+    }
+    focus = {
+        id = FER_komuch_fighters
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 4
+        prerequisite = {focus = FER_komuch_cells }
+        allow_branch = {has_country_flag = FER_milyukov_appointment }
+        completion_reward = {
+       add_ideas = FER_volsky_fighters
+        }
+    }
+    focus = {
+        id = FER_total_freedom
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 14
+        y = 5
+        prerequisite = {focus =  FER_komuch_fighters}
+        allow_branch = { has_country_flag = FER_milyukov_appointment }
+        completion_reward = {
+       add_ideas = FER_freedom
+        }
+    }
+    focus = {
+        id = FER_issue_counterintelligence
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 1
+        prerequisite = { }
+        completion_reward = {
+       country_event = { id = fer.25  }
+        }
+    }
+    focus = {
+        id = FER_freedom_equality_fraternity
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 2
+        prerequisite = { focus = FER_issue_counterintelligence }
+        mutually_exclusive = { focus =  FER_total_supervision}
+        completion_reward = {
+       add_ideas = FER_weak_counterintelligence
+        }
+    }
+    focus = {
+        id = FER_worker_militia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 3
+        prerequisite = { focus = FER_freedom_equality_fraternity }
+        completion_reward = {
+       swap_ideas = {
+                add_idea = FER_weak_counterintelligence1
+                remove_idea = FER_weak_counterintelligence
+            }
+        }
+    }
+    focus = {
+        id = FER_down_with_autocracy
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 4
+        prerequisite = { focus = FER_worker_militia }
+        completion_reward = {
+       swap_ideas = {
+                add_idea = FER_weak_counterintelligence2
+                remove_idea = FER_weak_counterintelligence1
+            }
+        }
+    }
+    focus = {
+        id = FER_weaken_supervision
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 5
+        prerequisite = { focus = FER_down_with_autocracy}
+        completion_reward = {
+       swap_ideas = {
+                add_idea = FER_weak_counterintelligence3
+                remove_idea = FER_weak_counterintelligence2
+            }
+        }
+    }
+    focus = {
+        id = FER_total_supervision
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 2
+        prerequisite = { focus = FER_issue_counterintelligence }
+       mutually_exclusive = { focus =  FER_freedom_equality_fraternity }
+        completion_reward = {
+       add_ideas = FER_strong_counterintelligence
+        }
+    }
+    focus = {
+        id = FER_reinforced_police
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 3
+        prerequisite = { focus =  FER_total_supervision}
+        completion_reward = {
+       swap_ideas = {
+                add_idea =  FER_strong_counterintelligence1
+                remove_idea =  FER_strong_counterintelligence
+            }
+        }
+    }
+    focus = {
+        id = FER_Install_more_wiretapping
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 4
+        prerequisite = { focus =  FER_reinforced_police }
+        completion_reward = {
+       swap_ideas = {
+                add_idea =  FER_strong_counterintelligence2
+                remove_idea =  FER_strong_counterintelligence1
+            }
+        }
+    }
+    focus = {
+        id = FER_supervision_of_everyone
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 18
+        y = 5
+        prerequisite = { focus =  FER_Install_more_wiretapping }
+        completion_reward = {
+       swap_ideas = {
+                add_idea =  FER_strong_counterintelligence3
+                remove_idea =  FER_strong_counterintelligence2
+            }
+        }
+    }
+    focus = {
+        id = FER_contact_liberal_underground_of_Russia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 6
+        prerequisite = {
+ focus = FER_weaken_supervision
+  focus = FER_supervision_of_everyone } 
+        completion_reward = {
+  add_war_support = 0.1
         }
     }
 }
