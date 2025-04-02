@@ -32,7 +32,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_ask_far_eastern_republic_for_guns
+		id = ZHL_prepare_our_military
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_dawn_zheltorossiya }
 		
@@ -42,30 +42,85 @@ focus_tree = {
         cost = 5
 
 		completion_reward = {
-			army_experience = 10
+			army_experience = 25
 			add_war_support = 0.05
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_0
-				amount = 1000
-				producer = ZHL
-			}
-			add_timed_idea = {
-				idea = ZHL_repaying_debt
-				days = 80
+		    761 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
-		
+
 		allow_branch = {
 		}
 	}
 
 	focus = {
-		id = ZHL_force_laborers_mine
+		id = ZHL_prepare_our_civilian_industry
         icon = GFX_ZHL_dawn_zheltorossiya
 		prerequisite = { focus = ZHL_dawn_zheltorossiya }
 		
         x = 13
         y = 2
+		
+        cost = 5
+
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_fund_orachya_iron_industry
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_prepare_our_civilian_industry }
+		
+        x = 12
+        y = 3
+		
+        cost = 5
+
+		completion_reward = {
+			add_political_power = 20
+			random_owned_state = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_create_public_works
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_prepare_our_civilian_industry }
+		
+        x = 14
+        y = 3
 		
         cost = 5
 
@@ -89,56 +144,9 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_mobilize_army
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_dawn_zheltorossiya }
-		
-        x = 15
-        y = 2
-		
-        cost = 3
-
-		completion_reward = {
-			add_manpower = 15000
-			add_command_power = 20
-			add_war_support = 0.05
-			army_experience = 10
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_every_rifle_to_state
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_ask_far_eastern_republic_for_guns }
-		
-        x = 18
-        y = 3
-		
-        cost = 5
-
-		completion_reward = {
-			add_manpower = 2500
-			add_stability = -0.05
-			army_experience = 10
-			add_equipment_to_stockpile = {
-				type = infantry_equipment_0
-				amount = 1000
-				producer = ZHL
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-
-	focus = {
 		id = ZHL_Deploy_cossacks
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_ask_far_eastern_republic_for_guns }
+		prerequisite = { focus = ZHL_prepare_our_military }
 		
         x = 16
         y = 3
@@ -149,7 +157,7 @@ focus_tree = {
 			add_manpower = 5000
 			army_experience = 10
 			division_template = {
-				name = "Cossack Militias"
+				name = "Cossack Brigades"
 				priority = 1	
 				regiments = {
 					infantry = { x = 0 y = 0 }
@@ -162,7 +170,7 @@ focus_tree = {
 
 			714 = {
 				create_unit = {
-					division = "name = \"Cossack Militias\" division_template = \"Cossack Militias\" start_experience_factor = 0.3"
+					division = "name = \"Cossack Brigades\" division_template = \"Cossack Brigades\" start_experience_factor = 0.3"
 					owner = PREV
 					count = 2
 				}
@@ -170,9 +178,9 @@ focus_tree = {
 
 			761 = {
 				create_unit = {
-					division = "name = \"Cossack Militias\" division_template = \"Cossack Militias\" start_experience_factor = 0.3"
+					division = "name = \"Cossack Brigades\" division_template = \"Cossack Brigades\" start_experience_factor = 0.3"
 					owner = PREV
-					count = 1
+					count = 2
 				}
 			}
 		}
@@ -182,59 +190,34 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ZHL_motivate_workers
+		id = ZHL_temporary_mobilization
         icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_force_laborers_mine }
-		
-        x = 12
-        y = 3
-		
-        cost = 5
-
-		completion_reward = {
-			add_stability = 0.05
-			add_timed_idea = {
-				idea = ZHL_motivate_workers_for_war
-				days = 100
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-	focus = {
-		id = ZHL_establish_new_work_camps
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_force_laborers_mine }
-		
-        x = 14
-        y = 3
-		
-        cost = 4
-
-		completion_reward = {
-			add_stability = 0.06
-			761 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-		
-		allow_branch = {
-		}
-	}
-
-		focus = {
-		id = ZHL_final_preparation
-        icon = GFX_ZHL_dawn_zheltorossiya
-		prerequisite = { focus = ZHL_mobilize_army }
+		prerequisite = { focus = ZHL_we_need_you_to_work }
+		prerequisite = { focus = ZHL_our_soldiers_will_bring_victory }
 		
         x = 15
+        y = 5
+		
+        cost = 3
+
+		completion_reward = {
+			army_experience = 10
+
+		}
+
+
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_we_need_you_to_work
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_fund_orachya_iron_industry }
+		prerequisite = { focus = ZHL_create_public_works }
+		
+        x = 13
         y = 4
 		
         cost = 3
@@ -249,17 +232,66 @@ focus_tree = {
 		allow_branch = {
 		}
 	}
+
+	focus = {
+		id = ZHL_open_military_factory_in_mala_moskva
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_prepare_our_military }
+		
+        x = 18
+        y = 3
+		
+        cost = 3
+
+		completion_reward = {
+		    761 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_manpower = -500
+		}
+
+
+		
+		allow_branch = {
+		}
+	}
+
+	focus = {
+		id = ZHL_our_soldiers_will_bring_victory
+        icon = GFX_ZHL_dawn_zheltorossiya
+		prerequisite = { focus = ZHL_Deploy_cossacks }
+		prerequisite = { focus = ZHL_open_military_factory_in_mala_moskva }
+		
+        x = 17
+        y = 4
+		
+        cost = 5
+
+		completion_reward = {
+			army_experience = 25
+			add_war_support = 0.05
+			add_stability 0.05
+		}
+
+
+		
+		allow_branch = {
+		}
+	}
 																									
 	focus = {
 		id = ZHL_invasion_fengtian_clique
         icon = GFX_ZHL_dawn_zheltorossiya
 
-		prerequisite = { focus = ZHL_establish_new_work_camps }
-		prerequisite = { focus = ZHL_Deploy_cossacks }
-		prerequisite = { focus = ZHL_mobilize_army }
+		prerequisite = { focus = ZHL_we_need_you_to_work }
 		
         x = 15
-        y = 4
+        y = 6
 		
         cost = 5
 
@@ -285,7 +317,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_invasion_fengtian_clique }
 		
         x = 16
-        y = 5
+        y = 7
 		
         cost = 5
 
@@ -302,13 +334,17 @@ focus_tree = {
 		prerequisite = { focus = ZHL_invasion_fengtian_clique }
 		
         x = 14
-        y = 5
+        y = 7
 		
         cost = 5
 
 		completion_reward = {
-			add_stability = -0.05
-			MAN = { make_every_core_national_for_PREV = yes }
+			add_political_power = -20
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 800
+				producer = ZHL
+			}
 		}
 		
 		allow_branch = {
@@ -322,7 +358,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_pacify_suihua }
 		
         x = 15
-        y = 6
+        y = 8
 		
         cost = 5
 
@@ -341,13 +377,15 @@ focus_tree = {
 		prerequisite = { focus = ZHL_exile_zhang_zouhlin_to_japan }
 		
         x = 13
-        y = 7
+        y = 9
 		
         cost = 4
 
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = HVN
+				type = annex_everything
+			}
 		}
 		
 		allow_branch = {
@@ -360,7 +398,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_destroy_theocratic_dictatorship_in_Mukden }
 		
         x = 13
-        y = 8
+        y = 10
 		
         cost = 4
 
@@ -379,7 +417,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_invade_jilin_army }
 		
         x = 17
-        y = 8
+        y = 10
 		
         cost = 4
 
@@ -398,7 +436,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_exile_zhang_zouhlin_to_japan }
 		
         x = 15
-        y = 7
+        y = 9
 		
         cost = 4
 
@@ -417,13 +455,15 @@ focus_tree = {
 		prerequisite = { focus = ZHL_purge_problematic_chinesse_politicians }
 		
         x = 15
-        y = 8
+        y = 10
 		
         cost = 4
 
 		completion_reward = {
-			add_stability = -0.05
-			JIL = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = KOR
+				type = annex_everything
+			}	
 		}
 		
 		allow_branch = {
@@ -436,7 +476,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_move_capital_to_kharbinsk }
 		
         x = 17
-        y = 9
+        y = 11
 		
         cost = 4
 
@@ -455,7 +495,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_erase_theocratic_sympathies }
 		
         x = 13
-        y = 9
+        y = 11
 		
         cost = 4
 
@@ -475,13 +515,15 @@ focus_tree = {
 		prerequisite = { focus = ZHL_exile_zhang_zouhlin_to_japan }
 		
         x = 17
-        y = 7
+        y = 9
 		
         cost = 4
 
 		completion_reward = {
-			add_stability = -0.05
-			HVN = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = JIL
+				type = annex_everything
+			}
 		}
 		
 		allow_branch = {
@@ -497,7 +539,7 @@ focus_tree = {
 		prerequisite = { focus = ZHL_invade_hunchun }
 
         x = 15
-        y = 10
+        y = 12
 		
         cost = 5n
 
