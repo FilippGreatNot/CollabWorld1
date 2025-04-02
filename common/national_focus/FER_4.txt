@@ -206,4 +206,148 @@ focus = {
             }
         }
     }
+    focus = {
+        id = FER_new_constitution
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 1
+        prerequisite = {  }
+        completion_reward = {
+        country_event = { id = fer.16  }
+        }
+    }
+    focus = {
+        id = FER_universal_suffrage
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 2
+        prerequisite = {
+    focus = FER_new_constitution
+        }
+        mutually_exclusive = { focus = FER_men_suffrage }
+        completion_reward = {
+        country_event = { id = fer.15  }
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.15
 }
+        }
+    }
+    focus = {
+        id = FER_men_suffrage
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 10
+        y = 2
+        prerequisite = {
+    focus = FER_new_constitution
+        }
+        mutually_exclusive = { focus = FER_universal_suffrage}
+        completion_reward = {
+        country_event = { id = fer.17  }
+        add_popularity = {
+    ideology = liberalism
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_senate_and_duma
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 3
+        prerequisite = {
+    focus = FER_men_suffrage
+    focus = FER_universal_suffrage
+        }
+        mutually_exclusive = { focus =  FER_cabinet_ministers}
+        completion_reward = {
+        country_event = { id = fer.18  }
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_cabinet_ministers
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 10
+        y = 3
+        prerequisite = {
+    focus = FER_men_suffrage
+    focus = FER_universal_suffrage
+        }
+        mutually_exclusive = { focus =  FER_senate_and_duma}
+        completion_reward = {
+        country_event = { id = fer.19  }
+        add_popularity = {
+    ideology = liberalism
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_wealth_tax
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 4
+        prerequisite = {
+    focus = FER_cabinet_ministers
+    focus = FER_senate_and_duma
+        }
+        mutually_exclusive = { focus = FER_support_bourgeoisie  }
+        completion_reward = {
+        country_event = { id = fer.22  }
+        add_popularity = {
+    ideology = social_democrat
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_support_bourgeoisie
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 10
+        y = 4
+        prerequisite = {
+    focus = FER_cabinet_ministers
+    focus = FER_senate_and_duma
+        }
+        mutually_exclusive = { focus =  FER_wealth_tax }
+        completion_reward = {
+        country_event = { id = fer.23  }
+        add_popularity = {
+    ideology = liberalism
+    popularity = +0.15
+}
+        }
+    }
+    focus = {
+        id = FER_appointment_prime_minister
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 5
+        prerequisite = { 
+focus =  FER_wealth_tax
+focus = FER_support_bourgeoisie }
+        completion_reward = {
+                                if = { 
+                limit = { social_democrat > 0.4 }
+                country_event = { id = fer.20  }
+                }
+                                if = { 
+                limit = { liberalism > 0.4 }
+                country_event = { id = fer.21  }
+                }
+        country_event = { id = fer.16  }
+        }
+      }
+    }
