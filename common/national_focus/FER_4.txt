@@ -659,4 +659,389 @@ focus = FER_support_bourgeoisie }
   add_war_support = 0.1
         }
     }
+focus = {
+        id = FER_russian_risorgimento
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 22
+        y = 1
+        prerequisite = {}
+        available = { date > 1925.1.30 }
+        completion_reward = {
+       add_ideas = FER_emergency_mobilization
+        }
+    }
+focus = {
+        id = FER_international_brigades
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 21
+        y = 2
+        prerequisite = {focus = FER_russian_risorgimento}
+        completion_reward = {
+        division_template = {
+    name = "International brigades"
+    is_locked = yes
+    division_cap = 5 
+    priority = 0
+    template_counter = 0
+    regiments = {
+        infantry = { x = 0 y = 0 }
+        infantry = { x = 0 y = 1 }
+        infantry = { x = 0 y = 2 }
+        infantry = { x = 0 y = 3 }
+    infantry = { x = 1 y = 0 }
+    infantry = { x = 1 y = 1 }
+        infantry = { x = 1 y = 2 }
+       infantry = { x = 1 y = 3 }
+       infantry = { x = 2 y = 0 }
+    }
+    support = {
+        military_police = { x = 0 y = 0 }
+    }
+}
+     random_owned_controlled_state = {
+                limit = { PREV = { has_full_control_of_state = PREV } }
+                create_unit = {
+                    division = "name = \"International brigades\" division_template = \"International brigades\" start_experience_factor = 0.1" 
+                    owner = FER
+                }
+            }
+     random_owned_controlled_state = {
+                limit = { PREV = { has_full_control_of_state = PREV } }
+                create_unit = {
+                    division = "name = \"International brigades\" division_template = \"International brigades\" start_experience_factor = 0.1" 
+                    owner = FER
+                }
+            }
+            random_owned_controlled_state = {
+                limit = { PREV = { has_full_control_of_state = PREV } }
+                create_unit = {
+                    division = "name = \"International brigades\" division_template = \"International brigades\" start_experience_factor = 0.1" 
+                    owner = FER
+                }
+            }
+            random_owned_controlled_state = {
+                limit = { PREV = { has_full_control_of_state = PREV } }
+                create_unit = {
+                    division = "name = \"International brigades\" division_template = \"International brigades\" start_experience_factor = 0.1" 
+                    owner = FER
+                }
+            }
+            random_owned_controlled_state = {
+                limit = { PREV = { has_full_control_of_state = PREV } }
+                create_unit = {
+                    division = "name = \"International brigades\" division_template = \"International brigades\" start_experience_factor = 0.1" 
+                    owner = FER
+                }
+            }
+        }
+    }
+    focus = {
+        id = FER_economic_mobilization
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 24
+        y = 2
+        prerequisite = {focus = FER_russian_risorgimento}
+        completion_reward = {
+       add_ideas = FER_economy_military_needs
+        }
+    }
+    focus = {
+        id = FER_end_the_siberians
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus =  FER_economic_mobilization }
+        prerequisite = { focus = FER_international_brigades  }
+        x = 22
+        y = 3
+         available = {
+            has_war = no
+            OR = {
+            is_neighbor_of = FSR
+            }
+        }
+        bypass = {
+            NOT = {
+                country_exists = FSR
+            }
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = FSR
+                type = annex_everything
+            }
+            FSR = { make_every_core_national_for_PREV = yes }
+        }
+    }
+    focus = {
+        id = FER_end_the_japanese_puppets
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_end_the_siberians }
+        x = 22
+        y = 4
+         available = {
+            has_war = no
+            OR = {
+            is_neighbor_of = KMP
+            }
+        }
+        bypass = {
+            NOT = {
+                country_exists = KMP
+            }
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = KMP
+                type = annex_everything
+            }
+            KMP = { make_every_core_national_for_PREV = yes }
+        }
+    }
+    focus = {
+        id = FER_prepare_the_underground
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 21
+        y = 5
+        prerequisite = {focus = FER_end_the_japanese_puppets }
+        completion_reward = {
+       RUS = {
+   add_war_support = -0.1
+       }
+   }
+    }
+   focus = {
+        id = FER_set_off_explosions
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 24
+        y = 5
+        prerequisite = {focus = FER_end_the_japanese_puppets }
+        completion_reward = {
+       RUS = {
+   add_stability= -0.1
+       }
+   }
+    }
+   focus = {
+        id = FER_end_the_omsk_dictatorship
+        icon =  GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_set_off_explosions}
+                prerequisite = { focus = FER_prepare_the_underground }
+        x = 22
+        y = 6
+        available = { has_war = no }
+        completion_reward = {
+            declare_war_on = {
+                target = RUS
+                type = annex_everything
+            }
+            RUS = { make_every_core_national_for_PREV = yes }
+        }
+    }
+   focus = {
+        id = FER_calm_the_wild_steppes
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_end_the_omsk_dictatorship }
+        x = 22
+        y = 7
+        available = { has_war = no }
+        completion_reward = {
+             declare_war_on = {
+                target = TMS
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = KAZ
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = KYR
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = KHI
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = MNS
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = BSM
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = BUK
+                type = annex_everything
+            }
+            TMS = { make_every_core_national_for_PREV = yes }
+            KYR = { make_every_core_national_for_PREV = yes }
+            KAZ = { make_every_core_national_for_PREV = yes }
+            BUK = { make_every_core_national_for_PREV = yes }
+            KHI = { make_every_core_national_for_PREV = yes }
+            BSM = { make_every_core_national_for_PREV = yes }
+            MNS = { make_every_core_national_for_PREV = yes }
+        
+        }
+    }
+    focus = {
+        id = FER_сossacks_destroy
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_calm_the_wild_steppes }
+        x = 22
+        y = 9
+        bypass = {
+            NOT = { country_exists = OCG } 
+        }
+        available = {
+            has_war = no
+            is_neighbor_of = OCG
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = OCG
+                type = annex_everything
+            }
+            OCG = { make_every_core_national_for_PREV = yes }
+        }
+    }
+    focus = {
+        id = FER_destroy_the_red_plague
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_cossacks_destroy }
+        x = 22
+        y = 10
+        available = {
+            has_war = no
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = SOV
+                type = annex_everything
+            }
+            SOV = { make_every_core_national_for_PREV = yes }
+        }
+    }
+    focus = {
+        id = FER_destroy_tukhachevsky
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_destroy_the_red_plague }
+        x = 22
+        y = 11
+        bypass = {
+            NOT = { country_exists = BLR } 
+        }
+        available = {
+            has_war = no
+            is_neighbor_of = BLR 
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = BLR 
+                type = annex_everything
+            }
+            BLR = { make_every_core_national_for_PREV = yes }
+        }
+    }
+    focus = {
+        id = FER_destroy_the_baltic_traitors
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_destroy_tukhachevsky }
+        x = 22
+        y = 12
+        bypass = {
+            NOT = { country_exists = WVA }
+        }
+        available = {
+            has_war = no
+            is_neighbor_of = WVA
+        }
+        completion_reward = {
+            declare_war_on = {
+                target = WVA
+                type = annex_everything
+            }
+            WVA = { make_every_core_national_for_PREV = yes }
+        }
+    }
+    focus = {
+        id = FER_order_in_the_caucasus
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus =  FER_destroy_the_baltic_traitors }
+        x = 22
+        y = 13
+        available = { has_war = no }
+        completion_reward = {
+            declare_war_on = {
+                target = SRF
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = ARM
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = GEO
+                type = annex_everything
+            }
+            declare_war_on = {
+                target = AZR
+                type = annex_everything
+            }
+            SRF = { make_every_core_national_for_PREV = yes }
+            AZR = { make_every_core_national_for_PREV = yes }
+            GEO = { make_every_core_national_for_PREV = yes }
+            ARM = { make_every_core_national_for_PREV = yes }
+        
+        }
+    }
+    focus = {
+        id = FER_and_once_again_united_republic
+        icon = GFX_our_benefactors
+        cost = 5
+        prerequisite = { focus = FER_order_in_the_caucasus }
+        x = 22
+        y = 14
+        available = {
+           has_war = no
+            NOT = {
+                country_exists = SOV
+                country_exists = RUS
+                country_exists = WVA
+                country_exists = UKR
+                country_exists = ARM
+                country_exists = AZR
+                country_exists = GEO
+                country_exists = SRF
+                country_exists = OCG
+                country_exists = TMS
+                country_exists = KAZ
+                country_exists = KYR
+                country_exists = BSM
+                country_exists = MNS
+                country_exists = BUK
+                country_exists = KHI
+                country_exists = BLR
+                country_exists = FSR
+                country_exists = KMP
+            }
+        }
+        completion_reward = {
+            add_stability = 0.1
+            set_cosmetic_tag = FER_united
+            news_event = fer.26
+        }
+    }
 }
