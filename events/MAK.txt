@@ -1,0 +1,86 @@
+add_namespace = MAK
+
+country_event = {
+	id = MAK.1
+	title = MAK.1.t
+	desc = MAK.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = MAK.1.a
+		swap_ideas = {
+			add_idea = nat_illegitimate_dynasty_1
+			remove_idea = nat_illegitimate_dynasty
+		}
+		add_to_variable = { ARMENIAN_ANGER_VAR = 25	tooltip = MAK_ANGER_ARMENIAN }
+		add_to_variable = { ASSYRIAN_ANGER_VAR = 25	tooltip = MAK_ANGER_ASSYRIAN }
+		add_to_variable = { AZERI_ANGER_VAR = 25			tooltip = MAK_ANGER_AZERI }
+		add_to_variable = { KURDISH_ANGER_VAR = -10	tooltip = MAK_RELAX_KURDS }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = MAK_on_way_to_unify
+		mark_focus_tree_layout_dirty = yes
+		KUR = { add_opinion_modifier = { target = MAK modifier = small_increase } }
+	}
+	option = {
+		name = MAK.1.b
+		trigger = { always = no }
+		swap_ideas = {
+			add_idea = nat_illegitimate_dynasty_2
+			remove_idea = nat_illegitimate_dynasty
+		}
+		add_to_variable = { ARMENIAN_ANGER_VAR = -10	tooltip = MAK_RELAX_ARMENIAN }
+		add_to_variable = { ASSYRIAN_ANGER_VAR = -10	tooltip = MAK_RELAX_ASSYRIAN }
+		add_to_variable = { AZERI_ANGER_VAR = -10			tooltip = MAK_RELAX_AZERI }
+		add_to_variable = { KURDISH_ANGER_VAR = 25	tooltip = MAK_ANGER_KURDS }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		complete_national_focus = MAK_becoming_our_own_thing
+		mark_focus_tree_layout_dirty = yes
+		KUR = { add_opinion_modifier = { target = MAK modifier = small_decrease } }
+	}
+}
+
+country_event = {
+	id = MAK.2
+	title = MAK.2.t
+	desc = MAK.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = MAK.2.a
+		trigger = { NOT = { has_completed_focus = MAK_rethink_the_thing } }
+		custom_effect_tooltip = GAME_OVER_TT
+		MAK_Murtazaqulululu = { remove_trait = { trait = Eqbal_Soltaneh } }
+		hidden_effect = {
+			load_focus_tree = generic_tree
+			KUR = { annex_country = { target = MAK transfer_troops = yes } }
+			905 = { add_core_of = KUR	remove_core_of = MAK }
+			419 = { add_claim_by = KUR }
+		}
+		custom_effect_tooltip = advance_kur_claims_tt
+	}
+	option = {
+		name = MAK.2.b
+		trigger = { has_completed_focus = MAK_rethink_the_thing }
+		overlord = { end_puppet = ROOT	add_opinion_modifier = { target = MAK modifier = GER_betrayal }	country_event = MAK.3 }
+		create_wargoal = {
+			type = annex_everything
+			target = 350.owner
+			expire = 0
+		}
+		350 = { owner = { every_owned_state = { add_claim_by = ROOT } } }
+		set_cosmetic_tag = MAK_yazidi_kur
+		add_war_support = 0.25
+		add_manpower = 1000
+	}
+}
+
+country_event = {
+	id = MAK.3
+	title = MAK.3.t
+	desc = MAK.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = MAK.3.a
+	}
+}
