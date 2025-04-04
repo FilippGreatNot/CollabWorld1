@@ -1,0 +1,211 @@
+focus_tree = {
+	id = MAK_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MAK
+		}
+	}
+	default = no
+
+	focus = {
+		id = MAK_consolidate_grip
+		icon = GFX_focus_MAK_consolidate_grip
+		cost = 3
+		x = 6	y = 0
+		completion_reward = {
+			capital_scope = { add_compliance = 25 }
+			add_manpower = 200
+			add_political_power = 100
+			add_autonomy_score = { value = -150 }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_category_tooltip = MAK_coring_capital_decisions
+			unlock_decision_tooltip = MAK_displace_dissidents
+			unlock_decision_tooltip = MAK_rally_minorities
+			unlock_decision_tooltip = MAK_send_in_militias
+		}
+	}
+	
+	focus = {
+		id = MAK_tell_persia_to_fuck_off
+		icon = GFX_focus_MAK_tell_persia_to_fuck_off
+		relative_position_id = MAK_consolidate_grip
+		prerequisite = { focus = MAK_consolidate_grip }
+		available = {
+			905 = {
+				is_owned_and_controlled_by = ROOT
+				compliance > 90
+			}
+		}
+		
+		cost = 3
+		x = 0	y = 1
+		completion_reward = {
+			905 = { remove_contested_owner = PER 	custom_effect_tooltip = generic_skip_one_line_tt	add_core_of = MAK remove_core_of = PER hidden_effect = { add_claim_by = PER remove_claim_by = MAK } }
+			set_temp_variable = { ideology_change_var = 0.06 }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			change_ruling_party_popularity = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			hidden_effect = { country_event = { id = MAK.1 hours = 6 } }
+			PER = { add_stability = -0.3 add_opinion_modifier = { target = MAK modifier = large_decrease } }
+		}
+	}
+	
+	focus = {
+		id = MAK_on_way_to_unify
+		icon = GFX_focus_MAK_unite_with_kurdistan
+		relative_position_id = MAK_tell_persia_to_fuck_off
+		prerequisite = { focus = MAK_tell_persia_to_fuck_off }
+		
+		allow_branch = { has_completed_focus = MAK_on_way_to_unify }
+		
+		cost = 1
+		x = 0	y = 1
+		completion_reward = {
+			add_political_power = 10
+			add_autonomy_score = { value = -250 }
+		}
+	}
+	focus = {
+		id = MAK_more_rights_kurds
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_on_way_to_unify
+		prerequisite = { focus = MAK_on_way_to_unify }
+		
+		cost = 3
+		x = -3	y = 1
+		completion_reward = {
+			add_to_variable = { AZERI_ANGER_VAR = 20			tooltip = MAK_ANGER_AZERI }
+			add_to_variable = { KURDISH_ANGER_VAR = -5	tooltip = MAK_RELAX_KURDS }
+			add_manpower = 100
+		}
+	}
+	focus = {
+		id = MAK_side_with_Yazidi
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_on_way_to_unify
+		prerequisite = { focus = MAK_on_way_to_unify }
+		
+		mutually_exclusive = { focus = MAK_side_with_Kurds }
+		
+		cost = 3
+		x = -1	y = 1
+		completion_reward = {
+			add_to_variable = { AZERI_ANGER_VAR = 20			tooltip = MAK_ANGER_AZERI }
+			add_to_variable = { KURDISH_ANGER_VAR = -5		tooltip = MAK_RELAX_KURDS }
+			add_to_variable = { ARMENIAN_ANGER_VAR = 10	tooltip = MAK_ANGER_ARMENIAN }
+			add_to_variable = { ASSYRIAN_ANGER_VAR = 10	tooltip = MAK_ANGER_ASSYRIAN }
+			add_stability = 0.02
+			add_manpower = 100
+		}
+	}
+	focus = {
+		id = MAK_side_with_Kurds
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_on_way_to_unify
+		prerequisite = { focus = MAK_on_way_to_unify }
+		
+		mutually_exclusive = { focus = MAK_side_with_Yazidi }
+		
+		cost = 3
+		x = 1	y = 1
+		completion_reward = {
+			add_manpower = 500
+			add_to_variable = { AZERI_ANGER_VAR = 5			tooltip = MAK_ANGER_AZERI }
+			add_to_variable = { KURDISH_ANGER_VAR = -5		tooltip = MAK_RELAX_KURDS }
+			add_to_variable = { ARMENIAN_ANGER_VAR = 5	tooltip = MAK_ANGER_ARMENIAN }
+			add_to_variable = { ASSYRIAN_ANGER_VAR = 5	tooltip = MAK_ANGER_ASSYRIAN }
+		}
+	}
+	focus = {
+		id = MAK_unitary_identity
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_side_with_Kurds
+		prerequisite = { focus = MAK_side_with_Kurds }
+		prerequisite = { focus = MAK_establish_more_militia }
+		
+		cost = 3
+		x = 1	y = 1
+		completion_reward = {
+			add_stability = -0.2
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_to_variable = { ARMENIAN_ANGER_VAR = 25	tooltip = MAK_ANGER_ARMENIAN }
+			add_to_variable = { ASSYRIAN_ANGER_VAR = 25	tooltip = MAK_ANGER_ASSYRIAN }
+			add_to_variable = { AZERI_ANGER_VAR = 25			tooltip = MAK_ANGER_AZERI }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_temp_variable = { ideology_change_var = -0.1 }
+			custom_effect_tooltip = CAN_ANGERED_WORKERS
+			change_ruling_party_popularity = yes
+		}
+	}
+	focus = {
+		id = MAK_rethink_the_thing
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_side_with_Yazidi
+		prerequisite = { focus = MAK_side_with_Yazidi }
+		prerequisite = { focus = MAK_more_rights_kurds }
+		
+		available = { has_political_power > 50 }
+		
+		cost = 3
+		x = -1	y = 1
+		completion_reward = {
+			add_political_power = -50
+			add_war_support = 0.05
+			set_temp_variable = { ideology_change_var = 0.05 }
+			change_ruling_party_popularity = yes
+		}
+	}
+	focus = {
+		id = MAK_establish_more_militia
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_on_way_to_unify
+		prerequisite = { focus = MAK_on_way_to_unify }
+		
+		cost = 4.7
+		x = 3	y = 1
+		completion_reward = {
+			add_manpower = 500
+			add_to_variable = { AZERI_ANGER_VAR = 5			tooltip = MAK_ANGER_AZERI }
+			add_to_variable = { KURDISH_ANGER_VAR = -5		tooltip = MAK_RELAX_KURDS }
+			add_to_variable = { ARMENIAN_ANGER_VAR = 5	tooltip = MAK_ANGER_ARMENIAN }
+			add_to_variable = { ASSYRIAN_ANGER_VAR = 5	tooltip = MAK_ANGER_ASSYRIAN }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				add_idea = MAK_poor_army_4
+				remove_idea = MAK_poor_army_5
+			}
+		}
+	}
+	focus = {
+		id = MAK_capital_declaration
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_on_way_to_unify
+		prerequisite = { focus = MAK_rethink_the_thing	focus = MAK_unitary_identity }
+		available = { has_political_power > 25 	has_stability > 0.35	hidden_trigger = { NOT = { has_country_flag = MAK__WE_GOT_FUCKING_COUPD } } }
+		
+		cost = 2
+		x = 0	y = 4
+		completion_reward = {
+			add_political_power = -25
+			country_event = MAK.2
+		}
+	}
+	
+	focus = {
+		id = MAK_becoming_our_own_thing
+		icon = GFX_focus_generic_tree_the_eternal_regime
+		relative_position_id = MAK_tell_persia_to_fuck_off
+		prerequisite = { focus = MAK_tell_persia_to_fuck_off }
+		
+		allow_branch = { has_completed_focus = MAK_becoming_our_own_thing }
+		
+		cost = 1
+		x = 0	y = 1
+		completion_reward = {
+			add_political_power = -10
+			add_autonomy_score = { value = 250 }
+		}
+	}
+}
