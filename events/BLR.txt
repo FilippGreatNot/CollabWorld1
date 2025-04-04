@@ -210,11 +210,11 @@ news_event = {
         name = tukha.8.a
 	    show_superevent_tukha_soviet_reunification = yes
 		set_portraits = {
-                 character = BLR_mikhail_tukhachevsky
-                 army = { large = "gfx/leaders/BLR/BLR_newtukha.tga" }
-                 civilian = { large ="gfx/leaders/BLR/BLR_newtukha.tga" }
-            }
-    }
+            character = BLR_mikhail_tukhachevsky
+            army = { large = "gfx/leaders/BLR/BLR_newtukha.tga" small = "gfx/interface/ministers/BLR/BLR_newtukha.dds" }
+            civilian = { large ="gfx/leaders/BLR/BLR_newtukha.tga" small = "gfx/interface/ministers/BLR/BLR_newtukha.dds" }
+		}
+    } 
 }
 
 country_event = {
@@ -335,7 +335,49 @@ country_event = {
 		add_popularity = {
 			ideology = libertarian_socialism
 			popularity = 0.2
-			}
-
 		}
+	}
+}
+country_event = { 
+	id = tukha.15
+	title = tukha.15.t
+	desc = tukha.15.d
+	is_triggered_only = yes
+	picture = GFX_report_event_red_army_order
+	
+	
+	option = {
+		name = tukha.15.a
+		add_war_support = 0.05
+		add_manpower = 10000
+		
+	}
+}
+country_event = { 
+	id = tukha.16
+	title = tukha.16.t
+	desc = tukha.16.d
+	is_triggered_only = yes
+	picture = GFX_report_event_tukha
+	
+	
+	option = {
+		name = tukha.16.a
+		custom_effect_tooltip = BLR_minsk_stay
+		hidden_effect = { 
+			set_capital = { state = 206 remember_old_capital = no }
+		}
+	}
+	option = {
+		name = tukha.16.b
+		set_capital = { state = 219 remember_old_capital = no }
+	}
+	option = {
+		name = tukha.16.c
+		set_capital = { state = 195 remember_old_capital = no }
+	}
+	option = {
+		name = tukha.16.d
+		set_capital = { state = 202 remember_old_capital = no }
+	}
 }

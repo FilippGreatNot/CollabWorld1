@@ -1,5 +1,6 @@
 ﻿add_namespace = generic
 add_namespace = mod_tasks # Used for hidden events to manage content
+add_namespace = generic_news
 
 # Notification event that leader has gotten sick
 unit_leader_event = {
@@ -57,4 +58,22 @@ country_event = {
 			}
 		}
 	}	
+}
+
+news_event = { # Arabestan breaks off
+	id = generic_news.1
+	title = generic_news.1.t
+	desc = generic_news.1.d
+	picture = GFX_news_event_arabestan_sheikhdom
+	
+	immediate = {
+		hidden_effect = {
+			413 = { transfer_state_to = ARB	add_core_of = ARB }
+		}
+	}
+	
+	is_triggered_only = yes
+	option = { # Lmao
+		name = generic_news.1.a
+	}
 }

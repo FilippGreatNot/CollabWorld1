@@ -22,12 +22,17 @@ on_actions = {
 	
 	on_startup = {
 		effect = {
+			905 = { set_compliance = 10 }
 			every_possible_country = {
 				if = {
 					limit = { is_ai = no }
 					set_country_flag = CW_Intro__FLAG
 					set_variable = { cw_introw_page = 1 }
 				}
+			}
+			
+			PER = {
+				news_event = { id = generic_news.1	days = 120 random_days = 180 }
 			}
 		}
 	}

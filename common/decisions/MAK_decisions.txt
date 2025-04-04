@@ -1,0 +1,54 @@
+MAK_coring_capital_decisions = {
+	MAK_displace_dissidents = {
+		icon = GFX_decision_generic_confiscation
+		cost = 25
+		days_remove = 14
+		days_re_enable = 7
+		
+		remove_effect = {
+			add_manpower = -100
+			905 = {
+				add_compliance = 10
+				random_neighbor_state = {
+					limit = { is_owned_and_controlled_by = PER }
+					add_manpower = 100
+				}
+			}
+		}
+	}
+	MAK_rally_minorities = {
+		icon = GFX_decision_generic_speech
+		cost = 25
+		days_remove = 14
+		days_re_enable = 7
+		modifier = { stability_weekly_factor = -0.02 }
+		remove_effect = {
+			add_manpower = -100
+			905 = {
+				add_compliance = 12
+				random_neighbor_state = {
+					limit = { is_owned_and_controlled_by = PER }
+					add_manpower = 100
+				}
+			}
+		}
+	}
+	MAK_send_in_militias = {
+		icon = GFX_decision_generic_reorganize_irregulars
+		custom_cost_trigger = { has_manpower > 249 }
+		custom_cost_text = decision_manpower_250
+		
+		days_remove = 21
+		days_re_enable = 31
+		modifier = { army_morale_factor = -0.02 }
+		
+		complete_effect = { hidden_effect = { add_manpower = -250 } }
+		remove_effect = {
+			add_manpower = 250
+			add_stability = -0.1
+			add_war_support = -0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
+			905 = { add_compliance = 25 }
+		}
+	}
+}

@@ -56,7 +56,7 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = ultranationalism
+			ideology = ultranationalist
 			desc = "POLITICS_ERNST_ROHM_DESC"
 			traits = {
 				stormtrooper
@@ -174,7 +174,7 @@ characters = {
 		}
 	}
 	### Ministers ###
-	## Head of Government ##
+	# Initial Cabinet
 	FGB_freikorps_council = {
 		name = "Freikorps Council"
 		portraits = {
@@ -189,6 +189,58 @@ characters = {
 			can_be_fired = no
 		}
 	}
+	FGB_ulrich_von_hassell = {
+		name = "Christian August Ulrich von Hassell"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/advisorphoto.webp"
+			}
+		}
+		advisor = {
+			slot = security_minister
+			idea_token = FGB_ulrich_von_hassell_sec
+			allowed = { tag = FGB }
+			available = { has_government = despotism }
+			traits = { intricate_bureaucrat }
+			cost = 100
+			can_be_fired = yes
+		}
+	}
+	FGB_georg_schiele = {
+		name = "Georg Wilhelm Schiele"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/advisorphoto.webp"
+			}
+		}
+		advisor = {
+			slot = economy_minister
+			idea_token = FGB_georg_schiele_ec
+			allowed = { tag = FGB }
+			available = { has_government = despotism }
+			traits = { experienced_economist }
+			cost = 100
+			can_be_fired = yes
+		}
+	}
+	FGB_heinrich_class = {
+		name = "Heinrich Claß"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/ministers/advisorphoto.webp"
+			}
+		}
+		advisor = {
+			slot = propaganda_minister
+			idea_token = FGB_heinrich_class_prop
+			allowed = { tag = FGB }
+			available = { has_government = despotism }
+			traits = { warmonger_propagandist national_theorist conservative_lawyer }
+			cost = 100
+			can_be_fired = yes
+		}
+	}
+	## Head of Government ##
 	FGB_reichstag = {
 		name = "The Reichstag"
 		portraits = {
