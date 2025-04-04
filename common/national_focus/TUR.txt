@@ -14,6 +14,8 @@ focus_tree = {
 		icon = GFX_focus_TUR_coma
 		cost = 5
 		completion_reward = {
+		    add_stability = -0.03
+			add_political_power = -20
 		}
 	}
 
@@ -26,6 +28,16 @@ focus_tree = {
 		relative_position_id = TUR_turkeys_saviour_in_a_deep_coma
 		prerequisite = { focus = TUR_turkeys_saviour_in_a_deep_coma }
 		completion_reward = {
+		add_stability = -0.03
+		add_political_power = 15
+		add_popularity = {
+			ideology = reactionism
+			popularity = -0.03
+			}
+		add_popularity = {
+			ideology = marxism
+			popularity = -0.02
+			}
 		}
 	}
 	
@@ -37,6 +49,90 @@ focus_tree = {
 		cost = 7
 		relative_position_id = TUR_turkeys_saviour_in_a_deep_coma
 		prerequisite = { focus = TUR_turkeys_saviour_in_a_deep_coma }
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = 25
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = TUR_convene_the_grand_assembly
+		icon = GFX_focus_TUR_convene
+		y = 2
+		cost = 10
+		relative_position_id = TUR_turkeys_saviour_in_a_deep_coma
+		prerequisite = { focus = TUR_promise_a_return_to_normalty }
+		prerequisite = { focus = TUR_arrest_disloyal_spies }
+		completion_reward = {
+		swap_ideas = {
+				remove_idea = TUR_turkeys_saviour_in_a_coma
+				add_idea = TUR_turkeys_saviour_in_a_coma2
+			}
+		}
+	}
+	
+	focus = {
+		id = TUR_abolish_the_caliphate
+		icon = GFX_focus_TUR_abolish
+		y = 1
+		cost = 7
+		relative_position_id = TUR_convene_the_grand_assembly
+		prerequisite = { focus = TUR_convene_the_grand_assembly }
+		completion_reward = {
+		add_popularity = {
+				ideology = reactionism
+				popularity = -0.1
+			}
+		add_political_power = 25
+		 OTO = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = TUR_abolished_the_caliphate
+				}
+				}
+		}
+	}
+	
+	focus = {
+		id = TUR_fortify_the_new_capital
+		icon = GFX_focus_TUR_fortify
+		x = -2
+		y = 1
+		cost = 6
+		relative_position_id = TUR_convene_the_grand_assembly
+		prerequisite = { focus = TUR_convene_the_grand_assembly }
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_rally_the_turkish_people
+		icon = GFX_focus_TUR_rally
+		x = 2
+		y = 1
+		cost = 5
+		relative_position_id = TUR_convene_the_grand_assembly
+		prerequisite = { focus = TUR_convene_the_grand_assembly }
+		completion_reward = {
+		     add_stability = 0.05
+			 add_war_support = 0.05
+			 add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = TUR_choose_a_new_leader_for_the_movement
+		icon = GFX_focus_TUR_choose
+		y = 1
+		cost = 8
+		relative_position_id = TUR_abolish_the_caliphate
+		prerequisite = { focus = TUR_abolish_the_caliphate }
+		prerequisite = { focus = TUR_fortify_the_new_capital }
+		prerequisite = { focus = TUR_rally_the_turkish_people }
 		completion_reward = {
 		}
 	}
