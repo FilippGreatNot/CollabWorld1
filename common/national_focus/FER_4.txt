@@ -1341,4 +1341,564 @@ hidden_effect = {
             }
         }
     }
+
+focus = {
+        id = FER_meeting_in_moscow
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 12
+        prerequisite = {}
+        available = { has_completed_focus = FER_and_once_again_united_republic }
+        completion_reward = {
+        add_ideas = FER_russia_is_in_ruins
+        }
+    }
+
+focus = {
+        id = FER_restore_constituent_assembly
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 13
+        prerequisite = { focus = FER_meeting_in_moscow }
+        completion_reward = {
+        add_political_power = 200
+        add_stability = 0.2
+        add_war_support = 0.2
+        }
+    }
+
+focus = {
+        id = FER_holding_free_elections
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 14
+        prerequisite = { focus = FER_restore_constituent_assembly }
+        completion_reward = {
+       country_event = { id = fer.27  }
+        }
+    }
+
+focus = {
+        id = FER_socialist_revolutionary_party
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 15
+        available = {
+        has_country_leader = {
+                    name = "Alexander Kerensky"
+                    ruling_only = yes
+                }
+        prerequisite = { focus = FER_holding_free_elections }
+        completion_reward = {
+       add_political_power = 30
+      add_popularity = {
+    ideology = social_democrat
+    popularity = 0.2
+}
+        }
+    }
+
+focus = {
+        id = FER_implementation_promised_reforms
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 11
+        y = 16
+        prerequisite = { focus = FER_socialist_revolutionary_party }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins1
+                remove_idea =  FER_russia_is_in_ruins
+            }
+        }
+    }
+
+focus = {
+        id = FER_fight_against_radicals
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 11
+        y = 17
+        prerequisite = { focus = FER_implementation_promised_reforms }
+        completion_reward = {
+         add_popularity = {
+    ideology = social_democrat
+    popularity = 0.2
+}
+       add_popularity = {
+    ideology = liberalism
+    popularity = -0.2
+}
+    add_popularity = {
+    ideology = despotism
+    popularity = -0.2
+}
+        }
+    }
+
+focus = {
+        id = FER_fight_against_illiteracy
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 11
+        y = 18
+        prerequisite = { focus = FER_fight_against_radicals }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins2
+                remove_idea =  FER_russia_is_in_ruins1
+            }
+        }
+    }
+
+focus = {
+        id = FER_economic_recovery
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 13
+        y = 16
+        prerequisite = { focus = FER_socialist_revolutionary_party }
+         available = { has_completed_focus = FER_fight_against_illiteracy }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins3
+                remove_idea =  FER_russia_is_in_ruins2
+            }
+        }
+    }
+
+focus = {
+        id = FER_decent_medicine
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 13
+        y = 17
+        prerequisite = { focus = FER_economic_recovery }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins4
+                remove_idea =  FER_russia_is_in_ruins3
+            }
+        }
+    }
+
+focus = {
+        id = FER_increase_president_rights
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 13
+        y = 18
+        prerequisite = { focus = FER_decent_medicine }
+        completion_reward = {
+      add_stability = -0.15
+      add_political_power = 200 
+      add_war_support = -0.15
+        }
+    }
+
+focus = {
+        id = FER_free_russia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 12
+        y = 19
+        prerequisite = { focus = FER_increase_president_rights }
+        prerequisite = { focus = FER_fight_against_illiteracy }
+        completion_reward = {
+      remove_ideas = FER_russia_is_in_ruins4
+        }
+    }
+
+focus = {
+        id = FER_constitutional_democrats
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 15
+        available = {
+        has_country_leader = {
+                    name = "Pavel Milyukov"
+                    ruling_only = yes
+                }
+        prerequisite = { focus = FER_holding_free_elections }
+        completion_reward = {
+       add_political_power = 30
+      add_popularity = {
+    ideology = liberalism
+    popularity = 0.2
+}
+        }
+    }
+
+focus = {
+        id = FER_fight_against_corruption
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 15
+        y = 16
+        prerequisite = { focus = FER_constitutional_democrats  }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins1
+                remove_idea =  FER_russia_is_in_ruins
+            }
+    add_timed_idea = {
+                idea = FER_fight_corruption
+                days = 365
+            }
+        }
+    }
+
+focus = {
+        id = FER_punish_the_traitorous_liberals
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 15
+        y = 17
+        prerequisite = { focus =  FER_fight_against_corruption }
+        completion_reward = {
+        add_popularity = {
+    ideology = social_democrat
+    popularity = -0.2
+}
+       add_popularity = {
+    ideology = liberalism
+    popularity = 0.2
+}
+    add_popularity = {
+    ideology = despotism
+    popularity = -0.2
+}
+        }
+    }
+
+focus = {
+        id = FER_increasing_rights_ministers
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 15
+        y = 18
+        prerequisite = { focus = FER_punish_the_traitorous_liberals }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins2
+                remove_idea =  FER_russia_is_in_ruins1
+            }
+        }
+    }
+
+focus = {
+        id = FER_fight_against_homelessness
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 16
+        prerequisite = { focus = FER_constitutional_democrats }
+         available = { has_completed_focus = FER_increasing_rights_ministers }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins3
+                remove_idea =  FER_russia_is_in_ruins2
+            }
+        }
+    }
+
+focus = {
+        id = FER_great_federation
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 17
+        prerequisite = { focus = FER_fight_against_homelessness }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins4
+                remove_idea =  FER_russia_is_in_ruins3
+            }
+        }
+    }
+
+focus = {
+        id = FER_freedom_for_business
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 17
+        y = 18
+        prerequisite = { focus = FER_great_federation }
+        completion_reward = {
+        add_stability = 0.15
+      add_political_power = 200 
+     add_war_support = -0.15
+        }
+    }
+
+focus = {
+        id = FER_united_and_indivisible
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 16
+        y = 19
+        prerequisite = { focus = FER_freedom_for_business }
+        prerequisite = { focus =  FER_increasing_rights_ministers }
+        completion_reward = {
+      remove_ideas = FER_russia_is_in_ruins4
+        }
+    }
+
+focus = {
+        id = FER_eurasians
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 15
+        available = {
+        has_country_leader = {
+                    name = "Nikolai Trubetskoy"
+                    ruling_only = yes
+                }
+        prerequisite = { focus = FER_holding_free_elections }
+        completion_reward = {
+       add_political_power = 30
+      add_popularity = {
+    ideology = national_syndicalism
+    popularity = 0.3
+}
+        }
+    }
+
+focus = {
+        id = FER_fight_against_the_democrats
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 16
+        prerequisite = { focus = FER_eurasians }
+        completion_reward = {
+       add_popularity = {
+    ideology = national_syndicalism
+    popularity = 0.25
+}
+        }
+    }
+
+focus = {
+        id = FER_strengthening_the_police
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 17
+        prerequisite = { focus =  FER_fight_against_the_democrats }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins1
+                remove_idea =  FER_russia_is_in_ruins
+            }
+        }
+    }
+
+focus = {
+        id = FER_cult_of_soldier_personality
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 18
+        prerequisite = { focus = FER_strengthening_the_police  }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins2
+                remove_idea =  FER_russia_is_in_ruins1
+            }
+        }
+    }
+
+focus = {
+        id = FER_everything_for_front_everything_for_victory
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 16
+        prerequisite = { focus = FER_eurasians }
+         available = { has_completed_focus = FER_cult_of_soldier_personality }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins3
+                remove_idea =  FER_russia_is_in_ruins2
+            }
+        }
+    }
+
+focus = {
+        id = FER_multi_ethnic_nation
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 17
+        prerequisite = { focus = FER_everything_for_front_everything_for_victory }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins4
+                remove_idea =  FER_russia_is_in_ruins3
+            }
+        }
+    }
+
+focus = {
+        id = FER_pardon_bolsheviks
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 9
+        y = 18
+        prerequisite = { focus = FER_multi_ethnic_nation }
+        completion_reward = {
+        add_popularity = {
+    ideology = bolshevism
+    popularity = 0.15
+}
+        }
+    }
+
+focus = {
+        id = FER_united_eurasia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 19
+        prerequisite = { focus = FER_pardon_bolsheviks }
+        prerequisite = { focus = FER_cult_of_soldier_personality  }
+        completion_reward = {
+      remove_ideas = FER_russia_is_in_ruins4
+        }
+    }
+
+focus = {
+        id = FER_volsky_victory
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 4
+        y = 15
+        available = {
+        has_country_leader = {
+                    name = "Vladimir Volsky"
+                    ruling_only = yes
+                }
+        prerequisite = { focus = FER_holding_free_elections }
+        completion_reward = {
+       add_political_power = 30
+      add_popularity = {
+    ideology = social_democrat
+    popularity = 0.3
+}
+        }
+    }
+
+focus = {
+        id = FER_integrate_radicals
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 16
+        prerequisite = { focus = FER_volsky_victory  }
+        completion_reward = {
+        add_popularity = {
+    ideology = bolshevism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = social_democrat
+    popularity = 0.05
+}
+        }
+    }
+
+focus = {
+        id = FER_ensure_true_democracy
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 17
+        prerequisite = { focus = FER_integrate_radicals  }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins1
+                remove_idea =  FER_russia_is_in_ruins
+            }
+        }
+    }
+
+focus = {
+        id = FER_every_cook_in_government
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 18
+        prerequisite = { focus = FER_ensure_true_democracy  }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins2
+                remove_idea =  FER_russia_is_in_ruins1
+            }
+        }
+    }
+
+focus = {
+        id = FER_strengthen_self_management
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 16
+        prerequisite = { focus = FER_volsky_victory  }
+         available = { has_completed_focus = FER_every_cook_in_government  }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins3
+                remove_idea =  FER_russia_is_in_ruins2
+            }
+        }
+    }
+
+focus = {
+        id = FER_weaken_security_structures
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 17
+        prerequisite = { focus = FER_strengthen_self_management }
+        completion_reward = {
+      swap_ideas = {
+                add_idea =  FER_russia_is_in_ruins4
+                remove_idea =  FER_russia_is_in_ruins3
+            }
+        }
+    }
+
+focus = {
+        id = FER_memory_samara_fighters_with_kolchak
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 18
+        prerequisite = { focus = FER_weaken_security_structures }
+        completion_reward = {
+     add_political_power = 200
+        }
+    }
+
+focus = {
+        id = FER_total_freedom_russia
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 8
+        y = 19
+        prerequisite = { focus = FER_every_cook_in_government }
+        prerequisite = { focus = FER_memory_samara_fighters_with_kolchak  }
+        completion_reward = {
+      remove_ideas = FER_russia_is_in_ruins4
+        }
+    }
+
+
 }
