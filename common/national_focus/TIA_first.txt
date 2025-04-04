@@ -592,6 +592,23 @@ focus_tree = {
 	}
 
 	focus = {
+		id = TIA_all_into_the_military
+		icon = GFX_focus_SWE_varnplikt
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 15
+		}
+		relative_position_id = TIA_expand_the_army
+		prerequisite = { focus = TIA_expand_the_army }
+		completion_reward = {
+			add_ideas = {
+				extensive_conscription
+			}
+		}
+	}
+
+	focus = {
 		id = TIA_militarise_kashgar
 		icon = GFX_focus_SWE_landsverk
 		x = 0
@@ -765,6 +782,157 @@ focus_tree = {
 				}
 				increase_state_category_by_one_level = yes
 			}
+		}
+	}
+
+	focus = {
+		id = TIA_end_warlordist_dissent
+		icon = GFX_focus_SOV_restore_cossack_units
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_integrate_hami
+		prerequisite = { focus = TIA_integrate_hami }
+		prerequisite = { focus = TIA_integrate_the_center }
+		prerequisite = { focus = TIA_integrate_the_north }
+		completion_reward = {
+			custom_effect_tooltip = TIA_every_warlord_state_tt
+			ALT = {
+				every_core_state = {
+					remove_core_of = ALT
+				}
+				every_state = {
+					limit = { is_claimed_by = ALT }
+					remove_claim_by = ALT
+				}
+			}
+			DZG = {
+				every_core_state = {
+					remove_core_of = DZG
+				}
+				every_state = {
+					limit = { is_claimed_by = DZG }
+					remove_claim_by = DZG
+				}
+			}
+			KUM = {
+				every_core_state = {
+					remove_core_of = KUM
+				}
+				every_state = {
+					limit = { is_claimed_by = KUM }
+					remove_claim_by = KUM
+				}
+			}
+			SIK = {
+				every_core_state = {
+					remove_core_of = SIK
+				}
+				every_state = {
+					limit = { is_claimed_by = SIK }
+					remove_claim_by = SIK
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_build_up_the_military_sector
+		icon = GFX_focus_SOV_restore_cossack_units
+		x = -1
+		y = 1
+		cost = 8
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_end_warlordist_dissent
+		prerequisite = { focus = TIA_end_warlordist_dissent }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { NOT = { has_state_category = wasteland } }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = { NOT = { has_state_category = wasteland } }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_demand_khovd
+		icon = GFX_focus_SOV_restore_cossack_units
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_end_warlordist_dissent
+		prerequisite = { focus = TIA_end_warlordist_dissent }
+		completion_reward = {
+			818 = {
+				add_claim_by = TIA
+			}
+			RMA = {
+				country_event = tia.1
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_join_the_ma_clique
+		icon = GFX_focus_SOV_restore_cossack_units
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		relative_position_id = TIA_build_up_the_military_sector
+		prerequisite = { focus = TIA_build_up_the_military_sector }
+		prerequisite = { focus = TIA_demand_khovd }
+		completion_reward = {
+			custom_effect_tooltip = TIA_we_will_contact_tt
+			XSM = {
+				country_event = tia.2
+			}
+		}
+	}
+
+	focus = {
+		id = TIA_integrate_the_mas
+		icon = GFX_focus_SOV_restore_cossack_units
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 10
+		}
+		allow_branch = {
+			has_country_flag = TIA_brothers_war
+		}
+		available = {
+			has_war = no
+		}
+		relative_position_id = TIA_join_the_ma_clique
+		prerequisite = { focus = TIA_join_the_ma_clique }
+		completion_reward = {
+			MCE = { make_every_core_national_for_PREV = yes }
+			NIN = { make_every_core_national_for_PREV = yes }
+			XSM = { make_every_core_national_for_PREV = yes }
 		}
 	}
 

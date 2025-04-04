@@ -1,4 +1,5 @@
 add_namespace = kalat
+add_namespace = india_collapse
 
 news_event = { 
 	id = kalat.1
@@ -22,5 +23,38 @@ news_event = {
 				}
 			}
 		}
+	}
+}
+
+news_event = {
+	id = india_collapse.1
+	title = india_collapse.1.t 
+	desc = india_collapse.1.d
+	picture = GFX_news_event_generic_war
+	major = yes 
+	is_triggered_only = yes 
+	immediate = {
+		hidden_effect = {
+			RAJ = {
+				release = BHR
+				release = CHG
+				release = ORI
+			}
+			437 = {
+				transfer_state_to = RPT 
+				add_core_of = RPT
+			}
+			1107 = {
+				transfer_state_to = HYD
+			}
+			1116 = {
+				transfer_state_to = ISR
+			}
+		}
+	}
+
+	option = {
+		name = india_collapse.1.a 
+		add_threat = 10
 	}
 }

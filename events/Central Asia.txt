@@ -1,4 +1,5 @@
 add_namespace = turkestan
+add_namespace = tms
 
 news_event = {
 	id = turkestan.1
@@ -285,5 +286,80 @@ news_event = { #TMS
 	
 	option = {
 		name = turkestan.15.a
+	}
+}
+
+country_event = {
+	id = tms.1
+	title = tms.1.t
+	desc = tms.1.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	immediate = { hidden_effect = { country_event = { id = tms.1 days = 2 } } }
+	
+	option = {
+		name = tms.1.a
+		ai_chance = { base = 15 }
+		complete_national_focus = TMS_chernov_brings_esery_to_power
+	}
+	option = {
+		name = tms.1.b
+		ai_chance = { base = 15 }
+		add_stability = 0.02
+		complete_national_focus = TMS_funtikov_holds_on
+	}
+	option = {
+		name = tms.1.c
+		ai_chance = { base = 15 }
+		complete_national_focus = TMS_martov_menshevik_victory
+	}
+}
+
+country_event = {
+	id = tms.2
+	title = tms.2.t
+	desc = tms.2.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	immediate = { hidden_effect = { country_event = { id = tms.1 days = 2 } } }
+	
+	option = {
+		name = tms.2.a
+		ai_chance = { base = 15 }
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.05
+		}
+		retire_character = TMS_ippolit_savitsky
+	}
+	option = {
+		name = tms.2.b
+		ai_chance = { base = 5 }
+		add_war_support = 0.05
+		complete_national_focus = TMS_savitskys_seizure_of_the_state
+		set_country_flag = TMS_savitsky_flag
+	}
+}
+
+country_event = {
+	id = tms.3
+	title = tms.3.t
+	desc = tms.3.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	trigger = {
+		tag = TMS
+	}
+	immediate = { hidden_effect = { country_event = { id = tms.1 days = 2 } } }
+	
+	option = {
+		name = tms.3.a
+		ai_chance = { base = 15 }
+		add_war_support = 0.02
+		remove_ideas = {
+			TMS_waning_british_influence
+		}
+		retire_character = TMS_wilfrid_malleson
 	}
 }
