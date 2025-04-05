@@ -331,7 +331,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 3
+		cost = 4.2857
 		relative_position_id = TMS_consolidating_our_control
 		prerequisite = { focus = TMS_consolidating_our_control }
 		completion_reward = {
@@ -351,7 +351,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 3
+		cost = 4.2857
 		relative_position_id = TMS_strengthen_the_esery_coalition
 		prerequisite = { focus = TMS_strengthen_the_esery_coalition }
 		completion_reward = {
@@ -367,7 +367,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 3
+		cost = 4.2857
 		relative_position_id = TMS_consolidating_our_control
 		prerequisite = { focus = TMS_consolidating_our_control }
 		completion_reward = {
@@ -386,7 +386,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 3
+		cost = 4.2857
 		relative_position_id = TMS_purge_bolshevik_elements
 		prerequisite = { focus = TMS_purge_bolshevik_elements }
 		completion_reward = {
@@ -411,7 +411,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 5
+		cost = 4.2857
 		relative_position_id = TMS_a_unified_state
 		prerequisite = { focus = TMS_a_unified_state }
 		prerequisite = { focus = TMS_conduct_operations_against_basmachi_bandits }
@@ -433,7 +433,7 @@ focus_tree = {
 		available = {
 			date > 1923.12.30
 		}
-		cost = 3
+		cost = 4.2857
 		relative_position_id = TMS_the_party_of_the_people
 		prerequisite = { focus = TMS_the_party_of_the_people }
 		completion_reward = {
@@ -476,7 +476,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_chernov_brings_esery_to_power
 		prerequisite = { focus = TMS_chernov_brings_esery_to_power }
 		completion_reward = {
@@ -498,7 +498,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_allow_free_press
 		prerequisite = { focus = TMS_allow_free_press }
 		completion_reward = {
@@ -523,7 +523,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_improve_relations_with_armenia
 		prerequisite = { focus = TMS_improve_relations_with_armenia }
 		completion_reward = {
@@ -541,10 +541,14 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_chernov_brings_esery_to_power
 		prerequisite = { focus = TMS_chernov_brings_esery_to_power }
 		completion_reward = {
+			add_popularity = {
+				ideology = libertarian_socialism
+				popularity = 0.02
+			}
 			random_owned_state = {
 				add_extra_state_shared_building_slots = 2
 			}
@@ -564,7 +568,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_invest_in_the_countryside
 		prerequisite = { focus = TMS_invest_in_the_countryside }
 		completion_reward = {
@@ -581,7 +585,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_uplift_welfare_services
 		prerequisite = { focus = TMS_uplift_welfare_services }
 		completion_reward = {
@@ -590,7 +594,7 @@ focus_tree = {
 			add_stability = 0.03
 			add_popularity = {
 				ideology = libertarian_socialism
-				popularity = 0.02
+				popularity = 0.06
 			}
 		}
 	}
@@ -609,7 +613,7 @@ focus_tree = {
 				has_country_flag = TMS_unified_flag
 			}
 		}
-		cost = 4
+		cost = 4.2857
 		relative_position_id = TMS_implement_turkmen_names
 		prerequisite = { focus = TMS_implement_turkmen_names focus = TMS_promote_the_workers_spirit }
 		completion_reward = {
@@ -638,6 +642,156 @@ focus_tree = {
 			add_popularity = {
 				ideology = social_democrat
 				popularity = 0.06
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_loosen_trade_laws
+		icon = GFX_focus_TMS_loosen_trade_laws
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4.2857
+		relative_position_id = TMS_funtikov_holds_on
+		prerequisite = { focus = TMS_funtikov_holds_on }
+		completion_reward = {
+			add_ideas = {
+				export_focus
+			}
+			hidden_effect = {
+				country_event = tms.4
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_build_a_plant_on_the_amu_darya
+		icon = GFX_focus_TMS_loosen_trade_laws
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 6
+		relative_position_id = TMS_loosen_trade_laws
+		prerequisite = { focus = TMS_loosen_trade_laws }
+		completion_reward = {
+			1073 = {
+				increase_state_category_by_one_level = yes 
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_strengthen_labour_unions
+		icon = GFX_focus_TMS_strengthen_labour_unions
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4.2857
+		relative_position_id = TMS_build_a_plant_on_the_amu_darya
+		prerequisite = { focus = TMS_build_a_plant_on_the_amu_darya }
+		completion_reward = {
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.04
+			}
+			add_ideas = {
+				TMS_strengthened_unions
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_denounce_the_monarchists
+		icon = GFX_focus_TMS_denounce_the_monarchists
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4.2857
+		relative_position_id = TMS_funtikov_holds_on
+		prerequisite = { focus = TMS_funtikov_holds_on }
+		completion_reward = {
+			add_war_support = -0.02
+			add_stability = 0.03
+			add_popularity = {
+				ideology = despotism
+				popularity = -0.04
+			}
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.06
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_the_party_by_the_people
+		icon = GFX_focus_TMS_the_party_by_the_people
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4.2857
+		relative_position_id = TMS_denounce_the_monarchists
+		prerequisite = { focus = TMS_denounce_the_monarchists }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = TMS_the_party_of_the_people_idea
+				add_idea = TMS_the_party_of_the_people_idea2
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_smuggle_guns_through_persia
+		icon = GFX_focus_TMS_smuggle_guns_through_persia
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4.2857
+		relative_position_id = TMS_the_party_by_the_people
+		prerequisite = { focus = TMS_the_party_by_the_people }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = PER
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_old_administration_new_turkestan
+		icon = GFX_focus_TMS_old_administration_new_turkestan
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TMS_has_unified_turkestan_tt
+				has_country_flag = TMS_unified_flag
+			}
+		}
+		cost = 4.2857
+		relative_position_id = TMS_strengthen_labour_unions
+		prerequisite = { focus = TMS_strengthen_labour_unions focus = TMS_smuggle_guns_through_persia }
+		completion_reward = {
+			add_ideas = {
+				TMS_the_lasting_revolution
 			}
 		}
 	}
