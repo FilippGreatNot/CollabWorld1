@@ -26,3 +26,114 @@ country_event = {
 		}		
     }
 }
+
+country_event = { 
+    id = tur.1
+    title = tur.1.t
+    desc = tur.1.d
+    is_triggered_only = yes
+	picture = GFX_report_event_kemal
+
+    option = {
+        name = tur.1.a
+    }
+}
+
+country_event = { 
+    id = tur.2
+    title = tur.2.t
+    desc = tur.2.d
+    is_triggered_only = yes
+	picture = GFX_report_event_assembly
+
+    option = {
+        name = tur.2.a
+		add_manpower = 25000
+		army_experience = 20
+		add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 200
+				producer = TUR
+			}
+    }
+    option = {
+        name = tur.2.b
+		add_stability = 0.08
+    }
+	option = {
+        name = tur.2.c
+		random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+    }
+}
+
+country_event = { 
+    id = tur.3
+    title = tur.3.t
+    desc = tur.3.d
+    is_triggered_only = yes
+	picture = GFX_report_event_assembly
+
+    option = {
+        name = tur.3.a
+		promote_character = TUR_ismet_pasha
+		add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+		}
+		}
+		
+    option = {
+        name = tur.3.b
+		set_politics = {
+				ruling_party = despotism
+			}
+		add_popularity = {
+				ideology = despotism
+				popularity = 0.05
+		}
+    }
+}
+
+country_event = {
+	id = tur.4
+	title = tur.4.t
+	desc = tur.4.d
+	is_triggered_only = yes
+
+	option = {
+		name = tur.4.a
+		ai_chance = {
+			base = 9
+		}
+			TUR = {
+				annex_country = { 
+					target = EAR
+					transfer_troops = yes 
+				}
+			}
+			EAR = {
+				every_unit_leader = {
+					set_nationality = TUR
+				}
+			}
+		}
+	
+	option = {
+		name = tur.4.b
+		ai_chance = {
+			base = 1
+		}
+	    	TUR = {
+				declare_war_on = {
+					target = EAR
+					type = civil_war
+				}
+			}
+		}
+	}
