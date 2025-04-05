@@ -11,6 +11,7 @@ focus_tree = {
 	
 	focus = {
 	    id = CZE_convene_the_legionary_council
+		icon = GFX_CZE_focus_convene_legions
 		x = 5
 		y = 0
 		cost = 3
@@ -861,6 +862,21 @@ focus_tree = {
 				    type = steel
 					amount = 4 
 				}
+			}
+		}
+	}
+	focus = {
+	    id = CZE_form_eastern_entene
+		relative_position_id = CZE_invest_in_rudohorie
+		prerequisite = { focus = CZE_invest_in_rudohorie }
+		prerequisite = { focus = CZE_fund_small_farmers }
+		x = -1
+		y = 1
+		cost = 6
+		completion_reward = {
+		    create_faction = "Eastern Entene"
+			ROM = {
+			    country_event = cze.9
 			}
 		}
 	}
