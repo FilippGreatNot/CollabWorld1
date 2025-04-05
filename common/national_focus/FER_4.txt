@@ -488,7 +488,7 @@ focus = FER_support_bourgeoisie }
         prerequisite = {}
         allow_branch  = { has_country_flag = FER_milyukov_appointment }
         completion_reward = {
-       add_ideas = FER_сhildren_of_revolution
+       add_ideas = FER_people_of_revolution
         }
     }
     focus = {
@@ -1404,6 +1404,7 @@ focus = {
     ideology = social_democrat
     popularity = 0.2
 }
+hidden_effect = { promote_character = FER_kerenski_hero }
         }
     }
 
@@ -1907,6 +1908,322 @@ focus = {
         prerequisite = { focus = FER_memory_samara_fighters_with_kolchak  }
         completion_reward = {
       remove_ideas = FER_russia_is_in_ruins4
+        }
+    }
+
+focus = {
+        id =  FER_return_of_greatness
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 5
+        prerequisite = { }
+        available = {
+           NOT = {
+          has_idea = FER_russia_is_in_ruins 
+          has_idea = FER_russia_is_in_ruins1
+          has_idea = FER_russia_is_in_ruins2
+          has_idea = FER_russia_is_in_ruins3
+          has_idea = FER_russia_is_in_ruins4}
+            has_completed_focus = FER_holding_free_elections
+        }
+        completion_reward = {
+      custom_effect_tooltip = FER_return_of_greatness_tooltip
+        }
+    }
+focus = {
+        id =  FER_western_direction
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 6
+        prerequisite = { focus = FER_return_of_greatness }
+        completion_reward = {
+      set_country_flag = FER_european_commission
+        }
+    }
+focus = {
+        id =  FER_vyborg_province
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 7
+        prerequisite = { focus = FER_western_direction }
+        completion_reward = {
+      create_wargoal = {
+                target = FIN
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_hiking_in_balkans
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 8
+        prerequisite = { focus = FER_vyborg_province }
+        completion_reward = {
+      create_wargoal = {
+                target = ROM
+                type = annex_everything
+            }
+      create_wargoal = {
+                target = HUN
+                type = annex_everything
+            }
+      create_wargoal = {
+                target = CZE
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_trip_to_berlin
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 3
+        y = 9
+        prerequisite = { focus = FER_vyborg_province }
+       available = {  has_war = no }
+        completion_reward = {
+      create_wargoal = {
+                target = BAV
+                type = annex_everything
+            }
+      create_wargoal = {
+                target = POL
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = GER
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = FWG
+                type = annex_everything
+            }
+    create_wargoal = {
+                target = DSH
+                type = annex_everything
+            }
+   create_wargoal = {
+                target = WRD
+                type = annex_everything
+            }
+   create_wargoal = {
+                target = VDW
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_southern_direction
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 6
+        prerequisite = { focus = FER_return_of_greatness }
+        completion_reward = {
+      set_country_flag = FER_middle_east_commission
+        }
+    }
+focus = {
+        id =  FER_destroy_graveyard_of_empires
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 7
+        prerequisite = { focus = FER_southern_direction }
+        completion_reward = {
+      create_wargoal = {
+                target = AFG
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_return_the_straits
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 8
+        prerequisite = { focus = FER_destroy_graveyard_of_empires }
+        completion_reward = {
+      create_wargoal = {
+                target = TUR
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = OTO
+                type = annex_everything
+            }
+   create_wargoal = {
+                target = GAR
+                type = annex_everything
+            }
+   create_wargoal = {
+                target = URT
+                type = annex_everything
+            }
+  create_wargoal = {
+                target = SIL
+                type = annex_everything
+            }
+  create_wargoal = {
+                target = EAR
+                type = annex_everything
+            }
+  create_wargoal = {
+                target = KUR
+                type = annex_everything
+            }
+create_wargoal = {
+                target = TWR
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_capture_persian_oil
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 9
+        prerequisite = { focus = FER_return_the_straits }
+        completion_reward = {
+      create_wargoal = {
+                target = UAE
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = MAK
+                type = annex_everything
+            }
+   create_wargoal = {
+                target = PER
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_eastern_direction
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 6
+        prerequisite = { focus = FER_return_of_greatness }
+        completion_reward = {
+      set_country_flag = FER_eastern_commission
+        }
+    }
+focus = {
+        id =  FER_harbin_in_3_days
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 7
+        prerequisite = { focus = FER_eastern_direction }
+        completion_reward = {
+      create_wargoal = {
+                target = MAN
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = JIL
+                type = annex_everything
+            }
+   create_wargoal = {
+                target = ZHL
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = REH
+                type = annex_everything
+            }
+    create_wargoal = {
+                target = HVN
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_control_of_xinjiang
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 8
+        prerequisite = { focus = FER_harbin_in_3_days }
+       available = {  has_war = no }
+        completion_reward = {
+      create_wargoal = {
+                target = ALT
+                type = annex_everything
+            }
+      create_wargoal = {
+                target = DZG
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = SIK
+                type = annex_everything
+            }
+     create_wargoal = {
+                target = TIA
+                type = annex_everything
+            }
+    create_wargoal = {
+                target = KUM
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_revenge_for_tsushima
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 7
+        y = 9
+        prerequisite = { focus =  FER_control_of_xinjiang }
+       available = {  has_war = no }
+        completion_reward = {
+      create_wargoal = {
+                target = JAP
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_last_trip
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 10
+        prerequisite = { focus = FER_capture_persian_oil  }
+       prerequisite = { focus = FER_revenge_for_tsushima }
+        prerequisite = { focus = FER_trip_to_berlin }
+        completion_reward = {
+      create_wargoal = {
+                target = FRA
+                type = annex_everything
+            }
+    create_wargoal = {
+                target = ENG
+                type = annex_everything
+            }
+        }
+    }
+focus = {
+        id =  FER_lord_of_the_world
+        icon = GFX_our_benefactors
+        cost = 5
+        x = 5
+        y = 11
+        prerequisite = { focus = FER_last_trip  }
+        completion_reward = {
+    add_stability = 1
+  add_war_support = 1
+  add_political_power = 200
         }
     }
 }

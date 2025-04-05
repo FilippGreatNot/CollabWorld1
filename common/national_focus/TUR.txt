@@ -16,6 +16,7 @@ focus_tree = {
 		completion_reward = {
 		    add_stability = -0.03
 			add_political_power = -20
+			country_event = tur.1
 		}
 	}
 
@@ -68,10 +69,11 @@ focus_tree = {
 		prerequisite = { focus = TUR_promise_a_return_to_normalty }
 		prerequisite = { focus = TUR_arrest_disloyal_spies }
 		completion_reward = {
-		swap_ideas = {
+		    swap_ideas = {
 				remove_idea = TUR_turkeys_saviour_in_a_coma
 				add_idea = TUR_turkeys_saviour_in_a_coma2
 			}
+		    country_event = tur.2
 		}
 	}
 	
@@ -106,6 +108,47 @@ focus_tree = {
 		relative_position_id = TUR_convene_the_grand_assembly
 		prerequisite = { focus = TUR_convene_the_grand_assembly }
 		completion_reward = {
+		49 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 11747
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 804
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6925
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 11784
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 6908
+					instant_build = yes
+				}
+			}
+		356 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 9844
+					instant_build = yes
+				}
+			}
+			army_experience = 15
 		}
 	}
 	
@@ -134,8 +177,403 @@ focus_tree = {
 		prerequisite = { focus = TUR_fortify_the_new_capital }
 		prerequisite = { focus = TUR_rally_the_turkish_people }
 		completion_reward = {
+		     country_event = tur.3
+		}
+	}
+	
+	focus = {
+		id = TUR_the_lessons_of_the_independence_war
+		icon = GFX_focus_TUR_lessons
+		cost = 6
+		x = 7
+		completion_reward = {
+		    army_experience = 35
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = TUR_focus_on_quality_training
+		icon = GFX_focus_TUR_quality
+		relative_position_id = TUR_the_lessons_of_the_independence_war
+		cost = 7
+		prerequisite = {
+            focus = TUR_the_lessons_of_the_independence_war
+        }
+		x = -1
+		y = 1
+		mutually_exclusive = {
+			focus = TUR_conscript_more_soldiers
+		}
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_conscript_more_soldiers
+		icon = GFX_focus_TUR_conscript
+		relative_position_id = TUR_the_lessons_of_the_independence_war
+		cost = 7
+		prerequisite = {
+            focus = TUR_the_lessons_of_the_independence_war
+        }
+		x = 1
+		y = 1
+		mutually_exclusive = {
+			focus = TUR_focus_on_quality_training
+		}
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_fix_broken_weapons
+		icon = GFX_focus_TUR_fix
+		relative_position_id = TUR_focus_on_quality_training
+		cost = 8
+		x = 1
+		y = 1
+		prerequisite = {
+            focus = TUR_conscript_more_soldiers focus = TUR_focus_on_quality_training
+        }
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_increase_the_armys_morale
+		icon = GFX_focus_TUR_morale
+		relative_position_id = TUR_fix_broken_weapons
+		cost = 7
+		x = -2
+		y = 1
+		prerequisite = {
+            focus = TUR_fix_broken_weapons
+        }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = TUR_establish_a_turkish_airforce
+		icon = GFX_focus_TUR_air
+		relative_position_id = TUR_fix_broken_weapons
+		cost = 7
+		x = 0
+		y = 1
+		prerequisite = {
+            focus = TUR_fix_broken_weapons
+        }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = TUR_careful_battle_planning
+		icon = GFX_focus_TUR_careful
+		relative_position_id = TUR_fix_broken_weapons
+		cost = 6
+		x = 2
+		y = 1
+		prerequisite = {
+            focus = TUR_fix_broken_weapons
+        }
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_deploy_turkish_paramilitary_units
+		icon = GFX_focus_TUR_careful
+		relative_position_id = TUR_establish_a_turkish_airforce
+		cost = 10
+		y = 1
+		prerequisite = {
+            focus = TUR_careful_battle_planning
+        }
+		prerequisite = {
+            focus = TUR_establish_a_turkish_airforce
+        }
+		prerequisite = {
+            focus = TUR_increase_the_armys_morale
+        }
+		completion_reward = {
+		}
+	}
+	
+	
+	focus = {
+		id = TUR_abolish_the_war_tax
+		icon = GFX_focus_TUR_tax
+		cost = 6
+		x = 15
+		completion_reward = {
 		}
 	}
 
+    focus = {
+		id = TUR_begin_the_reunification_effort
+		icon = GFX_focus_cil_ultimatum_chp
+		cost = 5
+		x = 13
+		y = 5
+		available = { 
+			date > 1924.6.1
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+		    add_war_support = 0.05
+			add_manpower = 20000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 500
+				producer = TUR
+			}
+		}
+	}
+	focus = {
+        id = TUR_eliminate_the_green_army
+        icon = GFX_focus_TUR_green
+        relative_position_id = TUR_begin_the_reunification_effort
+        x = -4
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = GAR
+		}
+		will_lead_to_war_with = GAR
+		
+		bypass = {
+			NOT = {
+				country_exists = GAR
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = GAR
+				type = civil_war
+			    }
+			    add_civil_war_target = GAR
+               }
+	}
+	focus = {
+        id = TUR_dethrone_the_sultan
+        icon = GFX_focus_TUR_dethrone
+        relative_position_id = TUR_begin_the_reunification_effort
+        x = -6
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = OTO
+		}
+		will_lead_to_war_with = OTO
+		
+		bypass = {
+			NOT = {
+				country_exists = OTO
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = OTO
+				type = civil_war
+			    }
+			    add_civil_war_target = OTO
+               }
+	}
+	focus = {
+        id = TUR_end_the_ittihadist_regime
+        icon = GFX_focus_cil_last_stronghold
+        relative_position_id = TUR_begin_the_reunification_effort
+        x = -2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = URT
+		}
+		will_lead_to_war_with = URT
+		
+		bypass = {
+			NOT = {
+				country_exists = URT
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = URT
+				type = civil_war
+			    }
+			    add_civil_war_target = URT
+               }
+	}
+	focus = {
+        id = TUR_destroy_the_cilician_state
+        icon = GFX_focus_TUR_cilicia
+        relative_position_id = TUR_begin_the_reunification_effort
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = CIL
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = CIL
+			}
+		}
+		will_lead_to_war_with = CIL
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = CIL
+				type = civil_war
+			    }
+			    add_civil_war_target = CIL
+               }
+	}
+	
+	focus = {
+        id = TUR_throw_out_the_bolshevik_rats
+        icon = GFX_focus_TUR_rats
+        relative_position_id = TUR_begin_the_reunification_effort
+        x = 2
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = TWR
+		}
+		will_lead_to_war_with = TWR
+		
+		bypass = {
+			NOT = {
+				country_exists = TWR
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = TWR
+				type = civil_war
+			    }
+			    add_civil_war_target = TWR
+               }
+	}
+	
+	focus = {
+        id = TUR_demand_the_eastern_armys_submission
+        icon = GFX_focus_cil_the_fate_karabekir
+        relative_position_id = TUR_begin_the_reunification_effort
+        x = 4
+        y = 1
+        cost = 5
+		will_lead_to_war_with = EAR
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = EAR
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = EAR
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				EAR = {
+				country_event = tur.4
+			    }
+               }
+	}
+	
+	focus = {
+        id = TUR_sheikh_saids_last_breath
+        icon = GFX_focus_TUR_kurdistan
+        relative_position_id = TUR_begin_the_reunification_effort
+        x = 6
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_reunification_effort
+        }
+		available = {
+			has_war = no
+			is_neighbor_of = KUR
+		}
+		will_lead_to_war_with = KUR
+		
+		bypass = {
+			NOT = {
+				country_exists = KUR
+			}
+		}
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+				declare_war_on = {
+				target = KUR
+				type = civil_war
+			    }
+			    add_civil_war_target = KUR
+               }
+	}
+	
+	focus = {
+        id = TUR_arisen_like_a_phoenix
+        icon = GFX_focus_TUR_phoenix
+        relative_position_id = TUR_destroy_the_cilician_state
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_destroy_the_cilician_state
+			focus = TUR_eliminate_the_green_army
+			focus = TUR_end_the_ittihadist_regime
+			focus = TUR_dethrone_the_sultan
+			focus = TUR_demand_the_eastern_armys_submission
+			focus = TUR_sheikh_saids_last_breath
+        }
+		available = {
+			has_war = no
+			NOT = {
+			country_exists = OTO
+			country_exists = GAR
+			country_exists = URT
+			country_exists = TWR
+			country_exists = KUR
+			country_exists = EAR
+			country_exists = CIL
+			}
+		}
+		completion_reward = {
+				add_stability = 0.05
+				add_political_power = 50
+               }
+	}
 	
 }
