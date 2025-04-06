@@ -11,8 +11,8 @@ focus_tree = {
 
 	focus = {
 		id = IRQ_initial_the_collapsing_world
-		icon = a
-		x = 6
+		icon = GFX_focus_IRQ_cradle_of_civilization
+		x = 25
 		y = 0
 		cost = 5
 		available_if_capitulated = yes
@@ -24,6 +24,8 @@ focus_tree = {
 		}
 		
 		completion_reward = {	
+		add_political_power = 20 
+		country_event = irq.1
 		}
 	}
 	focus = {
@@ -42,6 +44,7 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_the_collapsing_world}
 		relative_position_id = IRQ_initial_the_collapsing_world
 		completion_reward = {	
+		country_event = irq.27
 		}
 	}
 
@@ -59,6 +62,18 @@ focus_tree = {
 		relative_position_id = IRQ_initial_a_royal_speech
 		mutually_exclusive = { focus = IRQ_initial_the_hejazite_laddie }
 		completion_reward = {	
+		add_popularity = {
+				ideology = despotism
+				popularity = -0.05
+			}
+		add_popularity = {
+				ideology = conservatism
+				popularity = -0.05
+			}
+		add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = -0.05
+			}
 		}
 	}
 
@@ -75,6 +90,8 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_legacy_of_1920}
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+		add_stability = 0.07
+		add_war_support = 0.12
 		}
 	}
 
@@ -91,6 +108,10 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_legacy_of_1920}
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+			add_popularity = {
+				ideology = esotericism
+				popularity = 0.07
+			}
 		}
 	}
 
@@ -107,6 +128,10 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_legacy_of_1920}
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+			add_popularity = {
+				ideology = national_syndicalism
+				popularity = 0.12
+			}
 		}
 	}
 
@@ -123,6 +148,9 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_the_syndicalist_friend focus = IRQ_initial_seek_the_agha focus = IRQ_initial_organise_the_tribes }
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+		888 = { add_core_of = IRQ }
+		904 = { add_core_of = IRQ }
+		add_manpower = 1000
 		}
 	}
 
@@ -139,6 +167,11 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_the_syndicalist_friend focus = IRQ_initial_seek_the_agha focus = IRQ_initial_organise_the_tribes }
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1100
+				producer = IRQ
+			}
 		}
 	}
 	focus = {
@@ -154,6 +187,10 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_the_syndicalist_friend focus = IRQ_initial_seek_the_agha focus = IRQ_initial_organise_the_tribes }
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+		give_guarantee = SAU
+		SAU = {
+		give_guarantee = IRQ
+		}
 		}
 	}
 	focus = {
@@ -169,6 +206,21 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_kurdish_promises focus = IRQ_initial_saudi_support focus = IRQ_initial_bring_out_old_stockpiles }
 		relative_position_id = IRQ_initial_legacy_of_1920
 		completion_reward = {	
+			set_politics = {
+			ruling_party = reactionism 
+			}
+			add_popularity = {
+			ideology = reactionism 
+			popularity = 0.25
+			}
+			add_popularity = {
+			ideology = esotericism 
+			popularity = 0.05 
+			}
+			add_popularity = {
+			ideology = national_syndicalism 
+			popularity = 0.08 
+			}
 		}
 	}
 	focus = {
@@ -184,6 +236,11 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_spark_the_civil_war}
 		relative_position_id = IRQ_initial_spark_the_civil_war
 		completion_reward = {	
+		add_manpower = 100
+		add_popularity = {
+			ideology = esotericism 
+			popularity = 0.05 
+			}
 		}
 	}
 
@@ -200,6 +257,9 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_spark_the_civil_war}
 		relative_position_id = IRQ_initial_spark_the_civil_war
 		completion_reward = {	
+		291 = {
+		add_extra_state_shared_building_slots = 2
+		}
 		}
 	}
 
@@ -216,6 +276,7 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_spark_the_civil_war}
 		relative_position_id = IRQ_initial_spark_the_civil_war
 		completion_reward = {	
+		remove_ideas = IRQ_tribal_unrest 
 		}
 	}
 
@@ -232,6 +293,14 @@ focus_tree = {
 		prerequisite = { focus = IRQ_initial_hold_samarra focus = IRQ_initial_secure_basrah focus = IRQ_initial_clear_the_rif }
 		relative_position_id = IRQ_initial_spark_the_civil_war
 		completion_reward = {	
+		add_stability = 0.05
+		country_event = irq.28
+		retire_character = IRQ_jafar_al_askari
+		retire_character = IRQ_taha_al_hashimi
+		retire_character = IRQ_nuri_al_said
+		retire_character = IRQ_faisal_i
+		retire_character = IRQ_yasin_al_hashimi
+		retire_character = IRQ_bakr_al_sidqi
 		}
 	}
 
@@ -249,6 +318,15 @@ focus_tree = {
 		relative_position_id = IRQ_initial_in_charge
 		mutually_exclusive = { focus = IRQ_hand_over_power_to_the_iraqi_purist}
 		completion_reward = {	
+		add_popularity = {
+			ideology = reactionism 
+			popularity = 0.15
+			}
+		add_popularity = {
+			ideology = esotericism 
+			popularity = 0.05
+			}
+		add_stability = 0.05
 		}
 	}
 
@@ -266,6 +344,9 @@ focus_tree = {
 		relative_position_id = IRQ_initial_in_charge
 		mutually_exclusive = { focus = IRQ_under_old_management }
 		completion_reward = {	
+		set_politics = {
+			ruling_party = national_syndicalism 
+			}
 		}
 	}
 	focus = {
@@ -435,8 +516,8 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_the_cradle_of_civilization
 		icon = GFX_focus_IRQ_cradle_of_civilization
-		x = 21
-		y = 4
+		x = 18
+		y = 10
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
@@ -1447,7 +1528,7 @@ focus_tree = {
 		focus = {
 		id = IRQ_first_iraq_democracy_in_iraq
 		icon = GFX_focus_IRQ_demo
-		x = 40
+		x = 60
 		y = 0
 		cost = 5
 		available_if_capitulated = yes
@@ -1552,22 +1633,21 @@ focus_tree = {
 	focus = {
 		id = IRQ_rashid_ali
 		icon = GFX_focus_IRQ_rashid_ali
-		x = 0
+		x = -9
 		y = 2
 		cost = 6
 		available_if_capitulated = yes
 		relative_position_id = IRQ_first_iraq_hold_elections
-		prerequisite = { focus = IRQ_first_iraq_hold_elections }
 		ai_will_do = {
 			factor = 10
 		}
-				available = {
+		available = {
 		has_country_leader = {
                     name = "Rashid Ali al Gaylani"
                     ruling_only = yes
                 }
 		has_government = national_syndicalism	
-				 }
+			}
 		
 		completion_reward = {	
 		add_stability = 0.05
@@ -1754,7 +1834,7 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_modernize_our_infrastructure
 		icon = GFX_focus_IRQ_modernize_infrastructure
-		x = -2
+		x = -6
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1791,22 +1871,21 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_seek_foreign_investments
 		icon = GFX_focus_IRQ_invest
-		x = -4
+		x = -3
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
-		relative_position_id = IRQ_first_the_cradle_of_civilization
+		relative_position_id = IRQ_first_modernize_our_infrastructure
 		ai_will_do = {
 			factor = 10
 		}
 		
-		prerequisite = { focus = IRQ_first_the_cradle_of_civilization }
+		prerequisite = { focus = IRQ_first_modernize_our_infrastructure}
 		available = {
 		has_country_leader = {
                     name = "Faisal I"
                     ruling_only = yes
                 }
-		has_completed_focus = IRQ_first_iraq_at_last
 		 }
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -1815,10 +1894,10 @@ focus_tree = {
 				months = 4
 			}
 			291 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -1845,6 +1924,7 @@ focus_tree = {
 		has_completed_focus = IRQ_first_iraq_at_last
 		 }
 		prerequisite = { focus = IRQ_first_seek_foreign_investments }
+		prerequisite = { focus = IRQ_first_invest_in_industrialization } 
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -1894,7 +1974,6 @@ focus_tree = {
 		has_completed_focus = IRQ_first_iraq_at_last
 		 }
 		prerequisite = { focus = IRQ_first_modernize_our_infrastructure }
-		mutually_exclusive = { focus = IRQ_first_introduce_land_reforms }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -2204,6 +2283,104 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = IRQ_first_urbanisation
+		icon = GFX_focus_IRQ_invest
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_modernize_our_infrastructure
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_modernize_our_infrastructure}
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		 }
+		completion_reward = {	
+			291 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			    add_manpower = 20000
+			}
+			
+		}
+	}
+
+	focus = {
+		id = IRQ_first_begin_resettling
+		icon = GFX_focus_IRQ_invest
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_modernize_our_infrastructure
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_urbanisation}
+		prerequisite = { focus = IRQ_first_introduce_land_reforms }
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		 }
+		completion_reward = {	
+			1111 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			    add_manpower = 3000
+			}
+			
+		}
+	}
+
+	focus = {
+		id = IRQ_first_self_reliant_economy
+		icon = GFX_focus_IRQ_invest
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_modernize_our_infrastructure
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_urbanisation}
+		available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+		 }
+		completion_reward = {	
+			291 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		add_ideas = IRQ_self_reliance
+		}
+	}
+	focus = {
 		id = IRQ_first_introduce_land_reforms
 		icon = GFX_focus_IRQ_agriculture
 		x = 1
@@ -2216,7 +2393,6 @@ focus_tree = {
 		}
 		
 		prerequisite = { focus = IRQ_first_modernize_our_infrastructure }
-		mutually_exclusive = { focus = IRQ_first_invest_in_industrialization }
 		available = {
 		has_country_leader = {
                     name = "Faisal I"
@@ -2249,7 +2425,8 @@ focus_tree = {
 			factor = 10
 		}
 		
-		prerequisite = { focus = IRQ_first_invest_in_industrialization  focus = IRQ_first_introduce_land_reforms }
+		prerequisite = { focus = IRQ_first_invest_in_industrialization } 
+		prerequisite = { focus = IRQ_first_introduce_land_reforms }
 			available = {
 		has_country_leader = {
                     name = "Faisal I"
@@ -2300,6 +2477,48 @@ focus_tree = {
                 }
 				 }
 	}
+
+	focus = {
+		id = IRQ_first_mosul_to_baghdad
+		icon = GFX_focus_IRQ_print
+		x = -3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_kirkuk_oil_discovery
+		ai_will_do = {
+			factor = 10
+		}
+		
+		prerequisite = { focus = IRQ_first_kirkuk_oil_discovery }
+		prerequisite = { focus = IRQ_first_baghdad_power_plant }
+		
+		completion_reward = {	
+		679 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			    add_manpower = 40000
+			}
+		291 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+		}
+		}
+			available = {
+		has_country_leader = {
+                    name = "Faisal I"
+                    ruling_only = yes
+                }
+				 }
+	}
 	
 	focus = {
 		id = IRQ_first_baghdad_power_plant
@@ -2318,7 +2537,8 @@ focus_tree = {
                     ruling_only = yes
                 }
 				 }
-		prerequisite = { focus = IRQ_first_invest_in_industrialization  focus = IRQ_first_introduce_land_reforms }
+		prerequisite = { focus = IRQ_first_invest_in_industrialization } 
+		prerequisite = { focus = IRQ_first_introduce_land_reforms }
 		
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
@@ -3004,15 +3224,14 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_iraq_bakr_sidqis_coup
 		icon = GFX_focus_IRQ_bakr
-		x = 3
-		y = 1
+		x = 8
+		y = -2
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
 			factor = 10
 		}
 		relative_position_id = IRQ_first_iraqi_military_reforms 
-		prerequisite = { focus = IRQ_first_iraqi_military_reforms }
 		available = {
 		has_country_leader = {
                     name = "Bakr Sidqi"
@@ -3032,7 +3251,7 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_iraq_promote_the_kurdish_aristocracy
 		icon = GFX_focus_IRQ_aristo
-		x = -1
+		x = -2
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
@@ -3049,6 +3268,12 @@ focus_tree = {
 			add_ideas = {
 				IRQ_kurdish_aristocracy
 			}
+			888 = {
+			add_core_of = IRQ
+			}			
+			904 = {
+			add_core_of = IRQ
+			}
 			
 		}
 	}
@@ -3056,7 +3281,7 @@ focus_tree = {
 	focus = {
 		id = IRQ_first_iraq_strenghten_the_military
 		icon = GFX_focus_IRQ_strong
-		x = 1
+		x = 2
 		y = 1
 		cost = 10
 		available_if_capitulated = yes
@@ -3073,27 +3298,204 @@ focus_tree = {
             add_ideas = {
 				IRQ_strenghtened_military
 			}
+			888 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			
 			
 		}
 	}
-	
+
 	focus = {
-		id = IRQ_first_iraq_liberate_the_iranian_kurds
-		icon = GFX_focus_IRQ_iran
-		x = -1
-		y = 1
+		id = IRQ_sidqi_an_army_with_a_state
+		icon = GFX_focus_IRQ_strong
+		x = 1
+		y = 2
 		cost = 10
 		available_if_capitulated = yes
-		relative_position_id = IRQ_first_iraq_strenghten_the_military
+		relative_position_id = IRQ_first_iraq_bakr_sidqis_coup
 		ai_will_do = {
 			factor = 10
 		}
 
 		
 		prerequisite = { focus = IRQ_first_iraq_strenghten_the_military }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+            add_ideas = {
+				IRQ_army_with_state
+			}
+		add_manpower = 300
+		}
+	}
+
+	focus = {
+		id = IRQ_sidqi_militarize_the_lodges
+		icon = GFX_focus_IRQ_strong
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_bakr_sidqis_coup
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_iraq_strenghten_the_military }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+				division_template = {
+				name = "Sufi Brigades"
+				priority = 1
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+					support = {
+   				 }
+			}
+			888 = {
+				create_unit = {
+					division = "name = \"Kakai Battalion\" division_template = \"Sufi Brigades\" start_experience_factor = 0.4" 
+					owner = IRQ
+				}
+				create_unit = {
+					division = "name = \"Qadiri Battalion\" division_template = \"Sufi Brigades\" start_experience_factor = 0.4" 
+					owner = IRQ
+				}
+				create_unit = {
+					division = "name = \"Yazidi Battalion\" division_template = \"Sufi Brigades\" start_experience_factor = 0.4" 
+					owner = IRQ
+				}
+				create_unit = {
+					division = "name = \"Rifaai Battalion\" division_template = \"Sufi Brigades\" start_experience_factor = 0.4" 
+					owner = IRQ
+				}
+			}
+
+		}
+	}
+
+		focus = {
+		id = IRQ_sidqi_purge_arab_officers
+		icon = GFX_focus_IRQ_strong
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_bakr_sidqis_coup
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_sidqi_militarize_the_lodges }
+		prerequisite = { focus = IRQ_sidqi_an_army_with_a_state }
+		
+		completion_reward = {	
+		retire_character = IRQ_jafar_al_askari
+		retire_character = IRQ_taha_al_hashimi
+		retire_character = IRQ_nuri_al_said
+		retire_character = IRQ_yasin_al_hashimi
+		}
+	}
+
+	focus = {
+		id = IRQ_first_purge_assyrians
+		icon = GFX_focus_IRQ_aristo
+		x = -1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_promote_the_kurdish_aristocracy
+		ai_will_do = {
+			factor = 10
+		}
+
+		
 		prerequisite = { focus = IRQ_first_iraq_promote_the_kurdish_aristocracy }
 		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			news_event = irq.29
+			904 = {
+			add_manpower = -9000
+			}			
+		}
+	}
+
+	focus = {
+		id = IRQ_sidqi_invite_simko
+		icon = GFX_focus_IRQ_aristo
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_promote_the_kurdish_aristocracy
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_iraq_promote_the_kurdish_aristocracy }
+		
+		completion_reward = {	
+			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
+			##recruit_character
+			add_manpower = 1000		
+			add_political_power = 100
+			add_war_support = 0.10
+		}
+	}
+
+		focus = {
+		id = IRQ_sidqi_a_kurdish_state
+		icon = GFX_focus_IRQ_aristo
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_promote_the_kurdish_aristocracy
+		ai_will_do = {
+			factor = 10
+		}
+
+		
+		prerequisite = { focus = IRQ_first_purge_assyrians }
+		prerequisite = { focus = IRQ_sidqi_invite_simko }
+		completion_reward = {	
+		add_political_power = 100
+		add_stability = 0.20
+		}
+	}
+
+	focus = {
+		id = IRQ_first_iraq_liberate_the_iranian_kurds
+		icon = GFX_focus_IRQ_iran
+		x = -2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		relative_position_id = IRQ_first_iraq_strenghten_the_military
+		prerequisite = { focus = IRQ_sidqi_purge_arab_officers}
+		prerequisite = { focus = IRQ_sidqi_a_kurdish_state }		
+		ai_will_do = {
+			factor = 10
+		}
 		completion_reward = {	
 			log = "[GetDateText]: [ROOT.GetTag]: Focus SWE_lindman_presidency"
 			create_wargoal = {
@@ -3111,7 +3513,7 @@ focus_tree = {
 		id = IRQ_first_iraq_on_the_world_stage
 		icon = GFX_focus_IRQ_world
 		x = 25
-		y = 0
+		y = 25
 		cost = 5
 		available_if_capitulated = yes
 		ai_will_do = {
