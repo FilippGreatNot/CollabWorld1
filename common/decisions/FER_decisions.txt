@@ -261,6 +261,7 @@ owns_state = 617
 owns_state = 618
 owns_state = 962
 owns_state = 618
+owns_state = 1007
         }
         
         fire_only_once = yes
@@ -285,6 +286,7 @@ owns_state = 617
 owns_state = 618
 owns_state = 962
 owns_state = 618
+owns_state = 1007
         }
         
         available = {
@@ -321,6 +323,7 @@ owns_state = 618
  add_state_core = 618
  add_state_core = 962
  add_state_core = 618
+ add_state_core = 1007
         add_ideas = FER_satellite_of_russian_republic
                 }    
             }
@@ -345,6 +348,7 @@ owns_state = 618
  KUM = { transfer_state = 618}
  KUM = { transfer_state = 962}
  KUM = { transfer_state = 618}
+ KUM = { transfer_state = 1007}
             }
         }
     }
@@ -886,6 +890,80 @@ GER = { transfer_state = 1088 }
         }
     }
 }
+}
+
+FER_afghanistan = {                                  
+        icon = generic_form_nation
+        
+        available = {
+           owns_state =  267
+ owns_state = 1069
+ owns_state = 952
+ owns_state = 415
+ owns_state = 958
+ owns_state = 445
+ owns_state = 442
+ owns_state = 1040
+        }
+        
+        fire_only_once = yes
+        
+        ai_will_do = {
+            factor = 100
+        }
+        
+        visible = {
+          owns_state =  267
+ owns_state = 1069
+ owns_state = 952
+ owns_state = 415
+ owns_state = 958
+ owns_state = 445
+ owns_state = 442
+ owns_state = 1040
+            has_completed_focus = FER_destroy_graveyard_of_empires
+        }
+        
+        available = {
+            is_subject = no
+            has_completed_focus = FER_destroy_graveyard_of_empires
+        }
+        
+        complete_effect = {
+            AFG = {
+                set_cosmetic_tag = AFG_grand_duchy
+                set_politics = { ruling_party = social_democrat }
+                add_popularity = {
+                ideology = social_democrat
+                popularity = 0.62
+                }
+                hidden_effect = {
+                    set_party_name = { 
+                        ideology = social_democrat
+                        name = AFG_civil_military_administration
+                    }
+        load_focus_tree = { tree = generic_tree keep_completed = no }
+              add_state_core = 267
+ add_state_core = 1069
+ add_state_core = 952
+ add_state_core = 415
+ add_state_core = 958
+ add_state_core = 445
+ add_state_core = 442
+ add_state_core = 1040
+       hidden_effect = {
+              AFG = { transfer_state = 267 }
+               AFG = { transfer_state = 1069 }
+              AFG = { transfer_state = 952 }
+ AFG = { transfer_state = 415 }
+AFG = { transfer_state = 958 }
+AFG = { transfer_state = 445 }
+AFG = { transfer_state = 442 }
+AFG = { transfer_state = 1040 }
+            }
+        }
+    }
+ }
 }
 
 }
