@@ -430,6 +430,11 @@ FER_yellow_russia = {
            add_state_core = 972
             add_state_core = 937
         add_ideas = FER_satellite_of_russian_republic
+            FROM = {
+                set_autonomy = {
+                    target = ZHL
+                    autonomous_state =  autonomy_colony }
+            }
        hidden_effect = {
                ZHL = { transfer_state = 761 }
                ZHL = { transfer_state = 714 }
@@ -2045,5 +2050,111 @@ owns_state = 114
     }
 }
 }
+
+FER_iberia = {								
+		icon = generic_form_nation
+		
+		available = {
+			owns_state = 41
+			owns_state = 112
+			owns_state = 171
+			owns_state = 169
+			owns_state = 165
+			owns_state = 853
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		visible = {
+			has_completed_focus =  FER_last_trip
+		}
+		
+		available = {
+			is_subject = no
+			has_completed_focus = FER_last_trip
+		}
+		
+		complete_effect = {
+			SPR = {
+				set_cosmetic_tag = SPR_grand_duchy
+				set_politics = { ruling_party = social_democrat }
+				add_popularity = {
+				ideology = social_democrat
+				popularity = 0.62
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = social_democrat
+						name = FER_civil_military_administration
+					}
+					load_focus_tree = { tree = generic_tree keep_completed = no }
+					add_state_core = 853 
+					add_state_core = 165
+					add_state_core = 794
+					add_state_core = 167
+					add_state_core = 166
+					add_state_core = 172
+					add_state_core = 792
+					add_state_core = 168
+					add_state_core = 793
+					add_state_core = 176
+					add_state_core = 790
+					add_state_core = 791
+					add_state_core = 174
+					add_state_core = 171
+					add_state_core = 41
+					add_state_core = 788 
+					add_state_core = 170
+					add_state_core = 175
+					add_state_core = 789
+					add_state_core = 173
+					add_state_core = 169
+					add_state_core = 179
+					add_state_core = 795
+					add_state_core = 112
+					add_state_core = 181
+					add_state_core = 180
+				}	
+			}
+			FROM = {
+				set_autonomy = {
+					target = SPR
+					autonomous_state = 
+				}
+			}
+			hidden_effect = {
+				SPR = { transfer_state = 853 }
+				SPR = { transfer_state = 165 }
+				SPR = { transfer_state = 794 }
+				SPR = { transfer_state = 167 }
+				SPR = { transfer_state = 166 }
+				SPR = { transfer_state = 172 }
+				SPR = { transfer_state = 792 }
+				SPR = { transfer_state = 168 }
+				SPR = { transfer_state = 793 }
+				SPR = { transfer_state = 176 }
+				SPR = { transfer_state = 790 }
+				SPR = { transfer_state = 791 }
+				SPR = { transfer_state = 174 }
+				SPR = { transfer_state = 171 }
+				SPR = { transfer_state = 41 }
+				SPR = { transfer_state = 788 }
+				SPR = { transfer_state = 170 }
+				SPR = { transfer_state = 175 }
+				SPR = { transfer_state = 789 }
+				SPR = { transfer_state = 173 }
+				SPR = { transfer_state = 169 }
+				SPR = { transfer_state = 179 }
+				SPR = { transfer_state = 795 }
+				SPR = { transfer_state = 112 }
+				SPR = { transfer_state = 181 }
+				SPR = { transfer_state = 180 }
+			}
+		}
+	}
 
 }
