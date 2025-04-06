@@ -400,6 +400,10 @@ focus_tree = {
 				ideology = reactionism
 				popularity = -0.1
 			}
+			swap_ideas = {
+				remove_idea = TMS_the_basmachi_issue
+				add_idea = TMS_the_basmachi_issue2
+			}
 		}
 	}
 
@@ -431,7 +435,7 @@ focus_tree = {
 			factor = 15
 		}
 		available = {
-			date > 1923.12.30
+			date > 1922.12.30
 		}
 		cost = 4.2857
 		relative_position_id = TMS_the_party_of_the_people
@@ -855,6 +859,145 @@ focus_tree = {
 			}
 			hidden_effect = {
 				set_cosmetic_tag = TMS_savitsky
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_fate_of_the_basmachi
+		icon = GFX_focus_TMS_fate_of_the_basmachi
+		x = 18
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		available = { 
+			has_completed_focus = TMS_conduct_operations_against_basmachi_bandits
+		}
+		cost = 4
+		completion_reward = {
+			country_event = tms.5
+		}
+	}
+
+	focus = {
+		id = TMS_a_peaceful_approach
+		icon = GFX_focus_TMS_a_peaceful_approach
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = TMS_has_chosen_a_method_tt
+				has_country_flag = TMS_a_peaceful_approach_flag
+			}
+		}
+		cost = 4
+		mutually_exclusive = { focus = TMS_no_peace_with_terrorists }
+		relative_position_id = TMS_fate_of_the_basmachi
+		prerequisite = { focus = TMS_fate_of_the_basmachi }
+		completion_reward = {
+			add_stability = 0.04
+			swap_ideas = {
+				remove_idea = TMS_the_basmachi_issue2
+				add_idea = TMS_the_basmachi_issue3
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_offer_a_deal_with_enver
+		icon = GFX_focus_TMS_offer_a_deal_with_enver
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_a_peaceful_approach
+		prerequisite = { focus = TMS_a_peaceful_approach }
+		completion_reward = {
+			BSM = {
+				country_event = tms.6
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_the_end_of_the_bandits
+		icon = GFX_focus_TMS_offer_a_deal_with_enver
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_offer_a_deal_with_enver
+		prerequisite = { focus = TMS_offer_a_deal_with_enver focus = TMS_sabotage_their_home_bases }
+		completion_reward = {
+			remove_ideas = {
+				TMS_the_basmachi_issue3
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_no_peace_with_terrorists
+		icon = GFX_focus_TMS_no_peace_with_terrorists
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		available = { 
+			custom_trigger_tooltip = {
+				tooltip = TMS_has_chosen_a_method_tt
+				has_country_flag = TMS_no_peace_with_terrorists_flag
+			}
+		}
+		cost = 4
+		mutually_exclusive = { focus = TMS_a_peaceful_approach }
+		relative_position_id = TMS_fate_of_the_basmachi
+		prerequisite = { focus = TMS_fate_of_the_basmachi }
+		completion_reward = {
+			add_political_power = -30
+			add_war_support = 0.06
+			swap_ideas = {
+				remove_idea = TMS_the_basmachi_issue2
+				add_idea = TMS_the_basmachi_issue3
+			}
+		}
+	}
+
+	focus = {
+		id = TMS_sabotage_their_home_bases
+		icon = GFX_focus_TMS_sabotage_their_home_bases
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = TMS_no_peace_with_terrorists
+		prerequisite = { focus = TMS_no_peace_with_terrorists }
+		completion_reward = {
+			add_popularity = {
+				ideology = reactionism
+				popularity = -0.04
+			}
+			BSM = {
+				random_owned_state = {
+					damage_building = {
+  						type = infrastructure
+  						damage = 1
+					}
+				}
+				random_owned_state = {
+					damage_building = {
+  						type = industrial_complex
+  						damage = 1
+					}
+				}
 			}
 		}
 	}

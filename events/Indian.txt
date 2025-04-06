@@ -1,16 +1,16 @@
-add_namespace = kalat
+add_namespace = india_wars_and_flavor
 add_namespace = india_collapse
 
 news_event = { 
-	id = kalat.1
-	title = kalat.1.t
-	desc = kalat.1.d 
+	id = india_wars_and_flavor.1
+	title = india_wars_and_flavor.1.t
+	desc = india_wars_and_flavor.1.d 
 	picture = GFX_news_event_generic_war2
 	major = yes
 	is_triggered_only = yes
 
 	option = {
-		name = kalat.1.a
+		name = india_wars_and_flavor.1.a
 		add_threat = 2
 		
 		hidden_effect = {
@@ -22,6 +22,207 @@ news_event = {
 					}
 				}
 			}
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.2
+	title = india_wars_and_flavor.2.t
+	desc = india_wars_and_flavor.2.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.2.a
+		BHR = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = BHR
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.3
+	title = india_wars_and_flavor.3.t
+	desc = india_wars_and_flavor.3.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.3.a
+		RPT = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = RPT
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.4
+	title = india_wars_and_flavor.4.t
+	desc = india_wars_and_flavor.4.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.4.a
+		declare_war_on = {
+			target = KUT
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.5
+	title = india_wars_and_flavor.5.t
+	desc = india_wars_and_flavor.5.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.5.a
+		declare_war_on = {
+			target = RPT
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.6
+	title = india_wars_and_flavor.6.t
+	desc = india_wars_and_flavor.6.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.6.a
+		TRV = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = TRV
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.7
+	title = india_wars_and_flavor.7.t
+	desc = india_wars_and_flavor.7.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.7.a
+		BAN = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = BAN
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.8
+	title = india_wars_and_flavor.8.t
+	desc = india_wars_and_flavor.8.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.8.a
+		HYD = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = HYD
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.9
+	title = india_wars_and_flavor.9.t
+	desc = india_wars_and_flavor.9.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.9.a
+		HYD = { every_owned_state = { add_claim_by = PREV } }
+		declare_war_on = {
+			target = HYD
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.10
+	title = india_wars_and_flavor.10.t
+	desc = india_wars_and_flavor.10.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.10.a
+		CHG = { every_owned_state = { add_claim_by = PREV } }
+		declare_war_on = {
+			target = CHG
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.11
+	title = india_wars_and_flavor.11.t
+	desc = india_wars_and_flavor.11.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.11.a
+		GUJ = { make_every_core_national_for_PREV = yes } 
+		SND = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = SND
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = KUT
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { 
+	id = india_wars_and_flavor.12
+	title = india_wars_and_flavor.12.t
+	desc = india_wars_and_flavor.12.d 
+	picture = GFX_report_event_generic_war
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = india_wars_and_flavor.12.a
+		JMK = { make_every_core_national_for_PREV = yes }
+		declare_war_on = {
+			target = JMK
+			type = annex_everything
 		}
 	}
 }

@@ -1,28 +1,103 @@
 on_actions = {
 	on_declare_war = {
-    effect = {
-        if = {
-            limit = {
-                tag = FRA
-                FROM = { tag = SOV }
+        effect = {
+            if = {
+                limit = {
+                    tag = FRA
+                    FROM = { tag = SOV }
+                }
+                FRA = {
+			        complete_national_focus = FRA_the_reaction_marches_east
+			    }
             }
-            FRA = {
-			    complete_national_focus = FRA_the_reaction_marches_east
-				}
         }
     }
-}
     on_declare_war = {
-    effect = {
-        if = {
-            limit = {
-                tag = SOV
-                FROM = { tag = FRA }
-            }
-            FRA = {
-			    complete_national_focus = FRA_the_great_war_of_survival
+        effect = {
+            if = {
+                limit = {
+                    tag = SOV
+                    FROM = { tag = FRA }
+                }
+                FRA = {
+			        complete_national_focus = FRA_the_great_war_of_survival
 				}
+            }
         }
     }
-}
+    on_capitulation = {
+    	effect = { 
+	   		if = { 
+				limit = {
+					ROOT = {
+						original_tag = BEL
+					}
+					FROM = {
+						original_tag = FRA
+					}
+				}
+                FRA = {
+					white_peace = {
+						tag = BEL
+						message = "Has a new era for France arrived?"
+					}
+                    puppet = {
+                        target = BEL
+                        end_wars = yes
+                    }
+                    puppet = {
+                        target = COG
+                        end_wars = yes
+                    }
+                    COG = {
+                        add_country_leader_role = {
+                            character = COG_louis_archinard
+                            promote_leader = yes 
+                            country_leader = {
+                                ideology = reactionary_progressivism
+                            }
+                        }
+                    }
+				}
+                if = {
+                    limit = {
+                        BEL = { has_full_control_of_state = 34 }
+                    }
+                    34 = {
+                        add_claim_by = FRA
+                        transfer_state_to = FRA 
+                    }
+                }
+                if = {
+                    limit = {
+                        BEL = { has_full_control_of_state = 840 }
+                    }
+                    840 = {
+                        add_claim_by = FRA
+                        transfer_state_to = FRA 
+                    }
+                }
+                if = {
+                    limit = {
+                        BEL = { has_full_control_of_state = 851 }
+                    }
+                    851 = {
+                        add_claim_by = FRA
+                        transfer_state_to = FRA 
+                    }
+                }
+                if = {
+                    limit = {
+                        BEL = { has_full_control_of_state = 1093 }
+                    }
+                    1093 = {
+                        add_claim_by = FRA
+                        transfer_state_to = FRA 
+                    }
+                }
+                BEL = { set_cosmetic_tag = BEL_french }
+                COG = { set_cosmetic_tag = COG_french }
+			}
+		}
+	}
 }

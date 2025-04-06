@@ -295,7 +295,7 @@ country_event = {
 	desc = tms.1.d
 	picture = GFX_report_event_generic_war
 	is_triggered_only = yes
-	immediate = { hidden_effect = { country_event = { id = tms.1 days = 2 } } }
+	immediate = { hidden_effect = { country_event = { id = tms.2 days = 2 } } }
 	
 	option = {
 		name = tms.1.a
@@ -321,7 +321,6 @@ country_event = {
 	desc = tms.2.d
 	picture = GFX_report_event_generic_war
 	is_triggered_only = yes
-	immediate = { hidden_effect = { country_event = { id = tms.1 days = 2 } } }
 	
 	option = {
 		name = tms.2.a
@@ -351,7 +350,6 @@ country_event = {
 	trigger = {
 		tag = TMS
 	}
-	immediate = { hidden_effect = { country_event = { id = tms.1 days = 2 } } }
 	
 	option = {
 		name = tms.3.a
@@ -382,6 +380,92 @@ country_event = {
 		}
 		add_ideas = {
 			mixed_economy
+		}
+	}
+}
+
+country_event = {
+	id = tms.5
+	title = tms.5.t
+	desc = tms.5.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.5.a
+		ai_chance = { base = 15 }
+		set_country_flag = TMS_a_peaceful_approach_flag
+	}
+	option = {
+		name = tms.5.b 
+		ai_chance = { base = 15 }
+		set_country_flag = TMS_no_peace_with_terrorists_flag
+	}
+}
+
+country_event = {
+	id = tms.6
+	title = tms.6.t
+	desc = tms.6.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.6.a
+		ai_chance = { base = 15 }
+		TMS = {
+			country_event = tms.7
+		}
+	}
+	option = {
+		name = tms.6.b 
+		ai_chance = { base = 15 }
+		TMS = {
+			country_event = tms.8
+		}
+	}
+}
+
+country_event = {
+	id = tms.7
+	title = tms.7.t
+	desc = tms.7.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.7.a
+		ai_chance = { base = 15 }
+		add_popularity = {
+			ideology = reactionism
+			popularity = -0.1
+		}	
+		set_party_name = { 
+			ideology = reactionism
+			long_name = "Remnants of the Basmachi"
+			name = "Basmachi Remnants"
+		}
+	}
+}
+
+country_event = {
+	id = tms.8
+	title = tms.8.t
+	desc = tms.8.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.8.a
+		ai_chance = { base = 15 }
+		add_stability = -0.03
+		add_popularity = {
+			ideology = reactionism
+			popularity = 0.05
 		}
 	}
 }

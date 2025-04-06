@@ -16,9 +16,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_celebrate_the_new_year
 		x = 10
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 50 }
 		cost = 2
 		completion_reward = {
 			country_event = man.1
@@ -63,9 +61,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_commense_rapid_recruitment_operations
 		x = 1
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 3
 		relative_position_id = MAN_celebrate_the_new_year
 		prerequisite = { focus = MAN_celebrate_the_new_year }
@@ -82,10 +78,8 @@ focus_tree = {
 		icon = GFX_focus_MAN_stabilise_the_inflationary_crisis
 		x = 3
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
-		cost = 5
+		ai_will_do = { base = 20 }
+		cost = 3
 		relative_position_id = MAN_celebrate_the_new_year
 		prerequisite = { focus = MAN_celebrate_the_new_year }
 		completion_reward = {
@@ -99,9 +93,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_convene_the_clique
 		x = 1
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 30 }
 		cost = 2
 		relative_position_id = MAN_advancing_our_doctrine
 		prerequisite = { focus = MAN_encourage_revanchist_headlines focus = MAN_advancing_our_doctrine focus = MAN_commense_rapid_recruitment_operations focus = MAN_stabilise_the_inflationary_crisis }
@@ -120,12 +112,10 @@ focus_tree = {
 		}
 		cost = 0
 		mutually_exclusive = { focus = MAN_who_must_go }
-		allow_branch = { has_country_flag = MAN_event_three_flag }
 		relative_position_id = MAN_convene_the_clique
 		prerequisite = { focus = MAN_convene_the_clique }
 		completion_reward = {
 			add_stability = 0.1
-			set_country_flag = MAN_zhoulin_holds_on_flag
 		}
 	}
 
@@ -137,7 +127,6 @@ focus_tree = {
 			factor = 15
 		}
 		cost = 4
-		allow_branch = { has_country_flag = MAN_zhoulin_holds_on_flag }
 		relative_position_id = MAN_zhang_zhoulin_outlasts_the_backlash
 		prerequisite = { focus = MAN_zhang_zhoulin_outlasts_the_backlash }
 		completion_reward = {
@@ -181,8 +170,84 @@ focus_tree = {
 	}
 
 	focus = {
+		id = MAN_raise_new_revolutionary_brigades
+		icon = GFX_focus_MAN_raise_new_revolutionary_brigades
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_zhang_steps_down
+		prerequisite = { focus = MAN_zhang_steps_down }
+		completion_reward = {
+			division_template = {
+				name = "Revolutionary Brigades"
+				priority = 1	
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+				support = {
+					artillery = { x = 0 y = 0 }
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Revolutionary Brigades\" division_template = \"Revolutionary Brigades\" start_experience_factor = 0.4" 
+					owner = MAN
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_pass_moderate_liberal_reforms
+		icon = GFX_focus_MAN_pass_moderate_liberal_reforms
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_zhang_steps_down
+		prerequisite = { focus = MAN_zhang_steps_down }
+		completion_reward = {
+			add_popularity = {
+				ideology = conservatism
+				popularity = 0.08
+			}
+			add_popularity = {
+				ideology = liberalism
+				popularity = 0.04
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_leader_of_the_next_1911
+		icon = GFX_focus_MAN_leader_of_the_next_1911
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_raise_new_revolutionary_brigades
+		prerequisite = { focus = MAN_raise_new_revolutionary_brigades }
+		prerequisite = { focus = MAN_pass_moderate_liberal_reforms }
+		completion_reward = {
+			add_country_leader_trait = cult_of_the_revolution
+		}
+	}
+
+	focus = {
 		id = MAN_zhang_holds_on
-		icon = GFX_focus_MAN_zhang_steps_down
+		icon = GFX_focus_MAN_zhang_holds_on
 		x = 2
 		y = 1
 		ai_will_do = {
@@ -202,6 +267,81 @@ focus_tree = {
 	}
 
 	focus = {
+		id = MAN_put_the_prisoners_into_boot_camps
+		icon = GFX_focus_MAN_put_the_prisoners_into_boot_camps
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_zhang_holds_on
+		prerequisite = { focus = MAN_zhang_holds_on }
+		completion_reward = {
+			add_manpower = 50000
+			add_ideas = {
+				MAN_prisoners_in_the_army
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_secure_unilateral_rule
+		icon = GFX_focus_MAN_secure_unilateral_rule
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_zhang_holds_on
+		prerequisite = { focus = MAN_zhang_holds_on }
+		completion_reward = {
+			add_war_support = -0.06
+			add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_rally_around_the_true_governor
+		icon = GFX_focus_MAN_rally_around_the_true_governor
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_put_the_prisoners_into_boot_camps
+		prerequisite = { focus = MAN_put_the_prisoners_into_boot_camps }
+		prerequisite = { focus = MAN_secure_unilateral_rule }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = MAN_form_the_northeastern_army
+		icon = GFX_focus_MAN_form_the_northeastern_army
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		available = { NOT = { country_exists = HVN country_exists = JIL country_exists = KOR country_exists = ZHL }}
+		relative_position_id = MAN_leader_of_the_next_1911
+		prerequisite = { focus = MAN_leader_of_the_next_1911 focus = MAN_rally_around_the_true_governor }
+		completion_reward = {
+			set_cosmetic_tag = MAN_northeastern_army
+		}
+	}
+
+	focus = {
 		id = MAN_who_must_go
 		icon = GFX_focus_MAN_who_must_go
 		x = 5
@@ -211,13 +351,11 @@ focus_tree = {
 		}
 		cost = 0
 		mutually_exclusive = { focus = MAN_zhang_zhoulin_outlasts_the_backlash }
-		allow_branch = { has_country_flag = MAN_event_three_flag }
 		relative_position_id = MAN_convene_the_clique
 		prerequisite = { focus = MAN_convene_the_clique }
 		completion_reward = {
-			add_stability = -0.02
-			set_country_flag = MAN_zhoulin_dethroned_flag
-			mark_focus_tree_layout_dirty = yes
+			add_stability = -0.05
+			add_political_power = 50
 		}
 	}
 
@@ -229,7 +367,6 @@ focus_tree = {
 			factor = 15
 		}
 		cost = 4
-		allow_branch = { has_country_flag = MAN_zhoulin_dethroned_flag }
 		relative_position_id = MAN_who_must_go
 		prerequisite = { focus = MAN_who_must_go }
 		completion_reward = {
@@ -259,6 +396,85 @@ focus_tree = {
 				ideology = reactionism
 				popularity = 0.06
 			}
+			hidden_effect = {
+				set_cosmetic_tag = MAN_qing
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_fund_the_militarisation_effort
+		icon = GFX_focus_MAN_declare_the_royal_congress
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_declare_the_royal_congress
+		prerequisite = { focus = MAN_declare_the_royal_congress }
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_spread_pro_qing_propaganda
+		icon = GFX_focus_MAN_spread_pro_qing_propaganda
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_declare_the_royal_congress
+		prerequisite = { focus = MAN_declare_the_royal_congress }
+		completion_reward = {
+			add_war_support = 0.04
+			add_popularity = {
+				ideology = reactionism
+				popularity = 0.08
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_the_true_sovereign_over_china
+		icon = GFX_focus_MAN_the_true_sovereign_over_china
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_fund_the_militarisation_effort
+		prerequisite = { focus = MAN_fund_the_militarisation_effort }
+		prerequisite = { focus = MAN_spread_pro_qing_propaganda }
+		completion_reward = {
+			add_country_leader_trait = right_to_rule
+		}
+	}
+
+	focus = {
+		id = MAN_revive_the_viceroyalty
+		icon = GFX_focus_MAN_revive_the_viceroyalty
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		available = { NOT = { country_exists = HVN country_exists = JIL country_exists = KOR country_exists = ZHL }}
+		relative_position_id = MAN_the_true_sovereign_over_china
+		prerequisite = { focus = MAN_the_true_sovereign_over_china }
+		completion_reward = {
+			set_cosmetic_tag = MAN_three_provinces
 		}
 	}
 
@@ -289,13 +505,110 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_raise_conscription_levels
-		icon = GFX_focus_MAN_the_japanese_intervene
+		id = MAN_integrate_mantetsu
+		icon = GFX_focus_MAN_integrate_mantetsu
+		x = -1
 		y = 1
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 6
+		cost = 4
+		relative_position_id = MAN_the_japanese_intervene
+		prerequisite = { focus = MAN_the_japanese_intervene }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = MAN_mantetsu_influence2
+				}
+				swap_ideas = {
+					remove_idea = MAN_mantetsu_influence2
+					add_idea = MAN_mantetsu_integrated
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MAN_mantetsu_influence3
+				}
+				swap_ideas = {
+					remove_idea = MAN_mantetsu_influence2
+					add_idea = MAN_mantetsu_integrated2
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_dismantle_bandit_organisations
+		icon = GFX_focus_MAN_dismantle_bandit_organisations
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_the_japanese_intervene
+		prerequisite = { focus = MAN_the_japanese_intervene }
+		completion_reward = {
+			add_manpower = -1000
+			army_experience = 20
+			add_stability = 0.1
+			add_popularity = {
+				ideology = despotism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_crush_the_opposition
+		icon = GFX_focus_MAN_crush_the_opposition
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		relative_position_id = MAN_integrate_mantetsu
+		prerequisite = { focus = MAN_integrate_mantetsu }
+		prerequisite = { focus = MAN_dismantle_bandit_organisations }
+		completion_reward = {
+			add_timed_idea = {
+				idea = MAN_crush_the_opposition_idea
+				days = 200
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_wide_investments_in_new_railroads
+		icon = GFX_focus_MAN_wide_investments_in_new_railroads
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
+		available = { NOT = { country_exists = HVN country_exists = JIL country_exists = KOR country_exists = ZHL }}
+		relative_position_id = MAN_crush_the_opposition
+		prerequisite = { focus = MAN_crush_the_opposition }
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MAN_raise_conscription_levels
+		icon = GFX_focus_MAN_the_japanese_intervene
+		y = 2
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 4
 		relative_position_id = MAN_convene_the_clique
 		prerequisite = { focus = MAN_convene_the_clique }
 		completion_reward = {
@@ -355,7 +668,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
-		cost = 8
+		cost = 6
 		relative_position_id = MAN_train_our_units
 		prerequisite = { focus = MAN_train_our_units }
 		prerequisite = { focus = MAN_improve_gun_research }
@@ -396,9 +709,23 @@ focus_tree = {
 		relative_position_id = MAN_develop_suihua
 		prerequisite = { focus = MAN_develop_suihua }
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = MAN_mantetsu_influence2
-				add_idea = MAN_mantetsu_influence3
+			if = {
+				limit = { 
+					has_idea = MAN_mantetsu_influence2
+				}
+				swap_ideas = {
+					remove_idea = MAN_mantetsu_influence2
+					add_idea = MAN_mantetsu_influence3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MAN_mantetsu_integrated
+				}
+				swap_ideas = {
+					remove_idea = MAN_mantetsu_integrated
+					add_idea = MAN_mantetsu_integrated2
+				}
 			}
 			random_owned_state = {
 				add_extra_state_shared_building_slots = 1
@@ -525,6 +852,39 @@ focus_tree = {
 	}
 
 	focus = {
+		id = MAN_develop_the_outer_regions
+		icon = GFX_focus_MAN_develop_the_outer_regions
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 15
+		}
+		cost = 7
+		available = { NOT = { has_completed_focus = MAN_the_japanese_intervene } }
+		mutually_exclusive = { focus = MAN_increase_japanese_investment }
+		relative_position_id = MAN_develop_suihua
+		prerequisite = { focus = MAN_develop_suihua }
+		completion_reward = {
+			715 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+			946 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = MAN_develop_our_domestic_industry
 		icon = GFX_focus_MAN_develop_our_domestic_industry
 		x = -1
@@ -596,39 +956,6 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = {
 				MAN_educational_revival
-			}
-		}
-	}
-
-	focus = {
-		id = MAN_develop_the_outer_regions
-		icon = GFX_focus_MAN_develop_the_outer_regions
-		x = 2
-		y = 1
-		ai_will_do = {
-			factor = 15
-		}
-		cost = 7
-		available = { NOT = { has_completed_focus = MAN_the_japanese_intervene } }
-		mutually_exclusive = { focus = MAN_increase_japanese_investment }
-		relative_position_id = MAN_develop_suihua
-		prerequisite = { focus = MAN_develop_suihua }
-		completion_reward = {
-			715 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build  = yes
-				}
-			}
-			946 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build  = yes
-				}
 			}
 		}
 	}
@@ -706,7 +1033,7 @@ focus_tree = {
 		x = 29
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 55
 		}
 		cost = 4
 		completion_reward = {
@@ -725,7 +1052,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 55
 		}
 		cost = 4
 		relative_position_id = MAN_preparations_for_unification
@@ -752,7 +1079,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 55
 		}
 		cost = 4
 		relative_position_id = MAN_preparations_for_unification
@@ -768,19 +1095,19 @@ focus_tree = {
 					infantry = { x = 1 y = 1 }
 				}
 				support = {
-					artillery = { x = 2 y = 0 }
+					artillery = { x = 0 y = 0 }
 				}
 			}
 			random_owned_state = {
 				create_unit = {
 					division = "name = \"Reinforced Infantry\" division_template = \"Reinforced Infantry\" start_experience_factor = 0.4" 
-					owner = TIA
+					owner = MAN
 				}
 			}
 			random_owned_state = {
 				create_unit = {
 					division = "name = \"Reinforced Infantry\" division_template = \"Reinforced Infantry\" start_experience_factor = 0.4" 
-					owner = TIA
+					owner = MAN
 				}
 			}
 		}
@@ -792,10 +1119,10 @@ focus_tree = {
 		x = 1
 		y = 1
 		ai_will_do = {
-			factor = 15
+			factor = 55
 		}
 		cost = 4
-		available = { has_army_manpower = { size > 99999 } }
+		available = { has_army_manpower = { size > 39999 } }
 		relative_position_id = MAN_reclaim_the_three_provinces
 		prerequisite = { focus = MAN_reclaim_the_three_provinces }
 		prerequisite = { focus = MAN_form_new_divisions }
@@ -809,9 +1136,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_unification_propaganda
 		x = -2
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { has_war = no }
 		bypass = { NOT = { country_exists = HVN } }
@@ -828,9 +1153,7 @@ focus_tree = {
 		id = MAN_integrate_the_generals
 		icon = GFX_focus_MAN_integrate_the_generals
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { NOT = { country_exists = HVN } }
 		relative_position_id = MAN_demand_fengtians_loyalty
@@ -848,9 +1171,7 @@ focus_tree = {
 		id = MAN_build_up_the_ports
 		icon = GFX_focus_MAN_build_up_the_ports
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { NOT = { country_exists = HVN } }
 		relative_position_id = MAN_integrate_the_generals
@@ -874,9 +1195,7 @@ focus_tree = {
 		id = MAN_strike_north
 		icon = GFX_focus_MAN_strike_north
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { has_war = no }
 		bypass = { NOT = { country_exists = ZHL } }
@@ -894,9 +1213,7 @@ focus_tree = {
 		id = MAN_kick_out_the_russians
 		icon = GFX_focus_MAN_kick_out_the_russians
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { NOT = { country_exists = ZHL } }
 		relative_position_id = MAN_strike_north
@@ -914,9 +1231,7 @@ focus_tree = {
 		id = MAN_repair_the_northern_roads
 		icon = GFX_focus_MAN_repair_the_northern_roads
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { NOT = { country_exists = ZHL } }
 		relative_position_id = MAN_kick_out_the_russians
@@ -944,9 +1259,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_revenge_against_the_jilin_clique
 		x = 2
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { has_war = no }
 		bypass = { NOT = { country_exists = JIL } }
@@ -964,9 +1277,7 @@ focus_tree = {
 		id = MAN_finally_the_clique_is_gone
 		icon = GFX_focus_MAN_finally_the_clique_is_gone
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { NOT = { country_exists = JIL } }
 		relative_position_id = MAN_revenge_against_the_jilin_clique
@@ -981,9 +1292,7 @@ focus_tree = {
 		id = MAN_harbin_military_industry
 		icon = GFX_focus_MAN_harbin_military_industry
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { NOT = { country_exists = JIL } }
 		relative_position_id = MAN_finally_the_clique_is_gone
@@ -992,7 +1301,7 @@ focus_tree = {
 			950 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
-					type = dockyard
+					type = arms_factory
 					level = 1
 					instant_build  = yes
 				}
@@ -1005,9 +1314,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_harbin_military_industry
 		x = 2
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { has_war = no }
 		bypass = { NOT = { country_exists = KOR } }
@@ -1027,9 +1334,7 @@ focus_tree = {
 		id = MAN_a_united_manchuria
 		icon = GFX_focus_MAN_a_united_manchuria
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { has_war = no }
 		relative_position_id = MAN_secure_the_korean_border
@@ -1047,9 +1352,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_form_the_anguojun
 		x = -2
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { 
 			OR = {
@@ -1068,9 +1371,7 @@ focus_tree = {
 		id = MAN_invade_rehe
 		icon = GFX_focus_MAN_invade_rehe
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { 
 			OR = {
@@ -1097,9 +1398,7 @@ focus_tree = {
 		id = MAN_the_kwantung_deal
 		icon = GFX_focus_MAN_invade_rehe
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { 
 			has_government = despotism
@@ -1122,9 +1421,7 @@ focus_tree = {
 		id = MAN_ask_for_shandong
 		icon = GFX_focus_MAN_ask_for_shandong
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { 
 			has_government = despotism
@@ -1147,9 +1444,7 @@ focus_tree = {
 		icon = GFX_focus_MAN_form_the_qing_sphere
 		x = 2
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { 
 			has_government = reactionism
@@ -1165,9 +1460,7 @@ focus_tree = {
 		id = MAN_claim_china
 		icon = GFX_focus_MAN_claim_china
 		y = 1
-		ai_will_do = {
-			factor = 15
-		}
+		ai_will_do = { base = 20 }
 		cost = 4
 		available = { 
 			has_government = reactionism
