@@ -1458,7 +1458,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_inwards_and_outwards
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_inwards_and_outwards
 		x = 0
 		y = 1
 		cost = 0
@@ -1472,7 +1472,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_to_the_east
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_to_the_east
 		x = -5
 		y = 1
 		cost = 1
@@ -1485,7 +1485,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_back_to_berlin
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_back_to_berlin
 		x = -3
 		y = 1
 		cost = 3
@@ -1504,7 +1504,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_offer_the_republicans_peaceful_reunification
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_offer_the_republicans_peaceful_reunification
 		x = -1
 		y = 1
 		cost = 3
@@ -1521,7 +1521,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_arrest_liebknecht_and_luxemburg
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_arrest_liebknecht_and_luxemburg
 		x = 1
 		y = 1
 		cost = 3
@@ -1542,8 +1542,8 @@ focus_tree = {
 	}
 
 	focus = {
-		id = FGB_a_clean_sweep_through_berlin
-		icon = GFX_focus_FGB_noske_default
+		id = FGB_noske_a_clean_sweep_through_berlin
+		icon = GFX_focus_FGB_noske_a_clean_sweep_through_berlin
 		x = 1
 		y = 2
 		cost = 3
@@ -1567,8 +1567,8 @@ focus_tree = {
 		x = -2
 		y = 1
 		cost = 3
-		relative_position_id = FGB_a_clean_sweep_through_berlin
-		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		relative_position_id = FGB_noske_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_noske_a_clean_sweep_through_berlin }
 		completion_reward = {
 			add_stability = 0.02
 			add_political_power = -20
@@ -1778,8 +1778,8 @@ focus_tree = {
 		x = 2
 		y = 1
 		cost = 3
-		relative_position_id = FGB_a_clean_sweep_through_berlin
-		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		relative_position_id = FGB_noske_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_noske_a_clean_sweep_through_berlin }
 		completion_reward = {
 			add_stability = 0.02
 			add_political_power = -20
@@ -1840,8 +1840,8 @@ focus_tree = {
 		x = 5
 		y = 1
 		cost = 3
-		relative_position_id = FGB_a_clean_sweep_through_berlin
-		prerequisite = { focus = FGB_a_clean_sweep_through_berlin }
+		relative_position_id = FGB_noske_a_clean_sweep_through_berlin
+		prerequisite = { focus = FGB_noske_a_clean_sweep_through_berlin }
 		completion_reward = {
 			add_stability = 0.02
 			add_political_power = -20
@@ -1925,7 +1925,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_offer_them_autonomy
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_offer_them_autonomy
 		x = 2
 		y = 1
 		cost = 3
@@ -1946,7 +1946,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_discuss_with_the_poles
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_discuss_with_the_poles
 		x = 0
 		y = 1
 		cost = 3
@@ -1975,7 +1975,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_reclaim_breslau
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_reclaim_breslau
 		x = 4
 		y = 1
 		cost = 3
@@ -1997,7 +1997,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_integrate_lower_silesia
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_integrate_lower_silesia
 		x = 0
 		y = 1
 		cost = 3
@@ -2023,7 +2023,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_oberschliesen_bundesrepublik
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_oberschliesen_bundesrepublik
 		x = 1
 		y = 1
 		cost = 3
@@ -2046,7 +2046,7 @@ focus_tree = {
 
 	focus = {
 		id = FGB_noske_to_the_west
-		icon = GFX_focus_FGB_noske_default
+		icon = GFX_focus_FGB_noske_to_the_west
 		x = 5
 		y = 1
 		cost = 1
@@ -5699,6 +5699,7 @@ focus_tree = {
 			factor = 25
 		}
 		available = { has_war = no }
+		bypass = { NOT = { country_exists = BAV }}
 		allow_branch = { has_country_flag = FGB_pabst_ready_to_rumble_flag }
 		relative_position_id = FGB_pabst_towards_a_noble_goal
 		prerequisite = { focus = FGB_pabst_towards_a_noble_goal }
@@ -6052,14 +6053,13 @@ focus_tree = {
 			factor = 25
 		}
 		available = { has_war = no }
+		bypass = { NOT = { country_exists = WRD }}
 		allow_branch = { has_country_flag = FGB_pabst_ready_to_rumble_flag }
 		relative_position_id = FGB_pabst_towards_a_noble_goal
 		prerequisite = { focus = FGB_pabst_towards_a_noble_goal }
 		completion_reward = {
-			WRD = { 
-				every_unit_leader = {
-					set_nationality = FGB
-				}
+			WRD = {
+				country_event = fgb.123
 			}
 		}
 	}
@@ -6077,6 +6077,9 @@ focus_tree = {
 		relative_position_id = FGB_pabst_demand_the_reincorporation_of_the_rhine
 		prerequisite = { focus = FGB_pabst_demand_the_reincorporation_of_the_rhine }
 		completion_reward = {
+			add_political_power = 30
+			add_war_support = -0.03
+			add_stability = 0.05
 			add_popularity = {
 				ideology = esotericism
 				popularity = -1
@@ -6211,7 +6214,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 25
 		}
-		allow_branch = { has_completed_focus = FGB_pabst_the_next_operation }
+		allow_branch = { has_country_flag = FGB_pabst_the_next_operation_flag }
 		bypass = {
 			NOT = { country_exists = FWG }
 		}
@@ -6359,7 +6362,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 25
 		}
-		allow_branch = { has_completed_focus = FGB_pabst_the_next_operation }
+		allow_branch = { has_country_flag = FGB_pabst_the_next_operation_flag }
 		bypass = {
 			NOT = { country_exists = GER }
 		}
@@ -6514,10 +6517,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 25
 		}
-		allow_branch = { has_completed_focus = FGB_pabst_the_next_operation }
+		allow_branch = { has_country_flag = FGB_pabst_the_next_operation_flag }
 		bypass = {
 			NOT = { country_exists = UVS }
 		}
+		available = { has_war = no is_neighbor_of = UVS }
 		relative_position_id = FGB_pabst_the_next_operation
 		prerequisite = { focus = FGB_pabst_the_next_operation }
 		completion_reward = {
@@ -6743,10 +6747,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 25
 		}
-		allow_branch = { has_completed_focus = FGB_pabst_the_next_operation }
+		allow_branch = { has_country_flag = FGB_pabst_the_next_operation_flag }
 		bypass = {
 			NOT = { country_exists = PLA }
 		}
+		available = { has_war = no is_neighbor_of = PLA }
 		relative_position_id = FGB_pabst_the_next_operation
 		prerequisite = { focus = FGB_pabst_the_next_operation }
 		completion_reward = {
@@ -6937,8 +6942,7 @@ focus_tree = {
 		available = { has_government = reactionism }
 		relative_position_id = FGB_pabst_a_nightmare_gone
 		prerequisite = { focus = FGB_pabst_a_nightmare_gone }
-		completion_reward = {
-			set_cosmetic_tag = FGB_pabst_unified 
+		completion_reward = { 
 			add_popularity = {
 				ideology = reactionism
 				popularity = 0.1
@@ -6960,7 +6964,6 @@ focus_tree = {
 		relative_position_id = FGB_pabst_a_nightmare_gone
 		prerequisite = { focus = FGB_pabst_a_nightmare_gone }
 		completion_reward = {
-			set_cosmetic_tag = FGB_ehrhardt_unified 
 			add_popularity = {
 				ideology = authoritarian_democrat
 				popularity = 0.1
