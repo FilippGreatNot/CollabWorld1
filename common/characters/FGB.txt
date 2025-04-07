@@ -107,7 +107,7 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = reactionary_socialism
+			ideology = revolutionary_conservatism
 			desc = "POLITICS_WALDEMAR_PABST_DESC"
 		}
 		corps_commander = {
@@ -193,7 +193,7 @@ characters = {
 		name = "Christian August Ulrich von Hassell"
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/advisorphoto.webp"
+				small = "gfx/interface/ministers/FGB/FGB_ulrich_von_hassell.dds"
 			}
 		}
 		advisor = {
@@ -210,7 +210,7 @@ characters = {
 		name = "Georg Wilhelm Schiele"
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/advisorphoto.webp"
+				small = "gfx/interface/ministers/FGB/FGB_georg_schiele.dds"
 			}
 		}
 		advisor = {
@@ -227,14 +227,21 @@ characters = {
 		name = "Heinrich Claß"
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/advisorphoto.webp"
+				small = "gfx/interface/ministers/FGB/FGB_heinrich_class.dds"
 			}
 		}
 		advisor = {
 			slot = propaganda_minister
 			idea_token = FGB_heinrich_class_prop
 			allowed = { tag = FGB }
-			available = { has_government = despotism }
+			available = { 
+				OR = {
+					has_government = authoritarian_democrat
+					has_government = conservatism
+					has_government = despotism
+					has_government = reactionism
+				} 
+			}
 			traits = { warmonger_propagandist national_theorist conservative_lawyer }
 			cost = 100
 			can_be_fired = yes
