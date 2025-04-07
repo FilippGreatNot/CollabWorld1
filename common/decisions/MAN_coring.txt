@@ -1,0 +1,32 @@
+MAN_coring_cat = {
+    MAN_integrate_state = {
+		icon = GFX_decision_generic_form_nation
+		state_target = any_owned_state
+		target_trigger = {
+			FROM = {
+				NOT = { is_core_of = PREV }
+				has_state_flag = manchuria_state
+			}
+		}
+		on_map_mode = map_and_decisions_view
+		modifier = { political_power_gain = -0.15 }
+		cost = 35
+		ai_will_do = { factor = 100 }
+		days_remove = 60
+		fire_only_once = yes
+		remove_effect = { 
+			add_state_core = FROM 
+			hidden_effect = {
+				FROM = {
+					every_possible_country = {
+						limit = {
+							is_chinese_tag = yes 
+							NOT = { tag = ROOT }
+						}
+						remove_state_core = PREV
+					}
+				}
+			}
+		}
+	}
+}

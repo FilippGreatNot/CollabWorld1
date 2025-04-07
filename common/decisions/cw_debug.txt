@@ -64,16 +64,9 @@ cw_debug_category = {
 			DSH = { make_every_core_national_for_PREV = yes }
 			hidden_effect = {
 				every_other_country = {
-					limit = { 	
-						has_war = no 
-						has_country_flag = germany
-					}
+					limit = { is_german_tag = yes }
 					ROOT = {
-						PREV = {
-							every_core_state = {
-								add_core_of = ROOT
-							}
-						}
+						PREV = { every_core_state = { add_core_of = ROOT } }
 						annex_country = {
 							target = PREV
 							transfer_troops = yes
@@ -196,6 +189,21 @@ cw_debug_category = {
 				set_state_controller_to = FROM
 			}
 			custom_effect_tooltip = "Will transfer control of all enemy provinces to you for a quick win. Use the ( deleteallunits 'tag' ) console command in conjuction beforehand. The delete_units effect is commented out by default in this decision in-case you don't want to delete all units"
+		}
+	}
+	cw_debug_give_me_silesia = {
+		visible = { country_exists = PLA tag = POL }
+		complete_effect = {
+			PLA = { 
+				make_every_core_national_for_PREV = yes 
+				every_unit_leader = {
+					set_nationality = POL
+				}
+			}
+			annex_country = {
+				target = PLA
+				transfer_troops = yes
+			}
 		}
 	}
 }

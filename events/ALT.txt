@@ -144,6 +144,7 @@ country_event = {
 		add_ideas = {
 			ALT_a_peoples_force
 		}
+		ALT_assign_bolshevik_advisors = yes
 		hidden_effect = {
 			retire_character = ALT_ma_fuxiang
 			set_politics = {
@@ -476,6 +477,26 @@ country_event = {
 		ai_chance = { base = 30 }
 		add_stability = 0.1
 		complete_national_focus = ALT_the_century_of_chinese_communism
+	}
+}
+
+country_event = {
+	id = alt.15
+	title = alt.15.t
+	desc = alt.15.d
+	picture = GFX_report_event_ashan_peacetime
+	is_triggered_only = yes
+
+	option = {
+		name = alt.15.a
+		ai_chance = { base = 30 }
+		army_experience = 30
+		add_manpower = 14000
+		KYR = {
+			every_unit_leader = {
+				set_nationality = PREV
+			}
+		}
 	}
 }
 
