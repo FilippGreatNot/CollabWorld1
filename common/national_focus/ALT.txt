@@ -4160,28 +4160,26 @@ focus_tree = {
 		relative_position_id = ALT_make_deals_with_the_central_socialists
 		prerequisite = { focus = ALT_make_deals_with_the_central_socialists }
 		completion_reward = {
-			MEN = { make_every_core_national_for_PREV = yes }
+			INM = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = SUY
+				type = annex_everything
+			}
 			declare_war_on = {
 				target = MEN
 				type = annex_everything
 			}
-			if = { 
-				limit = { 
-					country_exists = MON
-					MON = { NOT = { is_in_faction_with = ALT } } 
-				} 
-				declare_war_on = {
-					target = MON
-					type = annex_everything
-				}
-			}
-			else_if = {
+			if = {
 				limit = {
 					MON = {
 						is_in_faction_with = ALT
 					}
 				}
 				MON = {
+					declare_war_on = {
+						target = SUY
+						type = take_claimed_state
+					}
 					declare_war_on = {
 						target = MEN
 						type = take_claimed_state

@@ -543,6 +543,13 @@ FGB_industrial_category = {
 					add_idea = FGB_the_power_of_beer2
 				}
 			}
+			else_if = {
+				limit = { has_idea = FGB_the_power_of_beer2 }
+				swap_ideas = {
+					remove_idea = FGB_the_power_of_beer2
+					add_idea = FGB_the_power_of_beer3
+				}
+			}
 		}
 		remove_effect = {
 			add_stability = 0.04
@@ -732,6 +739,13 @@ FGB_industrial_category = {
 					add_idea = FGB_the_power_of_beer2
 				}
 			}
+			else_if = {
+				limit = { has_idea = FGB_the_power_of_beer2 }
+				swap_ideas = {
+					remove_idea = FGB_the_power_of_beer2
+					add_idea = FGB_the_power_of_beer3
+				}
+			}
 		}
 		remove_effect = {
 			add_stability = 0.04
@@ -791,6 +805,189 @@ FGB_industrial_category = {
 			}
 			add_ideas = {
 				FGB_hellmann_logistics
+			}
+		}
+	}
+	FGB_help_nickelhutte_expand = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 65
+			has_completed_focus = FGB_support_east_german_businesses
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 100
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 65 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			65 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = tungsten
+					amount = 4
+				}
+			}
+		}
+	}
+	FGB_invest_in_the_radeberger_brewery = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 1078
+			has_completed_focus = FGB_support_east_german_businesses
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 75
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 1078 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		complete_effect = {
+			if = {
+				limit = { NOT = { has_idea = FGB_the_power_of_beer } }
+				add_ideas = {
+					FGB_the_power_of_beer
+				}
+			}
+			else_if = {
+				limit = { has_idea = FGB_the_power_of_beer }
+				swap_ideas = {
+					remove_idea = FGB_the_power_of_beer
+					add_idea = FGB_the_power_of_beer2
+				}
+			}
+			else_if = {
+				limit = { has_idea = FGB_the_power_of_beer2 }
+				swap_ideas = {
+					remove_idea = FGB_the_power_of_beer2
+					add_idea = FGB_the_power_of_beer3
+				}
+			}
+		}
+		remove_effect = {
+			add_stability = 0.04
+			1078 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	FGB_investments_in_linke_hofmann_busch = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 66
+			has_completed_focus = FGB_support_east_german_businesses
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 50
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 66 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			66 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				increase_state_category_by_one_level = yes
+			}
+		}
+	}
+	FGB_develop_ferrum_AG = {
+		visible = {
+			has_completed_focus = FGB_invigorate_the_german_economy
+		}
+		available = {
+			has_full_control_of_state = 762
+			has_completed_focus = FGB_support_east_german_businesses
+		}
+		allowed = {
+			tag = FGB
+		}
+		ai_will_do = {
+			base = 200
+		}
+		cost = 100
+		icon = FGB_reform 
+		fire_only_once = yes 
+		days_remove = 30
+		highlight_states = {
+    		highlight_state_targets = { state = 762 }
+    		highlight_color_while_active = 3
+    		highlight_color_before_active = 2
+		}
+		modifier = {
+			political_power_cost = 0.15
+			consumer_goods_factor = 0.1
+		}
+		remove_effect = {
+			762 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 3
+				}
 			}
 		}
 	}
