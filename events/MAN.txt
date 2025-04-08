@@ -1,0 +1,202 @@
+add_namespace = man 
+
+country_event = {
+	id = man.1
+	title = man.1.t
+	desc = man.1.d
+	picture = GFX_report_event_ashan_peacetime
+	is_triggered_only = yes
+
+	option = {
+		name = man.1.a
+		add_political_power = 20
+        add_stability = 0.02
+	}
+}
+
+country_event = {
+	id = man.2
+	title = man.2.t
+	desc = man.2.d
+	picture = GFX_report_event_ashan_peacetime
+	is_triggered_only = yes
+
+	option = {
+		name = man.2.a
+		add_doctrine_cost_reduction = {
+	        cost_reduction = 0.33
+	        uses = 1
+	        category = cat_superior_firepower
+        }
+	}
+    option = {
+		name = man.2.b
+		add_doctrine_cost_reduction = {
+	        cost_reduction = 0.33
+	        uses = 1
+	        category = cat_mass_assault
+        }
+	}
+}
+
+country_event = {
+	id = man.3
+	title = man.3.t
+	desc = man.3.d
+	picture = GFX_report_event_ashan_peacetime
+	is_triggered_only = yes
+
+	option = {
+		name = man.3.a
+		ai_chance = { base = 20 }
+        add_stability = 0.04
+        complete_national_focus = MAN_zhang_zhoulin_outlasts_the_backlash
+	}
+    option = {
+		name = man.3.b
+		ai_chance = { base = 15 }
+        add_political_power = -10
+        complete_national_focus = MAN_who_must_go
+	}
+}
+
+news_event = {
+	id = man.4
+	title = man.4.t
+	desc = man.4.d
+	picture = GFX_news_event_zuolin_overthrow
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = man.4.a
+		ai_chance = { base = 20 }
+        add_threat = 2
+	}
+}
+
+country_event = {
+	id = man.5
+	title = man.5.t
+	desc = man.5.d
+	picture = GFX_report_event_ashan_wartime
+	is_triggered_only = yes
+
+	option = {
+		name = man.5.a
+		ai_chance = { 
+			base = 20 
+			modifier = {
+				factor = 2
+				MAN = {
+					has_government = reactionism
+				}
+			}
+		}
+		MAN = {
+			annex_country = {
+				target = HVN
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = man.5.b
+		ai_chance = { base = 30 }
+		MAN = {
+			create_wargoal = {
+				type = annex_everything
+				target = HVN
+			}
+		}
+	}
+}
+
+country_event = {
+	id = man.6
+	title = man.6.t
+	desc = man.6.d
+	picture = GFX_report_event_ashan_wartime
+	is_triggered_only = yes
+
+	option = {
+		name = man.6.a
+		ai_chance = { base = 20 }
+		add_war_support = 0.1
+		declare_war_on = {
+			target = MAN
+			type = annex_everything
+		}
+		hidden_effect = {
+			news_event = man.7
+		}
+	}
+	option = {
+		name = man.6.b
+		ai_chance = { base = 15 }
+		add_stability = -0.1
+	}
+}
+
+news_event = {
+	id = man.7
+	title = man.7.t
+	desc = man.7.d
+	picture = GFX_news_event_second_zhili_fengtian_war
+	is_triggered_only = yes
+	major = yes 
+
+	option = {
+		name = man.7.a
+		add_threat = 3
+	}
+}
+
+country_event = {
+	id = man.8
+	title = man.8.t
+	desc = man.8.d
+	picture = GFX_news_event_second_zhili_fengtian_war
+	is_triggered_only = yes
+	major = yes 
+
+	option = {
+		name = man.8.a
+		set_country_flag = MAN_kwantung_flag
+		745 = {
+			remove_core_of = HVN 
+			add_core_of = MAN
+			transfer_state_to = MAN
+		}
+		972 = {
+			transfer_state_to = MAN
+			set_demilitarized_zone = no
+		}
+	}
+}
+
+country_event = {
+	id = man.9
+	title = man.9.t
+	desc = man.9.d
+	picture = GFX_news_event_second_zhili_fengtian_war
+	is_triggered_only = yes
+	major = yes 
+
+	option = {
+		name = man.9.a
+		ai_chance = { base = 40 }
+		MAN = {
+			SHD = { make_every_core_national_for_PREV = yes }
+			annex_country = {
+				target = SHD
+				transfer_troops = yes
+			}
+		}
+	}
+	option = {
+		name = man.9.a
+		ai_chance = { base = 15 }
+		add_stability = 0.1
+	}
+}

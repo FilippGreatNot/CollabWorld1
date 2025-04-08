@@ -1,4 +1,5 @@
 add_namespace = turkestan
+add_namespace = tms
 
 news_event = {
 	id = turkestan.1
@@ -285,5 +286,186 @@ news_event = { #TMS
 	
 	option = {
 		name = turkestan.15.a
+	}
+}
+
+country_event = {
+	id = tms.1
+	title = tms.1.t
+	desc = tms.1.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	immediate = { hidden_effect = { country_event = { id = tms.2 days = 2 } } }
+	
+	option = {
+		name = tms.1.a
+		ai_chance = { base = 15 }
+		complete_national_focus = TMS_chernov_brings_esery_to_power
+	}
+	option = {
+		name = tms.1.b
+		ai_chance = { base = 15 }
+		add_stability = 0.02
+		complete_national_focus = TMS_funtikov_holds_on
+	}
+	option = {
+		name = tms.1.c
+		ai_chance = { base = 15 }
+		complete_national_focus = TMS_martov_menshevik_victory
+	}
+}
+
+country_event = {
+	id = tms.2
+	title = tms.2.t
+	desc = tms.2.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	
+	option = {
+		name = tms.2.a
+		ai_chance = { base = 15 }
+		add_popularity = {
+			ideology = despotism
+			popularity = -0.05
+		}
+		retire_character = TMS_ippolit_savitsky
+	}
+	option = {
+		name = tms.2.b
+		ai_chance = { base = 5 }
+		add_war_support = 0.05
+		complete_national_focus = TMS_savitskys_seizure_of_the_state
+		set_country_flag = TMS_savitsky_flag
+	}
+}
+
+country_event = {
+	id = tms.3
+	title = tms.3.t
+	desc = tms.3.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	trigger = {
+		tag = TMS
+	}
+	
+	option = {
+		name = tms.3.a
+		ai_chance = { base = 15 }
+		add_war_support = 0.02
+		remove_ideas = {
+			TMS_waning_british_influence
+		}
+		retire_character = TMS_wilfrid_malleson
+	}
+}
+
+country_event = {
+	id = tms.4
+	title = tms.4.t
+	desc = tms.4.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.4.a
+		ai_chance = { base = 15 }
+		add_stability = -0.02
+		add_popularity = {
+			ideology = marxism
+			popularity = 0.03
+		}
+		add_ideas = {
+			mixed_economy
+		}
+	}
+}
+
+country_event = {
+	id = tms.5
+	title = tms.5.t
+	desc = tms.5.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.5.a
+		ai_chance = { base = 15 }
+		set_country_flag = TMS_a_peaceful_approach_flag
+	}
+	option = {
+		name = tms.5.b 
+		ai_chance = { base = 15 }
+		set_country_flag = TMS_no_peace_with_terrorists_flag
+	}
+}
+
+country_event = {
+	id = tms.6
+	title = tms.6.t
+	desc = tms.6.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.6.a
+		ai_chance = { base = 15 }
+		TMS = {
+			country_event = tms.7
+		}
+	}
+	option = {
+		name = tms.6.b 
+		ai_chance = { base = 15 }
+		TMS = {
+			country_event = tms.8
+		}
+	}
+}
+
+country_event = {
+	id = tms.7
+	title = tms.7.t
+	desc = tms.7.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.7.a
+		ai_chance = { base = 15 }
+		add_popularity = {
+			ideology = reactionism
+			popularity = -0.1
+		}	
+		set_party_name = { 
+			ideology = reactionism
+			long_name = "Remnants of the Basmachi"
+			name = "Basmachi Remnants"
+		}
+	}
+}
+
+country_event = {
+	id = tms.8
+	title = tms.8.t
+	desc = tms.8.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	option = {
+		name = tms.8.a
+		ai_chance = { base = 15 }
+		add_stability = -0.03
+		add_popularity = {
+			ideology = reactionism
+			popularity = 0.05
+		}
 	}
 }

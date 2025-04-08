@@ -44,7 +44,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_promise_a_return_to_normalty
-		icon = GFX_focus_TUR_arrest
+		icon = GFX_focus_TUR_normal
 		x = 1
 		y = 1
 		cost = 7
@@ -186,6 +186,9 @@ focus_tree = {
 		icon = GFX_focus_TUR_lessons
 		cost = 6
 		x = 7
+		available = {
+			has_completed_focus = TUR_choose_a_new_leader_for_the_movement
+		}
 		completion_reward = {
 		    army_experience = 35
 			add_tech_bonus = {
@@ -232,7 +235,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_fix_broken_weapons
-		icon = GFX_focus_TUR_fix
+		icon = GFX_focus_TUR_repair
 		relative_position_id = TUR_focus_on_quality_training
 		cost = 8
 		x = 1
@@ -309,16 +312,190 @@ focus_tree = {
 		icon = GFX_focus_TUR_tax
 		cost = 6
 		x = 15
+		available = {
+			has_completed_focus = TUR_arisen_like_a_phoenix
+		}
+		completion_reward = {
+		    remove_ideas = {
+			    TUR_ongoing_war_tax
+		    }
+		}
+	}
+	
+	focus = {
+		id = TUR_liberalize_the_economy
+		icon = GFX_focus_TUR_liberalize
+		relative_position_id = TUR_abolish_the_war_tax
+		cost = 5
+		prerequisite = {
+            focus = TUR_abolish_the_war_tax
+        }
+		x = -1
+		y = 1
+		mutually_exclusive = {
+			focus = TUR_embrace_etatism
+		}
+		completion_reward = {
+		    add_popularity = {
+				ideology = liberalism
+				popularity = 0.05
+			   }
+		    add_ideas = free_market_economy
+		}
+	}
+	
+	focus = {
+		id = TUR_embrace_etatism
+		icon = GFX_focus_TUR_etatism
+		relative_position_id = TUR_abolish_the_war_tax
+		cost = 5
+		prerequisite = {
+            focus = TUR_abolish_the_war_tax
+        }
+		x = 1
+		y = 1
+		mutually_exclusive = {
+			focus = TUR_liberalize_the_economy
+		}
+		completion_reward = {
+		    add_popularity = {
+				ideology = authoritarian_democrat
+				popularity = 0.05
+			   }
+		    add_ideas = mixed_economy
+		}
+	}
+	
+	focus = {
+		id = TUR_nationalize_strategic_industries
+		icon = GFX_focus_TUR_nationalize
+		relative_position_id = TUR_embrace_etatism
+		cost = 5
+		prerequisite = {
+            focus = TUR_embrace_etatism
+        }
+		y = 1
+		x = 1
 		completion_reward = {
 		}
 	}
+	
+	focus = {
+		id = TUR_an_autarkic_approach
+		icon = GFX_focus_TUR_autarky
+		relative_position_id = TUR_nationalize_strategic_industries
+		cost = 6
+		prerequisite = {
+            focus = TUR_nationalize_strategic_industries
+        }
+		y = 1
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_invest_in_turkeys_infrastructure
+		icon = GFX_focus_TUR_infra
+		relative_position_id = TUR_an_autarkic_approach
+		cost = 6
+		prerequisite = {
+            focus = TUR_an_autarkic_approach
+        }
+		y = 1
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_build_a_turkish_banking_sector
+		icon = GFX_focus_TUR_banks
+		relative_position_id = TUR_liberalize_the_economy
+		cost = 5
+		prerequisite = {
+            focus = TUR_liberalize_the_economy
+        }
+		y = 1
+		x = -1
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_seek_foreign_investments
+		icon = GFX_focus_TUR_seek
+		relative_position_id = TUR_build_a_turkish_banking_sector
+		cost = 5
+		prerequisite = {
+            focus = TUR_build_a_turkish_banking_sector
+        }
+		y = 1
+		completion_reward = {
+		}
+		}
+	
+	
+	focus = {
+		id = TUR_made_in_turkey
+		icon = GFX_focus_TUR_made_in_turkey
+		relative_position_id = TUR_seek_foreign_investments
+		cost = 7
+		prerequisite = {
+            focus = TUR_seek_foreign_investments
+        }
+		y = 1
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_begin_the_national_reconstruction_effort
+		icon = GFX_focus_TUR_reconstruction
+		relative_position_id = TUR_abolish_the_war_tax
+		cost = 5
+		prerequisite = {
+            focus = TUR_embrace_etatism focus = TUR_liberalize_the_economy
+        }
+		y = 2
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_bring_in_foreign_workers
+		icon = GFX_focus_TUR_worker
+		relative_position_id = TUR_begin_the_national_reconstruction_effort
+		cost = 5
+		prerequisite = {
+            focus = TUR_begin_the_national_reconstruction_effort
+        }
+		y = 1
 
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = TUR_establish_new_turkish_universities
+		icon = GFX_focus_TUR_university
+		relative_position_id = TUR_bring_in_foreign_workers
+		cost = 10
+		prerequisite = {
+            focus = TUR_bring_in_foreign_workers
+        }
+		y = 1
+
+		completion_reward = {
+		    add_research_slot = 1
+			add_political_power = 25
+		}
+	}
+    
     focus = {
 		id = TUR_begin_the_reunification_effort
 		icon = GFX_focus_cil_ultimatum_chp
 		cost = 5
 		x = 13
-		y = 5
+		y = 6
 		available = { 
 			date > 1924.6.1
 		}
@@ -573,6 +750,336 @@ focus_tree = {
 		completion_reward = {
 				add_stability = 0.05
 				add_political_power = 50
+               }
+	}
+	
+	focus = {
+        id = TUR_choose_a_new_president
+        icon = GFX_focus_TUR_new_president
+        relative_position_id = TUR_arisen_like_a_phoenix
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_arisen_like_a_phoenix
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_fevzi_pashas_coup
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_choose_a_new_president
+        y = 1
+		x = -2
+        cost = 5
+		available = { has_government = despotism }
+		mutually_exclusive = {
+			focus = TUR_the_return_of_kemal_pasha focus = TUR_victory_of_ismet_pasha
+		}
+		prerequisite = {
+            focus = TUR_choose_a_new_president
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_strengthen_the_armed_forces
+        icon = GFX_focus_TUR_armed
+        relative_position_id = TUR_fevzi_pashas_coup
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_fevzi_pashas_coup
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_the_junta_of_the_kemalist_officers
+        icon = GFX_focus_TUR_armed
+        relative_position_id = TUR_strengthen_the_armed_forces
+        y = 1
+        cost = 6
+		prerequisite = {
+            focus = TUR_strengthen_the_armed_forces
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_victory_of_ismet_pasha
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_choose_a_new_president
+		mutually_exclusive = {
+			focus = TUR_the_return_of_kemal_pasha focus = TUR_fevzi_pashas_coup
+		}
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_choose_a_new_president
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_revitalize_the_turkish_economy
+        icon = GFX_focus_TUR_armed
+        relative_position_id = TUR_victory_of_ismet_pasha
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_victory_of_ismet_pasha
+        }
+		completion_reward = {
+               }
+	}
+	
+	
+	
+	focus = {
+        id = TUR_the_return_of_kemal_pasha
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_choose_a_new_president
+        y = 1
+		x = 2
+        cost = 5
+		mutually_exclusive = {
+			focus = TUR_victory_of_ismet_pasha focus = TUR_fevzi_pashas_coup
+		}
+		prerequisite = {
+            focus = TUR_choose_a_new_president
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_radical_secularization
+        icon = GFX_focus_TUR_secular
+        relative_position_id = TUR_the_return_of_kemal_pasha
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_the_return_of_kemal_pasha
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_establish_a_language_comission
+        icon = GFX_focus_TUR_secular
+        relative_position_id = TUR_revitalize_the_turkish_economy
+        y = 1
+		x = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_revitalize_the_turkish_economy focus = TUR_radical_secularization
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_maintain_the_kemalist_tutelage
+        icon = GFX_focus_TUR_tutelage
+        relative_position_id = TUR_establish_a_language_comission
+        y = 1
+		x = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_establish_a_language_comission
+        }
+		mutually_exclusive = {
+			focus = TUR_hold_our_first_real_elections
+		}
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_hold_our_first_real_elections
+        icon = GFX_focus_TUR_tutelage
+        relative_position_id = TUR_establish_a_language_comission
+        y = 1
+		x = -1
+        cost = 5
+		mutually_exclusive = {
+			focus = TUR_maintain_the_kemalist_tutelage
+		}
+		prerequisite = {
+            focus = TUR_establish_a_language_comission
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_rebuild_the_turkish_navy
+        icon = GFX_focus_TUR_navy
+        relative_position_id = TUR_arisen_like_a_phoenix
+        y = 1
+		x = -3
+        cost = 5
+		prerequisite = {
+            focus = TUR_arisen_like_a_phoenix
+        }
+		completion_reward = {
+		            random_owned_controlled_state = {
+					limit = {
+					ROOT = { has_full_control_of_state = PREV }
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+				    add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+			        }
+			        navy_experience = 75
+               }
+	}
+	
+	focus = {
+        id = TUR_mehmed_haydar_pashas_coup
+        icon = GFX_focus_TUR_haydar
+        relative_position_id = TUR_arisen_like_a_phoenix
+        y = 1
+		x = -6
+        cost = 5
+		prerequisite = {
+            focus = TUR_arisen_like_a_phoenix
+        }
+		available = { has_government = national_syndicalism }
+		completion_reward = {
+		       add_popularity = {
+		        ideology = national_syndicalism
+		        popularity = 0.1
+			   }
+			   add_war_support = 0.05
+               }
+	}
+	
+	focus = {
+        id = TUR_a_new_turkey_on_the_world_stage
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_arisen_like_a_phoenix
+        y = 1
+		x = 8
+        cost = 5
+		prerequisite = {
+            focus = TUR_arisen_like_a_phoenix
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_peace_at_home_peace_in_the_world
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_a_new_turkey_on_the_world_stage
+        y = 1
+		x = -3
+        cost = 5
+		prerequisite = {
+            focus = TUR_a_new_turkey_on_the_world_stage
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_repair_relations_with_the_balkan_states
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_peace_at_home_peace_in_the_world
+        y = 1
+		x = -1
+        cost = 5
+		prerequisite = {
+            focus = TUR_peace_at_home_peace_in_the_world
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_negotiate_the_return_of_thrace
+        icon = GFX_focus_TUR_world
+        relative_position_id = TUR_peace_at_home_peace_in_the_world
+        y = 1
+		x = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_peace_at_home_peace_in_the_world
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_spread_secular_values_abroad
+        icon = GFX_focus_TUR_values
+        relative_position_id = TUR_negotiate_the_return_of_thrace
+        y = 1
+		x = -1
+        cost = 5
+		prerequisite = {
+            focus = TUR_negotiate_the_return_of_thrace
+        }
+		prerequisite = {
+            focus = TUR_repair_relations_with_the_balkan_states
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_define_turkeys_borders
+        icon = GFX_focus_TUR_values
+        relative_position_id = TUR_spread_secular_values_abroad
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_spread_secular_values_abroad
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_demand_the_return_of_hatay
+        icon = GFX_focus_TUR_hatay
+        relative_position_id = TUR_peace_at_home_peace_in_the_world
+        y = 1
+		x = 3
+        cost = 5
+		prerequisite = {
+            focus = TUR_peace_at_home_peace_in_the_world
+        }
+		completion_reward = {
+               }
+	}
+	
+	focus = {
+        id = TUR_retake_vavand_from_armenia
+        icon = GFX_focus_TUR_vavand
+        relative_position_id = TUR_demand_the_return_of_hatay
+        y = 1
+        cost = 5
+		prerequisite = {
+            focus = TUR_demand_the_return_of_hatay
+        }
+		completion_reward = {
                }
 	}
 	

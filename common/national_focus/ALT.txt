@@ -4107,7 +4107,6 @@ focus_tree = {
 				remove_from_faction = MON
 			}
 			create_faction = "Association of Chinese Soviets"
-			add_to_faction = INM 
 			add_to_faction = PRC
 			if = { 
 				limit = { has_country_flag = MON_faction } 
@@ -4132,10 +4131,15 @@ focus_tree = {
 		relative_position_id = ALT_make_deals_with_the_central_socialists
 		prerequisite = { focus = ALT_make_deals_with_the_central_socialists }
 		completion_reward = {
-			XSR = { every_core_state = { add_core_of = PRC } }
+			XSR = { make_every_core_national_for_PREV = yes }
+			SHX = { make_every_core_national_for_PREV = yes }
 			declare_war_on = {
 				target = XSR
-				type = take_claimed_state
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = SHX
+				type = annex_everything
 			}
 		}
 	}
@@ -4156,19 +4160,30 @@ focus_tree = {
 		relative_position_id = ALT_make_deals_with_the_central_socialists
 		prerequisite = { focus = ALT_make_deals_with_the_central_socialists }
 		completion_reward = {
-			MEN = { every_core_state = { add_core_of = INM } }
+			INM = { make_every_core_national_for_PREV = yes }
+			declare_war_on = {
+				target = SUY
+				type = annex_everything
+			}
 			declare_war_on = {
 				target = MEN
-				type = take_claimed_state
+				type = annex_everything
 			}
-			if = { 
-				limit = { 
-					country_exists = MON
-					MON = { NOT = { is_in_faction_with = ALT } } 
-				} 
-				declare_war_on = {
-					target = MON
-					type = annex_everything
+			if = {
+				limit = {
+					MON = {
+						is_in_faction_with = ALT
+					}
+				}
+				MON = {
+					declare_war_on = {
+						target = SUY
+						type = take_claimed_state
+					}
+					declare_war_on = {
+						target = MEN
+						type = take_claimed_state
+					}
 				}
 			}
 		}
@@ -4374,10 +4389,15 @@ focus_tree = {
 		prerequisite = { focus = ALT_invade_beiyang }
 		completion_reward = {
 			ANC = { make_every_core_national_for_PREV = yes }
+			FUJ = { make_every_core_national_for_PREV = yes }
 			JGX = { make_every_core_national_for_PREV = yes }
 			ZHE = { make_every_core_national_for_PREV = yes }
 			declare_war_on = {
 				target = ANC
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = FUJ
 				type = annex_everything
 			}
 			declare_war_on = {
@@ -4627,7 +4647,7 @@ focus_tree = {
 			}
 			hidden_effect = {
 			    every_country = {
-			    show_superevent_ALT_sino_japanese_war = yes
+			    	show_superevent_ALT_sino_japanese_war = yes
 				}
 			}
 		}

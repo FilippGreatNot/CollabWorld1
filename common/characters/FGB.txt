@@ -107,7 +107,7 @@ characters = {
 			}
 		}
 		country_leader = {
-			ideology = reactionary_socialism
+			ideology = revolutionary_conservatism
 			desc = "POLITICS_WALDEMAR_PABST_DESC"
 		}
 		corps_commander = {
@@ -136,7 +136,7 @@ characters = {
 		name = "Konrad Adenauer"
 		portraits = {
 			civilian = {
-				small = "gfx/leaders/FGB/FGB_konrad_adenauer.tga"
+				large = "gfx/leaders/FGB/FGB_konrad_adenauer.tga"
 			}
 		}
 	}
@@ -193,7 +193,7 @@ characters = {
 		name = "Christian August Ulrich von Hassell"
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/advisorphoto.webp"
+				small = "gfx/interface/ministers/FGB/FGB_ulrich_von_hassell.dds"
 			}
 		}
 		advisor = {
@@ -210,7 +210,7 @@ characters = {
 		name = "Georg Wilhelm Schiele"
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/advisorphoto.webp"
+				small = "gfx/interface/ministers/FGB/FGB_georg_schiele.dds"
 			}
 		}
 		advisor = {
@@ -227,14 +227,21 @@ characters = {
 		name = "Heinrich Claß"
 		portraits = {
 			civilian = {
-				small = "gfx/interface/ministers/advisorphoto.webp"
+				small = "gfx/interface/ministers/FGB/FGB_heinrich_class.dds"
 			}
 		}
 		advisor = {
 			slot = propaganda_minister
 			idea_token = FGB_heinrich_class_prop
 			allowed = { tag = FGB }
-			available = { has_government = despotism }
+			available = { 
+				OR = {
+					has_government = authoritarian_democrat
+					has_government = conservatism
+					has_government = despotism
+					has_government = reactionism
+				} 
+			}
 			traits = { warmonger_propagandist national_theorist conservative_lawyer }
 			cost = 100
 			can_be_fired = yes
@@ -526,6 +533,23 @@ characters = {
 
 	### Unit Leaders ###
 	## Generals ##
+	FGB_konstantin_von_gebsattel = {
+		name = "Konstantin Wilhelm Hartmann Heinrich Ludwig Freiherr von Gebsattel"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FGB/FGB_konstantin_von_gebsattel.dds"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_expert war_hero brilliant_strategist inflexible_strategist }
+			skill = 4
+
+			attack_skill = 4
+			defense_skill = 5
+			planning_skill = 4
+			logistics_skill = 4
+		}
+	}
 	FGB_wilhelm_list = {
 		name = FGB_wilhelm_list
 		portraits = {

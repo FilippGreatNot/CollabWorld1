@@ -1,0 +1,30 @@
+add_namespace = suy
+
+country_event = { #INM uprising event
+	id = suy.1
+	title = suy.1.t
+	desc = suy.1.d
+	is_triggered_only = yes
+    immediate = {
+        hidden_effect = {
+            1003 = {
+                transfer_state_to = INM
+            }
+            1121 = {
+                transfer_state_to = INM
+            }
+            INM = {
+                load_oob = "INM"
+                declare_war_on = {
+                    target = SUY
+                    type = annex_everything
+                }
+            }
+        }
+    }
+	
+	option = {
+		name = suy.1.a
+        add_stability = -0.1
+	}
+}  

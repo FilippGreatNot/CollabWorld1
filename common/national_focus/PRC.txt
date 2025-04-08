@@ -15,27 +15,7 @@ focus_tree = {
 		x = 7
 		y = 0
 		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = PRC_modernizing_shaanxi
-		icon = GFX_focus_PRC_modernizing_shaanxi
-		cost = 5
-		x = 15
-		y = 0
-		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = PRC_prepare_for_the_inevitable
-		icon = GFX_focus_PRC_prepare_for_the_inevitable
-		cost = 5
-		x = 23
-		y = 0
-		completion_reward = {
-		
+			country_event = prc.2
 		}
 	}
 	focus = {
@@ -46,7 +26,15 @@ focus_tree = {
 		x = 4
 		y = 1
 		completion_reward = {
-		
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.04
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
 		}
 	}
 	focus = {
@@ -57,7 +45,10 @@ focus_tree = {
 		x = 6
 		y = 1
 		completion_reward = {
-		
+			swap_ideas = {
+				remove_idea = PRC_communist_party_factionalism
+				add_idea = PRC_communist_party_factionalism2
+			}
 		}
 	}
 	focus = {
@@ -68,7 +59,7 @@ focus_tree = {
 		x = 8
 		y = 1
 		completion_reward = {
-		
+			create_faction = "Anti-Imperialist Front"
 		}
 	}
 	focus = {
@@ -79,7 +70,20 @@ focus_tree = {
 		x = 10
 		y = 1
 		completion_reward = {
-		
+			add_equipment_to_stockpile = {
+				type = infantry_equipment 
+				amount = -200
+				producer = PRC
+			}
+			ALT = {
+				army_experience = 10
+				add_command_power = 10
+				add_equipment_to_stockpile = {
+					type = infantry_equipment 
+					amount = 200
+					producer = PRC
+				}
+			}
 		}
 	}
 	focus = {
@@ -93,18 +97,23 @@ focus_tree = {
 		x = 7
 		y = 2
 		completion_reward = {
-		
+			country_event = prc.1
 		}
 	}
 	focus = {
 		id = PRC_victory_of_the_urbanists
 		icon = GFX_focus_PRC_victory_of_the_urbanists
 		cost = 5
+		available = { always = no }
+		mutually_exclusive = { focus = PRC_victory_of_the_ruralists }
 		prerequisite = { focus = PRC_hold_the_first_congress_of_the_ccp }
-		x = 4
+		x = 5
 		y = 3
 		completion_reward = {
-		
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.04
+			}
 		}
 	}
 	focus = {
@@ -112,10 +121,52 @@ focus_tree = {
 		icon = GFX_focus_PRC_establish_a_local_airport
 		cost = 5
 		prerequisite = { focus = PRC_victory_of_the_urbanists }
-		x = 3
+		x = 4
 		y = 4
 		completion_reward = {
-		
+			random_owned_state = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRC_build_up_the_jian_town_center
+		icon = GFX_focus_PRC_build_up_tayuans_industries
+		cost = 5
+		prerequisite = { focus = PRC_establish_a_local_airport }
+		x = 4
+		y = 5
+		completion_reward = {
+			1112 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRC_a_modern_marxist_state
+		icon = GFX_focus_PRC_a_modern_marxist_state
+		cost = 5
+		prerequisite = { focus = PRC_the_teachings_of_marx }
+		prerequisite = { focus = PRC_build_up_the_jian_town_center }
+		x = 5
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.05
+			}
+			remove_ideas = {
+				PRC_communist_party_factionalism2
+			}
 		}
 	}
 	focus = {
@@ -123,32 +174,43 @@ focus_tree = {
 		icon = GFX_focus_PRC_reject_confucianist_principles
 		cost = 5
 		prerequisite = { focus = PRC_victory_of_the_urbanists }
-		x = 5
+		x = 6
 		y = 4
 		completion_reward = {
-		
+			add_stability = -0.04
+			add_political_power = 30
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.06
+			}
 		}
 	}
 	focus = {
-		id = PRC_an_offer_to_serengdongrub
-		icon = GFX_focus_PRC_an_offer_to_serengdongrub
+		id = PRC_the_teachings_of_marx
+		icon = GFX_focus_PRC_the_teachings_of_marx
 		cost = 5
-		prerequisite = { focus = PRC_hold_the_first_congress_of_the_ccp }
-		x = 7
-		y = 3
+		prerequisite = { focus = PRC_reject_confucianist_principles }
+		x = 6
+		y = 5
 		completion_reward = {
-		
+			add_ideas = {
+				PRC_preaching_the_manifesto
+			}
 		}
 	}
 	focus = {
 		id = PRC_victory_of_the_ruralists
 		icon = GFX_focus_PRC_victory_of_the_ruralists
 		cost = 5
+		available = { always = no }
+		mutually_exclusive = { focus = PRC_victory_of_the_urbanists }
 		prerequisite = { focus = PRC_hold_the_first_congress_of_the_ccp }
-		x = 10
+		x = 9
 		y = 3
 		completion_reward = {
-		
+			set_politics = {
+				ruling_party = bolshevism
+			}
 		}
 	}
 	focus = {
@@ -156,10 +218,14 @@ focus_tree = {
 		icon = GFX_focus_PRC_a_peasant_lead_revolution
 		cost = 5
 		prerequisite = { focus = PRC_victory_of_the_ruralists }
-		x = 9
+		x = 8
 		y = 4
 		completion_reward = {
-		
+			add_stability = 0.02
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.06
+			}
 		}
 	}
 	focus = {
@@ -167,10 +233,30 @@ focus_tree = {
 		icon = GFX_focus_PRC_mobilize_peasant_militias
 		cost = 5
 		prerequisite = { focus = PRC_a_peasant_lead_revolution }
-		x = 9
+		x = 8
 		y = 5
 		completion_reward = {
-		
+			division_template = {
+				name = "Peasant Militias"
+				priority = 1	
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Peasant Militias\" division_template = \"Peasant Militias\" start_experience_factor = 0.2" 
+					owner = PRC
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Peasant Militias\" division_template = \"Peasant Militias\" start_experience_factor = 0.2" 
+					owner = PRC
+				}
+			}
 		}
 	}
 	focus = {
@@ -178,10 +264,12 @@ focus_tree = {
 		icon = GFX_focus_PRC_land_to_the_farmers
 		cost = 5
 		prerequisite = { focus = PRC_victory_of_the_ruralists }
-		x = 11
+		x = 10
 		y = 4
 		completion_reward = {
-		
+			add_ideas = {
+				PRC_land_to_the_farmers_idea
+			}
 		}
 	}
 	focus = {
@@ -189,10 +277,46 @@ focus_tree = {
 		icon = GFX_focus_PRC_connect_the_suiyuan_countryside
 		cost = 5
 		prerequisite = { focus = PRC_land_to_the_farmers }
-		x = 11
+		x = 10
 		y = 5
 		completion_reward = {
-		
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRC_embrace_the_leninist_model
+		icon = GFX_focus_PRC_embrace_the_leninist_model
+		cost = 5
+		prerequisite = { focus = PRC_mobilize_peasant_militias }
+		prerequisite = { focus = PRC_connect_the_suiyuan_countryside }
+		x = 9
+		y = 6
+		completion_reward = {
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.05
+			}
+			remove_ideas = {
+				PRC_communist_party_factionalism2
+			}
+		}
+	}
+	focus = {
+		id = PRC_modernizing_shaanxi
+		icon = GFX_focus_PRC_modernizing_shaanxi
+		cost = 5
+		x = 15
+		y = 0
+		completion_reward = {
+			every_owned_state = {
+				increase_state_category_by_one_level = yes
+			}
 		}
 	}
 	focus = {
@@ -203,7 +327,17 @@ focus_tree = {
 		x = 13
 		y = 1
 		completion_reward = {
-		
+			add_stability = -0.02
+			add_equipment_to_stockpile = {
+				type = infantry_equipment 
+				amount = 750
+				producer = PRC
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment 
+				amount = 200
+				producer = PRC
+			}
 		}
 	}
 	focus = {
@@ -214,7 +348,18 @@ focus_tree = {
 		x = 13
 		y = 2
 		completion_reward = {
-		
+			1112 = {
+				add_resource = {
+					type = steel 
+					amount = 6
+				}
+			}
+			1122 = {
+				add_resource = {
+					type = steel 
+					amount = 2
+				}
+			}
 		}
 	}
 	focus = {
@@ -225,7 +370,11 @@ focus_tree = {
 		x = 13
 		y = 3
 		completion_reward = {
-		
+			add_political_power = 30
+			add_timed_idea = {
+				idea = PRC_soviet_economic_support
+				days = 120
+			}
 		}
 	}
 	focus = {
@@ -236,7 +385,10 @@ focus_tree = {
 		x = 15
 		y = 1
 		completion_reward = {
-		
+			swap_ideas = {
+				remove_idea = PRC_outdated_education_system
+				add_idea = PRC_outdated_education_system2
+			}
 		}
 	}
 	focus = {
@@ -247,18 +399,33 @@ focus_tree = {
 		x = 15
 		y = 2
 		completion_reward = {
-		
+			add_stability = 0.02
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.03
+			}
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.03
+			}
+			swap_ideas = {
+				remove_idea = PRC_outdated_education_system2
+				add_idea = PRC_outdated_education_system3
+			}
 		}
 	}
 	focus = {
-		id = PRC_write_a_letter_to_the_youth
-		icon = GFX_focus_PRC_write_a_letter_to_the_youth
+		id = PRC_new_era_education
+		icon = GFX_focus_PRC_new_era_education
 		cost = 5
 		prerequisite = { focus = PRC_teach_revolutionary_ideals }
 		x = 15
 		y = 3
 		completion_reward = {
-		
+			swap_ideas = {
+				remove_idea = PRC_outdated_education_system3
+				add_idea = PRC_new_era_education_idea
+			}
 		}
 	}
 	focus = {
@@ -269,7 +436,13 @@ focus_tree = {
 		x = 18
 		y = 1
 		completion_reward = {
-		
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build  = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -281,7 +454,14 @@ focus_tree = {
 		x = 17
 		y = 2
 		completion_reward = {
-		
+			remove_ideas = {
+				PRC_feudal_land_ownership2
+			}
+			add_stability = -0.1
+			add_popularity = {
+				ideology = bolshevism
+				popularity = 0.02
+			}
 		}
 	}
 	focus = {
@@ -292,7 +472,13 @@ focus_tree = {
 		x = 17
 		y = 3
 		completion_reward = {
-		
+			1112 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build  = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -304,7 +490,14 @@ focus_tree = {
 		x = 19
 		y = 2
 		completion_reward = {
-		
+			swap_ideas = {
+				remove_idea = PRC_feudal_land_ownership
+				add_idea = PRC_feudal_land_ownership2
+			}
+			add_popularity = {
+				ideology = marxism
+				popularity = 0.02
+			}
 		}
 	}
 	focus = {
@@ -315,21 +508,45 @@ focus_tree = {
 		x = 19
 		y = 3
 		completion_reward = {
-		
+			every_owned_state = {
+				increase_state_category_by_one_level = yes
+			}
+			remove_ideas = {
+				PRC_feudal_land_ownership2
+			}
 		}
 	}
 	focus = {
 		id = PRC_chinas_most_modern_nw_province
 		icon = GFX_focus_PRC_chinas_most_modern_nw_province
 		cost = 5
-		prerequisite = { focus = PRC_write_a_letter_to_the_youth }
+		available = { NOT = { country_exists = JGX } }
+		prerequisite = { focus = PRC_new_era_education }
 		prerequisite = { focus = PRC_seek_soviet_economic_assistance }
 		prerequisite = { focus = PRC_rapid_urbanization focus = PRC_implement_new_farming_techniques }
-
 		x = 15
 		y = 4
 		completion_reward = {
-		
+			add_ideas = {
+				PRC_the_modern_province
+			}
+		}
+	}
+	focus = {
+		id = PRC_prepare_for_the_inevitable
+		icon = GFX_focus_PRC_prepare_for_the_inevitable
+		cost = 5
+		x = 23
+		y = 0
+		ai_will_do = { base = 20 }
+		available = { date > 1923.1.1 }
+		completion_reward = {
+			add_war_support = 0.1
+			add_equipment_to_stockpile = {
+				type = infantry_equipment 
+				amount = 1000
+				producer = PRC
+			}
 		}
 	}
 	focus = {
@@ -339,8 +556,14 @@ focus_tree = {
 		prerequisite = { focus = PRC_prepare_for_the_inevitable }
 		x = 21
 		y = 1
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
+			army_experience = 40
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.33
+				uses = 2
+				category = land_doctrine
+			}
 		}
 	}
 	focus = {
@@ -350,8 +573,16 @@ focus_tree = {
 		prerequisite = { focus = PRC_prepare_for_the_inevitable }
 		x = 23
 		y = 1
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
+			JGX = {
+				add_manpower = -1000
+				add_political_power = -50
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -750
+				}
+			}
 		}
 	}
 	focus = {
@@ -361,8 +592,20 @@ focus_tree = {
 		prerequisite = { focus = PRC_prepare_for_the_inevitable }
 		x = 25
 		y = 1
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Supported Infantry\" division_template = \"Supported Infantry\" start_experience_factor = 0.4" 
+					owner = PRC
+				}
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Supported Infantry\" division_template = \"Supported Infantry\" start_experience_factor = 0.4" 
+					owner = PRC
+				}
+			}
 		}
 	}
 	focus = {
@@ -374,8 +617,12 @@ focus_tree = {
 		prerequisite = { focus = PRC_analyze_the_wars_in_sinkiang }
 		x = 23
 		y = 2
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
+			declare_war_on = {
+				target = JGX
+				type = annex_everything
+			}
 		}
 	}
 	focus = {
@@ -386,8 +633,12 @@ focus_tree = {
 		mutually_exclusive = { focus = PRC_fortify_the_river }
 		x = 22
 		y = 3
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
+			add_timed_idea = {
+				idea = PRC_the_jian_offensive
+				days = 60
+			}
 		}
 	}
 	focus = {
@@ -398,65 +649,53 @@ focus_tree = {
 		mutually_exclusive = { focus = PRC_embrace_an_offensive_approach }
 		x = 24
 		y = 3
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
+			1112 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = 4183
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 9942
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10057
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 11945
+				}
+			}
 		}
 	}
 	focus = {
 		id = PRC_victory_over_the_reactionaries
 		icon = GFX_focus_PRC_victory_over_the_reactionaries
 		cost = 5
+		available = { NOT = { country_exists = JGX } }
 		prerequisite = { focus = PRC_embrace_an_offensive_approach focus = PRC_fortify_the_river }
 		x = 23
 		y = 4
+		ai_will_do = { base = 20 }
 		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = PRC_embrace_the_leninist_model
-		icon = GFX_focus_PRC_embrace_the_leninist_model
-		cost = 5
-		prerequisite = { focus = PRC_mobilize_peasant_militias }
-		prerequisite = { focus = PRC_connect_the_suiyuan_countryside }
-		x = 10
-		y = 6
-		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = PRC_the_teachings_of_marx
-		icon = GFX_focus_PRC_the_teachings_of_marx
-		cost = 5
-		prerequisite = { focus = PRC_reject_confucianist_principles }
-		x = 5
-		y = 5
-		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = PRC_build_up_tayuans_industries
-		icon = GFX_focus_PRC_build_up_tayuans_industries
-		cost = 5
-		prerequisite = { focus = PRC_establish_a_local_airport }
-		x = 3
-		y = 5
-		completion_reward = {
-		
-		}
-	}
-	focus = {
-		id = PRC_a_modern_marxist_state
-		icon = GFX_focus_PRC_a_modern_marxist_state
-		cost = 5
-		prerequisite = { focus = PRC_the_teachings_of_marx }
-		prerequisite = { focus = PRC_build_up_tayuans_industries }
-		x = 4
-		y = 6
-		completion_reward = {
-		
+			add_war_support = 0.1
+			set_cosmetic_tag = PRC_jiangxi
+			600 = { add_core_of = PRC }
+			set_capital = {
+  				state = 600
+  				remember_old_capital = no
+			}
 		}
 	}
 }

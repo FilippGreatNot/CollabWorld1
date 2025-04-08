@@ -1,0 +1,74 @@
+add_namespace = tia 
+
+country_event = {
+	id = tia.1
+	title = tia.1.t
+	desc = tia.1.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = tia.1.a
+		818 = {
+            transfer_state_to = TIA
+            add_core_of = TIA
+        }
+	}
+
+	option = {
+		name = tia.1.b
+		add_war_support = 0.1
+	}
+}
+
+country_event = {
+	id = tia.2
+	title = tia.2.t
+	desc = tia.2.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = tia.2.a
+		ai_chance = { base = 70 }
+        add_to_faction = TIA
+	}
+
+	option = {
+		name = tia.2.b
+		ai_chance = { base = 20 }
+        add_war_support = 0.075
+        add_stability = -0.02
+        TIA = {
+            country_event = tia.3
+        }
+	}
+}
+
+country_event = {
+	id = tia.3
+	title = tia.3.t
+	desc = tia.3.d
+	picture = GFX_report_event_generic_war
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = tia.3.a
+        set_country_flag = TIA_brothers_war
+        declare_war_on = {
+            target = MCE
+            type = annex_everything
+        }
+		declare_war_on = {
+            target = NIN
+            type = annex_everything
+        }
+        declare_war_on = {
+            target = XSM
+            type = annex_everything
+        }
+	}
+}
