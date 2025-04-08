@@ -1515,7 +1515,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			custom_effect_tooltip = FGB_noske_we_will_ask_them_to_reunify_tt
-			country_event = { id = fgb.20 days = 2 }
+			GER = { country_event = { id = fgb.20 days = 2 } }
 		}
 	}
 
@@ -5084,7 +5084,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_deploy_counterrevolutionary_militias
 		x = -2
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5106,7 +5106,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_legacy_of_the_ehrhardt_brigade
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5137,7 +5137,15 @@ focus_tree = {
 				prioritize = { 50 }
 				limit = { PREV = { has_full_control_of_state = PREV } }
 				create_unit = {
-					division = "name = \"Erhardt's Veterans\" division_template = \"Marine Corps\" start_experience_factor = 0.6" 
+					division = "name = \"Ehrhardt's Veterans\" division_template = \"Marine Corps\" start_experience_factor = 0.6" 
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 50 }
+				limit = { PREV = { has_full_control_of_state = PREV } }
+				create_unit = {
+					division = "name = \"Ehrhardt's Veterans\" division_template = \"Marine Corps\" start_experience_factor = 0.6" 
 					owner = PREV
 				}
 			}
@@ -5149,7 +5157,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_raise_conservative_support
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5174,7 +5182,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_quell_urban_revolts
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5200,7 +5208,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_implement_curfews
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5222,7 +5230,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_execute_the_revolutionaries
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5252,7 +5260,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_give_pabst_field_command
 		x = 2
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5281,7 +5289,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_raise_new_officers
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5307,7 +5315,7 @@ focus_tree = {
 		icon = GFX_focus_FGB_pabst_increase_national_service_quotas
 		x = 0
 		y = 1
-		cost = 4.2857
+		cost = 3
 		ai_will_do = {
 			factor = 10
 		}
@@ -5699,7 +5707,7 @@ focus_tree = {
 			factor = 25
 		}
 		available = { has_war = no }
-		bypass = { NOT = { country_exists = BAV }}
+		bypass = { NOT = { country_exists = BAV } }
 		allow_branch = { has_country_flag = FGB_pabst_ready_to_rumble_flag }
 		relative_position_id = FGB_pabst_towards_a_noble_goal
 		prerequisite = { focus = FGB_pabst_towards_a_noble_goal }
@@ -5791,6 +5799,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 25
 		}
+		bypass = { NOT = { country_exists = BAV } }
 		relative_position_id = FGB_pabst_declare_a_provisional_government
 		prerequisite = { focus = FGB_pabst_declare_a_provisional_government }
 		completion_reward = {
@@ -6053,7 +6062,7 @@ focus_tree = {
 			factor = 25
 		}
 		available = { has_war = no }
-		bypass = { NOT = { country_exists = WRD }}
+		bypass = { NOT = { country_exists = WRD } }
 		allow_branch = { has_country_flag = FGB_pabst_ready_to_rumble_flag }
 		relative_position_id = FGB_pabst_towards_a_noble_goal
 		prerequisite = { focus = FGB_pabst_towards_a_noble_goal }
@@ -6990,6 +6999,146 @@ focus_tree = {
 				target = FRA
 				type = annex_everything
 			}
+			hidden_effect = {
+				set_country_flag = FGB_pabst_post_reunif_flag
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_demand_the_subjugation_of_the_swiss
+		icon = GFX_focus_FGB_pabst_demand_the_subjugation_of_the_swiss
+		x = -3
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_support_the_heimwehr
+		icon = GFX_focus_FGB_pabst_support_the_heimwehr
+		x = -1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_threaten_liechtenstein
+		icon = GFX_focus_FGB_pabst_threaten_liechtenstein
+		x = -2
+		y = 2
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_reclaim_the_sudeten_mountains
+		icon = GFX_focus_FGB_pabst_reclaim_the_sudeten_mountains
+		x = 1
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_march_pabst_flensburg
+		icon = GFX_focus_FGB_pabst_march_pabst_flensburg
+		x = 3
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_the_adriatic_coast
+		icon = GFX_focus_FGB_pabst_the_adriatic_coast
+		x = 2
+		y = 2
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+
+	focus = {
+		id = FGB_pabst_the_final_act
+		icon = GFX_focus_FGB_pabst_the_final_act
+		x = 0
+		y = 3
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		allow_branch = { has_country_flag = FGB_pabst_post_reunif_flag }
+		relative_position_id = FGB_pabst_total_french_death
+		prerequisite = { focus = FGB_pabst_total_french_death }
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FGB_pabst_the_act_fulfilled
+		icon = GFX_focus_FGB_pabst_the_final_act
+		x = 0
+		y = 1
+		cost = 4.2857
+		ai_will_do = {
+			factor = 25
+		}
+		relative_position_id = FGB_pabst_the_final_act
+		prerequisite = { focus = FGB_pabst_the_final_act }
+		completion_reward = {
+			
 		}
 	}
 

@@ -1753,8 +1753,9 @@ country_event = {
 	option = {
 		name = fgb.71.b
 		ai_chance = { base = 5 }
-		add_popularity = { ideology = reactionism popularity = 0.02 }
-		promote_character = FGB_waldemar_pabst2
+		add_political_power = -20
+		add_stability = -0.02
+		add_popularity = { ideology = depsotism popularity = 0.04 }
 		country_event = { id = fgb.72 days = 6 }
 	}
 	option = {
@@ -2551,6 +2552,7 @@ country_event = {
 		hidden_effect = {
 			news_event = { id = fgb.109 days = 1 }
 		}
+		load_focus_tree = FGB_coup_tree
 	}
 	option = {
 		name = fgb.107.b
@@ -3231,9 +3233,23 @@ news_event = {
 	desc = fgb.127.d
 	picture = GFX_news_event_pabst_unifies_germany
 	is_triggered_only = yes
+	major = yes
 
 	option = {
 		name = fgb.127.a
+	}
+}
+
+country_event = {
+	id = fgb.128
+	title = fgb.128.t
+	desc = fgb.128.d
+	picture = GFX_report_event_friekorps
+	is_triggered_only = yes
+
+	option = {
+		name = fgb.128.a
+		add_stability = 0.05
 	}
 }
 
