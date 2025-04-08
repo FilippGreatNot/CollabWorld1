@@ -293,6 +293,7 @@ focus_tree = {
 			add_political_power = 100
 			add_stability = -0.05
 			remove_ideas = WRD_less_public_trust
+			remove_ideas = WRD_low_public_trust
 		}
 	}
 	
@@ -502,20 +503,22 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			    AUS = { make_every_core_national_for_PREV = yes }
+				custom_effect_tooltip = WRD_austria_goals
 				hidden_effect = {
+					AUS = { make_every_core_national_for_PREV = yes }
 					add_state_core = 69
 					add_state_core = 887
 					add_state_core = 74
+					create_wargoal = {
+						type = annex_everything
+						target = AUS
+					}
+					create_wargoal = {
+						type = annex_everything
+						target = CZE
+					}
 				}
-				create_wargoal = {
-				type = annex_everything
-				target = AUS
-			    }
-				create_wargoal = {
-				type = annex_everything
-				target = CZE
-			    }
+
 				
 		}
 	}
@@ -534,6 +537,8 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
+			custom_effect_tooltip = WRD_hungary_goals
+			hidden_effect = {	
 				create_wargoal = {
 				type = annex_everything
 				target = HUN
@@ -542,7 +547,7 @@ focus_tree = {
 				type = annex_everything
 				target = YUG
 			    }
-				
+			}
 		}
 	}
 	focus = {
@@ -560,26 +565,29 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = BUL
+			custom_effect_tooltip = WRD_romania_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = BUL
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GRE
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ROM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ALB
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = IKA
+				}				
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = GRE
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ROM
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ALB
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = IKA
-			}				
 		}
 	}
 	focus = {
@@ -597,6 +605,8 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
+			custom_effect_tooltip = WRD_turkey_goals
+			hidden_effect = {
 				create_wargoal = {
 				type = annex_everything
 				target = TUR
@@ -629,6 +639,7 @@ focus_tree = {
 				type = annex_everything
 				target = CIL
 				}
+			}
 		}
 	}
 	
@@ -647,6 +658,8 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
+			custom_effect_tooltip = WRD_east_europe_goals
+			hidden_effect = {
 			    create_wargoal = {
 				type = annex_everything
 				target = EPR
@@ -659,7 +672,7 @@ focus_tree = {
 				type = annex_everything
 				target = BLR
 			    }
-				
+			}
 		}
 	}
 	
@@ -678,23 +691,25 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			add_state_claim = 851
+			custom_effect_tooltip = WRD_lowlands_goals
+			hidden_effect = {
+				add_state_claim = 851
 				add_state_claim = 8
 				add_state_claim = 28
 				add_state_claim = 1093
 			    create_wargoal = {
-				type = annex_everything
-				target = LUX
-			     }
-				 create_wargoal = {
-				type = annex_everything
-				target = HOL
-			     }
-				  create_wargoal = {
-				type = annex_everything
-				target = BEL
-			     }
-				
+					type = annex_everything
+					target = LUX
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = HOL
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = BEL
+				}
+			}	
 		}
 	}
 	
@@ -713,12 +728,34 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			add_state_claim = 28
+			custom_effect_tooltip = WRD_france_goals
+			hidden_effect = {
+				add_state_claim = 28
 			    create_wargoal = {
-				type = annex_everything
-				target = FRA
-			     }
-				
+					type = annex_everything
+					target = FRA
+				}
+			    create_wargoal = {
+					type = annex_everything
+					target = FNA
+				}
+			    create_wargoal = {
+					type = annex_everything
+					target = TUN
+				}
+			    create_wargoal = {
+					type = annex_everything
+					target = MOR
+				}
+			    create_wargoal = {
+					type = annex_everything
+					target = FEA
+				}
+			    create_wargoal = {
+					type = annex_everything
+					target = CMR
+				}
+			}	
 		}
 	}
 	focus = {
@@ -736,19 +773,22 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = SPR
+			custom_effect_tooltip = WRD_iberia_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = SPR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = POR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ADR
+				}				
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = POR
-			     }
-			create_wargoal = {
-				type = annex_everything
-				target = ADR
-			     }				
-			}
+		}
 	}
 	focus = {
 		id = WRD_operation_switzerland
@@ -765,15 +805,17 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = SWI
-			     }
-			create_wargoal = {
-				type = annex_everything
-				target = LIE
-			     }
-				
+			custom_effect_tooltip = WRD_switzerland_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = SWI
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = LIE
+				}
+			}
 		}
 	}
 	focus = {
@@ -791,38 +833,41 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = ITS
+			custom_effect_tooltip = WRD_italy_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = ITS
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = VNE
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MSS
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ITA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = TUS
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SAR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = VAT
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SAN
+				}		
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = VNE
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = MSS
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ITA
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = TUS
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SAR
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = VAT
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SAN
-			}		
 		}
 	}
 	focus = {
@@ -841,38 +886,41 @@ focus_tree = {
 			has_completed_focus = WRD_avenge_the_battle_of_paris
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = LBA
+			custom_effect_tooltip = WRD_egypt_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = LBA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = CYR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = EGY
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = TRP
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ETH
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ERI
+				}	
+				create_wargoal = {
+					type = annex_everything
+					target = SOM
+				}		
+				create_wargoal = {
+					type = annex_everything
+					target = ASA
+				}		
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = CYR
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = EGY
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = TRP
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ETH
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ERI
-			}	
-			create_wargoal = {
-				type = annex_everything
-				target = SOM
-			}		
-			create_wargoal = {
-				type = annex_everything
-				target = ASA
-			}		
 		}
 	}
 	focus = {
@@ -890,63 +938,73 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = PAL
+			custom_effect_tooltip = WRD_middle_east_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = PAL
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = LEB
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SYR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = JOR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = IRQ
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SAU
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = HEJ
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = OMA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = UAE
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MSC
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = YEM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = PER
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ARB
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MAK
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = KAL
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = AFG
+				}			
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = LEB
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SYR
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = JOR
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = IRQ
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SAU
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = HEJ
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = OMA
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = UAE
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = MSC
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = YEM
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = PER
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = ARB
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = MAK
-			}
-				
 		}
 	}
 	focus = {
@@ -964,22 +1022,53 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = ZIM
+			custom_effect_tooltip = WRD_africa_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = ZIM
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = BOT
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = NMB
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SAF
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = LIB
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = FNA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = FEA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = CMR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = COG
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = UGA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = KEN
+				}
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = BOT
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = NMB
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SAF
-			}				
 		}
 	}	
 	focus = {
@@ -1003,38 +1092,45 @@ focus_tree = {
 			has_completed_focus = WRD_reunite_with_the_nordic_aryans
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = WVA
+			custom_effect_tooltip = WRD_russia_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = WVA
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = UKR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SOV
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = KAR
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = SRF
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = OCG
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = GEO
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = AZR
+				}	
+				create_wargoal = {
+					type = annex_everything
+					target = ARM
+				}			
 			}
-			create_wargoal = {
-				type = annex_everything
-				target = UKR
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SOV
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = SRF
-			}
-			create_wargoal = {
-				type = annex_everything
-				target = OCG
-			}
-            create_wargoal = {
-				type = annex_everything
-				target = GEO
-			}
-            create_wargoal = {
-				type = annex_everything
-				target = AZR
-			}	
-            create_wargoal = {
-				type = annex_everything
-				target = ARM
-			}			
 		}
 	}
 	
@@ -1053,23 +1149,25 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
+			custom_effect_tooltip = WRD_nordic_goals
+			hidden_effect = {
 			    create_wargoal = {
-				type = annex_everything
-				target = DEN
-			     }
+					type = annex_everything
+					target = DEN
+			    }
 				create_wargoal = {
-				type = annex_everything
-				target = NOR
-			     }
+					type = annex_everything
+					target = NOR
+			    }
 				 create_wargoal = {
-				type = annex_everything
-				target = SWE
-			     }
+					type = annex_everything
+					target = SWE
+			    }
 				  create_wargoal = {
-				type = annex_everything
-				target = FIN
-			     }
-				
+					type = annex_everything
+					target = FIN
+			    }
+			}	
 		}
 	}
 	focus = {
@@ -1086,24 +1184,54 @@ focus_tree = {
 		available = {
 		    has_war = no
 		}
-		completion_reward = {	
-			    create_wargoal = {
-				type = annex_everything
-				target = KMP
-			     }
+		completion_reward = {
+			custom_effect_tooltip = WRD_siberia_goals
+			create_wargoal = {
+			type = annex_everything
+			target = KMP
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = FER
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = FSR
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = RUS
+			}	
+			hidden_effect = { 
 				create_wargoal = {
 				type = annex_everything
-				target = FER
-			     }
-				 create_wargoal = {
-				type = annex_everything
-				target = FSR
-			     }
+				target = KAZ
+				}
 				create_wargoal = {
 				type = annex_everything
-				target = RUS
-			     }
-				
+				target = KYR
+				}
+				create_wargoal = {
+				type = annex_everything
+				target = MNS
+				}
+				create_wargoal = {
+				type = annex_everything
+				target = BSM
+				}
+				create_wargoal = {
+				type = annex_everything
+				target = BUK
+				}
+				create_wargoal = {
+				type = annex_everything
+				target = KHI
+				}
+				create_wargoal = {
+				type = annex_everything
+				target = TMS
+				}
+			}
 		}
 	}
 	
@@ -1122,30 +1250,32 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
+			custom_effect_tooltip = WRD_britain_goals
+			navy_experience = 50
+			add_war_support = 0.05
+			hidden_effect = {
 			    create_wargoal = {
 				type = annex_everything
 				target = ENG
-			     }
-				 add_war_support = 0.05
-				 random_owned_controlled_state = {
+			    }
+			}				
+			random_owned_controlled_state = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
-						free_building_slots = {
-							building = dockyard
-							size > 0
-							include_locked = yes
-						}
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
 					}
+				}
 				prioritize = { 21 } #Bouches du Rhone
 				add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = dockyard
-						level = 2
-						instant_build = yes
-					}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
 			}
-			navy_experience = 50
-				
 		}
 	}
 	focus = {
@@ -1163,14 +1293,17 @@ focus_tree = {
 		    has_war = no
 		}
 		completion_reward = {	
-			create_wargoal = {
-				type = annex_everything
-				target = IRE
-			}	
-			create_wargoal = {
-				type = annex_everything
-				target = NIR
-			}			
+			custom_effect_tooltip = WRD_ireland_goals
+			hidden_effect = {
+				create_wargoal = {
+					type = annex_everything
+					target = IRE
+				}	
+				create_wargoal = {
+					type = annex_everything
+					target = NIR
+				}			
+			}
 		}
 	}
 	
@@ -1196,31 +1329,33 @@ focus_tree = {
 			}
 		}
 		completion_reward = {	
+			custom_effect_tooltip = WRD_america_goals
+			hidden_effect = {
 			    create_wargoal = {
-				type = annex_everything
-				target = CAN
-			     }
+					type = annex_everything
+					target = CAN
+				}
 				create_wargoal = {
-				type = annex_everything
-				target = CCC
-			     }
+					type = annex_everything
+					target = CCC
+				}
 				 create_wargoal = {
-				type = annex_everything
-				target = USA
-			     }
+					type = annex_everything
+					target = USA
+				}
 				 create_wargoal = {
-				type = annex_everything
-				target = ASF
-			     }
+					type = annex_everything
+					target = ASF
+				}
 				 create_wargoal = {
-				type = annex_everything
-				target = ALA
-			     }
+					type = annex_everything
+					target = ALA
+				}
 				 create_wargoal = {
-				type = annex_everything
-				target = MEX
-			     }
-				
+					type = annex_everything
+					target = MEX
+				}
+			}
 		}
 	}
 	
@@ -1255,21 +1390,24 @@ focus_tree = {
 		icon = GFX_focus_WRD_twr
 		cost = 4
 		available = { 
-			has_government = esotericism 
-			owns_state = 836
-			owns_state = 1061
-			owns_state = 9
-			owns_state = 10
-			owns_state = 7
-			owns_state = 6
-			owns_state = 3
-			FRA = {
-				is_puppet_of = WRD
-				owns_state = 16
-			}
-			SOV = {
-				is_puppet_of = WRD
-				owns_state = 219
+			custom_trigger_tooltip = {
+				tooltip = WRD_thousand_weeks_tt
+				has_government = esotericism 
+				owns_state = 836
+				owns_state = 1061
+				owns_state = 9
+				owns_state = 10
+				owns_state = 7
+				owns_state = 6
+				owns_state = 3
+				FRA = {
+					is_puppet_of = WRD
+					owns_state = 16
+				}
+				SOV = {
+					is_puppet_of = WRD
+					owns_state = 219
+				}
 			}
 		}
 		relative_position_id = WRD_the_beginnings_of_a_germanic_lebensraum
@@ -1325,7 +1463,7 @@ focus_tree = {
 			add_timed_idea = { 
 				idea = WRD_purging_the_unworthy
 				months = 6
-			}	
+			}
 		}
 	}
 	
