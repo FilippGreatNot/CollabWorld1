@@ -84,3 +84,32 @@ country_event = {
 		name = MAK.3.a
 	}
 }
+
+country_event = {
+	id = MAK.4
+	title = MAK.4.t
+	desc = MAK.4.d
+	is_triggered_only = yes
+	
+	option = { # Keep Urmia
+		name = MAK.4.a
+		905 = { add_manpower = 5000 }
+		increase_state_category_by_one_level = yes
+		
+		trigger = { owns_state = 905 }
+	}
+	option = { # Go to Amed
+		name = MAK.4.b
+		350 = { add_manpower = 5000 }
+		set_capital = { state = 350	remember_old_capital = yes }
+		
+		trigger = { owns_state = 350 }
+	}
+	option = { # Go to Wan
+		name = MAK.4.c
+		976 = { add_manpower = 5000 }
+		set_capital = { state = 976	remember_old_capital = yes }
+		
+		trigger = { owns_state = 976 }
+	}
+}

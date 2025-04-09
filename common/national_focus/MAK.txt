@@ -65,6 +65,8 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 10
 			add_autonomy_score = { value = -250 }
+			set_temp_variable = { ideology_change_var = -0.2 }
+			change_ruling_party_popularity = yes
 		}
 	}
 	focus = {
@@ -198,12 +200,29 @@ focus_tree = {
 		icon = GFX_focus_MAK_yazidi_integrate_new_territories
 		y = 1
 		ai_will_do = { base = 10 }
+		available = { KUR = { OR = { exists = no	is_puppet_of = MAK } } }
+		
 		cost = 4
 		#allow_branch = { has_completed_focus = MAK_rethink_the_thing }
 		relative_position_id = MAK_capital_declaration
 		prerequisite = { focus = MAK_capital_declaration }
 		completion_reward = {
-
+			if = {
+				limit = { KUR = { is_puppet_of = MAK } }
+				annex_country = {
+					target = KUR
+					transfer_troops = yes
+				}
+			}
+			every_owned_state = {
+				limit = { is_core_of = KUR }
+				add_compliance = 25
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_category_tooltip = MAK_coring_territories_decisions
+			unlock_decision_tooltip = MAK_integrate_352
+			unlock_decision_tooltip = MAK_integrate_350
+			unlock_decision_tooltip = MAK_integrate_976
 		}
 	}
 	focus = {
@@ -215,7 +234,11 @@ focus_tree = {
 		relative_position_id = MAK_yazidi_integrate_new_territories
 		prerequisite = { focus = MAK_yazidi_integrate_new_territories }
 		completion_reward = {
-
+			add_manpower = 200
+			set_temp_variable = { ideology_change_var = 0.025 }
+			change_ruling_party_popularity = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = { idea = MAK_proselytizing_haft_tan	days = 420 }
 		}
 	}
 	focus = {
@@ -226,8 +249,11 @@ focus_tree = {
 		cost = 2
 		relative_position_id = MAK_yazidi_spread_the_word_of_ahle_haqq
 		prerequisite = { focus = MAK_yazidi_spread_the_word_of_ahle_haqq }
+		available = { has_political_power > 50 }
 		completion_reward = {
-
+			add_political_power = -50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = { idea = ANY_Deislamization_Of_Our_Lands		days = 120 }
 		}
 	}
 	focus = {
@@ -251,7 +277,18 @@ focus_tree = {
 		relative_position_id = MAK_yazidi_integrate_new_territories
 		prerequisite = { focus = MAK_yazidi_integrate_new_territories }
 		completion_reward = {
-
+			add_political_power = 25
+			add_stability = 0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_owned_state = {
+				limit = { OR = { is_core_of = KUR is_claimed_by = KUR } }
+				random_list = {
+					25 = { add_manpower = 12000 }
+					25 = { add_manpower = 16000 }
+					25 = { add_manpower = 20000 }
+					25 = { add_manpower = 25000 }
+				}
+			}
 		}
 	}
 	focus = {
@@ -275,12 +312,12 @@ focus_tree = {
 		relative_position_id = MAK_yazidi_integrate_new_territories
 		prerequisite = { focus = MAK_yazidi_integrate_new_territories }
 		completion_reward = {
-
+			country_event = MAK.4
 		}
 	}
 	focus = {
-		id = MAK_yazidi_change_the_primary_title
-		icon = GFX_focus_MAK_yazidi_change_the_primary_title
+		id = MAK_prevent_another_coup_attempt
+		icon = GFX_focus_MAK_prevent_another_coup_attempt
 		x = -1 y = 1
 		ai_will_do = { base = 10 }
 		cost = 2
@@ -292,12 +329,12 @@ focus_tree = {
 	}
 	focus = {
 		id = MAK_yazidi_adopt_the_new_identity
-		icon = GFX_focus_MAK_yazidi_change_the_primary_title
+		icon = GFX_focus_MAK_prevent_another_coup_attempt
 		y = 2
 		ai_will_do = { base = 10 }
 		cost = 3
-		relative_position_id = MAK_yazidi_change_the_primary_title
-		prerequisite = { focus = MAK_yazidi_change_the_primary_title }
+		relative_position_id = MAK_prevent_another_coup_attempt
+		prerequisite = { focus = MAK_prevent_another_coup_attempt }
 		completion_reward = {
 
 		}
