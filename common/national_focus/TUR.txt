@@ -220,7 +220,7 @@ focus_tree = {
 		id = TUR_conscript_more_soldiers
 		icon = GFX_focus_TUR_conscript
 		relative_position_id = TUR_the_lessons_of_the_independence_war
-		cost = 7
+		cost = 6
 		prerequisite = {
             focus = TUR_the_lessons_of_the_independence_war
         }
@@ -230,6 +230,8 @@ focus_tree = {
 			focus = TUR_focus_on_quality_training
 		}
 		completion_reward = {
+		    add_manpower = 25000
+			add_ideas = extensive_conscription
 		}
 	}
 	
@@ -244,6 +246,16 @@ focus_tree = {
             focus = TUR_conscript_more_soldiers focus = TUR_focus_on_quality_training
         }
 		completion_reward = {
+		     add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 1000
+				producer = TUR
+			}
+			army_experience = 10
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 200
+			}
 		}
 	}
 	
@@ -289,7 +301,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_deploy_turkish_paramilitary_units
-		icon = GFX_focus_TUR_careful
+		icon = GFX_focus_TUR_paramilitary
 		relative_position_id = TUR_establish_a_turkish_airforce
 		cost = 10
 		y = 1
@@ -377,6 +389,24 @@ focus_tree = {
 		y = 1
 		x = 1
 		completion_reward = {
+		    random_owned_controlled_state = {
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+			    add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = -0.04
+			add_political_power = 20
 		}
 	}
 	
@@ -390,6 +420,25 @@ focus_tree = {
         }
 		y = 1
 		completion_reward = {
+		      356 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+				}
+			   349 = {
+				add_resource = {
+					type = aluminium
+					amount = 4
+				}
+				}
+				924 = {
+				add_resource = {
+					type = oil
+					amount = 3
+				}
+				}
+				add_ideas = TUR_turkish_autarky
 		}
 	}
 	
@@ -403,6 +452,35 @@ focus_tree = {
         }
 		y = 1
 		completion_reward = {
+		    random_owned_controlled_state = { 
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+			    random_owned_controlled_state = { 
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+				random_owned_controlled_state = { 
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+			     random_owned_controlled_state = { 
+				       add_building_construction = {
+					   type = infrastructure
+					   level = 1
+					   instant_build = yes
+				    }
+				 }
+				 add_political_power = 25
 		}
 	}
 	
@@ -444,6 +522,7 @@ focus_tree = {
         }
 		y = 1
 		completion_reward = {
+		    add_ideas = TUR_made_in_turkey_idea
 		}
 	}
 	
@@ -457,6 +536,10 @@ focus_tree = {
         }
 		y = 2
 		completion_reward = {
+		    add_timed_idea = { 
+				idea = TUR_national_reconstruction_effort
+				days = 365
+				}
 		}
 	}
 	
@@ -471,6 +554,7 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
+		    add_ideas = TUR_foreign_worker_support
 		}
 	}
 	
@@ -512,7 +596,7 @@ focus_tree = {
 	}
 	focus = {
         id = TUR_eliminate_the_green_army
-        icon = GFX_focus_TUR_green
+        icon = GFX_focus_TUR_gar
         relative_position_id = TUR_begin_the_reunification_effort
         x = -4
         y = 1
@@ -632,7 +716,7 @@ focus_tree = {
 	
 	focus = {
         id = TUR_throw_out_the_bolshevik_rats
-        icon = GFX_focus_TUR_rats
+        icon = GFX_focus_TUR_twr
         relative_position_id = TUR_begin_the_reunification_effort
         x = 2
         y = 1
@@ -692,7 +776,7 @@ focus_tree = {
 	
 	focus = {
         id = TUR_sheikh_saids_last_breath
-        icon = GFX_focus_TUR_kurdistan
+        icon = GFX_focus_TUR_said
         relative_position_id = TUR_begin_the_reunification_effort
         x = 6
         y = 1
